@@ -1,0 +1,8 @@
+﻿label,v6_recall,v6_precision,v7_recall,v7_precision
+person,1.0,0.9798,1.0,0.9798
+phone_number,1.0,1.0,1.0,1.0
+email,1.0,1.0,1.0,1.0
+address,1.0,1.0,1.0,1.0
+resident_registration_number,1.0,1.0,1.0,1.0
+account_number,1.0,1.0,1.0,1.0
+card_number,1.0,1.0,1.0,1.0

@@ -1,0 +1,114 @@
+﻿split,doc_id,doc_type,template,text,shape,form,person_id,hard_cases,prev_char,next_char,context
+dev,D0002,대출상담,loan_2,sy.yoon07@example.net,aa.aaaa99@aaaaaaa.aaa,,P051,"josa_attached, phone_format_variant, spaced_name", ,로,다고 설명함. 신청서는 고객 이메일 【sy.yoon07@example.net】로 발송함. ⏎ 윤선영은 서류를 준비한 
+dev,D0015,인사발령,hr_notice,kh.jeon50@saebomcard.example.com,aa.aaaa99@aaaaaaaaaa.aaaaaaa.aaa,,P026,homonym, ,),": 인사팀 전경희 (내선 6212, 【kh.jeon50@saebomcard.example.com】)"
+dev,D0016,고객정보변경,info_change,sh.noh18@example.net,aa.aaa99@aaaaaaa.aaa,,P050,josa_attached, ,⏎,"누리로 72, 204호 ⏎ - 이메일: 【sh.noh18@example.net】 ⏎  ⏎ 비고: 이전 연락처로 발송 예약된"
+dev,D0017,인사발령,hr_notice,ys.kim15@saebomcard.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,P016,, ,),": 인사팀 김윤서 (내선 6209, 【ys.kim15@saebomcard.example.com】)"
+dev,D0019,인사발령,hr_notice,sy.ahn20@saebomcard.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,P006,homonym, ,),": 인사팀 안소연 (내선 4470, 【sy.ahn20@saebomcard.example.com】)"
+dev,D0022,대출상담,loan_2,sh.noh18@example.net,aa.aaa99@aaaaaaa.aaa,,P050,"josa_attached, phone_format_variant, spaced_name", ,로,다고 설명함. 신청서는 고객 이메일 【sh.noh18@example.net】로 발송함. ⏎ 노성호는 서류를 준비한 
+dev,D0023,고객정보변경,info_change,jh.jung91@example.com,aa.aaaa99@aaaaaaa.aaa,,P057,"josa_attached, phone_format_variant", ,⏎,", 102동 1301호 ⏎ - 이메일: 【jh.jung91@example.com】 ⏎  ⏎ 비고: 이전 연락처로 발송 예약된"
+dev,D0024,인사발령,hr_notice,sy.ahn20@saebomcard.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,P006,, ,),": 인사팀 안소연 (내선 3682, 【sy.ahn20@saebomcard.example.com】)"
+dev,D0027,고객정보변경,info_change,sy.oh93@example.net,aa.aa99@aaaaaaa.aaa,,P044,"josa_attached, phone_format_variant", ,⏎,"누리로 117, 10층 ⏎ - 이메일: 【sy.oh93@example.net】 ⏎  ⏎ 비고: 이전 연락처로 발송 예약된"
+dev,D0031,민원처리,complaint_2,sy.jeon68@example.com,aa.aaaa99@aaaaaaa.aaa,,P052,"spaced_name, surname_title_unlabeled",(,),분석을 의뢰함. ⏎ 회신 방법: 이메일(【sy.jeon68@example.com】)
+dev,D0032,업무메일,email_audit,ej.moon49@codebridge.example.com,aa.aaaa99@aaaaaaaaaa.aaaaaaa.aaa,,P037,"homonym, phone_format_variant, spaced_name", ,),"매니저 (010.0561.7253, 【ej.moon49@codebridge.example.com】) ⏎ 4. 주요 지적 사항: 상담 녹취"
+dev,D0034,고객정보변경,info_change,jw.park77@example.org,aa.aaaa99@aaaaaaa.aaa,,P061,josa_attached, ,⏎,"리로 131, 901호 ⏎ - 이메일: 【jw.park77@example.org】 ⏎  ⏎ 비고: 이전 연락처로 발송 예약된"
+dev,D0038,민원처리,complaint_2,sy.jeon68@example.com,aa.aaaa99@aaaaaaa.aaa,,P052,"spaced_name, surname_title_unlabeled",(,),분석을 의뢰함. ⏎ 회신 방법: 이메일(【sy.jeon68@example.com】)
+dev,D0043,용역계약서,contract,jw.lee66@saebomcard.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,P010,phone_format_variant, ,),"영팀 이준우 (0238806413, 【jw.lee66@saebomcard.example.com】) ⏎   을: 신현준 매니저 (0100"
+dev,D0043,용역계약서,contract,hj.shin40@dasomcall.example.com,aa.aaaa99@aaaaaaaaa.aaaaaaa.aaa,,P043,phone_format_variant, ,),"준 매니저 (01006640224, 【hj.shin40@dasomcall.example.com】) ⏎  ⏎ 2026-07-08 ⏎  ⏎ 갑: 새봄"
+dev,D0044,민원처리,complaint_2,sy.oh93@example.net,aa.aa99@aaaaaaa.aaa,,P044,"homonym, spaced_name, surname_title_unlabeled",(,),분석을 의뢰함. ⏎ 회신 방법: 이메일(【sy.oh93@example.net】)
+dev,D0049,대출상담,loan_2,sb.kim12@example.net,aa.aaa99@aaaaaaa.aaa,,P049,"josa_attached, spaced_name", ,로,다고 설명함. 신청서는 고객 이메일 【sb.kim12@example.net】로 발송함. ⏎ 김수빈은 서류를 준비한 
+dev,D0057,대출상담,loan_2,cw.choi89@example.net,aa.aaaa99@aaaaaaa.aaa,,P046,"homonym, josa_attached, spaced_name", ,로,다고 설명함. 신청서는 고객 이메일 【cw.choi89@example.net】로 발송함. ⏎ 최채원은 서류를 준비한 
+dev,D0060,대출상담,loan_2,gw.lee21@example.com,aa.aaa99@aaaaaaa.aaa,,P047,"homonym, josa_attached, phone_format_variant, spaced_name", ,로,다고 설명함. 신청서는 고객 이메일 【gw.lee21@example.com】로 발송함. ⏎ 이건우는 서류를 준비한 
+dev,D0062,업무메일,email_audit,sy.lee70@mirsec.example.com,aa.aaa99@aaaaaa.aaaaaaa.aaa,,P069,"homonym, spaced_name", ,)," 책임 (010-0400-5262, 【sy.lee70@mirsec.example.com】) ⏎ 4. 주요 지적 사항: 상담 녹취"
+dev,D0064,고객정보변경,info_change,jw.lee77@example.net,aa.aaa99@aaaaaaa.aaa,,P062,"josa_attached, phone_format_variant", ,⏎," 누리길 115, 8층 ⏎ - 이메일: 【jw.lee77@example.net】 ⏎  ⏎ 비고: 이전 연락처로 발송 예약된"
+dev,D0065,대출상담,loan_2,sh.lee09@example.net,aa.aaa99@aaaaaaa.aaa,,P059,"josa_attached, spaced_name", ,로,다고 설명함. 신청서는 고객 이메일 【sh.lee09@example.net】로 발송함. ⏎ 이승현은 서류를 준비한 
+dev,D0067,업무메일,email_vendor,hj.choi34@saebomcard.example.com,aa.aaaa99@aaaaaaaaaa.aaaaaaa.aaa,,P020,, ,,영팀 | 02-3961-1452 | 【hj.choi34@saebomcard.example.com】
+dev,D0068,용역계약서,contract,hj.choi34@saebomcard.example.com,aa.aaaa99@aaaaaaaaaa.aaaaaaa.aaa,,P020,phone_format_variant, ,)," 최혜진 (02.3961.1452, 【hj.choi34@saebomcard.example.com】) ⏎   을: 손하은 책임 (010-0"
+dev,D0068,용역계약서,contract,he.son44@codebridge.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,P036,phone_format_variant, ,)," 책임 (010-0288-0841, 【he.son44@codebridge.example.com】) ⏎  ⏎ 2026.11.24 ⏎  ⏎ 갑: 새봄"
+dev,D0072,용역계약서,contract,jw.lee66@saebomcard.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,P010,phone_format_variant, ,)," 이준우 (02-3880-6413, 【jw.lee66@saebomcard.example.com】) ⏎   을: 손하은 책임 (010.0"
+dev,D0072,용역계약서,contract,he.son44@codebridge.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,P036,phone_format_variant, ,)," 책임 (010.0288.0841, 【he.son44@codebridge.example.com】) ⏎  ⏎ 2026-01-27 ⏎  ⏎ 갑: 새봄"
+dev,D0073,대출상담,loan_2,sy.yoon07@example.net,aa.aaaa99@aaaaaaa.aaa,,P051,"josa_attached, phone_format_variant, spaced_name", ,로,다고 설명함. 신청서는 고객 이메일 【sy.yoon07@example.net】로 발송함. ⏎ 윤선영은 서류를 준비한 
+dev,D0080,인사발령,hr_notice,sy.ahn20@saebomcard.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,P006,, ,),": 인사팀 안소연 (내선 7480, 【sy.ahn20@saebomcard.example.com】)"
+dev,D0082,업무메일,email_vendor,jw.lee66@saebomcard.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,P010,, ,,영팀 | 02-3880-6413 | 【jw.lee66@saebomcard.example.com】
+dev,D0086,업무메일,email_vendor,dy.park05@saebomcard.example.com,aa.aaaa99@aaaaaaaaaa.aaaaaaa.aaa,,P071,"homonym, phone_format_variant", ,,T운영팀 | 0244837272 | 【dy.park05@saebomcard.example.com】
+dev,D0093,민원처리,complaint_2,sh.noh18@example.net,aa.aaa99@aaaaaaa.aaa,,P050,"homonym, spaced_name, surname_title_unlabeled",(,),분석을 의뢰함. ⏎ 회신 방법: 이메일(【sh.noh18@example.net】)
+dev,D0096,업무메일,email_audit,yh.kim63@dataon.example.com,aa.aaa99@aaaaaa.aaaaaaa.aaa,,P033,"homonym, spaced_name", ,)," 책임 (010-0668-3937, 【yh.kim63@dataon.example.com】) ⏎ 4. 주요 지적 사항: 상담 녹취"
+test,D0103,인사발령,hr_notice,sy.ahn20@saebomcard.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,P006,, ,),": 인사팀 안소연 (내선 5878, 【sy.ahn20@saebomcard.example.com】)"
+test,D0105,고객정보변경,info_change,wj.jung08@example.org,aa.aaaa99@aaaaaaa.aaa,,P054,josa_attached, ,⏎,"누리길 91, 103호 ⏎ - 이메일: 【wj.jung08@example.org】 ⏎  ⏎ 비고: 이전 연락처로 발송 예약된"
+test,D0107,민원처리,complaint_2,mj.kim38@example.com,aa.aaa99@aaaaaaa.aaa,,P067,"homonym, spaced_name, surname_title_unlabeled",(,),분석을 의뢰함. ⏎ 회신 방법: 이메일(【mj.kim38@example.com】)
+test,D0109,용역계약서,contract,jw.lee66@saebomcard.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,P010,phone_format_variant, ,)," 이준우 (02.3880.6413, 【jw.lee66@saebomcard.example.com】) ⏎   을: 문은정 매니저 (010-"
+test,D0109,용역계약서,contract,ej.moon49@codebridge.example.com,aa.aaaa99@aaaaaaaaaa.aaaaaaa.aaa,,P037,phone_format_variant, ,),"매니저 (010-0561-7253, 【ej.moon49@codebridge.example.com】) ⏎  ⏎ 2026.10.26 ⏎  ⏎ 갑: 새봄"
+test,D0115,인사발령,hr_notice,sy.ahn20@saebomcard.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,P006,, ,),": 인사팀 안소연 (내선 5812, 【sy.ahn20@saebomcard.example.com】)"
+test,D0116,고객정보변경,info_change,cw.choi89@example.net,aa.aaaa99@aaaaaaa.aaa,,P046,"homonym, josa_attached", ,⏎,"리로 145, 302호 ⏎ - 이메일: 【cw.choi89@example.net】 ⏎  ⏎ 비고: 이전 연락처로 발송 예약된"
+test,D0117,인사발령,hr_notice,sy.ahn20@saebomcard.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,P006,homonym, ,),": 인사팀 안소연 (내선 7394, 【sy.ahn20@saebomcard.example.com】)"
+test,D0118,용역계약서,contract,jw.lee66@saebomcard.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,P010,homonym, ,)," 이준우 (02-3880-6413, 【jw.lee66@saebomcard.example.com】) ⏎   을: 이서연 책임 (010-0"
+test,D0118,용역계약서,contract,sy.lee70@mirsec.example.com,aa.aaa99@aaaaaa.aaaaaaa.aaa,,P069,homonym, ,)," 책임 (010-0400-5262, 【sy.lee70@mirsec.example.com】) ⏎  ⏎ 2026년 12월 5일 ⏎  ⏎ 갑: "
+test,D0119,업무메일,email_audit,hj.shin40@dasomcall.example.com,aa.aaaa99@aaaaaaaaa.aaaaaaa.aaa,,P043,"phone_format_variant, spaced_name", ,),"매니저 (010.0664.0224, 【hj.shin40@dasomcall.example.com】) ⏎ 4. 주요 지적 사항: 상담 녹취"
+test,D0120,업무메일,email_audit,sy.kwon95@mirsec.example.com,aa.aaaa99@aaaaaa.aaaaaaa.aaa,,P040,"homonym, phone_format_variant, spaced_name", ,),"영 매니저 (01004309891, 【sy.kwon95@mirsec.example.com】) ⏎ 4. 주요 지적 사항: 상담 녹취"
+test,D0126,인사발령,hr_notice,sy.ahn20@saebomcard.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,P006,homonym, ,),": 인사팀 안소연 (내선 3702, 【sy.ahn20@saebomcard.example.com】)"
+test,D0128,고객정보변경,info_change,hy.son80@example.net,aa.aaa99@aaaaaaa.aaa,,P048,"josa_attached, phone_format_variant", ,⏎,"하늬로 34, 801호 ⏎ - 이메일: 【hy.son80@example.net】 ⏎  ⏎ 비고: 이전 연락처로 발송 예약된"
+test,D0130,민원처리,complaint_2,mj.park51@example.net,aa.aaaa99@aaaaaaa.aaa,,P058,"homonym, spaced_name, surname_title_unlabeled",(,),분석을 의뢰함. ⏎ 회신 방법: 이메일(【mj.park51@example.net】)
+test,D0135,고객정보변경,info_change,sb.kim12@example.net,aa.aaa99@aaaaaaa.aaa,,P049,"josa_attached, phone_format_variant", ,⏎,", 108동 1203호 ⏎ - 이메일: 【sb.kim12@example.net】 ⏎  ⏎ 비고: 이전 연락처로 발송 예약된"
+test,D0136,대출상담,loan_2,sy.jeon68@example.com,aa.aaaa99@aaaaaaa.aaa,,P052,"josa_attached, spaced_name", ,로,다고 설명함. 신청서는 고객 이메일 【sy.jeon68@example.com】로 발송함. ⏎ 전서윤은 서류를 준비한 
+test,D0138,민원처리,complaint_2,gw.lee21@example.com,aa.aaa99@aaaaaaa.aaa,,P047,"spaced_name, surname_title_unlabeled",(,),분석을 의뢰함. ⏎ 회신 방법: 이메일(【gw.lee21@example.com】)
+test,D0141,업무메일,email_vendor,hj.choi34@saebomcard.example.com,aa.aaaa99@aaaaaaaaaa.aaaaaaa.aaa,,P020,homonym, ,,영팀 | 02-3961-1452 | 【hj.choi34@saebomcard.example.com】
+test,D0145,대출상담,loan_2,hy.son80@example.net,aa.aaa99@aaaaaaa.aaa,,P048,"josa_attached, spaced_name", ,로,다고 설명함. 신청서는 고객 이메일 【hy.son80@example.net】로 발송함. ⏎ 손하윤은 서류를 준비한 
+test,D0147,용역계약서,contract,yr.park76@saebomcard.example.com,aa.aaaa99@aaaaaaaaaa.aaaaaaa.aaa,,P030,, ,)," 박예린 (02-3964-4249, 【yr.park76@saebomcard.example.com】) ⏎   을: 오다은 매니저 (010-"
+test,D0147,용역계약서,contract,de.oh90@dataon.example.com,aa.aa99@aaaaaa.aaaaaaa.aaa,,P034,, ,),"매니저 (010-0564-4438, 【de.oh90@dataon.example.com】) ⏎  ⏎ 2026년 6월 10일 ⏎  ⏎ 갑: "
+test,D0148,업무메일,email_audit,hj.shin40@dasomcall.example.com,aa.aaaa99@aaaaaaaaa.aaaaaaa.aaa,,P043,spaced_name, ,),"매니저 (010-0664-0224, 【hj.shin40@dasomcall.example.com】) ⏎ 4. 주요 지적 사항: 상담 녹취"
+test,D0150,업무메일,email_vendor,hj.choi34@saebomcard.example.com,aa.aaaa99@aaaaaaaaaa.aaaaaaa.aaa,,P020,, ,,영팀 | 02-3961-1452 | 【hj.choi34@saebomcard.example.com】
+test,D0152,용역계약서,contract,dy.park05@saebomcard.example.com,aa.aaaa99@aaaaaaaaaa.aaaaaaa.aaa,,P071,"homonym, phone_format_variant", ,)," 박도윤 (02.4483.7272, 【dy.park05@saebomcard.example.com】) ⏎   을: 신현준 매니저 (0100"
+test,D0152,용역계약서,contract,hj.shin40@dasomcall.example.com,aa.aaaa99@aaaaaaaaa.aaaaaaa.aaa,,P043,"homonym, phone_format_variant", ,),"준 매니저 (01006640224, 【hj.shin40@dasomcall.example.com】) ⏎  ⏎ 2026.11.20 ⏎  ⏎ 갑: 새봄"
+test,D0154,업무메일,email_audit,sy.kwon95@mirsec.example.com,aa.aaaa99@aaaaaa.aaaaaaa.aaa,,P040,"phone_format_variant, spaced_name", ,),"영 매니저 (01004309891, 【sy.kwon95@mirsec.example.com】) ⏎ 4. 주요 지적 사항: 상담 녹취"
+test,D0158,업무메일,email_vendor,dy.park05@saebomcard.example.com,aa.aaaa99@aaaaaaaaaa.aaaaaaa.aaa,,P071,homonym, ,,영팀 | 02-4483-7272 | 【dy.park05@saebomcard.example.com】
+test,D0160,인사발령,hr_notice,sy.ahn20@saebomcard.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,P006,homonym, ,),": 인사팀 안소연 (내선 5647, 【sy.ahn20@saebomcard.example.com】)"
+test,D0162,용역계약서,contract,yr.park76@saebomcard.example.com,aa.aaaa99@aaaaaaaaaa.aaaaaaa.aaa,,P030,, ,)," 박예린 (02-3964-4249, 【yr.park76@saebomcard.example.com】) ⏎   을: 손하은 책임 (010-0"
+test,D0162,용역계약서,contract,he.son44@codebridge.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,P036,, ,)," 책임 (010-0288-0841, 【he.son44@codebridge.example.com】) ⏎  ⏎ 2026년 12월 1일 ⏎  ⏎ 갑: "
+test,D0163,인사발령,hr_notice,sy.ahn20@saebomcard.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,P006,, ,),": 인사팀 안소연 (내선 3469, 【sy.ahn20@saebomcard.example.com】)"
+test,D0166,업무메일,email_vendor,jw.lee66@saebomcard.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,P010,, ,,영팀 | 02-3880-6413 | 【jw.lee66@saebomcard.example.com】
+test,D0168,고객정보변경,info_change,he.jung48@example.net,aa.aaaa99@aaaaaaa.aaa,,P073,"homonym, josa_attached, phone_format_variant", ,⏎," 다솜길 33, 13층 ⏎ - 이메일: 【he.jung48@example.net】 ⏎  ⏎ 비고: 이전 연락처로 발송 예약된"
+test,D0179,용역계약서,contract,dy.park05@saebomcard.example.com,aa.aaaa99@aaaaaaaaaa.aaaaaaa.aaa,,P071,homonym, ,)," 박도윤 (02-4483-7272, 【dy.park05@saebomcard.example.com】) ⏎   을: 손하은 책임 (010-0"
+test,D0179,용역계약서,contract,he.son44@codebridge.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,P036,homonym, ,)," 책임 (010-0288-0841, 【he.son44@codebridge.example.com】) ⏎  ⏎ 2026.12.24 ⏎  ⏎ 갑: 새봄"
+test,D0185,업무메일,email_audit,he.son44@codebridge.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,P036,spaced_name, ,)," 책임 (010-0288-0841, 【he.son44@codebridge.example.com】) ⏎ 4. 주요 지적 사항: 상담 녹취"
+test,D0186,대출상담,loan_2,sh.lee09@example.net,aa.aaa99@aaaaaaa.aaa,,P059,"josa_attached, spaced_name", ,로,다고 설명함. 신청서는 고객 이메일 【sh.lee09@example.net】로 발송함. ⏎ 이승현은 서류를 준비한 
+test,D0187,고객정보변경,info_change,gw.lee21@example.com,aa.aaa99@aaaaaaa.aaa,,P047,"josa_attached, phone_format_variant", ,⏎,"구 별빛길 28, 9층 ⏎ - 이메일: 【gw.lee21@example.com】 ⏎  ⏎ 비고: 이전 연락처로 발송 예약된"
+test,D0190,대출상담,loan_2,sb.kim12@example.net,aa.aaa99@aaaaaaa.aaa,,P049,"josa_attached, spaced_name", ,로,다고 설명함. 신청서는 고객 이메일 【sb.kim12@example.net】로 발송함. ⏎ 김수빈은 서류를 준비한 
+test,D0193,대출상담,loan_2,sb.kim12@example.net,aa.aaa99@aaaaaaa.aaa,,P049,"josa_attached, spaced_name", ,로,다고 설명함. 신청서는 고객 이메일 【sb.kim12@example.net】로 발송함. ⏎ 김수빈은 서류를 준비한 
+test,D0197,고객정보변경,info_change,gw.lee21@example.com,aa.aaa99@aaaaaaa.aaa,,P047,josa_attached, ,⏎,"구 별빛길 28, 9층 ⏎ - 이메일: 【gw.lee21@example.com】 ⏎  ⏎ 비고: 이전 연락처로 발송 예약된"
+test,D0198,민원처리,complaint_2,hy.son80@example.net,aa.aaa99@aaaaaaa.aaa,,P048,"spaced_name, surname_title_unlabeled",(,),분석을 의뢰함. ⏎ 회신 방법: 이메일(【hy.son80@example.net】)
+test,D0209,민원처리,complaint_2,sy.oh93@example.net,aa.aa99@aaaaaaa.aaa,,P044,"spaced_name, surname_title_unlabeled",(,),분석을 의뢰함. ⏎ 회신 방법: 이메일(【sy.oh93@example.net】)
+test,D0210,업무메일,email_vendor,yr.park76@saebomcard.example.com,aa.aaaa99@aaaaaaaaaa.aaaaaaa.aaa,,P030,"homonym, phone_format_variant", ,,영팀 | 02-3964-4249 | 【yr.park76@saebomcard.example.com】
+test,D0211,업무메일,email_vendor,dy.park05@saebomcard.example.com,aa.aaaa99@aaaaaaaaaa.aaaaaaa.aaa,,P071,homonym, ,,영팀 | 02-4483-7272 | 【dy.park05@saebomcard.example.com】
+test,D0213,업무메일,email_audit,sa.lee01@dasomcall.example.com,aa.aaa99@aaaaaaaaa.aaaaaaa.aaa,,P042,spaced_name, ,)," 책임 (010-0773-8889, 【sa.lee01@dasomcall.example.com】) ⏎ 4. 주요 지적 사항: 상담 녹취"
+test,D0215,업무메일,email_vendor,dy.park05@saebomcard.example.com,aa.aaaa99@aaaaaaaaaa.aaaaaaa.aaa,,P071,homonym, ,,영팀 | 02-4483-7272 | 【dy.park05@saebomcard.example.com】
+test,D0221,업무메일,email_vendor,jw.lee66@saebomcard.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,P010,phone_format_variant, ,,영팀 | 02 3880 6413 | 【jw.lee66@saebomcard.example.com】
+test,D0222,대출상담,loan_2,sb.kim12@example.net,aa.aaa99@aaaaaaa.aaa,,P049,"josa_attached, phone_format_variant, spaced_name", ,로,다고 설명함. 신청서는 고객 이메일 【sb.kim12@example.net】로 발송함. ⏎ 김수빈은 서류를 준비한 
+test,D0223,업무메일,email_vendor,jw.lee66@saebomcard.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,P010,"homonym, phone_format_variant", ,,영팀 | 02 3880 6413 | 【jw.lee66@saebomcard.example.com】
+test,D0224,민원처리,complaint_2,gw.lee21@example.com,aa.aaa99@aaaaaaa.aaa,,P047,"spaced_name, surname_title_unlabeled",(,),분석을 의뢰함. ⏎ 회신 방법: 이메일(【gw.lee21@example.com】)
+test,D0229,용역계약서,contract,yr.park76@saebomcard.example.com,aa.aaaa99@aaaaaaaaaa.aaaaaaa.aaa,,P030,phone_format_variant, ,),"영팀 박예린 (0239644249, 【yr.park76@saebomcard.example.com】) ⏎   을: 오다은 매니저 (010-"
+test,D0229,용역계약서,contract,de.oh90@dataon.example.com,aa.aa99@aaaaaa.aaaaaaa.aaa,,P034,phone_format_variant, ,),"매니저 (010-0564-4438, 【de.oh90@dataon.example.com】) ⏎  ⏎ 2026.07.04 ⏎  ⏎ 갑: 새봄"
+test,D0233,민원처리,complaint_2,sy.oh93@example.net,aa.aa99@aaaaaaa.aaa,,P044,"spaced_name, surname_title_unlabeled",(,),분석을 의뢰함. ⏎ 회신 방법: 이메일(【sy.oh93@example.net】)
+test,D0238,인사발령,hr_notice,sy.ahn20@saebomcard.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,P006,, ,),": 인사팀 안소연 (내선 5968, 【sy.ahn20@saebomcard.example.com】)"
+test,D0243,고객정보변경,info_change,sy.jeon68@example.com,aa.aaaa99@aaaaaaa.aaa,,P052,josa_attached, ,⏎,"봄로 169, 902호 ⏎ - 이메일: 【sy.jeon68@example.com】 ⏎  ⏎ 비고: 이전 연락처로 발송 예약된"
+test,D0244,업무메일,email_vendor,dy.park05@saebomcard.example.com,aa.aaaa99@aaaaaaaaaa.aaaaaaa.aaa,,P071,"homonym, phone_format_variant", ,,영팀 | 02 4483 7272 | 【dy.park05@saebomcard.example.com】
+test,D0246,고객정보변경,info_change,sy.oh93@example.net,aa.aa99@aaaaaaa.aaa,,P044,josa_attached, ,⏎,"누리로 117, 10층 ⏎ - 이메일: 【sy.oh93@example.net】 ⏎  ⏎ 비고: 이전 연락처로 발송 예약된"
+test,D0247,업무메일,email_audit,mj.kang35@mirsec.example.com,aa.aaaa99@aaaaaa.aaaaaaa.aaa,,P039,spaced_name, ,)," 책임 (010-0946-2330, 【mj.kang35@mirsec.example.com】) ⏎ 4. 주요 지적 사항: 상담 녹취"
+test,D0251,고객정보변경,info_change,he.jung48@example.net,aa.aaaa99@aaaaaaa.aaa,,P073,"homonym, josa_attached", ,⏎," 다솜길 33, 13층 ⏎ - 이메일: 【he.jung48@example.net】 ⏎  ⏎ 비고: 이전 연락처로 발송 예약된"
+test,D0256,인사발령,hr_notice,ys.kim15@saebomcard.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,P016,, ,),": 인사팀 김윤서 (내선 2184, 【ys.kim15@saebomcard.example.com】)"
+test,D0263,민원처리,complaint_2,he.jung48@example.net,aa.aaaa99@aaaaaaa.aaa,,P073,"homonym, spaced_name, surname_title_unlabeled",(,),분석을 의뢰함. ⏎ 회신 방법: 이메일(【he.jung48@example.net】)
+test,D0264,인사발령,hr_notice,sy.ahn20@saebomcard.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,P006,, ,),": 인사팀 안소연 (내선 3464, 【sy.ahn20@saebomcard.example.com】)"
+test,D0266,대출상담,loan_2,sy.jeon68@example.com,aa.aaaa99@aaaaaaa.aaa,,P052,"josa_attached, spaced_name", ,로,다고 설명함. 신청서는 고객 이메일 【sy.jeon68@example.com】로 발송함. ⏎ 전서윤은 서류를 준비한 
+test,D0272,업무메일,email_audit,sy.lee70@mirsec.example.com,aa.aaa99@aaaaaa.aaaaaaa.aaa,,P069,"homonym, spaced_name", ,)," 책임 (010-0400-5262, 【sy.lee70@mirsec.example.com】) ⏎ 4. 주요 지적 사항: 상담 녹취"
+test,D0274,용역계약서,contract,hj.choi34@saebomcard.example.com,aa.aaaa99@aaaaaaaaaa.aaaaaaa.aaa,,P020,phone_format_variant, ,),"영팀 최혜진 (0239611452, 【hj.choi34@saebomcard.example.com】) ⏎   을: 신현준 매니저 (010-"
+test,D0274,용역계약서,contract,hj.shin40@dasomcall.example.com,aa.aaaa99@aaaaaaaaa.aaaaaaa.aaa,,P043,phone_format_variant, ,),"매니저 (010-0664-0224, 【hj.shin40@dasomcall.example.com】) ⏎  ⏎ 2026년 6월 25일 ⏎  ⏎ 갑: "
+test,D0275,업무메일,email_audit,sy.lee70@mirsec.example.com,aa.aaa99@aaaaaa.aaaaaaa.aaa,,P069,"homonym, spaced_name", ,)," 책임 (010-0400-5262, 【sy.lee70@mirsec.example.com】) ⏎ 4. 주요 지적 사항: 상담 녹취"
+test,D0279,인사발령,hr_notice,sy.ahn20@saebomcard.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,P006,homonym, ,),": 인사팀 안소연 (내선 3138, 【sy.ahn20@saebomcard.example.com】)"
+test,D0283,업무메일,email_vendor,hj.choi34@saebomcard.example.com,aa.aaaa99@aaaaaaaaaa.aaaaaaa.aaa,,P020,, ,,영팀 | 02-3961-1452 | 【hj.choi34@saebomcard.example.com】
+test,D0287,용역계약서,contract,yr.park76@saebomcard.example.com,aa.aaaa99@aaaaaaaaaa.aaaaaaa.aaa,,P030,phone_format_variant, ,)," 박예린 (02-3964-4249, 【yr.park76@saebomcard.example.com】) ⏎   을: 강민재 책임 (010 0"
+test,D0287,용역계약서,contract,mj.kang35@mirsec.example.com,aa.aaaa99@aaaaaa.aaaaaaa.aaa,,P039,phone_format_variant, ,)," 책임 (010 0946 2330, 【mj.kang35@mirsec.example.com】) ⏎  ⏎ 2026-01-21 ⏎  ⏎ 갑: 새봄"
+test,D0289,용역계약서,contract,jw.lee66@saebomcard.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,P010,phone_format_variant, ,),"영팀 이준우 (0238806413, 【jw.lee66@saebomcard.example.com】) ⏎   을: 김영호 책임 (010-0"
+test,D0289,용역계약서,contract,yh.kim63@dataon.example.com,aa.aaa99@aaaaaa.aaaaaaa.aaa,,P033,phone_format_variant, ,)," 책임 (010-0668-3937, 【yh.kim63@dataon.example.com】) ⏎  ⏎ 2026년 7월 8일 ⏎  ⏎ 갑: 새"
+test,D0291,용역계약서,contract,dy.park05@saebomcard.example.com,aa.aaaa99@aaaaaaaaaa.aaaaaaa.aaa,,P071,"homonym, phone_format_variant", ,)," 박도윤 (02-4483-7272, 【dy.park05@saebomcard.example.com】) ⏎   을: 이서연 책임 (010 0"
+test,D0291,용역계약서,contract,sy.lee70@mirsec.example.com,aa.aaa99@aaaaaa.aaaaaaa.aaa,,P069,"homonym, phone_format_variant", ,)," 책임 (010 0400 5262, 【sy.lee70@mirsec.example.com】) ⏎  ⏎ 2026.10.06 ⏎  ⏎ 갑: 새봄"
+test,D0294,용역계약서,contract,yr.park76@saebomcard.example.com,aa.aaaa99@aaaaaaaaaa.aaaaaaa.aaa,,P030,phone_format_variant, ,)," 박예린 (02 3964 4249, 【yr.park76@saebomcard.example.com】) ⏎   을: 권선영 매니저 (010-"
+test,D0294,용역계약서,contract,sy.kwon95@mirsec.example.com,aa.aaaa99@aaaaaa.aaaaaaa.aaa,,P040,phone_format_variant, ,),"매니저 (010-0430-9891, 【sy.kwon95@mirsec.example.com】) ⏎  ⏎ 2026년 11월 13일 ⏎  ⏎ 갑:"
+test,D0299,업무메일,email_audit,sy.kwon95@mirsec.example.com,aa.aaaa99@aaaaaa.aaaaaaa.aaa,,P040,spaced_name, ,),"매니저 (010-0430-9891, 【sy.kwon95@mirsec.example.com】) ⏎ 4. 주요 지적 사항: 상담 녹취"

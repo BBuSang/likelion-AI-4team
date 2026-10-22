@@ -1,0 +1,13 @@
+﻿item,n,rules_v6,rules_v7,union_v6,union_v7
+josa_attached (person),342,0.9678362573099415,0.9678362573099415,1.0,1.0
+spaced_name (person),231,1.0,1.0,1.0,1.0
+given_only (person),231,0.9523809523809523,0.9523809523809523,1.0,1.0
+phone_format_variant (phone_number),61,1.0,1.0,1.0,1.0
+homonym (person),233,0.9828326180257511,0.9828326180257511,1.0,1.0
+[추가] person form=full,680,0.9985294117647059,0.9985294117647059,1.0,1.0
+[추가] person form=spaced,51,1.0,1.0,1.0,1.0
+[추가] person form=given,44,0.75,0.75,1.0,1.0
+[추가] decoy_company_phone 오탐수,24,0,0,8,8
+[추가] decoy_words 오탐수,20,0,0,8,8
+[추가] decoy_numbers 오탐수,5,0,0,0,0
+[추가] no_pii 오탐수,32,0,0,8,8

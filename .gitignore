@@ -1,0 +1,10 @@
+# 비밀값 (API 키, HMAC 키)
+.env
+
+# 실행 결과물
+outputs/
+
+# Python
+__pycache__/
+*.pyc
+.venv/

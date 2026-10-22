@@ -1,0 +1,8 @@
+﻿label,total,dev,test,unique_values,unique_persons,top_shapes
+person,1115,340,775,121,73,가가가 (962) / 가 가가 (78) / 가가 (59) / 가가가가 (16)
+phone_number,250,82,168,118,38,999-9999-9999 (156) / 99999999999 (35) / 999.9999.9999 (19) / 99-9999-9999 (17) / 999 9999 9999 (11)
+email,113,33,80,32,32,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa (28) / aa.aaaa99@aaaaaaaaaa.aaaaaaa.aaa (23) / aa.aaa99@aaaaaaa.aaa (20) / aa.aaaa99@aaaaaaa.aaa (16) / aa.aaa99@aaaaaa.aaaaaaa.aaa (7)
+address,104,41,63,40,25,"가가가가가 가가가 가가가가 999, 999가 (12) / 가가가가가 가가가 가가가가 999, 99가 (9) / 가가가가가 가가 가가가가 99, 999가 (7) / 가가가가가 가가 가가가 99, 999가 (7) / 가가가 가가가 가가가 가가가 99, 99가 (6)"
+resident_registration_number,47,20,27,22,22,999999-9999999 (47)
+account_number,43,16,27,19,19,999-999999-99 (43)
+card_number,41,16,25,22,22,9999-9999-9999-9999 (41)
