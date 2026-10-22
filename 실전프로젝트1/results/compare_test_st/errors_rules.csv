@@ -1,0 +1,6 @@
+﻿system,doc_id,error_type,label,gold_text,pred_text,confidence,context
+rules,D0113,경계 오류,person,은영,은영이,,서 달래 박도윤: 알겠어. 【은영】이랑 같이 정리해서 올릴게
+rules,D0176,경계 오류,person,서연,서연이,,서 달래 김진우: 알겠어. 【서연】이랑 같이 정리해서 올릴게
+rules,D0227,경계 오류,person,소율,소율아,,"년 12월 24일 최지영: 【소율】아, 오늘 회의 자료 어디 "
+rules,D0295,미탐,person,예린,,," 초안 검토 부탁드립니다  【예린】 씨, 안녕하세요. 어제 접"
+rules,D0296,경계 오류,person,성호,성호야,,"6년 4월 22일 김은영: 【성호】야, 오늘 회의 자료 어디 "

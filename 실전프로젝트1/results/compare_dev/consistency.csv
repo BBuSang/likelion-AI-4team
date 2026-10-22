@@ -1,0 +1,5 @@
+﻿system,mean_jaccard,identical_doc_ratio
+veil,1.0,1.0
+seongyeon,1.0,1.0
+llm_v1,0.9871,0.94
+llm,0.9935,0.94

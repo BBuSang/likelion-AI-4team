@@ -1,0 +1,8 @@
+﻿label,veil_recall,veil_precision,seongyeon_recall,seongyeon_precision,kpf_recall,kpf_precision,atonlee_recall,atonlee_precision,dlp_recall,dlp_precision,e5_recall,e5_precision,bccard_recall,bccard_precision,hybrid_veil_recall,hybrid_veil_precision,hybrid_seong_recall,hybrid_seong_precision,hybrid_kpf_recall,hybrid_kpf_precision,hybrid_atonlee_recall,hybrid_atonlee_precision,hybrid_dlp_recall,hybrid_dlp_precision,hybrid_e5_recall,hybrid_e5_precision,hybrid_bccard_recall,hybrid_bccard_precision
+person,0.9647,0.9591,1.0,0.9471,0.9912,0.9035,0.9765,0.9146,1.0,0.9524,0.9941,0.9521,0.7824,0.9466,1.0,0.9884,1.0,1.0,1.0,0.9855,1.0,0.977,1.0,1.0,1.0,0.9827,1.0,0.9714
+phone_number,0.9878,0.8526,1.0,0.8817,0.9756,0.708,0.9756,0.9302,0.7805,0.8101,0.9878,0.9205,0.9756,0.8602,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+email,1.0,1.0,1.0,0.75,1.0,0.8462,1.0,1.0,1.0,0.8919,1.0,0.7857,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+address,1.0,0.8542,1.0,0.9111,1.0,0.2993,1.0,1.0,1.0,0.8367,1.0,0.8542,1.0,0.7069,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+resident_registration_number,1.0,1.0,1.0,0.7143,0.7,0.5185,1.0,0.9524,1.0,0.7407,0.0,0.0,1.0,0.8333,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+account_number,1.0,1.0,1.0,0.9412,1.0,0.3333,1.0,1.0,1.0,1.0,1.0,0.2581,0.375,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+card_number,1.0,1.0,1.0,1.0,1.0,0.3721,1.0,1.0,1.0,1.0,0.0,0.0,1.0,0.7619,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0

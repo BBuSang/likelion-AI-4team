@@ -1,0 +1,8 @@
+﻿label,rules_recall,rules_precision
+person,0.9987,1.0
+phone_number,1.0,1.0
+email,1.0,1.0
+address,1.0,1.0
+resident_registration_number,1.0,1.0
+account_number,1.0,1.0
+card_number,1.0,1.0

@@ -1,0 +1,13 @@
+﻿item,n,rules
+josa_attached (person),342,1.0
+spaced_name (person),231,1.0
+given_only (person),231,0.9956709956709957
+phone_format_variant (phone_number),61,1.0
+homonym (person),233,1.0
+[추가] person form=full,680,1.0
+[추가] person form=spaced,51,1.0
+[추가] person form=given,44,0.9772727272727273
+[추가] decoy_company_phone 오탐수,24,0
+[추가] decoy_words 오탐수,20,0
+[추가] decoy_numbers 오탐수,5,0
+[추가] no_pii 오탐수,32,0

@@ -1,0 +1,7 @@
+﻿system,doc_id,error_type,label,gold_text,pred_text,confidence,context
+hybrid_vote,D0113,경계 오류,person,은영,은영이,,서 달래 박도윤: 알겠어. 【은영】이랑 같이 정리해서 올릴게
+hybrid_vote,D0176,경계 오류,person,서연,서연이,,서 달래 김진우: 알겠어. 【서연】이랑 같이 정리해서 올릴게
+hybrid_vote,D0227,경계 오류,person,소율,소율아,,"년 12월 24일 최지영: 【소율】아, 오늘 회의 자료 어디 "
+hybrid_vote,D0276,오탐,person,,하린,,38-7486 카드 상품: 【하린】 포인트 카드 카드번호: 9
+hybrid_vote,D0290,오탐,person,,하린,,14-4332 카드 상품: 【하린】 포인트 카드 카드번호: 9
+hybrid_vote,D0296,경계 오류,person,성호,성호야,,"6년 4월 22일 김은영: 【성호】야, 오늘 회의 자료 어디 "

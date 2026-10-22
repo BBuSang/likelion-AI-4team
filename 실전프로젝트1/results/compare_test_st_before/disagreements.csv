@@ -1,0 +1,102 @@
+﻿doc_id,label,gold_text,caught_by,context
+D0102,person,정 부장,veil|seongyeon,-24)  담당: 고객센터 【정 부장】 고객: 손 유진 님 / 0
+D0107,person,김 대리,seongyeon,출금되었다고 항의함. 담당 【김 대리】가 거래 내역을 확인한 결과
+D0108,person,김 대리,seongyeon,1일 - 고객 안내 문구는 【김 대리】가 초안을 작성하고 소율 씨
+D0108,person,소율,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,김 대리가 초안을 작성하고 【소율】 씨가 검토  다음 회의: 
+D0113,person,상훈,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,"026-07-08 박도윤: 【상훈】아, 오늘 회의 자료 어디 "
+D0113,person,정 부장,veil|seongyeon,: 응 부탁해. 아 그리고 【정 부장】님이 내일까지 보고서 달래 
+D0113,person,은영,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,서 달래 박도윤: 알겠어. 【은영】이랑 같이 정리해서 올릴게
+D0121,person,허수아,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,서류 제출 후 리스크관리팀 【허수아】 부장에게 심사를 요청하기로
+D0122,person,신 과장,veil|seongyeon,21 - 고객 안내 문구는 【신 과장】이 초안을 작성하고 은영 씨
+D0122,person,은영,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,신 과장이 초안을 작성하고 【은영】 씨가 검토  다음 회의: 
+D0124,person,허수아,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,서류 제출 후 리스크관리팀 【허수아】 부장에게 심사를 요청하기로
+D0125,person,최 팀장,veil|seongyeon,: 응 부탁해. 아 그리고 【최 팀장】님이 내일까지 보고서 달래 
+D0125,person,현준,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,서 달래 이준우: 알겠어. 【현준】이랑 같이 정리해서 올릴게
+D0130,person,김 대리,seongyeon,출금되었다고 항의함. 담당 【김 대리】가 거래 내역을 확인한 결과
+D0132,person,최지영,rules|seongyeon|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote," 참석: 신승현, 이소율, 【최지영】 불참: 안소연 (연차)  "
+D0132,person,최지영,rules|seongyeon|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,크립트 개정안 작성 중 - 【최지영】: 연체 고객 안내 문자 문
+D0133,person,허수아,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,확인 부탁드려요. 검토 후 【허수아】 부장님께 바로 올려 주셔도
+D0133,person,김은정,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,로 올려 주셔도 됩니다.  【김은정】 드림
+D0137,person,이 차장,veil|seongyeon,: 응 부탁해. 아 그리고 【이 차장】님이 내일까지 보고서 달래 
+D0138,person,김 대리,seongyeon,출금되었다고 항의함. 담당 【김 대리】가 거래 내역을 확인한 결과
+D0141,phone_number,02-3961-1452,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,최혜진 드림 IT운영팀 | 【02-3961-1452】 | hj.choi34@sa
+D0146,person,이 과장,seongyeon,20 - 고객 안내 문구는 【이 과장】이 초안을 작성하고 민준 씨
+D0146,person,민준,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,이 과장이 초안을 작성하고 【민준】 씨가 검토  다음 회의: 
+D0150,phone_number,02-3961-1452,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,최혜진 드림 IT운영팀 | 【02-3961-1452】 | hj.choi34@sa
+D0155,person,정 부장,veil|seongyeon,-16)  담당: 고객센터 【정 부장】 고객: 정 지호 님 / 0
+D0156,person,남성호,rules|seongyeon|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote," 10일  참석: 박하린, 【남성호】, 이주원 불참: 안소연 ("
+D0156,person,이주원,rules|seongyeon|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote," 참석: 박하린, 남성호, 【이주원】 불참: 안소연 (연차)  "
+D0156,person,남성호,rules|seongyeon|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote, 자동화 진행률 70% - 【남성호】: 고객 문의 응대 스크립트
+D0156,person,이주원,rules|seongyeon|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,크립트 개정안 작성 중 - 【이주원】: 연체 고객 안내 문자 문
+D0157,person,정 대리,veil|seongyeon,24 - 고객 안내 문구는 【정 대리】가 초안을 작성하고 지영 씨
+D0158,phone_number,02-4483-7272,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,박도윤 드림 IT운영팀 | 【02-4483-7272】 | dy.park05@sa
+D0165,person,허 수아,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,26년 8월 25일 담당: 【허 수아】 대상: 남궁다은 / 010
+D0166,phone_number,02-3880-6413,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,이준우 드림 IT운영팀 | 【02-3880-6413】 | jw.lee66@sae
+D0176,person,상훈,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,"6년 4월 22일 김진우: 【상훈】아, 오늘 회의 자료 어디 "
+D0176,person,남 부장,veil|seongyeon,: 응 부탁해. 아 그리고 【남 부장】님이 내일까지 보고서 달래 
+D0176,person,서연,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,서 달래 김진우: 알겠어. 【서연】이랑 같이 정리해서 올릴게
+D0181,person,허수아,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,확인 부탁드려요. 검토 후 【허수아】 부장님께 바로 올려 주셔도
+D0181,person,조민준,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,로 올려 주셔도 됩니다.  【조민준】 드림
+D0183,person,김민준,rules|seongyeon|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,늘 회의 자료 어디 있어? 【김민준】: 공유 폴더에 올려놨어. 
+D0183,person,김민준,rules|seongyeon|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote, 내가 오후에 전화해 볼게 【김민준】: 응 부탁해. 아 그리고 
+D0183,person,정 부장,veil|seongyeon,: 응 부탁해. 아 그리고 【정 부장】님이 내일까지 보고서 달래 
+D0184,person,정 부장,veil|seongyeon,15 - 고객 안내 문구는 【정 부장】이 초안을 작성하고 소율 씨
+D0195,person,이 차장,veil|seongyeon,: 응 부탁해. 아 그리고 【이 차장】님이 내일까지 보고서 달래 
+D0198,person,정 부장,veil|seongyeon,출금되었다고 항의함. 담당 【정 부장】이 거래 내역을 확인한 결과
+D0199,person,이 차장,seongyeon,19 - 고객 안내 문구는 【이 차장】이 초안을 작성하고 은서 씨
+D0200,person,허 부장,veil|seongyeon,1일 - 고객 안내 문구는 【허 부장】이 초안을 작성하고 상훈 씨
+D0200,person,상훈,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,허 부장이 초안을 작성하고 【상훈】 씨가 검토  다음 회의: 
+D0201,person,김민준,rules|seongyeon|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote," 참석자: 허수아(부장), 【김민준】, 이소율, 권선영(미르보안"
+D0201,person,김민준,rules|seongyeon|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,권선영(미르보안) 작성자: 【김민준】  논의 내용 1. 허 수아
+D0201,person,김 대리,seongyeon,28 - 고객 안내 문구는 【김 대리】가 초안을 작성하고 소율 씨
+D0203,person,정 부장,veil|seongyeon,20일)  담당: 고객센터 【정 부장】 고객: 최 채원 님 / 0
+D0204,person,최지영,rules|seongyeon|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote," 참석: 이소율, 이준우, 【최지영】 불참: 강민서 (연차)  "
+D0204,person,최지영,rules|seongyeon|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,크립트 개정안 작성 중 - 【최지영】: 연체 고객 안내 문자 문
+D0206,person,허수아,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,서류 제출 후 리스크관리팀 【허수아】 부장에게 심사를 요청하기로
+D0208,person,이 과장,seongyeon,5일 - 고객 안내 문구는 【이 과장】이 초안을 작성하고 성호 씨
+D0208,person,성호,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,이 과장이 초안을 작성하고 【성호】 씨가 검토  다음 회의: 
+D0209,person,정 부장,veil|seongyeon,출금되었다고 항의함. 담당 【정 부장】이 거래 내역을 확인한 결과
+D0210,phone_number,02-3964-4249,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,박예린 드림 IT운영팀 | 【02-3964-4249】 | yr.park76@sa
+D0211,phone_number,02-4483-7272,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,박도윤 드림 IT운영팀 | 【02-4483-7272】 | dy.park05@sa
+D0215,phone_number,02-4483-7272,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,박도윤 드림 IT운영팀 | 【02-4483-7272】 | dy.park05@sa
+D0216,person,허 부장,veil|seongyeon,: 응 부탁해. 아 그리고 【허 부장】님이 내일까지 보고서 달래 
+D0216,person,상훈,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,서 달래 정성호: 알겠어. 【상훈】이랑 같이 정리해서 올릴게
+D0217,person,은영,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,"6년 6월 28일 이서연: 【은영】아, 오늘 회의 자료 어디 "
+D0217,person,이 팀장,veil|seongyeon,: 응 부탁해. 아 그리고 【이 팀장】님이 내일까지 보고서 달래 
+D0217,person,소연,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,서 달래 이서연: 알겠어. 【소연】이랑 같이 정리해서 올릴게
+D0220,person,정 부장,veil|seongyeon,22일)  담당: 고객센터 【정 부장】 고객: 이 승현 님 / 0
+D0221,phone_number,02 3880 6413,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,이준우 드림 IT운영팀 | 【02 3880 6413】 | jw.lee66@sae
+D0223,phone_number,02 3880 6413,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,이준우 드림 IT운영팀 | 【02 3880 6413】 | jw.lee66@sae
+D0224,person,김 대리,seongyeon,출금되었다고 항의함. 담당 【김 대리】가 거래 내역을 확인한 결과
+D0226,person,전 팀장,veil|seongyeon,: 응 부탁해. 아 그리고 【전 팀장】님이 내일까지 보고서 달래 
+D0226,person,소율,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,서 달래 신승현: 알겠어. 【소율】이랑 같이 정리해서 올릴게
+D0227,person,남 부장,veil|seongyeon,: 응 부탁해. 아 그리고 【남 부장】님이 내일까지 보고서 달래 
+D0231,person,허 부장,veil|seongyeon,0일 - 고객 안내 문구는 【허 부장】이 초안을 작성하고 준서 씨
+D0231,person,준서,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,허 부장이 초안을 작성하고 【준서】 씨가 검토  다음 회의: 
+D0233,person,김 대리,seongyeon,출금되었다고 항의함. 담당 【김 대리】가 거래 내역을 확인한 결과
+D0234,person,김 대리,seongyeon,-02)  담당: 고객센터 【김 대리】 고객: 정 우진 님 / 0
+D0238,person,허수아,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,터 김서준  2. 전보 - 【허수아】 부장: 리스크관리팀 → 리
+D0244,phone_number,02 4483 7272,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,박도윤 드림 IT운영팀 | 【02 4483 7272】 | dy.park05@sa
+D0249,person,김 대리,seongyeon,11일)  담당: 고객센터 【김 대리】 고객: 전 서윤 님 / 0
+D0259,person,김 대리,seongyeon,-23)  담당: 고객센터 【김 대리】 고객: 윤 선영 님 / 0
+D0263,person,김 대리,seongyeon,출금되었다고 항의함. 담당 【김 대리】가 거래 내역을 확인한 결과
+D0268,person,허 부장,veil|seongyeon,: 응 부탁해. 아 그리고 【허 부장】님이 내일까지 보고서 달래 
+D0270,person,허수아,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,05 보고자: 리스크관리팀 【허수아】  탐지 내용 윤선영 고객 
+D0271,person,허수아,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,07 보고자: 리스크관리팀 【허수아】  탐지 내용 노성호 고객 
+D0273,person,정성호,rules|seongyeon|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,"1-26  참석: 강민서, 【정성호】, 김하준 불참: 김서준 ("
+D0283,phone_number,02-3961-1452,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,최혜진 드림 IT운영팀 | 【02-3961-1452】 | hj.choi34@sa
+D0284,person,최 팀장,veil|seongyeon,: 응 부탁해. 아 그리고 【최 팀장】님이 내일까지 보고서 달래 
+D0287,phone_number,02-3964-4249,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote," 갑: IT운영팀 박예린 (【02-3964-4249】, yr.park76@sae"
+D0288,person,김 대리,seongyeon,10일)  담당: 고객센터 【김 대리】 고객: 최 채원 님 / 0
+D0292,person,김진우,rules|seongyeon|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,"6년 12월 5일  참석: 【김진우】, 정성호, 이서연 불참: "
+D0292,person,정성호,rules|seongyeon|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,"월 5일  참석: 김진우, 【정성호】, 이서연 불참: 신승현 ("
+D0292,person,김진우,rules|seongyeon|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,참: 신승현 (연차)  - 【김진우】: 신규 카드 발급 심사 자
+D0294,phone_number,02 3964 4249,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote," 갑: IT운영팀 박예린 (【02 3964 4249】, yr.park76@sae"
+D0295,person,예린,veil|seongyeon|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote," 초안 검토 부탁드립니다  【예린】 씨, 안녕하세요. 어제 접"
+D0296,person,성호,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,"6년 4월 22일 김은영: 【성호】야, 오늘 회의 자료 어디 "
+D0296,person,정 부장,veil|seongyeon,: 응 부탁해. 아 그리고 【정 부장】님이 내일까지 보고서 달래 
+D0296,person,상훈,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,서 달래 김은영: 알겠어. 【상훈】이랑 같이 정리해서 올릴게
+D0298,person,김진우,rules|seongyeon|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,아(다솜콜솔루션) 작성자: 【김진우】  논의 내용 1. 이 윤서
+D0298,person,김 과장,seongyeon,02 - 고객 안내 문구는 【김 과장】이 초안을 작성하고 서준 씨
+D0298,person,서준,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,김 과장이 초안을 작성하고 【서준】 씨가 검토  다음 회의: 
+D0300,person,허수아,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,확인 부탁드려요. 검토 후 【허수아】 부장님께 바로 올려 주셔도

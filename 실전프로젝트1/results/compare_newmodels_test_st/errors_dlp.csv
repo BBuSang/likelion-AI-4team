@@ -1,0 +1,87 @@
+﻿system,doc_id,error_type,label,gold_text,pred_text,confidence,context
+dlp,D0102,오탐,phone_number,,1599-0000,, 문의는 고객센터 대표번호 【1599-0000】으로 안내함.
+dlp,D0103,오탐,phone_number,,5878,,"의: 인사팀 안소연 (내선 【5878】, sy.ahn20@saeb"
+dlp,D0106,오탐,address,,분당지점,,상담 채널: 영업점 방문 (【분당지점】) 담당자: 김은영 대리 /
+dlp,D0113,미탐,phone_number,01001144332,,, 박도윤: 그 고객 연락처 【01001144332】 맞지? 내가 오후에 전화해
+dlp,D0115,오탐,phone_number,,5812,,"의: 인사팀 안소연 (내선 【5812】, sy.ahn20@saeb"
+dlp,D0117,오탐,phone_number,,7394,,"의: 인사팀 안소연 (내선 【7394】, sy.ahn20@saeb"
+dlp,D0120,라벨 오류(→email),phone_number,01004309891,010,," 담당자: 권선영 매니저 (【01004309891】, sy.kwon95@mir"
+dlp,D0121,오탐,address,,강남,,상담 채널: 영업점 방문 (【강남】지점) 담당자: 신승현 과장
+dlp,D0121,오탐,phone_number,,7323,,자: 신승현 과장 / 내선 【7323】  1. 고객 정보 - 성명
+dlp,D0124,오탐,address,,해운대지,,상담 채널: 영업점 방문 (【해운대지】점) 담당자: 박도윤 과장 
+dlp,D0124,오탐,phone_number,,50,, 박도윤 과장 / 내선 66【50】  1. 고객 정보 - 성명
+dlp,D0125,경계 오류,person,서연,서연아,,"6년 7월 12일 이준우: 【서연】아, 오늘 회의 자료 어디 "
+dlp,D0136,경계 오류,person,전 서윤,서윤,,6:36 상담원: 김은영  【전 서윤】 고객(010-0863-10
+dlp,D0139,미탐,phone_number,01001290753,,,팀 이상훈 고객: 최채원 (【01001290753】)  연체 내역: 카드 대금
+dlp,D0141,경계 오류,email,hj.choi34@saebomcard.example.com,hj.,,02-3961-1452 | 【hj.choi34@saebomcard.example.com】
+dlp,D0149,라벨 오류(→resident_registration_number),phone_number,01005525661,01005525661,,749631 - 휴대전화: 【01005525661】 - 주소: 대전광역시 유성
+dlp,D0149,오탐,address,,분당지,,상담 채널: 영업점 방문 (【분당지】점) 담당자: 신승현 과장 
+dlp,D0149,오탐,phone_number,,4215,,자: 신승현 과장 / 내선 【4215】  1. 고객 정보 - 성명
+dlp,D0152,미탐,phone_number,01006640224,,,"   을: 신현준 매니저 (【01006640224】, hj.shin40@das"
+dlp,D0154,라벨 오류(→email),phone_number,01004309891,010,," 담당자: 권선영 매니저 (【01004309891】, sy.kwon95@mir"
+dlp,D0155,오탐,phone_number,,1599-0000,, 문의는 고객센터 대표번호 【1599-0000】으로 안내함.
+dlp,D0158,경계 오류,email,dy.park05@saebomcard.example.com,park05@saebomcard.example.com,,02-4483-7272 | 【dy.park05@saebomcard.example.com】
+dlp,D0160,오탐,phone_number,,47,," 인사팀 안소연 (내선 56【47】, sy.ahn20@saeb"
+dlp,D0162,경계 오류,email,yr.park76@saebomcard.example.com,yr.,,"(02-3964-4249, 【yr.park76@saebomcard.example.com】)   을: 손하은 책임 ("
+dlp,D0162,경계 오류,email,he.son44@codebridge.example.com,he.,,"010-0288-0841, 【he.son44@codebridge.example.com】)  2026년 12월 1일"
+dlp,D0164,오탐,resident_registration_number,,147,, 접수번호: SB-2026-【147】65 상담일시: 2026년 
+dlp,D0166,경계 오류,email,jw.lee66@saebomcard.example.com,jw.,,02-3880-6413 | 【jw.lee66@saebomcard.example.com】
+dlp,D0168,미탐,phone_number,01002378230,,, 변경 항목 - 휴대전화: 【01002378230】 → 010-0922-903
+dlp,D0174,미탐,phone_number,01009731213,,, 정지 2. 고객 휴대전화(【01009731213】)로 확인 전화 → 정하은 
+dlp,D0175,미탐,phone_number,01009229038,,, 정지 2. 고객 휴대전화(【01009229038】)로 확인 전화 → 정하은 
+dlp,D0178,오탐,address,,여의도지,,상담 채널: 영업점 방문 (【여의도지】점) 담당자: 박도윤 과장 
+dlp,D0178,오탐,phone_number,,69,, 박도윤 과장 / 내선 73【69】  1. 고객 정보 - 성명
+dlp,D0179,경계 오류,email,dy.park05@saebomcard.example.com,dy.,,"(02-4483-7272, 【dy.park05@saebomcard.example.com】)   을: 손하은 책임 ("
+dlp,D0179,경계 오류,email,he.son44@codebridge.example.com,he.,,"010-0288-0841, 【he.son44@codebridge.example.com】)  2026.12.24  "
+dlp,D0187,라벨 오류(→resident_registration_number),phone_number,01008327183,01008327183,, 변경 항목 - 휴대전화: 【01008327183】 → 010-0552-566
+dlp,D0189,오탐,address,,해오름마트,,3-7740  새벽 시간대 【해오름마트】에서 소액 결제가 반복되어 
+dlp,D0191,오탐,address,,해오름마트,,2-9038  새벽 시간대 【해오름마트】에서 소액 결제가 반복되어 
+dlp,D0195,경계 오류,person,윤서,윤서야,,"026-05-28 이준우: 【윤서】야, 오늘 회의 자료 어디 "
+dlp,D0203,오탐,phone_number,,1599-0000,, 문의는 고객센터 대표번호 【1599-0000】으로 안내함.
+dlp,D0206,오탐,address,,강남,,상담 채널: 영업점 방문 (【강남】지점) 담당자: 박도윤 과장
+dlp,D0206,오탐,phone_number,,12,, 박도윤 과장 / 내선 61【12】  1. 고객 정보 - 성명
+dlp,D0207,오탐,resident_registration_number,,6-54128,,발급 접수번호: SB-202【6-54128】 상담일시: 2026-07-
+dlp,D0210,라벨 오류(→resident_registration_number),phone_number,01008073978,010,,", 급한 건은 제 휴대전화 【01008073978】로 연락 주세요.  박예린 "
+dlp,D0210,경계 오류,email,yr.park76@saebomcard.example.com,park76@saebomcard.example.com,,02-3964-4249 | 【yr.park76@saebomcard.example.com】
+dlp,D0211,경계 오류,email,dy.park05@saebomcard.example.com,park05@saebomcard.example.com,,02-4483-7272 | 【dy.park05@saebomcard.example.com】
+dlp,D0215,경계 오류,email,dy.park05@saebomcard.example.com,park05@saebomcard.example.com,,02-4483-7272 | 【dy.park05@saebomcard.example.com】
+dlp,D0216,미탐,phone_number,01001290753,,, 정성호: 그 고객 연락처 【01001290753】 맞지? 내가 오후에 전화해
+dlp,D0219,미탐,phone_number,01009229038,,,팀 이상훈 고객: 정하은 (【01009229038】)  연체 내역: 카드 대금
+dlp,D0220,오탐,phone_number,,1599-0000,, 문의는 고객센터 대표번호 【1599-0000】으로 안내함.
+dlp,D0221,경계 오류,email,jw.lee66@saebomcard.example.com,jw.,,02 3880 6413 | 【jw.lee66@saebomcard.example.com】
+dlp,D0222,미탐,phone_number,01001144332,,,: 신승현  김 수빈 고객(【01001144332】)이 기존 새봄 사업자 운영
+dlp,D0223,경계 오류,email,jw.lee66@saebomcard.example.com,jw.,,02 3880 6413 | 【jw.lee66@saebomcard.example.com】
+dlp,D0226,경계 오류,person,서현,서현아,,"6년 7월 25일 신승현: 【서현】아, 오늘 회의 자료 어디 "
+dlp,D0229,라벨 오류(→email),phone_number,0239644249,02,," 갑: IT운영팀 박예린 (【0239644249】, yr.park76@sae"
+dlp,D0229,경계 오류,phone_number,010-0564-4438,-0564-4438,,"   을: 오다은 매니저 (【010-0564-4438】, de.oh90@datao"
+dlp,D0230,미탐,phone_number,01008635562,,, 정지 2. 고객 휴대전화(【01008635562】)로 확인 전화 → 박민재 
+dlp,D0234,오탐,phone_number,,1599-0000,, 문의는 고객센터 대표번호 【1599-0000】으로 안내함.
+dlp,D0237,오탐,address,,여의도지점,,상담 채널: 영업점 방문 (【여의도지점】) 담당자: 김은영 대리 /
+dlp,D0237,오탐,phone_number,,28,, 김은영 대리 / 내선 57【28】  1. 고객 정보 - 성명
+dlp,D0238,오탐,phone_number,,5968,,"의: 인사팀 안소연 (내선 【5968】, sy.ahn20@saeb"
+dlp,D0240,미탐,phone_number,01005646078,,, 민원인: 노성호 (연락처 【01005646078】) 처리 담당: 고객보호팀 
+dlp,D0240,미탐,phone_number,01005646078,,,으로 확인됨. 변경된 번호 【01005646078】 반영이 시스템에서 지연된 
+dlp,D0241,미탐,phone_number,01009579616,,,팀 이상훈 고객: 오서연 (【01009579616】)  연체 내역: 카드 대금
+dlp,D0244,경계 오류,email,dy.park05@saebomcard.example.com,park05@saebomcard.example.com,,02 4483 7272 | 【dy.park05@saebomcard.example.com】
+dlp,D0248,오탐,resident_registration_number,,83,,수번호: SB-2026-99【83】8 상담일시: 2026-02
+dlp,D0249,오탐,phone_number,,1599-0000,, 문의는 고객센터 대표번호 【1599-0000】으로 안내함.
+dlp,D0250,오탐,resident_registration_number,,-2026-19127,, 및 재발급 접수번호: SB【-2026-19127】 상담일시: 2026년 8월
+dlp,D0259,오탐,phone_number,,1599-0000,, 문의는 고객센터 대표번호 【1599-0000】으로 안내함.
+dlp,D0264,오탐,phone_number,,3464,,"의: 인사팀 안소연 (내선 【3464】, sy.ahn20@saeb"
+dlp,D0265,오탐,address,,강남,,상담 채널: 영업점 방문 (【강남】지점) 담당자: 신승현 과장
+dlp,D0265,오탐,phone_number,,54,, 신승현 과장 / 내선 65【54】  1. 고객 정보 - 성명
+dlp,D0266,경계 오류,person,전 서윤,서윤,,3:08 상담원: 신승현  【전 서윤】 고객(010-0863-10
+dlp,D0268,경계 오류,person,서현,서현아,,"26년 8월 4일 남성호: 【서현】아, 오늘 회의 자료 어디 "
+dlp,D0268,미탐,phone_number,01006387486,,, 남성호: 그 고객 연락처 【01006387486】 맞지? 내가 오후에 전화해
+dlp,D0274,라벨 오류(→email),phone_number,0239611452,02,," 갑: IT운영팀 최혜진 (【0239611452】, hj.choi34@sae"
+dlp,D0274,경계 오류,phone_number,010-0664-0224,-0664-0224,,"   을: 신현준 매니저 (【010-0664-0224】, hj.shin40@das"
+dlp,D0283,경계 오류,email,hj.choi34@saebomcard.example.com,hj.,,02-3961-1452 | 【hj.choi34@saebomcard.example.com】
+dlp,D0284,경계 오류,person,도윤,도윤아,,"6년 5월 25일 신승현: 【도윤】아, 오늘 회의 자료 어디 "
+dlp,D0287,경계 오류,phone_number,010 0946 2330,0946 2330,,")   을: 강민재 책임 (【010 0946 2330】, mj.kang35@mir"
+dlp,D0288,오탐,phone_number,,1599-0000,, 문의는 고객센터 대표번호 【1599-0000】으로 안내함.
+dlp,D0289,라벨 오류(→email),phone_number,0238806413,02,," 갑: IT운영팀 이준우 (【0238806413】, jw.lee66@saeb"
+dlp,D0289,경계 오류,phone_number,010-0668-3937,-0668-3937,,")   을: 김영호 책임 (【010-0668-3937】, yh.kim63@data"
+dlp,D0290,오탐,resident_registration_number,,35,,수번호: SB-2026-50【35】2 상담일시: 2026년 9
+dlp,D0291,경계 오류,phone_number,010 0400 5262,0400 5262,,")   을: 이서연 책임 (【010 0400 5262】, sy.lee70@mirs"
+dlp,D0291,경계 오류,email,sy.lee70@mirsec.example.com,sy.,,"010 0400 5262, 【sy.lee70@mirsec.example.com】)  2026.10.06  "
+dlp,D0294,경계 오류,email,sy.kwon95@mirsec.example.com,sy.,,"010-0430-9891, 【sy.kwon95@mirsec.example.com】)  2026년 11월 13"

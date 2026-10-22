@@ -1,0 +1,5 @@
+﻿system,doc_id,error_type,label,gold_text,pred_text,confidence,context
+hybrid_veil,D0018,오탐,person,,하린,,신상품 출시 안내: 【하린】 포인트 카드 출시일: 20
+hybrid_veil,D0018,오탐,person,,하린,,: 2026년 1월 5일  【하린】 포인트 카드는 여행과 일상
+hybrid_veil,D0061,오탐,person,,봄날,,86-5072 카드 상품: 【봄날】 체크카드 카드번호: 941
+hybrid_veil,D0082,오탐,person,,미르,,"시스템 테스트 일정 협의  【미르】보안 권선영 매니저님께,  "

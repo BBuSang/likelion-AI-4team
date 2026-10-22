@@ -1,0 +1,314 @@
+﻿doc_id,label,gold_text,caught_by,context
+D0101,person,허수아,veil|seongyeon|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,09 보고자: 리스크관리팀 【허수아】  탐지 내용 정하은 고객 
+D0101,person,정하은,veil|seongyeon|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,관리팀 허수아  탐지 내용 【정하은】 고객 명의 카드(9410-
+D0101,card_number,9410-7868-1447-3945,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,용 정하은 고객 명의 카드(【9410-7868-1447-3945】)로 새벽 05:56에 해외
+D0101,person,정하은,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,1213)로 확인 전화 → 【정하은】 고객 본인이 결제하지 않았
+D0101,person,이소율,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,턴이 늘고 있어 카드운영팀 【이소율】 차장에게 탐지 규칙 보완을
+D0102,card_number,9410-0576-6270-2894,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 인증으로 진행. 카드번호 【9410-0576-6270-2894】 분실 등록 후 정지 처리했
+D0103,person,남성호,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,1. 승진 - 디지털전략팀 【남성호】 - IT운영팀 이준우  2
+D0103,person,이소율,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,팀 이준우  2. 전보 - 【이소율】 차장: 카드운영팀 → 리스
+D0103,person,허수아,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,운영팀 → 리스크관리팀 - 【허수아】 부장: 리스크관리팀 → 디
+D0105,resident_registration_number,000219-3665075,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 본인 확인: 주민등록번호 【000219-3665075】 / 신분증 대조 완료  변
+D0105,person,정우진,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,안내 문자는 모두 취소함. 【정우진】은 결제일 변경도 원했으나 
+D0106,resident_registration_number,770210-2428238,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 손하윤 - 주민등록번호: 【770210-2428238】 - 휴대전화: 010-07
+D0106,person,허수아,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,서류 제출 후 리스크관리팀 【허수아】 부장에게 심사를 요청하기로
+D0107,account_number,890-710169-52,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,드 대금이 온누리은행 계좌(【890-710169-52】)에서 두 번 출금되었다고 
+D0108,person,이소율,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard," 박예린(팀장), 김은영, 【이소율】, 김영호(데이터온시스템즈)"
+D0108,person,김영호,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,"팀장), 김은영, 이소율, 【김영호】(데이터온시스템즈) 작성자:"
+D0108,person,김영호,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,함. 2. 데이터온시스템즈 【김영호】 책임은 시스템 이관 일정이
+D0108,person,이소율,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 수 있다고 보고함. 3. 【이소율】은 고객 안내 문자 발송 시
+D0109,phone_number,02.3880.6413,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard," 갑: IT운영팀 이준우 (【02.3880.6413】, jw.lee66@saeb"
+D0109,person,문은정,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,mple.com)   을: 【문은정】 매니저 (010-0561-
+D0109,person,허하은,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 을: 코드브릿지 대표이사 【허하은】
+D0110,person,이상훈,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,9:15 담당: 채권관리팀 【이상훈】 고객: 노성호 (010-0
+D0110,account_number,763-166287-91,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,금요일까지 온누리은행 계좌(【763-166287-91】)에서 납부하겠다고 약속함.
+D0113,person,김수빈,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,유 폴더에 올려놨어. 근데 【김수빈】 고객 건은 아직 정리 못 
+D0113,phone_number,01001144332,veil|seongyeon|kpf|atonlee|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 박도윤: 그 고객 연락처 【01001144332】 맞지? 내가 오후에 전화해
+D0113,person,은영,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,서 달래 박도윤: 알겠어. 【은영】이랑 같이 정리해서 올릴게
+D0116,resident_registration_number,751126-2236007,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 본인 확인: 주민등록번호 【751126-2236007】 / 신분증 대조 완료  변
+D0116,person,최채원,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,안내 문자는 모두 취소함. 【최채원】은 결제일 변경도 원했으나 
+D0117,person,남성호,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,1. 승진 - 디지털전략팀 【남성호】 - 정보보호팀 정서현  2
+D0118,person,이서연,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,mple.com)   을: 【이서연】 책임 (010-0400-5
+D0120,phone_number,01004309891,veil|seongyeon|kpf|atonlee|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard," 담당자: 권선영 매니저 (【01004309891】, sy.kwon95@mir"
+D0120,person,이 서연,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,요청했습니다. 관련 문의는 【이 서연】 과장에게 해주세요.
+D0121,resident_registration_number,710714-2443502,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 노나연 - 주민등록번호: 【710714-2443502】 - 휴대전화: 010-01
+D0121,person,허수아,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,서류 제출 후 리스크관리팀 【허수아】 부장에게 심사를 요청하기로
+D0121,account_number,493-585188-84,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,금 입금 계좌: 하늘빛은행 【493-585188-84】
+D0122,person,김영호,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,"부장), 신승현, 김은영, 【김영호】(데이터온시스템즈) 작성자:"
+D0122,person,김영호,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,함. 2. 데이터온시스템즈 【김영호】 책임은 시스템 이관 일정이
+D0122,person,김은영,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 수 있다고 보고함. 3. 【김은영】은 고객 안내 문자 발송 시
+D0123,person,이서연,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,"0-08  참석: 이윤서, 【이서연】, 이소율 불참: 신승현 ("
+D0123,person,이소율,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard," 참석: 이윤서, 이서연, 【이소율】 불참: 신승현 (연차)  "
+D0124,resident_registration_number,010621-4097209,veil|seongyeon|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 정하은 - 주민등록번호: 【010621-4097209】 - 휴대전화: 010-09
+D0124,person,정하은,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 사무직  2. 상담 내용 【정하은】 고객은 카드론 상품으로 1
+D0124,person,허수아,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,서류 제출 후 리스크관리팀 【허수아】 부장에게 심사를 요청하기로
+D0125,person,서연,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,"6년 7월 12일 이준우: 【서연】아, 오늘 회의 자료 어디 "
+D0125,person,노성호,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,유 폴더에 올려놨어. 근데 【노성호】 고객 건은 아직 정리 못 
+D0125,person,현준,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,서 달래 이준우: 알겠어. 【현준】이랑 같이 정리해서 올릴게
+D0126,person,이주원,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,팀 박도윤 - 리스크관리팀 【이주원】  2. 전보 - 김은영 대
+D0128,resident_registration_number,770210-2428238,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 본인 확인: 주민등록번호 【770210-2428238】 / 신분증 대조 완료  변
+D0128,person,손하윤,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,안내 문자는 모두 취소함. 【손하윤】은 결제일 변경도 원했으나 
+D0129,card_number,9410-6853-6153-0511,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 프리미엄 카드 카드번호: 【9410-6853-6153-0511】  상담 내용 남궁다은 고객
+D0129,resident_registration_number,740318-2953203,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,실을 신고함. 주민등록번호 【740318-2953203】 및 등록 연락처로 본인 확
+D0130,account_number,514-121869-51,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 대금이 가람저축은행 계좌(【514-121869-51】)에서 두 번 출금되었다고 
+D0130,person,박 민재,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,0원은 당일 환급 처리함. 【박 민재】 고객은 재발 방지 대책을 
+D0132,person,이소율,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard," 21일  참석: 신승현, 【이소율】, 최지영 불참: 안소연 ("
+D0132,person,최지영,seongyeon|kpf|atonlee|dlp|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard," 참석: 신승현, 이소율, 【최지영】 불참: 안소연 (연차)  "
+D0132,person,최지영,seongyeon|kpf|atonlee|dlp|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,크립트 개정안 작성 중 - 【최지영】: 연체 고객 안내 문자 문
+D0132,person,안소연,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,토 요청 완료  공유 사항 【안소연】이 복귀하면 개인정보 처리방
+D0135,resident_registration_number,880120-2735847,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 본인 확인: 주민등록번호 【880120-2735847】 / 신분증 대조 완료  변
+D0135,person,김수빈,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,안내 문자는 모두 취소함. 【김수빈】은 결제일 변경도 원했으나 
+D0136,person,전서윤,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,mple.com로 발송함. 【전서윤】은 서류를 준비한 뒤 다시 
+D0137,person,소연,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,"026-11-05 최혜진: 【소연】아, 오늘 회의 자료 어디 "
+D0138,account_number,724-501126-89,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,드 대금이 하늘빛은행 계좌(【724-501126-89】)에서 두 번 출금되었다고 
+D0138,person,이 건우,veil|seongyeon|atonlee|dlp|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,0원은 당일 환급 처리함. 【이 건우】 고객은 재발 방지 대책을 
+D0139,person,이상훈,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,2:07 담당: 채권관리팀 【이상훈】 고객: 최채원 (01001
+D0139,phone_number,01001290753,veil|seongyeon|kpf|atonlee|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,팀 이상훈 고객: 최채원 (【01001290753】)  연체 내역: 카드 대금
+D0139,account_number,741-853629-72,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,금요일까지 온누리은행 계좌(【741-853629-72】)에서 납부하겠다고 약속함.
+D0141,person,이서연,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,"수 없어, 저희 정보보호팀 【이서연】 과장이 별도로 전달드릴 예"
+D0142,person,이상훈,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,3:00 담당: 채권관리팀 【이상훈】 고객: 정지호 (010-0
+D0142,account_number,107-314353-48,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,금요일까지 온누리은행 계좌(【107-314353-48】)에서 납부하겠다고 약속함.
+D0145,person,손하윤,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,mple.net로 발송함. 【손하윤】은 서류를 준비한 뒤 다시 
+D0146,person,이주원,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard," 참석자: 김은정(부장), 【이주원】, 조민준, 김영호(데이터온"
+D0146,person,이주원,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,데이터온시스템즈) 작성자: 【이주원】  논의 내용 1. 김 은정
+D0146,person,김영호,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,함. 2. 데이터온시스템즈 【김영호】 책임은 시스템 이관 일정이
+D0149,resident_registration_number,990413-1749631,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 이건우 - 주민등록번호: 【990413-1749631】 - 휴대전화: 010055
+D0149,phone_number,01005525661,veil|seongyeon|kpf|atonlee|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,749631 - 휴대전화: 【01005525661】 - 주소: 대전광역시 유성
+D0149,person,최혜진,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 서류 제출 후 IT운영팀 【최혜진】 차장에게 심사를 요청하기로
+D0151,person,정서연,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,1:16 담당: 채권관리팀 【정서연】 고객: 최채원 (010-0
+D0151,account_number,741-853629-72,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,요일까지 가람저축은행 계좌(【741-853629-72】)에서 납부하겠다고 약속함.
+D0152,phone_number,02.4483.7272,veil|seongyeon|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard," 갑: IT운영팀 박도윤 (【02.4483.7272】, dy.park05@sae"
+D0152,phone_number,01006640224,veil|seongyeon|kpf|atonlee|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,"   을: 신현준 매니저 (【01006640224】, hj.shin40@das"
+D0154,phone_number,01004309891,veil|seongyeon|kpf|atonlee|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard," 담당자: 권선영 매니저 (【01004309891】, sy.kwon95@mir"
+D0155,card_number,9410-3244-5107-6224,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 인증으로 진행. 카드번호 【9410-3244-5107-6224】 분실 등록 후 정지 처리했
+D0156,person,남성호,seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard," 10일  참석: 박하린, 【남성호】, 이주원 불참: 안소연 ("
+D0156,person,이주원,seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard," 참석: 박하린, 남성호, 【이주원】 불참: 안소연 (연차)  "
+D0156,person,남성호,seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 자동화 진행률 70% - 【남성호】: 고객 문의 응대 스크립트
+D0156,person,이주원,seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,크립트 개정안 작성 중 - 【이주원】: 연체 고객 안내 문자 문
+D0156,person,안소연,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,토 요청 완료  공유 사항 【안소연】이 복귀하면 개인정보 처리방
+D0157,person,최지영,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard," 정성호(부장), 정서현, 【최지영】, 오다은(데이터온시스템즈)"
+D0157,person,오다은,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,"부장), 정서현, 최지영, 【오다은】(데이터온시스템즈) 작성자:"
+D0157,person,오다은,veil|seongyeon|kpf|atonlee|dlp|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,함. 2. 데이터온시스템즈 【오다은】 매니저는 시스템 이관 일정
+D0157,person,최지영,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 수 있다고 보고함. 3. 【최지영】은 고객 안내 문자 발송 시
+D0159,person,이상훈,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,3:00 담당: 채권관리팀 【이상훈】 고객: 남궁다은 (010 
+D0159,account_number,127-535050-16,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,금요일까지 온누리은행 계좌(【127-535050-16】)에서 납부하겠다고 약속함.
+D0160,person,이은서,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,팀 박예린  2. 전보 - 【이은서】 대리: 디지털전략팀 → 리
+D0161,person,이상훈,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,2:10 담당: 채권관리팀 【이상훈】 고객: 황보지영 (010-
+D0161,account_number,213-913875-46,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,요일까지 가람저축은행 계좌(【213-913875-46】)에서 납부하겠다고 약속함.
+D0162,person,손하은,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,mple.com)   을: 【손하은】 책임 (010-0288-0
+D0163,person,박하린,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 1. 승진 - 정보보호팀 【박하린】 - 인사팀 전경희  2. 
+D0163,person,이은서,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,팀 전경희  2. 전보 - 【이은서】 대리: 디지털전략팀 → 리
+D0164,card_number,9410-4527-1111-6153,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,결 플러스 카드 카드번호: 【9410-4527-1111-6153】  상담 내용 정우진 고객이
+D0164,resident_registration_number,000219-3665075,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,실을 신고함. 주민등록번호 【000219-3665075】 및 등록 연락처로 본인 확
+D0166,person,박하린,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,"수 없어, 저희 정보보호팀 【박하린】 과장이 별도로 전달드릴 예"
+D0167,card_number,9410-8091-3431-6113,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,린 포인트 카드 카드번호: 【9410-8091-3431-6113】  상담 내용 최채원 고객이
+D0167,person,최채원,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,31-6113  상담 내용 【최채원】 고객이 오늘 오전 지갑을 
+D0167,resident_registration_number,751126-2236007,veil|seongyeon|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,실을 신고함. 주민등록번호 【751126-2236007】 및 등록 연락처로 본인 확
+D0168,resident_registration_number,010621-4097209,veil|seongyeon|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 본인 확인: 주민등록번호 【010621-4097209】 / 신분증 대조 완료  변
+D0168,phone_number,01002378230,veil|seongyeon|kpf|atonlee|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 변경 항목 - 휴대전화: 【01002378230】 → 010-0922-903
+D0168,person,정하은,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,안내 문자는 모두 취소함. 【정하은】은 결제일 변경도 원했으나 
+D0174,person,허수아,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,57 보고자: 리스크관리팀 【허수아】  탐지 내용 정하은 고객 
+D0174,person,정하은,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,관리팀 허수아  탐지 내용 【정하은】 고객 명의 카드(9410-
+D0174,card_number,9410-7868-1447-3945,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,용 정하은 고객 명의 카드(【9410-7868-1447-3945】)로 새벽 02:29에 해외
+D0174,phone_number,01009731213,veil|seongyeon|kpf|atonlee|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 정지 2. 고객 휴대전화(【01009731213】)로 확인 전화 → 정하은 
+D0174,person,정하은,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,1213)로 확인 전화 → 【정하은】 고객 본인이 결제하지 않았
+D0175,person,허수아,veil|seongyeon|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,54 보고자: 리스크관리팀 【허수아】  탐지 내용 정하은 고객 
+D0175,person,정하은,veil|seongyeon|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,관리팀 허수아  탐지 내용 【정하은】 고객 명의 카드(9410-
+D0175,card_number,9410-2583-1323-7057,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,용 정하은 고객 명의 카드(【9410-2583-1323-7057】)로 새벽 02:29에 해외
+D0175,phone_number,01009229038,veil|seongyeon|kpf|atonlee|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 정지 2. 고객 휴대전화(【01009229038】)로 확인 전화 → 정하은 
+D0175,person,정하은,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,9038)로 확인 전화 → 【정하은】 고객 본인이 결제하지 않았
+D0175,person,이소율,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,턴이 늘고 있어 카드운영팀 【이소율】 차장에게 탐지 규칙 보완을
+D0176,person,서연,veil|seongyeon|kpf|atonlee|dlp|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,서 달래 김진우: 알겠어. 【서연】이랑 같이 정리해서 올릴게
+D0178,resident_registration_number,700308-1134741,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 박민재 - 주민등록번호: 【700308-1134741】 - 휴대전화: 010-08
+D0178,person,이소율,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 서류 제출 후 카드운영팀 【이소율】 차장에게 심사를 요청하기로
+D0178,account_number,514-121869-51,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,금 입금 계좌: 하늘빛은행 【514-121869-51】
+D0179,person,손하은,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,mple.com)   을: 【손하은】 책임 (010-0288-0
+D0179,person,허하은,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 을: 코드브릿지 대표이사 【허하은】
+D0182,person,이소율,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,전액 환불 및 사과 안내. 【이소율】 차장의 승인 후 2026년
+D0183,person,김민준,seongyeon|kpf|atonlee|dlp|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,늘 회의 자료 어디 있어? 【김민준】: 공유 폴더에 올려놨어. 
+D0183,person,오서연,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,유 폴더에 올려놨어. 근데 【오서연】 고객 건은 아직 정리 못 
+D0183,person,김민준,seongyeon|kpf|atonlee|dlp|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 내가 오후에 전화해 볼게 【김민준】: 응 부탁해. 아 그리고 
+D0183,person,윤서,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,서 달래 이은서: 알겠어. 【윤서】랑 같이 정리해서 올릴게
+D0184,person,이소율,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard," 허수아(부장), 정성호, 【이소율】, 이서연(미르보안) 작성자"
+D0184,person,허 수아,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 정성호  논의 내용 1. 【허 수아】 부장이 지난 분기 추진 현
+D0184,person,이서연,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,을 공유함. 2. 미르보안 【이서연】 책임은 시스템 이관 일정이
+D0184,person,이소율,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 수 있다고 보고함. 3. 【이소율】은 고객 안내 문자 발송 시
+D0186,person,이 승현,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,1:38 상담원: 신승현  【이 승현】 고객(010-0552-49
+D0187,resident_registration_number,990413-1749631,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 본인 확인: 주민등록번호 【990413-1749631】 / 신분증 대조 완료  변
+D0187,phone_number,01008327183,veil|seongyeon|kpf|atonlee|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 변경 항목 - 휴대전화: 【01008327183】 → 010-0552-566
+D0187,person,이건우,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,안내 문자는 모두 취소함. 【이건우】는 결제일 변경도 원했으나 
+D0188,person,이소율,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard," 참석: 허수아, 김은영, 【이소율】 불참: 최지영 (연차)  "
+D0188,person,허수아,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,참: 최지영 (연차)  - 【허수아】: 신규 카드 발급 심사 자
+D0188,person,이소율,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,크립트 개정안 작성 중 - 【이소율】: 연체 고객 안내 문자 문
+D0188,person,최지영,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,토 요청 완료  공유 사항 【최지영】이 복귀하면 개인정보 처리방
+D0189,person,이 주원,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,2026-02-15 담당: 【이 주원】 대상: 남궁다은 / 010
+D0190,person,김 수빈,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,0:16 상담원: 김은영  【김 수빈】 고객(010-0114-43
+D0191,person,이 주원,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,2026-10-12 담당: 【이 주원】 대상: 정하은 / 010-
+D0195,person,윤서,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,"026-05-28 이준우: 【윤서】야, 오늘 회의 자료 어디 "
+D0195,person,최채원,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,유 폴더에 올려놨어. 근데 【최채원】 고객 건은 아직 정리 못 
+D0197,resident_registration_number,990413-1749631,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 본인 확인: 주민등록번호 【990413-1749631】 / 신분증 대조 완료  변
+D0197,person,이건우,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,안내 문자는 모두 취소함. 【이건우】는 결제일 변경도 원했으나 
+D0198,account_number,816-409571-12,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,드 대금이 하늘빛은행 계좌(【816-409571-12】)에서 두 번 출금되었다고 
+D0199,person,이소율,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard," 참석자: 전경희(팀장), 【이소율】, 이은서, 문은정(코드브릿"
+D0199,person,이은서,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard," 전경희(팀장), 이소율, 【이은서】, 문은정(코드브릿지) 작성"
+D0199,person,문은정,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,"팀장), 이소율, 이은서, 【문은정】(코드브릿지) 작성자: 이소"
+D0199,person,문은정,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 공유함. 2. 코드브릿지 【문은정】 매니저는 시스템 이관 일정
+D0199,person,이은서,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 수 있다고 보고함. 3. 【이은서】는 고객 안내 문자 발송 시
+D0200,person,허수아,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard," 참석자: 박예린(팀장), 【허수아】, 이상훈, 손하은(코드브릿"
+D0200,person,이상훈,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard," 박예린(팀장), 허수아, 【이상훈】, 손하은(코드브릿지) 작성"
+D0200,person,손하은,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,"팀장), 허수아, 이상훈, 【손하은】(코드브릿지) 작성자: 허수"
+D0200,person,손하은,veil|seongyeon|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 공유함. 2. 코드브릿지 【손하은】 책임은 시스템 이관 일정이
+D0200,person,이상훈,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 수 있다고 보고함. 3. 【이상훈】은 고객 안내 문자 발송 시
+D0201,person,김민준,seongyeon|kpf|atonlee|dlp|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard," 참석자: 허수아(부장), 【김민준】, 이소율, 권선영(미르보안"
+D0201,person,이소율,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard," 허수아(부장), 김민준, 【이소율】, 권선영(미르보안) 작성자"
+D0201,person,권선영,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,"부장), 김민준, 이소율, 【권선영】(미르보안) 작성자: 김민준"
+D0201,person,김민준,seongyeon|kpf|atonlee|dlp|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,권선영(미르보안) 작성자: 【김민준】  논의 내용 1. 허 수아
+D0201,person,허 수아,veil|seongyeon|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 김민준  논의 내용 1. 【허 수아】 부장이 지난 분기 추진 현
+D0201,person,권선영,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,을 공유함. 2. 미르보안 【권선영】 매니저는 시스템 이관 일정
+D0201,person,이소율,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 수 있다고 보고함. 3. 【이소율】은 고객 안내 문자 발송 시
+D0203,card_number,9410-8091-3431-6113,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 인증으로 진행. 카드번호 【9410-8091-3431-6113】 분실 등록 후 정지 처리했
+D0204,person,이소율,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,"6년 3월 11일  참석: 【이소율】, 이준우, 최지영 불참: "
+D0204,person,최지영,seongyeon|kpf|atonlee|dlp|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard," 참석: 이소율, 이준우, 【최지영】 불참: 강민서 (연차)  "
+D0204,person,이소율,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,참: 강민서 (연차)  - 【이소율】: 신규 카드 발급 심사 자
+D0204,person,최지영,seongyeon|kpf|atonlee|dlp|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,크립트 개정안 작성 중 - 【최지영】: 연체 고객 안내 문자 문
+D0204,person,강민서,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,토 요청 완료  공유 사항 【강민서】가 복귀하면 개인정보 처리방
+D0205,person,이소율,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,"월 3일  참석: 이윤서, 【이소율】, 정서현 불참: 이은서 ("
+D0205,person,이은서,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,토 요청 완료  공유 사항 【이은서】가 복귀하면 개인정보 처리방
+D0206,resident_registration_number,770910-2393155,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 정하은 - 주민등록번호: 【770910-2393155】 - 휴대전화: 010-09
+D0206,person,정하은,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,디자이너  2. 상담 내용 【정하은】 고객은 새봄 직장인 신용대
+D0206,person,허수아,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,서류 제출 후 리스크관리팀 【허수아】 부장에게 심사를 요청하기로
+D0206,account_number,216-127172-33,veil|seongyeon|kpf|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 입금 계좌: 가람저축은행 【216-127172-33】
+D0207,card_number,9410-4599-1022-9010,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 봄날 체크카드 카드번호: 【9410-4599-1022-9010】  상담 내용 정은영 고객이
+D0207,resident_registration_number,931110-2059521,veil|seongyeon|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,실을 신고함. 주민등록번호 【931110-2059521】 및 등록 연락처로 본인 확
+D0208,person,강성호,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard," 최지영(팀장), 이상훈, 【강성호】, 손하은(코드브릿지) 작성"
+D0208,person,손하은,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,"팀장), 이상훈, 강성호, 【손하은】(코드브릿지) 작성자: 이상"
+D0208,person,손하은,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 공유함. 2. 코드브릿지 【손하은】 책임은 시스템 이관 일정이
+D0208,person,강성호,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 수 있다고 보고함. 3. 【강성호】는 고객 안내 문자 발송 시
+D0209,account_number,567-678043-28,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 대금이 가람저축은행 계좌(【567-678043-28】)에서 두 번 출금되었다고 
+D0209,person,오 서연,veil|seongyeon|kpf|atonlee|dlp|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,0원은 당일 환급 처리함. 【오 서연】 고객은 재발 방지 대책을 
+D0210,phone_number,01008073978,veil|seongyeon|kpf|atonlee|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,", 급한 건은 제 휴대전화 【01008073978】로 연락 주세요.  박예린 "
+D0216,person,최채원,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,유 폴더에 올려놨어. 근데 【최채원】 고객 건은 아직 정리 못 
+D0216,phone_number,01001290753,veil|seongyeon|kpf|atonlee|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 정성호: 그 고객 연락처 【01001290753】 맞지? 내가 오후에 전화해
+D0216,person,상훈,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,서 달래 정성호: 알겠어. 【상훈】이랑 같이 정리해서 올릴게
+D0217,person,최채원,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,유 폴더에 올려놨어. 근데 【최채원】 고객 건은 아직 정리 못 
+D0217,person,소연,veil|seongyeon|kpf|atonlee|dlp|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,서 달래 이서연: 알겠어. 【소연】이랑 같이 정리해서 올릴게
+D0219,person,이상훈,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,1:39 담당: 채권관리팀 【이상훈】 고객: 정하은 (01009
+D0219,phone_number,01009229038,veil|seongyeon|kpf|atonlee|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,팀 이상훈 고객: 정하은 (【01009229038】)  연체 내역: 카드 대금
+D0219,account_number,828-844031-99,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,금요일까지 하늘빛은행 계좌(【828-844031-99】)에서 납부하겠다고 약속함.
+D0220,card_number,9410-1277-9979-9555,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 인증으로 진행. 카드번호 【9410-1277-9979-9555】 분실 등록 후 정지 처리했
+D0222,person,김 수빈,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,2:09 상담원: 신승현  【김 수빈】 고객(01001144332
+D0222,phone_number,01001144332,veil|seongyeon|kpf|atonlee|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,: 신승현  김 수빈 고객(【01001144332】)이 기존 새봄 사업자 운영
+D0224,account_number,724-501126-89,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,드 대금이 온누리은행 계좌(【724-501126-89】)에서 두 번 출금되었다고 
+D0224,person,이 건우,veil|seongyeon|atonlee|dlp|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,0원은 당일 환급 처리함. 【이 건우】 고객은 재발 방지 대책을 
+D0226,person,서현,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,"6년 7월 25일 신승현: 【서현】아, 오늘 회의 자료 어디 "
+D0226,person,소율,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,서 달래 신승현: 알겠어. 【소율】이랑 같이 정리해서 올릴게
+D0227,person,소율,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,"년 12월 24일 최지영: 【소율】아, 오늘 회의 자료 어디 "
+D0229,phone_number,0239644249,veil|seongyeon|kpf|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard," 갑: IT운영팀 박예린 (【0239644249】, yr.park76@sae"
+D0230,person,허수아,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,54 보고자: 리스크관리팀 【허수아】  탐지 내용 박민재 고객 
+D0230,card_number,9410-2975-1613-6963,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,용 박민재 고객 명의 카드(【9410-2975-1613-6963】)로 새벽 01:18에 해외
+D0230,phone_number,01008635562,veil|seongyeon|kpf|atonlee|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 정지 2. 고객 휴대전화(【01008635562】)로 확인 전화 → 박민재 
+D0231,person,남성호,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,"사 12층 회의실 참석자: 【남성호】(부장), 허수아, 박준서,"
+D0231,person,김영호,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,함. 2. 데이터온시스템즈 【김영호】 책임은 시스템 이관 일정이
+D0231,person,박준서,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 수 있다고 보고함. 3. 【박준서】는 고객 안내 문자 발송 시
+D0233,account_number,567-678043-28,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 대금이 가람저축은행 계좌(【567-678043-28】)에서 두 번 출금되었다고 
+D0233,person,오 서연,veil|seongyeon|kpf|atonlee|dlp|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,0원은 당일 환급 처리함. 【오 서연】 고객은 재발 방지 대책을 
+D0234,card_number,9410-4527-1111-6153,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 인증으로 진행. 카드번호 【9410-4527-1111-6153】 분실 등록 후 정지 처리했
+D0237,resident_registration_number,770210-2428238,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 손하윤 - 주민등록번호: 【770210-2428238】 - 휴대전화: 010.07
+D0237,person,최혜진,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 서류 제출 후 IT운영팀 【최혜진】 차장에게 심사를 요청하기로
+D0238,person,허수아,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,터 김서준  2. 전보 - 【허수아】 부장: 리스크관리팀 → 리
+D0240,phone_number,01005646078,veil|seongyeon|kpf|atonlee|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 민원인: 노성호 (연락처 【01005646078】) 처리 담당: 고객보호팀 
+D0240,phone_number,01005646078,veil|seongyeon|kpf|atonlee|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,으로 확인됨. 변경된 번호 【01005646078】 반영이 시스템에서 지연된 
+D0240,person,허수아,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,전액 환불 및 사과 안내. 【허수아】 부장의 승인 후 2026-
+D0241,person,이상훈,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,0:10 담당: 채권관리팀 【이상훈】 고객: 오서연 (01009
+D0241,phone_number,01009579616,veil|seongyeon|kpf|atonlee|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,팀 이상훈 고객: 오서연 (【01009579616】)  연체 내역: 카드 대금
+D0241,account_number,567-678043-28,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,금요일까지 온누리은행 계좌(【567-678043-28】)에서 납부하겠다고 약속함.
+D0243,resident_registration_number,910910-1600362,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 본인 확인: 주민등록번호 【910910-1600362】 / 신분증 대조 완료  변
+D0243,person,전서윤,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,안내 문자는 모두 취소함. 【전서윤】은 결제일 변경도 원했으나 
+D0244,phone_number,02 4483 7272,veil|seongyeon|atonlee|dlp|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,박도윤 드림 IT운영팀 | 【02 4483 7272】 | dy.park05@sa
+D0245,person,허수아,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,호팀 최지영 팀장 검토자: 【허수아】 부장  [민원 요지] 민원
+D0245,person,허수아,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,전액 환불 및 사과 안내. 【허수아】 부장의 승인 후 2026-
+D0246,person,오서연,veil|seongyeon|atonlee|dlp|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,센터)  변경 요청 고객: 【오서연】 본인 확인: 주민등록번호 
+D0246,resident_registration_number,830628-1247274,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 본인 확인: 주민등록번호 【830628-1247274】 / 신분증 대조 완료  변
+D0246,person,오서연,veil|seongyeon|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,안내 문자는 모두 취소함. 【오서연】은 결제일 변경도 원했으나 
+D0248,card_number,9410-3410-3697-1176,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 봄날 체크카드 카드번호: 【9410-3410-3697-1176】  상담 내용 황보지영 고객
+D0248,resident_registration_number,661122-2112219,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,실을 신고함. 주민등록번호 【661122-2112219】 및 등록 연락처로 본인 확
+D0249,card_number,9410-0205-3950-2407,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 인증으로 진행. 카드번호 【9410-0205-3950-2407】 분실 등록 후 정지 처리했
+D0250,card_number,9410-2058-5277-2217,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 봄날 체크카드 카드번호: 【9410-2058-5277-2217】  상담 내용 김민준 고객이
+D0250,resident_registration_number,670410-1467898,veil|seongyeon|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,실을 신고함. 주민등록번호 【670410-1467898】 및 등록 연락처로 본인 확
+D0251,resident_registration_number,010621-4097209,veil|seongyeon|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 본인 확인: 주민등록번호 【010621-4097209】 / 신분증 대조 완료  변
+D0251,person,정하은,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,안내 문자는 모두 취소함. 【정하은】은 결제일 변경도 원했으나 
+D0253,person,이소율,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,확인 부탁드려요. 검토 후 【이소율】 차장님께 바로 올려 주셔도
+D0256,person,이소율,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,호팀 김은정 - 카드운영팀 【이소율】  2. 전보 - 최지영 팀
+D0256,person,이은서,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,보호팀 → 리스크관리팀 - 【이은서】 대리: 디지털전략팀 → 디
+D0257,person,정서연,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,9:24 담당: 채권관리팀 【정서연】 고객: 이건우 (010 0
+D0257,account_number,724-501126-89,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,요일까지 가람저축은행 계좌(【724-501126-89】)에서 납부하겠다고 약속함.
+D0258,person,허수아,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,"026-04-09  참석: 【허수아】, 이은서, 안소연 불참: "
+D0258,person,이은서,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,"4-09  참석: 허수아, 【이은서】, 안소연 불참: 박예린 ("
+D0258,person,허수아,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,참: 박예린 (연차)  - 【허수아】: 신규 카드 발급 심사 자
+D0258,person,이은서,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 자동화 진행률 70% - 【이은서】: 고객 문의 응대 스크립트
+D0258,person,안소연,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,크립트 개정안 작성 중 - 【안소연】: 연체 고객 안내 문자 문
+D0259,card_number,9410-1585-0643-1712,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 인증으로 진행. 카드번호 【9410-1585-0643-1712】 분실 등록 후 정지 처리했
+D0260,person,이상훈,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,1:43 담당: 채권관리팀 【이상훈】 고객: 손하윤 (010-0
+D0260,account_number,816-409571-12,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,요일까지 가람저축은행 계좌(【816-409571-12】)에서 납부하겠다고 약속함.
+D0261,person,이상훈,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,0:42 담당: 채권관리팀 【이상훈】 고객: 정하은 (010-0
+D0261,account_number,216-127172-33,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,금요일까지 온누리은행 계좌(【216-127172-33】)에서 납부하겠다고 약속함.
+D0263,account_number,828-844031-99,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,드 대금이 하늘빛은행 계좌(【828-844031-99】)에서 두 번 출금되었다고 
+D0263,person,정 하은,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,0원은 당일 환급 처리함. 【정 하은】 고객은 재발 방지 대책을 
+D0264,person,이상훈,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 1. 승진 - 채권관리팀 【이상훈】 - IT운영팀 이준우  2
+D0264,person,이주원,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,객센터 → 리스크관리팀 - 【이주원】 과장: 리스크관리팀 → 디
+D0265,resident_registration_number,661122-2112219,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,황보지영 - 주민등록번호: 【661122-2112219】 - 휴대전화: 010-06
+D0265,person,정성호,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,빙 서류 제출 후 고객센터 【정성호】 부장에게 심사를 요청하기로
+D0266,person,전 서윤,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,3:08 상담원: 신승현  【전 서윤】 고객(010-0863-10
+D0268,person,남성호,veil|seongyeon|atonlee|dlp|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,"저] 2026년 8월 4일 【남성호】: 서현아, 오늘 회의 자료"
+D0268,person,손유진,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,유 폴더에 올려놨어. 근데 【손유진】 고객 건은 아직 정리 못 
+D0268,phone_number,01006387486,veil|seongyeon|kpf|atonlee|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 남성호: 그 고객 연락처 【01006387486】 맞지? 내가 오후에 전화해
+D0268,person,남성호,veil|seongyeon|atonlee|dlp|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,님이 내일까지 보고서 달래 【남성호】: 알겠어. 민준이랑 같이 
+D0270,person,허수아,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,05 보고자: 리스크관리팀 【허수아】  탐지 내용 윤선영 고객 
+D0270,card_number,9410-1585-0643-1712,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,용 윤선영 고객 명의 카드(【9410-1585-0643-1712】)로 새벽 01:32에 해외
+D0271,person,허수아,veil|seongyeon|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,07 보고자: 리스크관리팀 【허수아】  탐지 내용 노성호 고객 
+D0271,person,노성호,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,관리팀 허수아  탐지 내용 【노성호】 고객 명의 카드(9410-
+D0271,card_number,9410-7461-2004-7110,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,용 노성호 고객 명의 카드(【9410-7461-2004-7110】)로 새벽 02:50에 해외
+D0271,person,노성호,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,6078)로 확인 전화 → 【노성호】 고객 본인이 결제하지 않았
+D0271,person,정성호,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,패턴이 늘고 있어 고객센터 【정성호】 부장에게 탐지 규칙 보완을
+D0272,person,이 서연,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,요청했습니다. 관련 문의는 【이 서연】 과장에게 해주세요.
+D0273,person,정성호,seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,"1-26  참석: 강민서, 【정성호】, 김하준 불참: 김서준 ("
+D0274,phone_number,0239611452,veil|seongyeon|kpf|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard," 갑: IT운영팀 최혜진 (【0239611452】, hj.choi34@sae"
+D0275,person,이 서연,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,요청했습니다. 관련 문의는 【이 서연】 과장에게 해주세요.
+D0276,card_number,9410-0576-6270-2894,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,린 포인트 카드 카드번호: 【9410-0576-6270-2894】  상담 내용 손유진 고객이
+D0276,person,손유진,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,70-2894  상담 내용 【손유진】 고객이 오늘 오전 지갑을 
+D0276,resident_registration_number,710228-2430656,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,실을 신고함. 주민등록번호 【710228-2430656】 및 등록 연락처로 본인 확
+D0277,person,이소율,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,토 요청 완료  공유 사항 【이소율】이 복귀하면 개인정보 처리방
+D0279,person,이소율,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 1. 승진 - 카드운영팀 【이소율】 - 디지털전략팀 이은서  
+D0279,person,이은서,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,팀 이소율 - 디지털전략팀 【이은서】  2. 전보 - 정서현 대
+D0280,person,허수아,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,29 보고자: 리스크관리팀 【허수아】  탐지 내용 김수연 고객 
+D0280,card_number,9410-1771-1592-1249,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,용 김수연 고객 명의 카드(【9410-1771-1592-1249】)로 새벽 02:35에 해외
+D0281,person,이주원,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,36 보고자: 리스크관리팀 【이주원】  탐지 내용 이선우 고객 
+D0281,card_number,9410-5149-3689-9806,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,용 이선우 고객 명의 카드(【9410-5149-3689-9806】)로 새벽 02:40에 해외
+D0282,card_number,9410-3322-1418-8805,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,온 트래블 카드 카드번호: 【9410-3322-1418-8805】  상담 내용 이재원 고객이
+D0282,person,이재원,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,18-8805  상담 내용 【이재원】 고객이 오늘 오전 지갑을 
+D0282,resident_registration_number,730418-1313487,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,실을 신고함. 주민등록번호 【730418-1313487】 및 등록 연락처로 본인 확
+D0283,person,오다은,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,"정 협의  데이터온시스템즈 【오다은】 매니저님께,  안녕하세요,"
+D0284,person,도윤,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,"6년 5월 25일 신승현: 【도윤】아, 오늘 회의 자료 어디 "
+D0284,person,은서,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,서 달래 신승현: 알겠어. 【은서】랑 같이 정리해서 올릴게
+D0285,person,남성호,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,호팀 최지영 팀장 검토자: 【남성호】 부장  [민원 요지] 민원
+D0285,person,남성호,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,전액 환불 및 사과 안내. 【남성호】 부장의 승인 후 2026-
+D0287,person,강민재,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,mple.com)   을: 【강민재】 책임 (010 0946 2
+D0287,person,이준서,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,준 을: 미르보안 대표이사 【이준서】
+D0288,card_number,9410-8091-3431-6113,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 인증으로 진행. 카드번호 【9410-8091-3431-6113】 분실 등록 후 정지 처리했
+D0289,phone_number,0238806413,veil|seongyeon|kpf|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard," 갑: IT운영팀 이준우 (【0238806413】, jw.lee66@saeb"
+D0290,card_number,9410-2474-5171-2369,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,린 포인트 카드 카드번호: 【9410-2474-5171-2369】  상담 내용 김수빈 고객이
+D0290,resident_registration_number,880120-2735847,veil|seongyeon|kpf|atonlee|dlp|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,실을 신고함. 주민등록번호 【880120-2735847】 및 등록 연락처로 본인 확
+D0291,person,이서연,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,mple.com)   을: 【이서연】 책임 (010 0400 5
+D0291,person,이준서,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,준 을: 미르보안 대표이사 【이준서】
+D0292,person,김진우,seongyeon|kpf|atonlee|dlp|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,"6년 12월 5일  참석: 【김진우】, 정성호, 이서연 불참: "
+D0292,person,정성호,seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,"월 5일  참석: 김진우, 【정성호】, 이서연 불참: 신승현 ("
+D0292,person,김진우,seongyeon|kpf|atonlee|dlp|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,참: 신승현 (연차)  - 【김진우】: 신규 카드 발급 심사 자
+D0294,phone_number,02 3964 4249,veil|seongyeon|atonlee|dlp|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard," 갑: IT운영팀 박예린 (【02 3964 4249】, yr.park76@sae"
+D0296,person,성호,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,"6년 4월 22일 김은영: 【성호】야, 오늘 회의 자료 어디 "
+D0298,person,이수아,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,"팀장), 김진우, 김서준, 【이수아】(다솜콜솔루션) 작성자: 김"
+D0298,person,김진우,seongyeon|kpf|atonlee|dlp|e5|bccard|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,아(다솜콜솔루션) 작성자: 【김진우】  논의 내용 1. 이 윤서
+D0298,person,이 윤서,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 김진우  논의 내용 1. 【이 윤서】 팀장이 지난 분기 추진 현
+D0298,person,이수아,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,공유함. 2. 다솜콜솔루션 【이수아】 책임은 시스템 이관 일정이
+D0298,person,김서준,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard, 수 있다고 보고함. 3. 【김서준】은 고객 안내 문자 발송 시
+D0300,person,정하은,veil|seongyeon|kpf|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,초안 보내드립니다. 민원인 【정하은】 고객 주소가 부산광역시 해
+D0300,person,허수아,veil|seongyeon|kpf|atonlee|dlp|e5|hybrid_veil|hybrid_seong|hybrid_kpf|hybrid_atonlee|hybrid_dlp|hybrid_e5|hybrid_bccard,확인 부탁드려요. 검토 후 【허수아】 부장님께 바로 올려 주셔도

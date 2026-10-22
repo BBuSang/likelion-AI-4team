@@ -1,0 +1,8 @@
+﻿label,rules_recall,rules_precision,veil_recall,veil_precision,seongyeon_recall,seongyeon_precision,llm_recall,llm_precision,hybrid_veil_recall,hybrid_veil_precision,hybrid_seong_recall,hybrid_seong_precision,hybrid_llm_recall,hybrid_llm_precision,hybrid_union_recall,hybrid_union_precision,hybrid_vote_recall,hybrid_vote_precision
+person,0.9497,1.0,0.9509,0.981,1.0,0.9927,0.9141,0.9987,0.9509,0.981,0.9509,0.9974,0.9509,0.9974,0.9509,0.981,0.9509,0.9974
+phone_number,1.0,1.0,1.0,0.8571,1.0,0.9282,0.9226,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+email,1.0,1.0,1.0,1.0,1.0,0.7207,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+address,1.0,1.0,1.0,0.875,1.0,0.9844,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+resident_registration_number,1.0,1.0,1.0,1.0,1.0,0.75,1.0,0.9643,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+account_number,1.0,1.0,1.0,1.0,1.0,0.9,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+card_number,1.0,1.0,1.0,1.0,1.0,0.9615,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0

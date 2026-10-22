@@ -1,0 +1,73 @@
+﻿doc_id,label,gold_text,caught_by,context
+D0007,person,승현,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,"026-08-04 김서연: 【승현】아, 오늘 회의 자료 어디 "
+D0007,person,은서,rules|veil|seongyeon|llm_v1|llm_v2|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,서 달래 김서연: 알겠어. 【은서】랑 같이 정리해서 올릴게
+D0009,person,지영,rules|veil|seongyeon|llm_v2|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,"6년 3월 13일 이윤서: 【지영】아, 오늘 회의 자료 어디 "
+D0009,person,소율,rules|veil|seongyeon|llm_v2|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,서 달래 이윤서: 알겠어. 【소율】이랑 같이 정리해서 올릴게
+D0012,person,박 예린,rules|veil|seongyeon|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote, 남성호  논의 내용 1. 【박 예린】 팀장이 지난 분기 추진 현
+D0012,person,소율,rules|veil|seongyeon|llm_v1|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,남 부장이 초안을 작성하고 【소율】 씨가 검토  다음 회의: 
+D0013,person,박준서,rules|seongyeon|llm_v1|llm_v2|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,"월 3일  참석: 김은영, 【박준서】, 김서연 불참: 이서연 ("
+D0014,person,허수아,rules|veil|seongyeon|llm_v2|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,확인 부탁드려요. 검토 후 【허수아】 부장님께 바로 올려 주셔도
+D0017,person,허수아,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,터 정성호  2. 전보 - 【허수아】 부장: 리스크관리팀 → 리
+D0021,person,오서연,rules|veil|seongyeon|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,010-0957-9616  【오서연】님께서 해외 출장 중 카드를
+D0022,person,노성호,rules|veil|seongyeon|llm_v1|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,mple.net로 발송함. 【노성호】는 서류를 준비한 뒤 다시 
+D0025,person,허수아,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,서류 제출 후 리스크관리팀 【허수아】 부장에게 심사를 요청하기로
+D0031,person,전 서윤,rules|veil|seongyeon|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,0원은 당일 환급 처리함. 【전 서윤】 고객은 재발 방지 대책을 
+D0032,person,이 서연,rules|veil|seongyeon|llm_v2|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,요청했습니다. 관련 문의는 【이 서연】 과장에게 해주세요.
+D0033,person,신승현,rules|veil|seongyeon|llm_v2|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,문 (해운대지점) 담당자: 【신승현】 과장 / 내선 2011  
+D0033,person,허수아,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,서류 제출 후 리스크관리팀 【허수아】 부장에게 심사를 요청하기로
+D0035,person,정성호,rules|veil|seongyeon|llm_v1|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,"사 12층 회의실 참석자: 【정성호】(부장), 이소율, 김서준,"
+D0035,person,정 성호,rules|veil|seongyeon|llm_v2|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote, 이소율  논의 내용 1. 【정 성호】 부장이 지난 분기 추진 현
+D0035,person,서준,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,이 차장이 초안을 작성하고 【서준】 씨가 검토  다음 회의: 
+D0038,person,전 서윤,rules|veil|seongyeon|llm_v1|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,0원은 당일 환급 처리함. 【전 서윤】 고객은 재발 방지 대책을 
+D0038,person,박예린,rules|veil|seongyeon|llm_v2|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,"을 요청하였고, IT운영팀 【박예린】 팀장에게 원인 분석을 의뢰"
+D0039,person,이소율,rules|veil|seongyeon|llm_v1|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,"사 12층 회의실 참석자: 【이소율】(차장), 강민서, 안소연,"
+D0039,person,이 소율,rules|veil|seongyeon|llm_v2|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote, 강민서  논의 내용 1. 【이 소율】 차장이 지난 분기 추진 현
+D0040,person,허수아,rules|veil|seongyeon|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,호팀 김은정 부장 검토자: 【허수아】 부장  [민원 요지] 민원
+D0040,person,허수아,rules|veil|seongyeon|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,전액 환불 및 사과 안내. 【허수아】 부장의 승인 후 2026년
+D0042,person,김민준,rules|seongyeon|llm_v1|llm_v2|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,"월 8일  참석: 이상훈, 【김민준】, 정성호 불참: 최혜진 ("
+D0042,person,정성호,rules|seongyeon|llm_v1|llm_v2|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote," 참석: 이상훈, 김민준, 【정성호】 불참: 최혜진 (연차)  "
+D0042,person,김민준,rules|seongyeon|llm_v1|llm_v2|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote, 자동화 진행률 70% - 【김민준】: 고객 문의 응대 스크립트
+D0042,person,정성호,rules|seongyeon|llm_v1|llm_v2|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,크립트 개정안 작성 중 - 【정성호】: 연체 고객 안내 문자 문
+D0044,person,오 서연,rules|veil|seongyeon|llm_v1|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,0원은 당일 환급 처리함. 【오 서연】 고객은 재발 방지 대책을 
+D0045,person,신승현,rules|veil|seongyeon|llm_v2|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,방문 (강남지점) 담당자: 【신승현】 과장 / 내선 4876  
+D0045,person,정성호,rules|veil|seongyeon|llm_v2|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,빙 서류 제출 후 고객센터 【정성호】 부장에게 심사를 요청하기로
+D0049,person,김수빈,rules|veil|seongyeon|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,mple.net로 발송함. 【김수빈】은 서류를 준비한 뒤 다시 
+D0050,person,이상훈,rules|veil|seongyeon|llm_v2|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,4:34 담당: 채권관리팀 【이상훈】 고객: 최채원 (010-0
+D0052,person,허수아,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,호팀 최지영 팀장 검토자: 【허수아】 부장  [민원 요지] 민원
+D0052,person,허수아,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,전액 환불 및 사과 안내. 【허수아】 부장의 승인 후 2026.
+D0053,person,신승현,rules|veil|seongyeon|llm_v2|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,문 (해운대지점) 담당자: 【신승현】 과장 / 내선 6865  
+D0054,person,정성호,rules|veil|seongyeon|llm_v2|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote, 3일 15:23 상담원: 【정성호】 (고객센터)  고객명: 오
+D0055,person,허수아,rules|veil|seongyeon|llm_v2|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,03 보고자: 리스크관리팀 【허수아】  탐지 내용 김민준 고객 
+D0057,person,최채원,rules|veil|seongyeon|llm_v1|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,mple.net로 발송함. 【최채원】은 서류를 준비한 뒤 다시 
+D0058,person,신승현,rules|veil|seongyeon|llm_v2|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,문 (해운대지점) 담당자: 【신승현】 과장 / 내선 3660  
+D0058,person,허수아,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,서류 제출 후 리스크관리팀 【허수아】 부장에게 심사를 요청하기로
+D0059,person,최 지영,rules|veil|seongyeon|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote, 최혜진  논의 내용 1. 【최 지영】 팀장이 지난 분기 추진 현
+D0059,person,준우,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,최 차장이 초안을 작성하고 【준우】 씨가 검토  다음 회의: 
+D0060,person,이건우,rules|veil|seongyeon|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,mple.com로 발송함. 【이건우】는 서류를 준비한 뒤 다시 
+D0062,person,정 서현,rules|veil|seongyeon|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,요청했습니다. 관련 문의는 【정 서현】 대리에게 해주세요.
+D0065,person,이승현,rules|veil|seongyeon|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,mple.net로 발송함. 【이승현】은 서류를 준비한 뒤 다시 
+D0067,phone_number,02-3961-1452,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,최혜진 드림 IT운영팀 | 【02-3961-1452】 | hj.choi34@sa
+D0068,phone_number,02.3961.1452,rules|veil|seongyeon|llm_v1|llm_v2|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote," 갑: IT운영팀 최혜진 (【02.3961.1452】, hj.choi34@sae"
+D0070,person,이 윤서,rules|veil|seongyeon|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote, 안소연  논의 내용 1. 【이 윤서】 팀장이 지난 분기 추진 현
+D0070,person,서현,rules|veil|seongyeon|llm_v1|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,안 대리가 초안을 작성하고 【서현】 씨가 검토  다음 회의: 
+D0076,person,허수아,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,32 보고자: 리스크관리팀 【허수아】  탐지 내용 이승현 고객 
+D0076,person,정성호,rules|veil|seongyeon|llm_v2|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,패턴이 늘고 있어 고객센터 【정성호】 부장에게 탐지 규칙 보완을
+D0077,person,손유진,rules|veil|seongyeon|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,010-0638-7486  【손유진】님께서 해외 출장 중 카드를
+D0078,person,진우,rules|veil|seongyeon|llm_v2|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote," 초안 검토 부탁드립니다  【진우】 씨, 안녕하세요. 어제 접"
+D0078,person,정성호,rules|veil|seongyeon|llm_v2|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,확인 부탁드려요. 검토 후 【정성호】 부장님께 바로 올려 주셔도
+D0078,person,최지영,rules|veil|seongyeon|llm_v2|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,로 올려 주셔도 됩니다.  【최지영】 드림
+D0081,person,김수연,rules|veil|seongyeon|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,010-0643-4831  【김수연】님께서 해외 출장 중 카드를
+D0082,phone_number,02-3880-6413,rules|veil|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,이준우 드림 IT운영팀 | 【02-3880-6413】 | jw.lee66@sae
+D0084,person,김하준,rules|veil|seongyeon|llm_v2|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,47 보고자: 리스크관리팀 【김하준】  탐지 내용 남궁다은 고객
+D0084,person,허수아,rules|veil|seongyeon|llm_v2|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,이 늘고 있어 리스크관리팀 【허수아】 부장에게 탐지 규칙 보완을
+D0085,person,정우진,rules|veil|seongyeon|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,010-0675-9202  【정우진】님께서 해외 출장 중 카드를
+D0086,phone_number,0244837272,rules|seongyeon|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,박도윤 드림 IT운영팀 | 【0244837272】 | dy.park05@sa
+D0088,person,이상훈,rules|veil|seongyeon|llm_v2|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,1:27 담당: 채권관리팀 【이상훈】 고객: 김수연 (01006
+D0091,person,최채원,rules|veil|seongyeon|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,010-0129-0753  【최채원】님께서 해외 출장 중 카드를
+D0093,person,노 성호,rules|veil|seongyeon|llm_v1|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,0원은 당일 환급 처리함. 【노 성호】 고객은 재발 방지 대책을 
+D0094,person,허 수아,rules|veil|seongyeon|llm_v2|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,2026-10-22 담당: 【허 수아】 대상: 오서연 / 010-
+D0096,person,이 서연,rules|veil|seongyeon|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,요청했습니다. 관련 문의는 【이 서연】 과장에게 해주세요.
+D0097,person,정성호,rules|veil|seongyeon|llm_v2|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,확인 부탁드려요. 검토 후 【정성호】 부장님께 바로 올려 주셔도
+D0098,person,신승현,rules|veil|seongyeon|llm_v2|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,문 (여의도지점) 담당자: 【신승현】 과장 / 내선 3415  
+D0099,person,최채원,rules|veil|seongyeon|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,010-0129-0753  【최채원】님께서 해외 출장 중 카드를
+D0100,person,남성호,rules|veil|seongyeon|llm_v2|llm|hybrid_veil|hybrid_seong|hybrid_llm|hybrid_union|hybrid_vote,확인 부탁드려요. 검토 후 【남성호】 부장님께 바로 올려 주셔도
