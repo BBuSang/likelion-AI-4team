@@ -1,0 +1,13 @@
+# 비밀값 (API 키, HMAC 키)
+.env
+
+# 실행 결과물
+outputs/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# 표에 안 쓰는 옛 파일 (로컬 보관용)
+archive/

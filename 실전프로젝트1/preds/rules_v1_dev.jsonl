@@ -1,0 +1,100 @@
+{"id": "D0001", "entities": [], "ms": 0.40840008296072483}
+{"id": "D0002", "entities": [{"label": "phone_number", "start": 61, "end": 72}, {"label": "email", "start": 221, "end": 242}], "ms": 0.039899954572319984}
+{"id": "D0003", "entities": [{"label": "resident_registration_number", "start": 103, "end": 117}, {"label": "account_number", "start": 368, "end": 381}, {"label": "phone_number", "start": 126, "end": 139}], "ms": 0.05039991810917854}
+{"id": "D0004", "entities": [], "ms": 0.02080004196614027}
+{"id": "D0005", "entities": [], "ms": 0.022300053387880325}
+{"id": "D0006", "entities": [], "ms": 0.023000058718025684}
+{"id": "D0007", "entities": [{"label": "phone_number", "start": 102, "end": 115}], "ms": 0.023699947632849216}
+{"id": "D0008", "entities": [], "ms": 0.01989991869777441}
+{"id": "D0009", "entities": [{"label": "phone_number", "start": 104, "end": 117}], "ms": 0.02310005947947502}
+{"id": "D0010", "entities": [], "ms": 0.021900050342082977}
+{"id": "D0011", "entities": [], "ms": 0.019700033590197563}
+{"id": "D0012", "entities": [], "ms": 0.03650004509836435}
+{"id": "D0013", "entities": [], "ms": 0.021999934688210487}
+{"id": "D0014", "entities": [], "ms": 0.02989999484270811}
+{"id": "D0015", "entities": [{"label": "email", "start": 180, "end": 212}], "ms": 0.027399975806474686}
+{"id": "D0016", "entities": [{"label": "resident_registration_number", "start": 78, "end": 92}, {"label": "phone_number", "start": 120, "end": 133}, {"label": "phone_number", "start": 136, "end": 149}, {"label": "email", "start": 217, "end": 237}], "ms": 0.040899962186813354}
+{"id": "D0017", "entities": [{"label": "email", "start": 181, "end": 212}], "ms": 0.02510007470846176}
+{"id": "D0018", "entities": [], "ms": 0.019300030544400215}
+{"id": "D0019", "entities": [{"label": "email", "start": 179, "end": 210}], "ms": 0.023699947632849216}
+{"id": "D0020", "entities": [], "ms": 0.019400031305849552}
+{"id": "D0021", "entities": [{"label": "card_number", "start": 173, "end": 192}, {"label": "phone_number", "start": 56, "end": 69}], "ms": 0.0342000275850296}
+{"id": "D0022", "entities": [{"label": "phone_number", "start": 59, "end": 72}, {"label": "email", "start": 216, "end": 236}], "ms": 0.031200004741549492}
+{"id": "D0023", "entities": [{"label": "resident_registration_number", "start": 78, "end": 92}, {"label": "phone_number", "start": 120, "end": 131}, {"label": "phone_number", "start": 134, "end": 147}, {"label": "email", "start": 215, "end": 236}], "ms": 0.037899939343333244}
+{"id": "D0024", "entities": [{"label": "email", "start": 180, "end": 211}], "ms": 0.02380006480962038}
+{"id": "D0025", "entities": [{"label": "resident_registration_number", "start": 102, "end": 116}, {"label": "account_number", "start": 378, "end": 391}, {"label": "phone_number", "start": 125, "end": 138}], "ms": 0.0447999918833375}
+{"id": "D0026", "entities": [], "ms": 0.021900050342082977}
+{"id": "D0027", "entities": [{"label": "resident_registration_number", "start": 77, "end": 91}, {"label": "phone_number", "start": 119, "end": 130}, {"label": "phone_number", "start": 133, "end": 144}, {"label": "email", "start": 208, "end": 227}], "ms": 0.036400044336915016}
+{"id": "D0028", "entities": [{"label": "phone_number", "start": 46, "end": 59}], "ms": 0.02189993392676115}
+{"id": "D0029", "entities": [{"label": "resident_registration_number", "start": 203, "end": 217}, {"label": "card_number", "start": 132, "end": 151}, {"label": "phone_number", "start": 97, "end": 108}], "ms": 0.04369998350739479}
+{"id": "D0030", "entities": [{"label": "account_number", "start": 137, "end": 150}, {"label": "phone_number", "start": 58, "end": 71}], "ms": 0.030399998649954796}
+{"id": "D0031", "entities": [{"label": "account_number", "start": 88, "end": 101}, {"label": "email", "start": 262, "end": 283}], "ms": 0.0315000070258975}
+{"id": "D0032", "entities": [{"label": "phone_number", "start": 139, "end": 152}, {"label": "email", "start": 154, "end": 186}], "ms": 0.03709993325173855}
+{"id": "D0033", "entities": [{"label": "resident_registration_number", "start": 101, "end": 115}, {"label": "account_number", "start": 368, "end": 381}, {"label": "phone_number", "start": 124, "end": 137}], "ms": 0.04349998198449612}
+{"id": "D0034", "entities": [{"label": "resident_registration_number", "start": 76, "end": 90}, {"label": "phone_number", "start": 118, "end": 131}, {"label": "phone_number", "start": 134, "end": 147}, {"label": "email", "start": 213, "end": 234}], "ms": 0.03750005271285772}
+{"id": "D0035", "entities": [], "ms": 0.031100003980100155}
+{"id": "D0036", "entities": [], "ms": 0.020600040443241596}
+{"id": "D0037", "entities": [{"label": "phone_number", "start": 77, "end": 90}, {"label": "phone_number", "start": 236, "end": 249}, {"label": "phone_number", "start": 271, "end": 284}], "ms": 0.04099996294826269}
+{"id": "D0038", "entities": [{"label": "account_number", "start": 88, "end": 101}, {"label": "email", "start": 261, "end": 282}], "ms": 0.031899893656373024}
+{"id": "D0039", "entities": [], "ms": 0.032100011594593525}
+{"id": "D0040", "entities": [{"label": "phone_number", "start": 78, "end": 89}, {"label": "phone_number", "start": 235, "end": 246}, {"label": "phone_number", "start": 269, "end": 280}], "ms": 0.04050007555633783}
+{"id": "D0041", "entities": [{"label": "phone_number", "start": 80, "end": 93}, {"label": "phone_number", "start": 239, "end": 252}, {"label": "phone_number", "start": 274, "end": 287}], "ms": 0.041599967516958714}
+{"id": "D0042", "entities": [], "ms": 0.021700048819184303}
+{"id": "D0043", "entities": [{"label": "phone_number", "start": 300, "end": 310}, {"label": "phone_number", "start": 359, "end": 370}, {"label": "email", "start": 312, "end": 343}, {"label": "email", "start": 372, "end": 403}], "ms": 0.0852999510243535}
+{"id": "D0044", "entities": [{"label": "account_number", "start": 85, "end": 98}, {"label": "email", "start": 261, "end": 280}], "ms": 0.03400002606213093}
+{"id": "D0045", "entities": [{"label": "resident_registration_number", "start": 101, "end": 115}, {"label": "account_number", "start": 367, "end": 380}, {"label": "phone_number", "start": 124, "end": 135}], "ms": 0.04429998807609081}
+{"id": "D0046", "entities": [], "ms": 0.02029992174357176}
+{"id": "D0047", "entities": [{"label": "phone_number", "start": 80, "end": 93}, {"label": "phone_number", "start": 239, "end": 252}, {"label": "phone_number", "start": 274, "end": 287}], "ms": 0.04390010144561529}
+{"id": "D0048", "entities": [{"label": "resident_registration_number", "start": 205, "end": 219}, {"label": "card_number", "start": 134, "end": 153}, {"label": "phone_number", "start": 97, "end": 110}], "ms": 0.04770001396536827}
+{"id": "D0049", "entities": [{"label": "phone_number", "start": 59, "end": 72}, {"label": "email", "start": 218, "end": 238}], "ms": 0.0320998951792717}
+{"id": "D0050", "entities": [{"label": "account_number", "start": 138, "end": 151}, {"label": "phone_number", "start": 58, "end": 71}], "ms": 0.0315000070258975}
+{"id": "D0051", "entities": [], "ms": 0.02280005719512701}
+{"id": "D0052", "entities": [{"label": "phone_number", "start": 77, "end": 90}, {"label": "phone_number", "start": 237, "end": 250}, {"label": "phone_number", "start": 272, "end": 285}], "ms": 0.04279997665435076}
+{"id": "D0053", "entities": [{"label": "resident_registration_number", "start": 101, "end": 115}, {"label": "account_number", "start": 361, "end": 374}, {"label": "phone_number", "start": 124, "end": 137}], "ms": 0.044899992644786835}
+{"id": "D0054", "entities": [{"label": "resident_registration_number", "start": 206, "end": 220}, {"label": "card_number", "start": 135, "end": 154}, {"label": "phone_number", "start": 98, "end": 111}], "ms": 0.04710000939667225}
+{"id": "D0055", "entities": [{"label": "card_number", "start": 77, "end": 96}, {"label": "phone_number", "start": 206, "end": 219}], "ms": 0.03909994848072529}
+{"id": "D0056", "entities": [{"label": "resident_registration_number", "start": 206, "end": 220}, {"label": "card_number", "start": 135, "end": 154}, {"label": "phone_number", "start": 97, "end": 110}], "ms": 0.04680000711232424}
+{"id": "D0057", "entities": [{"label": "phone_number", "start": 59, "end": 72}, {"label": "email", "start": 212, "end": 233}], "ms": 0.03200001083314419}
+{"id": "D0058", "entities": [{"label": "resident_registration_number", "start": 103, "end": 117}, {"label": "account_number", "start": 364, "end": 377}, {"label": "phone_number", "start": 126, "end": 137}], "ms": 0.04800001624971628}
+{"id": "D0059", "entities": [], "ms": 0.03590004052966833}
+{"id": "D0060", "entities": [{"label": "phone_number", "start": 59, "end": 72}, {"label": "email", "start": 220, "end": 240}], "ms": 0.031800009310245514}
+{"id": "D0061", "entities": [{"label": "resident_registration_number", "start": 205, "end": 219}, {"label": "card_number", "start": 134, "end": 153}, {"label": "phone_number", "start": 99, "end": 112}], "ms": 0.0467000063508749}
+{"id": "D0062", "entities": [{"label": "phone_number", "start": 139, "end": 152}, {"label": "email", "start": 154, "end": 181}], "ms": 0.03600004129111767}
+{"id": "D0063", "entities": [], "ms": 0.021699932403862476}
+{"id": "D0064", "entities": [{"label": "resident_registration_number", "start": 77, "end": 91}, {"label": "phone_number", "start": 119, "end": 132}, {"label": "phone_number", "start": 135, "end": 148}, {"label": "email", "start": 211, "end": 231}], "ms": 0.03900006413459778}
+{"id": "D0065", "entities": [{"label": "phone_number", "start": 59, "end": 72}, {"label": "email", "start": 218, "end": 238}], "ms": 0.031800009310245514}
+{"id": "D0066", "entities": [{"label": "resident_registration_number", "start": 205, "end": 219}, {"label": "card_number", "start": 134, "end": 153}, {"label": "phone_number", "start": 97, "end": 110}], "ms": 0.04939991049468517}
+{"id": "D0067", "entities": [{"label": "phone_number", "start": 256, "end": 269}, {"label": "phone_number", "start": 295, "end": 307}, {"label": "email", "start": 310, "end": 342}], "ms": 0.04130008164793253}
+{"id": "D0068", "entities": [{"label": "phone_number", "start": 297, "end": 309}, {"label": "phone_number", "start": 358, "end": 371}, {"label": "email", "start": 311, "end": 343}, {"label": "email", "start": 373, "end": 404}], "ms": 0.05319993942975998}
+{"id": "D0069", "entities": [], "ms": 0.022600055672228336}
+{"id": "D0070", "entities": [], "ms": 0.03309990279376507}
+{"id": "D0071", "entities": [], "ms": 0.021499930880963802}
+{"id": "D0072", "entities": [{"label": "phone_number", "start": 299, "end": 311}, {"label": "phone_number", "start": 359, "end": 372}, {"label": "email", "start": 313, "end": 344}, {"label": "email", "start": 374, "end": 405}], "ms": 0.05250005051493645}
+{"id": "D0073", "entities": [{"label": "phone_number", "start": 61, "end": 74}, {"label": "email", "start": 220, "end": 241}], "ms": 0.033100019209086895}
+{"id": "D0074", "entities": [], "ms": 0.021300045773386955}
+{"id": "D0075", "entities": [{"label": "account_number", "start": 133, "end": 146}, {"label": "phone_number", "start": 58, "end": 69}], "ms": 0.030399998649954796}
+{"id": "D0076", "entities": [{"label": "card_number", "start": 79, "end": 98}, {"label": "phone_number", "start": 208, "end": 221}], "ms": 0.036400044336915016}
+{"id": "D0077", "entities": [{"label": "card_number", "start": 173, "end": 192}, {"label": "phone_number", "start": 56, "end": 69}], "ms": 0.033100019209086895}
+{"id": "D0078", "entities": [], "ms": 0.020900042727589607}
+{"id": "D0079", "entities": [], "ms": 0.018600025214254856}
+{"id": "D0080", "entities": [{"label": "email", "start": 181, "end": 212}], "ms": 0.023000058718025684}
+{"id": "D0081", "entities": [{"label": "card_number", "start": 174, "end": 193}, {"label": "phone_number", "start": 57, "end": 70}], "ms": 0.032800016924738884}
+{"id": "D0082", "entities": [{"label": "phone_number", "start": 253, "end": 266}, {"label": "phone_number", "start": 292, "end": 304}, {"label": "email", "start": 307, "end": 338}], "ms": 0.03899994771927595}
+{"id": "D0083", "entities": [], "ms": 0.01880002673715353}
+{"id": "D0084", "entities": [{"label": "card_number", "start": 80, "end": 99}, {"label": "phone_number", "start": 209, "end": 220}], "ms": 0.036499928683042526}
+{"id": "D0085", "entities": [{"label": "card_number", "start": 173, "end": 192}, {"label": "phone_number", "start": 56, "end": 69}], "ms": 0.03370002377778292}
+{"id": "D0086", "entities": [{"label": "phone_number", "start": 252, "end": 265}, {"label": "phone_number", "start": 292, "end": 302}, {"label": "email", "start": 305, "end": 337}], "ms": 0.04079996142536402}
+{"id": "D0087", "entities": [], "ms": 0.02420006785541773}
+{"id": "D0088", "entities": [{"label": "account_number", "start": 134, "end": 147}, {"label": "phone_number", "start": 59, "end": 70}], "ms": 0.03250001464039087}
+{"id": "D0089", "entities": [{"label": "resident_registration_number", "start": 100, "end": 114}, {"label": "account_number", "start": 369, "end": 382}, {"label": "phone_number", "start": 123, "end": 136}], "ms": 0.04610000178217888}
+{"id": "D0090", "entities": [{"label": "phone_number", "start": 77, "end": 88}, {"label": "phone_number", "start": 234, "end": 247}, {"label": "phone_number", "start": 270, "end": 281}], "ms": 0.04329998046159744}
+{"id": "D0091", "entities": [{"label": "card_number", "start": 171, "end": 190}, {"label": "phone_number", "start": 54, "end": 67}], "ms": 0.03499991726130247}
+{"id": "D0092", "entities": [], "ms": 0.023799948394298553}
+{"id": "D0093", "entities": [{"label": "account_number", "start": 85, "end": 98}, {"label": "email", "start": 261, "end": 281}], "ms": 0.03470003139227629}
+{"id": "D0094", "entities": [{"label": "phone_number", "start": 46, "end": 59}], "ms": 0.024300068616867065}
+{"id": "D0095", "entities": [{"label": "resident_registration_number", "start": 208, "end": 222}, {"label": "card_number", "start": 137, "end": 156}, {"label": "phone_number", "start": 100, "end": 113}], "ms": 0.05179992876946926}
+{"id": "D0096", "entities": [{"label": "phone_number", "start": 141, "end": 154}, {"label": "email", "start": 156, "end": 183}], "ms": 0.038199941627681255}
+{"id": "D0097", "entities": [], "ms": 0.024099950678646564}
+{"id": "D0098", "entities": [{"label": "resident_registration_number", "start": 101, "end": 115}, {"label": "account_number", "start": 360, "end": 373}, {"label": "phone_number", "start": 124, "end": 137}], "ms": 0.04870002157986164}
+{"id": "D0099", "entities": [{"label": "card_number", "start": 173, "end": 192}, {"label": "phone_number", "start": 56, "end": 69}], "ms": 0.04099996294826269}
+{"id": "D0100", "entities": [], "ms": 0.02350006252527237}

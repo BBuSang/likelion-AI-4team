@@ -1,0 +1,989 @@
+{"id": "S084-08", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 36, "end": 52}], "ms": 2.580100088380277}
+{"id": "S081-11", "entities": [], "ms": 0.05100003909319639}
+{"id": "S083-12", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 49, "end": 62}], "ms": 0.9862000588327646}
+{"id": "S081-02", "entities": [{"label": "person", "start": 13, "end": 16}, {"label": "phone_number", "start": 101, "end": 114}], "ms": 0.9929999941959977}
+{"id": "S085-03", "entities": [{"label": "person", "start": 9, "end": 12}, {"label": "address", "start": 74, "end": 90}], "ms": 1.0195999639108777}
+{"id": "S084-16", "entities": [{"label": "person", "start": 6, "end": 9}, {"label": "person", "start": 22, "end": 25}], "ms": 1.0220999829471111}
+{"id": "S081-16", "entities": [{"label": "phone_number", "start": 74, "end": 87}], "ms": 0.04269997589290142}
+{"id": "S082-13", "entities": [{"label": "person", "start": 31, "end": 34}], "ms": 0.9602999780327082}
+{"id": "S083-10", "entities": [], "ms": 0.0347999157384038}
+{"id": "S083-02", "entities": [{"label": "person", "start": 11, "end": 14}, {"label": "email", "start": 59, "end": 82}], "ms": 1.0181000689044595}
+{"id": "S083-15", "entities": [{"label": "email", "start": 20, "end": 41}], "ms": 0.032400013878941536}
+{"id": "S083-17", "entities": [], "ms": 0.022300053387880325}
+{"id": "S084-17", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 19, "end": 47}, {"label": "phone_number", "start": 53, "end": 66}], "ms": 0.9680999210104346}
+{"id": "S081-20", "entities": [{"label": "person", "start": 3, "end": 6}], "ms": 0.9620999917387962}
+{"id": "S084-09", "entities": [{"label": "account_number", "start": 26, "end": 41}, {"label": "person", "start": 47, "end": 50}], "ms": 0.9586000815033913}
+{"id": "S084-05", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.9656000658869743}
+{"id": "S084-12", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.0337000712752342}
+{"id": "S084-20", "entities": [], "ms": 0.03029999788850546}
+{"id": "S084-01", "entities": [], "ms": 0.02650008536875248}
+{"id": "S084-06", "entities": [{"label": "person", "start": 4, "end": 7}], "ms": 1.043400028720498}
+{"id": "S083-19", "entities": [], "ms": 0.028699985705316067}
+{"id": "S085-16", "entities": [], "ms": 0.02510007470846176}
+{"id": "S085-06", "entities": [{"label": "person", "start": 6, "end": 9}, {"label": "address", "start": 79, "end": 100}, {"label": "email", "start": 117, "end": 141}], "ms": 1.0565000120550394}
+{"id": "S084-13", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 36, "end": 55}], "ms": 0.9552000556141138}
+{"id": "S083-03", "entities": [{"label": "person", "start": 8, "end": 11}], "ms": 0.6707001011818647}
+{"id": "S081-09", "entities": [{"label": "phone_number", "start": 57, "end": 70}], "ms": 0.0420999713242054}
+{"id": "S083-07", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "person", "start": 53, "end": 55}], "ms": 0.9489000076428056}
+{"id": "S085-02", "entities": [{"label": "person", "start": 6, "end": 9}, {"label": "address", "start": 72, "end": 88}, {"label": "phone_number", "start": 109, "end": 122}], "ms": 1.059599919244647}
+{"id": "S082-20", "entities": [{"label": "person", "start": 8, "end": 11}, {"label": "address", "start": 75, "end": 94}, {"label": "person", "start": 113, "end": 116}], "ms": 1.0019999463111162}
+{"id": "S083-13", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "person", "start": 58, "end": 61}], "ms": 1.886799931526184}
+{"id": "S084-11", "entities": [{"label": "account_number", "start": 11, "end": 23}], "ms": 0.026899971999228}
+{"id": "S083-11", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 29, "end": 47}], "ms": 0.9514999110251665}
+{"id": "S083-09", "entities": [], "ms": 0.030700000934302807}
+{"id": "S085-19", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 75, "end": 90}, {"label": "phone_number", "start": 100, "end": 113}, {"label": "email", "start": 115, "end": 132}], "ms": 0.9728999575600028}
+{"id": "S083-16", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 49, "end": 62}], "ms": 0.9509999072179198}
+{"id": "S085-08", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 58, "end": 77}], "ms": 1.0421000188216567}
+{"id": "S081-13", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 52, "end": 74}], "ms": 1.3162000104784966}
+{"id": "S083-06", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 66, "end": 79}], "ms": 2.1371999755501747}
+{"id": "S082-07", "entities": [{"label": "person", "start": 18, "end": 21}, {"label": "phone_number", "start": 104, "end": 116}], "ms": 1.056599896401167}
+{"id": "S081-19", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.7275999523699284}
+{"id": "S084-15", "entities": [], "ms": 0.023799948394298553}
+{"id": "S084-18", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 30, "end": 43}, {"label": "person", "start": 49, "end": 52}], "ms": 0.6840999703854322}
+{"id": "S084-02", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.0358000872656703}
+{"id": "S081-08", "entities": [{"label": "person", "start": 11, "end": 14}, {"label": "phone_number", "start": 82, "end": 95}], "ms": 1.0305000469088554}
+{"id": "S083-04", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.1241999454796314}
+{"id": "S074-07", "entities": [], "ms": 0.03670004662126303}
+{"id": "S072-03", "entities": [{"label": "card_number", "start": 75, "end": 94}], "ms": 0.06269989535212517}
+{"id": "S071-05", "entities": [{"label": "account_number", "start": 38, "end": 50}, {"label": "person", "start": 63, "end": 66}, {"label": "email", "start": 73, "end": 94}], "ms": 1.0694999946281314}
+{"id": "S073-18", "entities": [], "ms": 0.02929999027401209}
+{"id": "S075-02", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 43, "end": 62}], "ms": 1.0037000756710768}
+{"id": "S074-18", "entities": [], "ms": 0.023700064048171043}
+{"id": "S071-14", "entities": [{"label": "address", "start": 25, "end": 46}, {"label": "address", "start": 56, "end": 77}, {"label": "person", "start": 92, "end": 95}], "ms": 1.0018000612035394}
+{"id": "S071-03", "entities": [], "ms": 0.02380006480962038}
+{"id": "S074-05", "entities": [{"label": "email", "start": 32, "end": 53}], "ms": 0.02929999027401209}
+{"id": "S073-05", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 16, "end": 29}], "ms": 0.694700051099062}
+{"id": "S072-06", "entities": [], "ms": 0.03090000245720148}
+{"id": "S073-20", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 8, "end": 29}], "ms": 0.9747000876814127}
+{"id": "S073-14", "entities": [{"label": "phone_number", "start": 35, "end": 48}, {"label": "phone_number", "start": 54, "end": 67}], "ms": 0.03760005347430706}
+{"id": "S074-17", "entities": [{"label": "account_number", "start": 32, "end": 47}, {"label": "person", "start": 54, "end": 57}], "ms": 1.9660000689327717}
+{"id": "S072-04", "entities": [], "ms": 0.047600013203918934}
+{"id": "S071-02", "entities": [{"label": "card_number", "start": 78, "end": 97}, {"label": "email", "start": 117, "end": 138}], "ms": 0.057299970649182796}
+{"id": "S073-06", "entities": [{"label": "phone_number", "start": 49, "end": 62}], "ms": 0.03870006185024977}
+{"id": "S075-15", "entities": [{"label": "phone_number", "start": 24, "end": 37}, {"label": "phone_number", "start": 40, "end": 53}], "ms": 0.033199903555214405}
+{"id": "S072-11", "entities": [{"label": "phone_number", "start": 28, "end": 41}], "ms": 0.03270001616328955}
+{"id": "S071-04", "entities": [{"label": "person", "start": 34, "end": 37}, {"label": "phone_number", "start": 46, "end": 59}, {"label": "email", "start": 65, "end": 86}], "ms": 1.44289992749691}
+{"id": "S072-07", "entities": [{"label": "account_number", "start": 37, "end": 49}, {"label": "email", "start": 76, "end": 94}], "ms": 0.269399955868721}
+{"id": "S071-16", "entities": [{"label": "person", "start": 66, "end": 69}], "ms": 1.672400045208633}
+{"id": "S073-03", "entities": [{"label": "phone_number", "start": 12, "end": 25}], "ms": 0.04339998122304678}
+{"id": "S075-10", "entities": [], "ms": 0.041400082409381866}
+{"id": "S075-14", "entities": [{"label": "account_number", "start": 16, "end": 31}, {"label": "person", "start": 39, "end": 42}, {"label": "email", "start": 56, "end": 82}], "ms": 1.02830003015697}
+{"id": "S072-20", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "email", "start": 46, "end": 64}], "ms": 0.9981000330299139}
+{"id": "S073-08", "entities": [{"label": "account_number", "start": 38, "end": 52}], "ms": 0.040499959141016006}
+{"id": "S075-09", "entities": [], "ms": 0.028399983420968056}
+{"id": "S071-06", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 25, "end": 39}, {"label": "phone_number", "start": 66, "end": 79}], "ms": 1.0040999623015523}
+{"id": "S074-03", "entities": [{"label": "card_number", "start": 28, "end": 47}], "ms": 0.03270001616328955}
+{"id": "S072-18", "entities": [{"label": "resident_registration_number", "start": 51, "end": 65}, {"label": "phone_number", "start": 67, "end": 80}, {"label": "email", "start": 85, "end": 105}], "ms": 0.048200017772614956}
+{"id": "S071-10", "entities": [{"label": "address", "start": 18, "end": 46}, {"label": "address", "start": 50, "end": 75}], "ms": 0.04850002005696297}
+{"id": "S071-13", "entities": [], "ms": 0.023799948394298553}
+{"id": "S072-17", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 39, "end": 52}, {"label": "email", "start": 60, "end": 77}], "ms": 1.0780999436974525}
+{"id": "S074-08", "entities": [{"label": "resident_registration_number", "start": 15, "end": 29}], "ms": 0.03320001997053623}
+{"id": "S074-10", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "address", "start": 56, "end": 82}], "ms": 0.7051000138744712}
+{"id": "S074-02", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 23, "end": 36}], "ms": 0.9439999703317881}
+{"id": "S074-11", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 22, "end": 42}], "ms": 0.673700007610023}
+{"id": "S072-13", "entities": [{"label": "phone_number", "start": 64, "end": 77}, {"label": "address", "start": 82, "end": 98}], "ms": 0.04930002614855766}
+{"id": "S075-08", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 27, "end": 49}], "ms": 0.9622999932616949}
+{"id": "S073-17", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 23, "end": 51}], "ms": 0.9551000548526645}
+{"id": "S074-01", "entities": [], "ms": 0.021600048057734966}
+{"id": "S071-11", "entities": [], "ms": 0.03899994771927595}
+{"id": "S075-13", "entities": [], "ms": 0.023999949917197227}
+{"id": "S075-07", "entities": [{"label": "phone_number", "start": 28, "end": 41}, {"label": "person", "start": 49, "end": 52}], "ms": 0.9583000792190433}
+{"id": "S073-13", "entities": [{"label": "person", "start": 38, "end": 41}, {"label": "card_number", "start": 49, "end": 68}], "ms": 0.9675000328570604}
+{"id": "S072-02", "entities": [{"label": "email", "start": 36, "end": 55}, {"label": "phone_number", "start": 97, "end": 110}], "ms": 0.04579999949783087}
+{"id": "S073-02", "entities": [{"label": "person", "start": 15, "end": 18}], "ms": 0.9399000555276871}
+{"id": "S074-14", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 18, "end": 31}], "ms": 0.9553000563755631}
+{"id": "S073-09", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 30, "end": 49}], "ms": 1.2534999987110496}
+{"id": "S086-12", "entities": [{"label": "person", "start": 14, "end": 17}, {"label": "resident_registration_number", "start": 49, "end": 63}, {"label": "phone_number", "start": 74, "end": 87}], "ms": 2.8192000463604927}
+{"id": "S089-15", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 29, "end": 48}], "ms": 1.5083999605849385}
+{"id": "S088-02", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 57, "end": 76}], "ms": 1.042200019583106}
+{"id": "S086-19", "entities": [], "ms": 0.03560003824532032}
+{"id": "S086-17", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 38, "end": 52}], "ms": 1.0252000065520406}
+{"id": "S088-15", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 36, "end": 50}], "ms": 1.0242999996989965}
+{"id": "S086-11", "entities": [], "ms": 0.032800016924738884}
+{"id": "S088-06", "entities": [{"label": "email", "start": 52, "end": 71}], "ms": 0.03509991802275181}
+{"id": "S090-07", "entities": [], "ms": 0.026999972760677338}
+{"id": "S087-04", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 65, "end": 92}], "ms": 1.0014999425038695}
+{"id": "S088-20", "entities": [], "ms": 0.022699940018355846}
+{"id": "S087-14", "entities": [], "ms": 0.02589996438473463}
+{"id": "S086-20", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 45, "end": 59}, {"label": "phone_number", "start": 65, "end": 78}], "ms": 0.9733999613672495}
+{"id": "S089-02", "entities": [], "ms": 0.01810002140700817}
+{"id": "S089-04", "entities": [{"label": "email", "start": 4, "end": 23}], "ms": 0.03490003291517496}
+{"id": "S090-01", "entities": [{"label": "account_number", "start": 61, "end": 76}], "ms": 0.03430002834647894}
+{"id": "S089-14", "entities": [], "ms": 0.0198000343516469}
+{"id": "S087-01", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "account_number", "start": 79, "end": 93}, {"label": "person", "start": 106, "end": 109}, {"label": "phone_number", "start": 117, "end": 130}, {"label": "email", "start": 134, "end": 157}], "ms": 0.08100003469735384}
+{"id": "S086-02", "entities": [{"label": "phone_number", "start": 88, "end": 101}], "ms": 0.043899985030293465}
+{"id": "S087-18", "entities": [], "ms": 0.024799956008791924}
+{"id": "S090-18", "entities": [], "ms": 0.02410006709396839}
+{"id": "S087-05", "entities": [], "ms": 0.02580008003860712}
+{"id": "S089-20", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 38, "end": 52}], "ms": 0.9534999262541533}
+{"id": "S089-12", "entities": [], "ms": 0.0323000131174922}
+{"id": "S088-01", "entities": [{"label": "person", "start": 6, "end": 9}, {"label": "phone_number", "start": 48, "end": 61}], "ms": 0.9693000465631485}
+{"id": "S088-19", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 41, "end": 60}], "ms": 0.9641998913139105}
+{"id": "S086-06", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 46, "end": 61}], "ms": 0.9581999620422721}
+{"id": "S089-01", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.9344000136479735}
+{"id": "S089-09", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 44, "end": 57}], "ms": 0.9447999764233828}
+{"id": "S086-15", "entities": [], "ms": 0.02429995220154524}
+{"id": "S086-18", "entities": [{"label": "person", "start": 22, "end": 25}, {"label": "email", "start": 33, "end": 53}], "ms": 1.6512000001966953}
+{"id": "S087-13", "entities": [{"label": "person", "start": 40, "end": 43}, {"label": "card_number", "start": 50, "end": 69}], "ms": 1.2183000799268484}
+{"id": "S088-09", "entities": [], "ms": 0.04260009154677391}
+{"id": "S088-13", "entities": [{"label": "address", "start": 41, "end": 73}], "ms": 0.05110003985464573}
+{"id": "S087-19", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 53, "end": 67}, {"label": "account_number", "start": 80, "end": 94}], "ms": 1.123500056564808}
+{"id": "S087-02", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 54, "end": 73}], "ms": 1.1179998982697725}
+{"id": "S090-15", "entities": [{"label": "phone_number", "start": 57, "end": 70}], "ms": 0.03979995381087065}
+{"id": "S090-13", "entities": [], "ms": 0.02159993164241314}
+{"id": "S090-11", "entities": [{"label": "person", "start": 39, "end": 42}], "ms": 1.0429000249132514}
+{"id": "S086-04", "entities": [{"label": "phone_number", "start": 56, "end": 69}], "ms": 0.04070007707923651}
+{"id": "S089-18", "entities": [{"label": "email", "start": 4, "end": 21}], "ms": 0.028300099074840546}
+{"id": "S088-10", "entities": [{"label": "person", "start": 5, "end": 8}], "ms": 0.9766999864950776}
+{"id": "S088-05", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 19, "end": 32}], "ms": 0.966200022958219}
+{"id": "S087-03", "entities": [{"label": "account_number", "start": 40, "end": 54}], "ms": 0.03970006946474314}
+{"id": "S090-20", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 11, "end": 30}, {"label": "email", "start": 59, "end": 82}], "ms": 0.6937000434845686}
+{"id": "S089-03", "entities": [], "ms": 0.01989991869777441}
+{"id": "S090-16", "entities": [{"label": "person", "start": 7, "end": 10}], "ms": 0.9607999818399549}
+{"id": "S086-07", "entities": [], "ms": 0.03629992716014385}
+{"id": "S086-13", "entities": [], "ms": 0.02310005947947502}
+{"id": "S087-07", "entities": [], "ms": 0.031000003218650818}
+{"id": "S070-20", "entities": [{"label": "email", "start": 0, "end": 24}], "ms": 0.025000073947012424}
+{"id": "S069-11", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 13, "end": 32}], "ms": 0.9683000389486551}
+{"id": "S067-02", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 41, "end": 66}, {"label": "phone_number", "start": 70, "end": 83}], "ms": 0.9723999537527561}
+{"id": "S070-18", "entities": [], "ms": 0.02359994687139988}
+{"id": "S070-13", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 25, "end": 44}], "ms": 0.9501000167801976}
+{"id": "S069-01", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 12, "end": 36}], "ms": 0.9471999946981668}
+{"id": "S066-19", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 12, "end": 26}], "ms": 0.9440999710932374}
+{"id": "S066-13", "entities": [{"label": "person", "start": 18, "end": 21}, {"label": "card_number", "start": 33, "end": 52}], "ms": 0.9491000091657043}
+{"id": "S068-17", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 51, "end": 73}, {"label": "resident_registration_number", "start": 82, "end": 96}], "ms": 2.2735000820830464}
+{"id": "S068-07", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 25, "end": 38}], "ms": 2.145599923096597}
+{"id": "S068-08", "entities": [], "ms": 0.02929999027401209}
+{"id": "S066-02", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 61, "end": 74}], "ms": 0.7376000285148621}
+{"id": "S069-16", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 11, "end": 30}], "ms": 1.1247999500483274}
+{"id": "S070-07", "entities": [], "ms": 0.023399945348501205}
+{"id": "S067-03", "entities": [{"label": "person", "start": 6, "end": 9}], "ms": 0.9878999553620815}
+{"id": "S066-04", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 18, "end": 42}], "ms": 0.9790000040084124}
+{"id": "S068-05", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.9450999787077308}
+{"id": "S070-11", "entities": [{"label": "email", "start": 0, "end": 21}], "ms": 0.02859998494386673}
+{"id": "S069-17", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 22, "end": 38}], "ms": 0.9476999985054135}
+{"id": "S068-04", "entities": [], "ms": 0.019399914890527725}
+{"id": "S070-09", "entities": [], "ms": 0.023000058718025684}
+{"id": "S066-18", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 21, "end": 36}], "ms": 0.9522000327706337}
+{"id": "S066-15", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 21, "end": 40}, {"label": "address", "start": 50, "end": 68}], "ms": 1.8860999261960387}
+{"id": "S069-18", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 12, "end": 25}], "ms": 0.9390999330207705}
+{"id": "S066-10", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 18, "end": 31}], "ms": 0.9392999345436692}
+{"id": "S067-09", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "email", "start": 34, "end": 55}], "ms": 0.9529000381007791}
+{"id": "S069-14", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 13, "end": 26}], "ms": 0.030399998649954796}
+{"id": "S066-03", "entities": [], "ms": 0.02319994382560253}
+{"id": "S066-12", "entities": [], "ms": 0.022700056433677673}
+{"id": "S067-19", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 19, "end": 36}], "ms": 0.9652998996898532}
+{"id": "S067-16", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 22, "end": 42}, {"label": "phone_number", "start": 64, "end": 77}], "ms": 1.5917000127956271}
+{"id": "S068-09", "entities": [{"label": "account_number", "start": 35, "end": 51}], "ms": 0.04980002995580435}
+{"id": "S067-13", "entities": [], "ms": 0.04130008164793253}
+{"id": "S068-14", "entities": [], "ms": 0.029199989512562752}
+{"id": "S067-15", "entities": [], "ms": 0.03360002301633358}
+{"id": "S070-02", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.470400020480156}
+{"id": "S069-20", "entities": [], "ms": 0.038400059565901756}
+{"id": "S068-18", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.7316000992432237}
+{"id": "S069-07", "entities": [], "ms": 0.023999949917197227}
+{"id": "S066-01", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "address", "start": 41, "end": 59}], "ms": 0.7837000302970409}
+{"id": "S066-05", "entities": [{"label": "account_number", "start": 25, "end": 41}], "ms": 0.047600013203918934}
+{"id": "S068-11", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 51, "end": 70}], "ms": 1.031799940392375}
+{"id": "S067-10", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.701499986462295}
+{"id": "S070-15", "entities": [{"label": "person", "start": 14, "end": 17}, {"label": "phone_number", "start": 19, "end": 32}], "ms": 0.6754999049007893}
+{"id": "S068-02", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 41, "end": 61}], "ms": 0.6749000167474151}
+{"id": "S068-13", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 17, "end": 39}], "ms": 0.9535000426694751}
+{"id": "S069-09", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.9564999490976334}
+{"id": "S067-06", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 22, "end": 44}], "ms": 0.9559999452903867}
+{"id": "S070-16", "entities": [], "ms": 0.02359994687139988}
+{"id": "S069-13", "entities": [], "ms": 0.015500001609325409}
+{"id": "S056-04", "entities": [{"label": "person", "start": 20, "end": 23}, {"label": "resident_registration_number", "start": 34, "end": 48}], "ms": 0.9869999485090375}
+{"id": "S060-04", "entities": [{"label": "phone_number", "start": 77, "end": 90}], "ms": 0.04239997360855341}
+{"id": "S059-16", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 51, "end": 64}], "ms": 0.676299910992384}
+{"id": "S057-12", "entities": [{"label": "account_number", "start": 41, "end": 56}], "ms": 0.03830005880445242}
+{"id": "S057-15", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.9537000441923738}
+{"id": "S057-09", "entities": [{"label": "person", "start": 66, "end": 69}], "ms": 0.7293999660760164}
+{"id": "S058-02", "entities": [{"label": "resident_registration_number", "start": 66, "end": 80}], "ms": 0.04499999340623617}
+{"id": "S060-01", "entities": [{"label": "phone_number", "start": 44, "end": 57}, {"label": "email", "start": 127, "end": 150}], "ms": 0.05889998283237219}
+{"id": "S059-15", "entities": [], "ms": 0.020699924789369106}
+{"id": "S059-07", "entities": [{"label": "phone_number", "start": 0, "end": 13}], "ms": 0.02150004729628563}
+{"id": "S057-18", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 33, "end": 46}], "ms": 0.9585000807419419}
+{"id": "S059-06", "entities": [], "ms": 0.021700048819184303}
+{"id": "S058-01", "entities": [{"label": "person", "start": 20, "end": 23}, {"label": "phone_number", "start": 56, "end": 69}], "ms": 0.6788999307900667}
+{"id": "S056-14", "entities": [{"label": "account_number", "start": 32, "end": 47}, {"label": "phone_number", "start": 96, "end": 109}], "ms": 0.0689999433234334}
+{"id": "S060-05", "entities": [], "ms": 0.03290001768618822}
+{"id": "S057-04", "entities": [{"label": "person", "start": 50, "end": 53}], "ms": 2.5816999841481447}
+{"id": "S060-20", "entities": [], "ms": 0.05330005660653114}
+{"id": "S059-17", "entities": [{"label": "email", "start": 0, "end": 23}], "ms": 0.030700000934302807}
+{"id": "S057-17", "entities": [{"label": "person", "start": 25, "end": 28}, {"label": "account_number", "start": 35, "end": 50}], "ms": 0.06280001252889633}
+{"id": "S056-09", "entities": [{"label": "person", "start": 45, "end": 48}, {"label": "email", "start": 59, "end": 80}], "ms": 1.0881000198423862}
+{"id": "S058-14", "entities": [{"label": "account_number", "start": 35, "end": 49}], "ms": 0.030700000934302807}
+{"id": "S060-06", "entities": [], "ms": 0.03550003748387098}
+{"id": "S057-19", "entities": [], "ms": 0.02659996971487999}
+{"id": "S058-05", "entities": [], "ms": 0.025699962861835957}
+{"id": "S060-10", "entities": [], "ms": 0.03539992030709982}
+{"id": "S060-18", "entities": [], "ms": 0.02629996743053198}
+{"id": "S056-08", "entities": [{"label": "phone_number", "start": 36, "end": 49}], "ms": 0.04780001472681761}
+{"id": "S057-08", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 79, "end": 90}], "ms": 0.7640999974682927}
+{"id": "S057-06", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 39, "end": 53}], "ms": 1.131199998781085}
+{"id": "S060-19", "entities": [{"label": "resident_registration_number", "start": 43, "end": 57}, {"label": "phone_number", "start": 63, "end": 76}], "ms": 0.04549999721348286}
+{"id": "S058-12", "entities": [{"label": "card_number", "start": 21, "end": 40}], "ms": 0.03290001768618822}
+{"id": "S058-19", "entities": [{"label": "card_number", "start": 19, "end": 38}], "ms": 0.031200004741549492}
+{"id": "S057-10", "entities": [{"label": "person", "start": 5, "end": 8}], "ms": 0.9639000054448843}
+{"id": "S056-13", "entities": [{"label": "person", "start": 24, "end": 27}, {"label": "resident_registration_number", "start": 38, "end": 52}, {"label": "card_number", "start": 61, "end": 80}, {"label": "email", "start": 88, "end": 110}], "ms": 0.9893000824376941}
+{"id": "S059-19", "entities": [{"label": "person", "start": 7, "end": 10}], "ms": 0.6656000623479486}
+{"id": "S057-11", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 73, "end": 93}], "ms": 0.9601999772712588}
+{"id": "S056-03", "entities": [{"label": "person", "start": 3, "end": 6}, {"label": "person", "start": 67, "end": 70}, {"label": "phone_number", "start": 72, "end": 85}, {"label": "email", "start": 87, "end": 105}], "ms": 1.895699999295175}
+{"id": "S057-05", "entities": [{"label": "email", "start": 52, "end": 71}], "ms": 0.0369000481441617}
+{"id": "S058-20", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 33, "end": 46}], "ms": 0.6693999748677015}
+{"id": "S058-18", "entities": [], "ms": 0.02219993621110916}
+{"id": "S056-18", "entities": [{"label": "person", "start": 5, "end": 8}, {"label": "account_number", "start": 17, "end": 32}, {"label": "card_number", "start": 41, "end": 60}], "ms": 0.9978000307455659}
+{"id": "S058-11", "entities": [{"label": "account_number", "start": 25, "end": 41}], "ms": 0.030800001695752144}
+{"id": "S059-01", "entities": [{"label": "person", "start": 13, "end": 16}], "ms": 0.9474999969825149}
+{"id": "S058-13", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.6680999649688601}
+{"id": "S057-02", "entities": [{"label": "person", "start": 23, "end": 26}], "ms": 0.9764999849721789}
+{"id": "S058-09", "entities": [{"label": "email", "start": 38, "end": 60}], "ms": 0.03460003063082695}
+{"id": "S059-20", "entities": [], "ms": 0.01989991869777441}
+{"id": "S060-07", "entities": [], "ms": 0.030700000934302807}
+{"id": "S060-16", "entities": [{"label": "card_number", "start": 34, "end": 53}], "ms": 0.04099996294826269}
+{"id": "S095-01", "entities": [{"label": "phone_number", "start": 98, "end": 111}], "ms": 0.0412999652326107}
+{"id": "S095-12", "entities": [{"label": "email", "start": 25, "end": 49}, {"label": "phone_number", "start": 57, "end": 70}], "ms": 0.0315000070258975}
+{"id": "S094-02", "entities": [{"label": "phone_number", "start": 12, "end": 25}], "ms": 0.018700025975704193}
+{"id": "S092-08", "entities": [{"label": "phone_number", "start": 68, "end": 81}], "ms": 0.03800005652010441}
+{"id": "S092-05", "entities": [], "ms": 0.038499943912029266}
+{"id": "S094-14", "entities": [{"label": "email", "start": 13, "end": 35}], "ms": 0.07860001642256975}
+{"id": "S091-18", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 47, "end": 60}], "ms": 2.490500104613602}
+{"id": "S095-05", "entities": [], "ms": 0.05640008021146059}
+{"id": "S094-04", "entities": [{"label": "person", "start": 19, "end": 22}, {"label": "email", "start": 32, "end": 53}], "ms": 1.1272999690845609}
+{"id": "S091-04", "entities": [], "ms": 0.045900000259280205}
+{"id": "S094-16", "entities": [], "ms": 0.04050007555633783}
+{"id": "S095-03", "entities": [{"label": "email", "start": 70, "end": 91}], "ms": 0.04329998046159744}
+{"id": "S094-01", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "person", "start": 44, "end": 47}], "ms": 2.1164000499993563}
+{"id": "S091-12", "entities": [{"label": "person", "start": 23, "end": 26}, {"label": "person", "start": 28, "end": 31}, {"label": "person", "start": 33, "end": 36}], "ms": 2.265900024212897}
+{"id": "S094-20", "entities": [], "ms": 0.029499991796910763}
+{"id": "S091-05", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 31, "end": 52}], "ms": 0.9610999841243029}
+{"id": "S095-13", "entities": [], "ms": 0.036499928683042526}
+{"id": "S095-02", "entities": [{"label": "phone_number", "start": 89, "end": 102}], "ms": 0.040400074794888496}
+{"id": "S093-09", "entities": [{"label": "phone_number", "start": 66, "end": 79}], "ms": 0.03550003748387098}
+{"id": "S092-15", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "resident_registration_number", "start": 51, "end": 65}], "ms": 0.687899999320507}
+{"id": "S091-07", "entities": [], "ms": 0.042800093069672585}
+{"id": "S095-16", "entities": [{"label": "account_number", "start": 26, "end": 39}], "ms": 0.0350000336766243}
+{"id": "S093-16", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 27, "end": 43}, {"label": "person", "start": 44, "end": 47}], "ms": 0.04229997284710407}
+{"id": "S093-07", "entities": [], "ms": 0.022499938495457172}
+{"id": "S092-16", "entities": [], "ms": 0.024099950678646564}
+{"id": "S091-03", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 51, "end": 65}], "ms": 0.038400059565901756}
+{"id": "S094-09", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 16, "end": 41}], "ms": 1.0164000559598207}
+{"id": "S094-03", "entities": [], "ms": 0.02550007775425911}
+{"id": "S092-18", "entities": [], "ms": 0.03879994619637728}
+{"id": "S091-08", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 34, "end": 57}], "ms": 0.6958999438211322}
+{"id": "S092-13", "entities": [], "ms": 0.03550003748387098}
+{"id": "S091-02", "entities": [{"label": "email", "start": 108, "end": 130}], "ms": 0.049900030717253685}
+{"id": "S091-10", "entities": [], "ms": 0.02489995677024126}
+{"id": "S091-13", "entities": [], "ms": 0.02759997732937336}
+{"id": "S095-14", "entities": [{"label": "phone_number", "start": 33, "end": 46}], "ms": 0.030399998649954796}
+{"id": "S093-20", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.9721999522298574}
+{"id": "S094-18", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 52, "end": 65}], "ms": 0.678699929267168}
+{"id": "S094-12", "entities": [], "ms": 0.027399975806474686}
+{"id": "S092-02", "entities": [{"label": "email", "start": 67, "end": 89}, {"label": "person", "start": 117, "end": 120}], "ms": 1.0373999830335379}
+{"id": "S095-20", "entities": [{"label": "email", "start": 42, "end": 60}, {"label": "phone_number", "start": 67, "end": 80}], "ms": 0.0439999857917428}
+{"id": "S093-19", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 30, "end": 43}], "ms": 1.2635000748559833}
+{"id": "S095-09", "entities": [{"label": "person", "start": 9, "end": 12}, {"label": "phone_number", "start": 29, "end": 42}, {"label": "account_number", "start": 69, "end": 81}, {"label": "person", "start": 93, "end": 96}], "ms": 1.7326000379398465}
+{"id": "S091-11", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 53, "end": 72}], "ms": 2.0236000418663025}
+{"id": "S092-12", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 38, "end": 60}, {"label": "phone_number", "start": 70, "end": 83}], "ms": 0.7465999806299806}
+{"id": "S095-10", "entities": [{"label": "account_number", "start": 35, "end": 47}], "ms": 0.04950002767145634}
+{"id": "S093-18", "entities": [], "ms": 0.02189993392676115}
+{"id": "S093-05", "entities": [], "ms": 0.021699932403862476}
+{"id": "S095-19", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 28, "end": 41}, {"label": "email", "start": 47, "end": 69}], "ms": 1.0846999939531088}
+{"id": "S092-10", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 16, "end": 31}, {"label": "phone_number", "start": 51, "end": 64}], "ms": 0.7554000476375222}
+{"id": "S021-09", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 77, "end": 95}], "ms": 0.981199904344976}
+{"id": "S023-02", "entities": [], "ms": 0.0241999514400959}
+{"id": "S023-13", "entities": [{"label": "email", "start": 50, "end": 73}], "ms": 0.03260001540184021}
+{"id": "S021-17", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 44, "end": 71}], "ms": 0.9753999765962362}
+{"id": "S022-06", "entities": [{"label": "email", "start": 81, "end": 107}], "ms": 0.04460010677576065}
+{"id": "S024-16", "entities": [], "ms": 0.034400029107928276}
+{"id": "S023-14", "entities": [], "ms": 0.02619996666908264}
+{"id": "S025-08", "entities": [{"label": "card_number", "start": 41, "end": 60}], "ms": 0.03459991421550512}
+{"id": "S023-04", "entities": [], "ms": 0.027099973522126675}
+{"id": "S021-12", "entities": [], "ms": 0.026799971237778664}
+{"id": "S021-08", "entities": [{"label": "person", "start": 32, "end": 36}, {"label": "phone_number", "start": 57, "end": 70}], "ms": 0.9771999903023243}
+{"id": "S021-03", "entities": [{"label": "resident_registration_number", "start": 16, "end": 30}, {"label": "phone_number", "start": 36, "end": 49}, {"label": "card_number", "start": 74, "end": 93}], "ms": 0.05339994095265865}
+{"id": "S021-07", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.9761999826878309}
+{"id": "S024-20", "entities": [{"label": "phone_number", "start": 35, "end": 48}], "ms": 0.026099965907633305}
+{"id": "S023-07", "entities": [], "ms": 0.024799956008791924}
+{"id": "S021-19", "entities": [{"label": "person", "start": 4, "end": 7}, {"label": "phone_number", "start": 96, "end": 109}], "ms": 0.9689000435173512}
+{"id": "S022-20", "entities": [{"label": "email", "start": 31, "end": 53}, {"label": "phone_number", "start": 60, "end": 73}], "ms": 0.03900006413459778}
+{"id": "S023-16", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 72, "end": 86}, {"label": "phone_number", "start": 92, "end": 105}], "ms": 0.9681000374257565}
+{"id": "S022-13", "entities": [{"label": "person", "start": 35, "end": 38}], "ms": 0.6936999270692468}
+{"id": "S025-10", "entities": [], "ms": 0.025799963623285294}
+{"id": "S025-07", "entities": [], "ms": 0.02659996971487999}
+{"id": "S025-05", "entities": [], "ms": 0.030499999411404133}
+{"id": "S021-06", "entities": [], "ms": 0.03429991193115711}
+{"id": "S022-04", "entities": [{"label": "card_number", "start": 61, "end": 80}], "ms": 0.03900006413459778}
+{"id": "S022-09", "entities": [{"label": "address", "start": 32, "end": 57}, {"label": "email", "start": 63, "end": 83}], "ms": 0.038899946957826614}
+{"id": "S022-19", "entities": [], "ms": 0.025399960577487946}
+{"id": "S025-19", "entities": [], "ms": 0.019000028260052204}
+{"id": "S024-09", "entities": [{"label": "address", "start": 42, "end": 74}], "ms": 0.033400021493434906}
+{"id": "S021-13", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 13, "end": 32}, {"label": "phone_number", "start": 84, "end": 97}], "ms": 0.9888999629765749}
+{"id": "S025-17", "entities": [{"label": "card_number", "start": 5, "end": 24}], "ms": 0.04539999645203352}
+{"id": "S021-16", "entities": [{"label": "resident_registration_number", "start": 16, "end": 30}, {"label": "card_number", "start": 56, "end": 75}, {"label": "email", "start": 83, "end": 108}], "ms": 0.05280005279928446}
+{"id": "S022-08", "entities": [], "ms": 0.026099965907633305}
+{"id": "S025-18", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 9, "end": 24}, {"label": "account_number", "start": 46, "end": 60}], "ms": 0.9855000535026193}
+{"id": "S024-18", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 15, "end": 29}], "ms": 0.9584999643266201}
+{"id": "S025-04", "entities": [{"label": "person", "start": 37, "end": 40}, {"label": "phone_number", "start": 44, "end": 57}], "ms": 2.252400037832558}
+{"id": "S021-15", "entities": [{"label": "phone_number", "start": 69, "end": 82}], "ms": 0.1482999650761485}
+{"id": "S023-09", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "address", "start": 55, "end": 69}], "ms": 1.2695000041276217}
+{"id": "S025-16", "entities": [{"label": "resident_registration_number", "start": 43, "end": 57}], "ms": 0.037899939343333244}
+{"id": "S023-12", "entities": [{"label": "person", "start": 5, "end": 8}, {"label": "phone_number", "start": 14, "end": 27}], "ms": 1.13319989759475}
+{"id": "S023-08", "entities": [{"label": "card_number", "start": 49, "end": 68}], "ms": 0.04950002767145634}
+{"id": "S024-04", "entities": [{"label": "person", "start": 11, "end": 14}, {"label": "email", "start": 49, "end": 67}], "ms": 1.0230999905616045}
+{"id": "S022-03", "entities": [{"label": "person", "start": 7, "end": 10}], "ms": 0.6964999483898282}
+{"id": "S021-01", "entities": [{"label": "person", "start": 55, "end": 58}, {"label": "phone_number", "start": 68, "end": 81}], "ms": 1.0379999876022339}
+{"id": "S024-14", "entities": [], "ms": 0.02320006024092436}
+{"id": "S023-11", "entities": [{"label": "email", "start": 48, "end": 66}], "ms": 0.03160000778734684}
+{"id": "S024-15", "entities": [{"label": "phone_number", "start": 12, "end": 25}], "ms": 0.02320006024092436}
+{"id": "S021-02", "entities": [{"label": "person", "start": 55, "end": 59}], "ms": 0.6937999278306961}
+{"id": "S023-05", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "person", "start": 60, "end": 63}, {"label": "phone_number", "start": 86, "end": 99}], "ms": 0.9824999142438173}
+{"id": "S022-18", "entities": [{"label": "address", "start": 33, "end": 56}, {"label": "address", "start": 66, "end": 92}, {"label": "phone_number", "start": 110, "end": 123}], "ms": 0.05929998587816954}
+{"id": "S025-12", "entities": [], "ms": 0.02420006785541773}
+{"id": "S013-02", "entities": [{"label": "address", "start": 30, "end": 60}], "ms": 0.0393999507650733}
+{"id": "S012-14", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 114, "end": 139}], "ms": 0.9905999759212136}
+{"id": "S015-15", "entities": [{"label": "address", "start": 54, "end": 76}, {"label": "phone_number", "start": 88, "end": 101}], "ms": 0.05179992876946926}
+{"id": "S013-16", "entities": [], "ms": 0.023399945348501205}
+{"id": "S015-20", "entities": [], "ms": 0.030099996365606785}
+{"id": "S013-07", "entities": [], "ms": 0.039499951526522636}
+{"id": "S013-15", "entities": [], "ms": 0.02320006024092436}
+{"id": "S015-12", "entities": [], "ms": 0.02610008232295513}
+{"id": "S011-02", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.6973999552428722}
+{"id": "S014-18", "entities": [], "ms": 0.02159993164241314}
+{"id": "S014-06", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.9562999475747347}
+{"id": "S013-13", "entities": [{"label": "email", "start": 32, "end": 59}], "ms": 0.03360002301633358}
+{"id": "S011-10", "entities": [{"label": "person", "start": 41, "end": 44}, {"label": "phone_number", "start": 52, "end": 65}], "ms": 1.2512999819591641}
+{"id": "S015-09", "entities": [{"label": "phone_number", "start": 42, "end": 55}], "ms": 0.046200002543628216}
+{"id": "S011-19", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "person", "start": 51, "end": 54}, {"label": "email", "start": 93, "end": 116}], "ms": 2.1584000205621123}
+{"id": "S013-18", "entities": [{"label": "person", "start": 4, "end": 7}], "ms": 1.9063000800088048}
+{"id": "S013-17", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 40, "end": 59}], "ms": 0.902600004337728}
+{"id": "S013-10", "entities": [], "ms": 0.041599967516958714}
+{"id": "S011-18", "entities": [], "ms": 0.034899916499853134}
+{"id": "S015-07", "entities": [], "ms": 0.03350002225488424}
+{"id": "S014-17", "entities": [{"label": "person", "start": 12, "end": 15}], "ms": 1.1325000086799264}
+{"id": "S015-06", "entities": [{"label": "phone_number", "start": 53, "end": 66}, {"label": "address", "start": 75, "end": 93}], "ms": 0.058999983593821526}
+{"id": "S012-10", "entities": [{"label": "person", "start": 67, "end": 70}], "ms": 1.0020999470725656}
+{"id": "S013-03", "entities": [], "ms": 0.02629996743053198}
+{"id": "S013-11", "entities": [{"label": "phone_number", "start": 63, "end": 76}], "ms": 0.03499991726130247}
+{"id": "S014-08", "entities": [{"label": "phone_number", "start": 27, "end": 39}], "ms": 0.022500054910779}
+{"id": "S015-18", "entities": [{"label": "phone_number", "start": 52, "end": 65}, {"label": "email", "start": 73, "end": 94}], "ms": 0.04680000711232424}
+{"id": "S014-07", "entities": [], "ms": 0.01810002140700817}
+{"id": "S011-12", "entities": [{"label": "phone_number", "start": 71, "end": 84}], "ms": 0.051699928008019924}
+{"id": "S014-05", "entities": [], "ms": 0.02010003663599491}
+{"id": "S014-04", "entities": [], "ms": 0.017999904230237007}
+{"id": "S015-02", "entities": [], "ms": 0.032100011594593525}
+{"id": "S012-07", "entities": [], "ms": 0.032400013878941536}
+{"id": "S011-01", "entities": [{"label": "phone_number", "start": 108, "end": 121}, {"label": "address", "start": 128, "end": 159}], "ms": 0.07289997301995754}
+{"id": "S014-09", "entities": [{"label": "phone_number", "start": 31, "end": 44}], "ms": 0.08189992513507605}
+{"id": "S014-11", "entities": [], "ms": 0.021400046534836292}
+{"id": "S015-17", "entities": [], "ms": 0.02580008003860712}
+{"id": "S012-04", "entities": [], "ms": 0.03199989441782236}
+{"id": "S014-14", "entities": [{"label": "email", "start": 25, "end": 47}], "ms": 0.035100034438073635}
+{"id": "S012-15", "entities": [], "ms": 0.0420999713242054}
+{"id": "S012-03", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "email", "start": 106, "end": 128}], "ms": 1.0365999769419432}
+{"id": "S014-20", "entities": [], "ms": 0.02029992174357176}
+{"id": "S014-16", "entities": [{"label": "address", "start": 14, "end": 41}], "ms": 0.026099965907633305}
+{"id": "S011-08", "entities": [], "ms": 0.02789997961372137}
+{"id": "S012-19", "entities": [], "ms": 0.03250001464039087}
+{"id": "S014-03", "entities": [{"label": "phone_number", "start": 29, "end": 42}], "ms": 0.024399952962994576}
+{"id": "S014-02", "entities": [{"label": "address", "start": 29, "end": 50}], "ms": 0.02819998189806938}
+{"id": "S013-12", "entities": [], "ms": 0.03170000854879618}
+{"id": "S015-11", "entities": [{"label": "email", "start": 102, "end": 122}], "ms": 0.049699912779033184}
+{"id": "S020-07", "entities": [{"label": "phone_number", "start": 9, "end": 22}, {"label": "email", "start": 24, "end": 45}], "ms": 0.033400021493434906}
+{"id": "S020-13", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 32, "end": 46}, {"label": "phone_number", "start": 64, "end": 77}], "ms": 0.9747999720275402}
+{"id": "S018-19", "entities": [{"label": "person", "start": 2, "end": 5}, {"label": "email", "start": 14, "end": 34}, {"label": "resident_registration_number", "start": 60, "end": 74}], "ms": 0.9636000031605363}
+{"id": "S018-03", "entities": [], "ms": 0.029799994081258774}
+{"id": "S020-05", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "phone_number", "start": 82, "end": 95}], "ms": 0.6963999476283789}
+{"id": "S018-13", "entities": [], "ms": 0.023699947632849216}
+{"id": "S020-18", "entities": [{"label": "person", "start": 12, "end": 15}], "ms": 0.9455999825149775}
+{"id": "S020-15", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "account_number", "start": 23, "end": 36}], "ms": 0.9629999985918403}
+{"id": "S020-11", "entities": [{"label": "person", "start": 28, "end": 31}, {"label": "phone_number", "start": 58, "end": 71}], "ms": 1.1778000043705106}
+{"id": "S018-16", "entities": [{"label": "phone_number", "start": 36, "end": 49}, {"label": "email", "start": 55, "end": 74}], "ms": 0.05550007335841656}
+{"id": "S019-09", "entities": [], "ms": 0.0295999925583601}
+{"id": "S017-19", "entities": [{"label": "person", "start": 58, "end": 61}, {"label": "resident_registration_number", "start": 70, "end": 84}, {"label": "phone_number", "start": 91, "end": 104}], "ms": 1.05489999987185}
+{"id": "S018-17", "entities": [], "ms": 0.030399998649954796}
+{"id": "S017-15", "entities": [], "ms": 0.029999995604157448}
+{"id": "S019-11", "entities": [{"label": "phone_number", "start": 4, "end": 17}, {"label": "person", "start": 18, "end": 21}], "ms": 0.9833000367507339}
+{"id": "S019-03", "entities": [], "ms": 0.02759997732937336}
+{"id": "S016-04", "entities": [{"label": "phone_number", "start": 48, "end": 61}, {"label": "person", "start": 64, "end": 67}, {"label": "person", "start": 74, "end": 77}], "ms": 0.9942000033333898}
+{"id": "S016-16", "entities": [{"label": "person", "start": 14, "end": 17}, {"label": "phone_number", "start": 30, "end": 43}], "ms": 0.991899985820055}
+{"id": "S020-06", "entities": [{"label": "phone_number", "start": 5, "end": 18}], "ms": 0.03220001235604286}
+{"id": "S019-13", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 40, "end": 60}], "ms": 1.5175000298768282}
+{"id": "S017-08", "entities": [{"label": "phone_number", "start": 62, "end": 75}, {"label": "email", "start": 82, "end": 99}], "ms": 0.050999922677874565}
+{"id": "S017-09", "entities": [{"label": "person", "start": 7, "end": 10}], "ms": 0.7710999343544245}
+{"id": "S020-08", "entities": [], "ms": 0.03159989137202501}
+{"id": "S016-09", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "person", "start": 16, "end": 19}, {"label": "phone_number", "start": 86, "end": 99}], "ms": 0.8133999072015285}
+{"id": "S016-05", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 16, "end": 37}, {"label": "phone_number", "start": 45, "end": 58}], "ms": 0.06609992124140263}
+{"id": "S018-01", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.7369000231847167}
+{"id": "S018-18", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 79, "end": 98}], "ms": 0.9855999378487468}
+{"id": "S016-01", "entities": [{"label": "person", "start": 9, "end": 12}, {"label": "phone_number", "start": 25, "end": 38}, {"label": "person", "start": 77, "end": 80}], "ms": 0.06679992657154799}
+{"id": "S016-10", "entities": [{"label": "person", "start": 62, "end": 65}, {"label": "email", "start": 73, "end": 92}, {"label": "phone_number", "start": 100, "end": 113}], "ms": 0.7353998953476548}
+{"id": "S016-06", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 48, "end": 61}], "ms": 0.04710000939667225}
+{"id": "S018-05", "entities": [], "ms": 0.028499984182417393}
+{"id": "S018-12", "entities": [], "ms": 0.02650008536875248}
+{"id": "S019-17", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 6, "end": 25}], "ms": 0.6712999893352389}
+{"id": "S020-19", "entities": [{"label": "person", "start": 14, "end": 17}, {"label": "email", "start": 22, "end": 43}, {"label": "phone_number", "start": 45, "end": 58}], "ms": 0.9692000458016992}
+{"id": "S016-07", "entities": [{"label": "person", "start": 8, "end": 11}, {"label": "phone_number", "start": 24, "end": 37}, {"label": "email", "start": 45, "end": 70}], "ms": 0.06059999577701092}
+{"id": "S016-19", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 16, "end": 38}, {"label": "account_number", "start": 47, "end": 63}], "ms": 0.04840001929551363}
+{"id": "S019-05", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 38, "end": 64}], "ms": 0.9599999757483602}
+{"id": "S019-14", "entities": [{"label": "account_number", "start": 51, "end": 67}], "ms": 0.033400021493434906}
+{"id": "S020-03", "entities": [], "ms": 0.0295999925583601}
+{"id": "S019-20", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 6, "end": 30}], "ms": 0.6798999384045601}
+{"id": "S016-14", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 16, "end": 29}, {"label": "account_number", "start": 38, "end": 54}, {"label": "person", "start": 95, "end": 98}], "ms": 0.9855999378487468}
+{"id": "S019-01", "entities": [{"label": "person", "start": 0, "end": 4}, {"label": "phone_number", "start": 38, "end": 51}], "ms": 1.018199953250587}
+{"id": "S019-15", "entities": [], "ms": 0.02429995220154524}
+{"id": "S017-17", "entities": [{"label": "phone_number", "start": 40, "end": 53}, {"label": "email", "start": 55, "end": 80}], "ms": 0.04199997056275606}
+{"id": "S018-11", "entities": [], "ms": 0.022799940779805183}
+{"id": "S017-01", "entities": [{"label": "phone_number", "start": 60, "end": 73}], "ms": 0.03730005118995905}
+{"id": "S016-13", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 21, "end": 44}, {"label": "resident_registration_number", "start": 55, "end": 69}, {"label": "phone_number", "start": 77, "end": 90}, {"label": "person", "start": 105, "end": 108}], "ms": 1.9033999415114522}
+{"id": "S018-09", "entities": [{"label": "phone_number", "start": 72, "end": 85}], "ms": 0.039100064896047115}
+{"id": "S039-05", "entities": [], "ms": 0.023000058718025684}
+{"id": "S040-10", "entities": [{"label": "phone_number", "start": 45, "end": 58}, {"label": "person", "start": 65, "end": 68}], "ms": 0.9618999902158976}
+{"id": "S040-05", "entities": [{"label": "card_number", "start": 43, "end": 62}], "ms": 0.031000003218650818}
+{"id": "S036-12", "entities": [{"label": "phone_number", "start": 33, "end": 46}, {"label": "email", "start": 53, "end": 74}, {"label": "account_number", "start": 116, "end": 130}], "ms": 0.0540000619366765}
+{"id": "S039-19", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 6, "end": 19}], "ms": 0.6748000159859657}
+{"id": "S037-16", "entities": [{"label": "phone_number", "start": 33, "end": 46}, {"label": "email", "start": 52, "end": 71}, {"label": "account_number", "start": 76, "end": 89}], "ms": 0.04579999949783087}
+{"id": "S039-15", "entities": [], "ms": 0.019700033590197563}
+{"id": "S038-20", "entities": [], "ms": 0.024399952962994576}
+{"id": "S039-09", "entities": [{"label": "address", "start": 12, "end": 28}], "ms": 0.024000066332519054}
+{"id": "S036-14", "entities": [], "ms": 0.038100057281553745}
+{"id": "S036-06", "entities": [{"label": "phone_number", "start": 78, "end": 91}, {"label": "email", "start": 98, "end": 117}], "ms": 0.045199994929134846}
+{"id": "S040-16", "entities": [{"label": "account_number", "start": 58, "end": 73}], "ms": 0.03370002377778292}
+{"id": "S039-02", "entities": [], "ms": 0.01580000389367342}
+{"id": "S040-02", "entities": [{"label": "account_number", "start": 51, "end": 66}], "ms": 0.03270001616328955}
+{"id": "S036-02", "entities": [{"label": "person", "start": 18, "end": 21}, {"label": "account_number", "start": 60, "end": 74}, {"label": "phone_number", "start": 91, "end": 104}, {"label": "address", "start": 111, "end": 138}], "ms": 1.0358000872656703}
+{"id": "S037-02", "entities": [{"label": "person", "start": 48, "end": 51}], "ms": 2.086500055156648}
+{"id": "S040-09", "entities": [], "ms": 0.08589995559304953}
+{"id": "S038-10", "entities": [{"label": "account_number", "start": 12, "end": 25}], "ms": 0.07070007268339396}
+{"id": "S036-09", "entities": [{"label": "phone_number", "start": 15, "end": 28}, {"label": "resident_registration_number", "start": 39, "end": 53}, {"label": "card_number", "start": 62, "end": 81}, {"label": "email", "start": 89, "end": 109}], "ms": 0.13369997031986713}
+{"id": "S038-02", "entities": [], "ms": 0.03679993096739054}
+{"id": "S037-05", "entities": [{"label": "resident_registration_number", "start": 63, "end": 77}, {"label": "email", "start": 83, "end": 106}, {"label": "account_number", "start": 113, "end": 126}], "ms": 0.06550003308802843}
+{"id": "S038-07", "entities": [{"label": "phone_number", "start": 52, "end": 65}], "ms": 0.0315000070258975}
+{"id": "S037-13", "entities": [{"label": "person", "start": 20, "end": 23}, {"label": "phone_number", "start": 65, "end": 78}, {"label": "account_number", "start": 84, "end": 97}], "ms": 1.1663000332191586}
+{"id": "S038-03", "entities": [], "ms": 0.027099973522126675}
+{"id": "S040-18", "entities": [{"label": "email", "start": 60, "end": 82}], "ms": 0.041599967516958714}
+{"id": "S038-11", "entities": [], "ms": 0.02629996743053198}
+{"id": "S039-01", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 25, "end": 38}], "ms": 0.7058000192046165}
+{"id": "S037-04", "entities": [{"label": "phone_number", "start": 7, "end": 20}, {"label": "person", "start": 29, "end": 32}, {"label": "account_number", "start": 70, "end": 84}], "ms": 1.1180000146850944}
+{"id": "S040-14", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 33, "end": 46}, {"label": "account_number", "start": 59, "end": 74}], "ms": 1.0102000087499619}
+{"id": "S040-04", "entities": [{"label": "phone_number", "start": 65, "end": 78}], "ms": 0.03569992259144783}
+{"id": "S037-06", "entities": [], "ms": 0.029199989512562752}
+{"id": "S039-03", "entities": [{"label": "person", "start": 17, "end": 20}], "ms": 0.9529000381007791}
+{"id": "S036-04", "entities": [{"label": "person", "start": 76, "end": 79}], "ms": 0.9763999842107296}
+{"id": "S038-08", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.6806000601500273}
+{"id": "S037-17", "entities": [{"label": "person", "start": 18, "end": 21}, {"label": "resident_registration_number", "start": 30, "end": 44}, {"label": "account_number", "start": 49, "end": 63}], "ms": 0.055600074119865894}
+{"id": "S036-18", "entities": [], "ms": 0.03090000245720148}
+{"id": "S039-04", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 9, "end": 33}], "ms": 1.7598000122234225}
+{"id": "S038-12", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 58, "end": 71}], "ms": 2.0983999129384756}
+{"id": "S037-15", "entities": [], "ms": 0.03270001616328955}
+{"id": "S040-19", "entities": [{"label": "resident_registration_number", "start": 62, "end": 76}], "ms": 0.03890006337314844}
+{"id": "S039-10", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 16, "end": 30}], "ms": 1.1573000811040401}
+{"id": "S040-17", "entities": [{"label": "address", "start": 30, "end": 60}], "ms": 0.04870002157986164}
+{"id": "S037-18", "entities": [], "ms": 0.030700000934302807}
+{"id": "S038-01", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 62, "end": 75}], "ms": 1.371599966660142}
+{"id": "S036-17", "entities": [{"label": "email", "start": 16, "end": 38}, {"label": "account_number", "start": 47, "end": 61}], "ms": 0.06980006583034992}
+{"id": "S040-07", "entities": [{"label": "person", "start": 49, "end": 52}], "ms": 2.879900042898953}
+{"id": "S038-04", "entities": [], "ms": 0.040199956856667995}
+{"id": "S036-05", "entities": [{"label": "phone_number", "start": 16, "end": 29}, {"label": "account_number", "start": 87, "end": 101}], "ms": 0.05979998968541622}
+{"id": "S037-10", "entities": [{"label": "person", "start": 19, "end": 22}, {"label": "phone_number", "start": 28, "end": 41}, {"label": "resident_registration_number", "start": 50, "end": 64}, {"label": "account_number", "start": 85, "end": 98}], "ms": 0.7628999883309007}
+{"id": "S038-19", "entities": [], "ms": 0.03639992792159319}
+{"id": "S005-19", "entities": [{"label": "card_number", "start": 24, "end": 43}, {"label": "account_number", "start": 56, "end": 71}], "ms": 0.04600000102072954}
+{"id": "S002-02", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "account_number", "start": 136, "end": 150}], "ms": 1.0553000029176474}
+{"id": "S004-06", "entities": [{"label": "person", "start": 6, "end": 9}, {"label": "account_number", "start": 14, "end": 28}], "ms": 0.737000023946166}
+{"id": "S004-09", "entities": [{"label": "email", "start": 0, "end": 25}, {"label": "person", "start": 35, "end": 38}], "ms": 0.9995000436902046}
+{"id": "S005-13", "entities": [], "ms": 0.027099973522126675}
+{"id": "S002-18", "entities": [{"label": "phone_number", "start": 44, "end": 56}], "ms": 0.04109996370971203}
+{"id": "S004-02", "entities": [{"label": "email", "start": 9, "end": 29}], "ms": 0.02159993164241314}
+{"id": "S005-09", "entities": [], "ms": 0.026899971999228}
+{"id": "S003-10", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.6965999491512775}
+{"id": "S001-07", "entities": [{"label": "person", "start": 3, "end": 6}, {"label": "resident_registration_number", "start": 60, "end": 74}, {"label": "email", "start": 76, "end": 96}, {"label": "phone_number", "start": 98, "end": 111}, {"label": "account_number", "start": 131, "end": 146}], "ms": 0.7181999972090125}
+{"id": "S002-19", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.9587000822648406}
+{"id": "S002-11", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 52, "end": 74}], "ms": 1.0294000385329127}
+{"id": "S002-05", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "email", "start": 60, "end": 88}], "ms": 1.0376001009717584}
+{"id": "S003-11", "entities": [], "ms": 0.02889998722821474}
+{"id": "S002-08", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 79, "end": 93}, {"label": "person", "start": 100, "end": 103}], "ms": 0.9991000406444073}
+{"id": "S005-16", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 37, "end": 50}, {"label": "email", "start": 58, "end": 77}], "ms": 0.9692000458016992}
+{"id": "S003-18", "entities": [{"label": "phone_number", "start": 6, "end": 19}], "ms": 0.02480007242411375}
+{"id": "S003-07", "entities": [{"label": "person", "start": 7, "end": 10}], "ms": 0.9500000160187483}
+{"id": "S001-17", "entities": [{"label": "email", "start": 60, "end": 86}, {"label": "phone_number", "start": 98, "end": 111}], "ms": 0.05100003909319639}
+{"id": "S001-10", "entities": [{"label": "person", "start": 6, "end": 9}, {"label": "phone_number", "start": 48, "end": 61}], "ms": 1.0411000112071633}
+{"id": "S005-12", "entities": [{"label": "account_number", "start": 53, "end": 68}], "ms": 0.04009995609521866}
+{"id": "S004-12", "entities": [{"label": "person", "start": 20, "end": 23}], "ms": 1.0012999409809709}
+{"id": "S004-18", "entities": [], "ms": 0.022699940018355846}
+{"id": "S002-06", "entities": [{"label": "person", "start": 7, "end": 10}], "ms": 1.0093000018969178}
+{"id": "S004-05", "entities": [{"label": "account_number", "start": 26, "end": 40}], "ms": 0.09400001727044582}
+{"id": "S005-03", "entities": [{"label": "phone_number", "start": 43, "end": 56}], "ms": 0.04429998807609081}
+{"id": "S003-15", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 36, "end": 58}], "ms": 1.685100025497377}
+{"id": "S005-20", "entities": [{"label": "phone_number", "start": 78, "end": 91}], "ms": 0.11859997175633907}
+{"id": "S001-03", "entities": [{"label": "card_number", "start": 51, "end": 70}, {"label": "phone_number", "start": 81, "end": 94}], "ms": 0.07919990457594395}
+{"id": "S003-04", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 20, "end": 36}], "ms": 1.455900026485324}
+{"id": "S004-10", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 8, "end": 21}], "ms": 0.887200003489852}
+{"id": "S003-20", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "email", "start": 19, "end": 39}], "ms": 1.281999982893467}
+{"id": "S001-20", "entities": [{"label": "person", "start": 22, "end": 25}, {"label": "phone_number", "start": 34, "end": 47}, {"label": "email", "start": 55, "end": 81}], "ms": 0.8180000586435199}
+{"id": "S001-11", "entities": [{"label": "person", "start": 31, "end": 34}], "ms": 1.2801000848412514}
+{"id": "S001-16", "entities": [{"label": "person", "start": 14, "end": 17}, {"label": "account_number", "start": 56, "end": 71}, {"label": "phone_number", "start": 80, "end": 93}], "ms": 1.0276999091729522}
+{"id": "S001-02", "entities": [{"label": "person", "start": 19, "end": 22}, {"label": "email", "start": 27, "end": 54}, {"label": "account_number", "start": 80, "end": 95}, {"label": "phone_number", "start": 133, "end": 145}], "ms": 1.032399944961071}
+{"id": "S001-08", "entities": [{"label": "email", "start": 41, "end": 60}, {"label": "phone_number", "start": 62, "end": 75}], "ms": 0.04959991201758385}
+{"id": "S003-08", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 41, "end": 61}], "ms": 0.04169996827840805}
+{"id": "S003-06", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.6947999354451895}
+{"id": "S001-19", "entities": [], "ms": 0.04199997056275606}
+{"id": "S001-09", "entities": [{"label": "email", "start": 50, "end": 70}], "ms": 0.036100042052567005}
+{"id": "S005-11", "entities": [{"label": "person", "start": 11, "end": 14}, {"label": "address", "start": 37, "end": 56}], "ms": 0.9768001036718488}
+{"id": "S001-18", "entities": [{"label": "person", "start": 30, "end": 33}], "ms": 0.9712000610306859}
+{"id": "S004-19", "entities": [{"label": "phone_number", "start": 7, "end": 20}, {"label": "account_number", "start": 44, "end": 58}], "ms": 0.03270001616328955}
+{"id": "S003-14", "entities": [], "ms": 0.02329994458705187}
+{"id": "S002-09", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 74, "end": 88}], "ms": 0.7442999631166458}
+{"id": "S004-08", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 29, "end": 48}], "ms": 0.9655000176280737}
+{"id": "S002-12", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "email", "start": 40, "end": 67}], "ms": 0.9728000732138753}
+{"id": "S003-09", "entities": [], "ms": 0.0252000754699111}
+{"id": "S002-20", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 48, "end": 62}, {"label": "phone_number", "start": 72, "end": 85}], "ms": 0.7528000278398395}
+{"id": "S034-13", "entities": [], "ms": 0.020000035874545574}
+{"id": "S035-19", "entities": [], "ms": 0.0315000070258975}
+{"id": "S031-08", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.9244999857619405}
+{"id": "S031-18", "entities": [], "ms": 0.040499959141016006}
+{"id": "S035-14", "entities": [], "ms": 0.029399991035461426}
+{"id": "S035-03", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 37, "end": 57}], "ms": 0.9975000284612179}
+{"id": "S034-12", "entities": [{"label": "card_number", "start": 22, "end": 41}], "ms": 0.031000003218650818}
+{"id": "S031-12", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 48, "end": 67}], "ms": 1.0148999281227589}
+{"id": "S035-10", "entities": [], "ms": 0.03430002834647894}
+{"id": "S031-09", "entities": [{"label": "address", "start": 44, "end": 70}], "ms": 0.036400044336915016}
+{"id": "S035-06", "entities": [{"label": "account_number", "start": 24, "end": 40}, {"label": "email", "start": 73, "end": 92}], "ms": 0.047999899834394455}
+{"id": "S035-11", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 60, "end": 76}], "ms": 1.015900052152574}
+{"id": "S033-20", "entities": [{"label": "email", "start": 10, "end": 31}], "ms": 0.026999972760677338}
+{"id": "S033-14", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 9, "end": 20}], "ms": 1.0067999828606844}
+{"id": "S033-04", "entities": [], "ms": 0.028600101359188557}
+{"id": "S033-06", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 12, "end": 23}], "ms": 0.9756999788805842}
+{"id": "S032-13", "entities": [], "ms": 0.02889998722821474}
+{"id": "S031-11", "entities": [{"label": "person", "start": 13, "end": 16}], "ms": 0.9623999940231442}
+{"id": "S031-02", "entities": [{"label": "email", "start": 16, "end": 37}], "ms": 0.03369990736246109}
+{"id": "S033-17", "entities": [{"label": "phone_number", "start": 0, "end": 13}], "ms": 0.023300061002373695}
+{"id": "S033-12", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 25, "end": 48}], "ms": 0.988100073300302}
+{"id": "S034-06", "entities": [{"label": "resident_registration_number", "start": 30, "end": 44}], "ms": 0.03029999788850546}
+{"id": "S032-18", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "email", "start": 28, "end": 51}], "ms": 1.0137000354006886}
+{"id": "S032-08", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 26, "end": 45}], "ms": 1.019999966956675}
+{"id": "S032-03", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "account_number", "start": 64, "end": 78}], "ms": 1.0293000377714634}
+{"id": "S035-17", "entities": [{"label": "card_number", "start": 39, "end": 58}], "ms": 0.03720005042850971}
+{"id": "S035-18", "entities": [], "ms": 0.026700086891651154}
+{"id": "S031-04", "entities": [{"label": "person", "start": 12, "end": 15}, {"label": "resident_registration_number", "start": 45, "end": 59}, {"label": "address", "start": 66, "end": 89}], "ms": 0.05000003147870302}
+{"id": "S031-14", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 59, "end": 73}, {"label": "phone_number", "start": 78, "end": 91}], "ms": 1.0325999464839697}
+{"id": "S032-16", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 53, "end": 67}], "ms": 1.0149999288842082}
+{"id": "S032-04", "entities": [], "ms": 0.03360002301633358}
+{"id": "S031-15", "entities": [{"label": "person", "start": 15, "end": 18}, {"label": "email", "start": 39, "end": 58}], "ms": 0.7089999271556735}
+{"id": "S031-19", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 42, "end": 61}, {"label": "phone_number", "start": 73, "end": 86}], "ms": 0.8763999212533236}
+{"id": "S031-16", "entities": [{"label": "person", "start": 4, "end": 7}, {"label": "account_number", "start": 15, "end": 28}], "ms": 1.5881999861449003}
+{"id": "S033-11", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 43, "end": 62}], "ms": 1.116700004786253}
+{"id": "S031-03", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 47, "end": 63}], "ms": 1.0374999837949872}
+{"id": "S034-19", "entities": [], "ms": 0.025099958293139935}
+{"id": "S032-12", "entities": [{"label": "person", "start": 28, "end": 31}, {"label": "email", "start": 62, "end": 86}], "ms": 1.0154999326914549}
+{"id": "S032-01", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "email", "start": 147, "end": 170}], "ms": 1.092699938453734}
+{"id": "S035-01", "entities": [], "ms": 0.04630000330507755}
+{"id": "S032-15", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 44, "end": 58}], "ms": 0.9801000123843551}
+{"id": "S033-08", "entities": [{"label": "person", "start": 46, "end": 49}], "ms": 0.0393999507650733}
+{"id": "S035-15", "entities": [], "ms": 0.03929995000362396}
+{"id": "S035-16", "entities": [{"label": "resident_registration_number", "start": 9, "end": 23}], "ms": 0.029699993319809437}
+{"id": "S032-06", "entities": [{"label": "email", "start": 6, "end": 38}], "ms": 0.044899992644786835}
+{"id": "S035-08", "entities": [{"label": "person", "start": 35, "end": 38}, {"label": "address", "start": 57, "end": 87}], "ms": 0.983299920335412}
+{"id": "S032-20", "entities": [], "ms": 0.025499961338937283}
+{"id": "S032-02", "entities": [{"label": "person", "start": 27, "end": 30}, {"label": "phone_number", "start": 62, "end": 75}], "ms": 0.9714999468997121}
+{"id": "S034-07", "entities": [], "ms": 0.022600055672228336}
+{"id": "S034-20", "entities": [{"label": "email", "start": 8, "end": 37}], "ms": 0.024600070901215076}
+{"id": "S030-17", "entities": [], "ms": 0.031099887564778328}
+{"id": "S030-19", "entities": [], "ms": 0.021900050342082977}
+{"id": "S029-19", "entities": [{"label": "person", "start": 9, "end": 12}, {"label": "email", "start": 37, "end": 54}], "ms": 0.6744000129401684}
+{"id": "S027-05", "entities": [{"label": "person", "start": 56, "end": 59}, {"label": "phone_number", "start": 60, "end": 73}], "ms": 1.0098000057041645}
+{"id": "S028-14", "entities": [{"label": "person", "start": 15, "end": 18}, {"label": "account_number", "start": 27, "end": 41}], "ms": 0.9666999103501439}
+{"id": "S027-02", "entities": [{"label": "phone_number", "start": 56, "end": 69}], "ms": 0.03330002073198557}
+{"id": "S029-03", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 33, "end": 57}], "ms": 0.9585000807419419}
+{"id": "S029-07", "entities": [{"label": "person", "start": 10, "end": 13}, {"label": "email", "start": 31, "end": 54}], "ms": 0.6821000715717673}
+{"id": "S027-07", "entities": [{"label": "person", "start": 7, "end": 10}], "ms": 0.9560000617057085}
+{"id": "S030-03", "entities": [{"label": "phone_number", "start": 56, "end": 69}], "ms": 0.034400029107928276}
+{"id": "S030-20", "entities": [{"label": "person", "start": 30, "end": 33}, {"label": "resident_registration_number", "start": 36, "end": 50}, {"label": "address", "start": 64, "end": 87}], "ms": 0.7069000275805593}
+{"id": "S029-13", "entities": [{"label": "account_number", "start": 8, "end": 21}], "ms": 0.029099988751113415}
+{"id": "S026-08", "entities": [{"label": "person", "start": 21, "end": 24}, {"label": "email", "start": 59, "end": 83}], "ms": 0.9625999955460429}
+{"id": "S030-10", "entities": [], "ms": 0.027699978090822697}
+{"id": "S029-09", "entities": [{"label": "person", "start": 13, "end": 16}, {"label": "phone_number", "start": 43, "end": 56}], "ms": 0.788399949669838}
+{"id": "S029-11", "entities": [{"label": "person", "start": 8, "end": 11}], "ms": 0.910600065253675}
+{"id": "S030-04", "entities": [], "ms": 0.03869994543492794}
+{"id": "S026-16", "entities": [{"label": "address", "start": 25, "end": 41}, {"label": "phone_number", "start": 58, "end": 71}], "ms": 0.05030003376305103}
+{"id": "S030-05", "entities": [], "ms": 0.034800032153725624}
+{"id": "S027-08", "entities": [{"label": "resident_registration_number", "start": 40, "end": 54}], "ms": 0.03930006641894579}
+{"id": "S027-14", "entities": [{"label": "email", "start": 37, "end": 64}], "ms": 0.031400006264448166}
+{"id": "S030-11", "entities": [{"label": "person", "start": 25, "end": 28}], "ms": 0.7648000027984381}
+{"id": "S030-09", "entities": [{"label": "person", "start": 4, "end": 7}, {"label": "account_number", "start": 23, "end": 38}], "ms": 0.9815000230446458}
+{"id": "S026-12", "entities": [{"label": "person", "start": 4, "end": 7}, {"label": "card_number", "start": 49, "end": 68}], "ms": 0.6982999620959163}
+{"id": "S026-18", "entities": [{"label": "email", "start": 17, "end": 38}], "ms": 0.035100034438073635}
+{"id": "S026-05", "entities": [{"label": "email", "start": 51, "end": 75}, {"label": "address", "start": 86, "end": 107}, {"label": "person", "start": 108, "end": 111}], "ms": 0.06059999577701092}
+{"id": "S030-15", "entities": [], "ms": 0.032800016924738884}
+{"id": "S029-18", "entities": [{"label": "person", "start": 4, "end": 7}, {"label": "phone_number", "start": 21, "end": 34}], "ms": 0.9726999560371041}
+{"id": "S029-12", "entities": [{"label": "person", "start": 11, "end": 14}], "ms": 0.9552999399602413}
+{"id": "S027-15", "entities": [{"label": "person", "start": 4, "end": 7}, {"label": "account_number", "start": 42, "end": 55}], "ms": 0.6982999620959163}
+{"id": "S026-11", "entities": [{"label": "person", "start": 25, "end": 28}, {"label": "phone_number", "start": 41, "end": 54}, {"label": "address", "start": 61, "end": 87}], "ms": 0.9650998981669545}
+{"id": "S028-13", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 41, "end": 57}], "ms": 0.9745999705046415}
+{"id": "S026-06", "entities": [{"label": "person", "start": 14, "end": 17}, {"label": "address", "start": 31, "end": 60}, {"label": "phone_number", "start": 66, "end": 79}, {"label": "card_number", "start": 89, "end": 108}], "ms": 0.06580003537237644}
+{"id": "S028-02", "entities": [{"label": "account_number", "start": 73, "end": 85}], "ms": 0.041899969801306725}
+{"id": "S027-04", "entities": [{"label": "person", "start": 16, "end": 19}], "ms": 0.9619999909773469}
+{"id": "S028-12", "entities": [], "ms": 0.02989999484270811}
+{"id": "S027-09", "entities": [{"label": "person", "start": 4, "end": 7}, {"label": "account_number", "start": 21, "end": 35}], "ms": 0.6763999117538333}
+{"id": "S026-20", "entities": [], "ms": 0.03090000245720148}
+{"id": "S029-06", "entities": [], "ms": 0.01850002445280552}
+{"id": "S026-07", "entities": [], "ms": 0.026700086891651154}
+{"id": "S028-07", "entities": [{"label": "person", "start": 11, "end": 14}, {"label": "email", "start": 56, "end": 75}], "ms": 0.9487000061199069}
+{"id": "S026-09", "entities": [{"label": "person", "start": 4, "end": 7}, {"label": "phone_number", "start": 39, "end": 52}], "ms": 0.9728999575600028}
+{"id": "S028-03", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.95699995290488}
+{"id": "S026-17", "entities": [{"label": "person", "start": 35, "end": 38}, {"label": "phone_number", "start": 49, "end": 62}, {"label": "person", "start": 63, "end": 66}], "ms": 0.05030003376305103}
+{"id": "S027-20", "entities": [{"label": "person", "start": 44, "end": 48}], "ms": 0.9629999985918403}
+{"id": "S026-13", "entities": [], "ms": 0.03490003291517496}
+{"id": "S028-01", "entities": [{"label": "phone_number", "start": 81, "end": 94}], "ms": 0.03820005804300308}
+{"id": "S029-05", "entities": [{"label": "phone_number", "start": 11, "end": 24}], "ms": 0.01880002673715353}
+{"id": "S027-03", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 61, "end": 91}, {"label": "email", "start": 112, "end": 134}], "ms": 0.977999996393919}
+{"id": "S029-01", "entities": [{"label": "phone_number", "start": 33, "end": 46}], "ms": 0.026799971237778664}
+{"id": "S042-17", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "card_number", "start": 25, "end": 44}], "ms": 1.451799995265901}
+{"id": "S041-17", "entities": [], "ms": 0.06329989992082119}
+{"id": "S044-14", "entities": [{"label": "email", "start": 12, "end": 32}], "ms": 0.07840001489967108}
+{"id": "S042-05", "entities": [{"label": "phone_number", "start": 95, "end": 107}], "ms": 0.11869997251778841}
+{"id": "S045-13", "entities": [], "ms": 0.062000006437301636}
+{"id": "S041-12", "entities": [], "ms": 0.058999983593821526}
+{"id": "S042-13", "entities": [{"label": "person", "start": 4, "end": 7}, {"label": "account_number", "start": 25, "end": 39}], "ms": 1.2445999309420586}
+{"id": "S044-06", "entities": [{"label": "phone_number", "start": 8, "end": 21}, {"label": "email", "start": 27, "end": 49}], "ms": 0.060699996538460255}
+{"id": "S044-03", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.9134999709203839}
+{"id": "S043-01", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 52, "end": 80}], "ms": 0.7579999510198832}
+{"id": "S045-05", "entities": [{"label": "phone_number", "start": 34, "end": 47}, {"label": "phone_number", "start": 53, "end": 66}], "ms": 0.03959995228797197}
+{"id": "S041-19", "entities": [{"label": "person", "start": 14, "end": 17}, {"label": "resident_registration_number", "start": 28, "end": 42}, {"label": "phone_number", "start": 50, "end": 63}, {"label": "email", "start": 71, "end": 93}], "ms": 1.1401999508962035}
+{"id": "S045-08", "entities": [{"label": "person", "start": 8, "end": 11}, {"label": "email", "start": 83, "end": 104}, {"label": "phone_number", "start": 108, "end": 121}], "ms": 1.061700051650405}
+{"id": "S043-14", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.0195000795647502}
+{"id": "S044-09", "entities": [], "ms": 0.02220005262643099}
+{"id": "S044-13", "entities": [{"label": "card_number", "start": 20, "end": 39}], "ms": 0.02810009755194187}
+{"id": "S041-08", "entities": [{"label": "phone_number", "start": 40, "end": 52}], "ms": 0.03530003596097231}
+{"id": "S041-11", "entities": [{"label": "person", "start": 14, "end": 17}, {"label": "phone_number", "start": 23, "end": 36}], "ms": 0.7104999385774136}
+{"id": "S041-02", "entities": [], "ms": 0.034800032153725624}
+{"id": "S041-01", "entities": [{"label": "person", "start": 28, "end": 31}, {"label": "phone_number", "start": 39, "end": 52}, {"label": "email", "start": 60, "end": 83}, {"label": "resident_registration_number", "start": 92, "end": 106}], "ms": 0.7384000346064568}
+{"id": "S041-20", "entities": [{"label": "person", "start": 18, "end": 21}, {"label": "person", "start": 35, "end": 38}, {"label": "account_number", "start": 47, "end": 63}], "ms": 1.916700042784214}
+{"id": "S042-16", "entities": [{"label": "person", "start": 12, "end": 15}, {"label": "phone_number", "start": 67, "end": 80}], "ms": 0.686099985614419}
+{"id": "S042-01", "entities": [{"label": "person", "start": 16, "end": 19}, {"label": "email", "start": 98, "end": 119}, {"label": "phone_number", "start": 123, "end": 136}], "ms": 0.9841000428423285}
+{"id": "S044-08", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 11, "end": 25}], "ms": 0.995099893771112}
+{"id": "S042-02", "entities": [{"label": "person", "start": 36, "end": 39}, {"label": "resident_registration_number", "start": 76, "end": 90}], "ms": 0.9775999933481216}
+{"id": "S043-06", "entities": [{"label": "resident_registration_number", "start": 37, "end": 51}], "ms": 0.03130000550299883}
+{"id": "S044-10", "entities": [{"label": "account_number", "start": 9, "end": 25}], "ms": 0.02320006024092436}
+{"id": "S043-16", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 44, "end": 67}], "ms": 0.9607000974938273}
+{"id": "S042-08", "entities": [{"label": "person", "start": 20, "end": 23}, {"label": "email", "start": 39, "end": 60}, {"label": "phone_number", "start": 62, "end": 75}], "ms": 1.4939999673515558}
+{"id": "S045-15", "entities": [{"label": "email", "start": 50, "end": 75}], "ms": 0.1050999853760004}
+{"id": "S043-17", "entities": [{"label": "person", "start": 17, "end": 20}], "ms": 1.4732000418007374}
+{"id": "S043-15", "entities": [{"label": "email", "start": 28, "end": 55}], "ms": 0.08340005297213793}
+{"id": "S042-06", "entities": [{"label": "person", "start": 11, "end": 14}, {"label": "email", "start": 34, "end": 55}, {"label": "phone_number", "start": 57, "end": 70}], "ms": 1.4613999519497156}
+{"id": "S045-06", "entities": [{"label": "email", "start": 46, "end": 68}], "ms": 0.04730001091957092}
+{"id": "S042-03", "entities": [{"label": "person", "start": 26, "end": 29}, {"label": "phone_number", "start": 66, "end": 79}], "ms": 0.8725000079721212}
+{"id": "S044-05", "entities": [], "ms": 0.024799956008791924}
+{"id": "S045-04", "entities": [], "ms": 0.04730001091957092}
+{"id": "S043-11", "entities": [], "ms": 0.0350000336766243}
+{"id": "S043-04", "entities": [{"label": "person", "start": 6, "end": 9}], "ms": 1.168699935078621}
+{"id": "S041-16", "entities": [{"label": "person", "start": 12, "end": 15}, {"label": "phone_number", "start": 24, "end": 37}, {"label": "email", "start": 45, "end": 69}, {"label": "address", "start": 76, "end": 106}, {"label": "card_number", "start": 122, "end": 141}], "ms": 0.8372999727725983}
+{"id": "S043-12", "entities": [], "ms": 0.029700109735131264}
+{"id": "S045-01", "entities": [{"label": "person", "start": 24, "end": 27}, {"label": "email", "start": 77, "end": 102}], "ms": 1.0979999788105488}
+{"id": "S045-10", "entities": [], "ms": 0.03460003063082695}
+{"id": "S042-04", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "email", "start": 49, "end": 70}], "ms": 1.0205000871792436}
+{"id": "S045-12", "entities": [], "ms": 0.02819998189806938}
+{"id": "S041-03", "entities": [{"label": "person", "start": 14, "end": 17}, {"label": "email", "start": 25, "end": 49}, {"label": "phone_number", "start": 57, "end": 70}, {"label": "address", "start": 78, "end": 103}], "ms": 1.0370999807491899}
+{"id": "S044-07", "entities": [], "ms": 0.021399930119514465}
+{"id": "S044-17", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 7, "end": 21}], "ms": 0.6911000236868858}
+{"id": "S042-20", "entities": [{"label": "person", "start": 15, "end": 18}, {"label": "email", "start": 63, "end": 86}], "ms": 0.9963000193238258}
+{"id": "S042-12", "entities": [{"label": "person", "start": 5, "end": 8}, {"label": "email", "start": 39, "end": 67}, {"label": "phone_number", "start": 69, "end": 82}], "ms": 0.991299981251359}
+{"id": "S053-11", "entities": [], "ms": 0.02310005947947502}
+{"id": "S053-17", "entities": [{"label": "person", "start": 15, "end": 18}, {"label": "address", "start": 27, "end": 55}], "ms": 0.9746999712660909}
+{"id": "S055-06", "entities": [{"label": "card_number", "start": 58, "end": 77}], "ms": 0.03599992487579584}
+{"id": "S053-05", "entities": [{"label": "person", "start": 3, "end": 6}, {"label": "card_number", "start": 20, "end": 39}, {"label": "email", "start": 56, "end": 78}], "ms": 0.9708999423310161}
+{"id": "S051-20", "entities": [{"label": "person", "start": 46, "end": 49}], "ms": 0.9731999598443508}
+{"id": "S051-01", "entities": [{"label": "person", "start": 25, "end": 28}, {"label": "card_number", "start": 47, "end": 66}, {"label": "email", "start": 132, "end": 154}], "ms": 1.4748000539839268}
+{"id": "S055-03", "entities": [], "ms": 0.04569999873638153}
+{"id": "S055-07", "entities": [{"label": "card_number", "start": 36, "end": 55}, {"label": "email", "start": 85, "end": 102}], "ms": 0.05089992191642523}
+{"id": "S055-02", "entities": [{"label": "person", "start": 23, "end": 26}, {"label": "phone_number", "start": 35, "end": 48}, {"label": "card_number", "start": 64, "end": 83}], "ms": 1.3946000253781676}
+{"id": "S053-08", "entities": [], "ms": 0.0439999857917428}
+{"id": "S052-15", "entities": [{"label": "card_number", "start": 7, "end": 26}, {"label": "person", "start": 50, "end": 53}, {"label": "email", "start": 58, "end": 80}], "ms": 0.0716999638825655}
+{"id": "S055-08", "entities": [{"label": "card_number", "start": 39, "end": 58}, {"label": "account_number", "start": 66, "end": 81}], "ms": 0.04520011134445667}
+{"id": "S053-03", "entities": [], "ms": 0.024999957531690598}
+{"id": "S054-04", "entities": [{"label": "card_number", "start": 16, "end": 35}], "ms": 0.02580008003860712}
+{"id": "S055-12", "entities": [{"label": "phone_number", "start": 21, "end": 34}, {"label": "card_number", "start": 44, "end": 63}], "ms": 0.032800016924738884}
+{"id": "S051-16", "entities": [{"label": "phone_number", "start": 14, "end": 27}, {"label": "email", "start": 33, "end": 57}, {"label": "card_number", "start": 64, "end": 83}, {"label": "resident_registration_number", "start": 92, "end": 106}], "ms": 0.05759997293353081}
+{"id": "S053-10", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 50, "end": 63}, {"label": "email", "start": 69, "end": 93}, {"label": "card_number", "start": 100, "end": 119}], "ms": 1.0916999308392406}
+{"id": "S051-12", "entities": [{"label": "person", "start": 14, "end": 17}, {"label": "card_number", "start": 38, "end": 57}, {"label": "phone_number", "start": 96, "end": 109}], "ms": 0.995099893771112}
+{"id": "S053-09", "entities": [{"label": "card_number", "start": 27, "end": 46}, {"label": "phone_number", "start": 56, "end": 69}], "ms": 0.042599975131452084}
+{"id": "S052-02", "entities": [{"label": "resident_registration_number", "start": 38, "end": 52}, {"label": "card_number", "start": 68, "end": 87}, {"label": "phone_number", "start": 107, "end": 120}], "ms": 0.05009991582483053}
+{"id": "S052-04", "entities": [{"label": "card_number", "start": 9, "end": 28}, {"label": "person", "start": 33, "end": 36}], "ms": 0.7270000642165542}
+{"id": "S052-07", "entities": [{"label": "card_number", "start": 32, "end": 51}, {"label": "person", "start": 82, "end": 85}, {"label": "email", "start": 91, "end": 115}], "ms": 0.7087000412866473}
+{"id": "S054-15", "entities": [{"label": "phone_number", "start": 19, "end": 32}], "ms": 0.026899971999228}
+{"id": "S054-13", "entities": [], "ms": 0.024600070901215076}
+{"id": "S051-13", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 51, "end": 70}, {"label": "email", "start": 76, "end": 97}], "ms": 0.9702000534161925}
+{"id": "S055-10", "entities": [], "ms": 0.024700071662664413}
+{"id": "S051-11", "entities": [], "ms": 0.02619996666908264}
+{"id": "S052-17", "entities": [{"label": "card_number", "start": 32, "end": 51}, {"label": "person", "start": 56, "end": 59}, {"label": "email", "start": 68, "end": 85}], "ms": 0.6891000084578991}
+{"id": "S055-09", "entities": [{"label": "resident_registration_number", "start": 25, "end": 39}, {"label": "card_number", "start": 46, "end": 65}, {"label": "phone_number", "start": 75, "end": 88}], "ms": 0.04169996827840805}
+{"id": "S053-16", "entities": [{"label": "card_number", "start": 8, "end": 27}, {"label": "phone_number", "start": 69, "end": 82}], "ms": 0.03730005118995905}
+{"id": "S054-20", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 15, "end": 29}, {"label": "card_number", "start": 37, "end": 56}, {"label": "phone_number", "start": 65, "end": 78}], "ms": 0.974500086158514}
+{"id": "S053-20", "entities": [{"label": "card_number", "start": 13, "end": 32}, {"label": "email", "start": 55, "end": 78}, {"label": "phone_number", "start": 88, "end": 101}], "ms": 0.045900000259280205}
+{"id": "S054-14", "entities": [{"label": "card_number", "start": 9, "end": 28}, {"label": "account_number", "start": 35, "end": 49}], "ms": 0.032100011594593525}
+{"id": "S054-12", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 11, "end": 30}, {"label": "phone_number", "start": 40, "end": 53}], "ms": 0.9624999947845936}
+{"id": "S054-09", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 17, "end": 36}], "ms": 0.6812999490648508}
+{"id": "S054-18", "entities": [{"label": "phone_number", "start": 4, "end": 17}, {"label": "card_number", "start": 24, "end": 43}, {"label": "account_number", "start": 48, "end": 62}], "ms": 0.03779993858188391}
+{"id": "S055-18", "entities": [], "ms": 0.027799978852272034}
+{"id": "S052-10", "entities": [{"label": "person", "start": 25, "end": 28}, {"label": "resident_registration_number", "start": 35, "end": 49}, {"label": "phone_number", "start": 55, "end": 68}, {"label": "card_number", "start": 75, "end": 94}], "ms": 0.7137999637052417}
+{"id": "S051-19", "entities": [{"label": "phone_number", "start": 31, "end": 44}, {"label": "card_number", "start": 53, "end": 72}], "ms": 0.03450002986937761}
+{"id": "S055-15", "entities": [{"label": "person", "start": 4, "end": 7}, {"label": "phone_number", "start": 14, "end": 27}, {"label": "card_number", "start": 35, "end": 54}], "ms": 0.991599983535707}
+{"id": "S053-12", "entities": [{"label": "card_number", "start": 22, "end": 41}], "ms": 0.04630000330507755}
+{"id": "S052-05", "entities": [{"label": "card_number", "start": 5, "end": 24}], "ms": 0.040599959902465343}
+{"id": "S053-13", "entities": [{"label": "card_number", "start": 16, "end": 35}, {"label": "account_number", "start": 72, "end": 87}], "ms": 0.03830005880445242}
+{"id": "S052-16", "entities": [{"label": "card_number", "start": 52, "end": 71}, {"label": "person", "start": 80, "end": 83}], "ms": 0.9836000390350819}
+{"id": "S052-18", "entities": [], "ms": 0.03679993096739054}
+{"id": "S053-01", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 57, "end": 76}], "ms": 0.9670000290498137}
+{"id": "S052-20", "entities": [], "ms": 0.02729997504502535}
+{"id": "S051-18", "entities": [{"label": "person", "start": 20, "end": 23}, {"label": "card_number", "start": 50, "end": 69}, {"label": "email", "start": 75, "end": 96}], "ms": 0.6994999712333083}
+{"id": "S054-19", "entities": [{"label": "email", "start": 4, "end": 24}, {"label": "card_number", "start": 39, "end": 58}], "ms": 0.19789999350905418}
+{"id": "S054-03", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 16, "end": 35}], "ms": 1.7404999816790223}
+{"id": "S076-08", "entities": [{"label": "email", "start": 12, "end": 35}, {"label": "phone_number", "start": 51, "end": 64}, {"label": "address", "start": 69, "end": 88}], "ms": 0.15159999020397663}
+{"id": "S077-13", "entities": [{"label": "email", "start": 12, "end": 34}, {"label": "address", "start": 39, "end": 65}, {"label": "phone_number", "start": 70, "end": 83}], "ms": 0.11459994129836559}
+{"id": "S076-19", "entities": [], "ms": 0.04569999873638153}
+{"id": "S076-13", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 71, "end": 86}, {"label": "phone_number", "start": 97, "end": 110}], "ms": 0.8632000535726547}
+{"id": "S079-04", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 11, "end": 39}, {"label": "phone_number", "start": 44, "end": 57}], "ms": 1.1270999675616622}
+{"id": "S076-03", "entities": [{"label": "person", "start": 25, "end": 28}, {"label": "address", "start": 63, "end": 82}, {"label": "phone_number", "start": 97, "end": 110}], "ms": 0.8196000708267093}
+{"id": "S078-12", "entities": [], "ms": 0.02629996743053198}
+{"id": "S078-17", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 28, "end": 50}], "ms": 1.0761000448837876}
+{"id": "S080-11", "entities": [{"label": "person", "start": 18, "end": 21}, {"label": "card_number", "start": 25, "end": 44}], "ms": 0.714499969035387}
+{"id": "S077-03", "entities": [{"label": "phone_number", "start": 29, "end": 42}, {"label": "address", "start": 47, "end": 71}, {"label": "phone_number", "start": 83, "end": 96}, {"label": "address", "start": 98, "end": 118}], "ms": 1.047799945808947}
+{"id": "S077-12", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.04369998350739479}
+{"id": "S079-03", "entities": [], "ms": 0.01989991869777441}
+{"id": "S079-01", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.9587999666109681}
+{"id": "S079-07", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 49, "end": 62}], "ms": 0.6764000281691551}
+{"id": "S078-02", "entities": [{"label": "person", "start": 6, "end": 9}, {"label": "phone_number", "start": 50, "end": 63}], "ms": 0.9604999795556068}
+{"id": "S080-18", "entities": [{"label": "email", "start": 5, "end": 26}], "ms": 0.029799994081258774}
+{"id": "S080-13", "entities": [{"label": "address", "start": 13, "end": 44}, {"label": "phone_number", "start": 49, "end": 62}], "ms": 0.03899994771927595}
+{"id": "S079-06", "entities": [], "ms": 0.027999980375170708}
+{"id": "S078-07", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.9680000366643071}
+{"id": "S080-05", "entities": [{"label": "person", "start": 43, "end": 46}], "ms": 0.6796000525355339}
+{"id": "S078-09", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 68, "end": 81}], "ms": 0.9654000168666244}
+{"id": "S076-17", "entities": [], "ms": 0.038199941627681255}
+{"id": "S080-15", "entities": [], "ms": 0.02559996210038662}
+{"id": "S076-09", "entities": [{"label": "phone_number", "start": 37, "end": 50}, {"label": "address", "start": 59, "end": 74}], "ms": 0.04020007327198982}
+{"id": "S079-16", "entities": [{"label": "person", "start": 19, "end": 22}, {"label": "phone_number", "start": 28, "end": 41}, {"label": "account_number", "start": 78, "end": 92}], "ms": 0.7066000252962112}
+{"id": "S077-11", "entities": [], "ms": 0.023099943064153194}
+{"id": "S080-20", "entities": [], "ms": 0.028099981136620045}
+{"id": "S076-16", "entities": [{"label": "resident_registration_number", "start": 38, "end": 52}, {"label": "phone_number", "start": 58, "end": 71}, {"label": "address", "start": 76, "end": 91}], "ms": 0.043899985030293465}
+{"id": "S078-10", "entities": [{"label": "account_number", "start": 24, "end": 39}], "ms": 0.027699978090822697}
+{"id": "S080-08", "entities": [{"label": "phone_number", "start": 62, "end": 75}], "ms": 0.031100003980100155}
+{"id": "S079-19", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "person", "start": 6, "end": 9}, {"label": "address", "start": 11, "end": 41}, {"label": "account_number", "start": 47, "end": 61}], "ms": 0.977699994109571}
+{"id": "S076-18", "entities": [{"label": "email", "start": 17, "end": 36}, {"label": "account_number", "start": 51, "end": 67}, {"label": "address", "start": 73, "end": 88}], "ms": 0.04349998198449612}
+{"id": "S077-18", "entities": [{"label": "phone_number", "start": 13, "end": 26}, {"label": "email", "start": 28, "end": 46}, {"label": "person", "start": 54, "end": 57}, {"label": "email", "start": 59, "end": 77}, {"label": "address", "start": 93, "end": 114}], "ms": 1.0414000134915113}
+{"id": "S077-19", "entities": [], "ms": 0.026999972760677338}
+{"id": "S078-18", "entities": [{"label": "card_number", "start": 35, "end": 54}, {"label": "account_number", "start": 67, "end": 82}], "ms": 0.040199956856667995}
+{"id": "S079-17", "entities": [], "ms": 0.016700010746717453}
+{"id": "S079-10", "entities": [{"label": "email", "start": 4, "end": 27}, {"label": "address", "start": 59, "end": 78}, {"label": "phone_number", "start": 90, "end": 103}], "ms": 0.04710000939667225}
+{"id": "S078-11", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 76, "end": 89}], "ms": 1.9608000293374062}
+{"id": "S078-19", "entities": [], "ms": 0.08569995407015085}
+{"id": "S077-01", "entities": [{"label": "person", "start": 18, "end": 21}, {"label": "phone_number", "start": 97, "end": 110}], "ms": 0.9857999393716455}
+{"id": "S080-06", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 63, "end": 76}], "ms": 1.1326000094413757}
+{"id": "S079-09", "entities": [], "ms": 0.02859998494386673}
+{"id": "S076-11", "entities": [{"label": "address", "start": 21, "end": 39}], "ms": 0.032100011594593525}
+{"id": "S077-02", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "address", "start": 45, "end": 76}], "ms": 1.0739999124780297}
+{"id": "S077-10", "entities": [{"label": "phone_number", "start": 18, "end": 31}], "ms": 0.0369000481441617}
+{"id": "S077-07", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 49, "end": 68}], "ms": 0.7597000803798437}
+{"id": "S077-05", "entities": [{"label": "phone_number", "start": 32, "end": 45}, {"label": "email", "start": 47, "end": 67}, {"label": "email", "start": 103, "end": 123}], "ms": 0.06790005136281252}
+{"id": "S080-03", "entities": [], "ms": 0.030700000934302807}
+{"id": "S077-14", "entities": [{"label": "account_number", "start": 10, "end": 24}], "ms": 0.030700000934302807}
+{"id": "S049-06", "entities": [], "ms": 0.01859990879893303}
+{"id": "S046-04", "entities": [{"label": "phone_number", "start": 73, "end": 86}], "ms": 0.03620004281401634}
+{"id": "S046-14", "entities": [{"label": "email", "start": 34, "end": 53}], "ms": 0.030099996365606785}
+{"id": "S047-16", "entities": [{"label": "account_number", "start": 40, "end": 54}], "ms": 0.040400074794888496}
+{"id": "S047-12", "entities": [{"label": "card_number", "start": 63, "end": 82}, {"label": "phone_number", "start": 95, "end": 108}], "ms": 0.0475000124424696}
+{"id": "S046-09", "entities": [{"label": "account_number", "start": 34, "end": 49}], "ms": 0.029999995604157448}
+{"id": "S049-13", "entities": [{"label": "phone_number", "start": 44, "end": 57}], "ms": 0.0323000131174922}
+{"id": "S050-18", "entities": [{"label": "account_number", "start": 30, "end": 44}], "ms": 0.02859998494386673}
+{"id": "S047-15", "entities": [{"label": "person", "start": 18, "end": 21}], "ms": 0.9829000337049365}
+{"id": "S047-19", "entities": [], "ms": 0.05339994095265865}
+{"id": "S048-03", "entities": [], "ms": 0.02989999484270811}
+{"id": "S049-08", "entities": [], "ms": 0.020400038920342922}
+{"id": "S047-11", "entities": [{"label": "email", "start": 62, "end": 83}], "ms": 0.03970006946474314}
+{"id": "S046-02", "entities": [{"label": "person", "start": 48, "end": 51}, {"label": "resident_registration_number", "start": 79, "end": 93}], "ms": 1.078000059351325}
+{"id": "S048-04", "entities": [{"label": "phone_number", "start": 64, "end": 77}], "ms": 0.03930006641894579}
+{"id": "S050-10", "entities": [], "ms": 0.023799948394298553}
+{"id": "S046-18", "entities": [{"label": "person", "start": 16, "end": 19}, {"label": "phone_number", "start": 42, "end": 55}], "ms": 0.9826000314205885}
+{"id": "S049-10", "entities": [{"label": "phone_number", "start": 16, "end": 29}], "ms": 0.029699993319809437}
+{"id": "S050-12", "entities": [{"label": "card_number", "start": 37, "end": 56}], "ms": 0.03370002377778292}
+{"id": "S047-04", "entities": [{"label": "person", "start": 49, "end": 52}, {"label": "email", "start": 67, "end": 94}], "ms": 0.9675000328570604}
+{"id": "S046-19", "entities": [], "ms": 0.029199989512562752}
+{"id": "S048-10", "entities": [], "ms": 0.019299914129078388}
+{"id": "S047-17", "entities": [{"label": "resident_registration_number", "start": 55, "end": 69}], "ms": 0.034400029107928276}
+{"id": "S047-07", "entities": [{"label": "person", "start": 29, "end": 32}, {"label": "email", "start": 63, "end": 97}], "ms": 0.7040000054985285}
+{"id": "S049-02", "entities": [{"label": "person", "start": 34, "end": 37}], "ms": 0.9539000457152724}
+{"id": "S050-11", "entities": [{"label": "person", "start": 12, "end": 15}, {"label": "email", "start": 48, "end": 78}], "ms": 0.9615999879315495}
+{"id": "S047-01", "entities": [{"label": "phone_number", "start": 93, "end": 106}], "ms": 0.04449998959898949}
+{"id": "S047-09", "entities": [], "ms": 0.025499961338937283}
+{"id": "S047-05", "entities": [], "ms": 0.03370002377778292}
+{"id": "S050-09", "entities": [{"label": "account_number", "start": 24, "end": 40}], "ms": 0.031499890610575676}
+{"id": "S048-13", "entities": [{"label": "resident_registration_number", "start": 17, "end": 31}], "ms": 0.02420006785541773}
+{"id": "S050-17", "entities": [], "ms": 0.02220005262643099}
+{"id": "S048-05", "entities": [], "ms": 0.021099927835166454}
+{"id": "S050-13", "entities": [], "ms": 0.022400054149329662}
+{"id": "S048-18", "entities": [{"label": "card_number", "start": 18, "end": 37}], "ms": 0.028399983420968056}
+{"id": "S049-01", "entities": [], "ms": 0.020699924789369106}
+{"id": "S048-20", "entities": [{"label": "email", "start": 17, "end": 36}], "ms": 0.02280005719512701}
+{"id": "S049-19", "entities": [{"label": "phone_number", "start": 52, "end": 65}], "ms": 0.02750009298324585}
+{"id": "S047-20", "entities": [], "ms": 0.030700000934302807}
+{"id": "S050-14", "entities": [{"label": "phone_number", "start": 16, "end": 29}], "ms": 0.023300061002373695}
+{"id": "S046-13", "entities": [{"label": "person", "start": 43, "end": 46}, {"label": "phone_number", "start": 51, "end": 64}, {"label": "person", "start": 72, "end": 75}], "ms": 1.3896999880671501}
+{"id": "S050-07", "entities": [{"label": "address", "start": 35, "end": 66}], "ms": 0.03850006032735109}
+{"id": "S050-02", "entities": [{"label": "email", "start": 42, "end": 68}], "ms": 0.030199997127056122}
+{"id": "S046-08", "entities": [], "ms": 0.02529995981603861}
+{"id": "S049-18", "entities": [{"label": "person", "start": 68, "end": 71}, {"label": "email", "start": 122, "end": 144}], "ms": 0.9911999804899096}
+{"id": "S047-13", "entities": [{"label": "email", "start": 30, "end": 62}], "ms": 0.033400021493434906}
+{"id": "S046-05", "entities": [], "ms": 0.02680008765310049}
+{"id": "S046-11", "entities": [], "ms": 0.021999934688210487}
+{"id": "S050-04", "entities": [{"label": "phone_number", "start": 40, "end": 53}], "ms": 0.026699970476329327}
+{"id": "S049-11", "entities": [{"label": "person", "start": 12, "end": 15}, {"label": "email", "start": 44, "end": 64}, {"label": "phone_number", "start": 90, "end": 103}], "ms": 2.054500044323504}
+{"id": "S100-09", "entities": [], "ms": 0.041599967516958714}
+{"id": "S097-11", "entities": [{"label": "account_number", "start": 28, "end": 42}, {"label": "person", "start": 43, "end": 46}, {"label": "phone_number", "start": 57, "end": 70}], "ms": 0.0828000484034419}
+{"id": "S098-06", "entities": [], "ms": 0.030199997127056122}
+{"id": "S097-09", "entities": [], "ms": 0.040199956856667995}
+{"id": "S096-16", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 81, "end": 94}, {"label": "email", "start": 105, "end": 127}], "ms": 1.2106000212952495}
+{"id": "S099-04", "entities": [{"label": "phone_number", "start": 34, "end": 47}], "ms": 0.040899962186813354}
+{"id": "S096-02", "entities": [{"label": "person", "start": 4, "end": 7}, {"label": "address", "start": 91, "end": 112}, {"label": "phone_number", "start": 124, "end": 137}, {"label": "email", "start": 145, "end": 168}], "ms": 0.7702999282628298}
+{"id": "S097-13", "entities": [{"label": "person", "start": 7, "end": 10}], "ms": 1.1482000118121505}
+{"id": "S097-10", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 61, "end": 74}, {"label": "email", "start": 80, "end": 102}, {"label": "person", "start": 118, "end": 121}], "ms": 0.8006000425666571}
+{"id": "S100-12", "entities": [{"label": "person", "start": 22, "end": 25}, {"label": "card_number", "start": 52, "end": 71}], "ms": 0.7191000040620565}
+{"id": "S096-15", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 79, "end": 95}], "ms": 0.977099989540875}
+{"id": "S098-15", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 65, "end": 78}], "ms": 0.9582000784575939}
+{"id": "S097-15", "entities": [{"label": "person", "start": 16, "end": 19}, {"label": "email", "start": 35, "end": 54}, {"label": "phone_number", "start": 71, "end": 84}], "ms": 0.9672000305727124}
+{"id": "S098-05", "entities": [{"label": "email", "start": 57, "end": 80}], "ms": 0.03860006108880043}
+{"id": "S099-09", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 23, "end": 42}], "ms": 0.9579999605193734}
+{"id": "S096-01", "entities": [{"label": "phone_number", "start": 39, "end": 52}, {"label": "email", "start": 58, "end": 78}, {"label": "card_number", "start": 172, "end": 191}], "ms": 0.08219992741942406}
+{"id": "S100-14", "entities": [{"label": "email", "start": 76, "end": 100}], "ms": 0.038499943912029266}
+{"id": "S097-08", "entities": [], "ms": 0.04880002234131098}
+{"id": "S100-08", "entities": [{"label": "phone_number", "start": 73, "end": 86}], "ms": 0.04220008850097656}
+{"id": "S096-03", "entities": [{"label": "phone_number", "start": 38, "end": 51}], "ms": 0.03560003824532032}
+{"id": "S098-03", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.9855999378487468}
+{"id": "S097-04", "entities": [], "ms": 0.031800009310245514}
+{"id": "S099-12", "entities": [{"label": "person", "start": 29, "end": 32}, {"label": "account_number", "start": 43, "end": 59}], "ms": 1.0318999411538243}
+{"id": "S097-20", "entities": [], "ms": 0.029499991796910763}
+{"id": "S099-03", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 19, "end": 39}], "ms": 1.4748000539839268}
+{"id": "S099-13", "entities": [{"label": "person", "start": 4, "end": 7}, {"label": "email", "start": 17, "end": 38}], "ms": 1.2692000018432736}
+{"id": "S097-14", "entities": [{"label": "person", "start": 25, "end": 27}, {"label": "resident_registration_number", "start": 36, "end": 50}], "ms": 0.057399971410632133}
+{"id": "S099-06", "entities": [{"label": "email", "start": 0, "end": 22}], "ms": 0.034800032153725624}
+{"id": "S096-13", "entities": [{"label": "person", "start": 36, "end": 39}, {"label": "email", "start": 85, "end": 105}, {"label": "phone_number", "start": 111, "end": 124}], "ms": 2.1032000659033656}
+{"id": "S096-18", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 24, "end": 48}, {"label": "address", "start": 59, "end": 88}, {"label": "card_number", "start": 100, "end": 119}], "ms": 1.6842999029904604}
+{"id": "S100-17", "entities": [{"label": "phone_number", "start": 45, "end": 58}], "ms": 0.04640000406652689}
+{"id": "S098-12", "entities": [], "ms": 0.031000003218650818}
+{"id": "S096-09", "entities": [], "ms": 0.03450002986937761}
+{"id": "S097-06", "entities": [{"label": "phone_number", "start": 86, "end": 99}], "ms": 0.049400026910007}
+{"id": "S100-01", "entities": [{"label": "email", "start": 82, "end": 106}], "ms": 0.04680000711232424}
+{"id": "S100-07", "entities": [{"label": "card_number", "start": 47, "end": 66}, {"label": "email", "start": 94, "end": 118}], "ms": 0.05180004518479109}
+{"id": "S098-13", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.7412000559270382}
+{"id": "S097-18", "entities": [{"label": "person", "start": 11, "end": 14}, {"label": "phone_number", "start": 78, "end": 91}], "ms": 1.0945000685751438}
+{"id": "S099-10", "entities": [], "ms": 0.03090000245720148}
+{"id": "S098-09", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 9, "end": 28}], "ms": 0.7419999456033111}
+{"id": "S100-16", "entities": [], "ms": 0.027099973522126675}
+{"id": "S098-16", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.9860999416559935}
+{"id": "S096-17", "entities": [], "ms": 0.03270001616328955}
+{"id": "S099-02", "entities": [{"label": "person", "start": 31, "end": 34}, {"label": "card_number", "start": 62, "end": 81}], "ms": 0.0475000124424696}
+{"id": "S099-20", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.9809000184759498}
+{"id": "S099-07", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.6757000228390098}
+{"id": "S097-16", "entities": [{"label": "phone_number", "start": 72, "end": 85}, {"label": "phone_number", "start": 87, "end": 100}, {"label": "phone_number", "start": 102, "end": 115}], "ms": 0.05380006041377783}
+{"id": "S096-07", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 81, "end": 94}, {"label": "email", "start": 102, "end": 126}], "ms": 0.9832000359892845}
+{"id": "S098-14", "entities": [], "ms": 0.03060000017285347}
+{"id": "S100-20", "entities": [], "ms": 0.025000073947012424}
+{"id": "S008-15", "entities": [{"label": "phone_number", "start": 47, "end": 60}], "ms": 0.0315000070258975}
+{"id": "S009-02", "entities": [], "ms": 0.02150004729628563}
+{"id": "S006-14", "entities": [{"label": "person", "start": 14, "end": 17}, {"label": "phone_number", "start": 23, "end": 36}, {"label": "address", "start": 41, "end": 63}], "ms": 0.6884000031277537}
+{"id": "S009-14", "entities": [{"label": "email", "start": 0, "end": 20}], "ms": 0.02519995905458927}
+{"id": "S009-11", "entities": [{"label": "person", "start": 9, "end": 12}, {"label": "phone_number", "start": 21, "end": 34}, {"label": "email", "start": 39, "end": 58}], "ms": 0.6758000236004591}
+{"id": "S006-09", "entities": [{"label": "phone_number", "start": 27, "end": 40}, {"label": "card_number", "start": 45, "end": 64}, {"label": "resident_registration_number", "start": 73, "end": 87}], "ms": 0.04370009992271662}
+{"id": "S010-02", "entities": [], "ms": 0.02789997961372137}
+{"id": "S010-11", "entities": [{"label": "address", "start": 38, "end": 52}, {"label": "phone_number", "start": 65, "end": 78}, {"label": "email", "start": 80, "end": 99}], "ms": 0.04499999340623617}
+{"id": "S008-11", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.0473999427631497}
+{"id": "S009-10", "entities": [{"label": "resident_registration_number", "start": 12, "end": 26}, {"label": "card_number", "start": 49, "end": 68}], "ms": 0.03909994848072529}
+{"id": "S010-20", "entities": [{"label": "phone_number", "start": 15, "end": 28}, {"label": "email", "start": 30, "end": 50}, {"label": "resident_registration_number", "start": 52, "end": 66}, {"label": "account_number", "start": 74, "end": 90}], "ms": 0.05749997217208147}
+{"id": "S008-01", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.7365000201389194}
+{"id": "S008-03", "entities": [{"label": "person", "start": 3, "end": 6}, {"label": "card_number", "start": 51, "end": 70}], "ms": 1.0149000445380807}
+{"id": "S009-16", "entities": [], "ms": 0.025600078515708447}
+{"id": "S008-19", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 28, "end": 42}, {"label": "account_number", "start": 50, "end": 65}], "ms": 0.9907999774441123}
+{"id": "S010-14", "entities": [{"label": "card_number", "start": 12, "end": 31}], "ms": 0.03190001007169485}
+{"id": "S007-12", "entities": [{"label": "person", "start": 4, "end": 7}, {"label": "email", "start": 37, "end": 56}], "ms": 0.6751000182703137}
+{"id": "S010-19", "entities": [{"label": "phone_number", "start": 37, "end": 50}, {"label": "address", "start": 55, "end": 79}], "ms": 0.03969995304942131}
+{"id": "S007-18", "entities": [{"label": "email", "start": 79, "end": 99}, {"label": "account_number", "start": 103, "end": 117}], "ms": 0.05230004899203777}
+{"id": "S010-06", "entities": [{"label": "account_number", "start": 22, "end": 38}], "ms": 0.0295999925583601}
+{"id": "S006-05", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 51, "end": 70}, {"label": "phone_number", "start": 76, "end": 89}], "ms": 1.4667999930679798}
+{"id": "S007-15", "entities": [{"label": "person", "start": 48, "end": 51}, {"label": "phone_number", "start": 57, "end": 70}, {"label": "account_number", "start": 75, "end": 89}, {"label": "email", "start": 95, "end": 116}], "ms": 1.5338999219238758}
+{"id": "S009-06", "entities": [{"label": "address", "start": 18, "end": 46}, {"label": "email", "start": 54, "end": 80}], "ms": 0.05240004975348711}
+{"id": "S007-19", "entities": [{"label": "email", "start": 50, "end": 68}], "ms": 0.03360002301633358}
+{"id": "S010-10", "entities": [], "ms": 0.02459995448589325}
+{"id": "S009-13", "entities": [], "ms": 0.021999934688210487}
+{"id": "S006-01", "entities": [{"label": "person", "start": 4, "end": 7}, {"label": "account_number", "start": 81, "end": 95}], "ms": 1.0960999643430114}
+{"id": "S008-12", "entities": [{"label": "card_number", "start": 45, "end": 64}, {"label": "person", "start": 77, "end": 80}], "ms": 0.7740999571979046}
+{"id": "S006-12", "entities": [], "ms": 0.03739993553608656}
+{"id": "S006-03", "entities": [{"label": "person", "start": 21, "end": 24}, {"label": "account_number", "start": 31, "end": 45}], "ms": 0.7424999494105577}
+{"id": "S006-13", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 48, "end": 67}], "ms": 0.7203000131994486}
+{"id": "S006-16", "entities": [], "ms": 0.03200001083314419}
+{"id": "S009-12", "entities": [], "ms": 0.027400092221796513}
+{"id": "S008-05", "entities": [{"label": "account_number", "start": 32, "end": 48}, {"label": "phone_number", "start": 56, "end": 69}], "ms": 0.03520003519952297}
+{"id": "S009-08", "entities": [{"label": "phone_number", "start": 24, "end": 37}, {"label": "person", "start": 43, "end": 46}], "ms": 0.6958999438211322}
+{"id": "S009-15", "entities": [{"label": "address", "start": 28, "end": 52}], "ms": 0.03090000245720148}
+{"id": "S007-07", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "phone_number", "start": 61, "end": 74}, {"label": "account_number", "start": 79, "end": 93}], "ms": 0.9812999051064253}
+{"id": "S006-02", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "card_number", "start": 32, "end": 51}, {"label": "email", "start": 68, "end": 89}, {"label": "phone_number", "start": 93, "end": 106}], "ms": 0.9724999545142055}
+{"id": "S007-03", "entities": [{"label": "account_number", "start": 32, "end": 46}, {"label": "email", "start": 73, "end": 98}], "ms": 0.04529999569058418}
+{"id": "S009-07", "entities": [{"label": "person", "start": 44, "end": 47}], "ms": 0.6735000060871243}
+{"id": "S006-15", "entities": [{"label": "person", "start": 28, "end": 31}, {"label": "account_number", "start": 36, "end": 50}, {"label": "resident_registration_number", "start": 57, "end": 71}, {"label": "email", "start": 76, "end": 99}], "ms": 1.0192999616265297}
+{"id": "S008-10", "entities": [], "ms": 0.0295999925583601}
+{"id": "S007-08", "entities": [{"label": "phone_number", "start": 45, "end": 58}, {"label": "email", "start": 64, "end": 84}, {"label": "account_number", "start": 91, "end": 105}], "ms": 0.05049991887062788}
+{"id": "S006-10", "entities": [{"label": "email", "start": 29, "end": 49}], "ms": 0.027699978090822697}
+{"id": "S007-13", "entities": [{"label": "email", "start": 76, "end": 96}], "ms": 0.04039995837956667}
+{"id": "S007-09", "entities": [{"label": "phone_number", "start": 42, "end": 55}], "ms": 0.08819997310638428}
+{"id": "S009-04", "entities": [], "ms": 0.040899962186813354}
+{"id": "S006-11", "entities": [{"label": "account_number", "start": 7, "end": 21}, {"label": "person", "start": 32, "end": 35}, {"label": "phone_number", "start": 40, "end": 53}], "ms": 1.0504999663680792}
+{"id": "S009-18", "entities": [{"label": "phone_number", "start": 0, "end": 13}, {"label": "person", "start": 28, "end": 31}], "ms": 1.004599966108799}
+{"id": "S010-07", "entities": [{"label": "email", "start": 43, "end": 63}, {"label": "phone_number", "start": 65, "end": 78}], "ms": 0.04950002767145634}
+{"id": "S062-20", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 20, "end": 32}], "ms": 0.7107999408617616}
+{"id": "S061-08", "entities": [{"label": "person", "start": 4, "end": 7}], "ms": 0.04279997665435076}
+{"id": "S063-09", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 15, "end": 29}], "ms": 0.9679999202489853}
+{"id": "S061-20", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 58, "end": 89}], "ms": 0.9686000412330031}
+{"id": "S061-04", "entities": [], "ms": 0.029799994081258774}
+{"id": "S063-02", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 46, "end": 58}], "ms": 1.4933999627828598}
+{"id": "S065-05", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.5589999966323376}
+{"id": "S065-19", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 27, "end": 40}, {"label": "email", "start": 45, "end": 66}], "ms": 0.07090007420629263}
+{"id": "S065-10", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 40, "end": 54}], "ms": 1.1004999978467822}
+{"id": "S061-14", "entities": [], "ms": 0.03670004662126303}
+{"id": "S063-18", "entities": [], "ms": 0.020399922505021095}
+{"id": "S064-18", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.1129999766126275}
+{"id": "S062-01", "entities": [{"label": "person", "start": 6, "end": 9}, {"label": "email", "start": 74, "end": 100}], "ms": 1.0936999460682273}
+{"id": "S061-06", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "phone_number", "start": 37, "end": 50}], "ms": 0.978600000962615}
+{"id": "S062-13", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.6814999505877495}
+{"id": "S062-07", "entities": [{"label": "person", "start": 6, "end": 9}, {"label": "phone_number", "start": 51, "end": 64}], "ms": 0.6894000107422471}
+{"id": "S065-12", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 10, "end": 31}], "ms": 0.9603999787941575}
+{"id": "S062-14", "entities": [{"label": "person", "start": 11, "end": 14}, {"label": "person", "start": 19, "end": 22}, {"label": "resident_registration_number", "start": 39, "end": 53}], "ms": 0.9713000617921352}
+{"id": "S065-09", "entities": [{"label": "person", "start": 28, "end": 31}], "ms": 0.7854000432416797}
+{"id": "S061-18", "entities": [], "ms": 0.02789997961372137}
+{"id": "S061-13", "entities": [{"label": "person", "start": 7, "end": 10}], "ms": 0.6795000517740846}
+{"id": "S063-17", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 9, "end": 32}], "ms": 0.6674000760540366}
+{"id": "S062-12", "entities": [{"label": "account_number", "start": 17, "end": 29}], "ms": 0.035100034438073635}
+{"id": "S064-12", "entities": [], "ms": 0.0298001104965806}
+{"id": "S062-08", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 26, "end": 45}], "ms": 0.6769000319764018}
+{"id": "S062-09", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.9498000144958496}
+{"id": "S062-06", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.6781000411137938}
+{"id": "S062-16", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.9608000982552767}
+{"id": "S065-08", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 22, "end": 35}, {"label": "email", "start": 43, "end": 66}], "ms": 0.7318999851122499}
+{"id": "S061-10", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 31, "end": 45}], "ms": 2.4434999795630574}
+{"id": "S064-19", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 14, "end": 28}], "ms": 1.1083000572398305}
+{"id": "S062-17", "entities": [{"label": "account_number", "start": 44, "end": 57}, {"label": "person", "start": 63, "end": 66}], "ms": 1.0644999565556645}
+{"id": "S063-12", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 14, "end": 33}, {"label": "email", "start": 53, "end": 76}], "ms": 1.0252000065520406}
+{"id": "S064-03", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 6, "end": 19}], "ms": 0.9689000435173512}
+{"id": "S063-05", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 26, "end": 51}], "ms": 1.038899994455278}
+{"id": "S064-02", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 26, "end": 45}], "ms": 0.9910999797284603}
+{"id": "S062-10", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 21, "end": 37}], "ms": 0.7015001028776169}
+{"id": "S061-12", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.0645999573171139}
+{"id": "S063-04", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.784600037150085}
+{"id": "S062-15", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 36, "end": 58}], "ms": 0.7448000833392143}
+{"id": "S063-13", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 8, "end": 21}], "ms": 0.7179999956861138}
+{"id": "S064-01", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.6889000069350004}
+{"id": "S065-07", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 7, "end": 26}, {"label": "phone_number", "start": 74, "end": 85}], "ms": 0.7252000505104661}
+{"id": "S062-02", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.9936999995261431}
+{"id": "S065-13", "entities": [{"label": "card_number", "start": 17, "end": 36}], "ms": 0.032100011594593525}
+{"id": "S065-17", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 9, "end": 33}], "ms": 0.696800067089498}
+{"id": "S063-20", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 14, "end": 38}, {"label": "address", "start": 41, "end": 65}], "ms": 1.7566001042723656}
+{"id": "S063-03", "entities": [], "ms": 0.029199989512562752}
+{"id": "S064-10", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 32, "end": 51}], "ms": 1.2832999927923083}
+{"id": "S065-18", "entities": [], "ms": 0.04200008697807789}

@@ -1,0 +1,994 @@
+{"id": "S085-04", "entities": [], "ms": 0.1}
+{"id": "S081-03", "entities": [{"label": "person", "start": 0, "end": 3, "text": "김정우"}, {"label": "phone_number", "start": 84, "end": 97, "text": "010.0032.9842"}, {"label": "email", "start": 99, "end": 122, "text": "jungwoo.kim@example.net"}], "ms": 3.1}
+{"id": "S081-17", "entities": [{"label": "address", "start": 21, "end": 60, "text": "경기도 고양시 일산동구 중앙로 1412, 한빛아파트 105동 1102호"}], "ms": 0.9}
+{"id": "S083-08", "entities": [{"label": "person", "start": 10, "end": 13, "text": "정혜리"}, {"label": "phone_number", "start": 55, "end": 68, "text": "010.0025.3098"}], "ms": 1.7}
+{"id": "S083-20", "entities": [{"label": "person", "start": 0, "end": 3, "text": "박지윤"}, {"label": "person", "start": 6, "end": 9, "text": "이선우"}, {"label": "phone_number", "start": 75, "end": 88, "text": "010.0087.4321"}], "ms": 2.4}
+{"id": "S082-05", "entities": [{"label": "person", "start": 0, "end": 3, "text": "오지은"}, {"label": "person", "start": 58, "end": 61, "text": "강동구"}], "ms": 2.3}
+{"id": "S085-09", "entities": [], "ms": 0.7}
+{"id": "S082-08", "entities": [{"label": "person", "start": 0, "end": 3, "text": "송하늘"}, {"label": "person", "start": 57, "end": 60, "text": "유성구"}, {"label": "person", "start": 78, "end": 81, "text": "송하늘"}], "ms": 2.2}
+{"id": "S081-06", "entities": [{"label": "person", "start": 20, "end": 23, "text": "조세연"}, {"label": "account_number", "start": 30, "end": 46, "text": "083301.04.111122"}], "ms": 1.4}
+{"id": "S081-07", "entities": [], "ms": 0.8}
+{"id": "S084-10", "entities": [{"label": "account_number", "start": 25, "end": 38, "text": "130-00-066700"}, {"label": "person", "start": 44, "end": 47, "text": "박민호"}], "ms": 1.1}
+{"id": "S083-18", "entities": [{"label": "person", "start": 0, "end": 3, "text": "최시우"}], "ms": 1.6}
+{"id": "S085-13", "entities": [{"label": "person", "start": 10, "end": 13, "text": "최동욱"}, {"label": "email", "start": 78, "end": 96, "text": "choidw@example.com"}], "ms": 1.9}
+{"id": "S081-10", "entities": [{"label": "person", "start": 98, "end": 101, "text": "김나연"}], "ms": 1.5}
+{"id": "S085-14", "entities": [{"label": "person", "start": 14, "end": 17, "text": "이정현"}, {"label": "person", "start": 36, "end": 39, "text": "김서진"}], "ms": 1.8}
+{"id": "S082-02", "entities": [{"label": "person", "start": 7, "end": 10, "text": "박성재"}, {"label": "person", "start": 24, "end": 27, "text": "이승은"}, {"label": "person", "start": 73, "end": 76, "text": "강서구"}], "ms": 3.3}
+{"id": "S085-10", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이재훈"}, {"label": "phone_number", "start": 99, "end": 112, "text": "010.0401.9098"}], "ms": 1.6}
+{"id": "S083-14", "entities": [{"label": "person", "start": 26, "end": 29, "text": "이소연"}, {"label": "account_number", "start": 36, "end": 50, "text": "123-004-987650"}], "ms": 1.2}
+{"id": "S082-01", "entities": [{"label": "person", "start": 7, "end": 10, "text": "김보람"}, {"label": "person", "start": 40, "end": 43, "text": "김지훈"}, {"label": "phone_number", "start": 119, "end": 131, "text": "02-0000-1234"}], "ms": 2.5}
+{"id": "S081-01", "entities": [{"label": "person", "start": 12, "end": 15, "text": "권지영"}, {"label": "person", "start": 17, "end": 20, "text": "정해민"}, {"label": "phone_number", "start": 114, "end": 127, "text": "010.0023.8765"}, {"label": "email", "start": 129, "end": 151, "text": "jiyeong.kw@example.com"}], "ms": 3.3}
+{"id": "S085-17", "entities": [{"label": "person", "start": 0, "end": 3, "text": "윤채림"}, {"label": "address", "start": 66, "end": 81, "text": "대구광역시 중구 동성로 10"}, {"label": "email", "start": 87, "end": 105, "text": "yooncr@example.net"}], "ms": 1.6}
+{"id": "S084-07", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이혜진"}], "ms": 1.5}
+{"id": "S085-15", "entities": [{"label": "person", "start": 0, "end": 3, "text": "정지호"}, {"label": "phone_number", "start": 87, "end": 100, "text": "010.0407.5505"}], "ms": 1.5}
+{"id": "S084-03", "entities": [{"label": "person", "start": 7, "end": 10, "text": "김유진"}, {"label": "email", "start": 29, "end": 51, "text": "kimyujin21@example.com"}], "ms": 1.2}
+{"id": "S085-12", "entities": [{"label": "address", "start": 67, "end": 85, "text": "광주광역시 서구 만평로 77 2층"}, {"label": "card_number", "start": 98, "end": 117, "text": "4112-9002-0001-2345"}, {"label": "email", "start": 119, "end": 144, "text": "hongjieun20@example.co.kr"}], "ms": 0.7}
+{"id": "S082-12", "entities": [{"label": "person", "start": 0, "end": 3, "text": "윤채린"}, {"label": "person", "start": 43, "end": 46, "text": "윤채린"}, {"label": "email", "start": 68, "end": 85, "text": "yoonch@sample.net"}], "ms": 1.7}
+{"id": "S085-01", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이윤지"}, {"label": "address", "start": 73, "end": 93, "text": "서울특별시 강남구 논현로 512 5층"}], "ms": 1.8}
+{"id": "S085-07", "entities": [{"label": "person", "start": 42, "end": 45, "text": "정현주"}, {"label": "person", "start": 47, "end": 50, "text": "이은서"}, {"label": "person", "start": 60, "end": 63, "text": "김대영"}], "ms": 3.0}
+{"id": "S084-14", "entities": [{"label": "person", "start": 0, "end": 3, "text": "김종운"}, {"label": "phone_number", "start": 17, "end": 30, "text": "010.0900.1236"}], "ms": 1.2}
+{"id": "S082-19", "entities": [], "ms": 0.9}
+{"id": "S082-16", "entities": [{"label": "person", "start": 0, "end": 3, "text": "손민재"}], "ms": 2.3}
+{"id": "S085-20", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이주영"}, {"label": "phone_number", "start": 79, "end": 92, "text": "010.0409.3459"}], "ms": 1.4}
+{"id": "S085-18", "entities": [{"label": "account_number", "start": 31, "end": 45, "text": "100-040-000999"}, {"label": "account_number", "start": 47, "end": 61, "text": "100-040-000999"}, {"label": "person", "start": 67, "end": 70, "text": "이수진"}], "ms": 1.3}
+{"id": "S081-05", "entities": [{"label": "person", "start": 3, "end": 6, "text": "이창수"}, {"label": "person", "start": 32, "end": 35, "text": "이창수"}, {"label": "email", "start": 111, "end": 133, "text": "changsulee@example.com"}], "ms": 1.6}
+{"id": "S084-04", "entities": [{"label": "person", "start": 0, "end": 3, "text": "최소영"}], "ms": 1.4}
+{"id": "S085-05", "entities": [{"label": "person", "start": 0, "end": 3, "text": "박성훈"}, {"label": "phone_number", "start": 98, "end": 111, "text": "010.0400.1245"}, {"label": "email", "start": 113, "end": 131, "text": "psh001@example.com"}], "ms": 1.6}
+{"id": "S081-12", "entities": [{"label": "person", "start": 0, "end": 3, "text": "장현수"}, {"label": "phone_number", "start": 84, "end": 97, "text": "010.0066.7115"}, {"label": "email", "start": 99, "end": 124, "text": "hyunsu.jang@example.co.kr"}], "ms": 1.4}
+{"id": "S084-19", "entities": [{"label": "person", "start": 25, "end": 28, "text": "정재훈"}, {"label": "person", "start": 34, "end": 37, "text": "서지아"}, {"label": "phone_number", "start": 104, "end": 117, "text": "010.0700.1995"}], "ms": 1.9}
+{"id": "S081-14", "entities": [], "ms": 0.9}
+{"id": "S081-18", "entities": [{"label": "person", "start": 0, "end": 3, "text": "서유진"}, {"label": "account_number", "start": 55, "end": 71, "text": "008.002500.22989"}, {"label": "email", "start": 78, "end": 99, "text": "yujin.seo@example.com"}], "ms": 1.0}
+{"id": "S082-17", "entities": [{"label": "person", "start": 7, "end": 10, "text": "최하늘"}, {"label": "email", "start": 89, "end": 113, "text": "choihaneul@example.co.kr"}], "ms": 1.0}
+{"id": "S083-01", "entities": [{"label": "person", "start": 0, "end": 3, "text": "박재윤"}], "ms": 2.9}
+{"id": "S083-05", "entities": [], "ms": 0.7}
+{"id": "S081-04", "entities": [{"label": "person", "start": 8, "end": 11, "text": "이주연"}, {"label": "phone_number", "start": 62, "end": 75, "text": "010.0056.1198"}], "ms": 1.2}
+{"id": "S081-15", "entities": [{"label": "person", "start": 0, "end": 3, "text": "최다빈"}, {"label": "phone_number", "start": 81, "end": 94, "text": "010.0082.4147"}], "ms": 1.5}
+{"id": "S085-11", "entities": [{"label": "account_number", "start": 23, "end": 37, "text": "100-040-123456"}, {"label": "account_number", "start": 39, "end": 53, "text": "100-040-123456"}, {"label": "person", "start": 60, "end": 63, "text": "조윤아"}], "ms": 1.3}
+{"id": "S075-19", "entities": [{"label": "person", "start": 0, "end": 3, "text": "배송지"}, {"label": "address", "start": 10, "end": 35, "text": "울산광역시 북구 진장동 281-22, 403호"}], "ms": 1.6}
+{"id": "S075-16", "entities": [{"label": "email", "start": 46, "end": 67, "text": "lee.jiwoo@example.com"}], "ms": 0.6}
+{"id": "S071-08", "entities": [{"label": "person", "start": 3, "end": 6, "text": "최은진"}, {"label": "email", "start": 18, "end": 40, "text": "eunjin.c@example.co.kr"}, {"label": "phone_number", "start": 69, "end": 82, "text": "010.0859.4367"}], "ms": 1.4}
+{"id": "S074-16", "entities": [{"label": "resident_registration_number", "start": 18, "end": 32, "text": "920117-2104402"}], "ms": 0.4}
+{"id": "S073-04", "entities": [], "ms": 0.7}
+{"id": "S071-01", "entities": [{"label": "person", "start": 47, "end": 50, "text": "배송지"}, {"label": "address", "start": 83, "end": 108, "text": "서울특별시 동작구 장승배기로 119, 402호"}, {"label": "address", "start": 120, "end": 146, "text": "서울특별시 강서구 마곡중앙6로 12, 1001호"}, {"label": "phone_number", "start": 170, "end": 183, "text": "010.0830.4421"}], "ms": 1.3}
+{"id": "S073-16", "entities": [{"label": "person", "start": 34, "end": 37, "text": "김다윤"}, {"label": "address", "start": 43, "end": 64, "text": "대구 북구 연암로 23, 5층 501호"}], "ms": 1.3}
+{"id": "S072-16", "entities": [], "ms": 0.5}
+{"id": "S071-17", "entities": [], "ms": 0.4}
+{"id": "S075-01", "entities": [], "ms": 1.2}
+{"id": "S072-10", "entities": [{"label": "account_number", "start": 38, "end": 54, "text": "328501-00-095276"}], "ms": 1.4}
+{"id": "S072-19", "entities": [{"label": "card_number", "start": 27, "end": 46, "text": "4799-3050-1111-0864"}], "ms": 1.0}
+{"id": "S072-05", "entities": [{"label": "person", "start": 11, "end": 14, "text": "배송지"}, {"label": "address", "start": 53, "end": 82, "text": "경기도 용인시 처인구 중앙로 200 101동 402호"}, {"label": "person", "start": 113, "end": 116, "text": "문지은"}, {"label": "email", "start": 118, "end": 138, "text": "moonji@example.co.kr"}, {"label": "phone_number", "start": 140, "end": 153, "text": "010.0082.4344"}], "ms": 1.8}
+{"id": "S073-10", "entities": [{"label": "person", "start": 36, "end": 39, "text": "채재호"}, {"label": "email", "start": 49, "end": 71, "text": "jaeho.chae@example.com"}, {"label": "email", "start": 80, "end": 106, "text": "jaeho.chae1992@example.net"}], "ms": 1.4}
+{"id": "S075-18", "entities": [], "ms": 0.7}
+{"id": "S074-19", "entities": [], "ms": 0.6}
+{"id": "S072-01", "entities": [{"label": "email", "start": 133, "end": 155, "text": "sunjae.kim@example.com"}, {"label": "person", "start": 174, "end": 177, "text": "김선재"}], "ms": 2.3}
+{"id": "S071-20", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이경아"}, {"label": "resident_registration_number", "start": 34, "end": 48, "text": "910417-2364051"}, {"label": "resident_registration_number", "start": 68, "end": 82, "text": "910427-2364052"}], "ms": 1.3}
+{"id": "S071-15", "entities": [{"label": "person", "start": 13, "end": 16, "text": "김라온"}, {"label": "card_number", "start": 32, "end": 51, "text": "5020-2214-9900-1435"}, {"label": "email", "start": 68, "end": 87, "text": "raonkim@example.net"}], "ms": 1.3}
+{"id": "S071-07", "entities": [], "ms": 0.6}
+{"id": "S071-12", "entities": [{"label": "person", "start": 8, "end": 11, "text": "박시환"}, {"label": "phone_number", "start": 20, "end": 33, "text": "010.0805.5554"}], "ms": 1.4}
+{"id": "S075-11", "entities": [{"label": "resident_registration_number", "start": 62, "end": 76, "text": "050920-4093185"}], "ms": 0.6}
+{"id": "S074-06", "entities": [{"label": "person", "start": 28, "end": 31, "text": "장세린"}], "ms": 1.1}
+{"id": "S075-05", "entities": [{"label": "account_number", "start": 39, "end": 56, "text": "009-229108-091245"}], "ms": 0.6}
+{"id": "S072-09", "entities": [{"label": "person", "start": 7, "end": 10, "text": "김혜선"}, {"label": "email", "start": 47, "end": 64, "text": "hskim@example.com"}, {"label": "resident_registration_number", "start": 89, "end": 103, "text": "610921-2009781"}], "ms": 2.5}
+{"id": "S073-07", "entities": [{"label": "person", "start": 7, "end": 10, "text": "장윤재"}], "ms": 1.5}
+{"id": "S075-20", "entities": [{"label": "person", "start": 0, "end": 3, "text": "박해린"}, {"label": "resident_registration_number", "start": 18, "end": 32, "text": "980523-2091187"}, {"label": "address", "start": 38, "end": 61, "text": "광주광역시 서구 상무대로 101, 210호"}, {"label": "phone_number", "start": 68, "end": 81, "text": "010.0020.3519"}], "ms": 1.6}
+{"id": "S074-20", "entities": [], "ms": 0.6}
+{"id": "S073-15", "entities": [{"label": "person", "start": 55, "end": 58, "text": "최하늘"}], "ms": 0.8}
+{"id": "S074-15", "entities": [{"label": "person", "start": 28, "end": 31, "text": "김현태"}, {"label": "phone_number", "start": 41, "end": 54, "text": "010.0091.0152"}], "ms": 1.2}
+{"id": "S075-06", "entities": [], "ms": 0.7}
+{"id": "S074-09", "entities": [{"label": "person", "start": 0, "end": 3, "text": "최윤석"}, {"label": "account_number", "start": 35, "end": 50, "text": "110-0400-900005"}], "ms": 1.2}
+{"id": "S074-12", "entities": [{"label": "phone_number", "start": 16, "end": 29, "text": "010.0035.4990"}], "ms": 0.3}
+{"id": "S072-12", "entities": [{"label": "email", "start": 45, "end": 65, "text": "june77@example.co.kr"}], "ms": 0.7}
+{"id": "S071-18", "entities": [{"label": "phone_number", "start": 68, "end": 81, "text": "010.0852.0719"}], "ms": 0.8}
+{"id": "S072-14", "entities": [], "ms": 0.6}
+{"id": "S071-19", "entities": [{"label": "person", "start": 0, "end": 3, "text": "장민호"}, {"label": "phone_number", "start": 51, "end": 64, "text": "010.0863.2775"}, {"label": "email", "start": 70, "end": 94, "text": "minho.jang88@example.com"}], "ms": 1.1}
+{"id": "S073-19", "entities": [], "ms": 0.5}
+{"id": "S075-03", "entities": [{"label": "person", "start": 0, "end": 3, "text": "배송지"}, {"label": "address", "start": 23, "end": 51, "text": "경기도 화성시 무지개로 115, 502동 1804호"}, {"label": "address", "start": 63, "end": 86, "text": "서울시 강남구 테헤란로 285, 1403호"}], "ms": 0.8}
+{"id": "S073-11", "entities": [], "ms": 0.6}
+{"id": "S074-04", "entities": [{"label": "person", "start": 0, "end": 3, "text": "박선우"}, {"label": "address", "start": 35, "end": 62, "text": "경기 군포시 예시로 74-2, 202동 1104호"}], "ms": 0.9}
+{"id": "S075-04", "entities": [{"label": "person", "start": 7, "end": 10, "text": "박승민"}, {"label": "card_number", "start": 52, "end": 71, "text": "4410-0099-8732-1647"}], "ms": 2.1}
+{"id": "S075-17", "entities": [{"label": "card_number", "start": 39, "end": 58, "text": "5223-0042-9234-5802"}], "ms": 0.6}
+{"id": "S073-01", "entities": [{"label": "address", "start": 58, "end": 80, "text": "서울시 강남구 논현로 205, 1203호"}, {"label": "address", "start": 90, "end": 120, "text": "경기 성남시 분당구 대왕판교로 500, 10동 501호"}], "ms": 1.3}
+{"id": "S075-12", "entities": [{"label": "person", "start": 0, "end": 3, "text": "정세윤"}, {"label": "phone_number", "start": 19, "end": 32, "text": "010.0063.4125"}], "ms": 1.6}
+{"id": "S074-13", "entities": [{"label": "card_number", "start": 34, "end": 53, "text": "5174-0000-3176-9926"}], "ms": 0.6}
+{"id": "S072-08", "entities": [{"label": "person", "start": 0, "end": 3, "text": "조다은"}, {"label": "phone_number", "start": 65, "end": 78, "text": "010.0066.5918"}, {"label": "email", "start": 83, "end": 99, "text": "dajo@example.net"}], "ms": 1.7}
+{"id": "S071-09", "entities": [{"label": "person", "start": 6, "end": 9, "text": "안도현"}, {"label": "phone_number", "start": 72, "end": 85, "text": "010.0342.9008"}], "ms": 1.6}
+{"id": "S072-15", "entities": [{"label": "person", "start": 7, "end": 10, "text": "박태훈"}, {"label": "email", "start": 60, "end": 77, "text": "pth99@example.com"}, {"label": "phone_number", "start": 84, "end": 97, "text": "010.0024.9988"}], "ms": 1.7}
+{"id": "S073-12", "entities": [{"label": "person", "start": 0, "end": 3, "text": "문지원"}, {"label": "account_number", "start": 14, "end": 27, "text": "3020001402987"}], "ms": 1.0}
+{"id": "S088-14", "entities": [], "ms": 0.5}
+{"id": "S088-11", "entities": [{"label": "person", "start": 10, "end": 13, "text": "이현석"}], "ms": 1.2}
+{"id": "S090-05", "entities": [{"label": "person", "start": 34, "end": 37, "text": "박선령"}], "ms": 1.0}
+{"id": "S089-05", "entities": [{"label": "account_number", "start": 55, "end": 70, "text": "105-000-4958210"}], "ms": 0.6}
+{"id": "S088-16", "entities": [], "ms": 0.5}
+{"id": "S087-17", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이수빈"}, {"label": "phone_number", "start": 56, "end": 69, "text": "010.0089.0204"}], "ms": 2.7}
+{"id": "S090-08", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이시원"}, {"label": "phone_number", "start": 55, "end": 68, "text": "010.0604.3901"}], "ms": 1.2}
+{"id": "S088-07", "entities": [{"label": "email", "start": 29, "end": 50, "text": "psyun2024@example.com"}], "ms": 0.5}
+{"id": "S090-19", "entities": [], "ms": 0.5}
+{"id": "S087-15", "entities": [{"label": "person", "start": 7, "end": 10, "text": "유우진"}, {"label": "address", "start": 39, "end": 69, "text": "경기도 성남시 분당구 정자일로 84, 301동 204호"}], "ms": 1.6}
+{"id": "S086-14", "entities": [{"label": "person", "start": 23, "end": 26, "text": "허성윤"}, {"label": "phone_number", "start": 34, "end": 47, "text": "010.0432.1587"}, {"label": "email", "start": 55, "end": 75, "text": "sungyunh@example.com"}, {"label": "card_number", "start": 91, "end": 110, "text": "4923-0011-4893-5524"}], "ms": 1.7}
+{"id": "S090-10", "entities": [{"label": "person", "start": 42, "end": 45, "text": "윤지운"}], "ms": 1.5}
+{"id": "S089-08", "entities": [], "ms": 0.4}
+{"id": "S087-16", "entities": [{"label": "person", "start": 25, "end": 28, "text": "김다현"}, {"label": "address", "start": 35, "end": 59, "text": "서울특별시 은평구 불광로 8길 9, 303호"}, {"label": "account_number", "start": 68, "end": 82, "text": "123-008-000184"}, {"label": "email", "start": 89, "end": 107, "text": "kim.dh@example.net"}], "ms": 1.4}
+{"id": "S087-11", "entities": [{"label": "email", "start": 4, "end": 25, "text": "junho.kim@example.com"}], "ms": 0.7}
+{"id": "S089-06", "entities": [], "ms": 0.3}
+{"id": "S089-13", "entities": [{"label": "person", "start": 0, "end": 3, "text": "백진아"}, {"label": "account_number", "start": 42, "end": 57, "text": "101-002-7840024"}], "ms": 1.2}
+{"id": "S088-03", "entities": [{"label": "account_number", "start": 24, "end": 38, "text": "62300471839100"}], "ms": 0.4}
+{"id": "S086-05", "entities": [], "ms": 0.5}
+{"id": "S090-02", "entities": [], "ms": 0.6}
+{"id": "S089-17", "entities": [{"label": "phone_number", "start": 11, "end": 24, "text": "010.0230.9841"}], "ms": 0.2}
+{"id": "S086-08", "entities": [{"label": "person", "start": 0, "end": 3, "text": "양재민"}, {"label": "account_number", "start": 47, "end": 61, "text": "055-000-417855"}, {"label": "email", "start": 74, "end": 94, "text": "yjmin729@example.net"}], "ms": 1.5}
+{"id": "S086-10", "entities": [{"label": "person", "start": 0, "end": 3, "text": "윤보라"}, {"label": "phone_number", "start": 57, "end": 70, "text": "010.0098.2239"}, {"label": "email", "start": 78, "end": 100, "text": "bora1202@example.co.kr"}], "ms": 2.0}
+{"id": "S086-01", "entities": [{"label": "person", "start": 28, "end": 31, "text": "안정진"}, {"label": "account_number", "start": 87, "end": 101, "text": "123-840-006452"}, {"label": "person", "start": 108, "end": 111, "text": "안정진"}, {"label": "phone_number", "start": 117, "end": 130, "text": "010-0450-8921"}], "ms": 1.4}
+{"id": "S090-03", "entities": [{"label": "person", "start": 8, "end": 11, "text": "최재훈"}], "ms": 0.8}
+{"id": "S089-19", "entities": [], "ms": 0.3}
+{"id": "S087-10", "entities": [{"label": "person", "start": 0, "end": 3, "text": "박기훈"}], "ms": 1.6}
+{"id": "S089-11", "entities": [{"label": "account_number", "start": 26, "end": 39, "text": "202406-089-12"}], "ms": 0.4}
+{"id": "S089-16", "entities": [{"label": "person", "start": 0, "end": 3, "text": "김나연"}, {"label": "address", "start": 47, "end": 77, "text": "경기도 수원시 팔달구 효원로 101 203동 1105호"}], "ms": 0.8}
+{"id": "S086-03", "entities": [{"label": "person", "start": 7, "end": 10, "text": "류성민"}, {"label": "email", "start": 92, "end": 111, "text": "rysm401@example.com"}], "ms": 1.5}
+{"id": "S088-04", "entities": [], "ms": 0.6}
+{"id": "S086-09", "entities": [{"label": "phone_number", "start": 56, "end": 69, "text": "010.0285.9421"}], "ms": 0.6}
+{"id": "S087-09", "entities": [{"label": "person", "start": 0, "end": 3, "text": "최예슬"}, {"label": "account_number", "start": 76, "end": 92, "text": "1001-0000-879991"}], "ms": 1.4}
+{"id": "S087-12", "entities": [{"label": "person", "start": 0, "end": 3, "text": "장서윤"}, {"label": "account_number", "start": 53, "end": 68, "text": "351-0000-931089"}, {"label": "phone_number", "start": 78, "end": 91, "text": "010.0051.6034"}], "ms": 1.3}
+{"id": "S086-16", "entities": [{"label": "person", "start": 0, "end": 3, "text": "송하준"}, {"label": "phone_number", "start": 50, "end": 63, "text": "010.0409.2038"}, {"label": "email", "start": 80, "end": 104, "text": "hajun.song@example.co.kr"}], "ms": 1.4}
+{"id": "S088-18", "entities": [{"label": "email", "start": 23, "end": 43, "text": "chsw1004@example.net"}], "ms": 0.4}
+{"id": "S089-07", "entities": [{"label": "person", "start": 0, "end": 3, "text": "손재훈"}], "ms": 0.7}
+{"id": "S088-17", "entities": [{"label": "person", "start": 0, "end": 3, "text": "최상우"}, {"label": "address", "start": 33, "end": 59, "text": "인천광역시 미추홀구 학익동 36-12, 703호"}], "ms": 1.7}
+{"id": "S088-08", "entities": [], "ms": 0.6}
+{"id": "S090-04", "entities": [{"label": "person", "start": 7, "end": 10, "text": "김경림"}, {"label": "account_number", "start": 45, "end": 59, "text": "200-380-446973"}], "ms": 1.6}
+{"id": "S090-06", "entities": [], "ms": 0.8}
+{"id": "S088-12", "entities": [{"label": "person", "start": 0, "end": 3, "text": "조윤서"}, {"label": "card_number", "start": 31, "end": 50, "text": "5241-0098-3178-2222"}], "ms": 1.4}
+{"id": "S087-20", "entities": [{"label": "person", "start": 25, "end": 28, "text": "윤지하"}, {"label": "email", "start": 55, "end": 84, "text": "yunjiha@apttown.example.co.kr"}], "ms": 1.1}
+{"id": "S090-12", "entities": [{"label": "resident_registration_number", "start": 0, "end": 14, "text": "040101-4129345"}, {"label": "person", "start": 21, "end": 24, "text": "한세아"}, {"label": "account_number", "start": 38, "end": 52, "text": "380-028-555512"}], "ms": 1.3}
+{"id": "S087-06", "entities": [{"label": "person", "start": 0, "end": 3, "text": "배진호"}, {"label": "card_number", "start": 64, "end": 83, "text": "4024-0021-8864-5520"}], "ms": 1.5}
+{"id": "S090-09", "entities": [{"label": "person", "start": 28, "end": 31, "text": "민송아"}, {"label": "email", "start": 41, "end": 62, "text": "minsong98@example.com"}], "ms": 1.3}
+{"id": "S090-14", "entities": [{"label": "person", "start": 0, "end": 3, "text": "남도형"}, {"label": "email", "start": 38, "end": 57, "text": "namdo00@example.net"}], "ms": 0.8}
+{"id": "S090-17", "entities": [{"label": "card_number", "start": 6, "end": 25, "text": "4921-0000-0000-0422"}, {"label": "person", "start": 49, "end": 52, "text": "윤수림"}], "ms": 0.8}
+{"id": "S089-10", "entities": [{"label": "person", "start": 0, "end": 3, "text": "최지웅"}, {"label": "email", "start": 4, "end": 24, "text": "chjw82@example.co.kr"}], "ms": 1.0}
+{"id": "S087-08", "entities": [{"label": "person", "start": 28, "end": 31, "text": "손지영"}, {"label": "account_number", "start": 40, "end": 54, "text": "301-000-910000"}, {"label": "email", "start": 61, "end": 80, "text": "sonjy@example.co.kr"}], "ms": 1.0}
+{"id": "S068-16", "entities": [], "ms": 0.5}
+{"id": "S068-06", "entities": [], "ms": 0.3}
+{"id": "S068-20", "entities": [{"label": "person", "start": 0, "end": 3, "text": "오유림"}, {"label": "phone_number", "start": 14, "end": 27, "text": "010.0360.7182"}], "ms": 1.3}
+{"id": "S066-14", "entities": [{"label": "person", "start": 21, "end": 24, "text": "이혜승"}], "ms": 1.8}
+{"id": "S066-17", "entities": [], "ms": 0.6}
+{"id": "S069-19", "entities": [{"label": "person", "start": 0, "end": 3, "text": "홍현수"}, {"label": "resident_registration_number", "start": 13, "end": 27, "text": "001231-1238904"}], "ms": 0.9}
+{"id": "S070-19", "entities": [{"label": "person", "start": 0, "end": 3, "text": "정나래"}, {"label": "account_number", "start": 15, "end": 31, "text": "875005-00-456789"}], "ms": 1.2}
+{"id": "S070-17", "entities": [{"label": "person", "start": 0, "end": 3, "text": "김서진"}, {"label": "resident_registration_number", "start": 15, "end": 29, "text": "920107-1000123"}], "ms": 0.7}
+{"id": "S070-08", "entities": [{"label": "person", "start": 0, "end": 3, "text": "최예람"}, {"label": "phone_number", "start": 22, "end": 35, "text": "010.0055.4012"}], "ms": 1.2}
+{"id": "S068-03", "entities": [{"label": "person", "start": 0, "end": 3, "text": "박지은"}, {"label": "address", "start": 34, "end": 66, "text": "경기도 성남시 분당구 판교로 272, 1201동 1003호"}], "ms": 1.0}
+{"id": "S067-07", "entities": [], "ms": 0.5}
+{"id": "S069-04", "entities": [{"label": "person", "start": 0, "end": 3, "text": "한지호"}, {"label": "phone_number", "start": 23, "end": 36, "text": "010.0875.3344"}], "ms": 0.8}
+{"id": "S067-20", "entities": [], "ms": 0.6}
+{"id": "S066-06", "entities": [{"label": "person", "start": 11, "end": 14, "text": "최윤지"}, {"label": "person", "start": 16, "end": 19, "text": "박성우"}, {"label": "person", "start": 21, "end": 24, "text": "이수현"}], "ms": 2.6}
+{"id": "S067-12", "entities": [], "ms": 0.7}
+{"id": "S066-16", "entities": [{"label": "person", "start": 7, "end": 10, "text": "임지원"}, {"label": "email", "start": 42, "end": 63, "text": "jiwon.lim@example.com"}], "ms": 0.8}
+{"id": "S068-12", "entities": [{"label": "person", "start": 8, "end": 11, "text": "서은지"}, {"label": "resident_registration_number", "start": 41, "end": 55, "text": "910716-2009238"}], "ms": 1.2}
+{"id": "S067-11", "entities": [{"label": "person", "start": 0, "end": 3, "text": "박소라"}, {"label": "address", "start": 22, "end": 42, "text": "서울시 중구 을지로 77, 1403호"}], "ms": 1.5}
+{"id": "S070-04", "entities": [{"label": "person", "start": 0, "end": 3, "text": "오유진"}], "ms": 2.0}
+{"id": "S066-09", "entities": [{"label": "person", "start": 7, "end": 10, "text": "류지완"}, {"label": "resident_registration_number", "start": 20, "end": 34, "text": "920821-1523487"}], "ms": 1.4}
+{"id": "S067-04", "entities": [{"label": "person", "start": 0, "end": 3, "text": "홍세령"}, {"label": "address", "start": 19, "end": 40, "text": "서울시 강남구 역삼로 134, 605호"}], "ms": 1.5}
+{"id": "S066-11", "entities": [{"label": "person", "start": 11, "end": 14, "text": "윤하림"}, {"label": "email", "start": 20, "end": 42, "text": "harim.yoon@example.net"}], "ms": 1.2}
+{"id": "S069-06", "entities": [{"label": "person", "start": 0, "end": 3, "text": "박지선"}, {"label": "account_number", "start": 11, "end": 24, "text": "193-00-479103"}], "ms": 1.2}
+{"id": "S070-01", "entities": [], "ms": 0.5}
+{"id": "S067-01", "entities": [], "ms": 0.7}
+{"id": "S069-08", "entities": [{"label": "person", "start": 0, "end": 3, "text": "임소연"}, {"label": "card_number", "start": 9, "end": 28, "text": "5049-7200-1837-4206"}], "ms": 0.7}
+{"id": "S069-05", "entities": [], "ms": 0.3}
+{"id": "S069-02", "entities": [], "ms": 0.3}
+{"id": "S070-12", "entities": [{"label": "person", "start": 0, "end": 3, "text": "윤해진"}, {"label": "address", "start": 39, "end": 61, "text": "경기도 가상시 무지개로 24-8 601호"}], "ms": 1.4}
+{"id": "S066-07", "entities": [{"label": "person", "start": 0, "end": 3, "text": "강민서"}, {"label": "phone_number", "start": 40, "end": 53, "text": "010.0340.6721"}, {"label": "phone_number", "start": 60, "end": 73, "text": "010.0008.3459"}], "ms": 1.3}
+{"id": "S070-03", "entities": [{"label": "email", "start": 12, "end": 32, "text": "mina.kim@example.com"}], "ms": 0.5}
+{"id": "S068-01", "entities": [], "ms": 0.5}
+{"id": "S070-06", "entities": [{"label": "person", "start": 0, "end": 3, "text": "차은호"}, {"label": "account_number", "start": 17, "end": 33, "text": "390800-00-123456"}], "ms": 1.2}
+{"id": "S069-10", "entities": [], "ms": 0.3}
+{"id": "S069-15", "entities": [], "ms": 0.3}
+{"id": "S066-08", "entities": [], "ms": 0.4}
+{"id": "S067-08", "entities": [{"label": "person", "start": 0, "end": 3, "text": "조상현"}, {"label": "card_number", "start": 20, "end": 39, "text": "9988-5544-2233-1102"}], "ms": 1.3}
+{"id": "S067-18", "entities": [{"label": "person", "start": 0, "end": 3, "text": "장현수"}], "ms": 0.7}
+{"id": "S067-05", "entities": [], "ms": 1.1}
+{"id": "S066-20", "entities": [{"label": "person", "start": 11, "end": 14, "text": "오설아"}, {"label": "email", "start": 42, "end": 57, "text": "osa@example.com"}], "ms": 1.4}
+{"id": "S069-03", "entities": [{"label": "person", "start": 0, "end": 3, "text": "고은비"}, {"label": "address", "start": 22, "end": 45, "text": "서울특별시 강남구 역삼동 123-45 5층"}], "ms": 1.2}
+{"id": "S070-05", "entities": [], "ms": 0.5}
+{"id": "S069-12", "entities": [{"label": "person", "start": 0, "end": 3, "text": "윤재훈"}, {"label": "resident_registration_number", "start": 10, "end": 24, "text": "021107-3114759"}], "ms": 0.8}
+{"id": "S070-14", "entities": [], "ms": 0.4}
+{"id": "S070-10", "entities": [{"label": "account_number", "start": 13, "end": 26, "text": "110-00-987654"}], "ms": 0.4}
+{"id": "S068-15", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이하린"}, {"label": "person", "start": 6, "end": 9, "text": "배송지"}, {"label": "address", "start": 28, "end": 53, "text": "부산광역시 해운대구 센텀중앙로 90, 408호"}], "ms": 1.6}
+{"id": "S067-17", "entities": [{"label": "person", "start": 0, "end": 3, "text": "오윤아"}, {"label": "card_number", "start": 23, "end": 42, "text": "8800-0012-3456-7890"}], "ms": 0.8}
+{"id": "S068-19", "entities": [], "ms": 0.5}
+{"id": "S067-14", "entities": [{"label": "person", "start": 0, "end": 3, "text": "정하늘"}], "ms": 1.0}
+{"id": "S068-10", "entities": [{"label": "person", "start": 0, "end": 3, "text": "최윤서"}, {"label": "account_number", "start": 33, "end": 46, "text": "900-00-681924"}], "ms": 1.1}
+{"id": "S056-11", "entities": [], "ms": 0.7}
+{"id": "S059-02", "entities": [{"label": "resident_registration_number", "start": 17, "end": 31, "text": "980812-1234567"}], "ms": 0.4}
+{"id": "S059-18", "entities": [{"label": "card_number", "start": 22, "end": 41, "text": "4359-0120-8854-2200"}], "ms": 0.2}
+{"id": "S059-14", "entities": [{"label": "person", "start": 0, "end": 3, "text": "최승윤"}], "ms": 1.2}
+{"id": "S059-08", "entities": [{"label": "person", "start": 13, "end": 16, "text": "김정민"}], "ms": 1.2}
+{"id": "S059-04", "entities": [{"label": "person", "start": 4, "end": 7, "text": "최지연"}], "ms": 0.9}
+{"id": "S059-13", "entities": [], "ms": 0.4}
+{"id": "S060-12", "entities": [{"label": "account_number", "start": 30, "end": 45, "text": "002280-00991721"}], "ms": 1.0}
+{"id": "S058-10", "entities": [], "ms": 0.7}
+{"id": "S057-03", "entities": [{"label": "person", "start": 7, "end": 10, "text": "신민정"}, {"label": "phone_number", "start": 100, "end": 113, "text": "010.0211.7890"}, {"label": "email", "start": 117, "end": 136, "text": "mj22c@example.co.kr"}], "ms": 1.8}
+{"id": "S060-17", "entities": [{"label": "person", "start": 19, "end": 22, "text": "정혜리"}, {"label": "phone_number", "start": 28, "end": 41, "text": "010.0310.7814"}, {"label": "email", "start": 46, "end": 67, "text": "jhlee2024@example.com"}], "ms": 0.6}
+{"id": "S060-09", "entities": [{"label": "person", "start": 22, "end": 25, "text": "김태하"}], "ms": 1.5}
+{"id": "S056-16", "entities": [{"label": "person", "start": 45, "end": 48, "text": "이경서"}, {"label": "resident_registration_number", "start": 59, "end": 73, "text": "971010-2991345"}, {"label": "phone_number", "start": 81, "end": 94, "text": "010.0060.3991"}], "ms": 1.1}
+{"id": "S058-04", "entities": [{"label": "email", "start": 31, "end": 56, "text": "leeheejin1985@example.net"}], "ms": 0.5}
+{"id": "S057-07", "entities": [{"label": "person", "start": 37, "end": 40, "text": "조경효"}, {"label": "card_number", "start": 52, "end": 71, "text": "5321-0404-2222-9561"}], "ms": 1.6}
+{"id": "S058-06", "entities": [{"label": "person", "start": 18, "end": 21, "text": "이정은"}, {"label": "address", "start": 32, "end": 60, "text": "서울시 서초구 반포대로 123, 808동 1502호"}], "ms": 1.6}
+{"id": "S059-09", "entities": [], "ms": 0.3}
+{"id": "S058-07", "entities": [{"label": "person", "start": 0, "end": 3, "text": "박윤성"}], "ms": 1.4}
+{"id": "S057-20", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이아름"}, {"label": "address", "start": 57, "end": 83, "text": "서울시 마포구 월드컵북로 21길 19, 302호"}], "ms": 1.2}
+{"id": "S060-11", "entities": [{"label": "phone_number", "start": 43, "end": 56, "text": "010.0313.4559"}], "ms": 0.7}
+{"id": "S060-08", "entities": [{"label": "phone_number", "start": 57, "end": 70, "text": "010.0342.1870"}, {"label": "email", "start": 78, "end": 100, "text": "carbuyer26@example.net"}], "ms": 0.7}
+{"id": "S058-16", "entities": [], "ms": 0.8}
+{"id": "S056-19", "entities": [{"label": "person", "start": 17, "end": 20, "text": "권태용"}, {"label": "person", "start": 23, "end": 26, "text": "고객명"}, {"label": "person", "start": 28, "end": 31, "text": "이유빈"}, {"label": "email", "start": 39, "end": 60, "text": "yubin.lee@example.net"}], "ms": 3.6}
+{"id": "S060-03", "entities": [{"label": "card_number", "start": 30, "end": 49, "text": "3940-0020-9832-1177"}], "ms": 0.9}
+{"id": "S058-08", "entities": [{"label": "phone_number", "start": 35, "end": 48, "text": "010.0030.9992"}], "ms": 0.6}
+{"id": "S056-05", "entities": [{"label": "person", "start": 0, "end": 3, "text": "최연주"}, {"label": "phone_number", "start": 81, "end": 94, "text": "010.0502.1871"}, {"label": "email", "start": 96, "end": 118, "text": "choiyeonju@example.net"}], "ms": 1.5}
+{"id": "S059-10", "entities": [{"label": "address", "start": 12, "end": 40, "text": "서울특별시 영등포구 양평로 48길 12-7 302호"}], "ms": 0.4}
+{"id": "S056-20", "entities": [], "ms": 0.7}
+{"id": "S056-10", "entities": [{"label": "person", "start": 5, "end": 8, "text": "황유진"}, {"label": "address", "start": 15, "end": 37, "text": "경기도 성남시 분당구 삼평동 456-12"}, {"label": "phone_number", "start": 55, "end": 68, "text": "010.0038.4177"}], "ms": 1.9}
+{"id": "S056-15", "entities": [{"label": "person", "start": 72, "end": 75, "text": "정지훈"}, {"label": "email", "start": 77, "end": 99, "text": "jungjihoon@example.com"}], "ms": 1.2}
+{"id": "S056-02", "entities": [{"label": "person", "start": 47, "end": 50, "text": "이재흠"}, {"label": "phone_number", "start": 58, "end": 71, "text": "010.0027.1902"}], "ms": 1.8}
+{"id": "S059-12", "entities": [], "ms": 0.4}
+{"id": "S060-14", "entities": [], "ms": 0.6}
+{"id": "S059-11", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이수아"}, {"label": "account_number", "start": 10, "end": 26, "text": "690101-07-062938"}], "ms": 1.1}
+{"id": "S058-17", "entities": [{"label": "resident_registration_number", "start": 32, "end": 46, "text": "861212-2012124"}, {"label": "email", "start": 54, "end": 76, "text": "choijiah@example.co.kr"}], "ms": 0.7}
+{"id": "S057-01", "entities": [{"label": "person", "start": 23, "end": 26, "text": "송지현"}, {"label": "email", "start": 74, "end": 93, "text": "sjh1101@example.com"}], "ms": 2.1}
+{"id": "S057-14", "entities": [{"label": "person", "start": 0, "end": 3, "text": "최유나"}, {"label": "email", "start": 51, "end": 72, "text": "yunacchoi@example.net"}], "ms": 2.1}
+{"id": "S060-15", "entities": [{"label": "person", "start": 18, "end": 21, "text": "오세진"}, {"label": "resident_registration_number", "start": 31, "end": 45, "text": "980106-1114223"}], "ms": 1.9}
+{"id": "S056-17", "entities": [{"label": "person", "start": 35, "end": 38, "text": "조선아"}, {"label": "phone_number", "start": 46, "end": 59, "text": "010.0055.4111"}, {"label": "email", "start": 67, "end": 88, "text": "sunahjo@example.co.kr"}, {"label": "address", "start": 95, "end": 126, "text": "부산광역시 해운대구 해운대로 135, 501동 1802호"}], "ms": 1.9}
+{"id": "S058-03", "entities": [{"label": "account_number", "start": 24, "end": 40, "text": "678901-00-123456"}], "ms": 0.4}
+{"id": "S056-01", "entities": [{"label": "person", "start": 29, "end": 32, "text": "박하윤"}, {"label": "person", "start": 39, "end": 42, "text": "정성우"}, {"label": "phone_number", "start": 98, "end": 111, "text": "010.0802.3008"}, {"label": "email", "start": 113, "end": 135, "text": "jwseongwoo@example.com"}], "ms": 2.2}
+{"id": "S056-06", "entities": [{"label": "person", "start": 34, "end": 37, "text": "한지혜"}, {"label": "account_number", "start": 46, "end": 61, "text": "142-0040-011235"}, {"label": "phone_number", "start": 85, "end": 98, "text": "010.0034.5556"}], "ms": 1.3}
+{"id": "S057-16", "entities": [{"label": "person", "start": 19, "end": 22, "text": "문의자"}, {"label": "person", "start": 24, "end": 27, "text": "서지훈"}, {"label": "resident_registration_number", "start": 34, "end": 48, "text": "950203-1482911"}, {"label": "phone_number", "start": 54, "end": 67, "text": "010.0877.1265"}], "ms": 1.7}
+{"id": "S058-15", "entities": [{"label": "person", "start": 0, "end": 3, "text": "강태우"}], "ms": 1.5}
+{"id": "S060-02", "entities": [], "ms": 0.9}
+{"id": "S056-12", "entities": [{"label": "person", "start": 45, "end": 48, "text": "문지환"}, {"label": "phone_number", "start": 56, "end": 69, "text": "010.0092.3873"}, {"label": "email", "start": 77, "end": 100, "text": "moonji.hwan@example.net"}], "ms": 1.6}
+{"id": "S056-07", "entities": [{"label": "person", "start": 5, "end": 8, "text": "서예린"}, {"label": "card_number", "start": 17, "end": 36, "text": "5560-0401-7893-2245"}, {"label": "card_number", "start": 82, "end": 101, "text": "4722-0042-9912-2398"}], "ms": 1.7}
+{"id": "S057-13", "entities": [], "ms": 1.3}
+{"id": "S059-03", "entities": [{"label": "person", "start": 7, "end": 10, "text": "박성규"}], "ms": 1.2}
+{"id": "S059-05", "entities": [{"label": "email", "start": 33, "end": 57, "text": "june.lee2024@example.com"}], "ms": 0.5}
+{"id": "S092-11", "entities": [{"label": "person", "start": 27, "end": 30, "text": "정성원"}, {"label": "person", "start": 32, "end": 35, "text": "김하영"}, {"label": "person", "start": 37, "end": 40, "text": "이상훈"}], "ms": 2.8}
+{"id": "S092-01", "entities": [{"label": "phone_number", "start": 101, "end": 114, "text": "010.0400.1182"}, {"label": "person", "start": 131, "end": 134, "text": "최태인"}], "ms": 2.0}
+{"id": "S094-13", "entities": [{"label": "person", "start": 0, "end": 3, "text": "박윤재"}, {"label": "card_number", "start": 11, "end": 30, "text": "4282-9901-0003-1539"}], "ms": 0.7}
+{"id": "S094-05", "entities": [{"label": "person", "start": 0, "end": 3, "text": "양은정"}, {"label": "account_number", "start": 24, "end": 38, "text": "110-000-395002"}], "ms": 1.8}
+{"id": "S094-11", "entities": [{"label": "person", "start": 0, "end": 3, "text": "홍지환"}, {"label": "phone_number", "start": 18, "end": 31, "text": "010.0870.5412"}], "ms": 0.7}
+{"id": "S093-12", "entities": [{"label": "person", "start": 0, "end": 3, "text": "홍지현"}, {"label": "card_number", "start": 31, "end": 50, "text": "4123-0990-7712-5647"}], "ms": 1.1}
+{"id": "S092-09", "entities": [{"label": "person", "start": 0, "end": 3, "text": "방탈출"}, {"label": "person", "start": 40, "end": 43, "text": "방탈출"}], "ms": 1.3}
+{"id": "S091-14", "entities": [{"label": "address", "start": 43, "end": 62, "text": "서울시 마포구 중동로 29 302호"}], "ms": 0.6}
+{"id": "S091-19", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이지효"}, {"label": "account_number", "start": 42, "end": 56, "text": "11-0000-856123"}], "ms": 1.1}
+{"id": "S091-20", "entities": [], "ms": 0.6}
+{"id": "S095-07", "entities": [{"label": "person", "start": 56, "end": 59, "text": "홍채린"}, {"label": "phone_number", "start": 60, "end": 73, "text": "010.0403.1295"}], "ms": 1.6}
+{"id": "S095-06", "entities": [{"label": "person", "start": 38, "end": 41, "text": "김미주"}, {"label": "person", "start": 43, "end": 46, "text": "최유리"}, {"label": "person", "start": 48, "end": 51, "text": "백승오"}], "ms": 2.8}
+{"id": "S092-17", "entities": [{"label": "person", "start": 0, "end": 3, "text": "홍민아"}, {"label": "card_number", "start": 36, "end": 55, "text": "4545-0000-3984-1001"}], "ms": 1.5}
+{"id": "S095-04", "entities": [{"label": "person", "start": 43, "end": 46, "text": "유은지"}, {"label": "email", "start": 63, "end": 83, "text": "eunji_yu@example.net"}], "ms": 1.2}
+{"id": "S094-17", "entities": [{"label": "person", "start": 13, "end": 16, "text": "이주영"}, {"label": "email", "start": 22, "end": 45, "text": "juyeong22@example.co.kr"}], "ms": 0.5}
+{"id": "S092-03", "entities": [], "ms": 1.0}
+{"id": "S093-10", "entities": [{"label": "person", "start": 0, "end": 3, "text": "한지호"}, {"label": "person", "start": 13, "end": 16, "text": "정기전"}, {"label": "address", "start": 37, "end": 53, "text": "서울시 강동구 올림픽로 182"}, {"label": "phone_number", "start": 69, "end": 82, "text": "010.0923.6001"}], "ms": 1.5}
+{"id": "S093-15", "entities": [], "ms": 0.6}
+{"id": "S095-11", "entities": [], "ms": 0.6}
+{"id": "S091-17", "entities": [{"label": "person", "start": 33, "end": 37, "text": "명 추가"}], "ms": 0.8}
+{"id": "S092-19", "entities": [{"label": "person", "start": 0, "end": 3, "text": "정희수"}, {"label": "email", "start": 23, "end": 46, "text": "heesoo.jung@example.com"}, {"label": "phone_number", "start": 66, "end": 79, "text": "010.0010.2019"}], "ms": 1.4}
+{"id": "S093-13", "entities": [{"label": "person", "start": 0, "end": 3, "text": "박지웅"}, {"label": "email", "start": 27, "end": 51, "text": "jiwoong.park@example.net"}], "ms": 0.9}
+{"id": "S093-03", "entities": [{"label": "person", "start": 15, "end": 18, "text": "최효석"}, {"label": "account_number", "start": 34, "end": 50, "text": "591-009000-78882"}, {"label": "person", "start": 55, "end": 58, "text": "최효석"}], "ms": 1.4}
+{"id": "S093-14", "entities": [{"label": "person", "start": 0, "end": 3, "text": "강민수"}], "ms": 1.7}
+{"id": "S093-01", "entities": [{"label": "person", "start": 0, "end": 3, "text": "박혜진"}, {"label": "phone_number", "start": 59, "end": 72, "text": "010.0930.4482"}], "ms": 1.5}
+{"id": "S094-06", "entities": [], "ms": 0.5}
+{"id": "S092-20", "entities": [{"label": "person", "start": 0, "end": 3, "text": "한도윤"}, {"label": "email", "start": 53, "end": 76, "text": "doyun.han@example.co.kr"}, {"label": "phone_number", "start": 92, "end": 105, "text": "010.0077.3402"}], "ms": 1.6}
+{"id": "S091-16", "entities": [{"label": "person", "start": 0, "end": 3, "text": "백민지"}, {"label": "email", "start": 66, "end": 88, "text": "minji.back@example.net"}], "ms": 1.6}
+{"id": "S095-18", "entities": [{"label": "person", "start": 19, "end": 22, "text": "김지안"}, {"label": "person", "start": 24, "end": 27, "text": "박이담"}, {"label": "person", "start": 29, "end": 33, "text": "윤 현우"}, {"label": "person", "start": 35, "end": 38, "text": "이아연"}, {"label": "person", "start": 39, "end": 42, "text": "연습일"}], "ms": 3.9}
+{"id": "S093-04", "entities": [{"label": "person", "start": 0, "end": 3, "text": "윤서현"}, {"label": "email", "start": 45, "end": 63, "text": "yshyun@example.com"}], "ms": 1.3}
+{"id": "S091-09", "entities": [], "ms": 0.6}
+{"id": "S095-08", "entities": [], "ms": 0.5}
+{"id": "S093-08", "entities": [{"label": "person", "start": 0, "end": 3, "text": "조민기"}, {"label": "person", "start": 5, "end": 8, "text": "김세란"}, {"label": "person", "start": 10, "end": 13, "text": "박은솔"}], "ms": 2.8}
+{"id": "S092-07", "entities": [{"label": "person", "start": 31, "end": 34, "text": "신촌점"}], "ms": 1.8}
+{"id": "S094-10", "entities": [], "ms": 0.6}
+{"id": "S094-08", "entities": [{"label": "email", "start": 7, "end": 26, "text": "minsu33@example.net"}], "ms": 0.5}
+{"id": "S091-01", "entities": [{"label": "person", "start": 72, "end": 75, "text": "이지은"}, {"label": "phone_number", "start": 79, "end": 92, "text": "010.0283.1842"}, {"label": "email", "start": 94, "end": 118, "text": "mountainclub@example.com"}], "ms": 1.4}
+{"id": "S095-17", "entities": [], "ms": 0.5}
+{"id": "S091-06", "entities": [{"label": "person", "start": 0, "end": 3, "text": "최광식"}], "ms": 1.6}
+{"id": "S092-14", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이재훈"}, {"label": "account_number", "start": 51, "end": 66, "text": "055-0000-792020"}, {"label": "email", "start": 71, "end": 93, "text": "leejaehoon@example.net"}, {"label": "phone_number", "start": 97, "end": 110, "text": "010.0001.3157"}], "ms": 0.8}
+{"id": "S092-06", "entities": [{"label": "email", "start": 51, "end": 68, "text": "parkh@example.net"}], "ms": 0.7}
+{"id": "S094-15", "entities": [{"label": "person", "start": 0, "end": 3, "text": "송채현"}, {"label": "phone_number", "start": 24, "end": 37, "text": "010.0071.8745"}, {"label": "address", "start": 43, "end": 61, "text": "서울특별시 강북구 솔샘로 59-3"}], "ms": 1.3}
+{"id": "S093-11", "entities": [], "ms": 0.7}
+{"id": "S091-15", "entities": [{"label": "person", "start": 0, "end": 3, "text": "장지혁"}, {"label": "address", "start": 40, "end": 63, "text": "부산광역시 해운대구 해운대로 509, 4층"}], "ms": 1.4}
+{"id": "S094-07", "entities": [{"label": "person", "start": 0, "end": 3, "text": "김도윤"}, {"label": "resident_registration_number", "start": 13, "end": 27, "text": "940821-1234567"}], "ms": 0.8}
+{"id": "S094-19", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이상현"}, {"label": "resident_registration_number", "start": 37, "end": 51, "text": "820115-2987654"}, {"label": "phone_number", "start": 57, "end": 70, "text": "010.0403.1912"}], "ms": 0.8}
+{"id": "S093-17", "entities": [{"label": "person", "start": 0, "end": 3, "text": "최강민"}, {"label": "address", "start": 17, "end": 43, "text": "서울시 구로구 고척동 59-18, 2동 408호"}, {"label": "email", "start": 63, "end": 88, "text": "choikm@sample.example.com"}], "ms": 1.5}
+{"id": "S093-02", "entities": [], "ms": 0.5}
+{"id": "S095-15", "entities": [], "ms": 0.5}
+{"id": "S093-06", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이은정"}, {"label": "email", "start": 38, "end": 62, "text": "eunjunglee@example.co.kr"}], "ms": 0.9}
+{"id": "S022-05", "entities": [{"label": "phone_number", "start": 39, "end": 52, "text": "010.0987.0012"}], "ms": 0.6}
+{"id": "S025-11", "entities": [{"label": "person", "start": 23, "end": 26, "text": "장소영"}, {"label": "phone_number", "start": 32, "end": 45, "text": "010.0098.7721"}], "ms": 1.0}
+{"id": "S024-02", "entities": [{"label": "card_number", "start": 10, "end": 29, "text": "9440-0060-3131-2493"}], "ms": 1.2}
+{"id": "S021-04", "entities": [{"label": "person", "start": 9, "end": 11, "text": "지유"}, {"label": "email", "start": 30, "end": 55, "text": "sonjiyu@naver.example.com"}, {"label": "address", "start": 78, "end": 116, "text": "전북 전주시 완산구 한들로 31-17, 한솔아파트 404동 1502호"}], "ms": 1.3}
+{"id": "S023-19", "entities": [], "ms": 0.8}
+{"id": "S024-06", "entities": [], "ms": 0.6}
+{"id": "S024-13", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이상호"}, {"label": "resident_registration_number", "start": 15, "end": 29, "text": "920307-1309852"}], "ms": 1.7}
+{"id": "S022-02", "entities": [{"label": "address", "start": 0, "end": 20, "text": "서울시 강남구 테헤란로 98, 20층"}, {"label": "email", "start": 82, "end": 105, "text": "leejiyeon21@example.net"}], "ms": 0.9}
+{"id": "S025-20", "entities": [{"label": "person", "start": 27, "end": 30, "text": "양혜림"}, {"label": "email", "start": 36, "end": 55, "text": "yang.96@example.net"}], "ms": 1.3}
+{"id": "S022-07", "entities": [], "ms": 0.8}
+{"id": "S021-05", "entities": [{"label": "account_number", "start": 48, "end": 65, "text": "961-000000-204553"}, {"label": "person", "start": 74, "end": 77, "text": "최연서"}], "ms": 1.4}
+{"id": "S021-14", "entities": [{"label": "person", "start": 4, "end": 7, "text": "윤다솔"}, {"label": "phone_number", "start": 87, "end": 100, "text": "010.0088.7703"}], "ms": 1.8}
+{"id": "S023-06", "entities": [{"label": "person", "start": 31, "end": 34, "text": "박세환"}, {"label": "resident_registration_number", "start": 41, "end": 55, "text": "960201-3134567"}, {"label": "phone_number", "start": 61, "end": 74, "text": "010.0205.7981"}], "ms": 1.4}
+{"id": "S025-01", "entities": [], "ms": 0.6}
+{"id": "S023-10", "entities": [{"label": "account_number", "start": 34, "end": 49, "text": "1002-000-909826"}, {"label": "account_number", "start": 57, "end": 73, "text": "093201-09-450020"}, {"label": "person", "start": 89, "end": 92, "text": "오예나"}], "ms": 1.6}
+{"id": "S022-10", "entities": [{"label": "account_number", "start": 12, "end": 26, "text": "123-000-987654"}, {"label": "person", "start": 60, "end": 63, "text": "김래원"}], "ms": 1.6}
+{"id": "S021-20", "entities": [{"label": "person", "start": 5, "end": 8, "text": "백지용"}, {"label": "resident_registration_number", "start": 17, "end": 31, "text": "910321-1674302"}, {"label": "address", "start": 36, "end": 50, "text": "강원도 춘천시 봄내길 52"}, {"label": "phone_number", "start": 107, "end": 120, "text": "010.0130.1263"}, {"label": "email", "start": 126, "end": 150, "text": "ji-yong.baek@example.com"}], "ms": 2.4}
+{"id": "S021-18", "entities": [], "ms": 0.9}
+{"id": "S021-11", "entities": [], "ms": 0.7}
+{"id": "S024-10", "entities": [{"label": "person", "start": 31, "end": 33, "text": "정민"}, {"label": "phone_number", "start": 42, "end": 55, "text": "010.0051.3909"}], "ms": 0.6}
+{"id": "S025-15", "entities": [{"label": "person", "start": 25, "end": 28, "text": "김아람"}, {"label": "phone_number", "start": 34, "end": 47, "text": "010.0027.0954"}], "ms": 1.4}
+{"id": "S023-03", "entities": [{"label": "person", "start": 0, "end": 3, "text": "정요한"}, {"label": "email", "start": 65, "end": 87, "text": "johanhappy@example.com"}, {"label": "phone_number", "start": 91, "end": 104, "text": "010.0028.3301"}], "ms": 1.6}
+{"id": "S022-15", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이선우"}, {"label": "account_number", "start": 58, "end": 73, "text": "220-0000-384756"}], "ms": 0.8}
+{"id": "S025-13", "entities": [{"label": "person", "start": 33, "end": 36, "text": "이승희"}], "ms": 1.2}
+{"id": "S022-17", "entities": [{"label": "person", "start": 0, "end": 3, "text": "조하람"}, {"label": "card_number", "start": 29, "end": 48, "text": "4929-0000-1122-6789"}], "ms": 1.3}
+{"id": "S021-10", "entities": [{"label": "person", "start": 4, "end": 7, "text": "김진섭"}, {"label": "phone_number", "start": 70, "end": 83, "text": "010.0349.2063"}, {"label": "email", "start": 89, "end": 114, "text": "jinseop.kim@example.co.kr"}, {"label": "resident_registration_number", "start": 123, "end": 137, "text": "880909-1120471"}], "ms": 1.9}
+{"id": "S025-14", "entities": [{"label": "email", "start": 4, "end": 26, "text": "lee.hj88@example.co.kr"}], "ms": 0.4}
+{"id": "S025-03", "entities": [{"label": "address", "start": 31, "end": 52, "text": "서울특별시 강서구 화곡로 111, 2층"}], "ms": 0.6}
+{"id": "S022-11", "entities": [], "ms": 0.5}
+{"id": "S024-03", "entities": [{"label": "person", "start": 0, "end": 3, "text": "신유림"}, {"label": "email", "start": 31, "end": 50, "text": "yunim22@example.com"}], "ms": 0.9}
+{"id": "S024-07", "entities": [], "ms": 0.4}
+{"id": "S022-16", "entities": [{"label": "person", "start": 24, "end": 27, "text": "윤지훈"}, {"label": "account_number", "start": 37, "end": 51, "text": "049-000-234567"}, {"label": "phone_number", "start": 62, "end": 75, "text": "010.0022.4578"}, {"label": "email", "start": 81, "end": 102, "text": "yunjihoon@example.com"}], "ms": 1.4}
+{"id": "S025-02", "entities": [{"label": "email", "start": 43, "end": 63, "text": "kim.yj23@example.com"}], "ms": 1.0}
+{"id": "S022-12", "entities": [{"label": "phone_number", "start": 61, "end": 74, "text": "010.0111.2345"}, {"label": "email", "start": 80, "end": 99, "text": "hanstar@example.net"}], "ms": 0.7}
+{"id": "S022-14", "entities": [], "ms": 0.5}
+{"id": "S025-09", "entities": [{"label": "address", "start": 29, "end": 56, "text": "경기도 수원시 권선구 경수대로 337, 1206호"}, {"label": "person", "start": 67, "end": 70, "text": "최가람"}], "ms": 1.5}
+{"id": "S024-01", "entities": [{"label": "phone_number", "start": 22, "end": 35, "text": "010.0430.2880"}], "ms": 0.4}
+{"id": "S022-01", "entities": [{"label": "email", "start": 104, "end": 127, "text": "kimjihoon82@example.com"}, {"label": "phone_number", "start": 129, "end": 142, "text": "010.0123.4567"}], "ms": 1.1}
+{"id": "S023-18", "entities": [{"label": "person", "start": 19, "end": 22, "text": "전현우"}, {"label": "phone_number", "start": 28, "end": 41, "text": "010.0020.1904"}, {"label": "person", "start": 43, "end": 46, "text": "배송지"}, {"label": "address", "start": 47, "end": 72, "text": "서울시 동작구 상도로 22길 13-1 302호"}], "ms": 1.2}
+{"id": "S024-11", "entities": [{"label": "card_number", "start": 10, "end": 29, "text": "3298-0950-4819-0336"}, {"label": "person", "start": 49, "end": 52, "text": "서보라"}], "ms": 0.9}
+{"id": "S023-15", "entities": [{"label": "person", "start": 25, "end": 28, "text": "유지현"}, {"label": "account_number", "start": 38, "end": 52, "text": "110-007-000927"}, {"label": "phone_number", "start": 59, "end": 72, "text": "010.0820.9171"}], "ms": 0.8}
+{"id": "S024-05", "entities": [{"label": "account_number", "start": 21, "end": 38, "text": "740-008001-570293"}], "ms": 0.3}
+{"id": "S024-19", "entities": [], "ms": 0.5}
+{"id": "S023-17", "entities": [], "ms": 0.7}
+{"id": "S023-01", "entities": [{"label": "person", "start": 40, "end": 43, "text": "곽시연"}, {"label": "phone_number", "start": 52, "end": 65, "text": "010.0200.1357"}], "ms": 1.5}
+{"id": "S024-17", "entities": [{"label": "account_number", "start": 19, "end": 36, "text": "891-003002-720800"}], "ms": 0.5}
+{"id": "S024-12", "entities": [{"label": "account_number", "start": 30, "end": 47, "text": "231-009900-110488"}], "ms": 0.4}
+{"id": "S024-08", "entities": [{"label": "person", "start": 0, "end": 3, "text": "박지한"}, {"label": "email", "start": 35, "end": 57, "text": "jihhan77@example.co.kr"}], "ms": 1.2}
+{"id": "S025-06", "entities": [{"label": "resident_registration_number", "start": 44, "end": 58, "text": "861227-1234567"}], "ms": 0.7}
+{"id": "S023-20", "entities": [{"label": "person", "start": 0, "end": 3, "text": "박진아"}, {"label": "phone_number", "start": 77, "end": 90, "text": "010.0360.6019"}, {"label": "email", "start": 96, "end": 116, "text": "jinahpak@example.com"}], "ms": 1.3}
+{"id": "S011-16", "entities": [], "ms": 0.9}
+{"id": "S013-01", "entities": [{"label": "person", "start": 0, "end": 3, "text": "최지훈"}], "ms": 1.4}
+{"id": "S015-10", "entities": [{"label": "card_number", "start": 51, "end": 70, "text": "5315-0000-2384-1920"}], "ms": 0.8}
+{"id": "S012-18", "entities": [{"label": "person", "start": 0, "end": 3, "text": "백승아"}, {"label": "email", "start": 73, "end": 97, "text": "baekseunga23@example.net"}], "ms": 1.5}
+{"id": "S011-05", "entities": [{"label": "person", "start": 37, "end": 40, "text": "최민우"}, {"label": "phone_number", "start": 48, "end": 61, "text": "010.0011.3028"}, {"label": "address", "start": 68, "end": 98, "text": "부산광역시 해운대구 해운대로 648, 501동 503호"}], "ms": 1.6}
+{"id": "S011-13", "entities": [{"label": "person", "start": 0, "end": 3, "text": "최윤서"}, {"label": "email", "start": 67, "end": 89, "text": "choiyunseo@example.com"}], "ms": 0.6}
+{"id": "S013-06", "entities": [{"label": "phone_number", "start": 62, "end": 75, "text": "010.0270.1946"}], "ms": 0.7}
+{"id": "S015-01", "entities": [{"label": "person", "start": 83, "end": 86, "text": "배송지"}, {"label": "address", "start": 88, "end": 114, "text": "서울특별시 강남구 역삼동 711-14, 304호"}, {"label": "phone_number", "start": 123, "end": 136, "text": "010.0932.4811"}], "ms": 1.1}
+{"id": "S012-05", "entities": [{"label": "person", "start": 0, "end": 3, "text": "한승희"}, {"label": "person", "start": 8, "end": 11, "text": "배송지"}, {"label": "address", "start": 27, "end": 51, "text": "서울시 중랑구 용마산로 31길 3, 302호"}, {"label": "address", "start": 57, "end": 81, "text": "경기도 하남시 덕풍동 123-45, 802호"}], "ms": 1.4}
+{"id": "S013-19", "entities": [], "ms": 0.5}
+{"id": "S013-04", "entities": [], "ms": 0.6}
+{"id": "S012-17", "entities": [], "ms": 0.8}
+{"id": "S014-19", "entities": [{"label": "person", "start": 0, "end": 3, "text": "안태희"}], "ms": 1.1}
+{"id": "S014-12", "entities": [], "ms": 0.3}
+{"id": "S015-03", "entities": [{"label": "person", "start": 32, "end": 34, "text": "명진"}, {"label": "phone_number", "start": 45, "end": 58, "text": "010.0287.3765"}], "ms": 0.7}
+{"id": "S011-14", "entities": [{"label": "person", "start": 21, "end": 24, "text": "문지훈"}, {"label": "address", "start": 31, "end": 59, "text": "광주광역시 남구 효우1로 48, 206동 1802호"}, {"label": "phone_number", "start": 67, "end": 80, "text": "010.0801.2020"}], "ms": 0.9}
+{"id": "S012-20", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이윤지"}, {"label": "card_number", "start": 24, "end": 43, "text": "1234-0000-5678-9999"}, {"label": "person", "start": 75, "end": 78, "text": "배송지"}, {"label": "address", "start": 79, "end": 99, "text": "대전시 유성구 어은로 3, 1502호"}], "ms": 1.0}
+{"id": "S012-01", "entities": [{"label": "person", "start": 107, "end": 110, "text": "장연수"}, {"label": "phone_number", "start": 122, "end": 135, "text": "010.0298.1152"}, {"label": "address", "start": 169, "end": 196, "text": "부산광역시 해운대구 반송로 92, 5동 1102호"}], "ms": 2.9}
+{"id": "S014-15", "entities": [], "ms": 0.4}
+{"id": "S012-02", "entities": [], "ms": 0.7}
+{"id": "S013-08", "entities": [{"label": "email", "start": 40, "end": 60, "text": "jinlee11@example.com"}], "ms": 0.5}
+{"id": "S015-16", "entities": [{"label": "person", "start": 60, "end": 64, "text": "임 지윤"}, {"label": "phone_number", "start": 71, "end": 84, "text": "010.0341.7268"}, {"label": "person", "start": 87, "end": 90, "text": "배송지"}, {"label": "address", "start": 92, "end": 123, "text": "경기도 고양시 일산동구 백마로 62, 906동 1205호"}], "ms": 1.2}
+{"id": "S013-20", "entities": [{"label": "account_number", "start": 39, "end": 54, "text": "110-0000-842192"}], "ms": 0.6}
+{"id": "S012-08", "entities": [{"label": "person", "start": 0, "end": 3, "text": "강하진"}], "ms": 1.9}
+{"id": "S014-13", "entities": [{"label": "person", "start": 0, "end": 3, "text": "박준혁"}, {"label": "address", "start": 17, "end": 46, "text": "경기도 수원시 영통구 영동로 94, 504동 101호"}], "ms": 1.3}
+{"id": "S011-15", "entities": [{"label": "person", "start": 0, "end": 3, "text": "강유진"}, {"label": "phone_number", "start": 67, "end": 80, "text": "010.0007.3792"}], "ms": 1.1}
+{"id": "S015-14", "entities": [{"label": "person", "start": 53, "end": 56, "text": "문의자"}, {"label": "person", "start": 58, "end": 62, "text": "정 하은"}, {"label": "email", "start": 67, "end": 91, "text": "haeun.jung@example.co.kr"}], "ms": 1.4}
+{"id": "S011-17", "entities": [{"label": "address", "start": 37, "end": 61, "text": "경기도 성남시 분당구 장미로 25, 301호"}, {"label": "address", "start": 73, "end": 97, "text": "경기도 성남시 분당구 장미로 35, 201호"}, {"label": "person", "start": 105, "end": 108, "text": "한지후"}, {"label": "phone_number", "start": 117, "end": 130, "text": "010.0500.8830"}], "ms": 1.6}
+{"id": "S012-11", "entities": [{"label": "person", "start": 0, "end": 3, "text": "최우석"}, {"label": "phone_number", "start": 60, "end": 73, "text": "010.0268.8502"}], "ms": 1.6}
+{"id": "S011-20", "entities": [{"label": "person", "start": 42, "end": 45, "text": "이정현"}, {"label": "phone_number", "start": 53, "end": 66, "text": "010.0950.6107"}, {"label": "address", "start": 73, "end": 106, "text": "충청북도 청주시 흥덕구 직지대로 340, 207동 1402호"}, {"label": "card_number", "start": 115, "end": 134, "text": "4940-0020-9121-0033"}], "ms": 0.9}
+{"id": "S015-13", "entities": [{"label": "person", "start": 13, "end": 16, "text": "인덕션"}, {"label": "person", "start": 47, "end": 51, "text": "장 석주"}, {"label": "phone_number", "start": 57, "end": 70, "text": "010.0096.2848"}, {"label": "person", "start": 74, "end": 77, "text": "배송지"}, {"label": "address", "start": 79, "end": 103, "text": "대전광역시 서구 둔산대로 110, 1507호"}], "ms": 3.0}
+{"id": "S012-06", "entities": [], "ms": 1.1}
+{"id": "S012-12", "entities": [], "ms": 0.5}
+{"id": "S011-04", "entities": [], "ms": 1.1}
+{"id": "S011-06", "entities": [{"label": "person", "start": 8, "end": 11, "text": "정지윤"}, {"label": "phone_number", "start": 23, "end": 36, "text": "010.0800.1234"}, {"label": "address", "start": 46, "end": 76, "text": "인천광역시 연수구 송도과학로 32, 210동 1502호"}], "ms": 1.5}
+{"id": "S015-08", "entities": [{"label": "person", "start": 82, "end": 86, "text": "홍 승민"}, {"label": "address", "start": 92, "end": 123, "text": "인천광역시 남동구 논현동 263-12, 201동 504호"}], "ms": 1.8}
+{"id": "S011-09", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이수영"}, {"label": "address", "start": 85, "end": 109, "text": "대구광역시 달서구 이곡서로 120, 403호"}], "ms": 1.4}
+{"id": "S015-04", "entities": [{"label": "address", "start": 70, "end": 100, "text": "부산광역시 해운대구 센텀서로 19, 806동 1401호"}], "ms": 1.3}
+{"id": "S012-09", "entities": [], "ms": 0.9}
+{"id": "S013-05", "entities": [{"label": "phone_number", "start": 30, "end": 43, "text": "010.0211.0087"}], "ms": 0.4}
+{"id": "S011-07", "entities": [{"label": "person", "start": 0, "end": 3, "text": "김태섭"}, {"label": "resident_registration_number", "start": 56, "end": 69, "text": "4110022013095"}, {"label": "phone_number", "start": 81, "end": 94, "text": "010.0110.9119"}], "ms": 1.3}
+{"id": "S014-10", "entities": [], "ms": 0.3}
+{"id": "S011-03", "entities": [{"label": "address", "start": 20, "end": 51, "text": "경기도 고양시 일산동구 호수로 250, 12층 1205호"}, {"label": "person", "start": 59, "end": 62, "text": "김나희"}, {"label": "phone_number", "start": 70, "end": 83, "text": "010.0900.1182"}], "ms": 1.5}
+{"id": "S014-01", "entities": [{"label": "person", "start": 34, "end": 37, "text": "김연주"}], "ms": 0.7}
+{"id": "S011-11", "entities": [{"label": "person", "start": 47, "end": 50, "text": "송지민"}, {"label": "address", "start": 57, "end": 83, "text": "강원도 춘천시 백령로 77, 503동 1401호"}, {"label": "phone_number", "start": 91, "end": 104, "text": "010.0800.6242"}], "ms": 2.0}
+{"id": "S012-13", "entities": [{"label": "address", "start": 45, "end": 68, "text": "경기 수원시 팔달구 장안로 19, 401호"}, {"label": "phone_number", "start": 75, "end": 88, "text": "010.0254.1199"}, {"label": "person", "start": 103, "end": 106, "text": "장시은"}], "ms": 2.0}
+{"id": "S013-14", "entities": [{"label": "person", "start": 0, "end": 3, "text": "장혜란"}, {"label": "person", "start": 24, "end": 27, "text": "배송지"}], "ms": 1.6}
+{"id": "S012-16", "entities": [{"label": "person", "start": 7, "end": 10, "text": "문예린"}, {"label": "address", "start": 70, "end": 93, "text": "울산광역시 남구 삼산로 32-5, 904호"}, {"label": "address", "start": 105, "end": 126, "text": "울산광역시 북구 화봉로 21, 714호"}, {"label": "phone_number", "start": 136, "end": 149, "text": "010.0211.6754"}], "ms": 1.6}
+{"id": "S013-09", "entities": [{"label": "person", "start": 8, "end": 11, "text": "박동혁"}, {"label": "person", "start": 27, "end": 30, "text": "윤수빈"}], "ms": 1.6}
+{"id": "S015-19", "entities": [{"label": "account_number", "start": 30, "end": 46, "text": "350-007420-10000"}, {"label": "person", "start": 65, "end": 69, "text": "박 진우"}, {"label": "email", "start": 74, "end": 97, "text": "jinwoo_park@example.net"}], "ms": 1.2}
+{"id": "S016-08", "entities": [{"label": "person", "start": 4, "end": 7, "text": "김가온"}, {"label": "address", "start": 14, "end": 44, "text": "경기도 성남시 분당구 미래로 21, 103동 1405호"}, {"label": "phone_number", "start": 52, "end": 65, "text": "010.0220.1417"}], "ms": 1.1}
+{"id": "S016-15", "entities": [], "ms": 0.7}
+{"id": "S016-17", "entities": [{"label": "person", "start": 0, "end": 3, "text": "김해온"}, {"label": "address", "start": 19, "end": 46, "text": "부산광역시 북구 덕천로 51, 801동 1603호"}, {"label": "phone_number", "start": 54, "end": 67, "text": "010.0807.9420"}], "ms": 1.6}
+{"id": "S016-20", "entities": [], "ms": 0.5}
+{"id": "S016-18", "entities": [{"label": "person", "start": 0, "end": 3, "text": "천우영"}, {"label": "phone_number", "start": 16, "end": 29, "text": "010.0900.3152"}, {"label": "person", "start": 32, "end": 35, "text": "진료일"}], "ms": 1.9}
+{"id": "S017-12", "entities": [{"label": "person", "start": 0, "end": 3, "text": "오현수"}, {"label": "phone_number", "start": 57, "end": 70, "text": "010.0101.0051"}, {"label": "resident_registration_number", "start": 80, "end": 94, "text": "880112-1234567"}], "ms": 1.0}
+{"id": "S018-07", "entities": [{"label": "person", "start": 0, "end": 3, "text": "정승아"}], "ms": 1.2}
+{"id": "S020-20", "entities": [{"label": "person", "start": 0, "end": 3, "text": "강나은"}, {"label": "resident_registration_number", "start": 5, "end": 19, "text": "990121-5009226"}, {"label": "phone_number", "start": 21, "end": 34, "text": "010.0055.1769"}, {"label": "card_number", "start": 56, "end": 75, "text": "4576-0087-5552-1078"}], "ms": 1.3}
+{"id": "S017-02", "entities": [{"label": "person", "start": 0, "end": 3, "text": "최다연"}], "ms": 1.6}
+{"id": "S019-18", "entities": [{"label": "person", "start": 0, "end": 3, "text": "오세훈"}, {"label": "phone_number", "start": 4, "end": 17, "text": "010.0472.0041"}], "ms": 1.0}
+{"id": "S019-08", "entities": [{"label": "person", "start": 4, "end": 7, "text": "이서현"}, {"label": "address", "start": 12, "end": 32, "text": "서울시 강남구 역삼로 25, 502호"}], "ms": 0.8}
+{"id": "S020-16", "entities": [{"label": "person", "start": 0, "end": 3, "text": "송하연"}, {"label": "phone_number", "start": 5, "end": 18, "text": "010.0061.9520"}, {"label": "email", "start": 20, "end": 38, "text": "songhy@example.com"}], "ms": 1.2}
+{"id": "S017-04", "entities": [{"label": "person", "start": 9, "end": 12, "text": "한가온"}, {"label": "phone_number", "start": 33, "end": 46, "text": "010.0322.9091"}], "ms": 1.2}
+{"id": "S020-14", "entities": [], "ms": 0.4}
+{"id": "S020-10", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이하빈"}, {"label": "email", "start": 5, "end": 25, "text": "lee.hb@example.co.kr"}, {"label": "card_number", "start": 56, "end": 75, "text": "4612-0033-8865-0021"}], "ms": 1.3}
+{"id": "S019-19", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이서윤"}], "ms": 1.0}
+{"id": "S018-10", "entities": [{"label": "person", "start": 22, "end": 25, "text": "백진호"}, {"label": "phone_number", "start": 30, "end": 43, "text": "010.0089.2112"}, {"label": "resident_registration_number", "start": 50, "end": 64, "text": "790822-1950511"}, {"label": "account_number", "start": 72, "end": 88, "text": "178302-00-128947"}], "ms": 1.1}
+{"id": "S018-02", "entities": [{"label": "person", "start": 7, "end": 10, "text": "고은영"}, {"label": "phone_number", "start": 54, "end": 67, "text": "010.0900.1824"}, {"label": "email", "start": 75, "end": 97, "text": "goeunyeong@example.com"}], "ms": 1.7}
+{"id": "S017-14", "entities": [{"label": "person", "start": 22, "end": 25, "text": "최새봄"}, {"label": "phone_number", "start": 31, "end": 44, "text": "010.0009.0045"}, {"label": "email", "start": 50, "end": 74, "text": "springchoi@example.co.kr"}, {"label": "person", "start": 75, "end": 78, "text": "방문일"}], "ms": 1.9}
+{"id": "S018-14", "entities": [{"label": "person", "start": 0, "end": 3, "text": "전유나"}, {"label": "phone_number", "start": 76, "end": 89, "text": "010.0350.7222"}, {"label": "card_number", "start": 99, "end": 118, "text": "5218-0834-6212-8901"}], "ms": 1.6}
+{"id": "S017-11", "entities": [{"label": "person", "start": 75, "end": 78, "text": "박지나"}, {"label": "phone_number", "start": 80, "end": 93, "text": "010.0750.3277"}], "ms": 2.0}
+{"id": "S017-20", "entities": [], "ms": 0.5}
+{"id": "S016-12", "entities": [], "ms": 0.5}
+{"id": "S016-03", "entities": [{"label": "person", "start": 13, "end": 16, "text": "고서진"}, {"label": "phone_number", "start": 24, "end": 37, "text": "010.0480.7854"}], "ms": 1.1}
+{"id": "S018-20", "entities": [{"label": "person", "start": 0, "end": 3, "text": "송민규"}], "ms": 1.2}
+{"id": "S020-02", "entities": [{"label": "person", "start": 0, "end": 3, "text": "정해린"}, {"label": "email", "start": 61, "end": 80, "text": "jeonghr@example.com"}], "ms": 1.1}
+{"id": "S019-04", "entities": [{"label": "person", "start": 0, "end": 3, "text": "강지후"}, {"label": "phone_number", "start": 38, "end": 51, "text": "010.0162.5923"}], "ms": 0.8}
+{"id": "S020-04", "entities": [], "ms": 0.5}
+{"id": "S020-09", "entities": [{"label": "person", "start": 0, "end": 3, "text": "황진호"}, {"label": "phone_number", "start": 38, "end": 51, "text": "010.0007.1442"}], "ms": 1.0}
+{"id": "S020-17", "entities": [], "ms": 0.7}
+{"id": "S018-15", "entities": [{"label": "person", "start": 0, "end": 3, "text": "박준협"}, {"label": "address", "start": 27, "end": 50, "text": "광주광역시 동구 문화로 12번길 8, 2층"}], "ms": 2.0}
+{"id": "S017-13", "entities": [{"label": "person", "start": 34, "end": 38, "text": "인 좌석"}, {"label": "person", "start": 45, "end": 48, "text": "한지호"}], "ms": 1.1}
+{"id": "S016-11", "entities": [{"label": "person", "start": 18, "end": 22, "text": "인 예약"}, {"label": "person", "start": 42, "end": 45, "text": "채수빈"}, {"label": "phone_number", "start": 54, "end": 67, "text": "010.0810.3344"}, {"label": "card_number", "start": 88, "end": 107, "text": "4537-0081-8945-2234"}], "ms": 1.3}
+{"id": "S017-07", "entities": [{"label": "person", "start": 11, "end": 14, "text": "김규리"}, {"label": "phone_number", "start": 32, "end": 45, "text": "010.0039.0039"}], "ms": 1.2}
+{"id": "S019-10", "entities": [{"label": "person", "start": 0, "end": 3, "text": "정세린"}], "ms": 2.1}
+{"id": "S016-02", "entities": [{"label": "person", "start": 26, "end": 29, "text": "오진우"}, {"label": "email", "start": 31, "end": 52, "text": "jinwoo.oh@example.com"}], "ms": 1.2}
+{"id": "S019-16", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이채영"}], "ms": 1.4}
+{"id": "S020-12", "entities": [], "ms": 0.5}
+{"id": "S020-01", "entities": [{"label": "person", "start": 27, "end": 30, "text": "박지혁"}, {"label": "phone_number", "start": 60, "end": 73, "text": "010.0067.1109"}], "ms": 1.2}
+{"id": "S017-18", "entities": [{"label": "person", "start": 44, "end": 47, "text": "강미소"}, {"label": "phone_number", "start": 53, "end": 66, "text": "010.0690.0933"}], "ms": 1.1}
+{"id": "S018-06", "entities": [{"label": "person", "start": 0, "end": 3, "text": "한지우"}, {"label": "phone_number", "start": 49, "end": 62, "text": "010.0034.7890"}], "ms": 1.5}
+{"id": "S017-16", "entities": [{"label": "person", "start": 29, "end": 32, "text": "정은비"}, {"label": "phone_number", "start": 37, "end": 50, "text": "010.0000.1290"}, {"label": "card_number", "start": 58, "end": 77, "text": "4038-0000-8822-1821"}], "ms": 0.9}
+{"id": "S018-08", "entities": [], "ms": 0.5}
+{"id": "S017-10", "entities": [{"label": "person", "start": 21, "end": 24, "text": "주동혁"}, {"label": "phone_number", "start": 26, "end": 39, "text": "010.0210.0981"}, {"label": "email", "start": 41, "end": 63, "text": "jdh@sample.example.net"}], "ms": 1.0}
+{"id": "S019-06", "entities": [{"label": "person", "start": 0, "end": 3, "text": "박해솔"}, {"label": "phone_number", "start": 4, "end": 17, "text": "010.0281.7208"}], "ms": 1.1}
+{"id": "S017-05", "entities": [], "ms": 1.0}
+{"id": "S018-04", "entities": [{"label": "person", "start": 0, "end": 3, "text": "정민혁"}, {"label": "address", "start": 29, "end": 50, "text": "강원도 강릉시 해안로 55, 1102호"}, {"label": "card_number", "start": 72, "end": 91, "text": "5647-0890-4456-2371"}], "ms": 1.6}
+{"id": "S019-07", "entities": [{"label": "person", "start": 0, "end": 3, "text": "김재우"}, {"label": "card_number", "start": 37, "end": 56, "text": "5240-0001-1948-0022"}], "ms": 1.1}
+{"id": "S038-13", "entities": [{"label": "person", "start": 0, "end": 3, "text": "최인경"}, {"label": "email", "start": 6, "end": 30, "text": "choiingyeong@example.net"}], "ms": 1.9}
+{"id": "S038-06", "entities": [{"label": "person", "start": 3, "end": 6, "text": "오지연"}, {"label": "resident_registration_number", "start": 45, "end": 59, "text": "790204-2056044"}], "ms": 1.4}
+{"id": "S038-16", "entities": [{"label": "person", "start": 0, "end": 3, "text": "윤정우"}, {"label": "phone_number", "start": 62, "end": 75, "text": "010.0731.2472"}], "ms": 1.5}
+{"id": "S036-15", "entities": [{"label": "person", "start": 20, "end": 23, "text": "장석영"}, {"label": "phone_number", "start": 31, "end": 44, "text": "010.0955.0138"}, {"label": "account_number", "start": 53, "end": 67, "text": "33390006501284"}], "ms": 1.1}
+{"id": "S036-03", "entities": [{"label": "person", "start": 30, "end": 33, "text": "임다율"}, {"label": "resident_registration_number", "start": 44, "end": 58, "text": "941216-2345164"}, {"label": "phone_number", "start": 66, "end": 79, "text": "010.0130.6033"}, {"label": "email", "start": 87, "end": 109, "text": "dalyulim33@example.com"}, {"label": "account_number", "start": 130, "end": 144, "text": "11098105433224"}], "ms": 1.5}
+{"id": "S036-19", "entities": [{"label": "person", "start": 15, "end": 18, "text": "오민호"}, {"label": "resident_registration_number", "start": 29, "end": 43, "text": "910321-1128764"}, {"label": "phone_number", "start": 51, "end": 64, "text": "010.0028.3094"}, {"label": "account_number", "start": 94, "end": 108, "text": "15000390900216"}, {"label": "card_number", "start": 117, "end": 136, "text": "5220-0000-8100-3511"}], "ms": 1.0}
+{"id": "S039-06", "entities": [], "ms": 0.4}
+{"id": "S040-06", "entities": [], "ms": 0.5}
+{"id": "S038-05", "entities": [{"label": "person", "start": 0, "end": 3, "text": "김서윤"}, {"label": "email", "start": 57, "end": 76, "text": "kimsy33@example.com"}], "ms": 1.0}
+{"id": "S040-03", "entities": [{"label": "email", "start": 65, "end": 88, "text": "sujin.kim25@example.com"}], "ms": 1.0}
+{"id": "S039-11", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이영준"}], "ms": 1.3}
+{"id": "S036-01", "entities": [{"label": "person", "start": 55, "end": 58, "text": "정해준"}, {"label": "phone_number", "start": 65, "end": 78, "text": "010.0901.3456"}, {"label": "email", "start": 85, "end": 105, "text": "haejun85@example.com"}], "ms": 2.0}
+{"id": "S039-08", "entities": [], "ms": 0.2}
+{"id": "S040-20", "entities": [], "ms": 0.6}
+{"id": "S037-03", "entities": [{"label": "person", "start": 20, "end": 23, "text": "최지원"}], "ms": 1.2}
+{"id": "S037-11", "entities": [], "ms": 1.1}
+{"id": "S037-01", "entities": [{"label": "person", "start": 7, "end": 11, "text": "현대해상"}, {"label": "person", "start": 37, "end": 40, "text": "신가윤"}, {"label": "person", "start": 88, "end": 91, "text": "신가윤"}, {"label": "resident_registration_number", "start": 100, "end": 114, "text": "921214-1344412"}, {"label": "phone_number", "start": 122, "end": 135, "text": "010.0512.0029"}, {"label": "account_number", "start": 144, "end": 160, "text": "347911-00-029384"}], "ms": 3.5}
+{"id": "S040-11", "entities": [], "ms": 0.8}
+{"id": "S037-14", "entities": [{"label": "account_number", "start": 34, "end": 48, "text": "209-00-0554771"}, {"label": "person", "start": 53, "end": 56, "text": "소준혁"}, {"label": "phone_number", "start": 61, "end": 74, "text": "010.0007.2882"}], "ms": 1.1}
+{"id": "S037-08", "entities": [{"label": "person", "start": 17, "end": 20, "text": "이예지"}, {"label": "resident_registration_number", "start": 57, "end": 71, "text": "920614-2245179"}, {"label": "account_number", "start": 79, "end": 92, "text": "119-00-506772"}, {"label": "email", "start": 116, "end": 134, "text": "yejii9@example.net"}], "ms": 1.9}
+{"id": "S037-07", "entities": [{"label": "person", "start": 47, "end": 50, "text": "정연서"}, {"label": "resident_registration_number", "start": 60, "end": 74, "text": "000917-4052231"}, {"label": "phone_number", "start": 80, "end": 93, "text": "010.0088.4532"}, {"label": "account_number", "start": 100, "end": 116, "text": "889111-00-000452"}], "ms": 1.3}
+{"id": "S036-13", "entities": [{"label": "person", "start": 27, "end": 30, "text": "백이슬"}, {"label": "address", "start": 37, "end": 63, "text": "서울특별시 금천구 가산디지털1로 55, 906호"}, {"label": "phone_number", "start": 71, "end": 84, "text": "010.0999.4831"}, {"label": "resident_registration_number", "start": 95, "end": 109, "text": "720918-2054729"}, {"label": "email", "start": 117, "end": 135, "text": "iseulb@example.com"}], "ms": 1.3}
+{"id": "S036-08", "entities": [], "ms": 0.6}
+{"id": "S040-13", "entities": [{"label": "person", "start": 0, "end": 3, "text": "최무경"}, {"label": "resident_registration_number", "start": 40, "end": 54, "text": "750910-1873459"}], "ms": 1.5}
+{"id": "S037-20", "entities": [{"label": "person", "start": 0, "end": 4, "text": "현대해상"}, {"label": "person", "start": 48, "end": 51, "text": "김다희"}, {"label": "phone_number", "start": 57, "end": 70, "text": "010.0500.6191"}, {"label": "email", "start": 76, "end": 98, "text": "dahee_kim0@example.net"}], "ms": 1.7}
+{"id": "S038-15", "entities": [{"label": "card_number", "start": 42, "end": 61, "text": "4854-0000-0237-3947"}], "ms": 0.6}
+{"id": "S039-16", "entities": [{"label": "person", "start": 0, "end": 3, "text": "고현수"}, {"label": "card_number", "start": 8, "end": 27, "text": "1234-5678-9125-2341"}], "ms": 0.8}
+{"id": "S040-12", "entities": [], "ms": 0.7}
+{"id": "S038-17", "entities": [], "ms": 1.1}
+{"id": "S038-18", "entities": [{"label": "address", "start": 47, "end": 77, "text": "경기도 용인시 수지구 동천로 158 201동 1002호"}, {"label": "person", "start": 83, "end": 86, "text": "이수빈"}], "ms": 0.9}
+{"id": "S038-09", "entities": [{"label": "phone_number", "start": 45, "end": 58, "text": "010.0359.4983"}], "ms": 0.5}
+{"id": "S039-07", "entities": [{"label": "person", "start": 0, "end": 3, "text": "최진혁"}], "ms": 1.3}
+{"id": "S037-09", "entities": [{"label": "person", "start": 14, "end": 17, "text": "윤태훈"}, {"label": "email", "start": 47, "end": 69, "text": "thoonyun@example.co.kr"}, {"label": "account_number", "start": 74, "end": 87, "text": "220-00-375911"}], "ms": 1.1}
+{"id": "S039-20", "entities": [], "ms": 0.3}
+{"id": "S039-17", "entities": [], "ms": 0.3}
+{"id": "S039-18", "entities": [{"label": "person", "start": 0, "end": 3, "text": "김지후"}, {"label": "account_number", "start": 23, "end": 37, "text": "35600239428192"}], "ms": 0.7}
+{"id": "S038-14", "entities": [], "ms": 0.5}
+{"id": "S039-12", "entities": [], "ms": 0.2}
+{"id": "S036-16", "entities": [{"label": "person", "start": 0, "end": 3, "text": "홍길동"}], "ms": 1.3}
+{"id": "S037-12", "entities": [{"label": "person", "start": 10, "end": 13, "text": "이주영"}, {"label": "resident_registration_number", "start": 25, "end": 39, "text": "021223-3185006"}, {"label": "account_number", "start": 47, "end": 61, "text": "122-00-9002284"}, {"label": "email", "start": 83, "end": 103, "text": "jyoung22@example.com"}], "ms": 0.6}
+{"id": "S036-11", "entities": [{"label": "person", "start": 41, "end": 44, "text": "최성재"}, {"label": "resident_registration_number", "start": 55, "end": 69, "text": "931018-2325117"}, {"label": "email", "start": 77, "end": 98, "text": "choisj232@example.com"}, {"label": "account_number", "start": 107, "end": 121, "text": "12000993401728"}], "ms": 1.5}
+{"id": "S037-19", "entities": [{"label": "person", "start": 0, "end": 3, "text": "권다영"}, {"label": "resident_registration_number", "start": 40, "end": 54, "text": "931106-2491732"}, {"label": "account_number", "start": 67, "end": 80, "text": "120-00-211840"}, {"label": "phone_number", "start": 86, "end": 99, "text": "010.0020.7445"}], "ms": 1.3}
+{"id": "S039-13", "entities": [{"label": "phone_number", "start": 15, "end": 28, "text": "010.0441.3378"}, {"label": "email", "start": 33, "end": 54, "text": "choi.jh@example.co.kr"}], "ms": 0.3}
+{"id": "S040-15", "entities": [], "ms": 0.7}
+{"id": "S036-20", "entities": [], "ms": 0.5}
+{"id": "S036-07", "entities": [{"label": "person", "start": 15, "end": 18, "text": "서혜정"}, {"label": "resident_registration_number", "start": 29, "end": 43, "text": "820105-2183310"}, {"label": "address", "start": 50, "end": 65, "text": "경기도 이천시 설성로 250"}, {"label": "account_number", "start": 84, "end": 98, "text": "22098712004123"}], "ms": 1.3}
+{"id": "S040-08", "entities": [{"label": "person", "start": 0, "end": 3, "text": "조형민"}], "ms": 1.5}
+{"id": "S040-01", "entities": [{"label": "person", "start": 63, "end": 66, "text": "장세진"}, {"label": "resident_registration_number", "start": 76, "end": 90, "text": "900102-2123456"}], "ms": 2.0}
+{"id": "S039-14", "entities": [], "ms": 0.4}
+{"id": "S036-10", "entities": [{"label": "person", "start": 21, "end": 24, "text": "고은빛"}, {"label": "phone_number", "start": 32, "end": 45, "text": "010.0940.2317"}, {"label": "address", "start": 52, "end": 82, "text": "전북 군산시 바다로 27, 선현아파트 203동 909호"}, {"label": "account_number", "start": 91, "end": 105, "text": "65010900123451"}], "ms": 1.3}
+{"id": "S005-10", "entities": [{"label": "person", "start": 0, "end": 3, "text": "최윤석"}, {"label": "account_number", "start": 75, "end": 91, "text": "501702-00-505193"}], "ms": 1.0}
+{"id": "S002-14", "entities": [{"label": "person", "start": 0, "end": 3, "text": "최다연"}, {"label": "resident_registration_number", "start": 19, "end": 33, "text": "870416-2345015"}], "ms": 0.8}
+{"id": "S001-13", "entities": [{"label": "person", "start": 0, "end": 3, "text": "박문정"}, {"label": "phone_number", "start": 28, "end": 41, "text": "010.0700.1438"}], "ms": 1.4}
+{"id": "S001-04", "entities": [{"label": "person", "start": 25, "end": 28, "text": "송지은"}, {"label": "address", "start": 54, "end": 80, "text": "서울특별시 은평구 불광동 273-11, 403호"}, {"label": "address", "start": 90, "end": 119, "text": "경기도 고양시 덕양구 화전로 44, 203동 102호"}], "ms": 1.4}
+{"id": "S002-07", "entities": [{"label": "person", "start": 0, "end": 3, "text": "김하린"}, {"label": "phone_number", "start": 115, "end": 128, "text": "010.0032.8421"}], "ms": 1.4}
+{"id": "S002-10", "entities": [{"label": "person", "start": 0, "end": 3, "text": "김태우"}, {"label": "email", "start": 58, "end": 79, "text": "kimtw2024@example.net"}], "ms": 1.0}
+{"id": "S002-15", "entities": [{"label": "person", "start": 0, "end": 3, "text": "박성민"}, {"label": "email", "start": 69, "end": 101, "text": "psm1015@counseling.example.co.kr"}], "ms": 1.3}
+{"id": "S005-06", "entities": [{"label": "email", "start": 69, "end": 89, "text": "lee.ty98@example.net"}], "ms": 0.8}
+{"id": "S004-17", "entities": [{"label": "person", "start": 0, "end": 3, "text": "노지영"}, {"label": "card_number", "start": 11, "end": 30, "text": "5379-0012-8763-0042"}], "ms": 1.1}
+{"id": "S001-01", "entities": [{"label": "person", "start": 31, "end": 34, "text": "서다희"}, {"label": "person", "start": 43, "end": 46, "text": "서다희"}, {"label": "resident_registration_number", "start": 108, "end": 122, "text": "951212-2348517"}, {"label": "phone_number", "start": 125, "end": 138, "text": "010.0300.4871"}], "ms": 1.8}
+{"id": "S004-16", "entities": [{"label": "person", "start": 0, "end": 3, "text": "조지아"}, {"label": "phone_number", "start": 8, "end": 20, "text": "02.0000.6721"}, {"label": "email", "start": 37, "end": 62, "text": "georgia.cho@example.co.kr"}], "ms": 0.7}
+{"id": "S005-14", "entities": [], "ms": 0.8}
+{"id": "S005-08", "entities": [{"label": "email", "start": 51, "end": 72, "text": "hkim182@example.co.kr"}, {"label": "phone_number", "start": 104, "end": 117, "text": "010.0087.1442"}, {"label": "person", "start": 132, "end": 135, "text": "김해연"}], "ms": 2.4}
+{"id": "S004-13", "entities": [{"label": "phone_number", "start": 10, "end": 23, "text": "010.0560.2345"}, {"label": "person", "start": 25, "end": 28, "text": "이승주"}], "ms": 1.2}
+{"id": "S001-15", "entities": [{"label": "person", "start": 0, "end": 3, "text": "서유림"}, {"label": "person", "start": 24, "end": 27, "text": "배송지"}, {"label": "address", "start": 38, "end": 68, "text": "충북 청주시 흥덕구 강서로 189, 305동 1103호"}, {"label": "address", "start": 71, "end": 94, "text": "충북 청주시 서원구 산남로 23, 902호"}, {"label": "email", "start": 106, "end": 126, "text": "syurim33@example.com"}, {"label": "phone_number", "start": 128, "end": 141, "text": "010.0700.3225"}], "ms": 1.3}
+{"id": "S004-20", "entities": [], "ms": 0.4}
+{"id": "S002-13", "entities": [{"label": "person", "start": 7, "end": 10, "text": "이준혁"}, {"label": "address", "start": 65, "end": 89, "text": "서울시 동작구 상도로 15길 32, 207호"}], "ms": 1.4}
+{"id": "S003-01", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이성훈"}], "ms": 1.4}
+{"id": "S005-05", "entities": [{"label": "person", "start": 0, "end": 3, "text": "홍서진"}], "ms": 1.1}
+{"id": "S003-19", "entities": [{"label": "account_number", "start": 5, "end": 21, "text": "244-008080-39100"}, {"label": "person", "start": 32, "end": 35, "text": "유희경"}], "ms": 1.2}
+{"id": "S001-05", "entities": [{"label": "person", "start": 8, "end": 11, "text": "정윤석"}, {"label": "phone_number", "start": 41, "end": 54, "text": "010.0900.6623"}], "ms": 1.2}
+{"id": "S004-11", "entities": [{"label": "person", "start": 13, "end": 16, "text": "최진우"}], "ms": 0.8}
+{"id": "S003-12", "entities": [{"label": "phone_number", "start": 13, "end": 26, "text": "010.0094.3512"}], "ms": 0.4}
+{"id": "S002-17", "entities": [{"label": "person", "start": 7, "end": 10, "text": "이유정"}, {"label": "phone_number", "start": 77, "end": 90, "text": "070.0116.0925"}], "ms": 1.5}
+{"id": "S004-04", "entities": [{"label": "person", "start": 26, "end": 29, "text": "홍다은"}], "ms": 1.0}
+{"id": "S005-07", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이도영"}, {"label": "card_number", "start": 67, "end": 86, "text": "4512-0022-9932-1547"}], "ms": 2.0}
+{"id": "S005-01", "entities": [{"label": "person", "start": 16, "end": 19, "text": "오상은"}, {"label": "address", "start": 61, "end": 88, "text": "울산광역시 남구 유림로 218, 101동 602호"}, {"label": "email", "start": 96, "end": 118, "text": "osangeun21@example.com"}], "ms": 2.0}
+{"id": "S002-01", "entities": [{"label": "person", "start": 7, "end": 10, "text": "최혜진"}, {"label": "card_number", "start": 53, "end": 72, "text": "7210-3456-8895-1234"}, {"label": "address", "start": 133, "end": 159, "text": "경남 양산시 해운대로 56, 901동 1505호"}, {"label": "email", "start": 184, "end": 212, "text": "contact0020@bank.example.com"}], "ms": 2.3}
+{"id": "S001-14", "entities": [{"label": "person", "start": 16, "end": 19, "text": "최승리"}, {"label": "card_number", "start": 52, "end": 71, "text": "4142-9921-0000-2356"}, {"label": "phone_number", "start": 80, "end": 93, "text": "010.0000.1290"}], "ms": 1.1}
+{"id": "S003-02", "entities": [{"label": "person", "start": 7, "end": 10, "text": "박하영"}, {"label": "phone_number", "start": 21, "end": 34, "text": "010.0023.1941"}], "ms": 1.2}
+{"id": "S003-03", "entities": [{"label": "card_number", "start": 23, "end": 42, "text": "4329-0162-9428-0034"}], "ms": 0.6}
+{"id": "S003-13", "entities": [{"label": "account_number", "start": 27, "end": 42, "text": "101-0000-228863"}], "ms": 0.6}
+{"id": "S003-05", "entities": [], "ms": 0.5}
+{"id": "S005-15", "entities": [{"label": "person", "start": 9, "end": 12, "text": "진하영"}, {"label": "address", "start": 40, "end": 72, "text": "서울특별시 강남구 논현로 134길 42-9, 2층 204호"}], "ms": 1.3}
+{"id": "S001-12", "entities": [], "ms": 0.7}
+{"id": "S004-03", "entities": [{"label": "phone_number", "start": 0, "end": 13, "text": "010.0992.4832"}], "ms": 0.3}
+{"id": "S005-02", "entities": [{"label": "person", "start": 18, "end": 21, "text": "윤태수"}], "ms": 1.5}
+{"id": "S003-16", "entities": [], "ms": 0.4}
+{"id": "S004-15", "entities": [], "ms": 0.3}
+{"id": "S002-04", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이서윤"}, {"label": "phone_number", "start": 66, "end": 79, "text": "070.0234.4332"}], "ms": 0.8}
+{"id": "S002-16", "entities": [], "ms": 0.7}
+{"id": "S003-17", "entities": [{"label": "person", "start": 0, "end": 3, "text": "조현우"}, {"label": "resident_registration_number", "start": 16, "end": 30, "text": "000613-1103091"}], "ms": 0.9}
+{"id": "S005-04", "entities": [], "ms": 0.8}
+{"id": "S004-07", "entities": [{"label": "phone_number", "start": 0, "end": 13, "text": "010.0350.9992"}, {"label": "person", "start": 15, "end": 18, "text": "김서윤"}, {"label": "address", "start": 35, "end": 63, "text": "서울특별시 도봉구 방학로 12길 19-3, 401호"}], "ms": 0.5}
+{"id": "S004-01", "entities": [{"label": "person", "start": 0, "end": 3, "text": "고재성"}], "ms": 1.3}
+{"id": "S002-03", "entities": [], "ms": 0.7}
+{"id": "S005-17", "entities": [{"label": "person", "start": 9, "end": 12, "text": "신다현"}, {"label": "resident_registration_number", "start": 41, "end": 55, "text": "950712-1004137"}], "ms": 1.3}
+{"id": "S005-18", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이성우"}, {"label": "resident_registration_number", "start": 35, "end": 49, "text": "921209-2008183"}, {"label": "email", "start": 88, "end": 109, "text": "leeseongu@example.net"}], "ms": 1.4}
+{"id": "S001-06", "entities": [{"label": "person", "start": 25, "end": 28, "text": "임수진"}, {"label": "email", "start": 58, "end": 80, "text": "soojinim@example.co.kr"}, {"label": "email", "start": 94, "end": 122, "text": "im.soojin@sample.example.com"}], "ms": 1.7}
+{"id": "S004-14", "entities": [{"label": "person", "start": 0, "end": 3, "text": "임형준"}, {"label": "resident_registration_number", "start": 6, "end": 20, "text": "980628-1234567"}, {"label": "address", "start": 37, "end": 64, "text": "인천시 연수구 송도동 11-5 송도파크타워 10층"}], "ms": 1.3}
+{"id": "S034-08", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이경훈"}, {"label": "email", "start": 21, "end": 47, "text": "leekh@moveit.example.co.kr"}], "ms": 1.1}
+{"id": "S035-09", "entities": [{"label": "person", "start": 21, "end": 24, "text": "임병철"}, {"label": "person", "start": 30, "end": 33, "text": "장혜령"}], "ms": 2.3}
+{"id": "S035-02", "entities": [], "ms": 0.8}
+{"id": "S032-07", "entities": [{"label": "person", "start": 11, "end": 14, "text": "조순옥"}, {"label": "phone_number", "start": 78, "end": 91, "text": "010.0410.2879"}], "ms": 1.7}
+{"id": "S031-10", "entities": [], "ms": 0.5}
+{"id": "S033-07", "entities": [{"label": "email", "start": 8, "end": 37, "text": "seonghoon@myhouse.example.com"}], "ms": 0.3}
+{"id": "S035-20", "entities": [{"label": "person", "start": 0, "end": 3, "text": "배성민"}, {"label": "phone_number", "start": 15, "end": 27, "text": "02.0400.2345"}, {"label": "email", "start": 33, "end": 50, "text": "smbae@example.net"}], "ms": 1.3}
+{"id": "S034-17", "entities": [], "ms": 0.5}
+{"id": "S032-14", "entities": [{"label": "person", "start": 0, "end": 3, "text": "장재호"}, {"label": "email", "start": 25, "end": 54, "text": "jangjaeho77@naver.example.com"}], "ms": 1.7}
+{"id": "S031-07", "entities": [{"label": "person", "start": 4, "end": 7, "text": "정성훈"}, {"label": "email", "start": 9, "end": 28, "text": "jeongsh@example.net"}, {"label": "phone_number", "start": 74, "end": 87, "text": "010.0456.3321"}], "ms": 1.3}
+{"id": "S032-09", "entities": [{"label": "person", "start": 7, "end": 10, "text": "이예진"}, {"label": "address", "start": 29, "end": 58, "text": "경기도 수원시 팔달구 권광로 33, 10층 1003호"}], "ms": 1.8}
+{"id": "S033-15", "entities": [], "ms": 0.4}
+{"id": "S033-16", "entities": [{"label": "person", "start": 0, "end": 3, "text": "김경화"}, {"label": "address", "start": 19, "end": 44, "text": "부산광역시 해운대구 해운대로 312, 502호"}], "ms": 1.4}
+{"id": "S031-13", "entities": [{"label": "email", "start": 45, "end": 65, "text": "office@example.co.kr"}], "ms": 0.7}
+{"id": "S035-07", "entities": [{"label": "person", "start": 0, "end": 3, "text": "정은하"}], "ms": 1.7}
+{"id": "S034-05", "entities": [{"label": "person", "start": 0, "end": 3, "text": "박세현"}, {"label": "address", "start": 14, "end": 40, "text": "서울특별시 송파구 올림픽로35길 25, 801호"}], "ms": 1.4}
+{"id": "S031-17", "entities": [{"label": "person", "start": 0, "end": 3, "text": "박미정"}, {"label": "address", "start": 17, "end": 41, "text": "인천광역시 연수구 샘물로 11-2 1202호"}, {"label": "phone_number", "start": 74, "end": 87, "text": "010.0444.2111"}], "ms": 1.5}
+{"id": "S031-05", "entities": [{"label": "person", "start": 10, "end": 13, "text": "최지민"}, {"label": "phone_number", "start": 39, "end": 52, "text": "070.0567.7890"}, {"label": "address", "start": 67, "end": 91, "text": "서울특별시 성동구 한강로 5길 20 101호"}], "ms": 1.1}
+{"id": "S034-04", "entities": [], "ms": 0.3}
+{"id": "S035-12", "entities": [{"label": "person", "start": 43, "end": 46, "text": "박영주"}], "ms": 1.5}
+{"id": "S034-18", "entities": [{"label": "person", "start": 0, "end": 3, "text": "고지원"}, {"label": "phone_number", "start": 35, "end": 48, "text": "010.0497.0077"}], "ms": 1.4}
+{"id": "S035-04", "entities": [{"label": "person", "start": 16, "end": 19, "text": "신도림"}, {"label": "phone_number", "start": 59, "end": 72, "text": "010.0909.3357"}, {"label": "person", "start": 80, "end": 83, "text": "최상훈"}], "ms": 2.6}
+{"id": "S034-01", "entities": [{"label": "person", "start": 0, "end": 4, "text": "윤상혁님"}, {"label": "address", "start": 36, "end": 62, "text": "경기도 평택시 봉남로 110, 201동 704호"}], "ms": 1.4}
+{"id": "S033-01", "entities": [{"label": "person", "start": 0, "end": 3, "text": "박진영"}], "ms": 1.5}
+{"id": "S031-06", "entities": [], "ms": 0.7}
+{"id": "S033-13", "entities": [], "ms": 0.4}
+{"id": "S032-10", "entities": [{"label": "email", "start": 6, "end": 32, "text": "wooimove@naver.example.net"}], "ms": 0.7}
+{"id": "S033-10", "entities": [], "ms": 0.5}
+{"id": "S034-14", "entities": [{"label": "person", "start": 7, "end": 10, "text": "정은솔"}, {"label": "phone_number", "start": 15, "end": 28, "text": "010.0887.0010"}, {"label": "address", "start": 34, "end": 61, "text": "부산광역시 해운대구 좌동순환로 123, 1102호"}], "ms": 0.9}
+{"id": "S032-11", "entities": [{"label": "person", "start": 7, "end": 10, "text": "홍진서"}, {"label": "account_number", "start": 32, "end": 46, "text": "043-000-487210"}], "ms": 1.2}
+{"id": "S032-05", "entities": [{"label": "person", "start": 0, "end": 3, "text": "정연수"}, {"label": "person", "start": 18, "end": 21, "text": "정연수"}, {"label": "resident_registration_number", "start": 61, "end": 75, "text": "901231-1089211"}], "ms": 1.4}
+{"id": "S033-02", "entities": [{"label": "person", "start": 0, "end": 3, "text": "신지훈"}, {"label": "resident_registration_number", "start": 16, "end": 30, "text": "950101-2156789"}], "ms": 1.2}
+{"id": "S033-19", "entities": [{"label": "person", "start": 0, "end": 3, "text": "정서우"}], "ms": 1.3}
+{"id": "S033-09", "entities": [{"label": "phone_number", "start": 33, "end": 46, "text": "010.0037.2215"}], "ms": 0.8}
+{"id": "S034-10", "entities": [{"label": "person", "start": 18, "end": 21, "text": "남성우"}], "ms": 0.8}
+{"id": "S034-11", "entities": [{"label": "person", "start": 4, "end": 7, "text": "조승학"}, {"label": "address", "start": 32, "end": 58, "text": "경기도 수원시 장안구 장안로 222, 1403호"}], "ms": 2.1}
+{"id": "S033-03", "entities": [], "ms": 0.8}
+{"id": "S033-05", "entities": [{"label": "person", "start": 0, "end": 3, "text": "김나영"}, {"label": "address", "start": 27, "end": 55, "text": "서울특별시 강남구 역삼로 215, 101동 805호"}], "ms": 1.8}
+{"id": "S034-02", "entities": [{"label": "person", "start": 4, "end": 7, "text": "최하린"}, {"label": "phone_number", "start": 12, "end": 25, "text": "010.0123.4578"}, {"label": "email", "start": 32, "end": 57, "text": "yeonhye@class.example.com"}], "ms": 0.9}
+{"id": "S034-09", "entities": [{"label": "person", "start": 7, "end": 10, "text": "고효진"}, {"label": "phone_number", "start": 16, "end": 29, "text": "010.0987.0032"}, {"label": "account_number", "start": 41, "end": 57, "text": "814-00011-305477"}], "ms": 1.1}
+{"id": "S033-18", "entities": [], "ms": 0.6}
+{"id": "S031-20", "entities": [{"label": "person", "start": 0, "end": 3, "text": "송재은"}, {"label": "email", "start": 42, "end": 63, "text": "songjaeun@example.com"}], "ms": 1.5}
+{"id": "S034-03", "entities": [{"label": "account_number", "start": 21, "end": 38, "text": "123-009900-566611"}, {"label": "person", "start": 40, "end": 43, "text": "이경화"}], "ms": 0.7}
+{"id": "S035-05", "entities": [], "ms": 0.7}
+{"id": "S034-15", "entities": [{"label": "person", "start": 4, "end": 7, "text": "마현정"}, {"label": "account_number", "start": 14, "end": 31, "text": "002-099298-299193"}], "ms": 1.1}
+{"id": "S034-16", "entities": [{"label": "person", "start": 4, "end": 7, "text": "진원호"}, {"label": "resident_registration_number", "start": 14, "end": 28, "text": "800101-5123499"}, {"label": "card_number", "start": 33, "end": 52, "text": "5555-1234-8888-0444"}], "ms": 1.0}
+{"id": "S032-19", "entities": [{"label": "person", "start": 0, "end": 3, "text": "박연우"}, {"label": "phone_number", "start": 56, "end": 69, "text": "010.0900.7852"}], "ms": 1.5}
+{"id": "S035-13", "entities": [], "ms": 0.7}
+{"id": "S032-17", "entities": [], "ms": 0.8}
+{"id": "S031-01", "entities": [{"label": "person", "start": 10, "end": 13, "text": "이수연"}, {"label": "address", "start": 17, "end": 46, "text": "서울특별시 구로구 예시로 12-3 304동 1203호"}, {"label": "phone_number", "start": 112, "end": 125, "text": "010.0700.1234"}], "ms": 2.8}
+{"id": "S026-15", "entities": [{"label": "person", "start": 4, "end": 7, "text": "이윤서"}, {"label": "phone_number", "start": 43, "end": 56, "text": "010.0601.9077"}], "ms": 1.3}
+{"id": "S029-17", "entities": [], "ms": 0.4}
+{"id": "S030-18", "entities": [{"label": "account_number", "start": 31, "end": 45, "text": "110-003-000111"}, {"label": "person", "start": 60, "end": 63, "text": "정유나"}], "ms": 1.1}
+{"id": "S027-12", "entities": [{"label": "email", "start": 55, "end": 77, "text": "hongiljung@example.com"}], "ms": 0.6}
+{"id": "S028-18", "entities": [{"label": "person", "start": 13, "end": 16, "text": "이영훈"}, {"label": "email", "start": 23, "end": 44, "text": "yhlee22@example.co.kr"}], "ms": 1.5}
+{"id": "S030-01", "entities": [{"label": "phone_number", "start": 51, "end": 64, "text": "010.0088.5552"}, {"label": "address", "start": 82, "end": 109, "text": "서울시 영등포구 당산로 251, 101동 703호"}], "ms": 1.0}
+{"id": "S026-04", "entities": [{"label": "person", "start": 33, "end": 36, "text": "김대성"}, {"label": "phone_number", "start": 46, "end": 59, "text": "010.0460.7445"}], "ms": 1.4}
+{"id": "S028-08", "entities": [], "ms": 0.8}
+{"id": "S029-14", "entities": [], "ms": 0.6}
+{"id": "S028-04", "entities": [{"label": "person", "start": 8, "end": 11, "text": "박나영"}, {"label": "address", "start": 44, "end": 71, "text": "서울특별시 강남구 테헤란로 44길 8, 1106호"}], "ms": 1.2}
+{"id": "S028-16", "entities": [], "ms": 0.7}
+{"id": "S030-08", "entities": [{"label": "email", "start": 42, "end": 62, "text": "lee.haru@example.net"}], "ms": 0.5}
+{"id": "S026-01", "entities": [{"label": "person", "start": 67, "end": 70, "text": "최수빈"}, {"label": "phone_number", "start": 78, "end": 91, "text": "010.0850.0224"}, {"label": "address", "start": 101, "end": 132, "text": "경기도 수원시 권선구 호매실로 36, 1004동 503호"}], "ms": 1.3}
+{"id": "S027-16", "entities": [{"label": "person", "start": 10, "end": 13, "text": "박유진"}, {"label": "account_number", "start": 30, "end": 46, "text": "123-00011-938572"}], "ms": 1.1}
+{"id": "S028-11", "entities": [{"label": "person", "start": 17, "end": 20, "text": "박소영"}, {"label": "phone_number", "start": 31, "end": 44, "text": "010.0070.2417"}], "ms": 1.1}
+{"id": "S026-03", "entities": [{"label": "person", "start": 30, "end": 33, "text": "오지훈"}, {"label": "person", "start": 39, "end": 42, "text": "이수연"}, {"label": "person", "start": 59, "end": 62, "text": "배송지"}, {"label": "address", "start": 64, "end": 93, "text": "서울특별시 노원구 동일로 1234, 808동 302호"}, {"label": "account_number", "start": 102, "end": 119, "text": "092-000123-444455"}, {"label": "phone_number", "start": 127, "end": 140, "text": "010.0330.1299"}], "ms": 1.7}
+{"id": "S029-08", "entities": [{"label": "account_number", "start": 7, "end": 19, "text": "11020-509474"}, {"label": "person", "start": 22, "end": 26, "text": "이정훈님"}], "ms": 1.1}
+{"id": "S027-18", "entities": [{"label": "person", "start": 15, "end": 18, "text": "이예진"}, {"label": "phone_number", "start": 58, "end": 71, "text": "010.0293.1849"}, {"label": "email", "start": 80, "end": 101, "text": "yejin.lee@example.com"}], "ms": 0.9}
+{"id": "S028-06", "entities": [{"label": "person", "start": 49, "end": 52, "text": "노원역"}], "ms": 1.5}
+{"id": "S028-09", "entities": [{"label": "card_number", "start": 33, "end": 52, "text": "4920-1020-1818-2290"}], "ms": 0.7}
+{"id": "S027-11", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이성훈"}, {"label": "resident_registration_number", "start": 32, "end": 46, "text": "880107-1350959"}, {"label": "card_number", "start": 73, "end": 92, "text": "4720-0039-2920-1833"}], "ms": 0.8}
+{"id": "S026-14", "entities": [{"label": "person", "start": 24, "end": 27, "text": "오영석"}, {"label": "phone_number", "start": 35, "end": 48, "text": "010.0517.3666"}, {"label": "address", "start": 55, "end": 82, "text": "강원도 원주시 중앙로 221, 305동 1202호"}], "ms": 1.3}
+{"id": "S029-02", "entities": [], "ms": 0.3}
+{"id": "S028-10", "entities": [{"label": "person", "start": 13, "end": 16, "text": "최승호"}, {"label": "phone_number", "start": 70, "end": 83, "text": "010.0050.6672"}], "ms": 1.4}
+{"id": "S027-06", "entities": [{"label": "person", "start": 12, "end": 15, "text": "정선우"}, {"label": "account_number", "start": 65, "end": 81, "text": "224-00300-498576"}], "ms": 1.3}
+{"id": "S029-20", "entities": [], "ms": 0.5}
+{"id": "S030-13", "entities": [], "ms": 0.6}
+{"id": "S030-12", "entities": [{"label": "email", "start": 32, "end": 57, "text": "minjun.choi@example.co.kr"}], "ms": 0.4}
+{"id": "S028-15", "entities": [{"label": "person", "start": 0, "end": 3, "text": "박서진"}, {"label": "card_number", "start": 13, "end": 32, "text": "4911-0020-9744-6588"}], "ms": 1.0}
+{"id": "S027-19", "entities": [{"label": "person", "start": 7, "end": 10, "text": "남승현"}, {"label": "email", "start": 60, "end": 77, "text": "shnam@example.net"}], "ms": 1.7}
+{"id": "S029-16", "entities": [{"label": "person", "start": 0, "end": 3, "text": "배명진"}, {"label": "resident_registration_number", "start": 38, "end": 52, "text": "010811-2029211"}], "ms": 1.3}
+{"id": "S028-05", "entities": [{"label": "phone_number", "start": 69, "end": 82, "text": "010.0480.0022"}], "ms": 1.3}
+{"id": "S028-17", "entities": [{"label": "person", "start": 12, "end": 15, "text": "정윤아"}, {"label": "address", "start": 22, "end": 51, "text": "경기도 수원시 영통구 영통로 70, 104동 302호"}], "ms": 1.9}
+{"id": "S026-10", "entities": [{"label": "person", "start": 45, "end": 48, "text": "한승아"}, {"label": "person", "start": 54, "end": 57, "text": "김준서"}, {"label": "address", "start": 65, "end": 91, "text": "대전광역시 유성구 대학로 248, 5층 503호"}, {"label": "phone_number", "start": 97, "end": 110, "text": "010.0022.5401"}, {"label": "account_number", "start": 118, "end": 135, "text": "100-005674-912384"}, {"label": "resident_registration_number", "start": 148, "end": 162, "text": "021201-4079811"}], "ms": 2.4}
+{"id": "S027-01", "entities": [{"label": "person", "start": 7, "end": 10, "text": "이유나"}, {"label": "account_number", "start": 75, "end": 91, "text": "128291-00-174933"}, {"label": "address", "start": 104, "end": 124, "text": "서울시 강서구 대방로 92, 301호"}], "ms": 1.9}
+{"id": "S029-10", "entities": [{"label": "person", "start": 11, "end": 14, "text": "권순태"}, {"label": "email", "start": 28, "end": 48, "text": "kwonst@example.co.kr"}], "ms": 1.3}
+{"id": "S030-07", "entities": [{"label": "address", "start": 59, "end": 83, "text": "부산광역시 해운대구 센텀동로 45, 902호"}], "ms": 0.8}
+{"id": "S027-17", "entities": [], "ms": 0.5}
+{"id": "S030-16", "entities": [{"label": "phone_number", "start": 42, "end": 55, "text": "010.0780.3421"}], "ms": 0.5}
+{"id": "S026-02", "entities": [{"label": "email", "start": 45, "end": 64, "text": "haram21@example.com"}], "ms": 0.5}
+{"id": "S030-06", "entities": [{"label": "phone_number", "start": 50, "end": 63, "text": "010.0023.4567"}], "ms": 0.6}
+{"id": "S030-14", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이한별"}, {"label": "phone_number", "start": 53, "end": 66, "text": "010.0009.8003"}, {"label": "email", "start": 68, "end": 91, "text": "hanbyul_lee@example.com"}], "ms": 1.5}
+{"id": "S028-19", "entities": [], "ms": 0.6}
+{"id": "S027-13", "entities": [{"label": "person", "start": 10, "end": 13, "text": "홍슬기"}, {"label": "phone_number", "start": 60, "end": 73, "text": "010.0239.5782"}], "ms": 1.5}
+{"id": "S030-02", "entities": [{"label": "email", "start": 46, "end": 70, "text": "woo.jae.hyun@example.com"}], "ms": 0.4}
+{"id": "S028-20", "entities": [{"label": "person", "start": 15, "end": 18, "text": "최진호"}, {"label": "account_number", "start": 30, "end": 42, "text": "688800002312"}, {"label": "email", "start": 61, "end": 79, "text": "cjinho@example.net"}], "ms": 1.3}
+{"id": "S027-10", "entities": [{"label": "person", "start": 34, "end": 37, "text": "배송지"}], "ms": 0.9}
+{"id": "S026-19", "entities": [{"label": "person", "start": 16, "end": 19, "text": "서민재"}, {"label": "resident_registration_number", "start": 28, "end": 42, "text": "940317-3011222"}], "ms": 1.3}
+{"id": "S029-15", "entities": [{"label": "card_number", "start": 9, "end": 28, "text": "5400-6602-1234-5921"}, {"label": "person", "start": 29, "end": 32, "text": "한지아"}], "ms": 0.9}
+{"id": "S029-04", "entities": [{"label": "address", "start": 33, "end": 58, "text": "서울특별시 강동구 성내동 449-18 301호"}], "ms": 0.4}
+{"id": "S041-07", "entities": [{"label": "person", "start": 22, "end": 25, "text": "문지혁"}, {"label": "phone_number", "start": 33, "end": 46, "text": "010.0403.2020"}, {"label": "resident_registration_number", "start": 57, "end": 71, "text": "900224-1065087"}, {"label": "email", "start": 79, "end": 102, "text": "jihyuk.moon@example.com"}], "ms": 1.1}
+{"id": "S045-03", "entities": [{"label": "person", "start": 25, "end": 28, "text": "최형준"}, {"label": "phone_number", "start": 44, "end": 57, "text": "010.0082.3991"}], "ms": 1.1}
+{"id": "S043-18", "entities": [{"label": "person", "start": 0, "end": 3, "text": "류지호"}, {"label": "phone_number", "start": 20, "end": 33, "text": "010.0987.0786"}], "ms": 1.1}
+{"id": "S041-10", "entities": [{"label": "person", "start": 25, "end": 28, "text": "유지훈"}, {"label": "phone_number", "start": 37, "end": 50, "text": "010.0500.1235"}, {"label": "email", "start": 58, "end": 81, "text": "jihoon.yu@example.co.kr"}, {"label": "address", "start": 88, "end": 114, "text": "경상남도 창원시 성산구 중앙로 177, 802호"}], "ms": 1.0}
+{"id": "S043-07", "entities": [{"label": "person", "start": 0, "end": 3, "text": "정유라"}, {"label": "account_number", "start": 47, "end": 63, "text": "724-800000-12222"}], "ms": 1.5}
+{"id": "S044-02", "entities": [{"label": "email", "start": 6, "end": 20, "text": "hr@example.net"}], "ms": 0.3}
+{"id": "S042-18", "entities": [], "ms": 0.5}
+{"id": "S042-07", "entities": [{"label": "person", "start": 0, "end": 3, "text": "최정훈"}], "ms": 2.3}
+{"id": "S042-15", "entities": [{"label": "person", "start": 15, "end": 18, "text": "김소라"}], "ms": 1.2}
+{"id": "S043-05", "entities": [{"label": "person", "start": 23, "end": 26, "text": "박소담"}, {"label": "email", "start": 28, "end": 54, "text": "popark@support.example.net"}, {"label": "phone_number", "start": 56, "end": 69, "text": "010.0023.8875"}, {"label": "person", "start": 73, "end": 76, "text": "최은재"}, {"label": "email", "start": 78, "end": 104, "text": "eunjae.c@apply.example.com"}, {"label": "phone_number", "start": 106, "end": 119, "text": "010.0450.1324"}], "ms": 1.7}
+{"id": "S044-11", "entities": [], "ms": 0.3}
+{"id": "S045-09", "entities": [], "ms": 0.8}
+{"id": "S043-03", "entities": [], "ms": 0.9}
+{"id": "S045-11", "entities": [{"label": "account_number", "start": 61, "end": 77, "text": "942009-01-377285"}], "ms": 1.0}
+{"id": "S045-20", "entities": [], "ms": 0.8}
+{"id": "S043-10", "entities": [{"label": "card_number", "start": 51, "end": 70, "text": "2839-0000-3847-7834"}], "ms": 0.7}
+{"id": "S045-14", "entities": [{"label": "person", "start": 18, "end": 21, "text": "윤형수"}, {"label": "email", "start": 52, "end": 72, "text": "yoon.hsu@example.com"}], "ms": 1.2}
+{"id": "S042-11", "entities": [], "ms": 0.8}
+{"id": "S041-13", "entities": [{"label": "person", "start": 22, "end": 25, "text": "오채민"}, {"label": "resident_registration_number", "start": 36, "end": 50, "text": "911007-2234567"}, {"label": "account_number", "start": 59, "end": 75, "text": "234501-04-098765"}, {"label": "phone_number", "start": 83, "end": 96, "text": "010.0007.7779"}, {"label": "email", "start": 104, "end": 125, "text": "chaemin.o@example.net"}], "ms": 1.3}
+{"id": "S044-16", "entities": [{"label": "person", "start": 4, "end": 7, "text": "최영수"}, {"label": "address", "start": 11, "end": 42, "text": "경기도 수원시 팔달구 덕영대로 921, 101동 605호"}], "ms": 1.2}
+{"id": "S044-04", "entities": [{"label": "person", "start": 5, "end": 8, "text": "황지수"}, {"label": "address", "start": 13, "end": 35, "text": "서울특별시 중구 퇴계로 172, 605호"}], "ms": 0.7}
+{"id": "S044-18", "entities": [], "ms": 0.3}
+{"id": "S041-05", "entities": [{"label": "person", "start": 19, "end": 22, "text": "김범준"}, {"label": "phone_number", "start": 30, "end": 43, "text": "010.0210.8011"}, {"label": "email", "start": 51, "end": 74, "text": "beomjun.kim@example.net"}, {"label": "account_number", "start": 96, "end": 112, "text": "071202-09-000015"}], "ms": 1.4}
+{"id": "S041-06", "entities": [{"label": "person", "start": 6, "end": 9, "text": "송지수"}], "ms": 1.1}
+{"id": "S041-18", "entities": [{"label": "person", "start": 35, "end": 38, "text": "지원일"}], "ms": 1.2}
+{"id": "S041-15", "entities": [], "ms": 0.5}
+{"id": "S043-13", "entities": [{"label": "address", "start": 42, "end": 63, "text": "경기도 의정부시 녹양로 55, 202호"}], "ms": 0.5}
+{"id": "S042-19", "entities": [{"label": "person", "start": 4, "end": 7, "text": "조윤성"}], "ms": 1.5}
+{"id": "S043-20", "entities": [], "ms": 0.7}
+{"id": "S041-09", "entities": [], "ms": 0.9}
+{"id": "S042-09", "entities": [{"label": "person", "start": 52, "end": 55, "text": "강도윤"}, {"label": "email", "start": 61, "end": 79, "text": "kdy.hr@example.com"}], "ms": 1.5}
+{"id": "S044-19", "entities": [{"label": "person", "start": 0, "end": 3, "text": "신예찬"}, {"label": "phone_number", "start": 8, "end": 21, "text": "010.0450.8823"}, {"label": "email", "start": 27, "end": 50, "text": "yechan.shin@example.net"}, {"label": "account_number", "start": 57, "end": 73, "text": "290-00009-376511"}], "ms": 0.9}
+{"id": "S043-02", "entities": [{"label": "person", "start": 13, "end": 16, "text": "황지은"}, {"label": "phone_number", "start": 35, "end": 48, "text": "010.0404.7782"}], "ms": 0.9}
+{"id": "S044-12", "entities": [{"label": "person", "start": 7, "end": 10, "text": "조은비"}, {"label": "phone_number", "start": 15, "end": 28, "text": "010.0238.5241"}], "ms": 0.6}
+{"id": "S044-20", "entities": [{"label": "person", "start": 11, "end": 14, "text": "김혜진"}], "ms": 0.7}
+{"id": "S041-04", "entities": [{"label": "person", "start": 0, "end": 3, "text": "최은별"}], "ms": 1.2}
+{"id": "S044-01", "entities": [{"label": "person", "start": 0, "end": 3, "text": "김한솔"}, {"label": "phone_number", "start": 19, "end": 32, "text": "010.0549.3348"}], "ms": 1.0}
+{"id": "S042-10", "entities": [{"label": "person", "start": 32, "end": 35, "text": "김지우"}], "ms": 1.3}
+{"id": "S045-17", "entities": [], "ms": 0.5}
+{"id": "S041-14", "entities": [{"label": "person", "start": 4, "end": 7, "text": "장유리"}], "ms": 1.1}
+{"id": "S045-19", "entities": [{"label": "address", "start": 36, "end": 67, "text": "경기도 성남시 분당구 해오름로 59, 905동 1202호"}], "ms": 0.7}
+{"id": "S045-02", "entities": [], "ms": 0.6}
+{"id": "S043-09", "entities": [{"label": "person", "start": 6, "end": 9, "text": "장지훈"}, {"label": "email", "start": 55, "end": 84, "text": "jang.jh@careers.example.co.kr"}], "ms": 1.1}
+{"id": "S044-15", "entities": [], "ms": 0.3}
+{"id": "S042-14", "entities": [], "ms": 0.7}
+{"id": "S045-18", "entities": [{"label": "person", "start": 0, "end": 3, "text": "정은서"}, {"label": "phone_number", "start": 25, "end": 38, "text": "010.0032.4761"}, {"label": "phone_number", "start": 52, "end": 65, "text": "010.0002.9814"}], "ms": 1.3}
+{"id": "S045-16", "entities": [{"label": "person", "start": 0, "end": 3, "text": "류지현"}, {"label": "card_number", "start": 57, "end": 76, "text": "5289-0800-0458-9127"}, {"label": "card_number", "start": 88, "end": 107, "text": "5790-0300-8471-6645"}], "ms": 2.6}
+{"id": "S045-07", "entities": [], "ms": 0.9}
+{"id": "S043-08", "entities": [{"label": "person", "start": 37, "end": 40, "text": "김범수"}, {"label": "person", "start": 42, "end": 45, "text": "박영하"}, {"label": "person", "start": 47, "end": 50, "text": "이수민"}], "ms": 3.3}
+{"id": "S043-19", "entities": [], "ms": 1.1}
+{"id": "S051-10", "entities": [{"label": "card_number", "start": 35, "end": 54, "text": "9348-0002-8881-1105"}, {"label": "email", "start": 68, "end": 88, "text": "sol_yoon@example.com"}], "ms": 0.8}
+{"id": "S055-01", "entities": [{"label": "card_number", "start": 56, "end": 75, "text": "9821-0003-1930-7754"}], "ms": 0.9}
+{"id": "S052-01", "entities": [{"label": "card_number", "start": 38, "end": 57, "text": "9012-0000-4532-8721"}, {"label": "person", "start": 119, "end": 122, "text": "최효정"}], "ms": 2.0}
+{"id": "S055-19", "entities": [{"label": "card_number", "start": 31, "end": 50, "text": "6447-0008-9002-3154"}, {"label": "person", "start": 54, "end": 57, "text": "이도경"}, {"label": "phone_number", "start": 66, "end": 79, "text": "010.0043.8819"}], "ms": 1.1}
+{"id": "S051-05", "entities": [], "ms": 0.5}
+{"id": "S054-11", "entities": [{"label": "person", "start": 0, "end": 3, "text": "오하람"}, {"label": "email", "start": 4, "end": 26, "text": "haraom88@example.co.kr"}, {"label": "person", "start": 44, "end": 47, "text": "배송지"}, {"label": "address", "start": 49, "end": 73, "text": "서울시 영등포구 승차로 44, 9동 305호"}], "ms": 0.9}
+{"id": "S055-11", "entities": [{"label": "card_number", "start": 34, "end": 53, "text": "9002-0001-2332-4910"}, {"label": "person", "start": 59, "end": 62, "text": "최윤하"}, {"label": "email", "start": 100, "end": 120, "text": "yoonha.c@example.net"}], "ms": 1.7}
+{"id": "S052-12", "entities": [{"label": "person", "start": 7, "end": 10, "text": "손지수"}, {"label": "card_number", "start": 17, "end": 36, "text": "0700-2222-3333-4444"}, {"label": "email", "start": 99, "end": 120, "text": "soji.su@example.co.kr"}], "ms": 1.2}
+{"id": "S055-04", "entities": [{"label": "card_number", "start": 17, "end": 36, "text": "4875-0005-4003-8216"}, {"label": "person", "start": 38, "end": 41, "text": "홍수아"}], "ms": 1.8}
+{"id": "S053-04", "entities": [{"label": "person", "start": 0, "end": 3, "text": "최다윤"}, {"label": "card_number", "start": 41, "end": 60, "text": "4512-0071-3939-6008"}, {"label": "phone_number", "start": 70, "end": 83, "text": "010.0020.8080"}], "ms": 1.7}
+{"id": "S052-08", "entities": [{"label": "card_number", "start": 8, "end": 27, "text": "0022-8833-7788-1100"}, {"label": "resident_registration_number", "start": 42, "end": 56, "text": "940202-1145221"}, {"label": "person", "start": 62, "end": 65, "text": "오승현"}], "ms": 1.3}
+{"id": "S052-06", "entities": [{"label": "card_number", "start": 25, "end": 44, "text": "0000-3487-2200-1056"}, {"label": "resident_registration_number", "start": 71, "end": 85, "text": "700527-2450945"}], "ms": 0.8}
+{"id": "S053-15", "entities": [{"label": "person", "start": 0, "end": 3, "text": "서윤지"}, {"label": "card_number", "start": 14, "end": 33, "text": "5532-0082-4402-0017"}, {"label": "email", "start": 45, "end": 67, "text": "younji.seo@example.net"}], "ms": 0.9}
+{"id": "S054-02", "entities": [{"label": "person", "start": 31, "end": 34, "text": "민지석"}, {"label": "email", "start": 35, "end": 54, "text": "min0927@example.net"}], "ms": 0.9}
+{"id": "S051-08", "entities": [{"label": "person", "start": 20, "end": 23, "text": "이혜진"}, {"label": "card_number", "start": 54, "end": 73, "text": "5612-0000-8327-4104"}, {"label": "phone_number", "start": 81, "end": 94, "text": "010.0874.6331"}], "ms": 1.1}
+{"id": "S055-14", "entities": [{"label": "person", "start": 15, "end": 18, "text": "윤채린"}, {"label": "email", "start": 20, "end": 40, "text": "yooncr@example.co.kr"}, {"label": "card_number", "start": 47, "end": 66, "text": "9105-0001-5634-8002"}], "ms": 0.9}
+{"id": "S053-19", "entities": [], "ms": 0.4}
+{"id": "S052-19", "entities": [{"label": "card_number", "start": 15, "end": 34, "text": "0012-0034-5678-9012"}, {"label": "email", "start": 60, "end": 81, "text": "haein.cho@example.com"}], "ms": 0.4}
+{"id": "S054-07", "entities": [{"label": "person", "start": 0, "end": 3, "text": "김해리"}, {"label": "phone_number", "start": 4, "end": 17, "text": "010.0770.9642"}, {"label": "card_number", "start": 25, "end": 44, "text": "4433-0007-8102-7214"}], "ms": 1.1}
+{"id": "S051-06", "entities": [{"label": "person", "start": 23, "end": 26, "text": "고은진"}, {"label": "card_number", "start": 38, "end": 57, "text": "7001-0008-0673-5542"}, {"label": "phone_number", "start": 65, "end": 78, "text": "010.0859.3802"}, {"label": "address", "start": 85, "end": 109, "text": "경기도 부천시 대장동 409-11, 301호"}], "ms": 1.4}
+{"id": "S052-09", "entities": [{"label": "card_number", "start": 22, "end": 41, "text": "9600-0000-1500-4321"}, {"label": "person", "start": 51, "end": 54, "text": "문예린"}, {"label": "address", "start": 60, "end": 84, "text": "부산광역시 해운대구 좌동 15-10 304호"}], "ms": 1.2}
+{"id": "S054-05", "entities": [{"label": "person", "start": 0, "end": 3, "text": "강유림"}, {"label": "resident_registration_number", "start": 4, "end": 18, "text": "980228-1150019"}, {"label": "card_number", "start": 26, "end": 45, "text": "9700-0058-3754-1215"}], "ms": 0.7}
+{"id": "S054-17", "entities": [], "ms": 0.4}
+{"id": "S051-14", "entities": [{"label": "address", "start": 6, "end": 27, "text": "서울시 강서구 마곡로 99, 1202호"}, {"label": "card_number", "start": 41, "end": 60, "text": "4029-0000-8888-2567"}, {"label": "phone_number", "start": 79, "end": 92, "text": "010.0920.8154"}], "ms": 0.6}
+{"id": "S054-06", "entities": [{"label": "person", "start": 18, "end": 21, "text": "박태섭"}, {"label": "email", "start": 22, "end": 41, "text": "tasub83@example.com"}], "ms": 0.6}
+{"id": "S053-07", "entities": [{"label": "person", "start": 21, "end": 24, "text": "강용진"}, {"label": "resident_registration_number", "start": 31, "end": 45, "text": "820411-1065873"}, {"label": "card_number", "start": 52, "end": 71, "text": "9247-0022-8317-0025"}], "ms": 1.6}
+{"id": "S053-18", "entities": [{"label": "person", "start": 20, "end": 23, "text": "권지아"}, {"label": "phone_number", "start": 30, "end": 43, "text": "010.0008.4109"}, {"label": "resident_registration_number", "start": 53, "end": 67, "text": "971010-2674108"}, {"label": "card_number", "start": 75, "end": 94, "text": "9120-0094-4444-3788"}, {"label": "account_number", "start": 100, "end": 114, "text": "110-070-100002"}], "ms": 1.8}
+{"id": "S054-01", "entities": [{"label": "person", "start": 12, "end": 15, "text": "박시현"}, {"label": "phone_number", "start": 16, "end": 29, "text": "010.0901.3847"}], "ms": 0.8}
+{"id": "S051-09", "entities": [{"label": "person", "start": 0, "end": 3, "text": "최상민"}, {"label": "phone_number", "start": 8, "end": 21, "text": "010.0042.9641"}, {"label": "card_number", "start": 57, "end": 76, "text": "3546-0000-2309-9040"}, {"label": "address", "start": 81, "end": 101, "text": "전남 순천시 삼산로 105, 303호"}], "ms": 1.4}
+{"id": "S055-16", "entities": [], "ms": 0.8}
+{"id": "S054-08", "entities": [], "ms": 0.4}
+{"id": "S053-14", "entities": [], "ms": 0.5}
+{"id": "S055-13", "entities": [], "ms": 0.5}
+{"id": "S051-07", "entities": [{"label": "card_number", "start": 5, "end": 24, "text": "6101-0000-2023-4015"}, {"label": "person", "start": 58, "end": 61, "text": "박윤경"}, {"label": "email", "start": 63, "end": 84, "text": "yunpark98@example.net"}, {"label": "resident_registration_number", "start": 93, "end": 107, "text": "980301-1234567"}], "ms": 1.4}
+{"id": "S052-14", "entities": [{"label": "card_number", "start": 5, "end": 24, "text": "0004-0000-5000-6666"}, {"label": "person", "start": 44, "end": 47, "text": "이하정"}, {"label": "phone_number", "start": 53, "end": 66, "text": "010.0207.9993"}], "ms": 1.5}
+{"id": "S055-17", "entities": [{"label": "card_number", "start": 8, "end": 27, "text": "5300-0000-7012-8745"}, {"label": "phone_number", "start": 43, "end": 56, "text": "010.0081.5520"}, {"label": "email", "start": 58, "end": 77, "text": "ksh2222@example.com"}, {"label": "address", "start": 98, "end": 122, "text": "서울시 강남구 테헤란로 123 5층 502호"}], "ms": 0.9}
+{"id": "S051-03", "entities": [{"label": "card_number", "start": 10, "end": 29, "text": "1234-0000-3333-7777"}, {"label": "person", "start": 53, "end": 56, "text": "이상혁"}, {"label": "email", "start": 57, "end": 80, "text": "shlee9004@example.co.kr"}], "ms": 1.5}
+{"id": "S053-02", "entities": [{"label": "person", "start": 8, "end": 11, "text": "김지후"}, {"label": "phone_number", "start": 16, "end": 29, "text": "010.0110.3910"}], "ms": 0.8}
+{"id": "S054-16", "entities": [{"label": "person", "start": 0, "end": 3, "text": "김찬호"}, {"label": "email", "start": 4, "end": 24, "text": "canho123@example.com"}, {"label": "phone_number", "start": 26, "end": 39, "text": "010.0289.9550"}, {"label": "card_number", "start": 54, "end": 73, "text": "8670-0025-3118-4567"}], "ms": 1.0}
+{"id": "S052-11", "entities": [{"label": "card_number", "start": 59, "end": 78, "text": "0007-1000-8000-3550"}, {"label": "person", "start": 84, "end": 87, "text": "허은정"}], "ms": 1.4}
+{"id": "S053-06", "entities": [{"label": "person", "start": 28, "end": 31, "text": "길하은"}, {"label": "card_number", "start": 39, "end": 58, "text": "5678-0037-1112-4920"}], "ms": 1.1}
+{"id": "S051-02", "entities": [{"label": "person", "start": 14, "end": 17, "text": "김보라"}, {"label": "phone_number", "start": 23, "end": 36, "text": "010.0079.0425"}, {"label": "card_number", "start": 69, "end": 88, "text": "5858-0000-9172-0006"}], "ms": 1.5}
+{"id": "S055-20", "entities": [], "ms": 0.8}
+{"id": "S051-04", "entities": [{"label": "card_number", "start": 22, "end": 41, "text": "4910-0001-9597-2668"}, {"label": "person", "start": 47, "end": 50, "text": "임소연"}, {"label": "address", "start": 57, "end": 83, "text": "서울시 송파구 강동로 69, 502동 1804호"}], "ms": 1.7}
+{"id": "S055-05", "entities": [{"label": "card_number", "start": 49, "end": 68, "text": "3948-0009-1087-6332"}, {"label": "card_number", "start": 82, "end": 101, "text": "6011-0001-3038-2567"}, {"label": "phone_number", "start": 123, "end": 136, "text": "010.0052.1199"}], "ms": 1.0}
+{"id": "S051-15", "entities": [], "ms": 0.5}
+{"id": "S052-03", "entities": [{"label": "card_number", "start": 17, "end": 36, "text": "1230-0955-2948-7532"}, {"label": "address", "start": 51, "end": 72, "text": "성남시 분당구 정자동 11-5 706호"}, {"label": "email", "start": 114, "end": 135, "text": "yejun.kim@example.com"}], "ms": 0.9}
+{"id": "S052-13", "entities": [{"label": "card_number", "start": 21, "end": 40, "text": "0409-0000-2000-7865"}, {"label": "person", "start": 45, "end": 48, "text": "김준석"}], "ms": 1.6}
+{"id": "S054-10", "entities": [{"label": "resident_registration_number", "start": 4, "end": 18, "text": "920415-1130274"}], "ms": 0.3}
+{"id": "S051-17", "entities": [{"label": "card_number", "start": 10, "end": 29, "text": "4066-0001-1477-8533"}, {"label": "person", "start": 49, "end": 52, "text": "유서연"}, {"label": "phone_number", "start": 57, "end": 70, "text": "010.0032.9825"}, {"label": "account_number", "start": 75, "end": 92, "text": "555-000444-198765"}], "ms": 1.4}
+{"id": "S078-14", "entities": [{"label": "email", "start": 19, "end": 42, "text": "soyoung.lee@example.com"}], "ms": 0.3}
+{"id": "S076-06", "entities": [{"label": "person", "start": 75, "end": 78, "text": "정현수"}, {"label": "phone_number", "start": 84, "end": 97, "text": "010.0222.9990"}], "ms": 0.9}
+{"id": "S076-02", "entities": [{"label": "person", "start": 5, "end": 8, "text": "홍준호"}, {"label": "person", "start": 14, "end": 17, "text": "김소영"}, {"label": "address", "start": 24, "end": 51, "text": "경기도 성남시 분당구 수내로 178 3층 302호"}, {"label": "phone_number", "start": 61, "end": 74, "text": "010.0900.4446"}], "ms": 1.9}
+{"id": "S078-01", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이윤정"}, {"label": "address", "start": 43, "end": 66, "text": "서울특별시 강서구 양천로 412, 201호"}], "ms": 1.4}
+{"id": "S079-20", "entities": [{"label": "person", "start": 15, "end": 18, "text": "반송건"}], "ms": 1.1}
+{"id": "S078-20", "entities": [{"label": "person", "start": 0, "end": 3, "text": "강승우"}, {"label": "address", "start": 32, "end": 58, "text": "서울특별시 동작구 상도로 102-20, 502호"}, {"label": "person", "start": 66, "end": 69, "text": "한수아"}, {"label": "phone_number", "start": 75, "end": 88, "text": "010.0104.3315"}], "ms": 2.6}
+{"id": "S076-05", "entities": [{"label": "person", "start": 25, "end": 28, "text": "서지우"}, {"label": "person", "start": 38, "end": 41, "text": "김동률"}, {"label": "address", "start": 44, "end": 70, "text": "경상남도 창원시 성산구 가음정로 88 1102호"}, {"label": "phone_number", "start": 73, "end": 86, "text": "010.0300.1395"}, {"label": "person", "start": 95, "end": 98, "text": "박민지"}, {"label": "address", "start": 101, "end": 126, "text": "서울특별시 송파구 백제고분로 41길 29 2층"}, {"label": "phone_number", "start": 129, "end": 142, "text": "010.0012.7080"}], "ms": 3.0}
+{"id": "S077-06", "entities": [], "ms": 0.5}
+{"id": "S078-03", "entities": [], "ms": 0.4}
+{"id": "S080-16", "entities": [], "ms": 0.5}
+{"id": "S076-10", "entities": [{"label": "person", "start": 16, "end": 19, "text": "전유림"}, {"label": "phone_number", "start": 26, "end": 39, "text": "010.0111.0909"}, {"label": "address", "start": 71, "end": 96, "text": "서울특별시 동작구 사당로 34길 10 302호"}], "ms": 1.2}
+{"id": "S078-16", "entities": [{"label": "person", "start": 0, "end": 3, "text": "홍은채"}, {"label": "person", "start": 32, "end": 35, "text": "배문석"}, {"label": "phone_number", "start": 37, "end": 50, "text": "010.0357.1222"}, {"label": "address", "start": 58, "end": 82, "text": "대전 유성구 대덕대로 610, C동 610호"}], "ms": 2.1}
+{"id": "S076-12", "entities": [], "ms": 0.6}
+{"id": "S076-01", "entities": [{"label": "person", "start": 22, "end": 25, "text": "조은비"}, {"label": "phone_number", "start": 31, "end": 44, "text": "010.0881.0812"}, {"label": "address", "start": 51, "end": 77, "text": "서울특별시 강남구 언주로 155길 21 602호"}, {"label": "person", "start": 86, "end": 89, "text": "조은비"}, {"label": "email", "start": 91, "end": 111, "text": "eunbi.jo@example.com"}], "ms": 1.0}
+{"id": "S080-02", "entities": [{"label": "person", "start": 62, "end": 65, "text": "정나라"}, {"label": "phone_number", "start": 79, "end": 92, "text": "010.0001.2345"}], "ms": 1.2}
+{"id": "S078-04", "entities": [{"label": "person", "start": 0, "end": 3, "text": "최기훈"}], "ms": 1.5}
+{"id": "S080-12", "entities": [{"label": "phone_number", "start": 40, "end": 53, "text": "010.0099.1122"}, {"label": "address", "start": 61, "end": 84, "text": "경남 창원시 의창구 원이대로 111, 2층"}], "ms": 0.9}
+{"id": "S079-11", "entities": [{"label": "person", "start": 0, "end": 3, "text": "장기혁"}], "ms": 1.1}
+{"id": "S077-04", "entities": [{"label": "person", "start": 0, "end": 3, "text": "조성우"}, {"label": "phone_number", "start": 41, "end": 54, "text": "010.0887.1402"}], "ms": 1.1}
+{"id": "S079-12", "entities": [{"label": "person", "start": 0, "end": 3, "text": "임채린"}, {"label": "address", "start": 14, "end": 42, "text": "인천광역시 연수구 해돋이로 45, 103동 703호"}, {"label": "resident_registration_number", "start": 50, "end": 64, "text": "910401-0123456"}, {"label": "phone_number", "start": 69, "end": 82, "text": "010.0040.5102"}], "ms": 1.2}
+{"id": "S077-15", "entities": [{"label": "person", "start": 5, "end": 8, "text": "정유나"}, {"label": "phone_number", "start": 18, "end": 31, "text": "010.0777.1777"}, {"label": "address", "start": 39, "end": 67, "text": "경기도 고양시 일산서구 중앙로 1278, 2406호"}, {"label": "resident_registration_number", "start": 76, "end": 90, "text": "980626-1447518"}], "ms": 0.8}
+{"id": "S076-04", "entities": [{"label": "person", "start": 29, "end": 32, "text": "최윤서"}, {"label": "address", "start": 39, "end": 60, "text": "인천광역시 미추홀구 한나루로 99 1층"}, {"label": "phone_number", "start": 68, "end": 81, "text": "010.0203.8092"}], "ms": 1.4}
+{"id": "S079-14", "entities": [], "ms": 0.3}
+{"id": "S080-01", "entities": [{"label": "person", "start": 42, "end": 45, "text": "박주희"}, {"label": "phone_number", "start": 52, "end": 65, "text": "010.0012.3456"}, {"label": "address", "start": 71, "end": 101, "text": "서울특별시 강남구 역삼동 123-45 미래타워 902호"}, {"label": "email", "start": 116, "end": 137, "text": "parkjuhui@example.com"}], "ms": 2.1}
+{"id": "S080-17", "entities": [{"label": "person", "start": 37, "end": 40, "text": "이재열"}, {"label": "phone_number", "start": 46, "end": 59, "text": "010.0003.4321"}, {"label": "address", "start": 65, "end": 85, "text": "경북 포항시 남구 해동로 72, 2층"}], "ms": 1.5}
+{"id": "S080-04", "entities": [{"label": "person", "start": 17, "end": 20, "text": "하는데"}, {"label": "person", "start": 42, "end": 45, "text": "김선미"}, {"label": "phone_number", "start": 51, "end": 64, "text": "010.0034.5678"}, {"label": "address", "start": 72, "end": 92, "text": "경기 수원시 영통구 광교로 85 1층"}], "ms": 2.3}
+{"id": "S080-09", "entities": [{"label": "person", "start": 19, "end": 22, "text": "최은아"}, {"label": "address", "start": 27, "end": 49, "text": "인천 연수구 송도과학로 102, 407호"}, {"label": "phone_number", "start": 54, "end": 67, "text": "010.0056.7800"}], "ms": 1.4}
+{"id": "S077-16", "entities": [{"label": "person", "start": 7, "end": 10, "text": "박성엽"}, {"label": "address", "start": 47, "end": 67, "text": "서울 송파구 백제고분로 345, 2층"}, {"label": "phone_number", "start": 75, "end": 88, "text": "010.0203.0096"}], "ms": 1.3}
+{"id": "S076-15", "entities": [{"label": "person", "start": 20, "end": 23, "text": "주문자"}, {"label": "person", "start": 25, "end": 28, "text": "이유람"}, {"label": "phone_number", "start": 34, "end": 47, "text": "010.0450.8831"}, {"label": "address", "start": 55, "end": 76, "text": "전라북도 익산시 무왕로 100 201호"}], "ms": 1.4}
+{"id": "S078-08", "entities": [{"label": "person", "start": 31, "end": 34, "text": "정동혁"}, {"label": "phone_number", "start": 40, "end": 53, "text": "010.0882.0021"}, {"label": "address", "start": 58, "end": 79, "text": "부산광역시 남구 우암로 66, 502호"}], "ms": 1.0}
+{"id": "S079-13", "entities": [{"label": "person", "start": 4, "end": 8, "text": "남윤호님"}], "ms": 1.7}
+{"id": "S078-05", "entities": [{"label": "person", "start": 20, "end": 23, "text": "김성재"}, {"label": "address", "start": 37, "end": 61, "text": "경기도 남양주시 별내동 865-12 302호"}, {"label": "person", "start": 69, "end": 72, "text": "김성재"}, {"label": "phone_number", "start": 78, "end": 91, "text": "010.0123.4400"}], "ms": 1.4}
+{"id": "S080-10", "entities": [], "ms": 0.8}
+{"id": "S077-09", "entities": [{"label": "person", "start": 31, "end": 34, "text": "황서진"}, {"label": "email", "start": 37, "end": 56, "text": "hwangsj@example.com"}, {"label": "address", "start": 64, "end": 84, "text": "광주광역시 북구 하서로 23, 13층"}], "ms": 1.1}
+{"id": "S079-02", "entities": [{"label": "person", "start": 0, "end": 3, "text": "강선희"}, {"label": "phone_number", "start": 38, "end": 51, "text": "010.0044.7182"}], "ms": 1.2}
+{"id": "S076-20", "entities": [{"label": "person", "start": 8, "end": 11, "text": "정지우"}, {"label": "person", "start": 20, "end": 23, "text": "김혜성"}, {"label": "email", "start": 36, "end": 59, "text": "hyesung.kim@example.com"}, {"label": "phone_number", "start": 67, "end": 80, "text": "010.0660.4022"}, {"label": "person", "start": 83, "end": 86, "text": "배송지"}, {"label": "address", "start": 88, "end": 112, "text": "경기도 수원시 영통구 광교로 12 1502호"}, {"label": "account_number", "start": 134, "end": 148, "text": "102-008-911202"}], "ms": 1.4}
+{"id": "S077-08", "entities": [{"label": "person", "start": 5, "end": 8, "text": "이재윤"}, {"label": "person", "start": 14, "end": 17, "text": "박동현"}, {"label": "phone_number", "start": 19, "end": 32, "text": "010.0876.0475"}, {"label": "address", "start": 38, "end": 66, "text": "경상남도 창원시 의창구 창이대로 170, 1102호"}, {"label": "address", "start": 72, "end": 102, "text": "전라북도 전주시 완산구 홍산로 62, 101동 703호"}], "ms": 2.2}
+{"id": "S079-05", "entities": [{"label": "person", "start": 13, "end": 16, "text": "최은지"}, {"label": "email", "start": 17, "end": 37, "text": "ceunji39@example.com"}, {"label": "address", "start": 42, "end": 68, "text": "경기도 고양시 일산동구 장항로 172 1005호"}], "ms": 1.1}
+{"id": "S079-15", "entities": [{"label": "person", "start": 0, "end": 3, "text": "진도윤"}, {"label": "email", "start": 4, "end": 24, "text": "doyunjin@example.net"}, {"label": "card_number", "start": 30, "end": 49, "text": "4874-0088-1234-5555"}], "ms": 0.7}
+{"id": "S076-14", "entities": [{"label": "person", "start": 20, "end": 23, "text": "윤호진"}, {"label": "phone_number", "start": 31, "end": 44, "text": "010.0333.4455"}, {"label": "card_number", "start": 53, "end": 72, "text": "6250-5732-1812-9800"}, {"label": "address", "start": 80, "end": 102, "text": "충청북도 청주시 상당구 상당로 23 2층"}], "ms": 1.4}
+{"id": "S080-19", "entities": [{"label": "person", "start": 15, "end": 18, "text": "김지수"}, {"label": "phone_number", "start": 23, "end": 36, "text": "010.0042.1111"}, {"label": "account_number", "start": 41, "end": 56, "text": "356-070001-2655"}], "ms": 0.7}
+{"id": "S077-20", "entities": [{"label": "person", "start": 0, "end": 3, "text": "김보람"}, {"label": "address", "start": 30, "end": 53, "text": "대구광역시 달서구 월배로 233, 502호"}, {"label": "phone_number", "start": 86, "end": 99, "text": "010.0722.3131"}], "ms": 1.0}
+{"id": "S079-18", "entities": [{"label": "person", "start": 0, "end": 3, "text": "김지호"}, {"label": "person", "start": 20, "end": 23, "text": "도하린"}, {"label": "email", "start": 24, "end": 43, "text": "harindo@example.com"}, {"label": "address", "start": 48, "end": 68, "text": "강원도 춘천시 남부로 77, 402호"}], "ms": 1.2}
+{"id": "S077-17", "entities": [{"label": "person", "start": 0, "end": 3, "text": "윤서형"}, {"label": "account_number", "start": 48, "end": 65, "text": "110-000999-001003"}], "ms": 1.3}
+{"id": "S076-07", "entities": [{"label": "person", "start": 28, "end": 31, "text": "김성하"}, {"label": "phone_number", "start": 38, "end": 51, "text": "010.0006.5720"}, {"label": "person", "start": 52, "end": 55, "text": "배송지"}, {"label": "address", "start": 57, "end": 80, "text": "대전광역시 유성구 도안대로 125 814호"}, {"label": "card_number", "start": 102, "end": 121, "text": "7810-4900-3901-1724"}], "ms": 2.2}
+{"id": "S080-14", "entities": [{"label": "resident_registration_number", "start": 29, "end": 43, "text": "940215-1867031"}, {"label": "person", "start": 44, "end": 47, "text": "조영훈"}], "ms": 1.0}
+{"id": "S078-15", "entities": [], "ms": 0.5}
+{"id": "S080-07", "entities": [], "ms": 0.6}
+{"id": "S078-06", "entities": [{"label": "person", "start": 0, "end": 3, "text": "박태현"}, {"label": "card_number", "start": 31, "end": 50, "text": "3812-0000-6544-1284"}], "ms": 1.3}
+{"id": "S078-13", "entities": [{"label": "address", "start": 5, "end": 28, "text": "경기도 고양시 일산동구 탄중로 98, 5층"}, {"label": "person", "start": 36, "end": 39, "text": "이소라"}, {"label": "phone_number", "start": 45, "end": 58, "text": "010.0980.7734"}], "ms": 0.9}
+{"id": "S049-07", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이유진"}], "ms": 1.1}
+{"id": "S048-08", "entities": [{"label": "person", "start": 0, "end": 3, "text": "권미진"}, {"label": "email", "start": 34, "end": 54, "text": "gwonmj87@example.net"}], "ms": 0.9}
+{"id": "S046-20", "entities": [{"label": "person", "start": 36, "end": 39, "text": "최하윤"}, {"label": "email", "start": 40, "end": 62, "text": "chhyn777@example.co.kr"}, {"label": "phone_number", "start": 64, "end": 77, "text": "010.0002.9125"}], "ms": 1.3}
+{"id": "S048-17", "entities": [], "ms": 0.3}
+{"id": "S050-03", "entities": [], "ms": 0.5}
+{"id": "S047-14", "entities": [], "ms": 0.6}
+{"id": "S047-06", "entities": [{"label": "person", "start": 0, "end": 3, "text": "홍서경"}, {"label": "email", "start": 58, "end": 79, "text": "hongsk110@example.net"}, {"label": "phone_number", "start": 84, "end": 97, "text": "010.0531.2872"}], "ms": 1.5}
+{"id": "S050-08", "entities": [{"label": "person", "start": 21, "end": 24, "text": "김태준"}, {"label": "person", "start": 26, "end": 29, "text": "노하린"}, {"label": "person", "start": 31, "end": 34, "text": "이다현"}], "ms": 2.0}
+{"id": "S049-03", "entities": [], "ms": 0.2}
+{"id": "S050-19", "entities": [], "ms": 0.5}
+{"id": "S046-07", "entities": [{"label": "person", "start": 38, "end": 41, "text": "김지안"}, {"label": "person", "start": 43, "end": 46, "text": "박대준"}, {"label": "person", "start": 48, "end": 51, "text": "성찬미"}], "ms": 2.6}
+{"id": "S049-16", "entities": [{"label": "address", "start": 26, "end": 55, "text": "경남 창원시 의창구 용동로 81, 602동 1004호"}, {"label": "phone_number", "start": 70, "end": 83, "text": "010.0009.2948"}], "ms": 0.9}
+{"id": "S047-08", "entities": [], "ms": 0.7}
+{"id": "S046-12", "entities": [{"label": "person", "start": 36, "end": 39, "text": "장호성"}, {"label": "person", "start": 47, "end": 50, "text": "이나영"}], "ms": 1.5}
+{"id": "S048-07", "entities": [], "ms": 0.4}
+{"id": "S049-20", "entities": [], "ms": 0.5}
+{"id": "S047-02", "entities": [], "ms": 1.0}
+{"id": "S050-20", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이건희"}, {"label": "person", "start": 11, "end": 14, "text": "박은주"}, {"label": "phone_number", "start": 38, "end": 51, "text": "010.0808.1194"}], "ms": 2.0}
+{"id": "S050-01", "entities": [{"label": "person", "start": 7, "end": 10, "text": "김아현"}, {"label": "phone_number", "start": 41, "end": 54, "text": "010.0450.3311"}], "ms": 1.3}
+{"id": "S049-15", "entities": [{"label": "person", "start": 30, "end": 33, "text": "홍지훈"}, {"label": "account_number", "start": 38, "end": 54, "text": "467800.01.896240"}], "ms": 1.0}
+{"id": "S046-15", "entities": [{"label": "person", "start": 35, "end": 38, "text": "윤지환"}, {"label": "person", "start": 52, "end": 55, "text": "정세령"}], "ms": 1.9}
+{"id": "S047-18", "entities": [], "ms": 0.5}
+{"id": "S048-14", "entities": [], "ms": 0.3}
+{"id": "S048-12", "entities": [{"label": "person", "start": 17, "end": 20, "text": "박해린"}, {"label": "person", "start": 22, "end": 25, "text": "김태건"}, {"label": "person", "start": 27, "end": 30, "text": "심예린"}], "ms": 2.0}
+{"id": "S049-17", "entities": [{"label": "person", "start": 0, "end": 3, "text": "문채원"}, {"label": "email", "start": 8, "end": 28, "text": "mooncw16@example.net"}], "ms": 1.0}
+{"id": "S048-15", "entities": [{"label": "person", "start": 0, "end": 3, "text": "윤아린"}, {"label": "person", "start": 29, "end": 32, "text": "윤아린"}, {"label": "account_number", "start": 39, "end": 55, "text": "352.0000000.7459"}], "ms": 1.5}
+{"id": "S049-14", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이수진"}, {"label": "email", "start": 5, "end": 26, "text": "isu2000@example.co.kr"}], "ms": 0.9}
+{"id": "S048-01", "entities": [{"label": "person", "start": 7, "end": 10, "text": "조형래"}, {"label": "phone_number", "start": 61, "end": 74, "text": "010.0083.4455"}], "ms": 1.8}
+{"id": "S050-05", "entities": [{"label": "person", "start": 32, "end": 35, "text": "임지후"}, {"label": "person", "start": 37, "end": 40, "text": "한채영"}, {"label": "person", "start": 42, "end": 45, "text": "백민석"}, {"label": "phone_number", "start": 51, "end": 63, "text": "031-000-8585"}], "ms": 2.4}
+{"id": "S048-19", "entities": [{"label": "person", "start": 11, "end": 14, "text": "이정훈"}, {"label": "person", "start": 16, "end": 19, "text": "이정은"}, {"label": "person", "start": 21, "end": 24, "text": "조민규"}, {"label": "person", "start": 26, "end": 29, "text": "최연우"}, {"label": "person", "start": 31, "end": 34, "text": "안하린"}], "ms": 2.6}
+{"id": "S046-03", "entities": [{"label": "account_number", "start": 21, "end": 35, "text": "210-000-812389"}], "ms": 0.5}
+{"id": "S050-15", "entities": [], "ms": 0.6}
+{"id": "S046-06", "entities": [{"label": "address", "start": 62, "end": 89, "text": "경기도 의왕시 청계로 120, 505동 1210호"}, {"label": "address", "start": 101, "end": 127, "text": "서울특별시 서초구 방배로 29길 17, 302호"}], "ms": 0.9}
+{"id": "S048-11", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이지호"}], "ms": 0.9}
+{"id": "S046-10", "entities": [{"label": "person", "start": 24, "end": 27, "text": "이혜윤"}, {"label": "person", "start": 29, "end": 32, "text": "정문혁"}, {"label": "phone_number", "start": 62, "end": 75, "text": "010.0050.3826"}, {"label": "email", "start": 79, "end": 97, "text": "mnhy01@example.com"}], "ms": 1.9}
+{"id": "S048-06", "entities": [{"label": "person", "start": 0, "end": 3, "text": "박지후"}, {"label": "phone_number", "start": 15, "end": 28, "text": "010.0930.2190"}, {"label": "email", "start": 30, "end": 52, "text": "hyunju72@example.co.kr"}], "ms": 0.8}
+{"id": "S050-06", "entities": [{"label": "person", "start": 10, "end": 13, "text": "박시온"}, {"label": "person", "start": 22, "end": 25, "text": "박주형"}, {"label": "email", "start": 31, "end": 57, "text": "jh.park@family.example.net"}], "ms": 2.7}
+{"id": "S049-12", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이상우"}, {"label": "email", "start": 8, "end": 27, "text": "leesw20@example.com"}], "ms": 1.3}
+{"id": "S049-05", "entities": [{"label": "person", "start": 0, "end": 3, "text": "박서준"}, {"label": "account_number", "start": 39, "end": 55, "text": "924500.09.373665"}], "ms": 1.5}
+{"id": "S047-10", "entities": [{"label": "account_number", "start": 29, "end": 43, "text": "88002349501026"}, {"label": "person", "start": 52, "end": 55, "text": "김재홍"}, {"label": "phone_number", "start": 61, "end": 74, "text": "010.0056.2011"}], "ms": 1.4}
+{"id": "S049-09", "entities": [{"label": "person", "start": 0, "end": 3, "text": "임서연"}, {"label": "card_number", "start": 29, "end": 48, "text": "2112-1199-0002-8137"}], "ms": 1.2}
+{"id": "S048-09", "entities": [{"label": "account_number", "start": 19, "end": 35, "text": "302.0000000.3761"}, {"label": "person", "start": 45, "end": 48, "text": "박태은"}], "ms": 1.3}
+{"id": "S046-17", "entities": [{"label": "person", "start": 21, "end": 24, "text": "고도현"}, {"label": "person", "start": 26, "end": 29, "text": "심아린"}, {"label": "card_number", "start": 36, "end": 55, "text": "5080-1109-0302-1567"}, {"label": "person", "start": 57, "end": 60, "text": "고도현"}, {"label": "card_number", "start": 63, "end": 82, "text": "4080-3020-0000-1542"}, {"label": "person", "start": 84, "end": 87, "text": "심아린"}], "ms": 1.6}
+{"id": "S047-03", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이채린"}, {"label": "account_number", "start": 45, "end": 59, "text": "43007499539281"}, {"label": "person", "start": 66, "end": 71, "text": "동해중학교"}], "ms": 1.6}
+{"id": "S048-16", "entities": [{"label": "person", "start": 9, "end": 12, "text": "윤서우"}, {"label": "address", "start": 21, "end": 42, "text": "경기도 시흥시 해동로 232, 504호"}], "ms": 0.9}
+{"id": "S050-16", "entities": [{"label": "person", "start": 0, "end": 3, "text": "오지호"}, {"label": "resident_registration_number", "start": 37, "end": 51, "text": "070412-1388427"}], "ms": 0.9}
+{"id": "S049-04", "entities": [{"label": "person", "start": 0, "end": 3, "text": "김동현"}, {"label": "phone_number", "start": 8, "end": 21, "text": "010.0012.7630"}], "ms": 0.7}
+{"id": "S046-01", "entities": [], "ms": 0.7}
+{"id": "S046-16", "entities": [{"label": "person", "start": 46, "end": 49, "text": "조성호"}], "ms": 1.1}
+{"id": "S048-02", "entities": [{"label": "person", "start": 0, "end": 3, "text": "윤정민"}, {"label": "account_number", "start": 35, "end": 50, "text": "092-000000-1414"}, {"label": "person", "start": 65, "end": 68, "text": "윤정민"}], "ms": 1.3}
+{"id": "S099-16", "entities": [{"label": "email", "start": 0, "end": 21, "text": "sunnypark@example.com"}], "ms": 0.8}
+{"id": "S100-02", "entities": [], "ms": 1.1}
+{"id": "S098-01", "entities": [{"label": "person", "start": 0, "end": 3, "text": "채예린"}, {"label": "email", "start": 77, "end": 99, "text": "yerin.chae@example.com"}], "ms": 1.3}
+{"id": "S098-11", "entities": [{"label": "person", "start": 0, "end": 3, "text": "최지윤"}, {"label": "resident_registration_number", "start": 13, "end": 27, "text": "990203-1234567"}], "ms": 1.4}
+{"id": "S096-04", "entities": [{"label": "person", "start": 0, "end": 3, "text": "황지은"}, {"label": "phone_number", "start": 65, "end": 78, "text": "010.0860.6242"}, {"label": "card_number", "start": 90, "end": 109, "text": "5300-0254-8874-1201"}], "ms": 0.7}
+{"id": "S097-19", "entities": [{"label": "person", "start": 19, "end": 22, "text": "박준혁"}, {"label": "email", "start": 28, "end": 48, "text": "junepark@example.net"}], "ms": 1.5}
+{"id": "S100-04", "entities": [{"label": "person", "start": 30, "end": 33, "text": "김효진"}, {"label": "card_number", "start": 80, "end": 99, "text": "4432-0000-1234-9001"}], "ms": 1.5}
+{"id": "S097-02", "entities": [{"label": "person", "start": 0, "end": 3, "text": "박도윤"}, {"label": "person", "start": 69, "end": 72, "text": "박도윤"}, {"label": "person", "start": 74, "end": 77, "text": "박지율"}, {"label": "person", "start": 79, "end": 82, "text": "박서윤"}, {"label": "phone_number", "start": 97, "end": 110, "text": "010.0051.2372"}, {"label": "email", "start": 116, "end": 137, "text": "doyunpark@example.net"}], "ms": 3.0}
+{"id": "S100-10", "entities": [{"label": "person", "start": 4, "end": 7, "text": "정수빈"}, {"label": "resident_registration_number", "start": 33, "end": 47, "text": "980503-2819112"}, {"label": "email", "start": 59, "end": 82, "text": "soobin.jung@example.com"}], "ms": 1.1}
+{"id": "S097-07", "entities": [{"label": "person", "start": 35, "end": 38, "text": "최강수"}, {"label": "account_number", "start": 63, "end": 77, "text": "104-008-234002"}, {"label": "email", "start": 95, "end": 113, "text": "kschoi@example.com"}], "ms": 1.2}
+{"id": "S100-15", "entities": [{"label": "person", "start": 25, "end": 28, "text": "서지아"}, {"label": "account_number", "start": 43, "end": 56, "text": "212-00-945361"}], "ms": 1.0}
+{"id": "S096-19", "entities": [{"label": "person", "start": 0, "end": 3, "text": "장미라"}, {"label": "phone_number", "start": 32, "end": 45, "text": "010.0078.1953"}, {"label": "resident_registration_number", "start": 54, "end": 68, "text": "860912-2504508"}, {"label": "account_number", "start": 84, "end": 100, "text": "130-000202-24241"}], "ms": 1.2}
+{"id": "S098-19", "entities": [{"label": "person", "start": 0, "end": 3, "text": "유지안"}, {"label": "email", "start": 17, "end": 39, "text": "jiani.yu@example.co.kr"}], "ms": 1.8}
+{"id": "S100-18", "entities": [], "ms": 1.1}
+{"id": "S098-07", "entities": [{"label": "person", "start": 57, "end": 60, "text": "이하은"}], "ms": 1.1}
+{"id": "S097-01", "entities": [{"label": "person", "start": 42, "end": 45, "text": "나리타"}, {"label": "person", "start": 66, "end": 69, "text": "김세진"}, {"label": "phone_number", "start": 75, "end": 88, "text": "010.0032.1984"}, {"label": "email", "start": 94, "end": 114, "text": "ksejin17@example.com"}], "ms": 2.6}
+{"id": "S099-08", "entities": [{"label": "person", "start": 17, "end": 20, "text": "정서영"}, {"label": "card_number", "start": 29, "end": 48, "text": "5530-0077-8444-3698"}], "ms": 1.2}
+{"id": "S098-17", "entities": [{"label": "phone_number", "start": 7, "end": 20, "text": "010.0789.0456"}], "ms": 0.5}
+{"id": "S097-12", "entities": [{"label": "person", "start": 13, "end": 16, "text": "오사카"}, {"label": "person", "start": 24, "end": 27, "text": "정유진"}, {"label": "email", "start": 73, "end": 95, "text": "yujin.jung@example.com"}], "ms": 1.9}
+{"id": "S100-06", "entities": [{"label": "person", "start": 59, "end": 62, "text": "오사카"}, {"label": "person", "start": 97, "end": 100, "text": "이태경"}], "ms": 1.7}
+{"id": "S097-03", "entities": [{"label": "person", "start": 7, "end": 10, "text": "이도희"}, {"label": "email", "start": 96, "end": 115, "text": "leedh03@example.com"}], "ms": 1.5}
+{"id": "S100-13", "entities": [{"label": "person", "start": 25, "end": 28, "text": "류수연"}, {"label": "email", "start": 68, "end": 90, "text": "suyeon.ryu@example.net"}], "ms": 1.1}
+{"id": "S096-11", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이준희"}, {"label": "email", "start": 100, "end": 123, "text": "leejunhee23@example.net"}], "ms": 1.8}
+{"id": "S098-04", "entities": [{"label": "person", "start": 0, "end": 3, "text": "정은재"}, {"label": "card_number", "start": 11, "end": 30, "text": "4321-0411-9999-8800"}], "ms": 1.0}
+{"id": "S096-14", "entities": [], "ms": 1.1}
+{"id": "S100-05", "entities": [{"label": "person", "start": 4, "end": 7, "text": "최미나"}, {"label": "account_number", "start": 47, "end": 63, "text": "517100-05-004821"}, {"label": "email", "start": 82, "end": 102, "text": "minachoi@example.net"}], "ms": 1.7}
+{"id": "S100-19", "entities": [{"label": "person", "start": 4, "end": 7, "text": "김진아"}, {"label": "resident_registration_number", "start": 19, "end": 33, "text": "001216-2022881"}, {"label": "email", "start": 39, "end": 61, "text": "jina.kim12@example.com"}, {"label": "card_number", "start": 81, "end": 100, "text": "4858-0000-8765-4455"}], "ms": 1.4}
+{"id": "S096-20", "entities": [], "ms": 0.5}
+{"id": "S100-11", "entities": [{"label": "person", "start": 10, "end": 14, "text": "하태웅님"}, {"label": "address", "start": 55, "end": 84, "text": "경기도 화성시 장안면 행복로 48, 202동 101호"}], "ms": 1.6}
+{"id": "S099-01", "entities": [{"label": "person", "start": 0, "end": 3, "text": "윤태희"}, {"label": "phone_number", "start": 43, "end": 56, "text": "010.0123.6384"}], "ms": 1.3}
+{"id": "S099-18", "entities": [], "ms": 0.4}
+{"id": "S098-02", "entities": [{"label": "phone_number", "start": 41, "end": 54, "text": "070.0123.4567"}], "ms": 0.6}
+{"id": "S097-05", "entities": [{"label": "person", "start": 13, "end": 16, "text": "유하연"}, {"label": "person", "start": 24, "end": 27, "text": "김세아"}, {"label": "phone_number", "start": 50, "end": 63, "text": "010.0066.3099"}, {"label": "email", "start": 69, "end": 91, "text": "hayounyu@example.co.kr"}], "ms": 2.5}
+{"id": "S099-14", "entities": [{"label": "person", "start": 0, "end": 3, "text": "신성훈"}, {"label": "phone_number", "start": 65, "end": 78, "text": "010.0987.3331"}], "ms": 0.8}
+{"id": "S098-18", "entities": [], "ms": 0.5}
+{"id": "S096-06", "entities": [], "ms": 0.7}
+{"id": "S099-11", "entities": [{"label": "person", "start": 21, "end": 24, "text": "한희준"}], "ms": 1.3}
+{"id": "S099-15", "entities": [{"label": "person", "start": 0, "end": 3, "text": "강지은"}, {"label": "resident_registration_number", "start": 32, "end": 46, "text": "870312-1123456"}], "ms": 0.9}
+{"id": "S098-20", "entities": [], "ms": 0.4}
+{"id": "S098-10", "entities": [{"label": "person", "start": 39, "end": 42, "text": "백수빈"}, {"label": "email", "start": 55, "end": 73, "text": "subaek@example.net"}], "ms": 1.7}
+{"id": "S099-05", "entities": [{"label": "person", "start": 25, "end": 28, "text": "조은재"}, {"label": "person", "start": 30, "end": 33, "text": "박하나"}, {"label": "person", "start": 35, "end": 38, "text": "윤지수"}], "ms": 1.9}
+{"id": "S099-17", "entities": [{"label": "address", "start": 29, "end": 51, "text": "서울특별시 종로구 북촌로 45, 302호"}, {"label": "person", "start": 61, "end": 64, "text": "유서윤"}], "ms": 1.0}
+{"id": "S099-19", "entities": [], "ms": 0.3}
+{"id": "S096-12", "entities": [{"label": "person", "start": 0, "end": 3, "text": "정다영"}, {"label": "phone_number", "start": 33, "end": 46, "text": "010.0054.5203"}, {"label": "card_number", "start": 55, "end": 74, "text": "5538-0920-0091-1202"}], "ms": 1.3}
+{"id": "S100-03", "entities": [{"label": "person", "start": 77, "end": 80, "text": "조윤아"}], "ms": 1.7}
+{"id": "S096-10", "entities": [{"label": "person", "start": 18, "end": 21, "text": "오예린"}, {"label": "phone_number", "start": 43, "end": 56, "text": "010.0899.6132"}], "ms": 0.9}
+{"id": "S097-17", "entities": [{"label": "person", "start": 0, "end": 3, "text": "강도현"}], "ms": 1.2}
+{"id": "S098-08", "entities": [], "ms": 0.8}
+{"id": "S096-08", "entities": [{"label": "person", "start": 0, "end": 3, "text": "고객명"}, {"label": "person", "start": 5, "end": 8, "text": "최유진"}, {"label": "resident_registration_number", "start": 15, "end": 29, "text": "990405-2004044"}, {"label": "phone_number", "start": 35, "end": 48, "text": "010.0033.4876"}, {"label": "account_number", "start": 60, "end": 76, "text": "564-000000-24242"}, {"label": "person", "start": 83, "end": 86, "text": "진에어"}], "ms": 3.2}
+{"id": "S096-05", "entities": [{"label": "person", "start": 16, "end": 19, "text": "배정우"}, {"label": "phone_number", "start": 39, "end": 52, "text": "010.0041.9933"}, {"label": "email", "start": 63, "end": 86, "text": "bjeongwoo98@example.com"}], "ms": 1.5}
+{"id": "S006-19", "entities": [{"label": "person", "start": 12, "end": 15, "text": "서주희"}, {"label": "email", "start": 21, "end": 42, "text": "juhee.seo@example.com"}, {"label": "phone_number", "start": 48, "end": 61, "text": "010.0800.5491"}, {"label": "card_number", "start": 68, "end": 87, "text": "4921-0003-7741-5530"}], "ms": 0.8}
+{"id": "S006-08", "entities": [], "ms": 1.0}
+{"id": "S007-14", "entities": [{"label": "card_number", "start": 65, "end": 84, "text": "5555-0000-1111-4444"}, {"label": "person", "start": 102, "end": 105, "text": "박서진"}, {"label": "phone_number", "start": 111, "end": 124, "text": "010.0710.9585"}], "ms": 1.2}
+{"id": "S008-06", "entities": [{"label": "address", "start": 4, "end": 28, "text": "서울특별시 용산구 한강대로 55, 1201호"}, {"label": "account_number", "start": 40, "end": 55, "text": "009-340087-1222"}], "ms": 0.9}
+{"id": "S006-07", "entities": [{"label": "account_number", "start": 7, "end": 19, "text": "2024-0606-02"}, {"label": "person", "start": 26, "end": 29, "text": "박도연"}, {"label": "phone_number", "start": 35, "end": 48, "text": "010.0020.3872"}, {"label": "email", "start": 54, "end": 79, "text": "doyeon_park@example.co.kr"}], "ms": 1.3}
+{"id": "S007-16", "entities": [{"label": "account_number", "start": 40, "end": 55, "text": "121-010-4567890"}, {"label": "person", "start": 72, "end": 75, "text": "장은빛"}], "ms": 1.0}
+{"id": "S010-12", "entities": [], "ms": 0.7}
+{"id": "S009-03", "entities": [{"label": "email", "start": 7, "end": 26, "text": "hjyun91@example.com"}], "ms": 0.3}
+{"id": "S010-16", "entities": [], "ms": 0.5}
+{"id": "S008-02", "entities": [{"label": "phone_number", "start": 33, "end": 46, "text": "010.0890.5521"}, {"label": "account_number", "start": 54, "end": 71, "text": "110-003495-889900"}], "ms": 0.6}
+{"id": "S006-04", "entities": [{"label": "person", "start": 13, "end": 16, "text": "송유빈"}], "ms": 1.3}
+{"id": "S010-17", "entities": [{"label": "person", "start": 18, "end": 21, "text": "이연우"}, {"label": "email", "start": 23, "end": 42, "text": "lyw2024@example.com"}, {"label": "account_number", "start": 51, "end": 67, "text": "821002-04-532840"}], "ms": 1.0}
+{"id": "S008-16", "entities": [], "ms": 0.4}
+{"id": "S006-18", "entities": [{"label": "person", "start": 4, "end": 7, "text": "이민석"}, {"label": "email", "start": 19, "end": 42, "text": "minseok_lee@example.net"}, {"label": "account_number", "start": 49, "end": 63, "text": "964-000-111003"}, {"label": "phone_number", "start": 68, "end": 81, "text": "010.0980.8220"}], "ms": 0.8}
+{"id": "S007-06", "entities": [{"label": "card_number", "start": 46, "end": 65, "text": "1111-0000-2222-3333"}, {"label": "person", "start": 82, "end": 85, "text": "오주희"}, {"label": "email", "start": 91, "end": 111, "text": "ohjoohee@example.net"}], "ms": 1.2}
+{"id": "S010-13", "entities": [{"label": "person", "start": 0, "end": 3, "text": "최미정"}, {"label": "resident_registration_number", "start": 8, "end": 22, "text": "910621-2037481"}, {"label": "account_number", "start": 40, "end": 56, "text": "203428-00-002775"}], "ms": 1.1}
+{"id": "S008-14", "entities": [{"label": "person", "start": 0, "end": 3, "text": "김범수"}, {"label": "address", "start": 26, "end": 49, "text": "경기도 성남시 분당구 판교로 201, 3층"}, {"label": "account_number", "start": 58, "end": 73, "text": "020-0000-394737"}], "ms": 0.7}
+{"id": "S009-05", "entities": [{"label": "person", "start": 0, "end": 3, "text": "김규연"}, {"label": "card_number", "start": 49, "end": 68, "text": "9430-0000-0021-8821"}], "ms": 1.3}
+{"id": "S010-15", "entities": [{"label": "phone_number", "start": 9, "end": 22, "text": "010-0333-7542"}, {"label": "person", "start": 58, "end": 61, "text": "배송지"}, {"label": "address", "start": 62, "end": 87, "text": "서울특별시 중구 퇴계로 123, 5층 504호"}], "ms": 0.8}
+{"id": "S010-01", "entities": [{"label": "person", "start": 96, "end": 99, "text": "정시원"}, {"label": "email", "start": 101, "end": 121, "text": "jshwon31@example.com"}], "ms": 1.7}
+{"id": "S008-20", "entities": [{"label": "person", "start": 0, "end": 3, "text": "정세라"}, {"label": "address", "start": 17, "end": 45, "text": "대구광역시 달서구 월배로 127, 101동 502호"}, {"label": "phone_number", "start": 51, "end": 64, "text": "010.0002.3339"}, {"label": "account_number", "start": 69, "end": 84, "text": "551-099987-0321"}], "ms": 2.0}
+{"id": "S010-03", "entities": [{"label": "person", "start": 0, "end": 3, "text": "박하린"}, {"label": "card_number", "start": 28, "end": 47, "text": "4922-0000-0000-1234"}], "ms": 1.2}
+{"id": "S008-08", "entities": [{"label": "person", "start": 0, "end": 3, "text": "김도윤"}], "ms": 1.1}
+{"id": "S007-05", "entities": [{"label": "account_number", "start": 71, "end": 86, "text": "333-000-1086721"}, {"label": "person", "start": 91, "end": 94, "text": "정태현"}, {"label": "email", "start": 100, "end": 124, "text": "taehyun.jung@example.com"}], "ms": 1.6}
+{"id": "S009-01", "entities": [{"label": "phone_number", "start": 41, "end": 54, "text": "010.0700.5531"}], "ms": 0.4}
+{"id": "S007-20", "entities": [], "ms": 0.4}
+{"id": "S010-04", "entities": [{"label": "person", "start": 12, "end": 15, "text": "강은채"}, {"label": "phone_number", "start": 17, "end": 30, "text": "010-0888-9234"}], "ms": 1.1}
+{"id": "S009-09", "entities": [{"label": "account_number", "start": 30, "end": 46, "text": "110-0501948-9201"}, {"label": "person", "start": 52, "end": 55, "text": "정태수"}], "ms": 0.8}
+{"id": "S007-10", "entities": [{"label": "person", "start": 42, "end": 45, "text": "홍주아"}, {"label": "email", "start": 51, "end": 74, "text": "juah.hong@example.co.kr"}, {"label": "account_number", "start": 81, "end": 96, "text": "009-0999-333311"}], "ms": 1.5}
+{"id": "S008-18", "entities": [], "ms": 0.4}
+{"id": "S007-17", "entities": [], "ms": 0.5}
+{"id": "S009-19", "entities": [{"label": "account_number", "start": 36, "end": 50, "text": "203-0005210-91"}], "ms": 0.4}
+{"id": "S010-08", "entities": [{"label": "person", "start": 0, "end": 3, "text": "윤은석"}, {"label": "phone_number", "start": 34, "end": 47, "text": "010-0202-0034"}], "ms": 1.5}
+{"id": "S007-11", "entities": [{"label": "person", "start": 43, "end": 46, "text": "주문자"}, {"label": "person", "start": 48, "end": 51, "text": "오서진"}, {"label": "phone_number", "start": 57, "end": 70, "text": "010.0900.2230"}, {"label": "account_number", "start": 77, "end": 91, "text": "222-006-112233"}], "ms": 1.1}
+{"id": "S008-07", "entities": [{"label": "person", "start": 7, "end": 10, "text": "신미경"}, {"label": "email", "start": 51, "end": 72, "text": "shinkyu33@example.com"}], "ms": 1.4}
+{"id": "S008-13", "entities": [{"label": "email", "start": 22, "end": 48, "text": "support@myshop.example.com"}], "ms": 0.8}
+{"id": "S006-06", "entities": [{"label": "person", "start": 7, "end": 10, "text": "김설아"}, {"label": "resident_registration_number", "start": 59, "end": 73, "text": "920612-1234567"}, {"label": "account_number", "start": 85, "end": 99, "text": "123-000-123456"}], "ms": 2.0}
+{"id": "S008-17", "entities": [{"label": "email", "start": 4, "end": 26, "text": "hailey_lee@example.net"}], "ms": 0.8}
+{"id": "S007-02", "entities": [{"label": "person", "start": 67, "end": 70, "text": "이상훈"}, {"label": "phone_number", "start": 96, "end": 109, "text": "010.0505.9002"}], "ms": 1.4}
+{"id": "S010-18", "entities": [], "ms": 0.8}
+{"id": "S010-09", "entities": [{"label": "person", "start": 19, "end": 22, "text": "홍지영"}, {"label": "email", "start": 24, "end": 45, "text": "hjyoung@example.co.kr"}, {"label": "card_number", "start": 92, "end": 111, "text": "4385-0011-9020-9332"}], "ms": 1.7}
+{"id": "S007-04", "entities": [{"label": "person", "start": 10, "end": 13, "text": "최선아"}, {"label": "card_number", "start": 67, "end": 86, "text": "1234-0000-8765-0009"}, {"label": "email", "start": 92, "end": 112, "text": "choisuna@example.net"}, {"label": "phone_number", "start": 114, "end": 127, "text": "010.0750.3001"}], "ms": 1.7}
+{"id": "S007-01", "entities": [{"label": "card_number", "start": 107, "end": 126, "text": "9876-5432-1054-3210"}, {"label": "phone_number", "start": 157, "end": 170, "text": "010.0560.2045"}, {"label": "email", "start": 174, "end": 194, "text": "hyejin67@example.com"}, {"label": "person", "start": 210, "end": 213, "text": "박혜진"}], "ms": 2.6}
+{"id": "S006-20", "entities": [], "ms": 0.7}
+{"id": "S008-09", "entities": [{"label": "person", "start": 0, "end": 3, "text": "오승은"}, {"label": "card_number", "start": 33, "end": 52, "text": "5555-9012-0031-2121"}], "ms": 1.8}
+{"id": "S009-17", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이창일"}, {"label": "card_number", "start": 13, "end": 32, "text": "9831-0023-8894-0002"}, {"label": "resident_registration_number", "start": 41, "end": 55, "text": "751229-1400111"}], "ms": 1.8}
+{"id": "S006-17", "entities": [{"label": "person", "start": 0, "end": 3, "text": "최예성"}, {"label": "card_number", "start": 44, "end": 63, "text": "4785-0000-9865-4512"}, {"label": "account_number", "start": 68, "end": 82, "text": "803-000-674887"}], "ms": 2.5}
+{"id": "S009-20", "entities": [{"label": "person", "start": 7, "end": 15, "text": "스타그린 텀블러"}], "ms": 1.9}
+{"id": "S008-04", "entities": [{"label": "person", "start": 7, "end": 10, "text": "이시연"}], "ms": 1.6}
+{"id": "S010-05", "entities": [], "ms": 0.5}
+{"id": "S064-15", "entities": [], "ms": 0.8}
+{"id": "S061-05", "entities": [{"label": "person", "start": 0, "end": 3, "text": "김다은"}, {"label": "address", "start": 58, "end": 82, "text": "서울시 금천구 디지털로9길 33, 1203호"}], "ms": 2.4}
+{"id": "S063-11", "entities": [], "ms": 0.8}
+{"id": "S062-03", "entities": [], "ms": 1.1}
+{"id": "S061-02", "entities": [{"label": "person", "start": 0, "end": 3, "text": "채동현"}, {"label": "phone_number", "start": 80, "end": 93, "text": "010.0220.3948"}], "ms": 3.0}
+{"id": "S063-08", "entities": [{"label": "person", "start": 0, "end": 3, "text": "김단아"}, {"label": "account_number", "start": 17, "end": 34, "text": "020-000000-555555"}], "ms": 2.6}
+{"id": "S061-17", "entities": [{"label": "person", "start": 7, "end": 10, "text": "홍재민"}, {"label": "account_number", "start": 58, "end": 70, "text": "208899554220"}], "ms": 2.0}
+{"id": "S064-13", "entities": [{"label": "person", "start": 7, "end": 10, "text": "문다은"}, {"label": "address", "start": 30, "end": 51, "text": "서울 송파구 중대로 18길 72, 2층"}], "ms": 1.8}
+{"id": "S062-05", "entities": [{"label": "person", "start": 6, "end": 9, "text": "김하늘"}, {"label": "email", "start": 49, "end": 68, "text": "khaneul@example.net"}], "ms": 1.4}
+{"id": "S063-01", "entities": [{"label": "person", "start": 0, "end": 3, "text": "심준호"}, {"label": "email", "start": 25, "end": 47, "text": "kimjh@greenexample.com"}], "ms": 2.5}
+{"id": "S065-04", "entities": [], "ms": 1.1}
+{"id": "S064-16", "entities": [{"label": "person", "start": 0, "end": 3, "text": "황예린"}, {"label": "email", "start": 13, "end": 38, "text": "jungletrade@example.co.kr"}], "ms": 1.6}
+{"id": "S063-16", "entities": [{"label": "person", "start": 0, "end": 3, "text": "홍진영"}, {"label": "phone_number", "start": 16, "end": 27, "text": "02.000.1234"}], "ms": 2.4}
+{"id": "S063-10", "entities": [{"label": "person", "start": 0, "end": 3, "text": "조윤지"}, {"label": "address", "start": 16, "end": 38, "text": "서울특별시 중구 세종대로 110, 19층"}], "ms": 2.1}
+{"id": "S065-06", "entities": [], "ms": 0.7}
+{"id": "S064-07", "entities": [{"label": "person", "start": 0, "end": 3, "text": "임현준"}], "ms": 1.5}
+{"id": "S064-05", "entities": [{"label": "person", "start": 0, "end": 3, "text": "박효진"}, {"label": "address", "start": 32, "end": 58, "text": "경상남도 진주시 금산면 산단로 236, 404호"}], "ms": 1.6}
+{"id": "S064-11", "entities": [{"label": "person", "start": 0, "end": 3, "text": "김소연"}, {"label": "email", "start": 42, "end": 64, "text": "soyeon.kim@example.com"}], "ms": 1.9}
+{"id": "S065-11", "entities": [], "ms": 0.6}
+{"id": "S063-07", "entities": [], "ms": 0.3}
+{"id": "S064-08", "entities": [{"label": "person", "start": 0, "end": 3, "text": "최동윤"}, {"label": "account_number", "start": 38, "end": 51, "text": "100209-184563"}], "ms": 1.2}
+{"id": "S061-11", "entities": [{"label": "person", "start": 27, "end": 30, "text": "이소은"}], "ms": 1.6}
+{"id": "S062-04", "entities": [{"label": "person", "start": 0, "end": 3, "text": "송재호"}], "ms": 1.5}
+{"id": "S065-15", "entities": [], "ms": 0.6}
+{"id": "S065-03", "entities": [{"label": "person", "start": 9, "end": 12, "text": "김다해"}, {"label": "email", "start": 35, "end": 56, "text": "kim.dahey@example.net"}], "ms": 1.4}
+{"id": "S065-14", "entities": [{"label": "person", "start": 0, "end": 3, "text": "박시현"}, {"label": "address", "start": 44, "end": 72, "text": "경기도 수원시 팔달구 상수로 17 한빛빌라 302호"}, {"label": "address", "start": 78, "end": 106, "text": "서울특별시 동작구 성대로 128 1005동 112호"}], "ms": 0.9}
+{"id": "S063-06", "entities": [{"label": "person", "start": 0, "end": 3, "text": "박진수"}, {"label": "phone_number", "start": 16, "end": 29, "text": "010.0245.9832"}], "ms": 1.3}
+{"id": "S061-01", "entities": [{"label": "person", "start": 7, "end": 10, "text": "서진우"}], "ms": 1.5}
+{"id": "S063-15", "entities": [{"label": "person", "start": 0, "end": 3, "text": "최은지"}, {"label": "account_number", "start": 21, "end": 38, "text": "053-000000-808080"}], "ms": 0.5}
+{"id": "S062-18", "entities": [{"label": "person", "start": 0, "end": 3, "text": "김유진"}, {"label": "card_number", "start": 19, "end": 38, "text": "7483-0001-9983-5271"}], "ms": 1.8}
+{"id": "S061-19", "entities": [{"label": "person", "start": 0, "end": 3, "text": "임세라"}, {"label": "email", "start": 44, "end": 76, "text": "s.sera@pioneerelec.example.co.kr"}], "ms": 1.3}
+{"id": "S065-16", "entities": [{"label": "person", "start": 6, "end": 9, "text": "김서진"}, {"label": "address", "start": 37, "end": 65, "text": "부산광역시 해운대구 우동 1500 오션타워 401호"}], "ms": 1.6}
+{"id": "S064-14", "entities": [{"label": "person", "start": 0, "end": 3, "text": "오서연"}, {"label": "phone_number", "start": 28, "end": 41, "text": "010.0210.5448"}], "ms": 1.1}
+{"id": "S064-06", "entities": [{"label": "person", "start": 4, "end": 7, "text": "박세빈"}, {"label": "resident_registration_number", "start": 27, "end": 41, "text": "930211-2019112"}], "ms": 1.3}
+{"id": "S065-01", "entities": [{"label": "person", "start": 5, "end": 8, "text": "최은솔"}, {"label": "email", "start": 22, "end": 45, "text": "choi.eunsol@example.com"}], "ms": 1.5}
+{"id": "S061-03", "entities": [{"label": "person", "start": 49, "end": 52, "text": "정지호"}, {"label": "account_number", "start": 61, "end": 73, "text": "102294839101"}], "ms": 1.1}
+{"id": "S064-09", "entities": [], "ms": 0.5}
+{"id": "S064-17", "entities": [{"label": "person", "start": 0, "end": 3, "text": "조태희"}, {"label": "card_number", "start": 33, "end": 52, "text": "4910-0002-8369-1017"}], "ms": 0.9}
+{"id": "S064-04", "entities": [{"label": "person", "start": 12, "end": 15, "text": "전까지"}], "ms": 1.2}
+{"id": "S061-15", "entities": [{"label": "person", "start": 0, "end": 3, "text": "이한솔"}, {"label": "card_number", "start": 52, "end": 71, "text": "4123-7000-9830-5572"}], "ms": 1.2}
+{"id": "S061-09", "entities": [], "ms": 0.8}
+{"id": "S063-19", "entities": [{"label": "person", "start": 0, "end": 3, "text": "문지혜"}], "ms": 0.8}
+{"id": "S064-20", "entities": [], "ms": 0.6}
+{"id": "S065-02", "entities": [{"label": "person", "start": 4, "end": 7, "text": "박윤재"}, {"label": "phone_number", "start": 10, "end": 23, "text": "010.0302.1558"}], "ms": 1.4}
+{"id": "S063-14", "entities": [], "ms": 0.6}
+{"id": "S065-20", "entities": [{"label": "person", "start": 0, "end": 3, "text": "배영수"}, {"label": "address", "start": 27, "end": 55, "text": "대전광역시 유성구 봉명로 95-3 미래타워 708호"}], "ms": 1.2}
+{"id": "S061-07", "entities": [{"label": "card_number", "start": 36, "end": 55, "text": "5339-2812-9800-1249"}], "ms": 0.5}
+{"id": "S061-16", "entities": [{"label": "person", "start": 3, "end": 6, "text": "최유림"}, {"label": "resident_registration_number", "start": 27, "end": 41, "text": "980302-2874032"}], "ms": 1.2}
+{"id": "S062-19", "entities": [], "ms": 0.7}
+{"id": "S062-11", "entities": [{"label": "person", "start": 0, "end": 3, "text": "정성민"}], "ms": 1.2}
