@@ -1,13 +1,16 @@
 ﻿doc_id,label,gold_text,caught_by,context
+D0002,person,윤 선영,rules|rules+atonlee|llm,8:28 상담원: 김은영  【윤 선영】 고객(01003492063
 D0007,person,승현,rules|atonlee|rules+atonlee,"026-08-04 김서연: 【승현】아, 오늘 회의 자료 어디 "
 D0007,person,은서,atonlee|rules+atonlee,서 달래 김서연: 알겠어. 【은서】랑 같이 정리해서 올릴게
 D0009,person,지영,rules|atonlee|rules+atonlee,"6년 3월 13일 이윤서: 【지영】아, 오늘 회의 자료 어디 "
+D0009,person,이윤서,rules|rules+atonlee|llm,님이 내일까지 보고서 달래 【이윤서】: 알겠어. 소율이랑 같이 
 D0009,person,소율,atonlee|rules+atonlee|llm,서 달래 이윤서: 알겠어. 【소율】이랑 같이 정리해서 올릴게
 D0012,person,소율,rules|atonlee|rules+atonlee,남 부장이 초안을 작성하고 【소율】 씨가 검토  다음 회의: 
 D0014,person,정하은,rules|rules+atonlee|llm,초안 보내드립니다. 민원인 【정하은】 고객 주소가 경기도 성남시
 D0014,person,허수아,rules|atonlee|rules+atonlee,확인 부탁드려요. 검토 후 【허수아】 부장님께 바로 올려 주셔도
 D0014,person,김은정,rules|atonlee|rules+atonlee,로 올려 주셔도 됩니다.  【김은정】 드림
 D0017,person,허수아,rules|atonlee|rules+atonlee,터 정성호  2. 전보 - 【허수아】 부장: 리스크관리팀 → 리
+D0022,person,노 성호,rules|rules+atonlee|llm,6:21 상담원: 김은영  【노 성호】 고객(010.0564.60
 D0029,person,김서준,rules|atonlee|rules+atonlee,-27 17:09 상담원: 【김서준】 (고객센터)  고객명: 윤
 D0033,person,허수아,rules|atonlee|rules+atonlee,서류 제출 후 리스크관리팀 【허수아】 부장에게 심사를 요청하기로
 D0035,person,서준,rules|atonlee|rules+atonlee,이 차장이 초안을 작성하고 【서준】 씨가 검토  다음 회의: 
@@ -16,12 +19,17 @@ D0040,person,김은정,rules|atonlee|rules+atonlee,) 처리 담당: 고객보호
 D0040,person,허수아,rules|atonlee|rules+atonlee,호팀 김은정 부장 검토자: 【허수아】 부장  [민원 요지] 민원
 D0040,person,허수아,rules|atonlee|rules+atonlee,전액 환불 및 사과 안내. 【허수아】 부장의 승인 후 2026년
 D0043,phone_number,0238806413,rules|rules+atonlee|llm," 갑: IT운영팀 이준우 (【0238806413】, jw.lee66@saeb"
+D0049,person,김 수빈,rules|rules+atonlee|llm,8:03 상담원: 김은영  【김 수빈】 고객(010-0114-43
 D0053,person,신승현,rules|atonlee|rules+atonlee,문 (해운대지점) 담당자: 【신승현】 과장 / 내선 6865  
 D0053,person,전경희,rules|atonlee|rules+atonlee,증빙 서류 제출 후 인사팀 【전경희】 팀장에게 심사를 요청하기로
 D0054,person,정성호,rules|atonlee|rules+atonlee, 3일 15:23 상담원: 【정성호】 (고객센터)  고객명: 오
+D0057,person,최 채원,rules|rules+atonlee|llm,4:41 상담원: 박도윤  【최 채원】 고객(010-0129-07
 D0059,person,준우,rules|atonlee|rules+atonlee,최 차장이 초안을 작성하고 【준우】 씨가 검토  다음 회의: 
+D0060,person,이 건우,rules|rules+atonlee|llm,4:52 상담원: 박도윤  【이 건우】 고객(010.0552.56
+D0065,person,이 승현,rules|rules+atonlee|llm,1:21 상담원: 김은영  【이 승현】 고객(010-0552-49
 D0069,person,정성호,rules|atonlee|rules+atonlee,확인 부탁드려요. 검토 후 【정성호】 부장님께 바로 올려 주셔도
 D0070,person,서현,rules|atonlee|rules+atonlee,안 대리가 초안을 작성하고 【서현】 씨가 검토  다음 회의: 
+D0073,person,윤 선영,rules|rules+atonlee|llm,1:02 상담원: 김진우  【윤 선영】 고객(010.0349.20
 D0075,person,이상훈,rules|atonlee|rules+atonlee,9:51 담당: 채권관리팀 【이상훈】 고객: 김수연 (01006
 D0084,person,김하준,rules|atonlee|rules+atonlee,47 보고자: 리스크관리팀 【김하준】  탐지 내용 남궁다은 고객
 D0084,person,허수아,rules|atonlee|rules+atonlee,이 늘고 있어 리스크관리팀 【허수아】 부장에게 탐지 규칙 보완을

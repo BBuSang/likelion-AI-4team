@@ -1,5 +1,5 @@
 ﻿label,rules_recall,rules_precision,atonlee_recall,atonlee_precision,rules+atonlee_recall,rules+atonlee_precision,llm_recall,llm_precision
-person,0.9845,0.9987,0.9923,0.9637,1.0,0.9627,0.9523,1.0
+person,0.9845,0.9987,0.9845,0.9561,1.0,0.9556,0.9523,1.0
 phone_number,1.0,1.0,0.9821,1.0,1.0,1.0,0.9881,0.994
 email,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 address,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
