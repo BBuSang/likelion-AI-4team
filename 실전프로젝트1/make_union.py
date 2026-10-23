@@ -22,16 +22,20 @@ def main():
     ap.add_argument("--out", required=True)
     ap.add_argument("--prefer", choices=["first", "longer"], default="first",
                     help="겹칠 때 남길 쪽: first=앞 파일 우선, longer=더 긴 구간 우선(더 많이 가림)")
+    ap.add_argument("--names-only", action="store_true",
+                    help="두 번째 파일부터는 두 글자 이상 이름(person)만 가져옴 (팀원 방식: 정형 라벨은 규칙만, 이름은 규칙 ∪ 모델)")
     ap.add_argument("preds", nargs="+")
     a = ap.parse_args()
 
     merged = {}
-    for path in a.preds:
+    for k, path in enumerate(a.preds):
         for line in open(path, encoding="utf-8"):
             r = json.loads(line)
             m = merged.setdefault(r["id"], {"id": r["id"], "entities": [], "ms": 0.0})
             m["ms"] = round(m["ms"] + r.get("ms", 0.0), 1)
             for e in r["entities"]:
+                if a.names_only and k > 0 and (e["label"] != "person" or e["end"] - e["start"] < 2):
+                    continue
                 hits = [x for x in m["entities"] if overlap(e, x)]
                 if not hits:
                     m["entities"].append(e)

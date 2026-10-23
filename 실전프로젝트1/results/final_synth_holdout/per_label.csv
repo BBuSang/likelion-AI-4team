@@ -1,0 +1,8 @@
+﻿label,rules_recall,rules_precision,atonlee_recall,atonlee_precision,rules+atonlee_recall,rules+atonlee_precision
+person,0.9582,0.9269,0.9892,0.9721,0.9987,0.9102
+phone_number,0.9861,0.9895,1.0,0.9054,1.0,0.9503
+email,0.9909,0.9909,0.9909,0.9819,0.9909,0.9819
+address,0.9578,0.9755,0.9639,0.8889,0.9639,0.9195
+resident_registration_number,0.939,0.9872,0.9634,0.6583,0.9878,0.7043
+account_number,0.9832,0.9512,0.7311,0.9158,0.9832,0.936
+card_number,0.9661,1.0,0.9492,0.9256,0.9661,0.9828

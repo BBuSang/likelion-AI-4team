@@ -1,0 +1,4 @@
+﻿system,doc_id,error_type,label,gold_text,pred_text,confidence,context
+rules,E009,오탐,person,,하이픈,,"82 - 7713 (띄어쓴 【하이픈】), 보조 010–0482–"
+rules,E021,오탐,person,,배송지,,【배송지】 충남 천안시 동남구 신부동
+rules,E059,미탐,person,장미,,,【장미】 고객님과 하늘 씨가 함께 

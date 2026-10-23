@@ -1,9 +1,0 @@
-﻿item,n,rules_v6,rules_v7,union_v6,union_v7
-josa_attached (person),0,,,,
-spaced_name (person),0,,,,
-given_only (person),0,,,,
-phone_format_variant (phone_number),0,,,,
-homonym (person),0,,,,
-[추가] person form=full,0,,,,
-[추가] person form=spaced,0,,,,
-[추가] person form=given,0,,,,

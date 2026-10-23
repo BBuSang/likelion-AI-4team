@@ -34,7 +34,14 @@
 │   ├── parse_synthetic.py      생성 결과 → 정답 파일, 절반 분할
 │   └── qc_synthetic.py         생성 정답 검수 후보 목록
 ├── preds/                  예측 파일 (<탐지기>_<데이터>.jsonl)
+│   ├── rules_*, atonlee_*    규칙, 토큰 모델(atonlee) 단독
+│   ├── combined/rules+atonlee_*   운영 탐지기 (규칙 + atonlee 전체 합집합)
+│   └── llm_dev/test_r1~3     LLM 3회 실행 (참고용, gpt-4.1-mini)
 └── results/                채점 결과
+    ├── final_<데이터>/       규칙·atonlee·규칙+atonlee 채점 (오류 목록 errors_*.csv 포함, dev·test는 LLM 포함)
+    ├── system_comparison.csv  정확도·시간 비교표
+    ├── analyzer_comparison.*  형태소 분석기 5종 비교
+    └── synth_qc_candidates.csv 생성 데이터 정답 검수 후보
 ```
 
 ## 자주 쓰는 명령 (이 폴더에서 실행)
@@ -53,8 +60,15 @@ python -X utf8 run_compare.py --gold data/pii_synth_finance_dev.jsonl --pred rul
 ```
 
 ```bash
-python -X utf8 experiments/edge_report.py --pred rules=preds/rules_edge.jsonl --pred model=preds/koelectra_pii_edge.jsonl
+python -X utf8 experiments/edge_report.py --pred rules=preds/rules_edge.jsonl --pred model=preds/atonlee_edge.jsonl
 ```
+
+규칙 / 토큰(atonlee) / 규칙+토큰 정확도·시간 비교표 (예측 파일이 먼저 있어야 함)
+```bash
+python -X utf8 experiments/compare_systems.py
+```
+
+**현재 운영 탐지기: 규칙(Kiwi) + atonlee 전체 합집합** (worklog 15장)
 
 ## 지켜야 할 것
 - `-X utf8`을 붙여 실행 (윈도우에서 결과를 파일로 넘길 때 인코딩 오류 방지)

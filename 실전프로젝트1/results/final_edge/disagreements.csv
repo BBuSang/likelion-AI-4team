@@ -1,0 +1,16 @@
+﻿doc_id,label,gold_text,caught_by,context
+E004,phone_number,02-731-4567,rules|rules+atonlee,서울 지점 【02-731-4567】 (3자리 국번)
+E006,phone_number,0504-1234-0987,rules|rules+atonlee,배달 주문에 안심번호 【0504-1234-0987】가 기록되어 있었음.
+E008,phone_number,011-0234-5567,rules|rules+atonlee,구형 번호 【011-0234-5567】에서 010으로 변경 요청.
+E016,account_number,010-0482-7713,rules|rules+atonlee,뱅크 계좌(휴대폰 번호): 【010-0482-7713】로 송금 받기로 함.
+E017,account_number,11002345678901,rules|rules+atonlee,환불 받을 계좌 【11002345678901】 (하나은행)로 처리.
+E031,person,KIM MINJUN,rules|rules+atonlee,hn Smith / 성명: 【KIM MINJUN】
+E032,person,정다운,rules|rules+atonlee,【정다운】 고객과 한결 씨가 함께 방
+E040,resident_registration_number,900512-5345678,rules|rules+atonlee,외국인등록번호 【900512-5345678】 제출.
+E041,resident_registration_number,9005122345678,rules|rules+atonlee,주민번호 【9005122345678】 / 재입력 900512 -
+E049,account_number,12345601234567,rules|rules+atonlee,"환불은 국민 【12345601234567】, 또는 신한 1102345"
+E049,account_number,110234567890,rules|rules+atonlee,"1234567, 또는 신한 【110234567890】로 받기로 함."
+E057,person,신한솔,rules|rules+atonlee,【신한솔】 대리가 신한은행 제휴 업무
+E058,person,이상한,rules|rules+atonlee,【이상한】 고객이 방문함. 고민수 과
+E059,person,장미,atonlee|rules+atonlee,【장미】 고객님과 하늘 씨가 함께 
+E062,account_number,010-5521-0399,rules|rules+atonlee,민원 내용: 토스뱅크 계좌(【010-5521-0399】)로 받은 환불금이 두 번 

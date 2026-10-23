@@ -19,8 +19,11 @@ def build(name):
     if name == "llm":
         from detectors.llm import LLMDetector
         return LLMDetector()
-    from detectors.token_cls import TokenClsDetector
-    return TokenClsDetector(name)
+    from detectors.hf_ner import MODELS as HF_MODELS
+    from detectors.token_cls import HFNerDetector, TokenClsDetector
+    if name in HF_MODELS:
+        return HFNerDetector(name)  # 팀원 래퍼: veil, seongyeon, dlp, kpf, e5, atonlee
+    return TokenClsDetector(name)   # pipeline 방식: koelectra_pii, piilot
 
 
 def detect_one(det, doc):
@@ -32,7 +35,7 @@ def detect_one(det, doc):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--detector", required=True, help="rules | koelectra_pii | piilot | llm")
+    ap.add_argument("--detector", required=True, help="rules | koelectra_pii | piilot | llm | veil | seongyeon | dlp | kpf | e5 | atonlee")
     ap.add_argument("--split", default="dev", choices=["dev", "test", "edge", "synth_dev", "synth_holdout"])
     ap.add_argument("--runs", type=int, default=1)
     ap.add_argument("--workers", type=int, default=8, help="LLM API 동시 호출 수")

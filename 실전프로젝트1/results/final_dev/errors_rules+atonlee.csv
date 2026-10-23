@@ -1,0 +1,7 @@
+﻿system,doc_id,error_type,label,gold_text,pred_text,confidence,context
+rules+atonlee,D0007,오탐,person,,달래,, 부장님이 내일까지 보고서 【달래】 김서연: 알겠어. 은서랑 
+rules+atonlee,D0018,오탐,person,,하린,,신상품 출시 안내: 【하린】 포인트 카드 출시일: 20
+rules+atonlee,D0018,오탐,person,,하린,,: 2026년 1월 5일  【하린】 포인트 카드는 여행과 일상
+rules+atonlee,D0037,오탐,person,,이첩,,8 접수 경로: 금융감독원 【이첩】 민원인: 노성호 (연락처 
+rules+atonlee,D0047,오탐,person,,이첩,,일 접수 경로: 금융감독원 【이첩】 민원인: 이선우 (연락처 
+rules+atonlee,D0052,오탐,person,,이첩,,5 접수 경로: 금융감독원 【이첩】 민원인: 이건우 (연락처 

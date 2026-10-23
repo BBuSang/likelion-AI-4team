@@ -56,3 +56,22 @@ class TokenClsDetector:
         if self.postprocess:
             ents = drop_venue_addresses(text, drop_decoys(text, fix_boundaries(text, ents)))
         return ents
+
+
+class HFNerDetector:
+    """팀원 래퍼(detectors/hf_ner.py)로 돌리는 토큰 분류 모델: veil, seongyeon, dlp, kpf, e5, atonlee.
+    pipeline 의 묶는 방식(aggregation) 대신 BIO/BIOES 태그를 직접 글자 구간으로 복원하고, 긴 문서는 창을 나눠 처리한다.
+    비교를 공정하게 하려고 우리 후처리(경계 보정·대표번호·장소 주소 제외)를 똑같이 붙인다."""
+
+    def __init__(self, name: str, postprocess: bool = True):
+        from detectors.hf_ner import TokenClassifier
+        self.name = name
+        self.model = TokenClassifier(name)
+        self.model.load()
+        self.postprocess = postprocess
+
+    def detect(self, text: str) -> list:
+        ents = self.model.predict(text)
+        if self.postprocess:
+            ents = drop_venue_addresses(text, drop_decoys(text, fix_boundaries(text, ents)))
+        return ents
