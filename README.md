@@ -71,14 +71,13 @@
 
 ### 3.3 Dataset & Preprocessing
 - 사용 데이터셋: 금융사 개인정보 가상 데이터셋 pii_synth_finance (가상 카드사 '새봄카드' 사내 문서)
-  - dev 100건 / test 200건 / holdout 147건(새 템플릿 16종, 새 인물)
+  - dev 100건 / test 200건(템플릿 23종, 새 인물)
   - 문서 유형 14종, 개인정보가 없는 문서 50건 포함
 - 데이터 특성
-  - 라벨 8종, 개체 1,887개: person, phone_number, organization, email, address, resident_registration_number, account_number, card_number
+  - 라벨 7종, 개체 1,713개: person, phone_number, email, address, resident_registration_number, account_number, card_number
   - 어려운 사례 태그: 띄어 쓴 이름, 조사 부착, 동명이인 4쌍, 전화번호 형식 변형, 오탐 미끼
   - 템플릿에 값을 채워 만든 데이터라 정답 위치가 정확하다.
 - 전처리
-  - holdout은 따로 격리해 최종 평가 전까지 열지 않는다.
   - 세 방식의 출력을 (시작, 끝, 라벨) 위치 형식으로 통일한다. LLM 출력은 원문 위치로 되돌리는 과정을 거친다.
   - 모델 라벨 체계를 8개 라벨에 대응시킨다(없는 라벨, 묶인 라벨 처리).
   - 이름 사전은 일반 성씨 목록만 쓴다. personas.json은 정답 누수라서 쓰지 않는다.
