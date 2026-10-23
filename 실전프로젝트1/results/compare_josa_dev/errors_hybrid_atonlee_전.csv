@@ -1,0 +1,9 @@
+﻿system,doc_id,error_type,label,gold_text,pred_text,confidence,context
+hybrid_atonlee_전,D0007,오탐,person,,달래,, 부장님이 내일까지 보고서 【달래】 김서연: 알겠어. 은서랑 
+hybrid_atonlee_전,D0018,오탐,person,,하린,,신상품 출시 안내: 【하린】 포인트 카드 출시일: 20
+hybrid_atonlee_전,D0018,오탐,person,,하린,,: 2026년 1월 5일  【하린】 포인트 카드는 여행과 일상
+hybrid_atonlee_전,D0037,오탐,person,,이첩,,8 접수 경로: 금융감독원 【이첩】 민원인: 노성호 (연락처 
+hybrid_atonlee_전,D0039,오탐,person,,강 사원,,15 - 고객 안내 문구는 【강 사원】이 초안을 작성하고 소연 씨
+hybrid_atonlee_전,D0047,오탐,person,,이첩,,일 접수 경로: 금융감독원 【이첩】 민원인: 이선우 (연락처 
+hybrid_atonlee_전,D0052,오탐,person,,이첩,,5 접수 경로: 금융감독원 【이첩】 민원인: 이건우 (연락처 
+hybrid_atonlee_전,D0059,오탐,person,,최 차장,,08 - 고객 안내 문구는 【최 차장】이 초안을 작성하고 준우 씨

@@ -1,0 +1,8 @@
+﻿label,rules_전_recall,rules_전_precision,rules_후_recall,rules_후_precision,hybrid_veil_전_recall,hybrid_veil_전_precision,hybrid_veil_후_recall,hybrid_veil_후_precision,hybrid_seong_전_recall,hybrid_seong_전_precision,hybrid_seong_후_recall,hybrid_seong_후_precision,hybrid_kpf_전_recall,hybrid_kpf_전_precision,hybrid_kpf_후_recall,hybrid_kpf_후_precision,hybrid_atonlee_전_recall,hybrid_atonlee_전_precision,hybrid_atonlee_후_recall,hybrid_atonlee_후_precision,hybrid_dlp_전_recall,hybrid_dlp_전_precision,hybrid_dlp_후_recall,hybrid_dlp_후_precision,hybrid_e5_전_recall,hybrid_e5_전_precision,hybrid_e5_후_recall,hybrid_e5_후_precision,hybrid_bccard_전_recall,hybrid_bccard_전_precision,hybrid_bccard_후_recall,hybrid_bccard_후_precision
+person,0.9987,1.0,0.9987,1.0,1.0,0.981,1.0,0.981,1.0,0.9974,1.0,0.9974,1.0,0.9761,1.0,0.9761,1.0,0.9615,1.0,0.9615,1.0,1.0,1.0,1.0,1.0,0.9873,1.0,0.9873,1.0,0.9736,1.0,0.9736
+phone_number,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+email,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+address,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+resident_registration_number,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+account_number,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+card_number,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0

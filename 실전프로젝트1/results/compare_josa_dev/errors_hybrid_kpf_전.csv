@@ -1,0 +1,6 @@
+﻿system,doc_id,error_type,label,gold_text,pred_text,confidence,context
+hybrid_kpf_전,D0001,오탐,person,,내선,, 교육 문의: 정보보호팀 (【내선】 5448)
+hybrid_kpf_전,D0011,오탐,person,,내선 63,, 교육 문의: 정보보호팀 (【내선 63】52)
+hybrid_kpf_전,D0019,오탐,person,,내선,,"3 문의: 인사팀 안소연 (【내선】 4470, sy.ahn20"
+hybrid_kpf_전,D0020,오탐,person,,내선 32,, 교육 문의: 정보보호팀 (【내선 32】62)
+hybrid_kpf_전,D0080,오탐,person,,내선,,"일 문의: 인사팀 안소연 (【내선】 7480, sy.ahn20"

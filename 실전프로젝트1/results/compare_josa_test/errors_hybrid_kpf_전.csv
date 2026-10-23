@@ -1,0 +1,24 @@
+﻿system,doc_id,error_type,label,gold_text,pred_text,confidence,context
+hybrid_kpf_전,D0103,오탐,person,,내선,,"0 문의: 인사팀 안소연 (【내선】 5878, sy.ahn20"
+hybrid_kpf_전,D0109,오탐,person,,새봄카드,,"용역 계약서  【새봄카드】(이하 ""갑"")과 코드브릿지"
+hybrid_kpf_전,D0113,경계 오류,person,은영,은영이,,서 달래 박도윤: 알겠어. 【은영】이랑 같이 정리해서 올릴게
+hybrid_kpf_전,D0115,오탐,person,,내선,,"1 문의: 인사팀 안소연 (【내선】 5812, sy.ahn20"
+hybrid_kpf_전,D0127,오탐,person,,내선 66,, 교육 문의: 정보보호팀 (【내선 66】75)
+hybrid_kpf_전,D0144,오탐,person,,내선,, 교육 문의: 정보보호팀 (【내선】 7620)
+hybrid_kpf_전,D0152,오탐,person,,새봄,,"용역 계약서  【새봄】카드(이하 ""갑"")과 다솜콜"
+hybrid_kpf_전,D0162,오탐,person,,새봄카드,,"용역 계약서  【새봄카드】(이하 ""갑"")과 코드브릿지"
+hybrid_kpf_전,D0163,오탐,person,,내선,,"일 문의: 인사팀 안소연 (【내선】 3469, sy.ahn20"
+hybrid_kpf_전,D0171,오탐,person,,내선 79,, 교육 문의: 정보보호팀 (【내선 79】11)
+hybrid_kpf_전,D0176,경계 오류,person,서연,서연이,,서 달래 김진우: 알겠어. 【서연】이랑 같이 정리해서 올릴게
+hybrid_kpf_전,D0179,오탐,person,,새봄카드,,"용역 계약서  【새봄카드】(이하 ""갑"")과 코드브릿지"
+hybrid_kpf_전,D0227,경계 오류,person,소율,소율아,,"년 12월 24일 최지영: 【소율】아, 오늘 회의 자료 어디 "
+hybrid_kpf_전,D0238,오탐,person,,내선,,"8 문의: 인사팀 안소연 (【내선】 5968, sy.ahn20"
+hybrid_kpf_전,D0239,오탐,person,,내선,, 교육 문의: 정보보호팀 (【내선】 4606)
+hybrid_kpf_전,D0255,오탐,person,,내선,, 교육 문의: 정보보호팀 (【내선】 4761)
+hybrid_kpf_전,D0256,오탐,person,,내선,,"2 문의: 인사팀 김윤서 (【내선】 2184, ys.kim15"
+hybrid_kpf_전,D0267,오탐,person,,내선,, 교육 문의: 정보보호팀 (【내선】 3926)
+hybrid_kpf_전,D0274,오탐,person,,새봄카드,,"용역 계약서  【새봄카드】(이하 ""갑"")과 다솜콜솔루"
+hybrid_kpf_전,D0279,오탐,person,,내선,,"5 문의: 인사팀 안소연 (【내선】 3138, sy.ahn20"
+hybrid_kpf_전,D0289,오탐,person,,새봄,,"용역 계약서  【새봄】카드(이하 ""갑"")과 데이터"
+hybrid_kpf_전,D0293,오탐,person,,내선,, 교육 문의: 정보보호팀 (【내선】 2643)
+hybrid_kpf_전,D0296,경계 오류,person,성호,성호야,,"6년 4월 22일 김은영: 【성호】야, 오늘 회의 자료 어디 "

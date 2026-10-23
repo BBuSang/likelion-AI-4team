@@ -1,0 +1,20 @@
+﻿system,doc_id,error_type,label,gold_text,pred_text,confidence,context
+hybrid_kpf_후,D0103,오탐,person,,내선,,"0 문의: 인사팀 안소연 (【내선】 5878, sy.ahn20"
+hybrid_kpf_후,D0109,오탐,person,,새봄카드,,"용역 계약서  【새봄카드】(이하 ""갑"")과 코드브릿지"
+hybrid_kpf_후,D0115,오탐,person,,내선,,"1 문의: 인사팀 안소연 (【내선】 5812, sy.ahn20"
+hybrid_kpf_후,D0127,오탐,person,,내선 66,, 교육 문의: 정보보호팀 (【내선 66】75)
+hybrid_kpf_후,D0144,오탐,person,,내선,, 교육 문의: 정보보호팀 (【내선】 7620)
+hybrid_kpf_후,D0152,오탐,person,,새봄,,"용역 계약서  【새봄】카드(이하 ""갑"")과 다솜콜"
+hybrid_kpf_후,D0162,오탐,person,,새봄카드,,"용역 계약서  【새봄카드】(이하 ""갑"")과 코드브릿지"
+hybrid_kpf_후,D0163,오탐,person,,내선,,"일 문의: 인사팀 안소연 (【내선】 3469, sy.ahn20"
+hybrid_kpf_후,D0171,오탐,person,,내선 79,, 교육 문의: 정보보호팀 (【내선 79】11)
+hybrid_kpf_후,D0179,오탐,person,,새봄카드,,"용역 계약서  【새봄카드】(이하 ""갑"")과 코드브릿지"
+hybrid_kpf_후,D0238,오탐,person,,내선,,"8 문의: 인사팀 안소연 (【내선】 5968, sy.ahn20"
+hybrid_kpf_후,D0239,오탐,person,,내선,, 교육 문의: 정보보호팀 (【내선】 4606)
+hybrid_kpf_후,D0255,오탐,person,,내선,, 교육 문의: 정보보호팀 (【내선】 4761)
+hybrid_kpf_후,D0256,오탐,person,,내선,,"2 문의: 인사팀 김윤서 (【내선】 2184, ys.kim15"
+hybrid_kpf_후,D0267,오탐,person,,내선,, 교육 문의: 정보보호팀 (【내선】 3926)
+hybrid_kpf_후,D0274,오탐,person,,새봄카드,,"용역 계약서  【새봄카드】(이하 ""갑"")과 다솜콜솔루"
+hybrid_kpf_후,D0279,오탐,person,,내선,,"5 문의: 인사팀 안소연 (【내선】 3138, sy.ahn20"
+hybrid_kpf_후,D0289,오탐,person,,새봄,,"용역 계약서  【새봄】카드(이하 ""갑"")과 데이터"
+hybrid_kpf_후,D0293,오탐,person,,내선,, 교육 문의: 정보보호팀 (【내선】 2643)
