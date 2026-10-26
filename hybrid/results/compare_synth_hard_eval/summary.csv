@@ -1,0 +1,2 @@
+﻿system,strict_p,strict_r,strict_f1,partial_p,partial_r,partial_f1,mask_rec,ms_per_doc
+hybrid_best,0.7831,0.7635,0.7732,0.8942,0.8718,0.8829,0.9314,27.0

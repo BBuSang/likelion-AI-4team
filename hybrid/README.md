@@ -19,6 +19,7 @@ python -X utf8 run_compare.py --gold data/holdout_labeled.jsonl --pred hybrid_be
 | 환경변수 | 기본 | 설명 |
 |---|---|---|
 | `PII_HOLDOUT_FIXES` | `1` | `0`이면 holdout 오류를 보고 넣은 수정을 모두 끔 (holdout 공정 채점용) |
+| `PII_HARD_FIXES` | `1` | `0`이면 synth_hard_dev 오류를 보고 넣은 수정(이름 뒤 호칭·조사 자르기, 괄호 없는 우편번호)을 끔 |
 | `PII_HYBRID_MODE` | `union` | `names`면 모델에서 두 글자 이상 이름만 가져옴 |
 | `PII_MODEL_NAME_FILTER` | `1` | `0`이면 모델 이름 거르기를 끔 |
 

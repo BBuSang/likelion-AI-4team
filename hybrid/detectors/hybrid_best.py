@@ -8,6 +8,7 @@
 - holdout 2차 (PII_HOLDOUT_FIXES=0 으로 끔): 모델 번호 중 내선·사건번호 제외, 서명어 '드림' 잘라냄,
   단어 중간부터 잡은 이름('미르보안'의 '보안') 제외, 걸러내기 보정('정설 카드번호'는 상품명 아님, '재원:' 화자는 이름 근거),
   이름 뒤 주격 조사 '이' 잘라냄
+- hard_fixes (PII_HARD_FIXES=0 으로 끔): 모델 이름에도 rules_best 의 호칭·조사 자르기('지은이한테' → '지은')를 적용
 """
 import os
 import re
@@ -174,5 +175,7 @@ def detect(text):
             continue
         if m["label"] in NUMBER_LABELS and not model_number_ok(text, m):
             continue
+        if rules_best.HARD_FIXES:
+            m = rules_best.trim_name_tail(text, m)  # 거르기 뒤에 자름 ('한결이한테' → '한결'은 일반명사로 걸러질 수 있음)
         ents.append(m)
     return ents

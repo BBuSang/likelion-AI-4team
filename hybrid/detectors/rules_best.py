@@ -21,6 +21,10 @@ hosung 규칙(detectors/hosung_rules.py)을 그대로 돌린 뒤, 겹치지 않�
    - (2차) 역할 명사 제외: '소명자:', '위임인:', '송금인:', '심사역' (일반명사 2글자 + 자·인·역·관)
    - (2차) 이름 뒤 주격 조사 '이' 잘라냄: '심사역 안윤이 조건' → '안윤' (뒤에 호칭이 오면 그대로 둠)
    holdout을 공정하게 채점하려면 환경변수 PII_HOLDOUT_FIXES=0 으로 끈다.
+5. hard_fixes (synth_hard_dev 오류에서, PII_HARD_FIXES=0 으로 끔):
+   - 이름 뒤 호칭·조사 잘라냄: '김선희님', '박하영씨', '이선호이랑', '지은이한테', '정다영의' → 이름만
+     (이름 끝 글자와 겹칠 수 있는 '은·이·가·도·아·야' 한 글자는 남는 이름이 3글자 이상이거나 문서 다른 곳에 그 이름이 따로 나올 때만)
+   - 주소 앞 괄호 없는 우편번호 '06524 서울특별시 …', '07209서울특별시 …'를 주소에 포함
 """
 import os
 import re
@@ -30,6 +34,7 @@ from detectors import rules as old
 
 _det = None
 HOLDOUT_FIXES = os.environ.get("PII_HOLDOUT_FIXES", "1") != "0"
+HARD_FIXES = os.environ.get("PII_HARD_FIXES", "1") != "0"
 
 RRN_LOOSE = re.compile(r"(?<![\d-])\d{6}\s?-\s?\d{7}(?![\d-])")
 NOT_RRN_WORDS = re.compile(r"회원\s?번호|고객\s?번호|" + H.NOT_ACCOUNT_WORDS.pattern)
@@ -46,6 +51,13 @@ NOT_NAMES = {"배송지", "수령지", "거주지", "소재지", "목적지", "�
              "조부상", "조모상", "빙부상", "빙모상", "외조부상", "외조모상"}
 
 POSTAL_BEFORE = re.compile(r"\(\d{5}\)\s?$")
+POSTAL_BARE_BEFORE = re.compile(r"(?<![\d\-.])[0-6]\d{4} ?$")  # '06524 서울…', '07209서울…'
+# 이름 뒤 호칭·조사. 앞쪽이 길게 맞도록 긴 것부터
+NAME_TAIL_SAFE = ["님", "씨", "이랑", "랑", "하고", "이한테", "한테", "이에게", "에게서", "에게", "께서", "께", "이에요", "입니다",
+                  "이가", "이는", "이의", "이도", "이와", "이고", "는", "의", "를", "을", "와", "과"]
+NAME_TAIL_AMBIG = ["은", "이", "가", "도", "아", "야"]  # 이름 끝 글자일 수도 있음 ('김지은', '진이')
+_TAIL_TOK = "|".join(sorted(NAME_TAIL_SAFE + NAME_TAIL_AMBIG + ["서", "도", "요", "로", "에"], key=len, reverse=True))
+NAME_TAIL = re.compile(rf"(?: ?님|씨)?(?:{_TAIL_TOK}){{0,3}}")
 EUP_JIBUN = re.compile(rf"(?:(?:{H.SIDO}) )?(?:{H.SGG} ){{1,2}}[가-힣]{{1,6}}(?:읍|면) (?:산 ?)?\d+(?:-\d+)?(?:번지)?"
                        rf"{H._NUM_END}")
 ACCOUNT_TAIL1 = re.compile(rf"(?<![\d{H.DASH}])\d{{2,6}}(?:[{H.DASH}]\d{{2,7}}){{1,2}}[{H.DASH}]\d(?![\d{H.DASH}])")
@@ -155,6 +167,40 @@ def trim_josa_i(text, e):
     return e
 
 
+_SAFE_START = re.compile(r" ?님|씨|" + "|".join(sorted(NAME_TAIL_SAFE, key=len, reverse=True)))
+
+
+def trim_name_tail(text, e):
+    """'김선희님' → '김선희', '지은이한테'의 '지은이' → '지은', '송 다운은' → '송 다운'.
+    이름 구간 뒤쪽을 잘라 남는 이름 + 어절 나머지가 호칭·조사로만 이루어질 때 자름 (가장 많이 자르는 쪽부터).
+    '은·이·가·도·아·야'로 시작하면 이름 끝 글자일 수 있어서('김지은'), 남는 이름이 3글자 이상(복성은 4글자)이거나
+    문서 다른 곳에 그 이름이 같은 글자 없이 나올 때만 자름."""
+    s, t = e["start"], e["end"]
+    if e["label"] != "person":
+        return e
+    we = t
+    while we < len(text) and "가" <= text[we] <= "힣":
+        we += 1
+    for c in range(s + 1, t):
+        rem, tail = text[s:c], text[c:we]
+        if rem[-1] == " " or not NAME_TAIL.fullmatch(tail):
+            continue
+        word = rem.replace(" ", "")
+        if not (re.search(r"[A-Za-z]{2}", word) or len(re.findall(r"[가-힣]", word)) >= 2):
+            continue
+        if not _SAFE_START.match(tail):
+            # 한 글자 조사만, 남는 이름이 '김민수'·'송 다운'·'남궁민수' 꼴이거나 다른 곳에 그 이름만 따로 나올 때
+            if tail not in NAME_TAIL_AMBIG:
+                continue
+            shape = re.fullmatch(r"(?:남궁|제갈|선우|독고|황보|사공|서문|동방)[가-힣]{2}|[가-힣]{3}|[가-힣] [가-힣]{2}", rem)
+            alone = any(not ("가" <= text[m.end():m.end() + 1] <= "힣") or _SAFE_START.match(text, m.end())
+                        for m in re.finditer(rf"(?<![가-힣]){re.escape(rem)}", text))
+            if not (shape and (rem[:2] in H.COMPOUND_SURNAMES) == (len(word) == 4)) and not alone:
+                continue
+        return {**e, "end": c}
+    return e
+
+
 def detect(text):
     load()
     ents = _det.detect(text)
@@ -170,15 +216,20 @@ def detect(text):
         for m in ACCOUNT_TAIL1.finditer(text):
             if 10 <= sum(c.isdigit() for c in m.group()) <= 14:
                 _replace(ents, m.start(), m.end(), "account_number")
-        for x in ents:
-            if x["label"] == "address":
-                p = POSTAL_BEFORE.search(text, max(0, x["start"] - 8), x["start"])
-                if p:
-                    x["start"] = p.start()
+    for x in ents:
+        if x["label"] == "address":
+            p = POSTAL_BEFORE.search(text, max(0, x["start"] - 8), x["start"]) if HOLDOUT_FIXES else None
+            if HARD_FIXES and not p:
+                p = POSTAL_BARE_BEFORE.search(text, max(0, x["start"] - 6), x["start"])
+                p = p if p and not _overlaps(ents, p.start(), p.end()) else None
+            if p:
+                x["start"] = p.start()
 
     ents = [x for x in ents if x["label"] != "person" or not _not_name(text, x)]
     ents += _old_names(text, ents)
     ents += _more_names(text, ents)
     if HOLDOUT_FIXES:
         ents = [trim_josa_i(text, x) for x in ents]
+    if HARD_FIXES:
+        ents = [trim_name_tail(text, x) for x in ents]
     return sorted(ents, key=lambda x: x["start"])
