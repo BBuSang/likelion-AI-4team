@@ -1,0 +1,1241 @@
+﻿doc_id,label,gold_text,caught_by,context
+F001-02,person,이 민수,atonlee|rules+atonlee,성명: 【이 민수】의 건   이메일: lee.
+F001-02,person,이 민수,atonlee|rules+atonlee,48196   확인 내용: 【이 민수】의 계좌 거래내역 이상 없음
+F001-04,person,방현,atonlee|rules+atonlee,17-04629   비고: 【방현】의 카드와 계좌 모두 본인 
+F001-05,account_number,01001929574,rules|rules+atonlee,2   계좌번호: 우리은행 【01001929574】   심사 의견: 보경의 소
+F001-05,person,보경,atonlee|rules+atonlee,29574   심사 의견: 【보경】의 소득 증빙 필요   추가
+F001-06,person,최 은석,atonlee|rules+atonlee,1. 신청자: 【최 은석】의      계좌번호: 하나
+F001-06,person,김 보람,atonlee|rules+atonlee,.net   2. 보증인: 【김 보람】의      계좌번호: 신한
+F001-14,account_number,39282351684912,rules|rules+atonlee,  계좌번호: KB국민은행 【39282351684912】   최종 확인 일자: 20
+F001-20,person,명호,atonlee|rules+atonlee,대출신청자: 【명호】는   심사기록: 명호는 5
+F001-20,person,명호,atonlee|rules+atonlee,자: 명호는   심사기록: 【명호】는 5월 서류 미비로 심사 
+F002-16,person,Lucas Kim,atonlee|rules+atonlee,외국인 신청자 【Lucas Kim】씨의 연락처는 010-009
+F003-04,person,Ivan Petrov,atonlee|rules+atonlee,외국인 고객 【Ivan Petrov】씨 건 심사 요청입니다. 주
+F003-04,person,Ivan Petrov,atonlee|rules+atonlee,동일하게 적용하면 될까요? 【Ivan Petrov】님 연락은 이따 안내드릴 예
+F003-06,person,오 일,atonlee|rules+atonlee,이번에 신청한 【오 일】이랑 장 욱와 관련 서류 전
+F003-06,person,장 욱,atonlee|rules+atonlee,이번에 신청한 오 일이랑 【장 욱】와 관련 서류 전달됐습니다.
+F003-07,person,오지연,atonlee|rules+atonlee,【오지연】 의 건 심사 상황 보고드려
+F003-07,person,오지연,atonlee|rules+atonlee,. 필요 서류 추가 요청은 【오지연】이 전화로 받기로 했습니다.
+F003-09,person,Yulia Kim,atonlee|rules+atonlee,외국인 신청자 【Yulia Kim】이 오늘 제출한 주민번호는 
+F003-09,person,Yulia Kim,atonlee|rules+atonlee,392로 기입돼 있습니다. 【Yulia Kim】의 이력 검토 시 추가 서류
+F003-09,person,Jacob Lee,atonlee|rules+atonlee,"니 확인 부탁드려요. 또, 【Jacob Lee】는 7906242214857"
+F003-11,address,해림아파트 101동 802호,atonlee|rules+atonlee,"로 연락받으셨고, 거주지는 【해림아파트 101동 802호】로 기재. 공동명의자 송지한"
+F003-11,person,송지한,atonlee|rules+atonlee,02호로 기재. 공동명의자 【송지한】께서는 +82-10-0007
+F003-11,address,현대빌라 302동 501호,atonlee|rules+atonlee," 사용 중이며, 주소 역시 【현대빌라 302동 501호】로 확인됩니다. 이메일 담당"
+F003-14,person,최 민,atonlee|rules+atonlee,【최 민】입니다. 오늘 전화로 건 확
+F003-15,person,Naomi Stone,atonlee|rules+atonlee,외국인 고객 【Naomi Stone】께서 제출한 주민등록번호 8
+F003-15,person,Naomi Stone,atonlee|rules+atonlee," 등록됐습니다. 관련 사항 【Naomi Stone】께 확인해 보시고, 추가 자"
+F003-17,person,조 진,atonlee|rules+atonlee,【조 진】의 대출 신청 내역입니다. 
+F003-17,account_number,010-0020-004576,rules|rules+atonlee,"83로 오셨고, 계좌번호는 【010-0020-004576】로 최근 변경 요청 들어왔습"
+F003-19,person,Lucas Müller,atonlee|rules+atonlee,【Lucas Müller】께서 보내신 계좌번호 438
+F003-20,person,김 세진,atonlee|rules+atonlee,이번 건은 【김 세진】의 건입니다. 연락처 010
+F004-04,person,재희,atonlee|rules+atonlee,- 심사 대상: 【재희】님   - 이메일: jaeh
+F004-04,person,재희,atonlee|rules+atonlee, 신청 내역 없음.   - 【재희】님 본인 의사 확인 완료. 
+F004-07,account_number,105-202-100203,rules|rules+atonlee,.com      | 신한 【105-202-100203】 |     | 김건우   
+F004-10,person,박현수,atonlee|rules+atonlee,이번 협조 요청은 【박현수】이랑 손지아하고 연관된 사안
+F004-12,person,다희,atonlee|rules+atonlee,【다희】에게 심사 결과 안내 필요.
+F004-16,person,서연,rules|rules+atonlee,- 담당자: 【서연】인데요   - 연락처: 01
+F004-16,person,서연,atonlee|rules+atonlee,"om   - 서류점검 결과 【서연】이에요, 이상 없음."
+F005-01,person,김혁,atonlee|rules+atonlee,-05-25   상담고객: 【김혁】은 본인 확인 문의   주소
+F005-03,account_number,01074539816,rules|rules+atonlee,.co.kr   계좌번호: 【01074539816】   카드번호: 542239
+F005-05,account_number,01044729583,rules|rules+atonlee,객명: 이민재님   계좌: 【01044729583】   카드번호: 417253
+F005-10,account_number,90285647309118,rules|rules+atonlee,028-1942   계좌: 【90285647309118】   문의일시: 2024-0
+F005-16,person,최문,atonlee|rules+atonlee,06-01   상담 대상: 【최문】께서 외환 송금 문의   이
+F005-19,person,수영,atonlee|rules+atonlee,-06-05   상담고객: 【수영】님   이메일: sooyou
+F005-20,account_number,1970048318524,rules|rules+atonlee,937482   계좌번호: 【1970048318524】   상담내용: 급여이체 계
+F006-01,person,정 나,atonlee|rules+atonlee,"용 정리해서 회신드립니다. 【정 나】께서 10시 15분경, 홍 "
+F006-01,person,홍 길,atonlee|rules+atonlee," 나께서 10시 15분경, 【홍 길】에게 가족 추가 카드 신청 "
+F006-02,person,Anna Kim,atonlee|rules+atonlee,"안녕하세요, 【Anna Kim】의 문의 내역 공유드립니다."
+F006-02,person,Anna Kim,atonlee|rules+atonlee, 내역 공유드립니다. 금일 【Anna Kim】이 13:42분경 010-0
+F006-04,person,박 민수,atonlee|rules+atonlee,【박 민수】의 신청 내역 및 가족 안내
+F006-04,person,김 수진,atonlee|rules+atonlee,"070 0001 8902, 【김 수진】이 요청하신 주소는 서울특별"
+F006-04,person,이 소영,atonlee|rules+atonlee,마곡서로 21입니다. 자녀 【이 소영】은 070 0030 0402
+F006-04,person,김 수진,atonlee|rules+atonlee,02로 등록되어 있습니다. 【김 수진】 계좌번호는 신한은행 110
+F006-04,account_number,1101020216650,rules|rules+atonlee," 수진 계좌번호는 신한은행 【1101020216650】, 이 소영의 우리은행 10"
+F006-04,person,이 소영,atonlee|rules+atonlee,"1101020216650, 【이 소영】의 우리은행 10020190"
+F006-04,account_number,1002019043322,rules|rules+atonlee,"50, 이 소영의 우리은행 【1002019043322】로 기재해주셨습니다. 모든 "
+F006-07,person,지혜,atonlee|rules+atonlee,【지혜】에게 상품권 환불 가상계좌 
+F006-07,account_number,02310458441092,rules|rules+atonlee,"내해드렸습니다. 계좌번호는 【02310458441092】, 상담중 지혜께서 계좌 재"
+F006-07,person,지혜,atonlee|rules+atonlee,"458441092, 상담중 【지혜】께서 계좌 재확인 요청하셨습"
+F006-10,person,이성진,atonlee|rules+atonlee,"안녕하십니까, 금일 【이성진】께서 카드 해지 문의 주셨으"
+F006-12,person,정 우,atonlee|rules+atonlee,"안녕하십니까, 【정 우】의 국제 통화 내역 정리합니"
+F006-12,person,정 우,atonlee|rules+atonlee,제 통화 내역 정리합니다. 【정 우】는 +82 10-0083-2
+F006-13,person,이예슬,atonlee|rules+atonlee, 요청받았습니다. 동일하게 【이예슬】도 요청하셔서 801227-
+F006-13,resident_registration_number,801227-0248661,atonlee|rules+atonlee,"일하게 이예슬도 요청하셔서 【801227-0248661】, 계좌290-008422-"
+F006-13,account_number,290-008422-30718,rules|rules+atonlee,"227-0248661, 계좌【290-008422-30718】, 카드4022 0903 7"
+F006-14,person,수진,atonlee|rules+atonlee,"【수진】님, 카드 재발급 일정 안내"
+F006-16,address,동일하이츠아파트 101동 803호,atonlee|rules+atonlee,"부분 안내드립니다. 주소는 【동일하이츠아파트 101동 803호】로 확인했으며, 연락처는 0"
+F006-18,person,김예슬,atonlee|rules+atonlee,"확인 완료했습니다. 또한, 【김예슬】의 번호 010 0020 1"
+F006-18,person,김예슬,atonlee|rules+atonlee,"의사항은 모두 처리되었고, 【김예슬】의 연락처 변경도 완료했습니"
+F006-19,person,김 연희,atonlee|rules+atonlee,【김 연희】이랑 박 정윤하고 통화 내역
+F006-20,person,장지현,atonlee|rules+atonlee,이민재이랑 【장지현】와의 상담 내역 보고입니다.
+F007-06,address,우리아파트 110동 1101호,atonlee|rules+atonlee,"-2입니다. 상담사: 주소 【우리아파트 110동 1101호】, 계좌번호 874-96-3"
+F007-11,person,Tomás,atonlee|rules+atonlee,"상담사: 【Tomás】님, 문의 내역 안내해드릴게"
+F007-11,person,Tomás,atonlee|rules+atonlee,"내해드릴게요. 고객: 네, 【Tomás】씨입니다. 신청 정보 궁금한"
+F007-18,person,해인,atonlee|rules+atonlee,상담사: 【해인】의 이메일로 안내 메일 보내
+F007-18,person,해인,atonlee|rules+atonlee,"보내드릴까요? 고객: 네, 【해인】의 주소는 hae-in23@"
+F007-18,person,해인,atonlee|rules+atonlee,요. 상담사: 알겠습니다. 【해인】의 메일 hae-in23@e
+F008-01,person,김 민영,atonlee|rules+atonlee,0 15:12   상담원: 【김 민영】께   고객: 송 하윤에게 
+F008-01,person,송 하윤,atonlee|rules+atonlee,원: 김 민영께   고객: 【송 하윤】에게  - 상담 내용:   
+F008-05,person,안드레아 리,atonlee|rules+atonlee,"담원: James Kim, 【안드레아 리】은   연락처: 010 00"
+F008-05,person,안드레아 리,atonlee|rules+atonlee,Kim   - 경기 안양시 【안드레아 리】  상담내용   - 외국인 
+F008-08,person,김 정현,atonlee|rules+atonlee,-----------| | 【김 정현】   | 제주특별자치도 조천
+F008-08,card_number,9402 1837 4956 2834,rules|rules+atonlee,0101-5678123 | 【9402 1837 4956 2834】 | | 박 민철   | 경
+F008-08,person,박 민철,atonlee|rules+atonlee, 4956 2834 | | 【박 민철】   | 경상북도 문경읍 선
+F008-08,person,조 은진,atonlee|rules+atonlee, 0981 5247 | | 【조 은진】   | 경기도 연천군 미산
+F008-09,account_number,31200518347291,rules|rules+atonlee,5   - 계좌번호: 농협 【31200518347291】   - 카드번호: 9201
+F008-10,phone_number,010-0065-8726,rules|rules+atonlee,-0091-3047   - 【010-0065-8726】   - 010-0087-6
+F008-10,phone_number,010-0087-6232,rules|rules+atonlee,-0065-8726   - 【010-0087-6232】  상담 주요 내용   - 
+F008-14,account_number,2012465023801,rules|rules+atonlee, 계좌번호 안내: 국민은행 【2012465023801】   - 외자 고객 길에게 
+F008-14,account_number,140393385279,rules|rules+atonlee,에게 계좌번호 안내: 농협 【140393385279】  상담 내용   - 통장 
+F008-15,person,오,rules|rules+atonlee,"상담자: 【오】께서, 민에게, 장께  연락"
+F008-15,person,민,atonlee|rules+atonlee,"상담자: 오께서, 【민】에게, 장께  연락처: 07"
+F008-15,phone_number,070-0041-8729,rules|rules+atonlee,"070-0082-1903, 【070-0041-8729】  주민등록번호:   - 8"
+F008-15,resident_registration_number,870313-2004827,rules|rules+atonlee,9  주민등록번호:   - 【870313-2004827】   - 961205-100
+F008-15,resident_registration_number,961205-1003982,rules|rules+atonlee,13-2004827   - 【961205-1003982】   - 900416-100
+F008-15,resident_registration_number,900416-1004729,rules|rules+atonlee,05-1003982   - 【900416-1004729】  요청사항: 각 사용자별 
+F008-17,person,윤,rules|rules+atonlee,상담 고객: 【윤】씨  이메일: yun9292
+F008-18,person,한지민,atonlee|rules+atonlee,.06.07   상담고객: 【한지민】은  문의내용   - 해외 
+F008-19,person,하린,atonlee|rules+atonlee,- 본인확인: 【하린】께   - 문의유형: 적금 
+F009-03,person,이 수진,atonlee|rules+atonlee,피해자명: 【이 수진】은 상담내용: 계좌이체를 유
+F009-04,account_number,0832971563284,rules|rules+atonlee,박현님 연락계좌: 우리은행 【0832971563284】 사용카드: 4321-620
+F009-10,person,권수,atonlee|rules+atonlee,상담자: 【권수】씨 이메일: konsu@ex
+F009-16,person,이강호,rules|rules+atonlee,상담인: 【이강호】하고 외국인등록번호: 020
+F009-20,address,삼성래미안 104동 1402호,atonlee|rules+atonlee,피해자: 송민규께 거주지: 【삼성래미안 104동 1402호】 상담일시: 2024-06-
+F010-08,person,김 미진,atonlee|rules+atonlee,【김 미진】은 이미 신고서 제출해주셨고
+F010-08,person,박 선호,atonlee|rules+atonlee,"이미 신고서 제출해주셨고, 【박 선호】의 피해 내역도 별도로 확인"
+F010-08,person,김 미진,atonlee|rules+atonlee,각 개인별로 안내드립니다. 【김 미진】의 전화번호는 010-007
+F010-09,person,진우,atonlee|rules+atonlee,신고 확인차 연락드립니다. 【진우】의 전화번호 +82-10-0
+F010-09,address,서초그랑빌 101동 1201호,atonlee|rules+atonlee,"-2851-4706, 주소 【서초그랑빌 101동 1201호】로 접수되어 있습니다. 또한"
+F010-09,person,명진,atonlee|rules+atonlee, 접수되어 있습니다. 또한 【명진】의 경우 +82 10-009
+F010-09,address,도곡한보아파트 206동 804호,atonlee|rules+atonlee,"-3407-2390, 주소 【도곡한보아파트 206동 804호】를 확인 중입니다. 상세 조"
+F010-17,person,세라,atonlee|rules+atonlee,【세라】는 현재 피해 접수되어 있습
+F010-19,person,마진,atonlee|rules+atonlee,【마진】의 이메일 majin123@
+F011-02,person,홍 길동,atonlee|rules+atonlee,"네, 상담사입니다. 【홍 길동】은 오늘 오전 보이스피싱이 "
+F011-05,person,이 하은,atonlee|rules+atonlee,"안녕하세요 【이 하은】님,   저희가 보이스피싱 "
+F011-05,address,방배동 46-29,atonlee|rules+atonlee,"으셨을까요? 등록된 주소가 【방배동 46-29】, 메일은 haeunlee@"
+F011-07,person,이 지수,atonlee|rules+atonlee,"【이 지수】씨,   문의 주신 건으로 "
+F011-07,address,도화동 94-17,atonlee|rules+atonlee,호로 발송된 문자에서 주소 【도화동 94-17】로 물품을 보내달라는 요청 
+F011-10,person,Sarah Jung,atonlee|rules+atonlee,【Sarah Jung】은 저희가 안내 문자 드린 
+F011-11,person,남 혁,atonlee|rules+atonlee,【남 혁】께 오늘 아침 전화 드린 상
+F011-20,person,유진,atonlee|rules+atonlee,【유진】께서 신고하신 건입니다.  
+F011-20,address,하중동 318-28,atonlee|rules+atonlee,"경찰청 답변이 오거나,   【하중동 318-28】 주소로 우편물 전달 요구 "
+F012-01,person,수진,atonlee|rules+atonlee,년 6월 17일) 신고자: 【수진】님 연락처: 070-0234
+F012-01,person,수진,atonlee|rules+atonlee,"3496  상담 내용: - 【수진】님은 6월 15일 오전, 0"
+F012-02,person,김지은,atonlee|rules+atonlee,피해 접수 내용 신고자: 【김지은】이에요 연락처: 02-011
+F012-02,person,김지은,atonlee|rules+atonlee,"4117  접수 개요: - 【김지은】이며, 6월 14일 낯선 번"
+F012-06,person,Maria Kim,atonlee|rules+atonlee,-----------| | 【Maria Kim】님      | 010-03
+F012-06,person,존 리,atonlee|rules+atonlee,om         | | 【존 리】씨         | 010
+F012-06,person,Oliver Park,atonlee|rules+atonlee,e.net      | | 【Oliver Park】님   | 010-0020-
+F012-08,person,박 민아,atonlee|rules+atonlee,024-06-17 신고자: 【박 민아】는 6월 16일 사기 전화 
+F012-08,person,박 민아,atonlee|rules+atonlee,0192  상담 결과: - 【박 민아】의 신고내용에 따라 피해예방
+F012-10,resident_registration_number,9406100100987,atonlee|rules+atonlee,10-0021-0400 | 【9406100100987】 |  * 정수빈님의 모친 
+F012-13,person,이하늘,atonlee|rules+atonlee,-----------| | 【이하늘】에게    | 050-000
+F012-13,phone_number,050-0000-7092,rules|rules+atonlee,| | 이하늘에게    | 【050-0000-7092】 | leehaneul@ex
+F012-13,address,서초동 11-62,atonlee|rules+atonlee,mple.com     | 【서초동 11-62】    | 4657-3810
+F012-13,address,봉천동 321-5,atonlee|rules+atonlee,e.net        | 【봉천동 321-5】    | 2344-3221
+F012-15,person,박 진,atonlee|rules+atonlee,상담 요약 - 피해고객: 【박 진】이랑 오전 통화 - 전화: 
+F012-15,person,박 진,atonlee|rules+atonlee,"련 피해 접수  요약: - 【박 진】이랑 통화 결과, 사기 수법"
+F012-17,person,이수빈,atonlee|rules+atonlee,041-0981   | | 【이수빈】께   | 010-0970-
+F012-18,person,윤 정인,atonlee|rules+atonlee,담 접수 내역 - 신고자: 【윤 정인】께서 피해 의심 연락에 대해
+F012-19,person,한지현,atonlee|rules+atonlee,주요상담내역 - 【한지현】이랑 1:1 상담 진행 - 
+F012-20,account_number,140001 05 239482,rules|rules+atonlee,2120347 | 우리은행 【140001 05 239482】 |  * 김은지님 6.16
+F013-03,person,영수,atonlee|rules+atonlee,상속자: 【영수】의   전화: 010 001
+F013-05,person,김진수,rules|rules+atonlee,고인 이름: 【김진수】하고   고인 이메일: ji
+F013-06,person,하은,atonlee|rules+atonlee,문의자: 【하은】씨   문의자 전화: (02
+F013-06,account_number,01000306511,rules|rules+atonlee,95   문의자 계좌번호: 【01000306511】   피상속인: 진우님   
+F013-06,account_number,01004508139,rules|rules+atonlee,7   피상속인 계좌번호: 【01004508139】
+F013-08,person,최 재호,atonlee|rules+atonlee,상속인: 【최 재호】께   상속인 주소: 129
+F013-08,person,오 선미,atonlee|rules+atonlee,012243   피상속인: 【오 선미】에게   피상속인 주소: 4
+F013-15,person,정 현진,atonlee|rules+atonlee,상속권자: 【정 현진】이랑   관계: 손자
+F013-17,person,Alex Park,atonlee|rules+atonlee,피상속인: 【Alex Park】와   피상속인 주민등록번호
+F013-18,person,송 연주,atonlee|rules+atonlee,상속인: 【송 연주】씨   이메일: yeonju
+F014-02,person,이 수민,atonlee|rules+atonlee,"안녕하십니까,   고객 【이 수민】의 상속인 금융정보 조회 요"
+F014-03,person,John Smith,atonlee|rules+atonlee,"may concern,   【John Smith】님 상속인 금융조회 관련하여"
+F014-04,person,이준호,rules|rules+atonlee,안녕하세요.   최윤서이랑 【이준호】하고 상속 관련 금융거래 요
+F014-13,address,서울숲자이아파트 101동 1403호,atonlee|rules+atonlee,"립니다.   기재하신 곳은 【서울숲자이아파트 101동 1403호】로 파악되며,   별도 필요"
+F014-14,person,영희,atonlee|rules+atonlee,"안녕하세요,   영희입니다【영희】.   상속인 금융거래 관련"
+F014-15,person,조서린,rules|rules+atonlee,당자 김지안이랑 공동상속인 【조서린】하고의 문의 내역 정리합니다
+F014-16,person,Maria Lee,atonlee|rules+atonlee,안녕하세요.   【Maria Lee】의 상속 관련 금융정보 안내
+F014-17,person,박,atonlee,상속권자인 정이랑 【박】하고 관련 금융거래 내역 안
+F014-19,person,Alex Park,atonlee|rules+atonlee,"안녕하십니까,   상속인 【Alex Park】께서 남기신 금융거래 내역 "
+F015-02,person,Aleksandr Ivanov,atonlee|rules+atonlee,안녕하세요. 【Aleksandr Ivanov】은 본인 확인을 위해 현재 
+F015-02,address,한라빌라 103동 1405호,atonlee|rules+atonlee, 확인을 위해 현재 거주지 【한라빌라 103동 1405호】 관련 서류 접수하였습니다.
+F015-03,address,보광동 45-11,atonlee|rules+atonlee,"-0023-4590, 주소 【보광동 45-11】, 계좌 신한은행 9876-"
+F015-03,account_number,9876-045-123678,rules|rules+atonlee,"45-11, 계좌 신한은행 【9876-045-123678】 - 이하늘씨: 연락처 01"
+F015-03,address,중곡리 27-17,atonlee|rules+atonlee,"-0078-1045, 주소 【중곡리 27-17】, 계좌 국민은행 2034-"
+F015-04,person,명수,atonlee|rules+atonlee,하세요. 우선 상속인 중에 【명수】는 본인 확인을 위해 02-
+F015-07,person,이 진영,atonlee|rules+atonlee,상속인 【이 진영】의 계좌번호는 농협 321-
+F015-09,address,강남대로 112번길 15,atonlee|rules+atonlee,최은서씨의 주소 【강남대로 112번길 15】 및 카드번호 5472-10
+F015-11,address,해오름아파트 110동 504호,atonlee|rules+atonlee,"-0002-1809, 주소 【해오름아파트 110동 504호】, 계좌 신한은행 312-0"
+F015-11,address,백송빌라 201동 208호,atonlee|rules+atonlee,"-0056-9720, 주소 【백송빌라 201동 208호】, 계좌 농협 265-99-"
+F015-14,account_number,92917750200328,rules|rules+atonlee,상속자 계좌번호 하나은행 【92917750200328】 확인 부탁드립니다.
+F015-16,address,방배동 145-19,atonlee|rules+atonlee,-0212-0304와 주소 【방배동 145-19】가 등록되어 있습니다. 추가
+F016-01,card_number,5612-0804-7351-4690,rules|rules+atonlee,0020-1187    - 【5612-0804-7351-4690】 3. 참고: 문의 사항은 
+F016-08,address,마석읍 마석우리 227-9,atonlee, 확인 요청   - 주소: 【마석읍 마석우리 227-9】
+F016-10,person,남궁 효선,atonlee|rules+atonlee,저는 【남궁 효선】입니다. 해당 건 관련하여 
+F016-11,person,황보 미연,atonlee|rules+atonlee,【황보 미연】께서 요청하신 자료   - 
+F016-11,person,황보 미연,atonlee|rules+atonlee, 41 참고 문의는 각별히 【황보 미연】께 연락 바랍니다.
+F016-12,person,지안,atonlee|rules+atonlee,【지안】의 전화번호는 0100901
+F016-12,person,지안,atonlee|rules+atonlee,1009012345입니다. 【지안】의 요청사항을 참고 바랍니다
+F016-12,person,소율,atonlee|rules+atonlee,을 참고 바랍니다. 추가: 【소율】의 연락처 010007382
+F016-15,person,Alex Kim,atonlee|rules+atonlee,【Alex Kim】인데요. 이메일: alex.
+F016-17,person,수빈,atonlee|rules+atonlee,-----------| | 【수빈】이랑 | 010.0300.5
+F016-18,person,이 은지,atonlee|rules+atonlee,【이 은지】의 연락처는 010 0080
+F016-18,person,이 은지,atonlee|rules+atonlee,0입니다. 추가 문의사항은 【이 은지】가 남긴 담당자에게 연락 주
+F016-19,account_number,75023014587112,rules|rules+atonlee,확인된 계좌번호: 【75023014587112】 문의 사항은 이후 별도 안
+F017-03,account_number,015-8-390012-4,atonlee|rules+atonlee,48 계좌번호(기업은행): 【015-8-390012-4】
+F017-06,person,정 은지,atonlee|rules+atonlee,서류 작성자: 【정 은지】의 연락처: 010-0020
+F017-06,person,김 수현,atonlee|rules+atonlee,0-3908 지점 담당자: 【김 수현】이 담당자 연락처: 010-
+F017-11,address,두산위브아파트 120동 202호,atonlee|rules+atonlee, 수령자: 김재은께 주소: 【두산위브아파트 120동 202호】
+F017-12,address,노량진동 442-15,atonlee|rules+atonlee,대표자: 박지수님 주소: 【노량진동 442-15】 계좌번호(신한은행): 11
+F017-12,account_number,11000393421724,rules|rules+atonlee,15 계좌번호(신한은행): 【11000393421724】
+F017-13,person,임 재민,atonlee|rules+atonlee,대표자: 【임 재민】이랑 연락처: 031-001
+F017-13,address,서해빌라 202동 503호,atonlee|rules+atonlee,-0010-3702 주소: 【서해빌라 202동 503호】
+F017-14,person,정재영,atonlee|rules+atonlee,86-1218  회계담당: 【정재영】이 직통: +82-10-00
+F017-16,person,Alisha Kim,atonlee|rules+atonlee,대표자명: 【Alisha Kim】입니다 연락처: 010002
+F017-16,address,삼성동 27-41,atonlee|rules+atonlee,1000280031 주소: 【삼성동 27-41】
+F017-17,person,김서진,rules|rules+atonlee,문서제출 대상: 【김서진】하고 연락처: (064)00
+F018-01,person,진석,atonlee|rules+atonlee,련하여 안내드립니다. 필히 【진석】이랑 정수와 법인 대표의 신
+F018-01,person,정수,atonlee|rules+atonlee,내드립니다. 필히 진석이랑 【정수】와 법인 대표의 신분증 사본
+F018-01,resident_registration_number,7509285678901,rules|rules+atonlee,"8901042345678, 【7509285678901】를 준비해 주시기 바랍니다."
+F018-03,person,최도,atonlee|rules+atonlee,"안녕하세요, 【최도】입니다. 필요한 서류에 대해"
+F018-07,person,Alex Kim,atonlee|rules+atonlee,"【Alex Kim】님께, 법인 계좌 개설 안내"
+F018-09,person,가영,atonlee|rules+atonlee,"안녕하세요, 【가영】께 법인 계좌 개설 안내드립"
+F018-16,person,변수,atonlee|rules+atonlee,【변수】께 안내드립니다. 제출 서류
+F018-17,account_number,0100010123456,rules|rules+atonlee," 1245089, 계좌번호 【0100010123456】로 제출 서류 확인 요청드립"
+F018-19,person,민,atonlee|rules+atonlee,【민】의 계좌 개설 신청 건입니다
+F019-01,person,심우,atonlee|rules+atonlee,"【심우】께, 말씀하신 법인 계좌 개"
+F019-03,account_number,769-82-902374,atonlee|rules+atonlee,는 769-82-902374【769-82-902374】 맞으신가요? 확인차 다시 
+F019-04,person,Emily Song,atonlee|rules+atonlee,"안녕하세요, 【Emily Song】의 신분증 사본과 아래 계좌"
+F019-06,phone_number,010-0198-0650,atonlee|rules+atonlee,"호 010-0198-0650【010-0198-0650】 맞으신지 확인 부탁드리고,"
+F019-07,person,장수,atonlee|rules+atonlee,오늘 【장수】의 메일 주소 jangsoo
+F019-07,person,최림,atonlee|rules+atonlee,안내문 발송했어요. 그리고 【최림】은 choirim@examp
+F019-07,person,구식,atonlee|rules+atonlee,"m@example.com, 【구식】은 gusik@example"
+F019-08,phone_number,010-0034-0225,atonlee|rules+atonlee,시 010-0034-0225【010-0034-0225】 이 번호 사용하시는 거 맞
+F019-12,person,민호,atonlee|rules+atonlee,"안녕하세요, 【민호】의 주민등록번호 900317"
+F019-12,card_number,9002-192828-27906,atonlee|rules+atonlee,"02-192828-27906【9002-192828-27906】 번호로 등재되고, 법인정보"
+F019-16,person,김세린,atonlee|rules+atonlee,대표 【김세린】의 계좌번호는 832-13-
+F019-16,account_number,832-13-908674,atonlee|rules+atonlee,"는 832-13-908674【832-13-908674】이고, 카드번호 1308-3"
+F019-17,phone_number,010 0023 0932,atonlee|rules+atonlee,처 010 0023 0932【010 0023 0932】 잘 받았습니다. 추가로 한
+F019-17,person,한승준,atonlee|rules+atonlee,2 잘 받았습니다. 추가로 【한승준】께서도 010 0037 07
+F019-17,phone_number,010 0037 0709,rules|rules+atonlee,"도 010 0037 0709【010 0037 0709】로 문의주셨고, 신청 진행 "
+F019-18,person,소연,atonlee|rules+atonlee,오늘 서류는 소연【소연】의 soyeon@exampl
+F019-19,phone_number,010.0832.2093,atonlee|rules+atonlee,처 010.0832.2093【010.0832.2093】 맞으신지 확인 부탁드려요.
+F019-19,phone_number,010.0882.1704,atonlee|rules+atonlee,처 010.0882.1704【010.0882.1704】 및 주소 경기도 성남시 분
+F019-20,card_number,3825-117321-39215,atonlee|rules+atonlee,25-117321-39215【3825-117321-39215】 모두 이상 없는지 확인 바
+F020-01,person,정후,atonlee|rules+atonlee,내  - 신청인: 임수이랑 【정후】와 - 연락처: 031-00
+F020-01,resident_registration_number,830926-6137052,rules|rules+atonlee,"20104-5249387, 【830926-6137052】  서류 제출 전, 위 담당"
+F020-02,person,조하늘,atonlee|rules+atonlee, | 대표자 | 김민재이랑 【조하늘】와 | 050-0977-00
+F020-06,phone_number,+82-10-0071-0591,rules|rules+atonlee,10-0041-0032 - 【+82-10-0071-0591】  통화 연결이 어려울 경우
+F020-07,person,이세라,atonlee|rules+atonlee,-----------| | 【이세라】의 | 010-0021-07
+F020-07,account_number,0023010059231,rules|rules+atonlee,21-0757 | 신한은행 【0023010059231】 | | 박도경는 | 010
+F020-07,person,박도경,atonlee|rules+atonlee,3010059231 | | 【박도경】는 | 010-0070-00
+F020-07,account_number,0075120003742,rules|rules+atonlee,70-0031 | 우리은행 【0075120003742】 |  위의 담당자에게 문의
+F020-09,person,한스 스미스,atonlee|rules+atonlee,자: Yulia Kim이랑 【한스 스미스】와 - 계좌번호: 우리은행 
+F020-09,account_number,230-01-003154-4,rules|rules+atonlee,"와 - 계좌번호: 우리은행 【230-01-003154-4】, 국민은행 700-05-2"
+F020-11,account_number,9000875132142,rules|rules+atonlee,"net, 계좌번호 하나은행 【9000875132142】  서류 제출 및 확인 문의"
+F020-12,person,박연,atonlee|rules+atonlee,"m로도 받습니다.  추가로 【박연】이에요, 연락처 010 00"
+F020-13,account_number,1002993209342,rules|rules+atonlee,인계좌 정보  - 우리은행 【1002993209342】 - 기업은행 0231940
+F020-13,account_number,0231940283311,rules|rules+atonlee,3209342 - 기업은행 【0231940283311】  계좌번호를 정확히 기입해
+F020-16,person,진,atonlee|rules+atonlee,고하십시오.  - 법인대표 【진】의 주소: 경상북도 군위군 
+F020-18,person,진,atonlee|rules+atonlee,.com입니다. 재무 담당 【진】은 jin-office@ex
+F020-20,person,최규영,atonlee|rules+atonlee,-----| | 대표자 | 【최규영】의 | 02-000-0932
+F020-20,phone_number,02-000-0932,rules|rules+atonlee,| 대표자 | 최규영의 | 【02-000-0932】 | 901129-19938
+F020-20,phone_number,064-007-0038,rules|rules+atonlee, | 재무 | 김하림은 | 【064-007-0038】 | 890713-23301
+F021-02,person,최 민,atonlee|rules+atonlee,예약 고객: 【최 민】께서 신청 주소: 06524
+F021-08,account_number,10400849217631,rules|rules+atonlee,105 계좌번호: 하나은행 【10400849217631】 통화: USD 비고: 퀵 
+F021-10,person,박 지후,atonlee|rules+atonlee,예약자: 【박 지후】가 예약 통화: USD 수령
+F021-14,person,윤 승원,atonlee|rules+atonlee,고객명: 【윤 승원】씨 주소: 부산광역시 부산진
+F021-17,person,김 수진,atonlee|rules+atonlee,예약인: 【김 수진】께서 신청 연락처: 070-
+F022-06,person,태수,atonlee|rules+atonlee,"예약 건 관련하여 은영님, 【태수】씨, 서현님 세 분의 정보 "
+F022-07,account_number,11029482713623,rules|rules+atonlee,"다.  계좌번호는 신한은행 【11029482713623】이며, 추가 정보 필요하시면"
+F022-11,person,주희,atonlee|rules+atonlee,【주희】께 요청드립니다.  연락처:
+F023-01,person,수빈,atonlee|rules+atonlee, 좀 부탁드려요. - 오늘 【수빈】님이랑 정우님 두 분 다 필
+F023-04,account_number,31108712202450,rules|rules+atonlee,"com, 계좌번호 신한은행 【31108712202450】, 카드번호 43820159"
+F023-04,account_number,11804100246689,rules|rules+atonlee,"mple.net, 우리은행 【11804100246689】, 카드 5210923814"
+F023-07,person,김 세진,atonlee|rules+atonlee,- 【김 세진】에게 환전 예약 확인 메일 
+F023-07,person,박 은지,atonlee|rules+atonlee,는 이전과 동일합니다. - 【박 은지】께서 주민등록번호 85031
+F023-07,person,이 정우,atonlee|rules+atonlee,"금액 확정 요청하셨고, - 【이 정우】께 leejw@example"
+F023-08,person,Sophie Lee,atonlee|rules+atonlee,"- 【Sophie Lee】씨 고객님, 요청하신 엔화 "
+F023-10,person,최 정훈,atonlee|rules+atonlee,【최 정훈】 이랑 문 수빈와 함께 오늘
+F023-10,person,문 수빈,atonlee|rules+atonlee,최 정훈 이랑 【문 수빈】와 함께 오늘 환전 예약 하
+F023-12,person,박 수,atonlee|rules+atonlee,937 맞지요? - 그리고 【박 수】도 오늘 문의 주셨는데 번호
+F023-13,person,독고유진,atonlee|rules+atonlee,"2-0082로 안내드렸고, 【독고유진】가 051-003-1095에"
+F023-18,person,Maria Gomez,atonlee|rules+atonlee,【Maria Gomez】의 예약 내역 잘 접수됐습니
+F024-03,phone_number,051-003-0008,rules|rules+atonlee,------- 남궁도윤은  【051-003-0008】  9402-003-4850
+F024-03,person,제갈지연,atonlee|rules+atonlee,2-003-485021   【제갈지연】이  031-001-0078
+F024-03,phone_number,031-001-0078,rules|rules+atonlee,85021   제갈지연이  【031-001-0078】  3120-089-2200
+F024-03,account_number,3120-089-220041,rules|rules+atonlee, 031-001-0078  【3120-089-220041】   황보은서가  02-00
+F024-03,person,황보은서,atonlee|rules+atonlee,0-089-220041   【황보은서】가  02-000-0150 
+F024-03,phone_number,02-000-0150,rules|rules+atonlee,20041   황보은서가  【02-000-0150】  5243-075-1170
+F024-03,account_number,5243-075-117042,rules|rules+atonlee,  02-000-0150  【5243-075-117042】   ------------
+F024-04,person,이 수진,atonlee|rules+atonlee,약 상세 내역 - 예약자: 【이 수진】은     주소: 서울 강서
+F024-04,person,박 태현,atonlee|rules+atonlee,02-7610 - 담당자: 【박 태현】의     주소: 경기 하남
+F024-08,person,지윤,atonlee|rules+atonlee,화 환전 담당자 정리 1) 【지윤】의 전화번호: 010-009
+F024-08,person,나경,atonlee|rules+atonlee, 종로구 종로 217 2) 【나경】의 이메일: na.kyung
+F024-08,person,승우,atonlee|rules+atonlee, 영통구 대학로 70 3) 【승우】가 사용하는 주소: 부산 해
+F024-09,account_number,010-0030-2930,rules|rules+atonlee,리 - 선우지님: 계좌번호 【010-0030-2930】 - 독고민씨: 계좌번호 0
+F024-09,account_number,010-0078-2242,rules|rules+atonlee,0 - 독고민씨: 계좌번호 【010-0078-2242】 - 황보진님: 계좌번호 0
+F024-09,account_number,010-0025-9907,rules|rules+atonlee,2 - 황보진님: 계좌번호 【010-0025-9907】
+F024-10,person,오 재훈,atonlee|rules+atonlee,002-0092 - 담당자 【오 재훈】이랑 02-000-0087
+F024-10,phone_number,02-000-0087,rules|rules+atonlee,2 - 담당자 오 재훈이랑 【02-000-0087】
+F024-11,person,지아,atonlee|rules+atonlee,화 환전 예약자 명단 1. 【지아】는 연락처 +82-10-00
+F024-11,person,수경,atonlee|rules+atonlee,0-0030-8007 2. 【수경】의 전화번호 +82 10-0
+F024-11,person,현우,atonlee|rules+atonlee,0-0098-0043 3. 【현우】가 사용하는 번호 +82-1
+F024-13,address,광명읍 새빛로 27,atonlee,내역 - 신청자: 은별이랑 【광명읍 새빛로 27】 - 수령인: 현빈하고 남천
+F024-13,person,현빈,rules|rules+atonlee, 새빛로 27 - 수령인: 【현빈】하고 남천면 벚꽃길 8-2
+F024-13,address,남천면 벚꽃길 8-2,atonlee,27 - 수령인: 현빈하고 【남천면 벚꽃길 8-2】
+F024-14,person,장하린,rules|rules+atonlee,ample.com 동반인: 【장하린】하고 harin77@exam
+F024-15,account_number,255-008641-02781,rules|rules+atonlee,               【255-008641-02781】 --------------
+F024-16,account_number,0200082174571,rules|rules+atonlee, 122     계좌번호: 【0200082174571】 - 수령자: 이이에요   
+F024-16,account_number,1120045870918,rules|rules+atonlee, 201     계좌번호: 【1120045870918】
+F024-19,person,주원,atonlee|rules+atonlee,환전 예약 접수 - 담당: 【주원】이랑 051-007-0013
+F024-20,phone_number,010-0025-0805,rules|rules+atonlee,10-0007-2921 - 【010-0025-0805】
+F025-02,person,최 민수,atonlee|rules+atonlee,상담 대상: 【최 민수】께 거주지: 서울 강북구 계
+F025-05,person,박가영,atonlee|rules+atonlee,"상담자: 【박가영】이, 연락처: 010-002"
+F025-05,person,이해진,atonlee|rules+atonlee,"1498274 보조상담자: 【이해진】이, 연락처: 010-007"
+F025-07,person,오수,atonlee|rules+atonlee,내방자: 【오수】님 연락처: +82 10-0
+F025-08,person,진우,atonlee|rules+atonlee,상담 대상: 【진우】는 상담주제: IRP 추가납
+F025-10,person,김지호,atonlee|rules+atonlee,ple.co.kr 수혜자: 【김지호】의 8912231234568
+F025-11,person,최민경,atonlee|rules+atonlee,82-1437 보조상담자: 【최민경】이 계좌번호: 신한은행 84
+F025-12,person,오 광수,atonlee|rules+atonlee,상담고객: 【오 광수】의 주소: 동탄동 431-2
+F025-12,address,동탄동 431-2,atonlee|rules+atonlee,"담고객: 오 광수의 주소: 【동탄동 431-2】, 카드번호: 4579928"
+F025-12,person,강 소희,atonlee|rules+atonlee,3011245 보조상담인: 【강 소희】의 주소: 가산동 55-18
+F025-12,address,가산동 55-18,atonlee|rules+atonlee,"상담인: 강 소희의 주소: 【가산동 55-18】, 카드번호: 3754880"
+F025-15,person,정도,atonlee|rules+atonlee,고객: 【정도】의 거주지: 서울 가족: 강
+F025-15,person,강우,atonlee|rules+atonlee,도의 거주지: 서울 가족: 【강우】의 주소: 부산
+F025-18,person,Anna Müller,atonlee|rules+atonlee,상담자: 【Anna Müller】이 계좌번호: SC제일은행 
+F025-18,person,야스민,atonlee|rules+atonlee,009-183110 가족: 【야스민】의 계좌번호: 신한은행 81
+F026-01,person,Aleksandra Ivanova,atonlee|rules+atonlee, 퇴직연금 담당자입니다.  【Aleksandra Ivanova】께서 퇴직연금 중도인출 관련
+F026-03,person,이 영은,atonlee|rules+atonlee, 상담 요청드립니다. 저는 【이 영은】인데요.  주소는 서울특별시
+F026-06,person,Sophie Kim,atonlee|rules+atonlee,"【Sophie Kim】께,  지난 번 연금 적립금"
+F026-07,address,미림아파트 104동 802호,atonlee|rules+atonlee,해 확인드렸습니다. 주소는 【미림아파트 104동 802호】로 맞으신지 확인 부탁드립니
+F026-08,address,동아빌라 203동 1203호,atonlee|rules+atonlee,지 서류 등기 발송 주소는 【동아빌라 203동 1203호】로 등록되어 있습니다.  혹
+F026-12,person,신 은서,atonlee|rules+atonlee,【신 은서】의 퇴직연금 지급건으로 안내
+F026-12,account_number,010-0312-4028,rules|rules+atonlee,"-1295832, 계좌번호 【010-0312-4028】가 접수되어 정상 처리 중입"
+F027-03,phone_number,010.0032.1266,atonlee|rules+atonlee,"는 010.0032.1266【010.0032.1266】이고, 송파읍 문정리 432"
+F027-03,address,송파읍 문정리 432-28,atonlee, 송파읍 문정리 432-28【송파읍 문정리 432-28】에 거주하고 계십니다. 입금
+F027-07,person,강 민,atonlee|rules+atonlee,【강 민】은 연금 신청 관련 자료 제
+F027-07,address,부산 해운대구 402-1,atonlee|rules+atonlee,"는 부산 해운대구 402-1【부산 해운대구 402-1】로 내용 안내드리고, 주민등"
+F027-09,person,최 세형,atonlee|rules+atonlee,오늘 【최 세형】의 퇴직연금 해지 관련 서류
+F027-11,account_number,250-98-004291,atonlee|rules+atonlee,는 250-98-004291【250-98-004291】로 확인되었습니다. 혹시 다
+F027-13,person,박 수진,atonlee|rules+atonlee,"안녕하세요, 【박 수진】인데요, 최근 이체 내역 확"
+F027-13,phone_number,010-0220-0114,atonlee|rules+atonlee,"는 010-0220-0114【010-0220-0114】이고, 주소는 논현동 582"
+F027-13,address,논현동 582-6,atonlee|rules+atonlee,", 주소는 논현동 582-6【논현동 582-6】입니다. 카드번호는 3256"
+F027-13,card_number,3256124890115723,atonlee|rules+atonlee,256124890115723【3256124890115723】으로 자동이체 연결되어 있습
+F027-15,person,문 주호,atonlee|rules+atonlee,【문 주호】의 주민번호가 8302161
+F027-19,person,정 미나,atonlee|rules+atonlee,오늘 【정 미나】이랑 퇴직연금 계좌정보 확인
+F027-19,account_number,120-44-996151,atonlee|rules+atonlee,는 120-44-996151【120-44-996151】로 저장돼있으니 참고해 주세
+F027-20,person,유도현,atonlee|rules+atonlee,퇴직연금 관련해서 【유도현】의 문의입니다. 연락처는 0
+F027-20,phone_number,070-0111-0066,atonlee|rules+atonlee,"는 070-0111-0066【070-0111-0066】, 계좌번호는 301-007"
+F027-20,account_number,280-902-733812,atonlee," 280-902-733812【280-902-733812】, 카드번호 4952-007"
+F028-04,person,이도,atonlee|rules+atonlee,----------- 1. 【이도】께서    - 이메일: le
+F028-04,person,박규,atonlee|rules+atonlee,101-1234567 2. 【박규】에게    - 이메일: ky
+F028-08,account_number,01089320112,rules|rules+atonlee,34567   - 계좌번호 【01089320112】   처리 내용: 계좌 변경
+F028-11,person,이하은,atonlee|rules+atonlee,상담내용 요약   - 고객 【이하은】의 이메일은 haeun.le
+F028-16,resident_registration_number,830214 0125894,atonlee|rules+atonlee,상담기록   주민등록번호 【830214 0125894】 소지 고객의 퇴직연금 계좌
+F029-01,person,이 준,atonlee|rules+atonlee,담당자: 【이 준】이랑 진행 이메일: leeg
+F029-02,account_number,34400023392014,rules|rules+atonlee,184 우리은행 가상계좌: 【34400023392014】 신한은행 가상계좌: 108
+F029-02,account_number,10800738000921,rules|rules+atonlee,014 신한은행 가상계좌: 【10800738000921】 상품명: 이지골드펀드
+F029-06,person,수진,atonlee|rules+atonlee,투자자 1: 【수진】은 연락처: 01000853
+F029-06,person,민서,atonlee|rules+atonlee,1790038 투자자 2: 【민서】가 연락처: 01000851
+F029-08,person,윤정환,atonlee|rules+atonlee,판매인: 【윤정환】께서 이메일: yjhwan@
+F029-16,person,김 한별,atonlee|rules+atonlee,고객명: 【김 한별】의 연락처: 051 802 
+F029-16,address,해운대 아이파크 103동 1204호,atonlee|rules+atonlee,1 802 1293 주소: 【해운대 아이파크 103동 1204호】 담당자: 박 서율은 연락처
+F029-16,person,박 서율,atonlee|rules+atonlee,03동 1204호 담당자: 【박 서율】은 연락처: 02 340 1
+F029-16,address,래미안 대치팰리스 205동 505호,atonlee|rules+atonlee,2 340 1782 주소: 【래미안 대치팰리스 205동 505호】
+F029-18,person,가은,atonlee|rules+atonlee,상담대상: 【가은】님 연락처: 010.0008
+F029-18,person,소라,atonlee|rules+atonlee,xample.com 고객: 【소라】씨 연락처: 010.0063
+F030-03,person,독고선화,rules|rules+atonlee,【독고선화】은 금일 자사 DLF 상품을
+F030-03,person,독고선화,rules|rules+atonlee,입하였습니다.  본 기록은 【독고선화】의 판매실적으로 처리되었음을
+F030-06,address,분당동 511-18,atonlee|rules+atonlee,"000321034, 주소는 【분당동 511-18】로 확인되었습니다. 서류 검"
+F030-09,address,푸르지오 104동 102호,atonlee|rules+atonlee,한지수님   주소: 【푸르지오 104동 102호】    상기 고객 투자상품 
+F030-13,person,설민,atonlee|rules+atonlee,"【설민】인데요, 오늘 카드 결제 내"
+F030-17,resident_registration_number,710422-1039275,rules|rules+atonlee, 확인 부탁드립니다.  - 【710422-1039275】 - 830107-25149
+F030-19,person,John Smith,atonlee|rules+atonlee,"매 처리된 투자상품 고객은 【John Smith】이(가) 맞으며, 연락처는 "
+F031-01,person,Emily Kim,atonlee|rules+atonlee,"안녕하세요, 【Emily Kim】인데요. 어제 상품 문의 주"
+F031-03,person,유나,atonlee|rules+atonlee,"네, 【유나】랑 상담한 내용 정리해드릴게"
+F031-03,account_number,20948301001011,rules|rules+atonlee, 확인했습니다. 계좌번호는 【20948301001011】 맞으시죠? 문의하신 상품은
+F031-07,person,Sophia Lee,atonlee|rules+atonlee,"【Sophia Lee】인데요, 투자상품 가입 주소"
+F031-07,address,논현동 75-33,atonlee|rules+atonlee,"요, 투자상품 가입 주소는 【논현동 75-33】로 되어 있습니다. 상담 결"
+F031-08,person,박 철,atonlee|rules+atonlee,【박 철】에게 투자상품 안내자료 우편
+F031-08,person,이 연,atonlee|rules+atonlee,"10층로 확인했어요. 또, 【이 연】께서 요청하신 자료도 063"
+F031-10,person,최 강,atonlee|rules+atonlee,【최 강】께 카드번호 0237-987
+F031-16,person,박 수빈,atonlee|rules+atonlee,【박 수빈】께 상품 안내 연락 완료했습
+F031-18,person,James Park,atonlee|rules+atonlee,【James Park】에게 투자상품 안내서 우편발
+F032-01,person,서진,atonlee|rules+atonlee,매 현황 보고   구매자: 【서진】에게   연락처: 010-0
+F032-01,account_number,232-01-194220-4,rules|rules+atonlee,m   계좌번호: 하나은행 【232-01-194220-4】   - 상품: 하이브리드 
+F032-01,person,서진,atonlee|rules+atonlee,24-06-05   비고: 【서진】에게 유선 안내 후 완료.
+F032-03,person,하린,atonlee|rules+atonlee,함됩니다.   - 서연이랑 【하린】와 신규 투자상담 진행   
+F032-03,person,서연,atonlee|rules+atonlee," 10-0062-0137 (【서연】), +82-10-0050-"
+F032-03,person,하린,atonlee|rules+atonlee,-10-0050-0998 (【하린】)   - 이메일: yeon
+F032-03,person,서연,rules|rules+atonlee,군 강하면 새울길 22-7(【서연】)   사업자등록번호 203
+F032-07,person,김세진,rules|rules+atonlee,상품 가입)   - 이름: 【김세진】인데요   - 연락처: 01
+F032-08,person,서린,atonlee|rules+atonlee,매 내역   상품 구매자: 【서린】님   계좌번호: 4999-
+F032-12,person,한수,atonlee|rules+atonlee,- 신규가입자: 【한수】에게   - 연락처: 010
+F032-12,person,이현,atonlee|rules+atonlee,03288   - 추천인: 【이현】께서   - 연락처: 010
+F032-17,person,Mark Lee,atonlee|rules+atonlee,구매자 【Mark Lee】의 결제 내역   카드번호:
+F032-19,person,이유,atonlee|rules+atonlee,3-0932   피추천인: 【이유】님   전화번호: 010-0
+F033-01,person,수현,atonlee|rules+atonlee,구 화곡로 215 보증인: 【수현】께 보증인 연락처: 0100
+F033-03,person,서진,atonlee|rules+atonlee,대출 진행 담당: 【서진】님 상담예약자: 승아씨
+F033-03,person,승아,atonlee|rules+atonlee,담당: 서진님 상담예약자: 【승아】씨
+F033-09,address,해밀마을 7단지아파트 104동 1503호,atonlee|rules+atonlee,신청자: 이 서현님 주소: 【해밀마을 7단지아파트 104동 1503호】 외국인등록번호: 01071
+F033-09,person,김 준호,atonlee|rules+atonlee,6305797 공동입주인: 【김 준호】씨 공동입주인 주소: 두산위
+F033-09,address,두산위브빌라 202동 402호,atonlee|rules+atonlee, 준호씨 공동입주인 주소: 【두산위브빌라 202동 402호】 공동입주인 외국인등록번호:
+F033-09,resident_registration_number,950228-7106051,rules|rules+atonlee,공동입주인 외국인등록번호: 【950228-7106051】
+F033-10,person,최 나영,atonlee|rules+atonlee,0098-3584 동거인: 【최 나영】이에요 동거인 주소: 서울시
+F033-11,person,SATOMI,atonlee|rules+atonlee,45-001439 보증인: 【SATOMI】씨 보증인 연락처: 0100
+F033-13,account_number,01008310946,rules|rules+atonlee,342 계좌번호: 우리은행 【01008310946】
+F033-17,person,장 승현,atonlee|rules+atonlee,본인: 【장 승현】의 휴대전화: 010.053
+F033-17,person,김 민지,atonlee|rules+atonlee,30.1180 공동명의자: 【김 민지】는 공동명의자 전화: 010
+F034-04,person,John Kim,atonlee|rules+atonlee,"안녕하세요, 【John Kim】의 전세자금대출 진행 관련 "
+F034-04,person,John Kim,atonlee|rules+atonlee,관련 문의드립니다.  현재 【John Kim】은 연락처 010.0050.
+F034-09,person,장 호,atonlee|rules+atonlee,전세자금대출 신청자 【장 호】의 서류 중 누락 사항이 발
+F034-09,person,장 호,atonlee|rules+atonlee, 발견되어 안내드립니다.  【장 호】의 확인 후 추가 서류를 제
+F034-12,person,Maria Gonzalez,atonlee|rules+atonlee,"안녕하세요, 【Maria Gonzalez】씨의 전세자금대출 서류 확인"
+F034-16,person,박시훈,atonlee|rules+atonlee, 본동 123-5 보증인: 【박시훈】이의 연락처 010-0055
+F034-18,address,해오름빌라 301동 1203호,atonlee|rules+atonlee,xample.net 주소: 【해오름빌라 301동 1203호】  누락된 서류가 있을 경우
+F035-03,person,Jessica Lee,atonlee|rules+atonlee,안녕하세요. 담당자입니다! 【Jessica Lee】이랑 마크토마스하고 관련 서
+F035-06,person,조인,atonlee|rules+atonlee,안녕하세요 【조인】님! 서류 안내드립니다. 연
+F035-10,person,독고진,atonlee|rules+atonlee,"여보세요, 【독고진】이랑 관련서류 안내차 연락드"
+F035-12,person,Michael Kim,atonlee|rules+atonlee,"【Michael Kim】님, 전세대출 서류 문의주셨"
+F035-12,person,Anna Choi,atonlee|rules+atonlee,461를 확인했습니다. 또 【Anna Choi】씨는 연락처 02-007-0
+F035-13,person,태현,atonlee|rules+atonlee,"안녕하세요, 【태현】인데요. 이번 전세대출 서류"
+F035-20,person,Sofia Kim,atonlee|rules+atonlee, 관련해서 연락드렸습니다. 【Sofia Kim】이랑 Rafael Park와
+F035-20,person,Rafael Park,atonlee|rules+atonlee,다. Sofia Kim이랑 【Rafael Park】와 진행 중입니다. 개별 연
+F036-01,account_number,98765432109876,rules|rules+atonlee,좌 정보(예치금 반환용): 【98765432109876】   2. 세대주 명의 입금
+F036-01,account_number,13579246801357,rules|rules+atonlee, 세대주 명의 입금 계좌: 【13579246801357】   ※ 서류 심사진행 후 
+F036-02,address,한빛아파트 101동 1102호,atonlee|rules+atonlee,우진님   2. 임차주소: 【한빛아파트 101동 1102호】   3. 외국인등록번호: 
+F036-02,account_number,15975346802468,rules|rules+atonlee,456   4. 본인계좌: 【15975346802468】   ※ 추가 사업자등록번호
+F036-05,person,박소담,rules|rules+atonlee,류 확인 담당: 김서연이랑 【박소담】하고 최수빈와   - 연락처
+F036-05,address,은빛빌라 203동 305호,atonlee|rules+atonlee,44   - 임차인 주소: 【은빛빌라 203동 305호】   - 보증인 주소: 푸른
+F036-05,address,푸른아파트 105동 1101호,atonlee|rules+atonlee,5호   - 보증인 주소: 【푸른아파트 105동 1101호】   * 사건번호 236-9
+F036-06,person,세진,atonlee|rules+atonlee,-04-689201 | | 【세진】씨      | 123-09
+F036-07,person,다온,atonlee|rules+atonlee,"신청인 【다온】인데요,   안심번호 050"
+F036-08,person,Emma Park,atonlee|rules+atonlee,문의주신 【Emma Park】님   연락 가능한 이메일:
+F036-08,person,Emma Park,atonlee|rules+atonlee,류 추가 확인 관련 사항은 【Emma Park】씨께 별도 안내드릴 예정입니
+F036-11,person,Michael K.,atonlee|rules+atonlee,"관련 추가 안내 드립니다. 【Michael K.】인데요, 임차주소는 리버파크"
+F036-11,address,리버파크아파트 302동 702호,atonlee|rules+atonlee,"l K.인데요, 임차주소는 【리버파크아파트 302동 702호】로 되어 있습니다. 서류상 "
+F036-13,person,한지수,atonlee|rules+atonlee,| | 대출인      | 【한지수】은 031-000-9941 
+F036-13,phone_number,031-000-9941,rules|rules+atonlee,출인      | 한지수은 【031-000-9941】             | 
+F036-14,resident_registration_number,720104 5830041,rules|rules+atonlee,신청자: 백의 주민등록번호 【720104 5830041】   - 세대원: 윤의 주민
+F036-14,person,윤,atonlee|rules+atonlee,30041   - 세대원: 【윤】의 주민등록번호 851211
+F036-15,person,Yuki Lee,atonlee|rules+atonlee,신청자 【Yuki Lee】님   주민등록번호: 930
+F036-15,person,Yuki Lee,atonlee|rules+atonlee,512345   문의사항은 【Yuki Lee】씨께 직접 연락 주시기 바랍
+F036-16,address,황금아파트 304동 1208호,atonlee|rules+atonlee,0-0082   - 주소: 【황금아파트 304동 1208호】   - 계좌: KB국민 9
+F036-16,person,김하나,atonlee|rules+atonlee,93020   - 보증인: 【김하나】은 070-0080-0103
+F036-18,person,수아,atonlee|rules+atonlee, 요청드립니다.   입금인 【수아】의 계좌번호: 1327-90
+F036-18,person,수아,atonlee|rules+atonlee,414   추가 문의사항은 【수아】에게 연락바랍니다.
+F036-20,person,김 태영,atonlee|rules+atonlee,"신청자 【김 태영】님, 연락처 +82 10-0"
+F037-01,account_number,110298054379,rules|rules+atonlee,33 납부 계좌: 신한은행 【110298054379】 보증인 계좌: 국민은행 9
+F037-01,account_number,953028109274,rules|rules+atonlee,9 보증인 계좌: 국민은행 【953028109274】 상담원명: 김 준의 상담원
+F037-02,person,윤나래,atonlee|rules+atonlee,1234567 공동명의인: 【윤나래】이에요 공동명의인 주민등록번
+F037-03,account_number,238899415612,rules|rules+atonlee,44092 납부계좌: 농협 【238899415612】 공동명의자: 최예진이 주소
+F037-03,person,최예진,atonlee|rules+atonlee,9415612 공동명의자: 【최예진】이 주소: 경기도 남양주시 
+F037-03,account_number,347821000102,rules|rules+atonlee,60312 계좌: 하나은행 【347821000102】 신청일: 2024년 6월 
+F037-05,person,송유찬,rules|rules+atonlee, 매월 25일 판매담당자: 【송유찬】인데요 담당자 주소: 경기 
+F037-07,person,Anna Park,atonlee|rules+atonlee,2-1011142 보증인: 【Anna Park】은 이메일: annapark
+F037-08,address,에코빌라 204동 1203호,atonlee|rules+atonlee, John Lee님 주소: 【에코빌라 204동 1203호】 주민등록번호: 850505
+F037-08,address,청담아파트 101동 706호,atonlee|rules+atonlee,: 마리아 고메스씨 주소: 【청담아파트 101동 706호】 주민등록번호: 910218
+F037-09,person,Liam Brown,atonlee|rules+atonlee,1 2241084 보증인: 【Liam Brown】이에요 보증인 주민등록번호:
+F037-10,person,독고 진,rules|rules+atonlee,계약자: 【독고 진】입니다 연락처: 010-00
+F037-10,person,제갈 수,rules|rules+atonlee,0042-0027 담당자: 【제갈 수】입니다 담당자 전화: 010
+F037-15,account_number,01022100977,rules|rules+atonlee,의자: 박 현님 계좌번호: 【01022100977】 보증인: 정 미씨 보증인 
+F037-15,account_number,01031201458,rules|rules+atonlee,: 정 미씨 보증인 계좌: 【01031201458】 차종: 스포티지
+F038-02,person,가람,atonlee|rules+atonlee,약 진행 안내드립니다.   【가람】님께서 본인 명의 계좌로 납
+F038-06,account_number,01000234857,rules|rules+atonlee, 142   - 계좌번호: 【01000234857】  빠른 처리 부탁드립니다.
+F038-11,account_number,39104004852103,rules|rules+atonlee,071와 등록하신 가상계좌 【39104004852103】가 모두 정상적으로 접수되었
+F038-12,person,지우,atonlee|rules+atonlee,번에 접수된 계약 관련하여 【지우】의 정보와 공동 신청인 다현
+F038-12,person,다현,atonlee|rules+atonlee,지우의 정보와 공동 신청인 【다현】의 정보 안내드립니다.   
+F038-12,person,지우,atonlee|rules+atonlee,정보 안내드립니다.   - 【지우】의 이메일: jiwoo@ex
+F038-12,person,지우,atonlee|rules+atonlee,xample.com   - 【지우】의 계좌번호: 1048573
+F038-12,account_number,10485730942150,rules|rules+atonlee,   - 지우의 계좌번호: 【10485730942150】   - 다현은 주소가 전라
+F038-12,person,다현,atonlee|rules+atonlee,5730942150   - 【다현】은 주소가 전라남도 진도군 
+F038-13,person,독고진,atonlee|rules+atonlee,하세요.  이번 계약서에는 【독고진】이랑 황보라하고 두 분이 명
+F038-13,person,황보라,rules|rules+atonlee,이번 계약서에는 독고진이랑 【황보라】하고 두 분이 명의자로 등록
+F038-14,person,세영,atonlee|rules+atonlee,해 안내드립니다.  신청자 【세영】이랑 공동 명의인 도윤와 관
+F039-01,person,John Lee,atonlee|rules+atonlee,"네, 【John Lee】께서 신청하신 건 진행 중입"
+F039-01,address,한빛마을아파트 102동 904호,atonlee|rules+atonlee, 중입니다. 아파트 주소는 【한빛마을아파트 102동 904호】로 확인했어요. 그리고 주민
+F039-02,person,수정,atonlee|rules+atonlee,"수정아, 【수정】이랑 민희하고 자동차 계약서"
+F039-02,email,수정@naver.example.com,atonlee|rules+atonlee,"구 백범로 205로 맞지? 【수정@naver.example.com】, 민희@daum.examp"
+F039-02,email,민희@daum.example.com,atonlee|rules+atonlee,"r.example.com, 【민희@daum.example.com】로 계약서 보내둘게. 그리고"
+F039-02,account_number,2140050056243,rules|rules+atonlee,"그리고 계좌번호는 신한은행 【2140050056243】이고, 서류 오면 알림 줘!"
+F039-03,address,신길동 774-13,atonlee|rules+atonlee,예정이에요. 거주지 주소는 【신길동 774-13】 맞으신지 다시 한번 확인 
+F039-04,person,한승재,atonlee|rules+atonlee,【한승재】의 계약서류 도착했어요. 주
+F039-09,person,박예진,atonlee|rules+atonlee,【박예진】께 차량 등록 서류 전달했습
+F039-10,person,민지,atonlee|rules+atonlee,【민지】는 강남구 도산대로 18길 
+F039-10,person,수아,atonlee|rules+atonlee,-3002844야. 보증인 【수아】의 주소는 성동구 왕십리로 
+F039-11,person,유 경민,atonlee|rules+atonlee,금일 계약자 【유 경민】이랑 공동명의 박 준호하고 
+F039-12,address,푸른하늘빌라 202동 506호,atonlee|rules+atonlee," 저 박해솔입니다. 주소는 【푸른하늘빌라 202동 506호】 맞고, 주민번호는 9007"
+F040-02,person,정 수진,atonlee|rules+atonlee,- 【정 수진】께서 요청하신 자동차 할부 
+F040-03,person,수진,atonlee|rules+atonlee,【수진】은 이번 달 초에 계약서를 
+F040-05,person,수아,atonlee|rules+atonlee,8903 | | 보증인 | 【수아】씨   | 010040022
+F040-08,address,서광아파트 102동 1502호,atonlee|rules+atonlee,04000012   주소: 【서광아파트 102동 1502호】   주민등록번호: 9003
+F040-08,address,해오름빌라 3동 206호,atonlee|rules+atonlee,04009912   주소: 【해오름빌라 3동 206호】   주민등록번호: 8508
+F040-09,address,솔하임아파트 201동 303호,atonlee|rules+atonlee,00-2252    주소: 【솔하임아파트 201동 303호】 2. 정지연씨   | 연락
+F040-09,address,운정센트럴 107동 1205호,atonlee|rules+atonlee,00-4459    주소: 【운정센트럴 107동 1205호】  두 분 모두 대조 완료함
+F040-13,person,민서,atonlee|rules+atonlee,- 계약 명의: 【민서】의 - 배우자 진우는 공동명
+F040-13,person,진우,atonlee|rules+atonlee, 명의: 민서의 - 배우자 【진우】는 공동명의 동의 완료 - 
+F040-14,address,오성아파트 402동 1205호,atonlee|rules+atonlee,"04005519 - 주소: 【오성아파트 402동 1205호】, 해솔빌라 2동 1102호"
+F040-14,address,해솔빌라 2동 1102호,atonlee|rules+atonlee,"파트 402동 1205호, 【해솔빌라 2동 1102호】"
+F040-15,person,동수,atonlee|rules+atonlee,- 【동수】의 계좌번호 입력 누락 건 
+F040-15,account_number,12900487451209,rules|rules+atonlee,락 건 확인   (신한은행 【12900487451209】) - 별도 연락 예정
+F040-16,person,김지아,atonlee|rules+atonlee,이번 계약은 【김지아】이랑 오유정와의 공동명의로 
+F040-16,person,오유정,atonlee|rules+atonlee,이번 계약은 김지아이랑 【오유정】와의 공동명의로 신청되었습니
+F040-19,person,박 진,atonlee|rules+atonlee,- 【박 진】이랑 kim@sample.e
+F040-19,resident_registration_number,950521 1740082,rules|rules+atonlee,접수 완료 - 주민등록번호 【950521 1740082】와 jinpark@examp
+F040-20,person,Michael Lee,atonlee|rules+atonlee, 신청 내역입니다.  1. 【Michael Lee】이랑 julia@carsho
+F040-20,person,佐藤恵美,atonlee|rules+atonlee,05-1370284  2. 【佐藤恵美】와 010-0400-5251
+F041-05,address,삼성푸르지오아파트 101동 408호,atonlee|rules+atonlee,xample.com 주소: 【삼성푸르지오아파트 101동 408호】 정보 열람 및 정정 청구서
+F041-07,account_number,12002980812341,rules|rules+atonlee,이름: 한지원씨 계좌번호: 【12002980812341】 카드번호: 9102 481
+F041-08,account_number,10136598270421,rules|rules+atonlee, 86 302호 계좌번호: 【10136598270421】 이름: 박예서씨 이메일: 
+F041-08,account_number,10205718239075,rules|rules+atonlee,1동 1102호 계좌번호: 【10205718239075】 문의 전화(내선): 131
+F041-10,account_number,10458620839126,rules|rules+atonlee,이름: 정우님 계좌번호: 【10458620839126】 별도 문의 필요시 담당자에
+F041-15,account_number,01037956412,rules|rules+atonlee,름: 남궁하윤의 계좌번호: 【01037956412】 은행명: 우리은행
+F041-17,account_number,01058293047,rules|rules+atonlee,07320957 계좌번호: 【01058293047】 카드번호: 42019376
+F041-18,address,한일그린빌 202동 1101호,atonlee|rules+atonlee,이름: 세진씨 주소: 【한일그린빌 202동 1101호】 이름: 수빈님 주소: 동일
+F041-18,address,동일스위트아파트 305동 1503호,atonlee|rules+atonlee,1호 이름: 수빈님 주소: 【동일스위트아파트 305동 1503호】
+F042-03,person,다은,atonlee|rules+atonlee,"안녕하세요.   【다은】님, 그리고 현주씨 두 분에"
+F042-03,person,다은,atonlee|rules+atonlee, 확인 요청드립니다.  - 【다은】님: 4481 0290 56
+F042-05,account_number,01041500101,rules|rules+atonlee,755 5층 - 계좌번호: 【01041500101】  확인 후 이상 있으면 회
+F042-08,person,박 준형,atonlee|rules+atonlee,청하신 두 분 정보입니다. 【박 준형】의 주소는 경기도 수원시 영
+F042-08,person,이 소민,atonlee|rules+atonlee,6123로 되어 있습니다. 【이 소민】은 경기도 화성시 동탄대로 
+F042-08,account_number,30213456789011,rules|rules+atonlee,"17654321, 계좌번호 【30213456789011】이 확인됩니다.  확인 후 "
+F042-09,person,Sofia Kim,atonlee|rules+atonlee,열람을 요청드립니다.  - 【Sofia Kim】에게 연락 가능한 전화번호 
+F042-09,address,논현동 33-21,atonlee|rules+atonlee,"mple.co.kr, 주소 【논현동 33-21】, 계좌번호 53910123"
+F042-09,account_number,53910123412011,rules|rules+atonlee,"현동 33-21, 계좌번호 【53910123412011】 확인 바랍니다. - 장니콜"
+F042-09,person,장니콜라,atonlee|rules+atonlee,011 확인 바랍니다. - 【장니콜라】께서 요청하신 010-002
+F042-09,address,잠원동 16-5,atonlee|rules+atonlee,"xample.net, 주소 【잠원동 16-5】, 계좌번호 12690039"
+F042-09,account_number,12690039450088,rules|rules+atonlee,"잠원동 16-5, 계좌번호 【12690039450088】도 동일하게 점검 부탁드립니"
+F042-10,person,강 호,atonlee|rules+atonlee,안녕하세요.   아래 【강 호】씨의 계좌 정보 열람 요청드
+F042-14,account_number,47111100500342,rules|rules+atonlee,620589 - 계좌번호: 【47111100500342】  문의 건은 주문번호와 무
+F042-17,person,Ava Johnson,atonlee|rules+atonlee,안녕하세요.   【Ava Johnson】님 정보 확인 필요합니다. 
+F042-18,person,Liam,atonlee|rules+atonlee, 열람 요청드립니다.  - 【Liam】이랑 010-0081-310
+F042-19,person,소연,atonlee|rules+atonlee,안녕하세요.  【소연】의 전화번호 +82 10-0
+F042-19,card_number,3552 981236 11254,atonlee|rules+atonlee,"mple.net, 카드번호 【3552 981236 11254】 내역 확인 바랍니다.   "
+F042-19,person,준호,atonlee|rules+atonlee, 내역 확인 바랍니다.   【준호】는 +82-10-0031-5
+F042-19,card_number,4200 902821 35187,atonlee|rules+atonlee,"mple.com, 카드번호 【4200 902821 35187】 정보 열람 요청합니다."
+F042-20,person,윤 재,atonlee|rules+atonlee,"안녕하세요, 【윤 재】께 계신 카드번호 7741 "
+F043-01,resident_registration_number,8104261645529,rules|rules+atonlee,렸습니다.   현재 한솔의 【8104261645529】으로 등록된 정보가 맞는지 
+F043-02,person,Olivia Kim,atonlee|rules+atonlee,안녕하세요.   【Olivia Kim】이랑 존박 두 명 다 개인정
+F043-02,person,Olivia Kim,atonlee|rules+atonlee,인 확인 부탁드리고요.   【Olivia Kim】 신한은행 3142-104-
+F043-02,person,존박,atonlee|rules+atonlee,"42-104-874321, 【존박】 국민은행 1079-201-"
+F043-06,person,정지훈,atonlee|rules+atonlee,【정지훈】의 주소 변경 요청 관련해서
+F043-06,person,정지훈,atonlee|rules+atonlee,어 있는데 맞으신지요?   【정지훈】의 개인정보 정정이 필요한 
+F043-08,account_number,692905328104,rules|rules+atonlee,"요.   해진님, 우리은행 【692905328104】 맞으시죠?   혹시 해진님"
+F043-08,person,해진,atonlee|rules+atonlee,104 맞으시죠?   혹시 【해진】님 본인 아니시면 연락 부탁
+F043-09,person,Lucas,atonlee|rules+atonlee,"【Lucas】님, 본인 인증용 정보 확인"
+F043-09,person,Lucas,atonlee|rules+atonlee,하신 서류에 기재된 이름이 【Lucas】씨 맞으신지 재차 확인 부탁
+F043-16,account_number,521903 02 391543,rules|rules+atonlee,"니다.   기존 등록 계좌 【521903 02 391543】가 맞는지 확인 부탁드리고,"
+F043-17,person,이 수현,atonlee|rules+atonlee,신청인 【이 수현】의 정보 열람 요청 건입니다
+F043-17,person,이 수현,atonlee|rules+atonlee,확인 필요합니다.   혹시 【이 수현】이 실제로 사용 중인 다른 
+F043-18,person,Samantha Park,atonlee|rules+atonlee,"【Samantha Park】님, 우편물 수령 주소가 성"
+F043-18,resident_registration_number,920215-7102845,rules|rules+atonlee,"있습니다.   주민등록번호 【920215-7102845】 확인 부탁드리고,   카드"
+F043-20,person,임도,atonlee|rules+atonlee,현재 【임도】의 정보 정정 요청이 들어왔
+F043-20,person,임도,atonlee|rules+atonlee,540 확인해 주세요.   【임도】의 정보가 최신이 아니실 경
+F044-02,person,다온,atonlee|rules+atonlee,여의대로 36 2) 이름: 【다온】씨      주소: 3407
+F044-10,person,홍지연,atonlee|rules+atonlee,-----------| | 【홍지연】의    | 인천광역시 남동
+F044-11,resident_registration_number,010606 2094018,rules|rules+atonlee,0914 1975123 - 【010606 2094018】  ※ 회사 대표번호(158
+F044-15,person,에밀리,atonlee|rules+atonlee,.co.kr  - 고객명: 【에밀리】는   - 이메일: emil
+F044-17,address,해운대 우신골드빌 102동 1503호,atonlee|rules+atonlee,901.3704   주소: 【해운대 우신골드빌 102동 1503호】  업무 관련 “단비미디어”
+F044-18,person,황보지은,atonlee|rules+atonlee,0105-1092934 - 【황보지은】이     주민등록번호: 0
+F045-03,person,주현,atonlee|rules+atonlee,채무조정 대상자: 【주현】의 정보 주소: 강원도 춘천
+F045-05,person,박 준,atonlee|rules+atonlee,수임인: 【박 준】에게 연락처: 0100087
+F045-07,account_number,102001987521,rules|rules+atonlee, 혁님 적용계좌: 우리은행 【102001987521】 신청일: 2024-06-2
+F045-10,person,지연,atonlee|rules+atonlee,212349828 보호자: 【지연】씨 보호자 메일: jiyun
+F045-12,account_number,1205040026781,rules|rules+atonlee,e.com 계좌: 하나은행 【1205040026781】 보호인: 박유정님 보호인 
+F045-12,account_number,9400210347665,rules|rules+atonlee,유정님 보호인 계좌: 농협 【9400210347665】
+F045-13,person,Sofia Kim,atonlee|rules+atonlee,채무조정 요청인: 【Sofia Kim】님 보호자: 야마토씨 신청일
+F045-14,resident_registration_number,890202-6789481,rules|rules+atonlee,: 홍지원인데요 주민번호: 【890202-6789481】 카드번호: 5357-908
+F045-15,person,장 혁,atonlee|rules+atonlee,의뢰인: 【장 혁】입니다 연락처: 010-00
+F045-18,person,고은주,atonlee|rules+atonlee,위임자: 【고은주】은 본인확인 완료 연락처: 
+F045-19,person,Alex Lee,atonlee|rules+atonlee,채무자: 【Alex Lee】님 연락처: 010.0002
+F045-20,person,지환,atonlee|rules+atonlee,: 지환께서 제출함 서명: 【지환】에게 신청일: 2024-06
+F046-02,person,남궁 민지,atonlee|rules+atonlee,"안녕하세요, 담당자님. 【남궁 민지】는 현재 채무 변제를 어렵게"
+F046-04,person,지은,atonlee|rules+atonlee,"안녕하세요, 【지은】이랑 김지혜 담당자께 송부드"
+F046-04,account_number,61008239047113,rules|rules+atonlee,"03567이고, 가상계좌는 【61008239047113】입니다. 이메일은 jieun"
+F046-05,phone_number,07030020045,rules|rules+atonlee,"니다. 연락 가능한 번호는 【07030020045】이고, 평일 오전에 전화 부"
+F046-06,person,정 소연,atonlee|rules+atonlee,"안녕하세요, 담당자님. 【정 소연】은 채무조정 신청을 희망합니"
+F046-06,person,박 현수,atonlee|rules+atonlee,"le.com입니다. 또한, 【박 현수】의 주민등록번호는 92081"
+F046-07,person,문 수진,atonlee|rules+atonlee,"【문 수진】님, 안녕하세요. 신청 관련"
+F046-08,person,김 세린,atonlee|rules+atonlee,"【김 세린】씨, 신청 서류 잘 접수되었"
+F046-09,person,제갈 세훈,atonlee|rules+atonlee,"안녕하세요, 담당자님. 【제갈 세훈】의 신청 건 안내드립니다. "
+F046-09,person,제갈 세훈,atonlee|rules+atonlee,538874입니다. 추가로 【제갈 세훈】의 문의 내용도 같이 전달드
+F046-15,person,Tomas Kim,atonlee|rules+atonlee,"안녕하세요, 【Tomas Kim】입니다. 채무조정 상담을 신"
+F046-15,person,김 로사,atonlee|rules+atonlee,"3-4720입니다. 추가로 【김 로사】도 함께 신청하는데, 전화번"
+F046-18,resident_registration_number,790912-6180029,rules|rules+atonlee,"내드립니다. 주민등록번호는 【790912-6180029】이고, 검토 후 회신 부탁드"
+F047-02,person,수빈,atonlee|rules+atonlee,【수빈】이랑 유진하고 둘 다 이번에
+F047-02,person,수빈,atonlee|rules+atonlee,"조정 신청하려고 하는데요, 【수빈】 연락처는 010-0031-"
+F047-02,person,유진,atonlee|rules+atonlee,소는 서울 강남구 맞고요. 【유진】은 010-0002-0095
+F047-02,person,수빈,atonlee|rules+atonlee,경기 고양시에 거주합니다. 【수빈】 계좌번호는 724-0000
+F047-02,person,유진,atonlee|rules+atonlee,"-000001-19385, 【유진】 계좌는 128-000253"
+F047-03,address,현덕면 장촌리 322-7,atonlee,김예원인데요. 현재 주소는 【현덕면 장촌리 322-7】로 변경됐습니다. 혹시 주소
+F047-04,person,마크 존슨,atonlee|rules+atonlee,이건 【마크 존슨】의 채무조정 신청입니다. 전
+F047-04,person,리사 차오,atonlee|rules+atonlee,로구입니다. 그리고 보증인 【리사 차오】는 010 0003 0841
+F047-05,person,오 연,atonlee|rules+atonlee,"【오 연】 님, 안녕하세요. 채무조정"
+F047-06,account_number,01000201235,rules|rules+atonlee,는 정서연은 휴대전화 계좌 【01000201235】 사용 중입니다. 정서연의 
+F047-08,address,해솔마을 3단지아파트 102동 202호,atonlee|rules+atonlee,0054.0078 및 주소 【해솔마을 3단지아파트 102동 202호】 확인했습니다. 추가 문의사
+F047-10,person,Sofia Lee,atonlee|rules+atonlee,"【Sofia Lee】 씨, 문의주신 채무조정 접"
+F047-12,person,윤기,atonlee|rules+atonlee,"-8082입니다. 보증인은 【윤기】입니다, 010-0022-8"
+F047-14,person,배정,atonlee|rules+atonlee,"【배정】씨, 이메일 jaeong@e"
+F047-14,address,서초대로 45길 99,atonlee|rules+atonlee,회신 부탁드립니다. 주소는 【서초대로 45길 99】로 제출하시면 됩니다.
+F047-17,address,본동 23-5,atonlee|rules+atonlee,"수했습니다. 김서연 주소는 【본동 23-5】, 주민번호 930218-2"
+F047-17,account_number,21002611900814,rules|rules+atonlee,"18-2058839, 계좌 【21002611900814】 확인했고요. 남지우는 신곡"
+F047-17,address,신곡동 1814-2,atonlee|rules+atonlee,"14 확인했고요. 남지우는 【신곡동 1814-2】, 주민번호 850516-1"
+F047-17,account_number,98837451009276,rules|rules+atonlee,"6-1103294, 계좌는 【98837451009276】입니다."
+F047-20,person,정우,atonlee|rules+atonlee,【정우】의 채무조정 문의건입니다. 
+F047-20,address,화산면 대곡리 221-3,atonlee|rules+atonlee,"4-0750, 현재 주소는 【화산면 대곡리 221-3】이고, 계좌는 195-000"
+F048-05,address,행복한아파트 103동 904호,atonlee|rules+atonlee,이름: 최진씨  - 주소: 【행복한아파트 103동 904호】  - 주민등록번호: 950
+F048-05,account_number,20584739200162,rules|rules+atonlee,72849  - 계좌번호: 【20584739200162】  - 카드번호: 8210-
+F048-05,address,늘푸른빌라 2동 201호,atonlee|rules+atonlee,이름: 윤강님  - 주소: 【늘푸른빌라 2동 201호】  - 주민등록번호: 950
+F048-05,account_number,8765921038491,rules|rules+atonlee,69873  - 계좌번호: 【8765921038491】  - 카드번호: 4001-
+F048-07,person,이 수연,atonlee|rules+atonlee,06.12)  - 신청인: 【이 수연】님 - 이메일: suyeon
+F048-07,account_number,01054210835,rules|rules+atonlee,le.com - 계좌번호: 【01054210835】 - 카드번호: 3451 7
+F048-10,card_number,0295-4081-6572-9187,rules|rules+atonlee,5-0483-2163  - 【0295-4081-6572-9187】  상환 일정 변경 신청서 
+F048-13,account_number,01032100459,rules|rules+atonlee,2번길 98 - 계좌번호: 【01032100459】  상환계획서 첨부
+F048-14,account_number,01042005841,rules|rules+atonlee,234    - 계좌번호: 【01042005841】    - 카드번호: 260
+F048-14,person,서지훈,atonlee|rules+atonlee,-7204-1592  2. 【서지훈】이 제출    - 전화번호:
+F048-14,account_number,01019502746,rules|rules+atonlee, 19    - 계좌번호: 【01019502746】    - 카드번호: 195
+F048-16,person,이재민,atonlee|rules+atonlee,신청인 【이재민】의 채무조정 요청내역  - 
+F049-05,person,여진,atonlee|rules+atonlee,수정 요청자: 【여진】께   주민등록번호: 930
+F049-06,person,다온,atonlee|rules+atonlee,이름: 【다온】이에요   사유: 급여 주거
+F049-07,person,Anna Kim,atonlee|rules+atonlee,신청자명: 【Anna Kim】께   계좌번호: 62023
+F049-07,account_number,62023100422274,rules|rules+atonlee,a Kim께   계좌번호: 【62023100422274】   변경 내역: 급여이체 
+F049-10,account_number,42100234567781,rules|rules+atonlee,net      계좌번호: 【42100234567781】   2. 직원명: 조준희는
+F049-10,account_number,11230450087621,rules|rules+atonlee,.kr      계좌번호: 【11230450087621】   처리 요청 내역: 두 
+F049-13,account_number,010-0952-1026,rules|rules+atonlee,le.com   계좌번호: 【010-0952-1026】   변경 요청 사항: 기존
+F049-15,person,하윤,atonlee|rules+atonlee,【하윤】이는 이번 달부터 새 계좌로
+F049-17,person,수아,atonlee|rules+atonlee,【수아】는 신청서 작성 완료   처
+F049-18,address,해오름아파트 103동 1405호,atonlee|rules+atonlee,주소: 【해오름아파트 103동 1405호】   변경 사유: 거주 이전
+F050-01,person,김 수진,atonlee|rules+atonlee, 신청서 관련드립니다.   【김 수진】은 기존에 등록된 카드(13
+F050-01,person,채 연호,atonlee|rules+atonlee,"달받았습니다.   추가로, 【채 연호】의 신규 카드(8520 14"
+F050-04,person,지민,atonlee|rules+atonlee,좌 자료 공유드립니다. - 【지민】이에요 / 연락처: 010-
+F050-04,account_number,130-02-002382,rules|rules+atonlee,"237, 계좌번호 우리은행 【130-02-002382】 제출해주신 이메일(nayo"
+F050-05,person,강지훈,rules|rules+atonlee,  이번 달부터 조민지이랑 【강지훈】하고 박성미와 모두 주거래 
+F050-07,person,백 진,atonlee|rules+atonlee,수정본 첨부합니다. 필요시 【백 진】이랑 상의 후 회신 부탁드립
+F050-13,address,삼성래미안아파트 102동 1504호,atonlee|rules+atonlee,"07-0061,   주소는 【삼성래미안아파트 102동 1504호】로 접수 완료되었습니다.  "
+F050-20,person,김재현,atonlee|rules+atonlee,이번 건은 【김재현】의 급여계좌 변경 요청입니다
+F050-20,account_number,010-0052-0713,rules|rules+atonlee,경 요청입니다. 계좌번호는 【010-0052-0713】로 확인되었습니다. 이상 없
+F051-03,account_number,93028471234580,rules|rules+atonlee,"수했고요. 급여이체 계좌는 【93028471234580】, 카드번호는 4231-09"
+F051-05,account_number,98762100047100,rules|rules+atonlee,"상자: 김동민님, 계좌번호 【98762100047100】 그리고 송지영씨 계좌도 변"
+F051-09,resident_registration_number,990220 0411993,atonlee|rules+atonlee,"6127890 - 홍지수씨 【990220 0411993】, 카드번호 87450236"
+F051-14,resident_registration_number,910303 0041122,atonlee|rules+atonlee,"도경인데요, 주민등록번호 【910303 0041122】로 변경 신청 했습니다. 절"
+F051-20,person,박 준형,atonlee|rules+atonlee,"【박 준형】님, 신규 변경 신청 담당자"
+F052-01,account_number,010-0009-4528,rules|rules+atonlee, 변경 전 계좌: 신한은행 【010-0009-4528】   - 변경 후 계좌: 국
+F052-01,account_number,010-0721-0938,rules|rules+atonlee, 변경 후 계좌: 국민은행 【010-0721-0938】   * 위 요청에 따라 수
+F052-01,person,수빈,atonlee|rules+atonlee,8   * 위 요청에 따라 【수빈】께서 지정한 계좌로 7월 급
+F052-06,phone_number,02-0091-0482,rules|rules+atonlee,------ 남궁하늘님 | 【02-0091-0482】 | 서울특별시 강남구 역삼
+F052-07,address,해솔빌라 104동 701호,atonlee|rules+atonlee,"   1. 장희씨, 주소: 【해솔빌라 104동 701호】, 카드번호: 8754-33"
+F052-07,address,금강아파트 2동 203호,atonlee|rules+atonlee,"   2. 서빛님, 주소: 【금강아파트 2동 203호】, 카드번호: 1200-33"
+F052-08,person,윤,atonlee|rules+atonlee,【윤】은 급여이체 은행을 변경 신
+F052-09,person,John Smith,atonlee|rules+atonlee,-------------- 【John Smith】입니다 | john.smit
+F052-09,address,늘푸른아파트 103동 904호,atonlee|rules+atonlee,@example.com | 【늘푸른아파트 103동 904호】 | 010219-56892
+F052-09,address,선샤인빌라 1동 405호,atonlee|rules+atonlee,xample.co.kr | 【선샤인빌라 1동 405호】 | 990203-65329
+F052-10,person,지환,atonlee|rules+atonlee,"【지환】이에요, 급여이체 카드 번호"
+F052-11,person,예림,atonlee|rules+atonlee,- 신청: 【예림】님   - 주민등록번호: 1
+F052-11,person,예림,atonlee|rules+atonlee,2 1239805   상기 【예림】씨의 급여이체 변경 요청 내
+F052-12,person,세진,atonlee|rules+atonlee,【세진】께서 카드정보 변경 요청  
+F052-14,address,신림동 1483-32,atonlee|rules+atonlee,035-7028 - 주소: 【신림동 1483-32】 해당 정보로 7월 급여지급
+F052-16,person,민,atonlee|rules+atonlee,【민】의 주요 정보 - 연락처: 
+F052-18,person,임,atonlee|rules+atonlee,정기 급여지급 대상: 【임】은 7월 이체 예정.
+F053-03,account_number,01012340032,rules|rules+atonlee,민호님 계좌번호: 신한은행 【01012340032】 재상담자: 제갈서연씨 계좌
+F053-03,account_number,01098760053,rules|rules+atonlee,"서연씨 계좌번호: 하나은행 【01098760053】 업무내용: 거래내역 문의,"
+F053-08,account_number,8753200483922,rules|rules+atonlee,로 10 계좌번호: 우리은행【8753200483922】 상담내역: 계좌정보 변경 
+F053-09,person,이,atonlee|rules+atonlee,신규신청자: 【이】가 계좌번호: 농협120-2
+F053-09,card_number,3921-04-287514,rules|rules+atonlee,1-897520 카드번호: 【3921-04-287514】 기존고객: 최의 계좌번호:
+F053-09,person,최,atonlee|rules+atonlee,4-287514 기존고객: 【최】의 계좌번호: 신한은행298
+F053-09,card_number,5293-56-094714,rules|rules+atonlee,0-825041 카드번호: 【5293-56-094714】
+F053-12,resident_registration_number,940927-6213450,rules|rules+atonlee,: 박지현의 주민등록번호: 【940927-6213450】 금일 내점자: 김수아는 주
+F053-15,person,장,rules|rules+atonlee,신청인: 【장】님 상담 대상자: 이씨 문의
+F053-18,person,Miguel Torres,atonlee|rules+atonlee,외국인고객: 【Miguel Torres】의 주민등록번호: 01021
+F053-19,person,파비오 로사,atonlee|rules+atonlee,드컵북로 50 동반내점자: 【파비오 로사】가 전화번호: +82 10-
+F053-20,person,나윤,rules|rules+atonlee,상담자: 【나윤】인데요 전화번호: 070-0
+F053-20,person,서진,atonlee|rules+atonlee,3-5722 상담받은 분: 【서진】입니다 전화번호: 070-0
+F054-01,person,최강,atonlee|rules+atonlee,안녕하세요. 오늘 【최강】께서 오전 11시쯤 방문하여
+F054-01,person,최강,atonlee|rules+atonlee,계좌 개설 문의하셨습니다. 【최강】께서는 연락처 051-003
+F054-02,address,대치동 41-17,atonlee|rules+atonlee,"2-050-9007, 주소 【대치동 41-17】로 등재되어 있습니다. 계좌"
+F054-05,person,박진,atonlee|rules+atonlee,금일 【박진】께서 체크카드 재발급 문의차
+F054-06,person,심대,atonlee|rules+atonlee,오전 중 【심대】이랑 상담하였습니다. 심대의
+F054-06,person,심대,atonlee|rules+atonlee, 심대이랑 상담하였습니다. 【심대】의 문의는 개인 투자상품 관
+F054-08,address,해오름아파트 101동 1202호,atonlee|rules+atonlee,"21로 연락주셨고, 주소는 【해오름아파트 101동 1202호】입니다. 오후에는 박성훈입니"
+F054-08,address,푸른빌라 2동 404호,atonlee|rules+atonlee,"-0019-6112, 주소 【푸른빌라 2동 404호】로 접수되었습니다. 각 건 "
+F054-11,person,조경,atonlee|rules+atonlee,"금일 오전 【조경】님, 임위씨 두 분 방문하셨"
+F054-11,person,조경,atonlee|rules+atonlee,씨 두 분 방문하셨습니다. 【조경】님 주소는 강원도 평창군 진
+F054-12,person,Marta Lopez,atonlee|rules+atonlee,오후에 【Marta Lopez】는 외화 환전 문의하러 내점
+F054-12,person,Marta Lopez,atonlee|rules+atonlee, 문의하러 내점하셨습니다. 【Marta Lopez】의 처리 요청은 빠르게 대응
+F054-13,person,박민경,rules|rules+atonlee, 보고드립니다. 최은지이랑 【박민경】하고 이명호와 각각 송금 요
+F054-14,person,신정,atonlee|rules+atonlee,7가 확인되었습니다. 또한 【신정】은 전화 050-0011-2
+F055-01,person,유진,atonlee|rules+atonlee,오늘 오전에 【유진】께서 카드 재발급 건으로 방
+F055-03,person,박세진,atonlee|rules+atonlee,오늘 【박세진】의 카드 분실 신고 접수 후
+F055-08,account_number,37500976128359,rules|rules+atonlee,le.com입니다. 계좌는 【37500976128359】 확인 완료. 이지수는 계좌
+F055-08,person,이지수,atonlee|rules+atonlee,6128359 확인 완료. 【이지수】는 계좌 2708000174
+F055-08,account_number,27080001748120,rules|rules+atonlee,"확인 완료. 이지수는 계좌 【27080001748120】로 이체 진행했고, leej"
+F055-09,address,장미아파트 103동 1102호,atonlee|rules+atonlee,서류 등기 발송처는 【장미아파트 103동 1102호】입니다. 오후에 푸른숲빌라 
+F055-09,address,푸른숲빌라 201동 504호,atonlee|rules+atonlee, 1102호입니다. 오후에 【푸른숲빌라 201동 504호】로 등기 수령 요청 건도 추
+F055-10,person,윤지환,atonlee|rules+atonlee,【윤지환】의 계좌번호 123-04-1
+F055-11,person,한민지,atonlee|rules+atonlee,【한민지】의 주소 변경 요청 들어와서
+F055-14,person,정 민수,atonlee|rules+atonlee,【정 민수】의 요청으로 주소변경 신청서
+F055-14,person,이 수현,atonlee|rules+atonlee,3-0875로 안내 완료. 【이 수현】은 오후 2시에 오신다고 하
+F055-17,person,이 재호,atonlee|rules+atonlee,"【이 재호】인데요, jaeho.lee@"
+F055-17,person,김 은별,atonlee|rules+atonlee,"-809-612385이고, 【김 은별】이에요. 제 메일은 eunb"
+F055-18,person,유라,atonlee|rules+atonlee,【유라】의 전화번호 010.0249
+F055-18,person,이범,atonlee|rules+atonlee,483192 확인했습니다. 【이범】은 010.0739.0023
+F056-01,account_number,44290816530127,rules|rules+atonlee,09시 30분 경 신한은행 【44290816530127】 계좌에서 이체 업무 진행 
+F056-01,account_number,11509326742098,rules|rules+atonlee,. 2. 정혜수의 우리은행 【11509326742098】 계좌 신규개설 업무 처리 
+F056-01,person,백예지,atonlee|rules+atonlee,설 업무 처리 완료. 3. 【백예지】는 기업은행 30821099
+F056-01,account_number,30821099021174,rules|rules+atonlee,. 3. 백예지는 기업은행 【30821099021174】 계좌 해지 문의 있었으나 
+F056-03,address,해피아파트 102동 907호,atonlee|rules+atonlee,"1. 나 윤인데요, 주소는 【해피아파트 102동 907호】, 주민등록번호는 85030"
+F056-03,person,유 래,atonlee|rules+atonlee,", 신규 적금 개설. 2. 【유 래】입니다, 썬샤인빌라 201동"
+F056-03,address,썬샤인빌라 201동 702호,atonlee|rules+atonlee,"개설. 2. 유 래입니다, 【썬샤인빌라 201동 702호】, 주민등록번호는 94071"
+F056-03,person,장 우,atonlee|rules+atonlee,"보통예금 해지 요청. 3. 【장 우】이에요, 로즈아파트 305동"
+F056-03,address,로즈아파트 305동 1102호,atonlee|rules+atonlee,"요청. 3. 장 우이에요, 【로즈아파트 305동 1102호】, 주민등록번호는 79111"
+F056-05,person,손 린,atonlee|rules+atonlee,【손 린】의 신규 통장 개설 건 - 
+F056-05,address,다사동 876-19,atonlee|rules+atonlee,"080-5716 - 주소: 【다사동 876-19】 또한, 장 위는 실명확인서"
+F056-05,person,장 위,atonlee|rules+atonlee,"다사동 876-19 또한, 【장 위】는 실명확인서 제출 완료."
+F056-12,person,신예슬,rules|rules+atonlee,- 오늘 방문한 고객: 【신예슬】인데요   - 주소는 서울특
+F056-13,address,자양동 303-11,atonlee|rules+atonlee,방문 고객 주소(금일) - 【자양동 303-11】 : 주택담보대출 설명 진행
+F056-17,person,Emily Brown,atonlee|rules+atonlee," 고객 응대 현황]  1. 【Emily Brown】인데요, 주소는 부산광역시 "
+F056-18,address,파인힐빌라 202동 602호,atonlee|rules+atonlee,084-7761 - 주소: 【파인힐빌라 202동 602호】
+F056-19,person,Alex Kim,atonlee|rules+atonlee, 교체 요청자 현황  1. 【Alex Kim】이랑 4532-9124-00
+F056-19,person,하토리,rules|rules+atonlee,4-0098-5162 2. 【하토리】하고 2841-5698-33
+F056-19,person,Liam,atonlee|rules+atonlee,8-3339-5720 3. 【Liam】와 7640-1255-673
+F057-03,phone_number,01005504213,rules|rules+atonlee,"567   - 최수연에게: 【01005504213】, 960718-234567"
+F057-03,phone_number,01000045231,rules|rules+atonlee,"678   - 박민재께서: 【01000045231】, 950412-345678"
+F057-06,person,강이준,atonlee|rules+atonlee,"교육참석자1: 【강이준】의, 이메일 leejun@e"
+F057-06,account_number,100-56-019211-9,rules|rules+atonlee,"mple.net, 계좌번호 【100-56-019211-9】, 카드번호 50981234"
+F057-10,person,김 연주,atonlee|rules+atonlee,수강자1: 【김 연주】의 카드번호 5070-332
+F057-10,person,박 민수,atonlee|rules+atonlee,-75836   수강자2: 【박 민수】는 카드번호 4049-722
+F057-11,person,Emma Wilson,atonlee|rules+atonlee,교육참여자: 【Emma Wilson】 님   주소: 서울특별시 
+F057-13,account_number,331000239182,rules|rules+atonlee,55길 18   계좌번호: 【331000239182】   수료확인: 인사팀에 문
+F057-16,person,Michael Kim,atonlee|rules+atonlee,강사: 【Michael Kim】에게   이메일: mkim2
+F057-20,person,Maria Lee,atonlee|rules+atonlee,교육참석자: 【Maria Lee】께서   연락처: (02)0
+F058-03,person,박태성,atonlee|rules+atonlee,"강지원께, 【박태성】께서 수료하신 온라인 금융 "
+F058-03,person,박태성,atonlee|rules+atonlee,0701-1234567 - 【박태성】: parktaesung@e
+F058-04,person,Alex Kim,atonlee|rules+atonlee,【Alex Kim】의 ‘개인정보 보호법 실무’
+F058-05,person,심나,atonlee|rules+atonlee,수료 명단 안내 드립니다. 【심나】이랑 031-0020-457
+F058-05,address,햇살마을아파트 103동 401호,atonlee|rules+atonlee,"락처로 확인되었고, 주소는 【햇살마을아파트 103동 401호】로 등재되어 있습니다. 차후"
+F058-06,person,지윤,atonlee|rules+atonlee,"안녕하세요, 【지윤】은 이번 준법 교육을 성실히"
+F058-07,person,송우,atonlee|rules+atonlee,"【송우】에게, 준법경영 교육 이수 "
+F058-09,person,Sophia Zhang,atonlee|rules+atonlee,이수 확인 정보입니다. - 【Sophia Zhang】의 연락처: 010-0090
+F058-09,account_number,3012-008-231046,rules|rules+atonlee,"8721, 계좌: 신한은행 【3012-008-231046】 - Tommy Lee은 0"
+F058-09,person,Tommy Lee,atonlee|rules+atonlee,2-008-231046 - 【Tommy Lee】은 010-0020-1345
+F058-10,person,이 준상,atonlee|rules+atonlee,"【이 준상】께, 윤리경영 교육 수료 이"
+F058-10,account_number,11012548620192,rules|rules+atonlee, 수료 관련 환급금은 농협 【11012548620192】로 지급될 예정입니다. 필요
+F058-11,resident_registration_number,900501-9638214,atonlee|rules+atonlee,"수료명단입니다. 황보연이랑 【900501-9638214】 확인되었으며, 제갈호하고 "
+F058-11,person,제갈호,rules|rules+atonlee,"638214 확인되었으며, 【제갈호】하고 880915-17926"
+F058-12,person,Julia Moon,atonlee|rules+atonlee,【Julia Moon】의 교육 수료 안내입니다. 
+F058-12,person,Julia Moon,atonlee|rules+atonlee,4571 문의 사항 있으면 【Julia Moon】에게 연락해 주세요.
+F058-13,person,Daniel Kim,atonlee|rules+atonlee,"세요, 이번에 교육을 마친 【Daniel Kim】입니다. 제 연락처는 +82"
+F058-14,address,가락동 812-27,atonlee|rules+atonlee," 이수 내역입니다. 주소는 【가락동 812-27】로 확인되었으며, 수료증 발"
+F058-16,person,수현,atonlee|rules+atonlee,교육 이수 안내 드립니다. 【수현】입니다. 제 연락처는 010
+F058-16,person,민아,atonlee|rules+atonlee,"0-0083-2140이고, 【민아】인데요, 010-0077-5"
+F058-17,person,지현,atonlee|rules+atonlee, 교육 이수자 안내입니다. 【지현】의 연락처는 064-0045
+F058-19,person,Miguel Ortiz,atonlee|rules+atonlee,"안녕하세요, 【Miguel Ortiz】께서 교육을 이수하셨습니다."
+F058-20,person,박윤,atonlee|rules+atonlee,006572-12345 - 【박윤】은 010-0039-1047
+F059-02,person,Emily Park,atonlee|rules+atonlee,"【Emily Park】님, 안녕하세요? 이번에 신"
+F059-05,person,Tom Lee,atonlee|rules+atonlee,"【Tom Lee】씨, 교육 수료 축하드립니다"
+F059-06,person,장 수영,atonlee|rules+atonlee,【장 수영】께서 이번 사내 교육 수료하
+F059-07,person,이 세라,atonlee|rules+atonlee,이번 교육에서 【이 세라】는 우수 수료자로 선정되었습
+F059-10,person,최민영,atonlee|rules+atonlee,련해서 알림 전달드립니다. 【최민영】이 010-0005-8217
+F059-10,person,이소율,atonlee|rules+atonlee,".com으로 안내받으셨고, 【이소율】은 010-0032-1104"
+F059-10,person,박지후,atonlee|rules+atonlee,"ample.net, 그리고 【박지후】가 010-0004-9328"
+F059-13,person,최민,atonlee|rules+atonlee,이번 교육 수료 대상자는 【최민】의 주소지 예산군 삽교읍 우
+F059-18,person,Lucy Kim,atonlee|rules+atonlee,"【Lucy Kim】이에요, 교육 수료증은 송도"
+F059-18,address,송도더샵 그린스퀘어 105동 203호,atonlee|rules+atonlee,"im이에요, 교육 수료증은 【송도더샵 그린스퀘어 105동 203호】로 발송해 드렸습니다. 추가"
+F059-19,person,Sophie,atonlee|rules+atonlee,James Han하고 【Sophie】는 모두 교육 수료 처리되었
+F060-04,person,남궁 세라,atonlee|rules+atonlee, 보고  수료자 정보: - 【남궁 세라】는 이메일 보안 교육을 20
+F060-04,person,황보 지훈,atonlee|rules+atonlee,852-0631입니다. - 【황보 지훈】이 정보보호 특별교육을 완료
+F060-07,person,John Kim,atonlee|rules+atonlee, Report  - 수료자 【John Kim】님: 연락처 010.0902
+F060-09,address,한강푸르지오 101동 805호,atonlee|rules+atonlee,"단  - 김하윤님, 거주: 【한강푸르지오 101동 805호】 - 정호석씨, 주소: 센트"
+F060-09,address,센트럴파크빌 202동 1201호,atonlee|rules+atonlee,"5호 - 정호석씨, 주소: 【센트럴파크빌 202동 1201호】  문의사항은 연수팀(내선 "
+F060-11,person,최 의,atonlee|rules+atonlee,십 교육 수료자 명단  - 【최 의】의 연락처: 010-0075
+F060-11,person,신 준,atonlee|rules+atonlee,10-0075-0083 - 【신 준】은 전화: 010-0082-
+F060-11,person,박 오,atonlee|rules+atonlee,"010-0082-0055, 【박 오】이 전화번호: 010-005"
+F060-12,person,정 원,atonlee|rules+atonlee, 수료자 안내입니다.  - 【정 원】의 주소: 서울특별시 마포구
+F060-12,person,황 연,atonlee|rules+atonlee,마포구 월드컵북로 62 - 【황 연】은 경기도 용인시 수지구 성
+F060-12,person,윤 철,atonlee|rules+atonlee, 성복대로 123 거주 - 【윤 철】이 주소: 대전광역시 유성구
+F060-14,person,Olivia,atonlee|rules+atonlee,"보호 교육 수료 명단  - 【Olivia】님, 주소: 해피하임아파트 "
+F060-14,address,해피하임아파트 406동 908호,atonlee|rules+atonlee,"- Olivia님, 주소: 【해피하임아파트 406동 908호】, 주민등록번호 020409"
+F060-14,person,데이비드,atonlee|rules+atonlee,"204091380284 - 【데이비드】씨, 주소: 푸른마을빌라 8"
+F060-14,address,푸른마을빌라 8동 304호,atonlee|rules+atonlee,"4 - 데이비드씨, 주소: 【푸른마을빌라 8동 304호】, 주민등록번호 990802"
+F060-15,person,이소율,atonlee|rules+atonlee,10.0038.0752 - 【이소율】이에요. 전화 010.005
+F060-17,person,남궁 태하,atonlee|rules+atonlee,수료 증빙 제출 안내  - 【남궁 태하】께서 제출한 주소: 삼산동 
+F060-17,address,삼산동 234-56,atonlee|rules+atonlee,궁 태하께서 제출한 주소: 【삼산동 234-56】 - 제갈 영주에게 제출된 
+F060-17,person,제갈 영주,atonlee|rules+atonlee,: 삼산동 234-56 - 【제갈 영주】에게 제출된 주소: 장전리 
+F060-17,address,장전리 87-19,atonlee,갈 영주에게 제출된 주소: 【장전리 87-19】  관련 서류 추가 제출 시
+F060-18,person,태연,atonlee|rules+atonlee,교육 수료 내역 요약  - 【태연】의 연락처: 01009840
+F060-18,person,수빈,atonlee|rules+atonlee,-20-987432-7 - 【수빈】은 전화번호 01001100
+F060-19,person,임 수빈,atonlee|rules+atonlee,내드립니다.  - 수료자: 【임 수빈】의 - 확인자: 박 준형이 
+F060-19,person,박 준형,atonlee|rules+atonlee,: 임 수빈의 - 확인자: 【박 준형】이  문의사항 있으시면 연락
+F060-20,person,예린,atonlee|rules+atonlee, 정보보안교육 수료자  - 【예린】님: 주소 경기도 화성시 팔
+F061-01,person,홍 세훈,atonlee|rules+atonlee,지원센터   장애 확인자: 【홍 세훈】씨   확인자 이메일: se
+F061-04,account_number,010-0082-7004,rules|rules+atonlee,7-5751   계좌번호: 【010-0082-7004】   장애 유형: 모바일앱 
+F061-08,person,강,atonlee|rules+atonlee,접속자: 【강】의   연락처: 010 09
+F061-09,person,진수,atonlee|rules+atonlee,관리자: 【진수】의   장애 유형: 계정 잠
+F061-10,person,예진,atonlee|rules+atonlee,접속 장애자: 【예진】에게   연락처: 010-0
+F061-10,resident_registration_number,850901 0243712,atonlee|rules+atonlee,0257   주민등록번호: 【850901 0243712】   담당자: 보람께   연
+F061-10,person,보람,atonlee|rules+atonlee,0243712   담당자: 【보람】께   연락처: 010-00
+F061-12,person,오,rules|rules+atonlee,요청자: 【오】에게   이메일: oh@ex
+F061-13,person,시윤,atonlee|rules+atonlee,접속자: 【시윤】의   직통 전화: 050-
+F061-18,account_number,42005300829356,rules|rules+atonlee,: 김윤철의   가상계좌: 【42005300829356】   카드번호: 5382-0
+F061-18,account_number,38110275810128,rules|rules+atonlee,: 정하늘이   가상계좌: 【38110275810128】   카드번호: 4192-8
+F061-18,account_number,17402280031221,rules|rules+atonlee,: 이민재가   가상계좌: 【17402280031221】   카드번호: 5973-1
+F061-20,person,임 하늘,atonlee|rules+atonlee,담당자: 【임 하늘】의   장애 상세: 본인 인
+F062-03,person,John Kim,atonlee|rules+atonlee,"접속 지연이 발생했습니다. 【John Kim】님(서울), Maria Le"
+F062-03,person,Maria Lee,atonlee|rules+atonlee,"John Kim님(서울), 【Maria Lee】씨(부산)는 각각 서로 다른"
+F062-03,person,John Kim,atonlee|rules+atonlee, 경험했다고 보고했습니다. 【John Kim】님의 주소: 서울 종로구 자
+F062-03,person,Maria Lee,atonlee|rules+atonlee,서울 종로구 자하문로 12 【Maria Lee】씨 주소: 부산 해운대구 센
+F062-06,person,김 은진,atonlee|rules+atonlee,"생 관련하여 보고드립니다. 【김 은진】이에요, 유 진우인데요, 두"
+F062-06,person,유 진우,atonlee|rules+atonlee,"드립니다. 김 은진이에요, 【유 진우】인데요, 두 분 모두 서울 "
+F062-06,resident_registration_number,920504 0527191,atonlee|rules+atonlee,"70211 1230513, 【920504 0527191】 장애 시간 동안 두 분 접"
+F062-09,person,이 수진,atonlee|rules+atonlee," 장애 당시 접속 실패했던 【이 수진】님, 최 준호씨의 주민등록번"
+F063-03,person,최 은정,atonlee|rules+atonlee,"안녕하세요, 【최 은정】은 방금 접속 오류 문의 남"
+F064-01,person,Samuel Lee,atonlee|rules+atonlee,■ 장애 발생자: 【Samuel Lee】님   ■ 이메일: saml
+F064-02,address,한빛마을 2단지 104동 701호,atonlee|rules+atonlee,장애 접수 아파트: 【한빛마을 2단지 104동 701호】 장애 발생 시간: 2024
+F064-06,person,지호,atonlee|rules+atonlee,대상자 리스트     1. 【지호】의 연락처 010-0083-
+F064-06,account_number,39217834921824,rules|rules+atonlee,"724, 가상계좌 우리은행 【39217834921824】   2. 아린은 010-0"
+F064-06,person,아린,atonlee|rules+atonlee,834921824   2. 【아린】은 010-0056-9901
+F064-06,account_number,1124892038171,rules|rules+atonlee,"056-9901, 신한은행 【1124892038171】   3. 도윤이 사용 계좌"
+F064-06,person,도윤,atonlee|rules+atonlee,892038171   3. 【도윤】이 사용 계좌는 농협 291
+F064-06,account_number,29187344810992,rules|rules+atonlee," 도윤이 사용 계좌는 농협 【29187344810992】, 전화 010-0009-3"
+F064-07,address,방화동 314-9,atonlee|rules+atonlee," 장애 대상: 서지우의 집 【방화동 314-9】, 사용 카드: 9801-2"
+F064-09,person,김 민지,atonlee|rules+atonlee,- 사용자: 【김 민지】의 요청 - 연락처: 02-
+F064-09,person,이 준호,atonlee|rules+atonlee,30-4509 - 담당자: 【이 준호】은 031-0011-8236
+F064-11,person,Linda Park,atonlee|rules+atonlee,어제 【Linda Park】의 로그인이 여러 차례 실패
+F064-14,person,하진,atonlee|rules+atonlee,【하진】의 연락처 010-0082-
+F064-14,person,소윤,atonlee|rules+atonlee,910275 정상 확인   【소윤】이 사용 중인 카드 1192
+F064-14,person,은호,atonlee|rules+atonlee,"87도 같은 장애 발생   【은호】의 주소 경기 안양시, 전화"
+F064-16,person,송 아람,atonlee|rules+atonlee,【송 아람】이랑 농협 291-07-18
+F064-16,account_number,291-07-184005-3,rules|rules+atonlee,송 아람이랑 농협 【291-07-184005-3】   정 은채하고 신한은행 
+F064-16,account_number,102-01-278394-9,rules|rules+atonlee,   정 은채하고 신한은행 【102-01-278394-9】   해당 사용자들 전산 접
+F064-17,person,재윤,atonlee|rules+atonlee,"- 【재윤】에게 안내, 연락처 010-"
+F064-17,person,현우,atonlee|rules+atonlee,306181382017 - 【현우】께서 오전 8시 50분경 장
+F064-17,person,아린,atonlee|rules+atonlee,0062-4108 사용 - 【아린】께 10시 15분 복구 완료
+F064-18,person,Alex Kim,atonlee|rules+atonlee,【Alex Kim】의 연락처 010-0007-
+F064-18,person,손다니엘,atonlee|rules+atonlee,091427714 확인   【손다니엘】은 오전 9시 20분경 카드
+F064-18,person,Kate Lee,atonlee|rules+atonlee,001943 인증 오류   【Kate Lee】가 사용 카드번호 17124
+F065-05,person,박 은서,atonlee|rules+atonlee,-219846   동반자: 【박 은서】에요   동반자 연락처: 0
+F065-08,address,서포면 도암길 78,atonlee,030-9142   주소: 【서포면 도암길 78】   주민등록번호: 9601
+F065-08,address,도암읍 부용로 16,atonlee,741-0230   주소: 【도암읍 부용로 16】   주민등록번호: 9107
+F065-12,person,임 수연,atonlee|rules+atonlee,고객: 【임 수연】께서   연락처: 010-0
+F065-12,person,한 태윤,atonlee|rules+atonlee,012 3895   동행: 【한 태윤】에게   연락처: 010-0
+F065-14,person,홍 재원,atonlee|rules+atonlee,방문자: 【홍 재원】의   주민등록번호: 900
+F065-16,person,서아,atonlee|rules+atonlee, 209-17   동반자: 【서아】에게   전화번호: 010 
+F065-17,address,반포동 47-16,atonlee|rules+atonlee,mple.com   주소: 【반포동 47-16】   보조자: 마리아 곤살레
+F065-17,address,한남동 384-7,atonlee|rules+atonlee,mple.net   주소: 【한남동 384-7】   회의번호: B83920
+F065-18,person,김나영,rules|rules+atonlee,09-1835   동행자: 【김나영】하고   연락처: 010.0
+F065-19,account_number,101-12-583910,rules|rules+atonlee,서   계좌번호: 신한은행 【101-12-583910】   카드번호: 304688
+F065-19,person,하람,atonlee|rules+atonlee,2036   동반 방문자: 【하람】에게   계좌번호: KB국민
+F065-20,person,신수,atonlee|rules+atonlee,48123047   동행: 【신수】씨   연락처: 010-00
+F066-01,person,박현,atonlee|rules+atonlee,"되었습니다.  - 방문자: 【박현】께서, 연락처: 010-08"
+F066-01,person,최연,atonlee|rules+atonlee,"ple.com - 동반자: 【최연】께, 연락처: 010-091"
+F066-01,person,박현,atonlee|rules+atonlee,ple.net - 문의하신 【박현】의 사업자등록번호 123-4
+F066-03,person,John Smith,atonlee|rules+atonlee,"Dear 【John Smith】님,  귀하의 방문 예약이 "
+F066-03,account_number,42090214837482,rules|rules+atonlee,"보내드렸으며, 입금 계좌는 【42090214837482】입니다.  문의가 있으시면 "
+F066-04,person,서연,atonlee|rules+atonlee,하세요. 이번에 예약해주신 【서연】은 방문 확인이 완료되었습니
+F066-04,account_number,44352019972921,rules|rules+atonlee,"의대방로 82, 계좌번호는 【44352019972921】입니다. 추가 요청사항 있으"
+F066-06,person,최우,atonlee|rules+atonlee,"안녕하세요, 【최우】께서 예약하신 방문이 정상적"
+F066-07,person,가온,atonlee|rules+atonlee,"안녕하세요, 【가온】의 방문예약이 완료되었습니다"
+F066-09,account_number,20203094817311,rules|rules+atonlee,"mple.com, 계좌번호 【20203094817311】 박도현 연락처 010-08"
+F066-09,account_number,93177486102775,rules|rules+atonlee,"mple.net, 계좌번호 【93177486102775】  방문일에 뵙겠습니다."
+F066-10,account_number,38012957413827,rules|rules+atonlee,"le.co.kr, 계좌번호 【38012957413827】로 확인됩니다.  위 정보 "
+F066-12,account_number,39128741682013,rules|rules+atonlee,"21-8357, 계좌번호: 【39128741682013】입니다.  예약 변경시 미리"
+F066-13,person,수아,atonlee|rules+atonlee,00387764017 동행 【수아】의 외국인등록번호 95041
+F066-15,person,김우,atonlee|rules+atonlee,"안녕하세요, 【김우】의 방문 예약이 완료되었습니"
+F066-18,person,조,atonlee|rules+atonlee,【조】이랑 해와의 방문 예약이 정
+F066-18,person,해,atonlee|rules+atonlee,조이랑 【해】와의 방문 예약이 정상적으로
+F066-19,person,이 정훈,atonlee|rules+atonlee,【이 정훈】의 예약이 확인되었습니다. 
+F066-19,account_number,01009180339,rules|rules+atonlee,"인되었습니다.  계좌번호는 【01009180339】이고, 일정에 차질 없도록 "
+F066-20,person,한도연,atonlee|rules+atonlee,고객 【한도연】의 예약 내역 안내입니다. 
+F067-02,person,Jessica Lee,atonlee|rules+atonlee,"Hello, this is 【Jessica Lee】. 내일 방문 예약 시간은 "
+F067-02,person,Jessica Lee,atonlee|rules+atonlee, 변경 없는지 궁금합니다. 【Jessica Lee】의 스케줄이 조금 유동적이라
+F067-03,person,장 신,atonlee|rules+atonlee,"안녕하세요, 【장 신】님. 내일 서울특별시 영등포"
+F067-03,account_number,01087651234,rules|rules+atonlee,"2044896, 계좌번호는 【01087651234】로 등록되어 있구요. 혹시 "
+F067-06,account_number,01031649928,rules|rules+atonlee,"mple.com, 계좌번호 【01031649928】로 잡혀 있고, 정유민씨 이"
+F067-06,account_number,01080031245,rules|rules+atonlee,"ple.net, 계좌번호는 【01080031245】로 확인됩니다. 혹시 예약 "
+F067-10,person,오 현,atonlee|rules+atonlee,"안녕하세요, 【오 현】님. 방문 예약 일정 재확인"
+F067-11,person,Sophie Kim,atonlee|rules+atonlee,"Hi, 【Sophie Kim】가 내일 방문 예정인데, 혹"
+F067-12,person,수진,atonlee|rules+atonlee,【수진】에게 내일 방문 예약 안내드
+F067-12,account_number,01003100912,rules|rules+atonlee," 1152011, 계좌번호 【01003100912】로 등록되어 있어요. 혹시 "
+F067-12,account_number,01002981235,rules|rules+atonlee," 2047100, 계좌번호 【01002981235】 확인해 주세요."
+F067-15,person,윤 범,atonlee|rules+atonlee,【윤 범】이에요. 예약 건 확인차 연
+F067-16,person,조 훈,atonlee|rules+atonlee,【조 훈】이랑 이 태와 내일 방문 예
+F067-16,person,이 태,atonlee|rules+atonlee,조 훈이랑 【이 태】와 내일 방문 예약되어 있습
+F067-17,person,박 옥,atonlee|rules+atonlee,【박 옥】이랑 최 미하고 예약이 되어
+F067-17,person,최 미,atonlee|rules+atonlee,박 옥이랑 【최 미】하고 예약이 되어 있습니다.
+F067-20,account_number,62121904817283,rules|rules+atonlee,되어 있습니다. 계좌번호는 【62121904817283】로 등록 확인했습니다. 혹시
+F068-04,person,Sophia,atonlee|rules+atonlee,예약 고객: 【Sophia】의 예약 내역입니다.  - 
+F068-04,person,브라이언,atonlee|rules+atonlee,"092-6241 - 동행: 【브라이언】은 현장 결제 예정, 연락처"
+F068-07,person,김태진,atonlee|rules+atonlee,-----------| | 【김태진】의   | +82 10-00
+F068-07,person,박민서,atonlee|rules+atonlee,98921073   | | 【박민서】은   | +82-10-00
+F068-08,address,세곡자이아파트 108동 1202호,atonlee|rules+atonlee,"-0042-0730, 주소 【세곡자이아파트 108동 1202호】 2. 미나씨: 전화번호 0"
+F068-08,person,미나,atonlee|rules+atonlee, 108동 1202호 2. 【미나】씨: 전화번호 031-000
+F068-08,address,도곡래미안 205동 502호,atonlee|rules+atonlee,"-0004-0872, 주소 【도곡래미안 205동 502호】  모두 출입신청 완료됨."
+F068-09,person,Emma,atonlee|rules+atonlee, 방문 예정  - 연락처: 【Emma】 010-0097-0452 
+F068-09,address,래미안하이든빌라 202동 1004호,atonlee|rules+atonlee,097-0452 - 주소: 【래미안하이든빌라 202동 1004호】 - 동행 연락처: Davi
+F068-09,address,삼성래미안 301동 804호,atonlee|rules+atonlee,041-0200 - 주소: 【삼성래미안 301동 804호】  변경 발생시 담당자에게 
+F068-12,person,Liam,atonlee|rules+atonlee,"【Liam】씨, 아래와 같이 예약되었습"
+F068-16,person,Michael,atonlee|rules+atonlee,【Michael】에게 예약 안내드립니다.  
+F068-17,person,Olga,atonlee|rules+atonlee,예약내용 요약  이름: 【Olga】의   주소: 부산 해운대구
+F068-19,person,제갈수혁,rules|rules+atonlee,문 예약 정보  - 성명: 【제갈수혁】인데요 - 연락처: 010-
+F068-19,address,송파헬리오시티 113동 404호,atonlee|rules+atonlee,051-0849 - 주소: 【송파헬리오시티 113동 404호】 - 주민등록번호: 9906
+F069-13,account_number,01088129434,rules|rules+atonlee,na Chen님 계좌번호: 【01088129434】
+F070-05,person,Alice Kim,atonlee|rules+atonlee,"안녕하세요, 【Alice Kim】인데요. 계약자 이메일 주소"
+F070-06,person,이준혁,atonlee|rules+atonlee,"담당자님,   【이준혁】의 가족 보험 갱신 관련해서"
+F070-10,person,문,atonlee|rules+atonlee,【문】이랑 함께 가입한 실손보험의
+F070-11,account_number,471029348512,rules|rules+atonlee,드립니다.   변경 계좌는 【471029348512】입니다.   계좌등록 언제 
+F070-13,person,정 해인,atonlee|rules+atonlee,【정 해인】입니다.   가족배우자 특약
+F070-14,person,Maria Gomez,atonlee|rules+atonlee,보험 변경 요청건으로 【Maria Gomez】께서 연락드렸습니다.   전
+F070-19,person,John Lee,atonlee|rules+atonlee,관련 문의드립니다. 계약자 【John Lee】씨의 연락처는 010-008
+F070-19,resident_registration_number,9810265724306,rules|rules+atonlee,"204,   외국인등록번호 【9810265724306】로 변경 요청합니다. 확인 "
+F071-01,person,혜진,atonlee|rules+atonlee,"【혜진】씨 안녕하세요, 오늘 요청하"
+F071-04,person,성민,atonlee|rules+atonlee,【성민】께서 추가 계약자 등록 문의
+F071-04,person,성민,atonlee|rules+atonlee,1032-94817 신청자 【성민】에서 확인 부탁드려요.
+F071-05,person,최 수연,atonlee|rules+atonlee,"【최 수연】님, 해외에서 전화드렸습니다"
+F071-06,person,김가영,atonlee|rules+atonlee,【김가영】이에요. 계약 변경 가능 기
+F071-08,account_number,90234112035621,rules|rules+atonlee, 부탁드립니다. 가상계좌는 【90234112035621】로 안내해드렸어요.
+F071-10,person,독고진,atonlee|rules+atonlee,【독고진】의 계약자 명의 정확히 확인
+F071-10,person,독고진,atonlee|rules+atonlee,드립니다. 보험금 수령인도 【독고진】이 맞는 거죠?
+F071-11,resident_registration_number,8906231765412,rules|rules+atonlee,"940이며, 주민등록번호는 【8906231765412】로 확인됩니다. 등재된 정보"
+F071-18,person,Alexander Kim,atonlee|rules+atonlee,"Hi, 【Alexander Kim】인데요. 전화번호는 010 "
+F072-04,person,김 영훈,atonlee|rules+atonlee,약 변경 요청서  계약자: 【김 영훈】의 청년실손계약   변경 요
+F072-12,person,유,rules|rules+atonlee,경 내용 요약   계약자: 【유】의 종합보험   이메일: y
+F073-05,person,최 운,atonlee|rules+atonlee,수신: 【최 운】께서 서류 수령 연락: 01
+F073-07,account_number,010-1234-5461,rules|rules+atonlee,"호로 113길 31, 계좌 【010-1234-5461】 채무자: 이준호는 주소 0"
+F073-07,account_number,010-0032-5000,rules|rules+atonlee,"송파구 잠실로 40, 계좌 【010-0032-5000】 보관인: 최나영이 0189"
+F073-07,person,최나영,atonlee|rules+atonlee,0032-5000 보관인: 【최나영】이 01890 서울특별시 은
+F073-12,person,민아,atonlee|rules+atonlee,송달참조: 【민아】의 연락처 010-0025-
+F073-12,person,하늘,atonlee|rules+atonlee,3298-00210 동봉: 【하늘】은 연락처 010-0099-
+F073-14,person,박지후,rules|rules+atonlee,"신청인: 【박지후】인데요, 주소 해든숲아파트 "
+F073-14,address,해든숲아파트 105동 1404호,atonlee|rules+atonlee,"청인: 박지후인데요, 주소 【해든숲아파트 105동 1404호】, 주민번호 960420 6"
+F073-14,address,청솔빌라 2동 901호,atonlee|rules+atonlee,"참조: 서준영이에요, 주소 【청솔빌라 2동 901호】, 주민번호 970326 1"
+F073-17,person,수빈,atonlee|rules+atonlee, 0019 8342 참고: 【수빈】가 연락처 010 0088 
+F073-20,person,최하린,atonlee|rules+atonlee,송달인: 【최하린】의 주소 전남 곡성군 오곡면
+F074-02,person,이선호,rules|rules+atonlee,하세요. 이번 법원 공문은 【이선호】하고 한지윤 이랑 송달 대상
+F074-16,person,Maria Torres,atonlee|rules+atonlee,"안녕하세요. 【Maria Torres】인데요, maria.torr"
+F075-01,resident_registration_number,9211022233110,rules|rules+atonlee,"0 쓰시고, 주민등록번호는 【9211022233110】로 확인됩니다.   이 두 "
+F075-03,account_number,11787203653215,rules|rules+atonlee,.   계좌번호는 우리은행 【11787203653215】입니다.   수취인 박지영은
+F075-03,account_number,48310298471299,rules|rules+atonlee,"8090, 계좌는 하나은행 【48310298471299】로 확인됨.   관련 내용 "
+F075-05,person,박다은,rules|rules+atonlee,정리 건입니다. 최윤서이랑 【박다은】하고 전해원와 관련된 내용 
+F075-10,person,김 수영,atonlee|rules+atonlee,자료 오늘 발송합니다.   【김 수영】에게 송달 주소는 두산위브아
+F075-10,address,두산위브아파트 104동 502호,atonlee|rules+atonlee," 김 수영에게 송달 주소는 【두산위브아파트 104동 502호】, 주민등록번호 900120"
+F075-10,person,최 윤정,atonlee|rules+atonlee,com로 입력했습니다.   【최 윤정】께도 삼보빌라 201동 80
+F075-10,address,삼보빌라 201동 803호,atonlee|rules+atonlee,"했습니다.   최 윤정께도 【삼보빌라 201동 803호】, 연락처 010005003"
+F076-01,person,김 수진,atonlee|rules+atonlee,요청드립니다.  - 성명: 【김 수진】은 - 이메일: su-jin
+F076-01,person,김 수진,atonlee|rules+atonlee,5 7832 2190  위 【김 수진】은 6월 20일 1차 송달이
+F076-09,person,김현아,atonlee|rules+atonlee,-----------| | 【김현아】이랑 | 010-0211-0
+F076-10,account_number,150289168172,rules|rules+atonlee,    - 계좌: 국민은행 【150289168172】  2. 신규호씨      
+F076-10,account_number,154993071215,rules|rules+atonlee,    - 계좌: 신한은행 【154993071215】
+F076-13,person,오,atonlee|rules+atonlee,확인 대상: 【오】의 주소는 정자동 216-1
+F076-13,address,정자동 216-10,atonlee|rules+atonlee,확인 대상: 오의 주소는 【정자동 216-10】로 기재되어 있습니다. 오로
+F076-14,address,중동 198-23,atonlee|rules+atonlee,송달 예정 주소: 【중동 198-23】  해당 주소인 ‘중동전자’
+F076-16,person,임,rules|rules+atonlee,자 송달 정보  - 성명: 【임】씨 - 연락처: +82 10
+F076-19,address,연희자이아파트 104동 1103호,atonlee|rules+atonlee,311-8209 - 주소: 【연희자이아파트 104동 1103호】  수령 확인 완료.
+F076-20,person,수경,atonlee|rules+atonlee, 서강로 123   | | 【수경】씨  | +82 10-008
+F077-01,person,Sophie Müller,atonlee|rules+atonlee,-5159246 피상속인: 【Sophie Müller】 피상속인 전화번호: 010
+F077-01,resident_registration_number,721013-7250184,rules|rules+atonlee, 피상속인 외국인등록번호: 【721013-7250184】 관계: 배우자 해지 계좌번
+F077-03,person,수빈,atonlee|rules+atonlee,담당자: 다희께 피상속인: 【수빈】에게 피상속인 안심번호: 0
+F077-03,person,예린,atonlee|rules+atonlee,0020 1122 상속인: 【예린】께서 요청 상속인 주민등록번
+F077-06,address,해운대자이아파트 101동 202호,atonlee|rules+atonlee,객명: 강지현께서 거주지: 【해운대자이아파트 101동 202호】 계좌번호(국민): 7810
+F077-06,account_number,7810651402871,rules|rules+atonlee,202호 계좌번호(국민): 【7810651402871】
+F077-07,person,Emily Park,atonlee|rules+atonlee,상속인: 【Emily Park】입니다 연락처: 010-00
+F077-09,account_number,3014261060824,rules|rules+atonlee,03동 305호 은행계좌: 【3014261060824】
+F077-10,person,Alex Kim,atonlee|rules+atonlee,해지 대상자: 【Alex Kim】씨 신청인 연락처: 010 
+F077-12,person,임 정훈,atonlee|rules+atonlee,상속인: 【임 정훈】의 전화번호: 0100240
+F077-12,account_number,214-04-701245-8,rules|rules+atonlee,-4 계좌번호(우리은행): 【214-04-701245-8】
+F077-16,person,유선아,atonlee|rules+atonlee,072194374 상속인: 【유선아】이 상속인 주민등록번호: 8
+F077-18,person,수아,atonlee|rules+atonlee,"안녕하세요, 해지 희망자 【수아】의 요청입니다. 연락처는 0"
+F077-18,person,은채,atonlee|rules+atonlee,7-271486 피상속인: 【은채】의 피상속인 계좌: 105-
+F077-20,person,박유진,rules|rules+atonlee,신청자: 이동은이랑 【박유진】하고 이메일: dong.eu
+F078-01,person,James Kim,atonlee|rules+atonlee,"세요. 문의드립니다. 저는 【James Kim】인데요, 최근에 가족 중 한"
+F078-02,person,김 민정,atonlee|rules+atonlee,신: 고객센터 담당자께 고 【김 민정】께서 사용하던 계좌의 해지를
+F078-03,account_number,24200301584920,rules|rules+atonlee,청합니다. 해당 계좌번호는 【24200301584920】입니다. 필요 서류 안내 부
+F078-05,person,최 은미,atonlee|rules+atonlee,"안녕하세요, 【최 은미】의 계좌 해지 관련 문의드립"
+F078-07,person,Alexander Park,atonlee|rules+atonlee,고 【Alexander Park】이랑 계좌 해지 건으로 문의
+F078-09,person,Sarah Han,atonlee|rules+atonlee,【Sarah Han】님 계좌 해지 건으로 문의드
+F078-11,person,지현,atonlee|rules+atonlee,안녕하세요. 【지현】의 계좌 해지로 연락드립니다
+F078-13,person,영준,atonlee|rules+atonlee,【영준】씨와 수진님 두 분의 카드 
+F078-13,person,수진,atonlee|rules+atonlee,영준씨와 【수진】님 두 분의 카드 해지도 함
+F078-13,address,성산읍 내포리 17-3,atonlee," 함께 요청합니다. 주소는 【성산읍 내포리 17-3】이고, 카드번호는 5830-"
+F078-14,address,한라타운 203동 403호,atonlee|rules+atonlee,1000910483 주소: 【한라타운 203동 403호】 이메일: seunghyun
+F078-14,address,백상아파트 104동 1001호,atonlee|rules+atonlee,1009102392 주소: 【백상아파트 104동 1001호】 이메일: hajinlee@
+F078-17,address,노블파크 302동 1809호,atonlee|rules+atonlee,확인 요청드립니다. 주소는 【노블파크 302동 1809호】입니다. 수고하세요.
+F078-19,person,정 선아,atonlee|rules+atonlee,"안녕하세요, 【정 선아】인데요. 부모님 계좌 해지 "
+F078-19,account_number,48374500192031,rules|rules+atonlee,"40953이고, 계좌번호는 【48374500192031】입니다. 서류 안내 및 절차"
+F078-20,person,지연,atonlee|rules+atonlee,안녕하세요 【지연】은 계좌 해지 관련 문의드립
+F078-20,address,은성아파트 201동 1603호,atonlee|rules+atonlee,"00.4207이고, 주소는 【은성아파트 201동 1603호】입니다. 절차 안내 부탁드려"
+F079-02,person,지유,atonlee|rules+atonlee,"안녕하세요, 【지유】에게서 유선으로 해지 문의가"
+F079-02,account_number,012-34-000712,rules|rules+atonlee,해지 희망 계좌는 우리은행 【012-34-000712】 맞으시죠? 추가서류 안내 
+F079-03,address,성내동 181-4,atonlee|rules+atonlee,", 하늘입니다.   주소는 【성내동 181-4】로 등기 서류 발송 부탁드려"
+F079-05,resident_registration_number,850716-8043951,rules|rules+atonlee, 가능합니다. 해당 정보는 【850716-8043951】로 기록됩니다.
+F079-06,card_number,802263-00-953228,rules|rules+atonlee,"1092,   카드 번호는 【802263-00-953228】이고,   주소는 서울 강남"
+F079-06,person,다영,atonlee|rules+atonlee," 강남구,   동일 건으로 【다영】씨도 처리 요청하셨으니, 추"
+F079-08,person,Elena Kim,atonlee|rules+atonlee,"【Elena Kim】인데요,   확인차 메일 e"
+F079-08,address,가평읍 대곡리 219-7,atonlee|rules+atonlee,신이 없습니다.   주소는 【가평읍 대곡리 219-7】로 안내드렸습니다.   추가
+F079-10,person,유 진서,atonlee|rules+atonlee,【유 진서】는 해지 신청서에 작성하신 
+F079-11,person,박지민,atonlee|rules+atonlee,지금 【박지민】의 해지 진행 중입니다. 필
+F079-12,person,오,atonlee|rules+atonlee,【오】의 사망 신고서 접수 확인했
+F079-14,person,John Lee,atonlee|rules+atonlee,【John Lee】의 요청 내용입니다. 연락처
+F079-14,person,Anna Choi,atonlee|rules+atonlee,"1-0853 맞으시고,   【Anna Choi】는 010-0020-4731"
+F079-15,person,남궁 민,atonlee|rules+atonlee,【남궁 민】께서 남기신 계좌 해지 요청
+F079-17,person,유리,atonlee|rules+atonlee,【유리】의 카드 해지 요청 확인하였
+F079-17,person,지민,atonlee|rules+atonlee,는 오늘 처리 예정입니다. 【지민】의 주소 경기도 수원시 장안
+F079-19,person,현수,atonlee|rules+atonlee,【현수】에게 계좌 해지 안내 메일 
+F079-19,address,대야면 결운리 218-6,atonlee|rules+atonlee,"m 보내드렸습니다. 주소는 【대야면 결운리 218-6】로 기재하셨고, 카드번호 2"
+F079-19,person,서영,atonlee|rules+atonlee,801도 확인 완료입니다. 【서영】께서도 같은 건으로 syeo
+F079-19,address,산내면 고천리 22-3,atonlee,"r 문의 주셨습니다. 주소 【산내면 고천리 22-3】, 카드 7038-2210-"
+F079-20,address,가좌동 18-44,atonlee|rules+atonlee,"이하늘님,   주소는 【가좌동 18-44】로 확인되었고,   주민번호"
+F080-01,person,박 준호,atonlee|rules+atonlee,번호 080-01)  1. 【박 준호】께서 남기신 계좌 정보   
+F080-01,person,최 희선,atonlee|rules+atonlee,314-001004  2. 【최 희선】에게 전달받은 자녀 계좌 해
+F080-01,person,김 해진,atonlee|rules+atonlee,002315  3. 상속인 【김 해진】께 확인      - 주소:
+F080-01,account_number,3211-309-002098,rules|rules+atonlee,  - 계좌번호: 신한은행 【3211-309-002098】  담당자: 박 대리   *
+F080-03,person,정 수,atonlee|rules+atonlee, 및 개인정보 정리  1) 【정 수】께서 남기신 연락      
+F080-03,person,윤 현,atonlee|rules+atonlee,08-1549072  2) 【윤 현】에게 관련 안내    - 전
+F080-07,person,하 진,atonlee|rules+atonlee,【하 진】씨의 유가족 요청으로 해지 
+F080-11,account_number,58620511834492,rules|rules+atonlee,      - 계좌: 하나 【58620511834492】    - 카드: 81237
+F080-11,account_number,00793140099973,rules|rules+atonlee,      - 계좌: 국민 【00793140099973】    - 카드: 65321
+F080-11,account_number,39951120088019,rules|rules+atonlee,      - 계좌: 농협 【39951120088019】  이상입니다.
+F080-12,person,지현,atonlee|rules+atonlee,드 및 전화번호 내역  - 【지현】의 요청   - 전화: 01
+F080-12,person,미정,atonlee|rules+atonlee,0-3147-2559  - 【미정】은   - 전화: 010-0
+F080-12,person,종열,atonlee|rules+atonlee,0-3091-4280  - 【종열】이   - 카드: 4907-
+F080-14,person,정다영,atonlee|rules+atonlee,022-040937  2) 【정다영】이     - 주민등록번호:
+F080-18,person,John Lee,atonlee|rules+atonlee,망자 계좌 해지 내역  - 【John Lee】의 해지   - 연락처: 0
+F080-18,person,안나 마르티네즈,atonlee|rules+atonlee,-181-002017  - 【안나 마르티네즈】가   - 연락처: 010-
+F080-19,person,Maria Chen,atonlee|rules+atonlee,사망자 주소·연락처   - 【Maria Chen】이랑: 031-0032-43
+F081-01,person,수진,atonlee|rules+atonlee,참석자1: 【수진】님 참석자2: 철호씨 담당자
+F081-01,person,철호,atonlee|rules+atonlee,석자1: 수진님 참석자2: 【철호】씨 담당자 연락처: 010-
+F081-02,person,수미,atonlee|rules+atonlee,참여확정자: 【수미】님 이메일: soomi82@
+F081-05,person,Lisa,atonlee|rules+atonlee,참석자: 【Lisa】와 이메일: lisakim@
+F081-09,person,최 은정,atonlee|rules+atonlee,확인자: 【최 은정】은 참석 예정 신청자: 박 
+F081-09,person,박 지민,atonlee|rules+atonlee,은정은 참석 예정 신청자: 【박 지민】이 담당
+F081-10,address,파크빌 102동 801호,atonlee|rules+atonlee,xample.com 주소: 【파크빌 102동 801호】 참석자2: 김 동환씨 이메
+F081-10,person,김 동환,atonlee|rules+atonlee,02동 801호 참석자2: 【김 동환】씨 이메일: kwangdh@
+F081-10,address,세종리움 203동 1642호,atonlee|rules+atonlee,xample.net 주소: 【세종리움 203동 1642호】 참석자3: 박 나리님 이메
+F081-10,address,창대아파트 1동 1507호,atonlee|rules+atonlee,mple.co.kr 주소: 【창대아파트 1동 1507호】 문의: 회식 당일 로비에서
+F081-11,person,권 수현,atonlee|rules+atonlee,5-2018019 보조자: 【권 수현】님 주민등록번호: 87051
+F081-12,person,박세진,rules|rules+atonlee,신청자: 【박세진】하고 연락처: 010 001
+F081-13,person,황보유정,rules|rules+atonlee,참여자: 【황보유정】하고 전화번호: 02-670
+F081-13,person,남궁재민,atonlee|rules+atonlee,1-129405-7 동료: 【남궁재민】와 전화번호: 031-902
+F081-14,account_number,80901947231409,rules|rules+atonlee,51678214 계좌번호: 【80901947231409】 동행: 최하늘의 이메일: 
+F081-14,account_number,20190003120293,rules|rules+atonlee,63057211 계좌번호: 【20190003120293】
+F081-19,person,수빈,atonlee|rules+atonlee,-0934-8207 동행: 【수빈】님 연락처: 010-0079
+F082-02,address,서초 아크로리버파크 101동 906호,atonlee|rules+atonlee,로 회신 바랍니다. 장소는 【서초 아크로리버파크 101동 906호】입니다. 감사합니다.
+F082-03,account_number,031-207-217858,rules|rules+atonlee,ple.com / 우리은행 【031-207-217858】 문의는 각 담당자에게 개별
+F082-05,person,김 수진,atonlee|rules+atonlee,인원 파악차 연락드립니다. 【김 수진】이랑 이 해인와 함께 010
+F082-05,person,이 해인,atonlee|rules+atonlee,연락드립니다. 김 수진이랑 【이 해인】와 함께 010-0008-6
+F082-06,person,최윤,atonlee|rules+atonlee,【최윤】은 금요일 회식 참석 명단에
+F082-08,person,최주현,atonlee|rules+atonlee,"【최주현】께, 당일 불참 시 서울 마"
+F082-08,address,서울 마포구,atonlee,"최주현께, 당일 불참 시 【서울 마포구】 780514-1182935"
+F082-10,account_number,085011262461,rules|rules+atonlee,"0.1340, 계좌는 농협 【085011262461】입니다. 문의는 실무자에게 "
+F082-11,person,김우,atonlee|rules+atonlee,【김우】의 회식 참석 여부 확인 부
+F082-11,address,잠실 아이파크 203동 1002호,atonlee|rules+atonlee,"ample.net, 주소는 【잠실 아이파크 203동 1002호】로 안내드립니다. 회신 부탁"
+F082-13,resident_registration_number,9024711038281,atonlee|rules+atonlee,식 참석 명단 확인을 위해 【9024711038281】로 본인 확인 부탁드립니다.
+F082-15,account_number,241233579977,rules|rules+atonlee, 41 / 계좌: 신한은행 【241233579977】 2. 제갈도윤씨 / jgd
+F082-15,account_number,002547198421,rules|rules+atonlee, 57 / 계좌: 우리은행 【002547198421】 참석 확인 바랍니다.
+F082-18,person,최 은서,atonlee|rules+atonlee,"이번 회식 관련, 【최 은서】는 참석 가능하신지 여쭤봅니"
+F082-20,person,최연,atonlee|rules+atonlee,【최연】의 참석 여부 확인을 위해 
+F083-07,person,김 우성,atonlee|rules+atonlee,【김 우성】의 송별회 장소 확정되었어요
+F083-07,address,신림동 에코빌 202동 1501호,atonlee|rules+atonlee,소 확정되었어요.  장소는 【신림동 에코빌 202동 1501호】입니다. 김 우성은 6시에 
+F083-07,person,김 우성,atonlee|rules+atonlee,202동 1501호입니다. 【김 우성】은 6시에 도착 예정이니 참
+F083-11,account_number,01001100074,rules|rules+atonlee,"좌 전달: 지호님 우리은행 【01001100074】, 은재씨 국민은행 0100"
+F083-11,account_number,01009307412,rules|rules+atonlee,"0074, 은재씨 국민은행 【01009307412】 확인해주세요. 혹시 내선번"
+F083-16,person,Emma Lee,atonlee|rules+atonlee,"【Emma Lee】님, 야외 워크숍 모임 장소"
+F083-16,person,Emma Lee,atonlee|rules+atonlee,중동 1017-15입니다. 【Emma Lee】씨 포함 모두 6명 참석 예
+F084-02,person,남궁하람,atonlee|rules+atonlee,-----------| | 【남궁하람】은              
+F084-02,person,제갈민지,atonlee|rules+atonlee,xample.com | | 【제갈민지】가              
+F084-04,person,Michael Kim,atonlee|rules+atonlee, 직원 2. 대표 연락처: 【Michael Kim】의 mkim@example.
+F084-04,person,첸리화,atonlee|rules+atonlee,.co.kr 3. 부서장: 【첸리화】은 프로그램 총괄 담당입니다
+F084-08,address,대림아파트 101동 901호,atonlee|rules+atonlee,@example.com | 【대림아파트 101동 901호】 | | 선우영란의     
+F084-08,person,선우영란,atonlee|rules+atonlee, 101동 901호 | | 【선우영란】의      | 010 00
+F084-08,address,푸른샘빌라 3동 202호,atonlee|rules+atonlee,@example.net | 【푸른샘빌라 3동 202호】  | | 독고아람이    
+F084-08,person,독고아람,atonlee|rules+atonlee,라 3동 202호  | | 【독고아람】이      | 010 00
+F084-08,address,센트럴파크 503동 2501호,atonlee|rules+atonlee,ple.co.kr    | 【센트럴파크 503동 2501호】 |  문의: 인사팀(내선 
+F084-09,person,김수현,rules|rules+atonlee,확인 사항  - 박서진이랑 【김수현】하고 이유림와 - 연락처: 
+F084-09,email,soohyun.kim@example.com,rules|rules+atonlee,ample.net    - 【soohyun.kim@example.com】    - yurimlee@
+F084-09,address,햇살아파트 205동 1702호,atonlee|rules+atonlee,.kr - 주소:    - 【햇살아파트 205동 1702호】    - 한빛빌라 2동 1
+F084-09,address,한빛빌라 2동 1103호,atonlee|rules+atonlee,05동 1702호    - 【한빛빌라 2동 1103호】    - 푸른숲아파트 10
+F084-09,address,푸른숲아파트 101동 305호,atonlee|rules+atonlee, 2동 1103호    - 【푸른숲아파트 101동 305호】 - 외국인등록번호:    
+F084-09,resident_registration_number,531221-5054761,rules|rules+atonlee, 외국인등록번호:    - 【531221-5054761】    - 630110-80
+F084-09,resident_registration_number,630110-8073714,rules|rules+atonlee,1-5054761    - 【630110-8073714】    - 720215-80
+F084-09,resident_registration_number,720215-8043595,rules|rules+atonlee,0-8073714    - 【720215-8043595】  회신은 7월 1일까지 부
+F084-15,person,Emily Park,atonlee|rules+atonlee,송별회 안내  - 진행자: 【Emily Park】입니다 - 참석자: 이반이에
+F084-15,person,이반,atonlee|rules+atonlee,Park입니다 - 참석자: 【이반】이에요  행사 일시: 202
+F084-17,person,재현,atonlee|rules+atonlee, 사회자 안내  - 진행: 【재현】님 - 보조: 신우씨  행사
+F084-18,account_number,90000720059011,rules|rules+atonlee,  - 입금계좌: 우리은행 【90000720059011】 - 입금 마감: 7월 14
+F085-05,person,홍 수진,atonlee|rules+atonlee,신청자: 【홍 수진】씨 연락처: 010 0450
+F085-10,person,오길,atonlee|rules+atonlee,"ample.com 보증인: 【오길】님, 연락처 010-0007"
+F085-11,person,상민,atonlee|rules+atonlee,접수자: 【상민】이랑 전화번호: 070-01
+F085-13,account_number,3952090745251,rules|rules+atonlee,"이주현님, 계좌: 【3952090745251】, 카드: 4857 2037"
+F085-13,account_number,1179640283905,rules|rules+atonlee,"5912 김세라씨, 계좌: 【1179640283905】, 카드: 6251 7305"
+F085-18,person,정 호진,atonlee|rules+atonlee,신청자: 【정 호진】님 주소: 경기도 가평군 청
+F086-01,account_number,10698462471295,rules|rules+atonlee,배방로 98 - 계좌번호: 【10698462471295】 - 카드번호: 3149 8
+F086-09,address,푸르지오 그랑블 508동 1103호,atonlee|rules+atonlee,"e.co.kr이며, 주소는 【푸르지오 그랑블 508동 1103호】로 정상 등록 완료되었습니다"
+F087-02,person,Alexander Kim,atonlee|rules+atonlee,"Hello, 【Alexander Kim】은 계좌 개설 관련 문의하셨"
+F087-03,person,Sofia Park,atonlee|rules+atonlee,"안녕하세요, 【Sofia Park】인데요. 등록하신 계좌번호는"
+F087-04,person,다니엘,atonlee|rules+atonlee,"【다니엘】님, 신분증 확인 차 연락드"
+F087-05,person,오 린,atonlee|rules+atonlee,【오 린】께 계좌 개설 안내드립니다.
+F087-07,person,Jinwoo Smith,atonlee|rules+atonlee,Hi. 【Jinwoo Smith】인데요. 계좌 개설 진행중입
+F087-10,person,차 민,atonlee|rules+atonlee,【차 민】이랑 계좌 개설 진행하려고 
+F087-12,person,Maria Gomez,atonlee|rules+atonlee,【Maria Gomez】씨 계좌 개설 준비 완료되었
+F087-12,person,Maria Gomez,atonlee|rules+atonlee,른 문의가 있으시면 언제든 【Maria Gomez】님께 연락드릴 수 있습니다.
+F087-13,person,최 준,atonlee|rules+atonlee,등록되어 있습니다. 그리고 【최 준】의 주소는 경기 성남시 분당
+F087-15,person,차 동,atonlee|rules+atonlee,【차 동】씨의 주소는 부산 동구 초량
+F087-15,person,손 혁,atonlee|rules+atonlee,로 되어 있습니다. 그리고 【손 혁】님은 서울 강동구 천호대로 
+F087-17,person,Liu Fang,atonlee|rules+atonlee,"【Liu Fang】 인데요, 연락처는 010-"
+F088-02,person,Mario Kim,atonlee|rules+atonlee,하세요. 신규 외국인 고객 【Mario Kim】입니다.  - 카드 신청 내
+F088-03,account_number,39874382611295,rules|rules+atonlee,: 정 호씨 - 계좌번호: 【39874382611295】 - 연락처: 010.003
+F088-04,resident_registration_number,0206047218045,rules|rules+atonlee,com - 외국인등록번호: 【0206047218045】  확인 부탁드립니다.
+F088-05,address,광진구 중곡동 한별아파트 203동 1102호,atonlee|rules+atonlee,파트 정보    - 주소: 【광진구 중곡동 한별아파트 203동 1102호】  빠른 시일 내에 처리 예
+F088-08,person,이수빈,atonlee|rules+atonlee,-----------| | 【이수빈】에게    | +82 10-
+F088-16,person,이 선미,atonlee|rules+atonlee,"안녕하세요, 【이 선미】인데요. 주소는 영등포구 대"
+F088-17,person,유지호,atonlee|rules+atonlee,20-1933    | | 【유지호】가      | 부산광역시 
+F088-19,person,수아,atonlee|rules+atonlee,- 신규 고객 【수아】께서 요청 주셨습니다.   
+F088-19,person,하린,atonlee|rules+atonlee, 0910 - 추가 문의는 【하린】에게 연락 바랍니다.   연
+F088-20,email,cindylau@example.co.kr,rules|rules+atonlee,@example.com - 【cindylau@example.co.kr】  확인 부탁드립니다.
+F089-01,person,김 수연,atonlee|rules+atonlee,신고인: 【김 수연】이랑 동행 이메일: sooy
+F089-03,person,최 민경,atonlee|rules+atonlee,신고자: 【최 민경】의 카드 도용 의심 카드번호
+F089-04,person,장 윤하,atonlee|rules+atonlee,신고자명: 【장 윤하】는 안전한 연락 바랍니다 신
+F089-04,person,김 지성,atonlee|rules+atonlee,0023-0781 참고인: 【김 지성】의 전화번호 010-0076
+F089-08,account_number,01090405562,rules|rules+atonlee,고인: 서지훈씨 계좌번호: 【01090405562】 카드번호: 5123 408
+F089-15,person,오 성,atonlee|rules+atonlee,115220715 신고인: 【오 성】에게 연락처: 0100063
+F089-16,resident_registration_number,9908043462891,rules|rules+atonlee, 의심 신고 주민등록번호: 【9908043462891】
+F090-01,address,대전 리더스빌 203동 1202호,atonlee|rules+atonlee,안내를 받았습니다. 그런데 【대전 리더스빌 203동 1202호】 주소로 발송된 우편물 수취
+F090-02,person,황보 태희,atonlee|rules+atonlee, 담당자에게 문의드립니다. 【황보 태희】께서 최근 메시지로 본인의 
+F090-04,person,Gabriel Smith,atonlee|rules+atonlee,융사고 신고드립니다. 저는 【Gabriel Smith】씨입니다. 최근 gabrie
+F090-05,person,독고 은진,atonlee|rules+atonlee,"담당자께, 【독고 은진】께서 본인 명의로 등록된 휴"
+F090-05,account_number,10284793477012,rules|rules+atonlee,"을 받으셨으나, 본인 계좌(【10284793477012】)에서 확인되지 않는 거래가"
+F090-09,person,Maria Lopez,atonlee|rules+atonlee,"담당자님께, 【Maria Lopez】의 +82-10-0049-2"
+F090-09,account_number,48291026384290,rules|rules+atonlee,-2390 번호와 계좌번호 【48291026384290】로 진행된 거래들이 전혀 본
+F090-14,person,이하연,atonlee|rules+atonlee,안녕하세요.  【이하연】께서 최근 010.0800.
+F091-08,person,Olga Petrova,atonlee|rules+atonlee,"Hello, 이쪽은 【Olga Petrova】인데요. 저는 서울 강남구 "
+F091-12,account_number,3421-381-007431,rules|rules+atonlee,에요. 최근 KEB하나은행 【3421-381-007431】 계좌가 저도 모르는 사이에
+F091-17,person,김현,atonlee|rules+atonlee,여기는 【김현】의 계좌 도용 의심 신고입니
+F091-17,person,박민,atonlee|rules+atonlee,"개설된 것 같고, 동일하게 【박민】의 120-23-238449"
+F092-01,person,이성훈,atonlee|rules+atonlee,-----------| | 【이성훈】께서      | 서울 강동
+F092-02,resident_registration_number,820307-7134260,rules|rules+atonlee,"0-9582, 주민등록번호 【820307-7134260】    • (사건번호 202"
+F092-03,account_number,02376600398572,rules|rules+atonlee, 발생 의심 - 계좌번호: 【02376600398572】 - 입금 내역과 실제 계좌
+F092-07,person,정수빈,atonlee|rules+atonlee,-0090-2235 | | 【정수빈】에게   | 010-0019
+F092-08,person,오 정현,atonlee|rules+atonlee,신고 접수자: 【오 정현】이랑 이 재욱하고 모두 명의
+F092-09,person,윤아,atonlee|rules+atonlee,【윤아】께서 아래 이메일로 명의 도
+F092-09,person,은별,atonlee|rules+atonlee,ple.co.kr  추가로 【은별】에게도 같은 주소를 이용한 
+F092-10,phone_number,070-0008-7632,rules|rules+atonlee,- 박수환이 사용한 번호: 【070-0008-7632】 - 이하린와 연결된 번호:
+F092-10,phone_number,070-0001-2537,rules|rules+atonlee,- 이하린와 연결된 번호: 【070-0001-2537】  이 두 번호 모두 타인 
+F092-11,person,지연,atonlee|rules+atonlee,신고 현황  • 【지연】의 계좌정보 유출 가능성  
+F092-11,person,보영,atonlee|rules+atonlee,009830-24196 • 【보영】은 최근 832-008281
+F092-13,person,박하영,atonlee|rules+atonlee,출 신청이 확인됨. 추가로 【박하영】이에요. 제 번호는 051-
+F092-14,account_number,00238400281723,rules|rules+atonlee,- 정미연의 계좌번호 【00238400281723】에서 명의 도용 시도 확인 
+F092-17,address,옥수동 93-7,atonlee|rules+atonlee,"은 김 민호입니다. 주소는 【옥수동 93-7】인데요, 저와 무관한 계좌 "
+F092-17,person,윤 상진,atonlee|rules+atonlee,좌 이동이 있습니다. 2. 【윤 상진】이에요. 합정동 112-25
+F092-17,address,합정동 112-25,atonlee|rules+atonlee,"다. 2. 윤 상진이에요. 【합정동 112-25】에 거주하며, 이메일 san"
+F092-17,person,박 수린,atonlee|rules+atonlee,상한 접근이 감지됨. 3. 【박 수린】입니다. 주소는 문정동 87
+F092-17,address,문정동 87-11,atonlee|rules+atonlee,". 박 수린입니다. 주소는 【문정동 87-11】였으나, 타인 명의 우편물 "
+F092-18,person,하늘,atonlee|rules+atonlee, 대해 신고드립니다. 또한 【하늘】은 본인 확인 과정에서 도용
+F092-19,person,서민재,atonlee|rules+atonlee,정으로 부정 이용 발생 - 【서민재】께서도 minjae.seo@
+F093-03,person,김예빈,rules|rules+atonlee,신청인: 박현준이랑 【김예빈】하고 조수민와   이메일: 
+F093-03,person,조수민,atonlee|rules+atonlee,인: 박현준이랑 김예빈하고 【조수민】와   이메일: parkhy
+F093-03,account_number,100-21-482957-5,rules|rules+atonlee,"7   계좌번호: 우리은행 【100-21-482957-5】, 신한은행 431-10-2"
+F093-04,account_number,56783900192415,rules|rules+atonlee,입니다   예금 계좌번호: 【56783900192415】
+F093-10,person,김 수진,atonlee|rules+atonlee,신청자명: 【김 수진】의   주소: 서울특별시 영
+F093-10,person,박 연주,atonlee|rules+atonlee,대로 10   추가신청인: 【박 연주】은   주소: 경기도 수원시
+F093-11,person,오,rules|rules+atonlee,본인 성명: 【오】씨   외국인등록번호: 02
+F093-11,person,정,rules|rules+atonlee,2091   대리인 성명: 【정】님   외국인등록번호: 99
+F093-11,resident_registration_number,991215-8127734,rules|rules+atonlee, 정님   외국인등록번호: 【991215-8127734】
+F093-16,person,최,rules|rules+atonlee,고객명: 【최】님   주소: 서울특별시 강
+F094-02,person,수지,atonlee|rules+atonlee,"안녕하세요 【수지】님, 저희 은행에서 오랜 기"
+F094-03,person,환희,atonlee|rules+atonlee,". 휴면계좌 관련 문의하신 【환희】인데요, 본인 확인을 위해 "
+F094-05,person,최민,atonlee|rules+atonlee,안녕하세요. 【최민】의 휴면예금 정보 안내해드립
+F094-05,address,장전동 491-17,atonlee|rules+atonlee,"001234567, 주소는 【장전동 491-17】입니다. 변동사항 있으시면 "
+F094-09,person,지윤,atonlee|rules+atonlee,"안녕하세요, 【지윤】의 휴면예금과 관련해 문의드"
+F094-11,address,광진읍 대덕리 821-13,atonlee|rules+atonlee,mple.com - 주소: 【광진읍 대덕리 821-13】 - 계좌번호: 392001
+F094-11,address,해남면 내월리 104-2,atonlee|rules+atonlee,mple.net - 주소: 【해남면 내월리 104-2】 - 계좌번호: 452930
+F094-12,address,예림빌라 101동 504호,atonlee|rules+atonlee,니다. 현재 등록된 주소는 【예림빌라 101동 504호】로 확인됩니다. 휴면예금 조
+F094-13,address,푸른아파트 302동 1202호,atonlee|rules+atonlee, 건 안내드립니다. 주소는 【푸른아파트 302동 1202호】가 맞는지 확인 부탁드립니다
+F094-14,person,나래,atonlee|rules+atonlee,【나래】의 휴면예금 관련 문의에 대
+F094-16,person,Zoe Kim,atonlee|rules+atonlee,"【Zoe Kim】님, 휴면예금 지급을 위해 "
+F095-02,account_number,010-0095-0245,rules|rules+atonlee,"사용하셨던 계좌는 우리은행 【010-0095-0245】, 신한은행 010-2845"
+F095-02,account_number,010-2845-1200,rules|rules+atonlee,"095-0245, 신한은행 【010-2845-1200】 두 건입니다. 또 최유진씨"
+F095-02,account_number,010-3004-9652,rules|rules+atonlee, 사용하셨던 계좌(국민은행 【010-3004-9652】) 정보를 다시 한 번 확인
+F095-03,person,박 정민,atonlee|rules+atonlee,휴면예금 조회를 위해 【박 정민】의 주소가 필요합니다. 혹시
+F095-04,person,이수민,atonlee|rules+atonlee, 휴면예금 안내센터입니다. 【이수민】이 맞으신가요? 본인 확인을
+F095-09,person,윤 서진,atonlee|rules+atonlee,휴면예금 조회 요청하신 【윤 서진】의 주소 확인이 필요합니다.
+F095-12,person,Anna Kim,atonlee|rules+atonlee,"안녕하세요, 【Anna Kim】인데요. 그동안 안내 메일 "
+F095-12,account_number,98292154730216,rules|rules+atonlee,"34-55이고, 휴면계좌는 【98292154730216】로 확인됩니다. 또, 다니엘"
+F095-12,account_number,24501759061322,rules|rules+atonlee," 시민대로 153, 계좌는 【24501759061322】입니다. 언제든 문의주세요."
+F095-15,person,Emily Park,atonlee|rules+atonlee,【Emily Park】이랑 emilyp@examp
+F095-15,person,장한나,rules|rules+atonlee,"e.com로 연락드렸고요, 【장한나】와 hannahj@examp"
+F095-18,resident_registration_number,901221-7084215,rules|rules+atonlee,내드립니다. 외국인등록번호 【901221-7084215】로 휴면예금 조회 결과 안내
+F095-19,resident_registration_number,930507-6071843,rules|rules+atonlee,"정유정씨, 외국인등록번호 【930507-6071843】로 휴면예금 조회 결과 전달"
+F096-01,person,최수,atonlee|rules+atonlee,-----------| | 【최수】는  | 050-0000-1
+F096-01,person,오지,atonlee|rules+atonlee,xample.net | | 【오지】는  | 050-0100-4
+F096-02,person,James Lee,atonlee|rules+atonlee,발생 고객 현황입니다. - 【James Lee】씨: jameslee2023
+F096-02,person,Sara Park,atonlee|rules+atonlee,@example.net - 【Sara Park】씨: sarapark1@ex
+F096-05,person,다은,atonlee|rules+atonlee,"- 안내대상: 【다은】님, 윤지씨 - 연락처: 0"
+F096-06,address,광주광역시 북구 매곡로 14,rules|rules+atonlee,"시 유성구 도안동로 25, 【광주광역시 북구 매곡로 14】, 경상남도 창원시 의창구 "
+F096-08,person,Maria Kim,atonlee|rules+atonlee,휴면예금 안내 대상 - 【Maria Kim】에게: maria.kim20
+F096-08,address,화곡동 992-4,atonlee|rules+atonlee,"4@example.net, 【화곡동 992-4】 - John Park께서:"
+F096-08,person,John Park,atonlee|rules+atonlee,"t, 화곡동 992-4 - 【John Park】께서: johnp25@exa"
+F096-08,address,봉천동 18-27,atonlee|rules+atonlee,"5@example.com, 【봉천동 18-27】  상기 고객님들께는 관련 "
+F096-09,address,롯데캐슬아파트 105동 401호,atonlee|rules+atonlee,"0021.1145, 주소: 【롯데캐슬아파트 105동 401호】 - 오준혁은 연락처: 01"
+F096-09,address,푸르지오빌라 2동 803호,atonlee|rules+atonlee,"0034.7823, 주소: 【푸르지오빌라 2동 803호】  문의: 영업점에 연락 바"
+F096-14,person,이민정,atonlee|rules+atonlee,-----------| | 【이민정】의   | 010.0020.
+F096-14,person,김선영,atonlee|rules+atonlee,14-4203129 | | 【김선영】은   | 010.0003.
+F096-15,person,이 수연,atonlee|rules+atonlee,차가 진행 중입니다.  - 【이 수연】의 지급 신청 건 - 주민등
+F096-19,person,Angelina,atonlee|rules+atonlee,휴면예금 미환급자: 【Angelina】의 신청 내역 검토 중. 지
+F097-02,person,이 재훈,atonlee|rules+atonlee,담당자 이름: 【이 재훈】입니다   연락처: 010-
+F097-02,person,조 민아,atonlee|rules+atonlee,4-03   처리자 이름: 【조 민아】이에요   처리자 연락처: 
+F097-03,person,최 동윤,atonlee|rules+atonlee,작성자: 【최 동윤】이에요   확인자: 김 수현
+F097-03,person,김 수현,atonlee|rules+atonlee,"최 동윤이에요   확인자: 【김 수현】입니다   청구금액: 3,2"
+F097-05,person,박성미,rules|rules+atonlee,1037   확인 담당자: 【박성미】인데요   정산 항목: 월간
+F097-06,person,오 현,atonlee|rules+atonlee,정산 담당: 【오 현】입니다   연락처: 010-
+F097-07,person,이수민,atonlee|rules+atonlee,0938270   담당자: 【이수민】이 010-0051-8709
+F097-12,address,성우아파트 105동 801호,atonlee|rules+atonlee,산자: 방유정의   주소: 【성우아파트 105동 801호】   입금 담당: 장민호는 
+F097-12,address,해운대아이파크 2단지 203동 1502호,atonlee|rules+atonlee,담당: 장민호는   주소: 【해운대아이파크 2단지 203동 1502호】   비고: 확인서 첨부
+F097-14,address,센트럴하임 302동 2102호,atonlee|rules+atonlee,상자: 정민재의   주소: 【센트럴하임 302동 2102호】   외국인등록번호: 990
+F097-14,address,현대그린빌 403동 1805호,atonlee|rules+atonlee,인자: 이신영은   주소: 【현대그린빌 403동 1805호】   외국인등록번호: 970
+F097-15,person,박 수빈,atonlee|rules+atonlee,확인자: 【박 수빈】님   주민등록번호: 870
+F097-15,person,이 세영,atonlee|rules+atonlee,2093785   담당자: 【이 세영】씨   주민등록번호: 930
+F097-16,resident_registration_number,871029 2951396,rules|rules+atonlee,2011   주민등록번호: 【871029 2951396】   확인자: 오지혁씨   
+F097-17,person,Lucas Kim,atonlee|rules+atonlee,정산자: 【Lucas Kim】입니다   연락처: 0100
+F097-18,person,김 상현,atonlee|rules+atonlee,담당자: 【김 상현】이에요   연락처: 010-
+F098-01,person,James Kim,atonlee|rules+atonlee," 정산 내역 안내드립니다. 【James Kim】님, 정산 금액은 금주 중 "
+F098-07,person,박 준,atonlee|rules+atonlee,【박 준】께 정산 안내드립니다. 연락
+F098-11,person,정 수,atonlee|rules+atonlee,이번달 정산 대상인 【정 수】이가 사용하신 카드번호 92
+F098-13,person,윤 희,atonlee|rules+atonlee,"안녕하세요, 【윤 희】입니다. 주소는 부산광역시 "
+F098-14,person,하늘,atonlee|rules+atonlee,"안녕하세요, 【하늘】이에요. 6월 정산 내역 송"
+F099-01,account_number,010-9940-4832,rules|rules+atonlee,"로 88 확인했고, 계좌는 【010-9940-4832】로 맞죠?   혹시 변경 사"
+F099-02,account_number,118-03-448291-7,rules|rules+atonlee, 부탁드려요.   우리은행 【118-03-448291-7】 이게 맞나요?   자료 전
+F099-03,person,최 진,atonlee|rules+atonlee, 담당자 바뀌었습니다.   【최 진】은 신영아파트 104동 15
+F099-03,address,신영아파트 104동 1501호,atonlee|rules+atonlee,"바뀌었습니다.   최 진은 【신영아파트 104동 1501호】로 송금 요청했고, 연락처는"
+F099-03,person,박 란,atonlee|rules+atonlee, 0405예요.   그리고 【박 란】이 추가로 지급 요청하셨습니
+F099-03,address,현대빌라 201동 203호,atonlee|rules+atonlee,"0080 0003, 주소는 【현대빌라 201동 203호】 맞는지 확인 부탁드려요. "
+F099-04,person,동현,atonlee|rules+atonlee,만 받을 수 있을까요?   【동현】의 전화번호 070-0080
+F099-08,person,이소율,atonlee|rules+atonlee,안녕하세요. 【이소율】의 메일 soyulee@ex
+F099-09,person,Sophia Kim,atonlee|rules+atonlee,"【Sophia Kim】님, 전달해주신 계좌 201"
+F099-09,person,Sophia Kim,atonlee|rules+atonlee," 없으면 회신 부탁드리고, 【Sophia Kim】씨 이번 건 처리 후 진행상"
+F099-10,address,광명동 301-17,atonlee|rules+atonlee,"인데요,   확정된 주소는 【광명동 301-17】입니다.   계좌는 421-"
+F099-13,person,이 주성,atonlee|rules+atonlee,【이 주성】이랑 박 소이하고 주소 자료
+F099-13,person,이 주성,atonlee|rules+atonlee,주소 자료 전달합니다.   【이 주성】의 주소는 장미동 121-1
+F099-13,address,장미동 121-13,atonlee|rules+atonlee,"다.   이 주성의 주소는 【장미동 121-13】, 주민번호는 951231-"
+F099-13,person,박 소이,atonlee|rules+atonlee,"1231-1123564   【박 소이】의 주소 샛별리 44-2, "
+F099-13,address,샛별리 44-2,atonlee|rules+atonlee,"564   박 소이의 주소 【샛별리 44-2】, 주민번호 840607-2"
+F099-14,person,최예은,atonlee|rules+atonlee,이번 월 【최예은】께 정산서 전달했습니다.  
+F100-01,person,박민,atonlee|rules+atonlee,는 4월 카드 결제 건 중 【박민】이 요청하신 항목 내역입니다
+F100-01,person,박민,atonlee|rules+atonlee,기타 누락된 내역이 있으면 【박민】이 바로 연락 주시기 바랍니
+F100-02,person,성이,atonlee|rules+atonlee,410129 2. 신청자: 【성이】인데요 3. 주민등록번호: 
+F100-06,person,Marta Lee,atonlee|rules+atonlee,-----------| | 【Marta Lee】에게 | marta.lee@
+F100-06,person,Alex Kim,atonlee|rules+atonlee, 길음동 22-18 | | 【Alex Kim】께서 | alexkim@ex
+F100-06,person,로버트 최,atonlee|rules+atonlee, 묵동 331-9  | | 【로버트 최】께  | robertchoi
+F100-08,address,센트럴파크아파트 201동 1303호,atonlee|rules+atonlee,"mple.net - 주소: 【센트럴파크아파트 201동 1303호】 - 지급액: 2,210,0"
+F100-10,person,유리,atonlee|rules+atonlee,이번 지급 대상자 【유리】님  - 주민등록번호: 92
+F100-16,person,최 수진,atonlee|rules+atonlee,- 담당: 【최 수진】의 지급계좌: 우리은행 35
+F100-16,account_number,350-14-998750-1,rules|rules+atonlee,수진의 지급계좌: 우리은행 【350-14-998750-1】 - 지급예정일: 5월 9일
+F100-16,person,최 수진,atonlee|rules+atonlee,일: 5월 9일 - 문의는 【최 수진】께 부탁드립니다.
+F100-19,person,윤하,atonlee|rules+atonlee,내역(복수 담당자)  1. 【윤하】의 연락처: 010-0777
+F100-20,person,남궁민서,atonlee|rules+atonlee,-----------| | 【남궁민서】의 | 051-0900-32
+F100-20,phone_number,051-0900-3207,rules|rules+atonlee,---| | 남궁민서의 | 【051-0900-3207】 | 문현동 123-89  
+F100-20,address,문현동 123-89,atonlee|rules+atonlee,51-0900-3207 | 【문현동 123-89】   | 7100-5321-
+F100-20,phone_number,064-0800-1392,rules|rules+atonlee,61 | | 제갈은주는 | 【064-0800-1392】 | 삼월리 77-7    
+F100-20,address,삼월리 77-7,atonlee|rules+atonlee,64-0800-1392 | 【삼월리 77-7】     | 5931-822
+F100-20,person,독고승연,atonlee|rules+atonlee,-3209-0045 | | 【독고승연】이 | 031-0700-15
+F100-20,address,동탄면 440-3,atonlee|rules+atonlee,31-0700-1548 | 【동탄면 440-3】     | 4355-219

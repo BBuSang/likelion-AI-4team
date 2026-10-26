@@ -6,11 +6,13 @@ S071-16,account_number,228003-1094483,rules|rules+atonlee,"청합니다. 기존 
 S071-16,account_number,237928-5084810,rules|rules+atonlee,"4483, 신규 계좌번호는 【237928-5084810】입니다. 한미정입니다."
 S073-03,person,이해원,rules|rules+atonlee,"고객명 【이해원】이고요, 010.0992.1"
 S073-08,account_number,10120340550050,rules|rules+atonlee,"하고 싶어요. 등록된 계좌 【10120340550050】를 삭제하고, 2040000"
+S071-11,person,이윤아,rules|rules+atonlee,"6월 12일 15:00경, 【이윤아】라는 이름으로 120,000"
 S071-11,account_number,303025-1895083,rules|rules+atonlee,제하였습니다. 결제 계좌는 【303025-1895083】입니다. 결제 내역 확인 및
 S086-20,account_number,066-090-912880,rules|rules+atonlee,"1,000원 - 납부계좌: 【066-090-912880】 연락처: 010.0001."
 S089-04,person,박경은,atonlee|rules+atonlee,【박경은】 mommy68@exampl
 S089-18,person,장유리,rules|rules+atonlee,【장유리】 yu_77@example.
 S088-10,account_number,110245701234,rules|rules+atonlee,"00원이고, 현금 납부 시 【110245701234】로 입금하시면 됩니다."
+S070-13,person,정종현,rules|rules+atonlee,"【정종현】대리, 카드 결제 내역 요청"
 S068-07,person,이소희,atonlee|rules+atonlee,"【이소희】 님, 급하게 연락드릴 일이"
 S067-03,resident_registration_number,123456-9876543,atonlee|rules+atonlee,여는 2024-06-25에 【123456-9876543】로 확인 부탁드립니다.
 S067-10,account_number,10920304012,rules|rules+atonlee,"님, 출장비 정산 관련하여 【10920304012】로 송금 요청드립니다. 금액"
@@ -28,6 +30,7 @@ S095-10,account_number,600123456789,rules|rules+atonlee," 한가온, 유승재. 
 S014-18,account_number,503012-0113245,rules|rules+atonlee,계좌로 입금 완료했습니다. 【503012-0113245】에서 송금하였습니다.
 S015-06,person,김 은주,atonlee|rules+atonlee,"받아야 해서요.   주문자 【김 은주】이고, 연락처는 010.07"
 S011-12,person,조경진,atonlee|rules+atonlee,"습니다.   수령인 정보: 【조경진】, 010.0077.5093"
+S012-15,person,조혜림,rules|rules+atonlee,"송장에 적혀 있는 수취인이 【조혜림】으로 되어 있는데, 저와는 "
 S019-11,person,한태윤,atonlee|rules+atonlee,【한태윤】 010.0098.3131 
 S018-12,person,이유림,atonlee|rules+atonlee,"예약자명 【이유림】, 2024년 6월 20일 "
 S019-20,resident_registration_number,048112-3224019,atonlee|rules+atonlee,"example.co.kr, 【048112-3224019】 정보로 7월 21일 입원 "
@@ -57,12 +60,12 @@ S080-05,account_number,23010455-990123,rules|rules+atonlee,"입금했습니다. 
 S046-04,person,이동혁,atonlee|rules+atonlee,"【이동혁】 학생 보호자께,   학생 "
 S047-16,account_number,10088947263305,rules|rules+atonlee,"료 납부확인서: 송금 계좌 【10088947263305】, 예금주: 아이러브수학, "
 S047-15,person,김성율,atonlee|rules+atonlee,예슬 선생님이 병가로 인해 【김성율】 대체 강사가 수업을 진행합
-S046-18,person,이정표,atonlee|rules+atonlee,생증 분실 신고 - 이름: 【이정표】 - 학번: 20241108
 S050-11,person,이승후,atonlee|rules+atonlee,【이승후】 학생의 보호자 강진희님께서
 S047-01,person,정유란,atonlee|rules+atonlee,"안녕하세요, 【정유란】 학부모님. 이번 6월 15"
 S049-01,person,최윤아,atonlee|rules+atonlee,【최윤아】 학생의 2024.07.14
 S049-19,account_number,488300.10.663315,rules|rules+atonlee,", 방과후 프로그램 참가비 【488300.10.663315】로 송금 바랍니다. 문의: "
 S096-15,person,고성은,rules|rules+atonlee,【고성은】 고객(예약번호: A2024
+S097-08,card_number,4312.0033.2654.0913,rules|rules+atonlee,23-22입니다. 카드번호 【4312.0033.2654.0913】로 결제하였으니 환불 절차 
 S100-01,phone_number,020.1234.5678,atonlee|rules+atonlee,"가 났습니다. 제 연락처는 【020.1234.5678】, 이메일은 parkjiho"
 S097-18,person,정리오,rules|rules+atonlee,-2024060402 동행 【정리오】와 김건호도 함께 등록된 것
 S008-15,person,이은정,atonlee|rules+atonlee,저희 엄마 【이은정】이 이번 달 10일에 결제한

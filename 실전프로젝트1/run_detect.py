@@ -36,7 +36,7 @@ def detect_one(det, doc):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--detector", required=True, help="rules | koelectra_pii | piilot | llm | veil | seongyeon | dlp | kpf | e5 | atonlee")
-    ap.add_argument("--split", default="dev", choices=["dev", "test", "edge", "synth_dev", "synth_holdout"])
+    ap.add_argument("--split", default="dev", choices=["dev", "test", "edge", "synth_dev", "synth_holdout", "synth_fresh", "synth_hard_dev", "synth_hard_eval", "holdout"])
     ap.add_argument("--runs", type=int, default=1)
     ap.add_argument("--workers", type=int, default=8, help="LLM API 동시 호출 수")
     a = ap.parse_args()

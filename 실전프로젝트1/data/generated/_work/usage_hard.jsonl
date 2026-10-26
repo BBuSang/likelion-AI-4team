@@ -1,0 +1,52 @@
+{"batch": "001", "model": "gpt-4.1", "category": "여신 심사 메모", "style": "메신저 또는 통화 대화", "prompt_tokens": 4148, "completion_tokens": 2301, "finish_reason": "stop", "sec": 15.9}
+{"batch": "002", "model": "gpt-4.1", "category": "여신 심사 메모", "style": "이메일이나 서식 문서", "prompt_tokens": 4526, "completion_tokens": 2394, "finish_reason": "stop", "sec": 15.3}
+{"batch": "001", "model": "gpt-4.1", "category": "여신 심사 메모", "style": "메신저 또는 통화 대화", "prompt_tokens": 4148, "completion_tokens": 2071, "finish_reason": "stop", "sec": 16.1}
+{"batch": "002", "model": "gpt-4.1", "category": "여신 심사 메모", "style": "이메일이나 서식 문서", "prompt_tokens": 4526, "completion_tokens": 2648, "finish_reason": "stop", "sec": 15.0}
+{"batch": "003", "model": "gpt-4.1", "category": "콜센터 통화 녹취 전사", "style": "메신저 또는 통화 대화", "prompt_tokens": 4258, "completion_tokens": 2360, "finish_reason": "stop", "sec": 16.6}
+{"batch": "004", "model": "gpt-4.1", "category": "콜센터 통화 녹취 전사", "style": "이메일이나 서식 문서", "prompt_tokens": 4360, "completion_tokens": 2519, "finish_reason": "stop", "sec": 21.2}
+{"batch": "005", "model": "gpt-4.1", "category": "보이스피싱 피해 상담", "style": "메신저 또는 통화 대화", "prompt_tokens": 4528, "completion_tokens": 3123, "finish_reason": "stop", "sec": 17.2}
+{"batch": "006", "model": "gpt-4.1", "category": "보이스피싱 피해 상담", "style": "이메일이나 서식 문서", "prompt_tokens": 4661, "completion_tokens": 2531, "finish_reason": "stop", "sec": 26.2}
+{"batch": "007", "model": "gpt-4.1", "category": "상속인 금융거래 조회", "style": "메신저 또는 통화 대화", "prompt_tokens": 4497, "completion_tokens": 2386, "finish_reason": "stop", "sec": 14.8}
+{"batch": "008", "model": "gpt-4.1", "category": "상속인 금융거래 조회", "style": "이메일이나 서식 문서", "prompt_tokens": 4413, "completion_tokens": 2438, "finish_reason": "stop", "sec": 12.6}
+{"batch": "009", "model": "gpt-4.1", "category": "법인 계좌 개설 서류 안내", "style": "메신저 또는 통화 대화", "prompt_tokens": 4284, "completion_tokens": 2708, "finish_reason": "stop", "sec": 18.3}
+{"batch": "010", "model": "gpt-4.1", "category": "법인 계좌 개설 서류 안내", "style": "이메일이나 서식 문서", "prompt_tokens": 4279, "completion_tokens": 1929, "finish_reason": "stop", "sec": 10.6}
+{"batch": "011", "model": "gpt-4.1", "category": "외화 환전 예약", "style": "메신저 또는 통화 대화", "prompt_tokens": 4449, "completion_tokens": 2190, "finish_reason": "stop", "sec": 12.7}
+{"batch": "012", "model": "gpt-4.1", "category": "외화 환전 예약", "style": "이메일이나 서식 문서", "prompt_tokens": 4566, "completion_tokens": 2302, "finish_reason": "stop", "sec": 13.5}
+{"batch": "013", "model": "gpt-4.1", "category": "퇴직연금 상담", "style": "메신저 또는 통화 대화", "prompt_tokens": 4477, "completion_tokens": 2280, "finish_reason": "stop", "sec": 14.4}
+{"batch": "014", "model": "gpt-4.1", "category": "퇴직연금 상담", "style": "이메일이나 서식 문서", "prompt_tokens": 4406, "completion_tokens": 2112, "finish_reason": "stop", "sec": 18.2}
+{"batch": "015", "model": "gpt-4.1", "category": "투자상품 판매 기록", "style": "메신저 또는 통화 대화", "prompt_tokens": 4403, "completion_tokens": 2410, "finish_reason": "stop", "sec": 15.8}
+{"batch": "016", "model": "gpt-4.1", "category": "투자상품 판매 기록", "style": "이메일이나 서식 문서", "prompt_tokens": 4289, "completion_tokens": 2555, "finish_reason": "stop", "sec": 15.2}
+{"batch": "017", "model": "gpt-4.1", "category": "전세자금대출 서류 안내", "style": "메신저 또는 통화 대화", "prompt_tokens": 4292, "completion_tokens": 2508, "finish_reason": "stop", "sec": 13.4}
+{"batch": "018", "model": "gpt-4.1", "category": "전세자금대출 서류 안내", "style": "이메일이나 서식 문서", "prompt_tokens": 4497, "completion_tokens": 2668, "finish_reason": "stop", "sec": 18.4}
+{"batch": "019", "model": "gpt-4.1", "category": "자동차 할부 계약", "style": "메신저 또는 통화 대화", "prompt_tokens": 4123, "completion_tokens": 2128, "finish_reason": "stop", "sec": 12.7}
+{"batch": "020", "model": "gpt-4.1", "category": "자동차 할부 계약", "style": "이메일이나 서식 문서", "prompt_tokens": 4063, "completion_tokens": 2224, "finish_reason": "stop", "sec": 14.1}
+{"batch": "021", "model": "gpt-4.1", "category": "개인정보 열람·정정 청구", "style": "메신저 또는 통화 대화", "prompt_tokens": 4222, "completion_tokens": 2118, "finish_reason": "stop", "sec": 13.7}
+{"batch": "022", "model": "gpt-4.1", "category": "개인정보 열람·정정 청구", "style": "이메일이나 서식 문서", "prompt_tokens": 4328, "completion_tokens": 2566, "finish_reason": "stop", "sec": 14.9}
+{"batch": "023", "model": "gpt-4.1", "category": "채무조정 신청", "style": "메신저 또는 통화 대화", "prompt_tokens": 4246, "completion_tokens": 1963, "finish_reason": "stop", "sec": 15.5}
+{"batch": "024", "model": "gpt-4.1", "category": "채무조정 신청", "style": "이메일이나 서식 문서", "prompt_tokens": 4470, "completion_tokens": 2481, "finish_reason": "stop", "sec": 13.6}
+{"batch": "025", "model": "gpt-4.1", "category": "급여이체·주거래 변경", "style": "메신저 또는 통화 대화", "prompt_tokens": 4339, "completion_tokens": 2246, "finish_reason": "stop", "sec": 13.5}
+{"batch": "026", "model": "gpt-4.1", "category": "급여이체·주거래 변경", "style": "이메일이나 서식 문서", "prompt_tokens": 4342, "completion_tokens": 2914, "finish_reason": "stop", "sec": 19.2}
+{"batch": "027", "model": "gpt-4.1", "category": "영업점 일일 업무 보고", "style": "메신저 또는 통화 대화", "prompt_tokens": 4181, "completion_tokens": 2426, "finish_reason": "stop", "sec": 16.9}
+{"batch": "028", "model": "gpt-4.1", "category": "영업점 일일 업무 보고", "style": "이메일이나 서식 문서", "prompt_tokens": 4460, "completion_tokens": 2266, "finish_reason": "stop", "sec": 12.5}
+{"batch": "029", "model": "gpt-4.1", "category": "사내 교육 수료 안내", "style": "메신저 또는 통화 대화", "prompt_tokens": 4388, "completion_tokens": 2222, "finish_reason": "stop", "sec": 16.5}
+{"batch": "030", "model": "gpt-4.1", "category": "사내 교육 수료 안내", "style": "이메일이나 서식 문서", "prompt_tokens": 4249, "completion_tokens": 2123, "finish_reason": "stop", "sec": 11.8}
+{"batch": "031", "model": "gpt-4.1", "category": "전산 장애·접속 기록 보고", "style": "메신저 또는 통화 대화", "prompt_tokens": 4511, "completion_tokens": 2132, "finish_reason": "stop", "sec": 13.3}
+{"batch": "032", "model": "gpt-4.1", "category": "전산 장애·접속 기록 보고", "style": "이메일이나 서식 문서", "prompt_tokens": 4333, "completion_tokens": 2545, "finish_reason": "stop", "sec": 14.7}
+{"batch": "033", "model": "gpt-4.1", "category": "고객 방문 예약 확인", "style": "메신저 또는 통화 대화", "prompt_tokens": 4146, "completion_tokens": 2210, "finish_reason": "stop", "sec": 13.8}
+{"batch": "034", "model": "gpt-4.1", "category": "고객 방문 예약 확인", "style": "이메일이나 서식 문서", "prompt_tokens": 4320, "completion_tokens": 2457, "finish_reason": "stop", "sec": 15.8}
+{"batch": "035", "model": "gpt-4.1", "category": "보험 계약 변경 요청", "style": "메신저 또는 통화 대화", "prompt_tokens": 4457, "completion_tokens": 2475, "finish_reason": "stop", "sec": 13.4}
+{"batch": "036", "model": "gpt-4.1", "category": "보험 계약 변경 요청", "style": "이메일이나 서식 문서", "prompt_tokens": 4333, "completion_tokens": 1945, "finish_reason": "stop", "sec": 13.0}
+{"batch": "037", "model": "gpt-4.1", "category": "압류·법원 송달 처리", "style": "메신저 또는 통화 대화", "prompt_tokens": 4349, "completion_tokens": 2675, "finish_reason": "stop", "sec": 17.2}
+{"batch": "038", "model": "gpt-4.1", "category": "압류·법원 송달 처리", "style": "이메일이나 서식 문서", "prompt_tokens": 4271, "completion_tokens": 1913, "finish_reason": "stop", "sec": 12.9}
+{"batch": "039", "model": "gpt-4.1", "category": "사망자 계좌 해지", "style": "메신저 또는 통화 대화", "prompt_tokens": 4315, "completion_tokens": 2855, "finish_reason": "stop", "sec": 16.5}
+{"batch": "040", "model": "gpt-4.1", "category": "사망자 계좌 해지", "style": "이메일이나 서식 문서", "prompt_tokens": 4362, "completion_tokens": 2252, "finish_reason": "stop", "sec": 18.0}
+{"batch": "041", "model": "gpt-4.1", "category": "사내 행사·회식 안내", "style": "메신저 또는 통화 대화", "prompt_tokens": 4302, "completion_tokens": 2519, "finish_reason": "stop", "sec": 17.3}
+{"batch": "042", "model": "gpt-4.1", "category": "사내 행사·회식 안내", "style": "이메일이나 서식 문서", "prompt_tokens": 3995, "completion_tokens": 2535, "finish_reason": "stop", "sec": 13.6}
+{"batch": "043", "model": "gpt-4.1", "category": "외국인 고객 계좌 개설", "style": "메신저 또는 통화 대화", "prompt_tokens": 4406, "completion_tokens": 1984, "finish_reason": "stop", "sec": 12.3}
+{"batch": "044", "model": "gpt-4.1", "category": "외국인 고객 계좌 개설", "style": "이메일이나 서식 문서", "prompt_tokens": 4467, "completion_tokens": 2370, "finish_reason": "stop", "sec": 13.8}
+{"batch": "045", "model": "gpt-4.1", "category": "명의 도용 신고", "style": "메신저 또는 통화 대화", "prompt_tokens": 4400, "completion_tokens": 2463, "finish_reason": "stop", "sec": 24.8}
+{"batch": "046", "model": "gpt-4.1", "category": "명의 도용 신고", "style": "이메일이나 서식 문서", "prompt_tokens": 4392, "completion_tokens": 2152, "finish_reason": "stop", "sec": 12.1}
+{"batch": "047", "model": "gpt-4.1", "category": "휴면예금 찾기 안내", "style": "메신저 또는 통화 대화", "prompt_tokens": 4244, "completion_tokens": 2519, "finish_reason": "stop", "sec": 14.3}
+{"batch": "048", "model": "gpt-4.1", "category": "휴면예금 찾기 안내", "style": "이메일이나 서식 문서", "prompt_tokens": 4452, "completion_tokens": 1962, "finish_reason": "stop", "sec": 11.8}
+{"batch": "049", "model": "gpt-4.1", "category": "협력업체 정산 메일", "style": "메신저 또는 통화 대화", "prompt_tokens": 3889, "completion_tokens": 1990, "finish_reason": "stop", "sec": 10.7}
+{"batch": "050", "model": "gpt-4.1", "category": "협력업체 정산 메일", "style": "이메일이나 서식 문서", "prompt_tokens": 4663, "completion_tokens": 2951, "finish_reason": "stop", "sec": 16.5}

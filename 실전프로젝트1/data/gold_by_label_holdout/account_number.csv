@@ -1,0 +1,42 @@
+﻿split,doc_id,doc_type,template,text,shape,form,person_id,hard_cases,prev_char,next_char,context
+holdout,H0006,가맹점변경,,607-960055-16,999-999999-99,,,address_format_variant, ,⏎, 계좌 변경 ⏎   변경 전 온누리은행 【607-960055-16】 ⏎   변경 후 하늘빛은행 1348-9
+holdout,H0006,가맹점변경,,1348-963-356842,9999-999-999999,,,address_format_variant, ,⏎,055-16 ⏎   변경 후 하늘빛은행 【1348-963-356842】 ⏎  ⏎ 접수자: 김주원 / 접수일: 20
+holdout,H0009,대리인위임확인,,0872-89-0813128,9999-99-9999999,,,"account_format_variant, id_format_variant, josa_attached, phone_format_variant, single_char_given_name", ,⏎, 및 잔여 포인트 환급 ⏎ 환급 계좌: 【0872-89-0813128】 ⏎  ⏎ 박별이 입원 중이어서 오담에게 업
+holdout,H0011,자동이체신청서,,592199-77-400103,999999-99-999999,,,"account_format_variant, address_format_variant, id_format_variant, phone_format_variant, single_char_given_name", ,⏎,34901 ⏎ 출금 계좌: 다온저축은행 【592199-77-400103】 ⏎ 연락처: 02-7565-9163 ⏎ 청
+holdout,H0016,자동이체신청서,,8473-88-0614143,9999-99-9999999,,,"account_format_variant, address_format_variant, compound_surname, id_format_variant, single_char_given_name", ,⏎,2226899 ⏎ 출금 계좌: 누리은행 【8473-88-0614143】 ⏎ 연락처: 010-6443-7540 ⏎ 
+holdout,H0020,가맹점변경,,253-303617-80,999-999999-99,,,, ,⏎,계좌 변경 ⏎   변경 전 가람저축은행 【253-303617-80】 ⏎   변경 후 온누리은행 1147-8
+holdout,H0020,가맹점변경,,1147-805-185576,9999-999-999999,,,, ,⏎,617-80 ⏎   변경 후 온누리은행 【1147-805-185576】 ⏎  ⏎ 접수자: 김주원 / 접수일: 20
+holdout,H0028,대리인위임확인,,515-31-231761-6,999-99-999999-9,,,"account_format_variant, id_format_variant, josa_attached, phone_format_variant, single_char_given_name, spaced_name", ,⏎, 및 잔여 포인트 환급 ⏎ 환급 계좌: 【515-31-231761-6】 ⏎  ⏎ 전별이 입원 중이어서 신 하율에게
+holdout,H0030,가맹점변경,,582-963747-53,999-999999-99,,,homonym, ,⏎, 계좌 변경 ⏎   변경 전 온누리은행 【582-963747-53】 ⏎   변경 후 온누리은행 1096-3
+holdout,H0030,가맹점변경,,1096-338-914069,9999-999-999999,,,homonym, ,⏎,747-53 ⏎   변경 후 온누리은행 【1096-338-914069】 ⏎  ⏎ 접수자: 김주원 / 접수일: 20
+holdout,H0031,자동이체신청서,,258-122-528464,999-999-999999,,,"account_format_variant, address_format_variant, id_format_variant, single_char_given_name", ,⏎,2243208 ⏎ 출금 계좌: 새봄은행 【258-122-528464】 ⏎ 연락처: 010-7495-3899 ⏎ 
+holdout,H0046,가맹점변경,,348-796764-70,999-999999-99,,,, ,⏎, 계좌 변경 ⏎   변경 전 하늘빛은행 【348-796764-70】 ⏎   변경 후 하늘빛은행 1818-5
+holdout,H0046,가맹점변경,,1818-519-329140,9999-999-999999,,,, ,⏎,764-70 ⏎   변경 후 하늘빛은행 【1818-519-329140】 ⏎  ⏎ 접수자: 김주원 / 접수일: 20
+holdout,H0047,자동이체신청서,,056-75-340175-9,999-99-999999-9,,,"account_format_variant, compound_surname, phone_format_variant", ,⏎,4300091 ⏎ 출금 계좌: 누리은행 【056-75-340175-9】 ⏎ 연락처: 010 9936 1462 ⏎ 
+holdout,H0074,해외송금접수,,0184-03-3256022,9999-99-9999999,,,"account_format_variant, given_only, single_char_given_name", ,⏎,0-7131-5882) ⏎ 출금 계좌: 【0184-03-3256022】 ⏎ 수취인: 정온유 (현지 연락 이메일
+holdout,H0079,대리인위임확인,,087-137-046154,999-999-999999,,,"account_format_variant, id_format_variant, josa_attached, single_char_given_name", ,⏎, 및 잔여 포인트 환급 ⏎ 환급 계좌: 【087-137-046154】 ⏎  ⏎ 한별이 입원 중이어서 권윤슬에게 
+holdout,H0080,대리인위임확인,,19-535247-861756,99-999999-999999,,,"account_format_variant, compound_surname, id_format_variant, josa_attached, phone_format_variant, single_char_given_name", ,⏎, 및 잔여 포인트 환급 ⏎ 환급 계좌: 【19-535247-861756】 ⏎  ⏎ 홍결이 입원 중이어서 이예준에게 
+holdout,H0087,가맹점변경,,348-796764-70,999-999999-99,,,, ,⏎,계좌 변경 ⏎   변경 전 가람저축은행 【348-796764-70】 ⏎   변경 후 하늘빛은행 1829-7
+holdout,H0087,가맹점변경,,1829-754-245507,9999-999-999999,,,, ,⏎,764-70 ⏎   변경 후 하늘빛은행 【1829-754-245507】 ⏎  ⏎ 접수자: 김준우 / 접수일: 20
+holdout,H0094,대리인위임확인,,819-22-700264-3,999-99-999999-9,,,"account_format_variant, compound_surname, josa_attached, phone_format_variant, single_char_given_name, spaced_name", ,⏎, 및 잔여 포인트 환급 ⏎ 환급 계좌: 【819-22-700264-3】 ⏎  ⏎ 권솔이 입원 중이어서 남궁 훈에게
+holdout,H0096,해외송금접수,,5528-12-7466144,9999-99-9999999,,,"account_format_variant, given_only", ,⏎,0-8810-7128) ⏎ 출금 계좌: 【5528-12-7466144】 ⏎ 수취인: 전도윤 (현지 연락 이메일
+holdout,H0123,자동이체신청서,,126639-94-973768,999999-99-999999,,,"account_format_variant, address_format_variant, id_format_variant, phone_format_variant, single_char_given_name", ,⏎,1179266 ⏎ 출금 계좌: 가람은행 【126639-94-973768】 ⏎ 연락처: 02-2627-8548 ⏎ 청
+holdout,H0125,자동이체신청서,,653438611431,999999999999,,,"account_format_variant, address_format_variant, compound_surname, id_format_variant, phone_format_variant, single_char_given_name", ,⏎,1733849 ⏎ 출금 계좌: 누리은행 【653438611431】 ⏎ 연락처: +82 10-5784-73
+holdout,H0128,해외송금접수,,228-736-761508,999-999-999999,,,"account_format_variant, compound_surname, given_only, phone_format_variant, single_char_given_name", ,⏎,0-8138-9758) ⏎ 출금 계좌: 【228-736-761508】 ⏎ 수취인: 제갈혁 (현지 연락 이메일
+holdout,H0132,가맹점변경,,162-570622-70,999-999999-99,,,"address_format_variant, phone_format_variant", ,⏎,계좌 변경 ⏎   변경 전 가람저축은행 【162-570622-70】 ⏎   변경 후 하늘빛은행 1926-6
+holdout,H0132,가맹점변경,,1926-642-843469,9999-999-999999,,,"address_format_variant, phone_format_variant", ,⏎,622-70 ⏎   변경 후 하늘빛은행 【1926-642-843469】 ⏎  ⏎ 접수자: 김서준 / 접수일: 20
+holdout,H0136,대리인위임확인,,43-450637-449293,99-999999-999999,,,"account_format_variant, compound_surname, id_format_variant, josa_attached, phone_format_variant, single_char_given_name, spaced_name", ,⏎, 및 잔여 포인트 환급 ⏎ 환급 계좌: 【43-450637-449293】 ⏎  ⏎ 남궁찬이 입원 중이어서 제갈 찬에
+holdout,H0139,해외송금접수,,89984511034854,99999999999999,,,"account_format_variant, given_only, single_char_given_name", ,⏎,0-5094-3471) ⏎ 출금 계좌: 【89984511034854】 ⏎ 수취인: 이지후 (현지 연락 이메일
+holdout,H0145,가맹점변경,,348-796764-70,999-999999-99,,,phone_format_variant, ,⏎, 계좌 변경 ⏎   변경 전 온누리은행 【348-796764-70】 ⏎   변경 후 가람저축은행 1546-
+holdout,H0145,가맹점변경,,1546-715-406304,9999-999-999999,,,phone_format_variant, ,⏎,64-70 ⏎   변경 후 가람저축은행 【1546-715-406304】 ⏎  ⏎ 접수자: 김주원 / 접수일: 20
+holdout,H0150,자동이체신청서,,2482678126095,9999999999999,,,"account_format_variant, address_format_variant, id_format_variant, phone_format_variant", ,⏎,2055682 ⏎ 출금 계좌: 가람은행 【2482678126095】 ⏎ 연락처: +82 10-1516-77
+holdout,H0155,해외송금접수,,3553-51-9657924,9999-99-9999999,,,"account_format_variant, given_only, phone_format_variant, single_char_given_name", ,⏎,0 8564 7073) ⏎ 출금 계좌: 【3553-51-9657924】 ⏎ 수취인: 최별 (현지 연락 이메일 
+holdout,H0157,자동이체신청서,,977918048996,999999999999,,,"account_format_variant, address_format_variant, compound_surname, id_format_variant, phone_format_variant", ,⏎,30561 ⏎ 출금 계좌: 다온저축은행 【977918048996】 ⏎ 연락처: 01028237449 ⏎ 청구
+holdout,H0163,대리인위임확인,,370-846374-27598,999-999999-99999,,,"account_format_variant, compound_surname, id_format_variant, josa_attached, phone_format_variant, single_char_given_name, spaced_name", ,⏎, 및 잔여 포인트 환급 ⏎ 환급 계좌: 【370-846374-27598】 ⏎  ⏎ 홍윤이 입원 중이어서 남궁 가은에
+holdout,H0168,가맹점변경,,656-524250-98,999-999999-99,,,"homonym, phone_format_variant", ,⏎,계좌 변경 ⏎   변경 전 가람저축은행 【656-524250-98】 ⏎   변경 후 가람저축은행 1516-
+holdout,H0168,가맹점변경,,1516-495-543422,9999-999-999999,,,"homonym, phone_format_variant", ,⏎,50-98 ⏎   변경 후 가람저축은행 【1516-495-543422】 ⏎  ⏎ 접수자: 김주원 / 접수일: 20
+holdout,H0171,해외송금접수,,553-33-885487-4,999-99-999999-9,,,"account_format_variant, compound_surname, given_only, single_char_given_name", ,⏎,0-8652-9211) ⏎ 출금 계좌: 【553-33-885487-4】 ⏎ 수취인: 신설 (현지 연락 이메일 
+holdout,H0174,해외송금접수,,038644353095,999999999999,,,"account_format_variant, compound_surname, given_only, single_char_given_name", ,⏎,0-5262-3794) ⏎ 출금 계좌: 【038644353095】 ⏎ 수취인: 선우태오 (현지 연락 이메
+holdout,H0177,대리인위임확인,,592-22-377288-8,999-99-999999-9,,,"account_format_variant, id_format_variant, josa_attached, phone_format_variant, single_char_given_name, spaced_name", ,⏎, 및 잔여 포인트 환급 ⏎ 환급 계좌: 【592-22-377288-8】 ⏎  ⏎ 안담이 입원 중이어서 신 하람에게
+holdout,H0186,가맹점변경,,607-960055-16,999-999999-99,,,address_format_variant, ,⏎, 계좌 변경 ⏎   변경 전 하늘빛은행 【607-960055-16】 ⏎   변경 후 가람저축은행 1703-
+holdout,H0186,가맹점변경,,1703-831-290427,9999-999-999999,,,address_format_variant, ,⏎,55-16 ⏎   변경 후 가람저축은행 【1703-831-290427】 ⏎  ⏎ 접수자: 김주원 / 접수일: 20

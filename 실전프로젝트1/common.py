@@ -14,6 +14,8 @@ def load_docs(split: str) -> list:
     # edge: make_edge_cases.py 로 만든 엣지 케이스 시험 문서, synth_*: generate_synthetic.py 로 만든 대량 가상 문서
     if split == "edge":
         path = DATA / "edge_cases.jsonl"
+    elif split == "holdout":  # 멘토 배포 holdout (받은 그대로 holdout/ 폴더에 둠)
+        path = ROOT / "holdout" / "holdout_labeled.jsonl"
     elif split.startswith("synth"):
         path = DATA / "generated" / f"{split}.jsonl"
     else:

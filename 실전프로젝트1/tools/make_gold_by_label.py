@@ -1,11 +1,13 @@
-"""dev·test 300건의 정답 개인정보를 라벨별 CSV 로 모은다 (팀 데이터 분석용).
+"""정답 개인정보를 라벨별 CSV 로 모은다 (팀 데이터 분석용).
 
-결과: data/gold_by_label/<라벨>.csv 7개 + summary.csv
-엑셀에서 한글이 깨지지 않도록 utf-8-sig 로 저장한다.
+결과: data/<출력 폴더>/<라벨>.csv 7개 + summary.csv
+엑셀에서 한글이 깨지지 않도록 utf-8-sig 로 저장한다. holdout 처럼 template·person_id 가 없는 데이터는 빈칸.
 
 사용법
-  python -X utf8 tools/make_gold_by_label.py
+  python -X utf8 tools/make_gold_by_label.py                                         # dev·test → data/gold_by_label/
+  python -X utf8 tools/make_gold_by_label.py --splits holdout --out gold_by_label_holdout
 """
+import argparse
 import csv
 import re
 import sys
@@ -17,7 +19,6 @@ from collections import Counter
 
 from common import DATA, LABELS, ROOT, load_docs
 
-OUT = DATA / "gold_by_label"
 HEADER = ["split", "doc_id", "doc_type", "template", "text", "shape", "form", "person_id",
           "hard_cases", "prev_char", "next_char", "context"]
 
@@ -34,39 +35,45 @@ def context(text, s, e, w=20):
 
 
 def main():
-    OUT.mkdir(exist_ok=True)
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--splits", default="dev,test")
+    ap.add_argument("--out", default="gold_by_label")
+    a = ap.parse_args()
+    splits_used = a.splits.split(",")
+    out_dir = DATA / a.out
+    out_dir.mkdir(exist_ok=True)
     rows = {lab: [] for lab in LABELS}
     n_docs = 0
-    for split in ("dev", "test"):
+    for split in splits_used:
         for d in load_docs(split):
             n_docs += 1
             t = d["text"]
             for e in d["entities"]:
                 s, end = e["start"], e["end"]
                 rows[e["label"]].append([
-                    split, d["id"], d["doc_type"], d["template"], e["text"], shape(e["text"]),
+                    split, d["id"], d["doc_type"], d.get("template", ""), e["text"], shape(e["text"]),
                     e.get("form", ""), e.get("person_id", ""), ", ".join(d["hard_cases"]),
                     t[s - 1:s].replace("\n", "⏎"), t[end:end + 1].replace("\n", "⏎"), context(t, s, end),
                 ])
 
     summary = []
     for lab in LABELS:
-        with open(OUT / f"{lab}.csv", "w", newline="", encoding="utf-8-sig") as f:
+        with open(out_dir / f"{lab}.csv", "w", newline="", encoding="utf-8-sig") as f:
             w = csv.writer(f)
             w.writerow(HEADER)
             w.writerows(rows[lab])
         r = rows[lab]
         splits = Counter(x[0] for x in r)
         top = Counter(x[5] for x in r).most_common(5)
-        summary.append([lab, len(r), splits["dev"], splits["test"], len({x[4] for x in r}),
-                        len({x[7] for x in r}), " / ".join(f"{k} ({v})" for k, v in top)])
-        print(f"{lab:<30} {len(r):>5}개 (dev {splits['dev']}, test {splits['test']})")
+        summary.append([lab, len(r)] + [splits[sp] for sp in splits_used] + [len({x[4] for x in r}),
+                        len({x[7] for x in r} - {""}), " / ".join(f"{k} ({v})" for k, v in top)])
+        print(f"{lab:<30} {len(r):>5}개 (" + ", ".join(f"{sp} {splits[sp]}" for sp in splits_used) + ")")
 
-    with open(OUT / "summary.csv", "w", newline="", encoding="utf-8-sig") as f:
+    with open(out_dir / "summary.csv", "w", newline="", encoding="utf-8-sig") as f:
         w = csv.writer(f)
-        w.writerow(["label", "total", "dev", "test", "unique_values", "unique_persons", "top_shapes"])
+        w.writerow(["label", "total"] + splits_used + ["unique_values", "unique_persons", "top_shapes"])
         w.writerows(summary)
-    print(f"문서 {n_docs}건, 정답 {sum(len(v) for v in rows.values())}개 → {OUT.relative_to(ROOT)}/")
+    print(f"문서 {n_docs}건, 정답 {sum(len(v) for v in rows.values())}개 → {out_dir.relative_to(ROOT)}/")
 
 
 if __name__ == "__main__":

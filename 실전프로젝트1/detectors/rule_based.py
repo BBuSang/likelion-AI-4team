@@ -11,17 +11,19 @@ v3 (엣지 케이스 대응): 지역번호·070·050x·+82·괄호 지역번호,
 """
 import re
 
-from postprocess import drop_venue_addresses
+from postprocess import (COMPANY_AFTER, CONDOLENCE, drop_venue_addresses, resolve_name_i, strip_person_tail,
+                         trim_person_tail)
 
 SURNAMES = set(
     "김이박최정강조윤장임한오서신권황안송류전홍고문양손배백허유남심노하곽성차주우구민진나지엄채원천방공현함변염여추도소석선설마길연위표명기반왕금옥육인맹제모탁국어은편용"
 )
 COMPOUND_SURNAMES = {"남궁", "선우", "제갈", "황보", "독고", "사공", "서문"}
 TITLES = {"과장", "대리", "팀장", "부장", "차장", "사원", "주임", "실장", "이사", "상무", "전무",
-          "대표", "고객", "상담", "본부", "센터", "지점", "선임", "책임", "수석", "위원", "매니저", "담당"}
+          "대표", "고객", "상담", "본부", "센터", "지점", "선임", "책임", "수석", "위원", "매니저", "담당",
+          "심사역", "조사역", "검사역", "감사역", "상담역"}  # v8: holdout '심사역 안윤이…'에서 '심사역'을 이름으로 잡음
 _TITLE_ALT = "|".join(sorted(TITLES, key=len, reverse=True))
 JOB_TITLES = ["본부장", "센터장", "지점장", "매니저", "과장", "대리", "팀장", "부장", "차장", "사원", "주임",
-              "실장", "이사", "상무", "전무", "선임", "책임", "수석"]
+              "실장", "이사", "상무", "전무", "선임", "책임", "수석", "심사역", "조사역", "검사역"]
 # '인사팀', '고객명', '연회비' 처럼 명사+접미사 덩어리는 이름이 아니다
 NON_NAME_SUFFIX = {"팀", "명", "비", "부", "실", "과", "점", "사", "처", "국", "소", "청", "원장", "센터"}
 # '신사동', '서울시', '제주도', '서울숲', '신림역', '금정로' 처럼 장소 이름 끝 글자 (실제 이름 697개 중 해당 없음.
@@ -34,12 +36,13 @@ ORG_FOLLOW = re.compile(r"은행|카드|캐피탈|저축|증권|보험|지점|�
 DASH = r"\-‐‑–—－"                   # 하이픈 외에 워드프로세서가 바꿔 넣는 대시들 (문자 클래스용으로 - 이스케이프)
 SEP = rf" ?[{DASH}.]? ?"            # '-', '.', ' ', ' - ', 또는 없음
 # 지역번호(02, 031~064), 인터넷전화 070, 안심번호 0502~0508, 휴대폰 010·011·016~019
-AREA = r"(?:2|3[1-3]|4[1-4]|5[1-5]|6[1-4]|70|50[2-8]|1[016-9])"
+AREA = r"(?:2|3[1-3]|4[1-4]|5[1-5]|6[1-4]|70|50[2-8]?|1[016-9])"  # v9: 3자리로 쓴 안심번호 '050-0041-0021'
 # 괄호는 '(051) 742-0091'처럼 지역번호만 감쌀 때만 번호에 포함한다. '고객(010-…)'의 괄호는 번호가 아님.
 # 앞이 숫자·대시면 계좌 등 더 긴 숫자의 일부('3333-02-7654321'의 '02-7654321')라서 제외
-PHONE = (rf"(?<![\d+{DASH}.])(?:\+82[ {DASH}]?(?:\(0\))?{AREA}|\(0{AREA}\)|0{AREA})"
+# v9: '+' 없이 쓴 국제번호 '82-10-4453-2108'
+PHONE = (rf"(?<![\d+{DASH}.])(?:\+?82[ {DASH}]?(?:\(0\))?{AREA}|\(0{AREA}\)|0{AREA})"
          rf"{SEP}\d{{3,4}}{SEP}\d{{4}}(?!\d)")
-CSEP = rf"[{DASH} ]?"
+CSEP = rf"[{DASH} .]?"  # v9: 점 구분 카드번호 '4920.3001.1190.1054'
 CARD = (rf"(?<![\d*])\d{{4}}{CSEP}[\d*]{{4}}{CSEP}[\d*]{{4}}{CSEP}\d{{4}}(?![\d*])"   # 16자리 (가운데 * 가림 허용)
         rf"|(?<!\d)3[47]\d{{2}}{CSEP}\d{{6}}{CSEP}\d{{5}}(?!\d)")                   # 아멕스 15자리 4-6-5
 # 주민·외국인등록번호(뒷자리 첫 숫자 1~8), 뒷자리 6개를 * 로 가린 형태 허용
@@ -47,7 +50,7 @@ RRN = (rf"(?<!\d)\d{{2}}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01]) ?[{DASH}]? ?[1-
 # 은행마다 자릿수가 다르다: 국민 6-2-6, 신한 3-3-6, 우리 4-3-6, 농협 3-4-4-2, 카카오 4-2-7, 토스 4-4-4 …
 # → 2~6자리 숫자 묶음 3~4개. 날짜(2026-06-25)는 제외
 ACCOUNT = (rf"(?<![\d{DASH}])(?!(?:19|20)\d{{2}}[{DASH}]\d{{1,2}}[{DASH}]\d{{1,2}}(?!\d))"
-           rf"\d{{2,6}}(?:[{DASH}]\d{{2,7}}){{2,3}}(?![\d{DASH}])")
+           rf"\d{{2,6}}(?:[{DASH}]\d{{2,7}}){{1,2}}[{DASH}]\d{{1,7}}(?![\d{DASH}])")  # v8: 마지막 묶음 1자리 허용
 DIGITS_ONLY = re.compile(r"(?<!\d)\d{10,14}(?!\d)")
 # 계좌 문맥 단어. 쉼표·마침표·슬래시로 문장이 끊기면 문맥이 이어지지 않는다고 본다
 BANK_WORDS = re.compile(r"계좌|예금주|입금|송금|이체|환불|은행|뱅크|농협|신협|새마을금고|우체국|저축")
@@ -61,6 +64,8 @@ COMPANY_PHONE_WORDS = re.compile(r"대표\s?번호|대표\s?전화")
 AFTER_BANK = re.compile(r"\)?\s?(?:으로|로|에서|에)?\s?(?:송금|입금|이체|환불|납부|상환|출금)")
 # 하이픈·점으로 나뉜 2~4묶음, 숫자 10~16개 (계좌 문맥이 있을 때만 계좌로 봄)
 LOOSE_NUMBER = re.compile(r"(?<![\d.\-])\d{2,8}(?:[-.]\d{2,8}){1,3}(?![\d.\-])")
+# v9: 공백으로 나눈 계좌 '110 231 392827' (계좌 문맥이 있을 때만, LOOSE_NUMBER 와 같이 처리)
+LOOSE_SPACED = re.compile(r"(?<![\d.\-])\d{2,6}(?: \d{2,8}){2,3}(?![\d.\-])")
 # 주민·외국인등록번호 문맥이 있으면 날짜·성별 자리가 맞지 않아도 6-7자리를 주민번호로 본다
 RRN_WORDS = re.compile(r"주민\s?(?:등록)?\s?번호|외국인\s?등록\s?번호|외국인번호")
 RRN_LOOSE = re.compile(rf"(?<!\d)\d{{6}} ?[{DASH}] ?\d{{7}}(?!\d)|(?<!\d)\d{{13}}(?!\d)")
@@ -70,7 +75,8 @@ BANK_PREFIX = re.compile(r"(?:국민|신한|우리|하나|농협|기업|IBK|KB|S
                          r"\s?(?:은행|뱅크)?\s?[:：]?\s?$")
 # ------------------------------------------------------------------ 이메일
 EMAIL = r"[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)+"   # \w 는 한글도 포함 → ASCII 만
-EMAIL_OBFUSCATED = r"[A-Za-z0-9._%+-]+ ?[\[(](?:at|AT|골뱅이)[\])] ?[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)+"
+EMAIL_OBFUSCATED = (r"[A-Za-z0-9._%+-]+ ?[\[(](?:at|AT|골뱅이)[\])] ?[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)+"
+                    r"|[A-Za-z0-9._%+-]+ (?:at|AT) [A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)+")  # v9: 'park-sm at example.com'
 # ------------------------------------------------------------------ 주소
 SIDO = "|".join(sorted([
     "서울특별시", "부산광역시", "대구광역시", "인천광역시", "광주광역시", "대전광역시", "울산광역시",
@@ -84,15 +90,22 @@ SGG = r"[가-힣]{1,6}(?:시|군|구)"
 # 번지 뒤에 '3건', '5개' 같은 단위가 오면 주소가 아니다
 _NUM_END = r"(?!\d|건|개|명|원|회|번째|차|일|월|년|분|초|%)"
 ROAD = rf"(?:[가-힣]{{1,6}}(?:읍|면) )?[가-힣0-9]{{1,12}}(?:로|길)(?: ?\d+번?길)? ?\d+(?:-\d+)?{_NUM_END}"
-JIBUN = rf"(?:[가-힣]{{1,6}}(?:읍|면) )?[가-힣0-9]{{1,8}}(?:동|리|가) (?:산 ?)?\d+(?:-\d+)?(?:번지)?{_NUM_END}"
+JIBUN = (rf"(?:(?:[가-힣]{{1,6}}(?:읍|면) )?[가-힣0-9]{{1,8}}(?:동|리|가)|[가-힣]{{1,6}}(?:읍|면))"  # v8: '배방읍 252-4'
+         rf" (?:산 ?)?\d+(?:-\d+)?(?:번지)?{_NUM_END}")
 # 건물 이름: '은파아파트', '현대오피스텔', '혜화빌딩', '새길병원 장례식장' (v6)
 BUILDING = (r"[가-힣A-Za-z0-9]{1,10}(?:아파트|빌라|빌딩|타워|오피스텔|맨션|타운|하우스|프라자|스퀘어|센터|호텔|병원|"
             r"장례식장|웨딩홀|파티룸)")
-DETAIL = (rf"(?:,? ?{BUILDING}){{0,2}}(?:,? ?[A-Za-z0-9]{{1,4}}동)?(?:,? ?(?:\d+층|\d+호실?|[Bb]\d+층|지하 ?\d+층)){{0,2}}"
-          # 도로명 주소 뒤 참고항목: '(역삼동)', '(역삼동, 강남파이낸스센터)'
-          r"(?: ?\([가-힣0-9]+(?:동|가|리|읍|면)(?:, ?[가-힣A-Za-z0-9 ]{1,20})?\))?")
+# v9: 접미사 없는 건물 이름 + 동·호수 '두산리버빌 303동 1204호', '래미안그린팰리스804호'
+BUILDING_UNIT = r"[가-힣A-Za-z]{2,12} ?(?:[A-Za-z0-9]{1,4}동 ?)?\d{1,4}호(?!실)"
+_DETAIL_CORE = (rf"(?:,? ?(?:{BUILDING}|{BUILDING_UNIT})){{0,2}}(?:,? ?[A-Za-z0-9]{{1,4}}동)?"
+                r"(?:,? ?(?:\d+층|\d+호실?|[Bb]\d+층|지하 ?\d+층)){0,2}")
+# 도로명 주소 뒤 참고항목: '(역삼동)', '(역삼동, 강남파이낸스센터)', v9: '(을지빌딩)'.
+# v9: 참고항목 뒤에 건물·층·호가 이어지는 표기 '(보람동)삼산프라자8층801호'
+DETAIL = (rf"{_DETAIL_CORE}(?: ?\((?:[가-힣0-9]+(?:동|가|리|읍|면)(?:, ?[가-힣A-Za-z0-9 ]{{1,20}})?|{BUILDING})\)"
+          rf"{_DETAIL_CORE})?")
 # 시도로 시작하거나, 시도 없이 '강남구 테헤란로 152'처럼 2글자 이상 시군구로 시작
-ADDRESS = (rf"(?:(?:{SIDO}) (?:{SGG} ){{0,2}}|(?:[가-힣]{{2,5}}(?:시|군|구) ){{1,2}})(?:{ROAD}|{JIBUN}){DETAIL}")
+ADDRESS = (rf"(?:\(\d{{5}}\) ?|(?<!\d)\d{{5}} ?)?"  # v8: 주소 앞 우편번호 '(05299) ', v9: 괄호 없이 '06323서울특별시'
+           rf"(?:(?:{SIDO}) (?:{SGG} ){{0,2}}|(?:[가-힣]{{2,5}}(?:시|군|구) ){{1,2}})(?:{ROAD}|{JIBUN}){DETAIL}")
 
 # 순서가 곧 우선순위: 앞 패턴이 잡은 글자는 뒤 패턴이 다시 잡지 않는다
 PATTERNS = [
@@ -110,11 +123,17 @@ PATTERNS = [
 NAME_FIELDS = ("성명|이름|고객명|고객 성명|예금주|수신인|받는 분|민원인|신청인|요청자|가입자|명의자|계약자|"
                "피보험자|보호자|대리인|담당자|작성자|상담원|처리자|보고자|수신|발신|참조|From|To|Cc|To\\.|"
                "예약자명|예약자|주문자|상담자|신청자|수령자|수령인|발송자|보내는 분|받는 사람|보내는 사람|임차인|임대인|"
-               "구매자|판매자|입금자명|입금자|송금자|문의자|환자명|환자|학생명|학부모|회원명|성함|대표자|고객|처리 담당")
+               "구매자|판매자|입금자명|입금자|송금자|문의자|환자명|환자|학생명|학부모|회원명|성함|대표자|고객|처리 담당|"
+               "수취인|송금인|위임인|소명자|피해자|검토자|신고인|청구인|확인자|승인자|심사역")  # v8 holdout 서식
+# 서식 항목 이름 끝 글자 ('배송지', '소명자', '위임인', '심사역', '발급처', '고객명', '접수일')
+FIELD_LABEL_SUFFIX = set("지자인역처명일호")
+# 값이 일반 단어와 같아도('신설') 이름으로 받아 주는 필드: 사람 말고는 올 수 없는 칸
+PERSON_FIELDS = {"성명", "이름", "고객명", "예금주", "수취인", "송금인", "위임인", "대리인", "수령인", "신청인", "피해자",
+                 "민원인", "명의자", "계약자", "피보험자"}
 # 필드 뒤 구분 기호(: 또는 .)는 필수: 없으면 '상담원 황보미래 대리가 응대함'처럼 문장을 통째로 잡는다
-FIELD_NAME = re.compile(rf"(?<![가-힣A-Za-z])(?:{NAME_FIELDS}) ?[:：.] ?"
+FIELD_NAME = re.compile(rf"(?<![가-힣A-Za-z])({NAME_FIELDS}) ?[:：.] ?"
                         # 한글 단어는 끝에 경계를 둔다: '리스크관리팀'에서 '리스크관리'만 떼어 잡지 않도록
-                        r"([가-힣]{2,5}(?![가-힣])(?: [가-힣]{1,4}(?![가-힣])){0,2}"
+                        r"([가-힣]{1,5}(?![가-힣])(?: [가-힣]{1,4}(?![가-힣])){0,2}"  # v8: 첫 단어 1글자(띄어 쓴 외자 '전 찬')
                         r"|[A-Za-z][A-Za-z'.-]+(?: [A-Za-z][A-Za-z'.-]+){1,3})")
 # '윤 선영 고객', '박 예린 팀장', '제갈 성렬 대리', '선우 진 과장' 처럼 띄어 쓴 이름. 뒤 문맥을 호칭·직함·줄끝으로
 # 제한해야 '고객(010…)이 기존'의 '이 기존' 같은 오탐을 막을 수 있다
@@ -132,6 +151,14 @@ NAME_HONORIFIC = re.compile(
     rf"|명의|이름으로))")
 # 서명·인사말: '채민호 드림', '김 올림', '안녕하세요, OO팀 표지원입니다'
 SIGNATURE = re.compile(r"(?<![가-힣])([가-힣]{2,4})(?:\s?(?:드림|올림|배상)(?![가-힣])|입니다)")
+# v9: 부서·호칭 바로 뒤에 띄어쓰기 없이 붙은 이름 '영업팀하늘에게', '고객지원팀이선아고객님', '인사팀최혜진대리님'
+GLUED_DEPT_NAME = re.compile(r"(?<=[가-힣])(?:팀|센터|본부|지점|부서)([가-힣]{2,4}?)"
+                             r"(?=님|씨|대리|과장|차장|부장|팀장|주임|사원|실장|고객|께|에게|한테|\s?드림)")
+# v9: 번호·이메일 바로 뒤 괄호 속 이름 '010-0520-9301(가람)'. 괄호에 자주 오는 설명 말은 제외
+PAREN_NAME = re.compile(r"\(([가-힣]{2,4})\)")
+PAREN_NOT_NAME = {"대표", "직통", "자택", "본인", "휴대폰", "휴대전화", "핸드폰", "회사", "사무실", "내선", "모바일", "개인",
+                  "공용", "신규", "변경", "예금주", "유선", "팩스", "야간", "주간", "업무용", "개인용", "담당", "담당자", "고객",
+                  "비상", "대표번호", "평일", "주말", "계좌", "카드", "연락처", "보조", "기존", "추가", "확인", "필수", "선택"}
 # 참석자 목록: '참석: 김솔, 남궁 하늘, Daniel Park, 정다운' → 쉼표로 나눠 하나씩 이름 판단
 LIST_FIELD = re.compile(r"(?m)(?<![가-힣])(?:참석자?|불참자?|참여자|배석자?|명단)\s?[:：]\s?(.+)$")
 # 메신저 말하는 사람: 줄 맨 앞 '오세린: …'. Kiwi 가 '오세린'을 '오(숫자)+세(나이)+린'으로 읽는 것처럼
@@ -183,7 +210,7 @@ class RuleBasedDetector:
             if e["label"] == "account_number" and (NOT_ACCOUNT_WORDS.search(before) or value.startswith("080")):
                 remove(e)  # 사업자등록번호·송장번호·주문번호, 080 회사 번호
             elif e["label"] == "phone_number" and (COMPANY_PHONE_WORDS.search(before)
-                                                   or re.match(r"\s?\(?대표", text[e["end"]:e["end"] + 4])):
+                                                   or COMPANY_AFTER.match(text, e["end"])):  # v9: '대표자 홍길동'은 대표번호 아님
                 remove(e)  # 대표번호
             elif e["label"] == "phone_number" and self._phone_is_account(before):
                 e["label"] = "account_number"  # 토스뱅크 등 휴대폰 번호 계좌
@@ -196,7 +223,7 @@ class RuleBasedDetector:
                     remove(e)
                 add(m.start(), m.end(), "resident_registration_number")
         # 하이픈 없는 숫자, 2묶음·점 구분 번호는 주문번호 등과 구분이 안 되므로 계좌 문맥이 있을 때만 계좌로 본다
-        for pat in (DIGITS_ONLY, LOOSE_NUMBER):
+        for pat in (DIGITS_ONLY, LOOSE_NUMBER, LOOSE_SPACED):
             for m in pat.finditer(text):
                 digits = len(re.sub(r"\D", "", m.group()))
                 before = self._clause_before(text, m.start())
@@ -207,14 +234,33 @@ class RuleBasedDetector:
 
         if self.context_rules:
             self._context_names(text, add)
+            # v9: 번호·이메일 바로 뒤 괄호 속 이름 '010-0520-9301(가람)', '…@example.com(박민수)'
+            for e in list(ents):
+                if e["label"] != "person":
+                    m = PAREN_NAME.match(text, e["end"])
+                    if m and m.group(1) not in PAREN_NOT_NAME and not self._is_common_word(m.group(1)):
+                        add(m.start(1), m.end(1), "person")
 
         # 분석기(기본 Kiwi)는 사전에 없는 이름을 '모르는 단어(NNG)'로 두거나 '신승+현', '남성+호' 처럼 엉뚱하게 쪼갠다.
         # 그래서 품사(NNP)보다 '빈틈없이 붙은 명사 조각을 합친 덩어리'를 보고 판단한다:
         #   성씨로 시작하는 3글자(복성이면 4글자) 덩어리 → 이름 후보. '여의도지점'처럼 더 길면 이름 아님
         #   단, '서비스'·'임직원'처럼 사전에 있는 일반명사 한 단어면 이름이 아님
+        speakers = self._repeated_speakers(text)
         for s, e, toks in self._noun_chunks(text):
             word = text[s:e]
             known_common = len(toks) == 1 and toks[0].tag == "NNG" and toks[0].known
+            # v8: '배송지:', '소명자:' 처럼 바로 뒤에 콜론이 오는 서식 항목. 메신저의 말하는 사람('신승현:')과
+            # 구분하려고 항목 접미사로 끝나는 말만 거른다 (합성어 판정은 '신승+현' 같은 이름도 걸려서 쓰지 않음)
+            if re.match(r" ?[:：]", text[e:e + 2]) and word not in speakers and word[-1] in FIELD_LABEL_SUFFIX:
+                continue
+            if word in TITLES or CONDOLENCE.search(word):
+                continue  # v8: '심사역' 같은 직함, '장인상' 같은 부고 단어
+            # v8: '안윤이 조건…'처럼 사전에 없는 덩어리가 '이름 + 주격 조사 이'로 분석되면 조사를 뗀 이름만
+            if len(word) == 3 and word[-1] == "이" and re.match(r"[\s,.)]", text[e:e + 1] or " "):
+                sub = self.an.tokenize(word)
+                if len(sub) == 2 and sub[1].tag == "JKS" and word[0] in SURNAMES:
+                    add(s, e - 1, "person")
+                    continue
             # 접미사는 Kiwi 조각이 아니라 마지막 글자로 본다: '연회비'를 문맥마다 다르게 쪼개기 때문
             if known_common or (len(toks) > 1 and word[-1] in NON_NAME_SUFFIX) \
                     or ORG_FOLLOW.match(text, e):
@@ -242,6 +288,9 @@ class RuleBasedDetector:
                         for i in range(x["start"], x["end"]):
                             taken[i] = False
                     add(s, e, "person")
+        # v9: 이름 뒤에 붙어 잡힌 조사·호칭('최민재님', '정다영의')을 뗀다 (postprocess.trim_person_tail, 토큰 모델과 공통)
+        ents = trim_person_tail(text, ents)
+        ents = resolve_name_i(text, ents)  # v10: '백송이 대리'의 '이'는 이름 (postprocess.resolve_name_i)
         # 팀 라벨 기준: 집 주소가 아닌 장소 주소는 가리지 않는다 (postprocess.drop_venue_addresses)
         return drop_venue_addresses(text, ents)
 
@@ -316,14 +365,19 @@ class RuleBasedDetector:
                         s = pos + item.index(name)
                         add(s, s + len(name), "person")
                 pos += len(item)
+        speakers = self._repeated_speakers(text)
         for m in SPEAKER.finditer(text):
             w = m.group(1)
+            # v8: 서식 항목('소명자:', '위임인:', '배송지:')은 한 번만 나오고 항목 접미사로 끝난다.
+            # 두 번 이상 나온 말하는 사람이거나, 서식 항목다운 말이 아닐 때만 이름으로 본다
+            if w not in speakers and w[-1] in FIELD_LABEL_SUFFIX:
+                continue
             if w not in FIELD_WORDS and (w[:2] in COMPOUND_SURNAMES or w[0] in SURNAMES)                     and w[-1] not in NON_NAME_SUFFIX and self._looks_like_name(w):
                 add(m.start(1), m.end(1), "person")
         for m in FIELD_NAME.finditer(text):
-            span = self._trim_field_name(m.group(1))
+            span = self._trim_field_name(m.group(2), strong=m.group(1) in PERSON_FIELDS)
             if span:
-                add(m.start(1), m.start(1) + len(span), "person")
+                add(m.start(2), m.start(2) + len(span), "person")
         for m in SPACED_NAME.finditer(text):
             sur, given = m.group(1), m.group(2)
             if (len(sur) == 1 and sur in SURNAMES and len(given) == 2 and given not in TITLES) \
@@ -339,6 +393,17 @@ class RuleBasedDetector:
                 sur_ok = w[:2] in COMPOUND_SURNAMES or w[0] in SURNAMES
                 if sur_ok and w[-1:] not in NON_NAME_SUFFIX and self._looks_like_name(w):
                     add(m.start(1), m.end(1), "person")
+        for m in GLUED_DEPT_NAME.finditer(text):
+            w = m.group(1)
+            # 성으로 시작하는 이름이거나, 성 없는 2글자는 '팀원분'·'장님'처럼 사람 이름이 아닌 말이 아닐 때
+            if w not in TITLES and w[-1] not in "분들원장" and (w[0] in SURNAMES or w[:2] in COMPOUND_SURNAMES
+                                                              or len(w) == 2):
+                add(m.start(1), m.end(1), "person")
+
+    def _repeated_speakers(self, text):
+        """메신저처럼 줄 맨 앞 '이름:'이 문서 안에서 두 번 이상 나오는 이름들."""
+        from collections import Counter
+        return {w for w, c in Counter(m.group(1) for m in SPEAKER.finditer(text)).items() if c >= 2}
 
     def _is_list_name(self, name):
         if re.fullmatch(r"[A-Za-z][A-Za-z'.-]+(?: [A-Za-z][A-Za-z'.-]+){1,3}", name):
@@ -348,12 +413,23 @@ class RuleBasedDetector:
             return True  # '남궁 하늘', '이 도윤'
         return len(parts) == 1 and 2 <= len(name) <= 4 and (name[:2] in COMPOUND_SURNAMES or name[0] in SURNAMES)             and name[-1] not in NON_NAME_SUFFIX and self._looks_like_name(name)
 
-    def _trim_field_name(self, value):
-        """필드 값에서 이름만 남긴다: '윤선영 연락처' → '윤선영', '김은영 대리' → '김은영'."""
+    def _trim_field_name(self, value, strong=False):
+        """필드 값에서 이름만 남긴다: '윤선영 연락처' → '윤선영', '김은영 대리' → '김은영'.
+        strong: 사람만 올 수 있는 칸('수취인:' 등)이면 일반 단어와 같은 이름('신설')도 받는다."""
         if re.match(r"[A-Za-z]", value):
             return value
         words = value.split(" ")
         first = words[0]
+        # v8: 띄어 쓴 외자 '전 찬', 띄어 쓴 복성 이름
+        if len(words) >= 2 and ((len(first) == 1 and first in SURNAMES) or first in COMPOUND_SURNAMES) \
+                and 1 <= len(words[1]) <= 2 and words[1] not in TITLES and not self._ends_with_josa(words[1]):
+            return f"{first} {words[1]}"
+        if len(first) == 1:
+            return None  # '고객: 김 과장'의 '김' (성+직함)
+        first = strip_person_tail(first)  # v9: '예약자: 최민재님' → '최민재' (안 떼면 '최민재님'이 문서 전체로 퍼짐)
+        if strong and 2 <= len(first) <= 4 and (first[0] in SURNAMES or first[:2] in COMPOUND_SURNAMES) \
+                and first[-1] not in NON_NAME_SUFFIX:
+            return first
         if first[-1] in NON_NAME_SUFFIX or not self._looks_like_name(first):
             return None  # '채권관리팀', '고객센터' 같은 부서·일반 단어
         keep = [first]

@@ -1,0 +1,4 @@
+﻿system,strict_p,strict_r,strict_f1,partial_p,partial_r,partial_f1,mask_rec,ms_per_doc
+rules,0.9124,0.694,0.7884,0.9423,0.7167,0.8142,0.8505,2.6
+atonlee,0.7995,0.7881,0.7937,0.866,0.8536,0.8597,0.9369,35.0
+rules+atonlee,0.8706,0.8858,0.8782,0.919,0.935,0.9269,0.9776,37.6

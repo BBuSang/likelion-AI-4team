@@ -1,0 +1,44 @@
+﻿split,doc_id,doc_type,template,text,shape,form,person_id,hard_cases,prev_char,next_char,context
+holdout,H0003,영문혼용메일,,jw.kim83@saebomcard.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,,"phone_format_variant, surname_title_unlabeled",(,),ith 김 과장님 by email (【jw.kim83@saebomcard.example.com】). ⏎ If anything is ur
+holdout,H0005,출장보고,,sy.lee60@mirsec.example.com,aa.aaa99@aaaaaa.aaaaaaa.aaa,,,"homonym, phone_format_variant", , ,03 | ⏎ | 이서연 | 미르보안 | 【sy.lee60@mirsec.example.com】 | ⏎  ⏎ 주요 내용: 상담 녹취 보관 
+holdout,H0008,고객편지,,yr.hong49@example.org,aa.aaaa99@aaaaaaa.aaa,,,"given_only, surname_title_unlabeled",(,),칭찬 부탁드립니다. ⏎  ⏎ 홍예린 드림 (【yr.hong49@example.org】)
+holdout,H0015,채용메일,,sy.yoon45@example.com,aa.aaaa99@aaaaaaa.aaa,,,surname_title_unlabeled, ,⏎,받는 사람: 【sy.yoon45@example.com】 ⏎ 제목: [새봄카드] 2차 면접 일정
+holdout,H0024,출장보고,,ej.kim26@dasomcall.example.com,aa.aaa99@aaaaaaaaa.aaaaaaa.aaa,,,"homonym, phone_format_variant", , , | ⏎ | 김은정 | 다솜콜솔루션 | 【ej.kim26@dasomcall.example.com】 | ⏎  ⏎ 주요 내용: 상담 녹취 보관 
+holdout,H0027,영문혼용메일,,sh.kim61@saebomcard.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,,"homonym, phone_format_variant, surname_title_unlabeled",(,),ith 김 과장님 by email (【sh.kim61@saebomcard.example.com】). ⏎ If anything is ur
+holdout,H0035,채용메일,,ny.namgoong24@example.com,aa.aaaaaaaa99@aaaaaaa.aaa,,,"phone_format_variant, surname_title_unlabeled", ,⏎,받는 사람: 【ny.namgoong24@example.com】 ⏎ 제목: [새봄카드] 2차 면접 일정
+holdout,H0042,영문혼용메일,,sw.moon57@saebomcard.example.com,aa.aaaa99@aaaaaaaaaa.aaaaaaa.aaa,,,"phone_format_variant, surname_title_unlabeled",(,),ith 문 과장님 by email (【sw.moon57@saebomcard.example.com】). ⏎ If anything is ur
+holdout,H0043,영문혼용메일,,sy.heo14@saebomcard.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,,"phone_format_variant, surname_title_unlabeled",(,),ith 허 대리님 by email (【sy.heo14@saebomcard.example.com】). ⏎ If anything is ur
+holdout,H0049,출장보고,,sw.han07@dasomcall.example.com,aa.aaa99@aaaaaaaaa.aaaaaaa.aaa,,,homonym, , , | ⏎ | 한시우 | 다솜콜솔루션 | 【sw.han07@dasomcall.example.com】 | ⏎  ⏎ 주요 내용: 상담 녹취 보관 
+holdout,H0053,고객편지,,hj.park02@example.net,aa.aaaa99@aaaaaaa.aaa,,,"given_only, surname_title_unlabeled",(,),칭찬 부탁드립니다. ⏎  ⏎ 박현준 드림 (【hj.park02@example.net】)
+holdout,H0056,출장보고,,mj.lee25@codebridge.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,,phone_format_variant, , ,5 | ⏎ | 이민재 | 코드브릿지 | 【mj.lee25@codebridge.example.com】 | ⏎  ⏎ 주요 내용: 상담 녹취 보관 
+holdout,H0064,고객편지,,sh.ryu86@example.com,aa.aaa99@aaaaaaa.aaa,,,"given_only, homonym, surname_title_unlabeled",(,),칭찬 부탁드립니다. ⏎  ⏎ 류승현 드림 (【sh.ryu86@example.com】)
+holdout,H0067,출장보고,,ye.jeon24@dataon.example.com,aa.aaaa99@aaaaaa.aaaaaaa.aaa,,,, , , ⏎ | 전예은 | 데이터온시스템즈 | 【ye.jeon24@dataon.example.com】 | ⏎  ⏎ 주요 내용: 상담 녹취 보관 
+holdout,H0069,영문혼용메일,,sy.kim52@saebomcard.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,,"phone_format_variant, surname_title_unlabeled",(,),ith 김 차장님 by email (【sy.kim52@saebomcard.example.com】). ⏎ If anything is ur
+holdout,H0070,출장보고,,sw.kim29@codebridge.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,,phone_format_variant, , ,9 | ⏎ | 김선우 | 코드브릿지 | 【sw.kim29@codebridge.example.com】 | ⏎  ⏎ 주요 내용: 상담 녹취 보관 
+holdout,H0074,해외송금접수,,jung.k@example.com,aaaa.a@aaaaaaa.aaa,,,"account_format_variant, given_only, single_char_given_name", ,),"수취인: 정온유 (현지 연락 이메일 【jung.k@example.com】) ⏎ 송금액: USD 1,000 ⏎  ⏎ 도윤"
+holdout,H0075,영문혼용메일,,mj.kim08@saebomcard.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,,"homonym, phone_format_variant, surname_title_unlabeled",(,),ith 김 대리님 by email (【mj.kim08@saebomcard.example.com】). ⏎ If anything is ur
+holdout,H0083,영문혼용메일,,jw.kim19@saebomcard.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,,"phone_format_variant, surname_title_unlabeled",(,),ith 김 대리님 by email (【jw.kim19@saebomcard.example.com】). ⏎ If anything is ur
+holdout,H0086,출장보고,,sw.kim29@codebridge.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,,phone_format_variant, , ,4 | ⏎ | 김선우 | 코드브릿지 | 【sw.kim29@codebridge.example.com】 | ⏎  ⏎ 주요 내용: 상담 녹취 보관 
+holdout,H0088,고객편지,,jy.park59@example.net,aa.aaaa99@aaaaaaa.aaa,,,"given_only, surname_title_unlabeled",(,),칭찬 부탁드립니다. ⏎  ⏎ 박지영 드림 (【jy.park59@example.net】)
+holdout,H0092,고객편지,,jw.song12@example.net,aa.aaaa99@aaaaaaa.aaa,,,"given_only, surname_title_unlabeled",(,),칭찬 부탁드립니다. ⏎  ⏎ 송진우 드림 (【jw.song12@example.net】)
+holdout,H0096,해외송금접수,,k_jeon23@mail.example.org,a_aaaa99@aaaa.aaaaaaa.aaa,,,"account_format_variant, given_only", ,),"수취인: 전도윤 (현지 연락 이메일 【k_jeon23@mail.example.org】) ⏎ 송금액: USD 6,100 ⏎  ⏎ 시온"
+holdout,H0099,출장보고,,sw.kim29@codebridge.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,,, , ,5 | ⏎ | 김선우 | 코드브릿지 | 【sw.kim29@codebridge.example.com】 | ⏎  ⏎ 주요 내용: 상담 녹취 보관 
+holdout,H0101,출장보고,,sa.kim61@dataon.example.com,aa.aaa99@aaaaaa.aaaaaaa.aaa,,,phone_format_variant, , , ⏎ | 김수아 | 데이터온시스템즈 | 【sa.kim61@dataon.example.com】 | ⏎  ⏎ 주요 내용: 상담 녹취 보관 
+holdout,H0112,채용메일,,hj.park14@example.org,aa.aaaa99@aaaaaaa.aaa,,,surname_title_unlabeled, ,⏎,받는 사람: 【hj.park14@example.org】 ⏎ 제목: [새봄카드] 2차 면접 일정
+holdout,H0118,채용메일,,ew.kim82@example.org,aa.aaa99@aaaaaaa.aaa,,,"phone_format_variant, surname_title_unlabeled", ,⏎,받는 사람: 【ew.kim82@example.org】 ⏎ 제목: [새봄카드] 2차 면접 일정
+holdout,H0124,고객편지,,jw.kim83@example.com,aa.aaa99@aaaaaaa.aaa,,,"given_only, surname_title_unlabeled",(,),칭찬 부탁드립니다. ⏎  ⏎ 김지우 드림 (【jw.kim83@example.com】)
+holdout,H0128,해외송금접수,,k_jegal90@example.net,a_aaaaa99@aaaaaaa.aaa,,,"account_format_variant, compound_surname, given_only, phone_format_variant, single_char_given_name", ,),"수취인: 제갈혁 (현지 연락 이메일 【k_jegal90@example.net】) ⏎ 송금액: USD 7,200 ⏎  ⏎ 온유"
+holdout,H0138,고객편지,,jw.song12@example.net,aa.aaaa99@aaaaaaa.aaa,,,"given_only, surname_title_unlabeled",(,),칭찬 부탁드립니다. ⏎  ⏎ 송진우 드림 (【jw.song12@example.net】)
+holdout,H0139,해외송금접수,,lee.k@example.net,aaa.a@aaaaaaa.aaa,,,"account_format_variant, given_only, single_char_given_name", ,),"수취인: 이지후 (현지 연락 이메일 【lee.k@example.net】) ⏎ 송금액: USD 3,000 ⏎  ⏎ 린 "
+holdout,H0148,채용메일,,sh.ryu86@example.com,aa.aaa99@aaaaaaa.aaa,,,surname_title_unlabeled, ,⏎,받는 사람: 【sh.ryu86@example.com】 ⏎ 제목: [새봄카드] 2차 면접 일정
+holdout,H0151,채용메일,,yr.hong49@example.org,aa.aaaa99@aaaaaaa.aaa,,,"phone_format_variant, surname_title_unlabeled", ,⏎,받는 사람: 【yr.hong49@example.org】 ⏎ 제목: [새봄카드] 2차 면접 일정
+holdout,H0153,출장보고,,sw.kim29@codebridge.example.com,aa.aaa99@aaaaaaaaaa.aaaaaaa.aaa,,,"homonym, phone_format_variant", , ,4 | ⏎ | 김선우 | 코드브릿지 | 【sw.kim29@codebridge.example.com】 | ⏎  ⏎ 주요 내용: 상담 녹취 보관 
+holdout,H0155,해외송금접수,,choi-k87@example.com,aaaa-a99@aaaaaaa.aaa,,,"account_format_variant, given_only, phone_format_variant, single_char_given_name", ,)," ⏎ 수취인: 최별 (현지 연락 이메일 【choi-k87@example.com】) ⏎ 송금액: USD 9,000 ⏎  ⏎ 로운"
+holdout,H0166,영문혼용메일,,dh.park49@saebomcard.example.com,aa.aaaa99@aaaaaaaaaa.aaaaaaa.aaa,,,"phone_format_variant, surname_title_unlabeled",(,),ith 박 팀장님 by email (【dh.park49@saebomcard.example.com】). ⏎ If anything is ur
+holdout,H0167,채용메일,,wj.lim33@example.com,aa.aaa99@aaaaaaa.aaa,,,surname_title_unlabeled, ,⏎,받는 사람: 【wj.lim33@example.com】 ⏎ 제목: [새봄카드] 2차 면접 일정
+holdout,H0171,해외송금접수,,k_shin15@example.net,a_aaaa99@aaaaaaa.aaa,,,"account_format_variant, compound_surname, given_only, single_char_given_name", ,)," ⏎ 수취인: 신설 (현지 연락 이메일 【k_shin15@example.net】) ⏎ 송금액: USD 4,200 ⏎  ⏎ 하율"
+holdout,H0173,고객편지,,sy.yoon45@example.com,aa.aaaa99@aaaaaaa.aaa,,,"given_only, surname_title_unlabeled",(,),칭찬 부탁드립니다. ⏎  ⏎ 윤소연 드림 (【sy.yoon45@example.com】)
+holdout,H0174,해외송금접수,,ksunwoo85@example.com,aaaaaaa99@aaaaaaa.aaa,,,"account_format_variant, compound_surname, given_only, single_char_given_name", ,),"취인: 선우태오 (현지 연락 이메일 【ksunwoo85@example.com】) ⏎ 송금액: USD 8,600 ⏎  ⏎ 서진"
+holdout,H0175,채용메일,,yr.hong49@example.org,aa.aaaa99@aaaaaaa.aaa,,,surname_title_unlabeled, ,⏎,받는 사람: 【yr.hong49@example.org】 ⏎ 제목: [새봄카드] 2차 면접 일정
+holdout,H0178,고객편지,,he.jung42@example.net,aa.aaaa99@aaaaaaa.aaa,,,"given_only, homonym, surname_title_unlabeled",(,),칭찬 부탁드립니다. ⏎  ⏎ 정하은 드림 (【he.jung42@example.net】)
+holdout,H0183,채용메일,,ny.namgoong24@example.com,aa.aaaaaaaa99@aaaaaaa.aaa,,,"phone_format_variant, surname_title_unlabeled", ,⏎,받는 사람: 【ny.namgoong24@example.com】 ⏎ 제목: [새봄카드] 2차 면접 일정

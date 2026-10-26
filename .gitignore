@@ -8,3 +8,6 @@ outputs/
 __pycache__/
 *.pyc
 .venv/
+
+# 엑셀이 파일을 열 때 만드는 잠금 파일
+~$*

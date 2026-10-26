@@ -1,0 +1,19 @@
+﻿item,n,rules+atonlee,rules,atonlee
+josa_attached (person),157,1.0,0.8535031847133758,0.9936305732484076
+spaced_name (person),205,0.9951219512195122,0.8829268292682927,0.9902439024390244
+given_only (person),135,0.9851851851851852,0.762962962962963,0.9851851851851852
+phone_format_variant (phone_number),89,1.0,1.0,0.9438202247191011
+homonym (person),102,1.0,0.9509803921568627,1.0
+card_format_variant (card_number),25,1.0,1.0,1.0
+id_format_variant (resident_registration_number),30,1.0,1.0,1.0
+account_format_variant (account_number),23,0.9565217391304348,0.782608695652174,0.6956521739130435
+address_format_variant (address),41,0.9512195121951219,0.9512195121951219,1.0
+single_char_given_name (person),38,0.9473684210526315,0.2894736842105263,0.9210526315789473
+compound_surname (person),25,1.0,0.92,1.0
+[추가] person form=full,471,0.9978768577494692,0.9235668789808917,0.9957537154989384
+[추가] person form=spaced,53,0.9811320754716981,0.9245283018867925,0.9811320754716981
+[추가] person form=given,36,0.9722222222222222,0.25,0.9722222222222222
+[추가] decoy_company_phone 오탐수,8,8,8,0
+[추가] decoy_words 오탐수,14,8,8,0
+[추가] decoy_numbers 오탐수,6,0,0,0
+[추가] no_pii 오탐수,14,8,8,0

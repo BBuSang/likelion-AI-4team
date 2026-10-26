@@ -1,0 +1,561 @@
+﻿split,doc_id,doc_type,template,text,shape,form,person_id,hard_cases,prev_char,next_char,context
+holdout,H0001,경조사공지,,정채원,가가가,full,,given_only, , ,[부고] 정보보호팀 【정채원】 과장 조모상 ⏎  ⏎ 정보보호팀 정채원 과
+holdout,H0001,경조사공지,,정채원,가가가,full,,given_only, , ,팀 정채원 과장 조모상 ⏎  ⏎ 정보보호팀 【정채원】 과장의 조모 故 김은우님께서 별세하
+holdout,H0001,경조사공지,,김은우,가가가,full,,given_only, ,님, ⏎ 정보보호팀 정채원 과장의 조모 故 【김은우】님께서 별세하셨기에 삼가 알려드립니다
+holdout,H0001,경조사공지,,정채원,가가가,full,,given_only, , ,: 2026년 5월 10일 ⏎ 연락처: 【정채원】 과장 010-0999-1956 ⏎  ⏎ 마
+holdout,H0001,경조사공지,,시우,가가,given,,given_only, , ,로 함께해 주시기 바랍니다. ⏎ 인사팀 【시우】 드림
+holdout,H0002,카드발급심사,,정태오,가가가,full,,"address_format_variant, card_format_variant, id_format_variant, josa_attached, single_char_given_name",⏎,님,[카드 발급 심사 메모] ⏎  ⏎ 【정태오】님 신용카드 신규 발급 건 검토함. ⏎ 
+holdout,H0002,카드발급심사,,정태오,가가가,full,,"address_format_variant, card_format_variant, id_format_variant, josa_attached, single_char_given_name",⏎, , 도담길 125 110동 905호 ⏎  ⏎ 【정태오】 고객은 연회비 면제 조건을 문의함.
+holdout,H0002,카드발급심사,,안윤,가가,full,,"address_format_variant, card_format_variant, id_format_variant, josa_attached, single_char_given_name", ,이,연회비 면제 조건을 문의함. 심사역 【안윤】이 조건 안내 완료.
+holdout,H0003,영문혼용메일,,이민재,가가가,full,,"phone_format_variant, surname_title_unlabeled", , ,"tion schedule ⏎  ⏎ Dear 【이민재】 책임님, ⏎  ⏎ Thank you for"
+holdout,H0003,영문혼용메일,,김서현,가가가,full,,"phone_format_variant, surname_title_unlabeled",⏎,⏎,"912. ⏎  ⏎ Best regards, ⏎ 【김서현】 ⏎ Digital Strategy Te"
+holdout,H0004,녹취요약,,재원,가가,given,,"given_only, homonym, phone_format_variant, spaced_name", ,:," CALL-96250608 ⏎  ⏎ 상담사 【재원】: 네, 새봄카드 고객센터입니다. ⏎ 고"
+holdout,H0004,녹취요약,,정하은,가가가,full,,"given_only, homonym, phone_format_variant, spaced_name", ,인,"고객: 카드 결제가 안 돼서요. 저 【정하은】인데요. ⏎ 상담사: 정하은 고객님, 본"
+holdout,H0004,녹취요약,,정하은,가가가,full,,"given_only, homonym, phone_format_variant, spaced_name", , ,"돼서요. 저 정하은인데요. ⏎ 상담사: 【정하은】 고객님, 본인 확인을 위해 휴대전화"
+holdout,H0004,녹취요약,,정 하은,가 가가,spaced,,"given_only, homonym, phone_format_variant, spaced_name", , ,서 쓰는 번호로 바꿨어요. ⏎  ⏎ 요약: 【정 하은】 고객님께서 해외 체류 중 결제 거절
+holdout,H0005,출장보고,,강연우,가가가,full,,"homonym, phone_format_variant", , ,--- | --- | --- | ⏎ | 【강연우】 | 디지털전략팀 | 02-3425-
+holdout,H0005,출장보고,,문시우,가가가,full,,"homonym, phone_format_variant", , , | 02-3425-7293 | ⏎ | 【문시우】 | 인사팀 | 02-3324-849
+holdout,H0005,출장보고,,김은정,가가가,full,,"homonym, phone_format_variant", , , | 02-3324-8498 | ⏎ | 【김은정】 | 다솜콜솔루션 | 01001524
+holdout,H0005,출장보고,,이서연,가가가,full,,"homonym, phone_format_variant", , ,션 | 01001524303 | ⏎ | 【이서연】 | 미르보안 | sy.lee60@m
+holdout,H0005,출장보고,,김은정,가가가,full,,"homonym, phone_format_variant", , ,내용: 상담 녹취 보관 절차 확인. 【김은정】 책임에게 보관 기간 초과 파일 삭제
+holdout,H0006,가맹점변경,,송진우,가가가,full,,address_format_variant, ,⏎,가맹점 정보 변경 요청서 ⏎  ⏎ 대표자: 【송진우】 ⏎ 사업장 주소: 부산 수영구 한빛로 
+holdout,H0006,가맹점변경,,김주원,가가가,full,,address_format_variant, , ,48-963-356842 ⏎  ⏎ 접수자: 【김주원】 / 접수일: 2026-06-04
+holdout,H0007,한도심사결과,,김지훈,가가가,full,,address_format_variant,⏎, ,106 다온아파트 104동 432호 ⏎ 【김지훈】 님 귀하 ⏎  ⏎ 카드 이용한도 상향 심사
+holdout,H0007,한도심사결과,,양서현,가가가,full,,address_format_variant, ,(,관련하여 궁금하신 점은 담당 심사역 【양서현】(02-3103-5320)에게 문의해
+holdout,H0008,고객편지,,재원,가가,given,,"given_only, surname_title_unlabeled", , ,"문에 정신이 없었는데, 상담해 주신 【재원】 님 덕분에 금방 해결했어요. ⏎ 특히 "
+holdout,H0008,고객편지,,홍예린,가가가,full,,"given_only, surname_title_unlabeled",⏎, ,했습니다. ⏎ 꼭 칭찬 부탁드립니다. ⏎  ⏎ 【홍예린】 드림 (yr.hong49@examp
+holdout,H0009,대리인위임확인,,박별,가가,full,,"account_format_variant, id_format_variant, josa_attached, phone_format_variant, single_char_given_name", , ,대리인 위임 확인서 ⏎  ⏎ 위임인: 【박별】 / 주민등록번호 9505032187
+holdout,H0009,대리인위임확인,,오담,가가,full,,"account_format_variant, id_format_variant, josa_attached, phone_format_variant, single_char_given_name", , , 9505032187153 ⏎ 대리인: 【오담】 / 주민등록번호 770802 197
+holdout,H0009,대리인위임확인,,박별,가가,full,,"account_format_variant, id_format_variant, josa_attached, phone_format_variant, single_char_given_name",⏎,이,좌: 0872-89-0813128 ⏎  ⏎ 【박별】이 입원 중이어서 오담에게 업무를 위
+holdout,H0009,대리인위임확인,,오담,가가,full,,"account_format_variant, id_format_variant, josa_attached, phone_format_variant, single_char_given_name", ,에,813128 ⏎  ⏎ 박별이 입원 중이어서 【오담】에게 업무를 위임함. 확인 담당 오예
+holdout,H0009,대리인위임확인,,오예준,가가가,full,,"account_format_variant, id_format_variant, josa_attached, phone_format_variant, single_char_given_name", , ,오담에게 업무를 위임함. 확인 담당 【오예준】 대리.
+holdout,H0011,자동이체신청서,,오현,가가,full,,"account_format_variant, address_format_variant, id_format_variant, phone_format_variant, single_char_given_name", ,⏎,일 2026-02-25) ⏎  ⏎ 신청인: 【오현】 ⏎ 주민등록번호: 86021728349
+holdout,H0011,자동이체신청서,,송이안,가가가,full,,"account_format_variant, address_format_variant, id_format_variant, phone_format_variant, single_char_given_name", , ,동의합니다. ⏎ 접수 담당: 카드운영팀 【송이안】 (내선 8314)
+holdout,H0012,녹취요약,,동현,가가,given,,"given_only, phone_format_variant, spaced_name", ,:," CALL-32963858 ⏎  ⏎ 상담사 【동현】: 네, 새봄카드 고객센터입니다. ⏎ 고"
+holdout,H0012,녹취요약,,정성호,가가가,full,,"given_only, phone_format_variant, spaced_name", ,인,"고객: 카드 결제가 안 돼서요. 저 【정성호】인데요. ⏎ 상담사: 정성호 고객님, 본"
+holdout,H0012,녹취요약,,정성호,가가가,full,,"given_only, phone_format_variant, spaced_name", , ,"돼서요. 저 정성호인데요. ⏎ 상담사: 【정성호】 고객님, 본인 확인을 위해 휴대전화"
+holdout,H0012,녹취요약,,정 성호,가 가가,spaced,,"given_only, phone_format_variant, spaced_name", , ,서 쓰는 번호로 바꿨어요. ⏎  ⏎ 요약: 【정 성호】 고객님께서 해외 체류 중 결제 거절
+holdout,H0013,분쟁조정,,남궁나연,가가가가,full,,"id_format_variant, spaced_name", , , 조정 검토 의견서 ⏎  ⏎ 1. 신청인: 【남궁나연】 (주민등록번호 65070729898
+holdout,H0013,분쟁조정,,이민재,가가가,full,,"id_format_variant, spaced_name", , , ⏎ 2. 피신청인: 코드브릿지 (담당 【이민재】 책임) ⏎ 3. 쟁점 ⏎ 신청인은 코드브릿
+holdout,H0013,분쟁조정,,이 민재,가 가가,spaced,,"id_format_variant, spaced_name", , ,금액의 반환을 요구함. 피신청인 측 【이 민재】 책임은 해지 접수 기록이 없다고 주
+holdout,H0013,분쟁조정,,정예린,가가가,full,,"id_format_variant, spaced_name", ,,다고 판단함. ⏎  ⏎ 검토자: 고객보호팀 【정예린】
+holdout,H0014,감사지적,,김미영,가가가,full,,"josa_attached, phone_format_variant", ,이,사항 ⏎  ⏎ 감사 결과 디지털전략팀 소속 【김미영】이 고객 박현정의 주민등록번호와 휴대
+holdout,H0014,감사지적,,박현정,가가가,full,,"josa_attached, phone_format_variant", ,의,과 디지털전략팀 소속 김미영이 고객 【박현정】의 주민등록번호와 휴대전화 번호(01
+holdout,H0014,감사지적,,김미영,가가가,full,,"josa_attached, phone_format_variant", ,에,"처리 지침 위반에 해당한다. ⏎ 조치: 【김미영】에 대한 개인정보 보호 재교육, 소속"
+holdout,H0014,감사지적,,김성호,가가가,full,,"josa_attached, phone_format_variant", ,에,"개인정보 보호 재교육, 소속 부서장 【김성호】에게 관리 감독 강화 요청."
+holdout,H0015,채용메일,,윤소연,가가가,full,,surname_title_unlabeled,⏎, ,"[새봄카드] 2차 면접 일정 안내 ⏎  ⏎ 【윤소연】 님, 안녕하세요. ⏎ 새봄카드 신입사원"
+holdout,H0015,채용메일,,이하윤,가가가,full,,surname_title_unlabeled, ,(,"고, 일정 변경이 필요하시면 인사팀 【이하윤】(010-0662-5393)에게 연락"
+holdout,H0016,자동이체신청서,,윤시온,가가가,full,,"account_format_variant, address_format_variant, compound_surname, id_format_variant, single_char_given_name", ,⏎,일 2026-09-11) ⏎  ⏎ 신청인: 【윤시온】 ⏎ 주민등록번호: 840126 2226
+holdout,H0016,자동이체신청서,,선우찬,가가가,full,,"account_format_variant, address_format_variant, compound_surname, id_format_variant, single_char_given_name", , ,동의합니다. ⏎ 접수 담당: 고객보호팀 【선우찬】 (내선 1067)
+holdout,H0017,VOC요약,,정하은,가가가,full,,"homonym, josa_attached, spaced_name", , ,-08-07) ⏎  ⏎ VOC-3281 | 【정하은】 고객 | 앱 로그인 오류 | 처리 
+holdout,H0017,VOC요약,,정 성호,가 가가,spaced,,"homonym, josa_attached, spaced_name", , , | 처리 완료 ⏎ VOC-3021 | 【정 성호】 고객 | 포인트 소멸 문의 | 처리
+holdout,H0017,VOC요약,,김민준,가가가,full,,"homonym, josa_attached, spaced_name", ,님,의 | 처리 중 ⏎ VOC-3798 | 【김민준】님 | 결제 알림 미수신 (010-0
+holdout,H0017,VOC요약,,정성호,가가가,full,,"homonym, josa_attached, spaced_name", , ,186) | 처리 완료 ⏎  ⏎ 특이사항: 【정성호】 고객은 동일 건으로 세 번째 문의.
+holdout,H0017,VOC요약,,정예린,가가가,full,,"homonym, josa_attached, spaced_name", ,이, 동일 건으로 세 번째 문의. 담당 【정예린】이 직접 회신 예정.
+holdout,H0018,법인카드소명,,최예준,가가가,full,,, ,⏎, ⏎  ⏎ 소명자: 채권관리팀 / 사원 / 【최예준】 ⏎ 사용일: 2026-01-21 ⏎ 사용처
+holdout,H0018,법인카드소명,,이지영,가가가,full,,, , ,실임을 확인합니다. ⏎  ⏎ 확인자: 팀장 【이지영】 (서명)
+holdout,H0019,권한신청,,이지영,가가가,full,,homonym, ,⏎,템 접근 권한 신청 ⏎  ⏎ 신청자 성명: 【이지영】 ⏎ 사번: SB667359 ⏎ 부서/직급:
+holdout,H0019,권한신청,,김서준,가가가,full,,homonym, , ,위한 고객 이력 확인 ⏎  ⏎ 1차 승인: 【김서준】 팀장 ⏎ 최종 승인: 정보보호팀 이서연
+holdout,H0019,권한신청,,이서연,가가가,full,,homonym, ,,김서준 팀장 ⏎ 최종 승인: 정보보호팀 【이서연】
+holdout,H0020,가맹점변경,,김은우,가가가,full,,, ,⏎,가맹점 정보 변경 요청서 ⏎  ⏎ 대표자: 【김은우】 ⏎ 사업장 주소: 대전광역시 유성구 새
+holdout,H0020,가맹점변경,,김주원,가가가,full,,, , ,47-805-185576 ⏎  ⏎ 접수자: 【김주원】 / 접수일: 2026-05-05
+holdout,H0021,감사지적,,김성호,가가가,full,,"josa_attached, phone_format_variant", ,가,사항 ⏎  ⏎ 감사 결과 리스크관리팀 소속 【김성호】가 고객 남궁나연의 주민등록번호와 휴
+holdout,H0021,감사지적,,남궁나연,가가가가,full,,"josa_attached, phone_format_variant", ,의,과 리스크관리팀 소속 김성호가 고객 【남궁나연】의 주민등록번호와 휴대전화 번호(01
+holdout,H0021,감사지적,,김성호,가가가,full,,"josa_attached, phone_format_variant", ,에,"처리 지침 위반에 해당한다. ⏎ 조치: 【김성호】에 대한 개인정보 보호 재교육, 소속"
+holdout,H0021,감사지적,,이하윤,가가가,full,,"josa_attached, phone_format_variant", ,에,"개인정보 보호 재교육, 소속 부서장 【이하윤】에게 관리 감독 강화 요청."
+holdout,H0022,VOC요약,,윤선영,가가가,full,,"homonym, josa_attached, spaced_name", , ,-05-14) ⏎  ⏎ VOC-5585 | 【윤선영】 고객 | 앱 로그인 오류 | 처리 
+holdout,H0022,VOC요약,,박 현정,가 가가,spaced,,"homonym, josa_attached, spaced_name", , , | 처리 완료 ⏎ VOC-6153 | 【박 현정】 고객 | 포인트 소멸 문의 | 처리
+holdout,H0022,VOC요약,,정하은,가가가,full,,"homonym, josa_attached, spaced_name", ,님,의 | 처리 중 ⏎ VOC-8345 | 【정하은】님 | 결제 알림 미수신 (010-0
+holdout,H0022,VOC요약,,박현정,가가가,full,,"homonym, josa_attached, spaced_name", , ,929) | 처리 완료 ⏎  ⏎ 특이사항: 【박현정】 고객은 동일 건으로 세 번째 문의.
+holdout,H0022,VOC요약,,문지훈,가가가,full,,"homonym, josa_attached, spaced_name", ,이, 동일 건으로 세 번째 문의. 담당 【문지훈】이 직접 회신 예정.
+holdout,H0023,VOC요약,,정하은,가가가,full,,"homonym, josa_attached, phone_format_variant, spaced_name", , ,5월 26일) ⏎  ⏎ VOC-1921 | 【정하은】 고객 | 앱 로그인 오류 | 처리 
+holdout,H0023,VOC요약,,임 우진,가 가가,spaced,,"homonym, josa_attached, phone_format_variant, spaced_name", , , | 처리 완료 ⏎ VOC-8293 | 【임 우진】 고객 | 포인트 소멸 문의 | 처리
+holdout,H0023,VOC요약,,김민준,가가가,full,,"homonym, josa_attached, phone_format_variant, spaced_name", ,님,의 | 처리 중 ⏎ VOC-8090 | 【김민준】님 | 결제 알림 미수신 (010 0
+holdout,H0023,VOC요약,,임우진,가가가,full,,"homonym, josa_attached, phone_format_variant, spaced_name", , ,186) | 처리 완료 ⏎  ⏎ 특이사항: 【임우진】 고객은 동일 건으로 세 번째 문의.
+holdout,H0023,VOC요약,,이지영,가가가,full,,"homonym, josa_attached, phone_format_variant, spaced_name", ,이, 동일 건으로 세 번째 문의. 담당 【이지영】이 직접 회신 예정.
+holdout,H0024,출장보고,,박동현,가가가,full,,"homonym, phone_format_variant", , ,--- | --- | --- | ⏎ | 【박동현】 | 고객센터 | 0232576696
+holdout,H0024,출장보고,,김민준,가가가,full,,"homonym, phone_format_variant", , ,센터 | 0232576696 | ⏎ | 【김민준】 | 고객센터 | 02-3779-42
+holdout,H0024,출장보고,,한시우,가가가,full,,"homonym, phone_format_variant", , , | 02-3779-4221 | ⏎ | 【한시우】 | 다솜콜솔루션 | 010-0398
+holdout,H0024,출장보고,,김은정,가가가,full,,"homonym, phone_format_variant", , ,| 010-0398-1492 | ⏎ | 【김은정】 | 다솜콜솔루션 | ej.kim26
+holdout,H0024,출장보고,,한시우,가가가,full,,"homonym, phone_format_variant", , ,내용: 상담 녹취 보관 절차 확인. 【한시우】 매니저에게 보관 기간 초과 파일 삭
+holdout,H0025,경조사공지,,김민준,가가가,full,,"given_only, homonym, phone_format_variant", , ,[부고] 고객센터 【김민준】 대리 장인상 ⏎  ⏎ 고객센터 김민준 대리
+holdout,H0025,경조사공지,,김민준,가가가,full,,"given_only, homonym, phone_format_variant", , ,센터 김민준 대리 장인상 ⏎  ⏎ 고객센터 【김민준】 대리의 장인 故 정성호님께서 별세하
+holdout,H0025,경조사공지,,정성호,가가가,full,,"given_only, homonym, phone_format_variant", ,님, ⏎  ⏎ 고객센터 김민준 대리의 장인 故 【정성호】님께서 별세하셨기에 삼가 알려드립니다
+holdout,H0025,경조사공지,,김민준,가가가,full,,"given_only, homonym, phone_format_variant", , ,: 2026년 9월 27일 ⏎ 연락처: 【김민준】 대리 01009592111 ⏎  ⏎ 마음으
+holdout,H0025,경조사공지,,윤서,가가,given,,"given_only, homonym, phone_format_variant", , ,로 함께해 주시기 바랍니다. ⏎ 인사팀 【윤서】 드림
+holdout,H0026,피해접수,,김 예은,가 가가,spaced,,"card_format_variant, phone_format_variant, spaced_name", , ,-09-16 18:14 ⏎ 피해 고객: 【김 예은】 (01007510340) ⏎ 사건 번호
+holdout,H0026,피해접수,,김예은,가가가,full,,"card_format_variant, phone_format_variant, spaced_name",⏎,님,호: 경찰청 2026-623736 ⏎  ⏎ 【김예은】님은 검찰을 사칭한 전화를 받고 카드
+holdout,H0026,피해접수,,김성호,가가가,full,,"card_format_variant, phone_format_variant, spaced_name", , ,건은 모두 승인 전 차단됨. ⏎ 담당: 【김성호】 (리스크관리팀)
+holdout,H0027,영문혼용메일,,이서연,가가가,full,,"homonym, phone_format_variant, surname_title_unlabeled", , ,"tion schedule ⏎  ⏎ Dear 【이서연】 책임님, ⏎  ⏎ Thank you for"
+holdout,H0027,영문혼용메일,,김미영,가가가,full,,"homonym, phone_format_variant, surname_title_unlabeled",⏎,⏎,"360. ⏎  ⏎ Best regards, ⏎ 【김미영】 ⏎ Digital Strategy Te"
+holdout,H0028,대리인위임확인,,전별,가가,full,,"account_format_variant, id_format_variant, josa_attached, phone_format_variant, single_char_given_name, spaced_name", , ,대리인 위임 확인서 ⏎  ⏎ 위임인: 【전별】 / 주민등록번호 6410201212
+holdout,H0028,대리인위임확인,,신하율,가가가,full,,"account_format_variant, id_format_variant, josa_attached, phone_format_variant, single_char_given_name, spaced_name", , , 6410201212509 ⏎ 대리인: 【신하율】 / 주민등록번호 9101142659
+holdout,H0028,대리인위임확인,,전별,가가,full,,"account_format_variant, id_format_variant, josa_attached, phone_format_variant, single_char_given_name, spaced_name",⏎,이,좌: 515-31-231761-6 ⏎  ⏎ 【전별】이 입원 중이어서 신 하율에게 업무를
+holdout,H0028,대리인위임확인,,신 하율,가 가가,spaced,,"account_format_variant, id_format_variant, josa_attached, phone_format_variant, single_char_given_name, spaced_name", ,에,1761-6 ⏎  ⏎ 전별이 입원 중이어서 【신 하율】에게 업무를 위임함. 확인 담당 강라
+holdout,H0028,대리인위임확인,,강라온,가가가,full,,"account_format_variant, id_format_variant, josa_attached, phone_format_variant, single_char_given_name, spaced_name", , ,하율에게 업무를 위임함. 확인 담당 【강라온】 대리.
+holdout,H0029,한도심사결과,,이하린,가가가,full,,,⏎, ,"특별시 강서구 별빛길 87, 13층 ⏎ 【이하린】 님 귀하 ⏎  ⏎ 카드 이용한도 상향 심사"
+holdout,H0029,한도심사결과,,양서현,가가가,full,,, ,(,관련하여 궁금하신 점은 담당 심사역 【양서현】(02-3103-5320)에게 문의해
+holdout,H0030,가맹점변경,,김민준,가가가,full,,homonym, ,⏎,가맹점 정보 변경 요청서 ⏎  ⏎ 대표자: 【김민준】 ⏎ 사업장 주소: 대전광역시 유성구 미
+holdout,H0030,가맹점변경,,김주원,가가가,full,,homonym, , ,96-338-914069 ⏎  ⏎ 접수자: 【김주원】 / 접수일: 2026년 3월 28일
+holdout,H0031,자동이체신청서,,홍훈,가가,full,,"account_format_variant, address_format_variant, id_format_variant, single_char_given_name", ,⏎,일 2026-04-28) ⏎  ⏎ 신청인: 【홍훈】 ⏎ 주민등록번호: 98090222432
+holdout,H0031,자동이체신청서,,강린,가가,full,,"account_format_variant, address_format_variant, id_format_variant, single_char_given_name", , ,의합니다. ⏎ 접수 담당: 리스크관리팀 【강린】 (내선 7703)
+holdout,H0033,법인카드소명,,김주원,가가가,full,,, ,⏎, ⏎  ⏎ 소명자: 카드운영팀 / 대리 / 【김주원】 ⏎ 사용일: 2026년 4월 16일 ⏎ 사
+holdout,H0033,법인카드소명,,이하윤,가가가,full,,, , ,실임을 확인합니다. ⏎  ⏎ 확인자: 부장 【이하윤】 (서명)
+holdout,H0035,채용메일,,남궁나연,가가가가,full,,"phone_format_variant, surname_title_unlabeled",⏎, ,"[새봄카드] 2차 면접 일정 안내 ⏎  ⏎ 【남궁나연】 님, 안녕하세요. ⏎ 새봄카드 신입사원"
+holdout,H0035,채용메일,,문시우,가가가,full,,"phone_format_variant, surname_title_unlabeled", ,(,"고, 일정 변경이 필요하시면 인사팀 【문시우】(01008058440)에게 연락 바"
+holdout,H0036,피해접수,,김 서연,가 가가,spaced,,spaced_name, , ,-07-26 18:08 ⏎ 피해 고객: 【김 서연】 (010-0464-1363) ⏎ 사건 
+holdout,H0036,피해접수,,김서연,가가가,full,,spaced_name,⏎,님,호: 경찰청 2026-167796 ⏎  ⏎ 【김서연】님은 검찰을 사칭한 전화를 받고 카드
+holdout,H0036,피해접수,,김성호,가가가,full,,spaced_name, , ,건은 모두 승인 전 차단됨. ⏎ 담당: 【김성호】 (리스크관리팀)
+holdout,H0037,분쟁조정,,송우진,가가가,full,,"id_format_variant, spaced_name", , , 조정 검토 의견서 ⏎  ⏎ 1. 신청인: 【송우진】 (주민등록번호 96111515544
+holdout,H0037,분쟁조정,,정현우,가가가,full,,"id_format_variant, spaced_name", , ,) ⏎ 2. 피신청인: 미르보안 (담당 【정현우】 책임) ⏎ 3. 쟁점 ⏎ 신청인은 미르보안
+holdout,H0037,분쟁조정,,정 현우,가 가가,spaced,,"id_format_variant, spaced_name", , ,금액의 반환을 요구함. 피신청인 측 【정 현우】 책임은 해지 접수 기록이 없다고 주
+holdout,H0037,분쟁조정,,이지영,가가가,full,,"id_format_variant, spaced_name", ,,다고 판단함. ⏎  ⏎ 검토자: 고객보호팀 【이지영】
+holdout,H0038,분쟁조정,,홍예린,가가가,full,,"id_format_variant, spaced_name", , , 조정 검토 의견서 ⏎  ⏎ 1. 신청인: 【홍예린】 (주민등록번호 931017-2458
+holdout,H0038,분쟁조정,,이민재,가가가,full,,"id_format_variant, spaced_name", , , ⏎ 2. 피신청인: 코드브릿지 (담당 【이민재】 책임) ⏎ 3. 쟁점 ⏎ 신청인은 코드브릿
+holdout,H0038,분쟁조정,,이 민재,가 가가,spaced,,"id_format_variant, spaced_name", , ,금액의 반환을 요구함. 피신청인 측 【이 민재】 책임은 해지 접수 기록이 없다고 주
+holdout,H0038,분쟁조정,,이지영,가가가,full,,"id_format_variant, spaced_name", ,,다고 판단함. ⏎  ⏎ 검토자: 고객보호팀 【이지영】
+holdout,H0039,법인카드소명,,문지훈,가가가,full,,, ,⏎, ⏎  ⏎ 소명자: 고객보호팀 / 과장 / 【문지훈】 ⏎ 사용일: 2026년 5월 3일 ⏎ 사용
+holdout,H0039,법인카드소명,,안태현,가가가,full,,, , ,실임을 확인합니다. ⏎  ⏎ 확인자: 부장 【안태현】 (서명)
+holdout,H0040,녹취요약,,동현,가가,given,,"given_only, phone_format_variant, spaced_name", ,:," CALL-65005204 ⏎  ⏎ 상담사 【동현】: 네, 새봄카드 고객센터입니다. ⏎ 고"
+holdout,H0040,녹취요약,,남궁나연,가가가가,full,,"given_only, phone_format_variant, spaced_name", ,인,"고객: 카드 결제가 안 돼서요. 저 【남궁나연】인데요. ⏎ 상담사: 남궁나연 고객님, "
+holdout,H0040,녹취요약,,남궁나연,가가가가,full,,"given_only, phone_format_variant, spaced_name", , ,"서요. 저 남궁나연인데요. ⏎ 상담사: 【남궁나연】 고객님, 본인 확인을 위해 휴대전화"
+holdout,H0040,녹취요약,,남궁 나연,가가 가가,spaced,,"given_only, phone_format_variant, spaced_name", , ,서 쓰는 번호로 바꿨어요. ⏎  ⏎ 요약: 【남궁 나연】 고객님께서 해외 체류 중 결제 거절
+holdout,H0041,법인카드소명,,김주원,가가가,full,,, ,⏎, ⏎  ⏎ 소명자: 카드운영팀 / 대리 / 【김주원】 ⏎ 사용일: 2026-11-09 ⏎ 사용처
+holdout,H0041,법인카드소명,,최미경,가가가,full,,, , ,실임을 확인합니다. ⏎  ⏎ 확인자: 팀장 【최미경】 (서명)
+holdout,H0042,영문혼용메일,,정현우,가가가,full,,"phone_format_variant, surname_title_unlabeled", , ,"tion schedule ⏎  ⏎ Dear 【정현우】 책임님, ⏎  ⏎ Thank you for"
+holdout,H0042,영문혼용메일,,김미영,가가가,full,,"phone_format_variant, surname_title_unlabeled",⏎,⏎,"360. ⏎  ⏎ Best regards, ⏎ 【김미영】 ⏎ Digital Strategy Te"
+holdout,H0043,영문혼용메일,,김선우,가가가,full,,"phone_format_variant, surname_title_unlabeled", , ,"tion schedule ⏎  ⏎ Dear 【김선우】 매니저님, ⏎  ⏎ Thank you fo"
+holdout,H0043,영문혼용메일,,김미영,가가가,full,,"phone_format_variant, surname_title_unlabeled",⏎,⏎,"360. ⏎  ⏎ Best regards, ⏎ 【김미영】 ⏎ Digital Strategy Te"
+holdout,H0044,경조사공지,,서혜진,가가가,full,,given_only, , ,[부고] 정보보호팀 【서혜진】 팀장 모친상 ⏎  ⏎ 정보보호팀 서혜진 팀
+holdout,H0044,경조사공지,,서혜진,가가가,full,,given_only, , ,팀 서혜진 팀장 모친상 ⏎  ⏎ 정보보호팀 【서혜진】 팀장의 모친 故 황보현우님께서 별세
+holdout,H0044,경조사공지,,황보현우,가가가가,full,,given_only, ,님, ⏎ 정보보호팀 서혜진 팀장의 모친 故 【황보현우】님께서 별세하셨기에 삼가 알려드립니다
+holdout,H0044,경조사공지,,서혜진,가가가,full,,given_only, , ,발인: 2026.03.16 ⏎ 연락처: 【서혜진】 팀장 010-0133-2455 ⏎  ⏎ 마
+holdout,H0044,경조사공지,,시우,가가,given,,given_only, , ,로 함께해 주시기 바랍니다. ⏎ 인사팀 【시우】 드림
+holdout,H0045,한도심사결과,,정하은,가가가,full,,homonym,⏎, ," 미리내로 28, 101동 701호 ⏎ 【정하은】 님 귀하 ⏎  ⏎ 카드 이용한도 상향 심사"
+holdout,H0045,한도심사결과,,양서현,가가가,full,,homonym, ,(,관련하여 궁금하신 점은 담당 심사역 【양서현】(02-3103-5320)에게 문의해
+holdout,H0046,가맹점변경,,임우진,가가가,full,,, ,⏎,가맹점 정보 변경 요청서 ⏎  ⏎ 대표자: 【임우진】 ⏎ 사업장 주소: 인천광역시 연수구 하
+holdout,H0046,가맹점변경,,김주원,가가가,full,,, , ,18-519-329140 ⏎  ⏎ 접수자: 【김주원】 / 접수일: 2026년 5월 14일
+holdout,H0047,자동이체신청서,,이하람,가가가,full,,"account_format_variant, compound_surname, phone_format_variant", ,⏎,일 2026-04-26) ⏎  ⏎ 신청인: 【이하람】 ⏎ 주민등록번호: 030525-4300
+holdout,H0047,자동이체신청서,,제갈라온,가가가가,full,,"account_format_variant, compound_surname, phone_format_variant", , , 동의합니다. ⏎ 접수 담당: 고객센터 【제갈라온】 (내선 4548)
+holdout,H0048,우편반송처리,,황시온,가가가,full,,"address_format_variant, card_format_variant, single_char_given_name", ,⏎,편물 반송 처리 기록 ⏎  ⏎ 대상 고객: 【황시온】 ⏎ 카드번호: 6253824628194
+holdout,H0048,우편반송처리,,강혁,가가,full,,"address_format_variant, card_format_variant, single_char_given_name", ,,주소로 재발송함. ⏎ 처리: 고객보호팀 【강혁】
+holdout,H0049,출장보고,,이지영,가가가,full,,homonym, , ,--- | --- | --- | ⏎ | 【이지영】 | 고객보호팀 | 02-3888-2
+holdout,H0049,출장보고,,박도윤,가가가,full,,homonym, , , | 02-3888-2288 | ⏎ | 【박도윤】 | 여신심사팀 | 02-3223-2
+holdout,H0049,출장보고,,김수아,가가가,full,,homonym, , , | 02-3223-2724 | ⏎ | 【김수아】 | 데이터온시스템즈 | 010-01
+holdout,H0049,출장보고,,한시우,가가가,full,,homonym, , ,| 010-0107-0953 | ⏎ | 【한시우】 | 다솜콜솔루션 | sw.han07
+holdout,H0049,출장보고,,김수아,가가가,full,,homonym, , ,내용: 상담 녹취 보관 절차 확인. 【김수아】 매니저에게 보관 기간 초과 파일 삭
+holdout,H0051,권한신청,,최예준,가가가,full,,, ,⏎,템 접근 권한 신청 ⏎  ⏎ 신청자 성명: 【최예준】 ⏎ 사번: SB819873 ⏎ 부서/직급:
+holdout,H0051,권한신청,,이지영,가가가,full,,, , ,위한 고객 이력 확인 ⏎  ⏎ 1차 승인: 【이지영】 팀장 ⏎ 최종 승인: 정보보호팀 서혜진
+holdout,H0051,권한신청,,서혜진,가가가,full,,, ,,이지영 팀장 ⏎ 최종 승인: 정보보호팀 【서혜진】
+holdout,H0052,감사지적,,김소율,가가가,full,,"josa_attached, phone_format_variant", ,이, 사항 ⏎  ⏎ 감사 결과 여신심사팀 소속 【김소율】이 고객 정성호의 주민등록번호와 휴대
+holdout,H0052,감사지적,,정성호,가가가,full,,"josa_attached, phone_format_variant", ,의,결과 여신심사팀 소속 김소율이 고객 【정성호】의 주민등록번호와 휴대전화 번호(01
+holdout,H0052,감사지적,,김소율,가가가,full,,"josa_attached, phone_format_variant", ,에,"처리 지침 위반에 해당한다. ⏎ 조치: 【김소율】에 대한 개인정보 보호 재교육, 소속"
+holdout,H0052,감사지적,,박동현,가가가,full,,"josa_attached, phone_format_variant", ,에,"개인정보 보호 재교육, 소속 부서장 【박동현】에게 관리 감독 강화 요청."
+holdout,H0053,고객편지,,동현,가가,given,,"given_only, surname_title_unlabeled", , ,"문에 정신이 없었는데, 상담해 주신 【동현】 님 덕분에 금방 해결했어요. ⏎ 특히 "
+holdout,H0053,고객편지,,박현준,가가가,full,,"given_only, surname_title_unlabeled",⏎, ,했습니다. ⏎ 꼭 칭찬 부탁드립니다. ⏎  ⏎ 【박현준】 드림 (hj.park02@examp
+holdout,H0054,경조사공지,,김미영,가가가,full,,"given_only, phone_format_variant", , ,[부고] 디지털전략팀 【김미영】 사원 부친상 ⏎  ⏎ 디지털전략팀 김미영 
+holdout,H0054,경조사공지,,김미영,가가가,full,,"given_only, phone_format_variant", , , 김미영 사원 부친상 ⏎  ⏎ 디지털전략팀 【김미영】 사원의 부친 故 남궁나연님께서 별세
+holdout,H0054,경조사공지,,남궁나연,가가가가,full,,"given_only, phone_format_variant", ,님,디지털전략팀 김미영 사원의 부친 故 【남궁나연】님께서 별세하셨기에 삼가 알려드립니다
+holdout,H0054,경조사공지,,김미영,가가가,full,,"given_only, phone_format_variant", , ,인: 2026년 3월 1일 ⏎ 연락처: 【김미영】 사원 010.0659.1360 ⏎  ⏎ 마
+holdout,H0054,경조사공지,,하윤,가가,given,,"given_only, phone_format_variant", , ,로 함께해 주시기 바랍니다. ⏎ 인사팀 【하윤】 드림
+holdout,H0055,권한신청,,김재원,가가가,full,,, ,⏎,템 접근 권한 신청 ⏎  ⏎ 신청자 성명: 【김재원】 ⏎ 사번: SB596669 ⏎ 부서/직급:
+holdout,H0055,권한신청,,이지영,가가가,full,,, , ,위한 고객 이력 확인 ⏎  ⏎ 1차 승인: 【이지영】 팀장 ⏎ 최종 승인: 정보보호팀 서혜진
+holdout,H0055,권한신청,,서혜진,가가가,full,,, ,,이지영 팀장 ⏎ 최종 승인: 정보보호팀 【서혜진】
+holdout,H0056,출장보고,,김주원,가가가,full,,phone_format_variant, , ,--- | --- | --- | ⏎ | 【김주원】 | 카드운영팀 | 02-3734-8
+holdout,H0056,출장보고,,박동현,가가가,full,,phone_format_variant, , , | 02-3734-8035 | ⏎ | 【박동현】 | 고객센터 | 02-3257-66
+holdout,H0056,출장보고,,정현우,가가가,full,,phone_format_variant, , , | 02-3257-6696 | ⏎ | 【정현우】 | 미르보안 | 010.0147.1
+holdout,H0056,출장보고,,이민재,가가가,full,,phone_format_variant, , ,| 010.0147.1165 | ⏎ | 【이민재】 | 코드브릿지 | mj.lee25@
+holdout,H0056,출장보고,,정현우,가가가,full,,phone_format_variant, , ,내용: 상담 녹취 보관 절차 확인. 【정현우】 책임에게 보관 기간 초과 파일 삭제
+holdout,H0057,카드발급심사,,한로운,가가가,full,,"address_format_variant, card_format_variant, id_format_variant, josa_attached, phone_format_variant",⏎,님,[카드 발급 심사 메모] ⏎  ⏎ 【한로운】님 신용카드 신규 발급 건 검토함. ⏎ 
+holdout,H0057,카드발급심사,,한로운,가가가,full,,"address_format_variant, card_format_variant, id_format_variant, josa_attached, phone_format_variant",⏎, ,"울길 89, 1214호 (광안동) ⏎  ⏎ 【한로운】 고객은 연회비 면제 조건을 문의함."
+holdout,H0057,카드발급심사,,오가은,가가가,full,,"address_format_variant, card_format_variant, id_format_variant, josa_attached, phone_format_variant", ,이,연회비 면제 조건을 문의함. 심사역 【오가은】이 조건 안내 완료.
+holdout,H0058,녹취요약,,민준,가가,given,,"given_only, homonym, phone_format_variant, spaced_name", ,:," CALL-84386706 ⏎  ⏎ 상담사 【민준】: 네, 새봄카드 고객센터입니다. ⏎ 고"
+holdout,H0058,녹취요약,,송진우,가가가,full,,"given_only, homonym, phone_format_variant, spaced_name", ,인,"고객: 카드 결제가 안 돼서요. 저 【송진우】인데요. ⏎ 상담사: 송진우 고객님, 본"
+holdout,H0058,녹취요약,,송진우,가가가,full,,"given_only, homonym, phone_format_variant, spaced_name", , ,"돼서요. 저 송진우인데요. ⏎ 상담사: 【송진우】 고객님, 본인 확인을 위해 휴대전화"
+holdout,H0058,녹취요약,,송 진우,가 가가,spaced,,"given_only, homonym, phone_format_variant, spaced_name", , ,서 쓰는 번호로 바꿨어요. ⏎  ⏎ 요약: 【송 진우】 고객님께서 해외 체류 중 결제 거절
+holdout,H0059,VOC요약,,김동현,가가가,full,,"josa_attached, phone_format_variant, spaced_name", , ,-04-27) ⏎  ⏎ VOC-9684 | 【김동현】 고객 | 앱 로그인 오류 | 처리 
+holdout,H0059,VOC요약,,송 진우,가 가가,spaced,,"josa_attached, phone_format_variant, spaced_name", , , | 처리 완료 ⏎ VOC-4760 | 【송 진우】 고객 | 포인트 소멸 문의 | 처리
+holdout,H0059,VOC요약,,홍예린,가가가,full,,"josa_attached, phone_format_variant, spaced_name", ,님,의 | 처리 중 ⏎ VOC-3343 | 【홍예린】님 | 결제 알림 미수신 (01006
+holdout,H0059,VOC요약,,송진우,가가가,full,,"josa_attached, phone_format_variant, spaced_name", , ,969) | 처리 완료 ⏎  ⏎ 특이사항: 【송진우】 고객은 동일 건으로 세 번째 문의.
+holdout,H0059,VOC요약,,이지영,가가가,full,,"josa_attached, phone_format_variant, spaced_name", ,이, 동일 건으로 세 번째 문의. 담당 【이지영】이 직접 회신 예정.
+holdout,H0061,우편반송처리,,임 로운,가 가가,spaced,,"address_format_variant, card_format_variant, single_char_given_name, spaced_name", ,⏎,편물 반송 처리 기록 ⏎  ⏎ 대상 고객: 【임 로운】 ⏎ 카드번호: 9410378657975
+holdout,H0061,우편반송처리,,박현,가가,full,,"address_format_variant, card_format_variant, single_char_given_name, spaced_name", ,,주소로 재발송함. ⏎ 처리: 여신심사팀 【박현】
+holdout,H0062,감사지적,,김소율,가가가,full,,"homonym, josa_attached", ,이, 사항 ⏎  ⏎ 감사 결과 여신심사팀 소속 【김소율】이 고객 김민준의 주민등록번호와 휴대
+holdout,H0062,감사지적,,김민준,가가가,full,,"homonym, josa_attached", ,의,결과 여신심사팀 소속 김소율이 고객 【김민준】의 주민등록번호와 휴대전화 번호(01
+holdout,H0062,감사지적,,김소율,가가가,full,,"homonym, josa_attached", ,에,"처리 지침 위반에 해당한다. ⏎ 조치: 【김소율】에 대한 개인정보 보호 재교육, 소속"
+holdout,H0062,감사지적,,김성호,가가가,full,,"homonym, josa_attached", ,에,"개인정보 보호 재교육, 소속 부서장 【김성호】에게 관리 감독 강화 요청."
+holdout,H0063,분쟁조정,,정하은,가가가,full,,"homonym, id_format_variant, spaced_name", , , 조정 검토 의견서 ⏎  ⏎ 1. 신청인: 【정하은】 (주민등록번호 710627 2207
+holdout,H0063,분쟁조정,,김은정,가가가,full,,"homonym, id_format_variant, spaced_name", , ,2. 피신청인: 다솜콜솔루션 (담당 【김은정】 책임) ⏎ 3. 쟁점 ⏎ 신청인은 다솜콜솔
+holdout,H0063,분쟁조정,,김 은정,가 가가,spaced,,"homonym, id_format_variant, spaced_name", , ,금액의 반환을 요구함. 피신청인 측 【김 은정】 책임은 해지 접수 기록이 없다고 주
+holdout,H0063,분쟁조정,,이지영,가가가,full,,"homonym, id_format_variant, spaced_name", ,,다고 판단함. ⏎  ⏎ 검토자: 고객보호팀 【이지영】
+holdout,H0064,고객편지,,민준,가가,given,,"given_only, homonym, surname_title_unlabeled", , ,"문에 정신이 없었는데, 상담해 주신 【민준】 님 덕분에 금방 해결했어요. ⏎ 특히 "
+holdout,H0064,고객편지,,류승현,가가가,full,,"given_only, homonym, surname_title_unlabeled",⏎, ,했습니다. ⏎ 꼭 칭찬 부탁드립니다. ⏎  ⏎ 【류승현】 드림 (sh.ryu86@exampl
+holdout,H0065,피해접수,,윤 소연,가 가가,spaced,,"card_format_variant, spaced_name", , ,-11-24 16:54 ⏎ 피해 고객: 【윤 소연】 (010-0111-2320) ⏎ 사건 
+holdout,H0065,피해접수,,윤소연,가가가,full,,"card_format_variant, spaced_name",⏎,님,호: 경찰청 2026-822765 ⏎  ⏎ 【윤소연】님은 검찰을 사칭한 전화를 받고 카드
+holdout,H0065,피해접수,,김성호,가가가,full,,"card_format_variant, spaced_name", , ,건은 모두 승인 전 차단됨. ⏎ 담당: 【김성호】 (리스크관리팀)
+holdout,H0066,권한신청,,문시우,가가가,full,,, ,⏎,템 접근 권한 신청 ⏎  ⏎ 신청자 성명: 【문시우】 ⏎ 사번: SB737812 ⏎ 부서/직급:
+holdout,H0066,권한신청,,서혜진,가가가,full,,, , ,위한 고객 이력 확인 ⏎  ⏎ 1차 승인: 【서혜진】 팀장 ⏎ 최종 승인: 정보보호팀 최미경
+holdout,H0066,권한신청,,최미경,가가가,full,,, ,,서혜진 팀장 ⏎ 최종 승인: 정보보호팀 【최미경】
+holdout,H0067,출장보고,,김소율,가가가,full,,, , ,--- | --- | --- | ⏎ | 【김소율】 | 여신심사팀 | 02-3472-7
+holdout,H0067,출장보고,,최예준,가가가,full,,, , , | 02-3472-7917 | ⏎ | 【최예준】 | 채권관리팀 | 02-3522-8
+holdout,H0067,출장보고,,김선우,가가가,full,,, , , | 02-3522-8799 | ⏎ | 【김선우】 | 코드브릿지 | 010-0467-
+holdout,H0067,출장보고,,전예은,가가가,full,,, , ,| 010-0467-7471 | ⏎ | 【전예은】 | 데이터온시스템즈 | ye.jeo
+holdout,H0067,출장보고,,김선우,가가가,full,,, , ,내용: 상담 녹취 보관 절차 확인. 【김선우】 매니저에게 보관 기간 초과 파일 삭
+holdout,H0068,한도심사결과,,정하은,가가가,full,,"homonym, phone_format_variant",⏎, ," 별빛길 19, 112동 2301호 ⏎ 【정하은】 님 귀하 ⏎  ⏎ 카드 이용한도 상향 심사"
+holdout,H0068,한도심사결과,,양서현,가가가,full,,"homonym, phone_format_variant", ,(,관련하여 궁금하신 점은 담당 심사역 【양서현】(02 3103 5320)에게 문의해
+holdout,H0069,영문혼용메일,,이민재,가가가,full,,"phone_format_variant, surname_title_unlabeled", , ,"tion schedule ⏎  ⏎ Dear 【이민재】 책임님, ⏎  ⏎ Thank you for"
+holdout,H0069,영문혼용메일,,김미영,가가가,full,,"phone_format_variant, surname_title_unlabeled",⏎,⏎,"360. ⏎  ⏎ Best regards, ⏎ 【김미영】 ⏎ Digital Strategy Te"
+holdout,H0070,출장보고,,양서현,가가가,full,,phone_format_variant, , ,--- | --- | --- | ⏎ | 【양서현】 | 여신심사팀 | 02 3103 5
+holdout,H0070,출장보고,,김미영,가가가,full,,phone_format_variant, , , | 02 3103 5320 | ⏎ | 【김미영】 | 디지털전략팀 | 02309410
+holdout,H0070,출장보고,,이민재,가가가,full,,phone_format_variant, , ,략팀 | 0230941003 | ⏎ | 【이민재】 | 코드브릿지 | 010-0538-
+holdout,H0070,출장보고,,김선우,가가가,full,,phone_format_variant, , ,| 010-0538-0499 | ⏎ | 【김선우】 | 코드브릿지 | sw.kim29@
+holdout,H0070,출장보고,,이민재,가가가,full,,phone_format_variant, , ,내용: 상담 녹취 보관 절차 확인. 【이민재】 책임에게 보관 기간 초과 파일 삭제
+holdout,H0071,한도심사결과,,황보현우,가가가가,full,,"address_format_variant, phone_format_variant",⏎, ,도 성남시 분당구 서현동 88-19 ⏎ 【황보현우】 님 귀하 ⏎  ⏎ 카드 이용한도 상향 심사
+holdout,H0071,한도심사결과,,김소율,가가가,full,,"address_format_variant, phone_format_variant", ,(,관련하여 궁금하신 점은 담당 심사역 【김소율】(02.3472.7917)에게 문의해
+holdout,H0072,카드발급심사,,조하람,가가가,full,,"address_format_variant, card_format_variant, id_format_variant, josa_attached, phone_format_variant",⏎,님,[카드 발급 심사 메모] ⏎  ⏎ 【조하람】님 신용카드 신규 발급 건 검토함. ⏎ 
+holdout,H0072,카드발급심사,,조하람,가가가,full,,"address_format_variant, card_format_variant, id_format_variant, josa_attached, phone_format_variant",⏎, ,울특별시 강남구 대치동 95-18 ⏎  ⏎ 【조하람】 고객은 연회비 면제 조건을 문의함.
+holdout,H0072,카드발급심사,,권도윤,가가가,full,,"address_format_variant, card_format_variant, id_format_variant, josa_attached, phone_format_variant", ,이,연회비 면제 조건을 문의함. 심사역 【권도윤】이 조건 안내 완료.
+holdout,H0073,녹취요약,,동현,가가,given,,"given_only, phone_format_variant, spaced_name", ,:," CALL-70086593 ⏎  ⏎ 상담사 【동현】: 네, 새봄카드 고객센터입니다. ⏎ 고"
+holdout,H0073,녹취요약,,윤소연,가가가,full,,"given_only, phone_format_variant, spaced_name", ,인,"고객: 카드 결제가 안 돼서요. 저 【윤소연】인데요. ⏎ 상담사: 윤소연 고객님, 본"
+holdout,H0073,녹취요약,,윤소연,가가가,full,,"given_only, phone_format_variant, spaced_name", , ,"돼서요. 저 윤소연인데요. ⏎ 상담사: 【윤소연】 고객님, 본인 확인을 위해 휴대전화"
+holdout,H0073,녹취요약,,윤 소연,가 가가,spaced,,"given_only, phone_format_variant, spaced_name", , ,서 쓰는 번호로 바꿨어요. ⏎  ⏎ 요약: 【윤 소연】 고객님께서 해외 체류 중 결제 거절
+holdout,H0074,해외송금접수,,신도윤,가가가,full,,"account_format_variant, given_only, single_char_given_name", , ,해외송금 접수 내역 ⏎  ⏎ 송금인: 【신도윤】 (010-7131-5882) ⏎ 출금 
+holdout,H0074,해외송금접수,,정온유,가가가,full,,"account_format_variant, given_only, single_char_given_name", , ,184-03-3256022 ⏎ 수취인: 【정온유】 (현지 연락 이메일 jung.k@e
+holdout,H0074,해외송금접수,,도윤,가가,given,,"account_format_variant, given_only, single_char_given_name",⏎, ,"om) ⏎ 송금액: USD 1,000 ⏎  ⏎ 【도윤】 님이 유학 중인 가족에게 보내는 생"
+holdout,H0074,해외송금접수,,임린,가가,full,,"account_format_variant, given_only, single_char_given_name", ,,게 보내는 생활비라고 함. 처리자: 【임린】
+holdout,H0075,영문혼용메일,,김은정,가가가,full,,"homonym, phone_format_variant, surname_title_unlabeled", , ,"tion schedule ⏎  ⏎ Dear 【김은정】 책임님, ⏎  ⏎ Thank you for"
+holdout,H0075,영문혼용메일,,김미영,가가가,full,,"homonym, phone_format_variant, surname_title_unlabeled",⏎,⏎,"360. ⏎  ⏎ Best regards, ⏎ 【김미영】 ⏎ Digital Strategy Te"
+holdout,H0076,우편반송처리,,전 찬,가 가,spaced,,"address_format_variant, card_format_variant, compound_surname, single_char_given_name, spaced_name", ,⏎,편물 반송 처리 기록 ⏎  ⏎ 대상 고객: 【전 찬】 ⏎ 카드번호: 3565 8955 597
+holdout,H0076,우편반송처리,,제갈이안,가가가가,full,,"address_format_variant, card_format_variant, compound_surname, single_char_given_name, spaced_name", ,,주소로 재발송함. ⏎ 처리: 고객보호팀 【제갈이안】
+holdout,H0077,경조사공지,,김미영,가가가,full,,given_only, , ,[부고] 디지털전략팀 【김미영】 사원 조모상 ⏎  ⏎ 디지털전략팀 김미영 
+holdout,H0077,경조사공지,,김미영,가가가,full,,given_only, , , 김미영 사원 조모상 ⏎  ⏎ 디지털전략팀 【김미영】 사원의 조모 故 임우진님께서 별세하
+holdout,H0077,경조사공지,,임우진,가가가,full,,given_only, ,님,디지털전략팀 김미영 사원의 조모 故 【임우진】님께서 별세하셨기에 삼가 알려드립니다
+holdout,H0077,경조사공지,,김미영,가가가,full,,given_only, , ,발인: 2026-03-28 ⏎ 연락처: 【김미영】 사원 010-0659-1360 ⏎  ⏎ 마
+holdout,H0077,경조사공지,,시우,가가,given,,given_only, , ,로 함께해 주시기 바랍니다. ⏎ 인사팀 【시우】 드림
+holdout,H0079,대리인위임확인,,한별,가가,full,,"account_format_variant, id_format_variant, josa_attached, single_char_given_name", , ,대리인 위임 확인서 ⏎  ⏎ 위임인: 【한별】 / 주민등록번호 0005184681
+holdout,H0079,대리인위임확인,,권윤슬,가가가,full,,"account_format_variant, id_format_variant, josa_attached, single_char_given_name", , , 0005184681140 ⏎ 대리인: 【권윤슬】 / 주민등록번호 6604241786
+holdout,H0079,대리인위임확인,,한별,가가,full,,"account_format_variant, id_format_variant, josa_attached, single_char_given_name",⏎,이,계좌: 087-137-046154 ⏎  ⏎ 【한별】이 입원 중이어서 권윤슬에게 업무를 
+holdout,H0079,대리인위임확인,,권윤슬,가가가,full,,"account_format_variant, id_format_variant, josa_attached, single_char_given_name", ,에,046154 ⏎  ⏎ 한별이 입원 중이어서 【권윤슬】에게 업무를 위임함. 확인 담당 장윤
+holdout,H0079,대리인위임확인,,장윤슬,가가가,full,,"account_format_variant, id_format_variant, josa_attached, single_char_given_name", , ,윤슬에게 업무를 위임함. 확인 담당 【장윤슬】 주임.
+holdout,H0080,대리인위임확인,,홍결,가가,full,,"account_format_variant, compound_surname, id_format_variant, josa_attached, phone_format_variant, single_char_given_name", , ,대리인 위임 확인서 ⏎  ⏎ 위임인: 【홍결】 / 주민등록번호 8308282817
+holdout,H0080,대리인위임확인,,이예준,가가가,full,,"account_format_variant, compound_surname, id_format_variant, josa_attached, phone_format_variant, single_char_given_name", , , 8308282817109 ⏎ 대리인: 【이예준】 / 주민등록번호 810622-179
+holdout,H0080,대리인위임확인,,홍결,가가,full,,"account_format_variant, compound_surname, id_format_variant, josa_attached, phone_format_variant, single_char_given_name",⏎,이,: 19-535247-861756 ⏎  ⏎ 【홍결】이 입원 중이어서 이예준에게 업무를 
+holdout,H0080,대리인위임확인,,이예준,가가가,full,,"account_format_variant, compound_surname, id_format_variant, josa_attached, phone_format_variant, single_char_given_name", ,에,861756 ⏎  ⏎ 홍결이 입원 중이어서 【이예준】에게 업무를 위임함. 확인 담당 남궁
+holdout,H0080,대리인위임확인,,남궁현,가가가,full,,"account_format_variant, compound_surname, id_format_variant, josa_attached, phone_format_variant, single_char_given_name", , ,예준에게 업무를 위임함. 확인 담당 【남궁현】 과장.
+holdout,H0081,우편반송처리,,오솔,가가,full,,"address_format_variant, card_format_variant, single_char_given_name", ,⏎,편물 반송 처리 기록 ⏎  ⏎ 대상 고객: 【오솔】 ⏎ 카드번호: 4092-4710-497
+holdout,H0081,우편반송처리,,신이안,가가가,full,,"address_format_variant, card_format_variant, single_char_given_name", ,,주소로 재발송함. ⏎ 처리: 카드운영팀 【신이안】
+holdout,H0082,법인카드소명,,이지영,가가가,full,,, ,⏎, ⏎  ⏎ 소명자: 고객보호팀 / 팀장 / 【이지영】 ⏎ 사용일: 2026-04-12 ⏎ 사용처
+holdout,H0082,법인카드소명,,김성호,가가가,full,,, , ,실임을 확인합니다. ⏎  ⏎ 확인자: 부장 【김성호】 (서명)
+holdout,H0083,영문혼용메일,,전예은,가가가,full,,"phone_format_variant, surname_title_unlabeled", , ,"tion schedule ⏎  ⏎ Dear 【전예은】 책임님, ⏎  ⏎ Thank you for"
+holdout,H0083,영문혼용메일,,김미영,가가가,full,,"phone_format_variant, surname_title_unlabeled",⏎,⏎,"360. ⏎  ⏎ Best regards, ⏎ 【김미영】 ⏎ Digital Strategy Te"
+holdout,H0084,감사지적,,김주원,가가가,full,,"josa_attached, phone_format_variant", ,이, 사항 ⏎  ⏎ 감사 결과 카드운영팀 소속 【김주원】이 고객 박현준의 주민등록번호와 휴대
+holdout,H0084,감사지적,,박현준,가가가,full,,"josa_attached, phone_format_variant", ,의,결과 카드운영팀 소속 김주원이 고객 【박현준】의 주민등록번호와 휴대전화 번호(01
+holdout,H0084,감사지적,,김주원,가가가,full,,"josa_attached, phone_format_variant", ,에,"처리 지침 위반에 해당한다. ⏎ 조치: 【김주원】에 대한 개인정보 보호 재교육, 소속"
+holdout,H0084,감사지적,,박동현,가가가,full,,"josa_attached, phone_format_variant", ,에,"개인정보 보호 재교육, 소속 부서장 【박동현】에게 관리 감독 강화 요청."
+holdout,H0085,감사지적,,박도윤,가가가,full,,"homonym, josa_attached, phone_format_variant", ,이, 사항 ⏎  ⏎ 감사 결과 IT운영팀 소속 【박도윤】이 고객 김동현의 주민등록번호와 휴대
+holdout,H0085,감사지적,,김동현,가가가,full,,"homonym, josa_attached, phone_format_variant", ,의,결과 IT운영팀 소속 박도윤이 고객 【김동현】의 주민등록번호와 휴대전화 번호(01
+holdout,H0085,감사지적,,박도윤,가가가,full,,"homonym, josa_attached, phone_format_variant", ,에,"처리 지침 위반에 해당한다. ⏎ 조치: 【박도윤】에 대한 개인정보 보호 재교육, 소속"
+holdout,H0085,감사지적,,김소율,가가가,full,,"homonym, josa_attached, phone_format_variant", ,에,"개인정보 보호 재교육, 소속 부서장 【김소율】에게 관리 감독 강화 요청."
+holdout,H0086,출장보고,,이지영,가가가,full,,phone_format_variant, , ,--- | --- | --- | ⏎ | 【이지영】 | 고객보호팀 | 02-3888-2
+holdout,H0086,출장보고,,신민준,가가가,full,,phone_format_variant, , , | 02-3888-2288 | ⏎ | 【신민준】 | IT운영팀 | 02-3833-9
+holdout,H0086,출장보고,,박은정,가가가,full,,phone_format_variant, , , | 02-3833-9572 | ⏎ | 【박은정】 | 미르보안 | 010.0288.7
+holdout,H0086,출장보고,,김선우,가가가,full,,phone_format_variant, , ,| 010.0288.7184 | ⏎ | 【김선우】 | 코드브릿지 | sw.kim29@
+holdout,H0086,출장보고,,박은정,가가가,full,,phone_format_variant, , ,내용: 상담 녹취 보관 절차 확인. 【박은정】 매니저에게 보관 기간 초과 파일 삭
+holdout,H0087,가맹점변경,,임우진,가가가,full,,, ,⏎,가맹점 정보 변경 요청서 ⏎  ⏎ 대표자: 【임우진】 ⏎ 사업장 주소: 인천광역시 연수구 하
+holdout,H0087,가맹점변경,,김준우,가가가,full,,, , ,29-754-245507 ⏎  ⏎ 접수자: 【김준우】 / 접수일: 2026-06-12
+holdout,H0088,고객편지,,동현,가가,given,,"given_only, surname_title_unlabeled", , ,"문에 정신이 없었는데, 상담해 주신 【동현】 님 덕분에 금방 해결했어요. ⏎ 특히 "
+holdout,H0088,고객편지,,박지영,가가가,full,,"given_only, surname_title_unlabeled",⏎, ,했습니다. ⏎ 꼭 칭찬 부탁드립니다. ⏎  ⏎ 【박지영】 드림 (jy.park59@examp
+holdout,H0089,분쟁조정,,임우진,가가가,full,,"id_format_variant, spaced_name", , , 조정 검토 의견서 ⏎  ⏎ 1. 신청인: 【임우진】 (주민등록번호 91022815048
+holdout,H0089,분쟁조정,,전예은,가가가,full,,"id_format_variant, spaced_name", , , 피신청인: 데이터온시스템즈 (담당 【전예은】 책임) ⏎ 3. 쟁점 ⏎ 신청인은 데이터온
+holdout,H0089,분쟁조정,,전 예은,가 가가,spaced,,"id_format_variant, spaced_name", , ,금액의 반환을 요구함. 피신청인 측 【전 예은】 책임은 해지 접수 기록이 없다고 주
+holdout,H0089,분쟁조정,,이지영,가가가,full,,"id_format_variant, spaced_name", ,,다고 판단함. ⏎  ⏎ 검토자: 고객보호팀 【이지영】
+holdout,H0090,법인카드소명,,강연우,가가가,full,,, ,⏎, ⏎ 소명자: 디지털전략팀 / 차장 / 【강연우】 ⏎ 사용일: 2026년 2월 9일 ⏎ 사용
+holdout,H0090,법인카드소명,,이지영,가가가,full,,, , ,실임을 확인합니다. ⏎  ⏎ 확인자: 팀장 【이지영】 (서명)
+holdout,H0091,경조사공지,,박동현,가가가,full,,given_only, , ,[부고] 고객센터 【박동현】 팀장 장인상 ⏎  ⏎ 고객센터 박동현 팀장
+holdout,H0091,경조사공지,,박동현,가가가,full,,given_only, , ,센터 박동현 팀장 장인상 ⏎  ⏎ 고객센터 【박동현】 팀장의 장인 故 류승현님께서 별세하
+holdout,H0091,경조사공지,,류승현,가가가,full,,given_only, ,님, ⏎  ⏎ 고객센터 박동현 팀장의 장인 故 【류승현】님께서 별세하셨기에 삼가 알려드립니다
+holdout,H0091,경조사공지,,박동현,가가가,full,,given_only, , ,: 2026년 9월 28일 ⏎ 연락처: 【박동현】 팀장 010-0863-8414 ⏎  ⏎ 마
+holdout,H0091,경조사공지,,시우,가가,given,,given_only, , ,로 함께해 주시기 바랍니다. ⏎ 인사팀 【시우】 드림
+holdout,H0092,고객편지,,동현,가가,given,,"given_only, surname_title_unlabeled", , ,"문에 정신이 없었는데, 상담해 주신 【동현】 님 덕분에 금방 해결했어요. ⏎ 특히 "
+holdout,H0092,고객편지,,송진우,가가가,full,,"given_only, surname_title_unlabeled",⏎, ,했습니다. ⏎ 꼭 칭찬 부탁드립니다. ⏎  ⏎ 【송진우】 드림 (jw.song12@examp
+holdout,H0093,권한신청,,고혜진,가가가,full,,, ,⏎,템 접근 권한 신청 ⏎  ⏎ 신청자 성명: 【고혜진】 ⏎ 사번: SB402518 ⏎ 부서/직급:
+holdout,H0093,권한신청,,김소율,가가가,full,,, , ,위한 고객 이력 확인 ⏎  ⏎ 1차 승인: 【김소율】 차장 ⏎ 최종 승인: 정보보호팀 정채원
+holdout,H0093,권한신청,,정채원,가가가,full,,, ,,김소율 차장 ⏎ 최종 승인: 정보보호팀 【정채원】
+holdout,H0094,대리인위임확인,,권솔,가가,full,,"account_format_variant, compound_surname, josa_attached, phone_format_variant, single_char_given_name, spaced_name", , ,대리인 위임 확인서 ⏎  ⏎ 위임인: 【권솔】 / 주민등록번호 810710-128
+holdout,H0094,대리인위임확인,,남궁훈,가가가,full,,"account_format_variant, compound_surname, josa_attached, phone_format_variant, single_char_given_name, spaced_name", , ,810710-1281378 ⏎ 대리인: 【남궁훈】 / 주민등록번호 840824-221
+holdout,H0094,대리인위임확인,,권솔,가가,full,,"account_format_variant, compound_surname, josa_attached, phone_format_variant, single_char_given_name, spaced_name",⏎,이,좌: 819-22-700264-3 ⏎  ⏎ 【권솔】이 입원 중이어서 남궁 훈에게 업무를
+holdout,H0094,대리인위임확인,,남궁 훈,가가 가,spaced,,"account_format_variant, compound_surname, josa_attached, phone_format_variant, single_char_given_name, spaced_name", ,에,0264-3 ⏎  ⏎ 권솔이 입원 중이어서 【남궁 훈】에게 업무를 위임함. 확인 담당 이현
+holdout,H0094,대리인위임확인,,이현,가가,full,,"account_format_variant, compound_surname, josa_attached, phone_format_variant, single_char_given_name, spaced_name", , , 훈에게 업무를 위임함. 확인 담당 【이현】 과장.
+holdout,H0095,법인카드소명,,김민준,가가가,full,,homonym, ,⏎,서 ⏎  ⏎ 소명자: 고객센터 / 대리 / 【김민준】 ⏎ 사용일: 2026-10-17 ⏎ 사용처
+holdout,H0095,법인카드소명,,이지영,가가가,full,,homonym, , ,실임을 확인합니다. ⏎  ⏎ 확인자: 팀장 【이지영】 (서명)
+holdout,H0096,해외송금접수,,임시온,가가가,full,,"account_format_variant, given_only", , ,해외송금 접수 내역 ⏎  ⏎ 송금인: 【임시온】 (010-8810-7128) ⏎ 출금 
+holdout,H0096,해외송금접수,,전도윤,가가가,full,,"account_format_variant, given_only", , ,528-12-7466144 ⏎ 수취인: 【전도윤】 (현지 연락 이메일 k_jeon23
+holdout,H0096,해외송금접수,,시온,가가,given,,"account_format_variant, given_only",⏎, ,"rg) ⏎ 송금액: USD 6,100 ⏎  ⏎ 【시온】 님이 유학 중인 가족에게 보내는 생"
+holdout,H0096,해외송금접수,,전로운,가가가,full,,"account_format_variant, given_only", ,,게 보내는 생활비라고 함. 처리자: 【전로운】
+holdout,H0097,경조사공지,,김성호,가가가,full,,"given_only, phone_format_variant", , ,[부고] 리스크관리팀 【김성호】 부장 조모상 ⏎  ⏎ 리스크관리팀 김성호 
+holdout,H0097,경조사공지,,김성호,가가가,full,,"given_only, phone_format_variant", , , 김성호 부장 조모상 ⏎  ⏎ 리스크관리팀 【김성호】 부장의 조모 故 황보현우님께서 별세
+holdout,H0097,경조사공지,,황보현우,가가가가,full,,"given_only, phone_format_variant", ,님,리스크관리팀 김성호 부장의 조모 故 【황보현우】님께서 별세하셨기에 삼가 알려드립니다
+holdout,H0097,경조사공지,,김성호,가가가,full,,"given_only, phone_format_variant", , ,발인: 2026-02-01 ⏎ 연락처: 【김성호】 부장 010.0186.6844 ⏎  ⏎ 마
+holdout,H0097,경조사공지,,시우,가가,given,,"given_only, phone_format_variant", , ,로 함께해 주시기 바랍니다. ⏎ 인사팀 【시우】 드림
+holdout,H0099,출장보고,,김재원,가가가,full,,, , ,--- | --- | --- | ⏎ | 【김재원】 | 고객센터 | 02-3005-25
+holdout,H0099,출장보고,,김성호,가가가,full,,, , , | 02-3005-2525 | ⏎ | 【김성호】 | 리스크관리팀 | 02-3602-
+holdout,H0099,출장보고,,정현우,가가가,full,,, , , | 02-3602-3149 | ⏎ | 【정현우】 | 미르보안 | 010-0147-1
+holdout,H0099,출장보고,,김선우,가가가,full,,, , ,| 010-0147-1165 | ⏎ | 【김선우】 | 코드브릿지 | sw.kim29@
+holdout,H0099,출장보고,,정현우,가가가,full,,, , ,내용: 상담 녹취 보관 절차 확인. 【정현우】 책임에게 보관 기간 초과 파일 삭제
+holdout,H0100,피해접수,,김 동현,가 가가,spaced,,"card_format_variant, spaced_name", , ,3월 19일 10:32 ⏎ 피해 고객: 【김 동현】 (010-0653-0185) ⏎ 사건 
+holdout,H0100,피해접수,,김동현,가가가,full,,"card_format_variant, spaced_name",⏎,님,호: 경찰청 2026-280674 ⏎  ⏎ 【김동현】님은 검찰을 사칭한 전화를 받고 카드
+holdout,H0100,피해접수,,김성호,가가가,full,,"card_format_variant, spaced_name", , ,건은 모두 승인 전 차단됨. ⏎ 담당: 【김성호】 (리스크관리팀)
+holdout,H0101,출장보고,,김성호,가가가,full,,phone_format_variant, , ,--- | --- | --- | ⏎ | 【김성호】 | 리스크관리팀 | 02-3602-
+holdout,H0101,출장보고,,김주원,가가가,full,,phone_format_variant, , , | 02-3602-3149 | ⏎ | 【김주원】 | 카드운영팀 | 02-3734-8
+holdout,H0101,출장보고,,김은정,가가가,full,,phone_format_variant, , , | 02-3734-8035 | ⏎ | 【김은정】 | 다솜콜솔루션 | 01001524
+holdout,H0101,출장보고,,김수아,가가가,full,,phone_format_variant, , ,션 | 01001524303 | ⏎ | 【김수아】 | 데이터온시스템즈 | sa.kim
+holdout,H0101,출장보고,,김은정,가가가,full,,phone_format_variant, , ,내용: 상담 녹취 보관 절차 확인. 【김은정】 책임에게 보관 기간 초과 파일 삭제
+holdout,H0102,분쟁조정,,송진우,가가가,full,,"id_format_variant, spaced_name", , , 조정 검토 의견서 ⏎  ⏎ 1. 신청인: 【송진우】 (주민등록번호 000201 3451
+holdout,H0102,분쟁조정,,이민재,가가가,full,,"id_format_variant, spaced_name", , , ⏎ 2. 피신청인: 코드브릿지 (담당 【이민재】 책임) ⏎ 3. 쟁점 ⏎ 신청인은 코드브릿
+holdout,H0102,분쟁조정,,이 민재,가 가가,spaced,,"id_format_variant, spaced_name", , ,금액의 반환을 요구함. 피신청인 측 【이 민재】 책임은 해지 접수 기록이 없다고 주
+holdout,H0102,분쟁조정,,이지영,가가가,full,,"id_format_variant, spaced_name", ,,다고 판단함. ⏎  ⏎ 검토자: 고객보호팀 【이지영】
+holdout,H0103,카드발급심사,,박서진,가가가,full,,"address_format_variant, card_format_variant, id_format_variant, josa_attached, phone_format_variant",⏎,님,[카드 발급 심사 메모] ⏎  ⏎ 【박서진】님 신용카드 신규 발급 건 검토함. ⏎ 
+holdout,H0103,카드발급심사,,박서진,가가가,full,,"address_format_variant, card_format_variant, id_format_variant, josa_attached, phone_format_variant",⏎, ,"울특별시 강남구 한빛로 9, 2층 ⏎  ⏎ 【박서진】 고객은 연회비 면제 조건을 문의함."
+holdout,H0103,카드발급심사,,권온유,가가가,full,,"address_format_variant, card_format_variant, id_format_variant, josa_attached, phone_format_variant", ,이,연회비 면제 조건을 문의함. 심사역 【권온유】이 조건 안내 완료.
+holdout,H0104,분쟁조정,,윤소연,가가가,full,,"id_format_variant, spaced_name", , , 조정 검토 의견서 ⏎  ⏎ 1. 신청인: 【윤소연】 (주민등록번호 711103-2757
+holdout,H0104,분쟁조정,,전예은,가가가,full,,"id_format_variant, spaced_name", , , 피신청인: 데이터온시스템즈 (담당 【전예은】 책임) ⏎ 3. 쟁점 ⏎ 신청인은 데이터온
+holdout,H0104,분쟁조정,,전 예은,가 가가,spaced,,"id_format_variant, spaced_name", , ,금액의 반환을 요구함. 피신청인 측 【전 예은】 책임은 해지 접수 기록이 없다고 주
+holdout,H0104,분쟁조정,,이지영,가가가,full,,"id_format_variant, spaced_name", ,,다고 판단함. ⏎  ⏎ 검토자: 고객보호팀 【이지영】
+holdout,H0105,카드발급심사,,이채원,가가가,full,,"address_format_variant, card_format_variant, josa_attached, phone_format_variant, single_char_given_name",⏎,님,[카드 발급 심사 메모] ⏎  ⏎ 【이채원】님 신용카드 신규 발급 건 검토함. ⏎ 
+holdout,H0105,카드발급심사,,이채원,가가가,full,,"address_format_variant, card_format_variant, josa_attached, phone_format_variant, single_char_given_name",⏎, ,"특별시 강남구 가온로 78, 3층 ⏎  ⏎ 【이채원】 고객은 연회비 면제 조건을 문의함."
+holdout,H0105,카드발급심사,,김찬,가가,full,,"address_format_variant, card_format_variant, josa_attached, phone_format_variant, single_char_given_name", ,이,연회비 면제 조건을 문의함. 심사역 【김찬】이 조건 안내 완료.
+holdout,H0106,한도심사결과,,김민준,가가가,full,,"homonym, phone_format_variant",⏎, ,"광역시 유성구 미리내로 97, 4층 ⏎ 【김민준】 님 귀하 ⏎  ⏎ 카드 이용한도 상향 심사"
+holdout,H0106,한도심사결과,,김소율,가가가,full,,"homonym, phone_format_variant", ,(,관련하여 궁금하신 점은 담당 심사역 【김소율】(02.3472.7917)에게 문의해
+holdout,H0107,분쟁조정,,김민준,가가가,full,,"homonym, id_format_variant, spaced_name", , , 조정 검토 의견서 ⏎  ⏎ 1. 신청인: 【김민준】 (주민등록번호 910508 1982
+holdout,H0107,분쟁조정,,김수아,가가가,full,,"homonym, id_format_variant, spaced_name", , , 피신청인: 데이터온시스템즈 (담당 【김수아】 매니저) ⏎ 3. 쟁점 ⏎ 신청인은 데이터
+holdout,H0107,분쟁조정,,김 수아,가 가가,spaced,,"homonym, id_format_variant, spaced_name", , ,금액의 반환을 요구함. 피신청인 측 【김 수아】 매니저는 해지 접수 기록이 없다고 
+holdout,H0107,분쟁조정,,이지영,가가가,full,,"homonym, id_format_variant, spaced_name", ,,다고 판단함. ⏎  ⏎ 검토자: 고객보호팀 【이지영】
+holdout,H0108,권한신청,,문시우,가가가,full,,, ,⏎,템 접근 권한 신청 ⏎  ⏎ 신청자 성명: 【문시우】 ⏎ 사번: SB361674 ⏎ 부서/직급:
+holdout,H0108,권한신청,,최미경,가가가,full,,, , ,위한 고객 이력 확인 ⏎  ⏎ 1차 승인: 【최미경】 팀장 ⏎ 최종 승인: 정보보호팀 서혜진
+holdout,H0108,권한신청,,서혜진,가가가,full,,, ,,최미경 팀장 ⏎ 최종 승인: 정보보호팀 【서혜진】
+holdout,H0109,경조사공지,,서혜진,가가가,full,,given_only, , ,[부고] 정보보호팀 【서혜진】 팀장 부친상 ⏎  ⏎ 정보보호팀 서혜진 팀
+holdout,H0109,경조사공지,,서혜진,가가가,full,,given_only, , ,팀 서혜진 팀장 부친상 ⏎  ⏎ 정보보호팀 【서혜진】 팀장의 부친 故 송진우님께서 별세하
+holdout,H0109,경조사공지,,송진우,가가가,full,,given_only, ,님, ⏎ 정보보호팀 서혜진 팀장의 부친 故 【송진우】님께서 별세하셨기에 삼가 알려드립니다
+holdout,H0109,경조사공지,,서혜진,가가가,full,,given_only, , ,발인: 2026.06.24 ⏎ 연락처: 【서혜진】 팀장 010-0133-2455 ⏎  ⏎ 마
+holdout,H0109,경조사공지,,하윤,가가,given,,given_only, , ,로 함께해 주시기 바랍니다. ⏎ 인사팀 【하윤】 드림
+holdout,H0110,녹취요약,,동현,가가,given,,"given_only, phone_format_variant, spaced_name", ,:," CALL-24914935 ⏎  ⏎ 상담사 【동현】: 네, 새봄카드 고객센터입니다. ⏎ 고"
+holdout,H0110,녹취요약,,홍예린,가가가,full,,"given_only, phone_format_variant, spaced_name", ,인,"고객: 카드 결제가 안 돼서요. 저 【홍예린】인데요. ⏎ 상담사: 홍예린 고객님, 본"
+holdout,H0110,녹취요약,,홍예린,가가가,full,,"given_only, phone_format_variant, spaced_name", , ,"돼서요. 저 홍예린인데요. ⏎ 상담사: 【홍예린】 고객님, 본인 확인을 위해 휴대전화"
+holdout,H0110,녹취요약,,홍 예린,가 가가,spaced,,"given_only, phone_format_variant, spaced_name", , ,서 쓰는 번호로 바꿨어요. ⏎  ⏎ 요약: 【홍 예린】 고객님께서 해외 체류 중 결제 거절
+holdout,H0111,피해접수,,류 승현,가 가가,spaced,,"card_format_variant, spaced_name", , ,10월 2일 15:39 ⏎ 피해 고객: 【류 승현】 (010-0383-9051) ⏎ 사건 
+holdout,H0111,피해접수,,류승현,가가가,full,,"card_format_variant, spaced_name",⏎,님,호: 경찰청 2026-999147 ⏎  ⏎ 【류승현】님은 검찰을 사칭한 전화를 받고 카드
+holdout,H0111,피해접수,,김성호,가가가,full,,"card_format_variant, spaced_name", , ,건은 모두 승인 전 차단됨. ⏎ 담당: 【김성호】 (리스크관리팀)
+holdout,H0112,채용메일,,박현정,가가가,full,,surname_title_unlabeled,⏎, ,"[새봄카드] 2차 면접 일정 안내 ⏎  ⏎ 【박현정】 님, 안녕하세요. ⏎ 새봄카드 신입사원"
+holdout,H0112,채용메일,,문시우,가가가,full,,surname_title_unlabeled, ,(,"고, 일정 변경이 필요하시면 인사팀 【문시우】(010-0805-8440)에게 연락"
+holdout,H0113,녹취요약,,민준,가가,given,,"given_only, homonym, phone_format_variant, spaced_name", ,:," CALL-96053493 ⏎  ⏎ 상담사 【민준】: 네, 새봄카드 고객센터입니다. ⏎ 고"
+holdout,H0113,녹취요약,,김민준,가가가,full,,"given_only, homonym, phone_format_variant, spaced_name", ,인,"고객: 카드 결제가 안 돼서요. 저 【김민준】인데요. ⏎ 상담사: 김민준 고객님, 본"
+holdout,H0113,녹취요약,,김민준,가가가,full,,"given_only, homonym, phone_format_variant, spaced_name", , ,"돼서요. 저 김민준인데요. ⏎ 상담사: 【김민준】 고객님, 본인 확인을 위해 휴대전화"
+holdout,H0113,녹취요약,,김 민준,가 가가,spaced,,"given_only, homonym, phone_format_variant, spaced_name", , ,서 쓰는 번호로 바꿨어요. ⏎  ⏎ 요약: 【김 민준】 고객님께서 해외 체류 중 결제 거절
+holdout,H0114,한도심사결과,,윤소연,가가가,full,,address_format_variant,⏎, ,"솔내로 15, 2127호 (범어동) ⏎ 【윤소연】 님 귀하 ⏎  ⏎ 카드 이용한도 상향 심사"
+holdout,H0114,한도심사결과,,허서연,가가가,full,,address_format_variant, ,(,관련하여 궁금하신 점은 담당 심사역 【허서연】(02-3108-6345)에게 문의해
+holdout,H0115,권한신청,,이지영,가가가,full,,, ,⏎,템 접근 권한 신청 ⏎  ⏎ 신청자 성명: 【이지영】 ⏎ 사번: SB387897 ⏎ 부서/직급:
+holdout,H0115,권한신청,,김성호,가가가,full,,, , ,위한 고객 이력 확인 ⏎  ⏎ 1차 승인: 【김성호】 부장 ⏎ 최종 승인: 정보보호팀 최미경
+holdout,H0115,권한신청,,최미경,가가가,full,,, ,,김성호 부장 ⏎ 최종 승인: 정보보호팀 【최미경】
+holdout,H0116,카드발급심사,,홍다인,가가가,full,,"address_format_variant, card_format_variant, josa_attached, phone_format_variant, spaced_name",⏎,님,[카드 발급 심사 메모] ⏎  ⏎ 【홍다인】님 신용카드 신규 발급 건 검토함. ⏎ 
+holdout,H0116,카드발급심사,,홍 다인,가 가가,spaced,,"address_format_variant, card_format_variant, josa_attached, phone_format_variant, spaced_name",⏎, ,"로 164, 1926호 (역삼동) ⏎  ⏎ 【홍 다인】 고객은 연회비 면제 조건을 문의함."
+holdout,H0116,카드발급심사,,한가은,가가가,full,,"address_format_variant, card_format_variant, josa_attached, phone_format_variant, spaced_name", ,이,연회비 면제 조건을 문의함. 심사역 【한가은】이 조건 안내 완료.
+holdout,H0117,카드발급심사,,선우이안,가가가가,full,,"address_format_variant, card_format_variant, compound_surname, id_format_variant, josa_attached, spaced_name",⏎,님,[카드 발급 심사 메모] ⏎  ⏎ 【선우이안】님 신용카드 신규 발급 건 검토함. ⏎ 
+holdout,H0117,카드발급심사,,선우 이안,가가 가가,spaced,,"address_format_variant, card_format_variant, compound_surname, id_format_variant, josa_attached, spaced_name",⏎, ,용인시 수지구 죽전동 779-15 ⏎  ⏎ 【선우 이안】 고객은 연회비 면제 조건을 문의함.
+holdout,H0117,카드발급심사,,서라온,가가가,full,,"address_format_variant, card_format_variant, compound_surname, id_format_variant, josa_attached, spaced_name", ,이,연회비 면제 조건을 문의함. 심사역 【서라온】이 조건 안내 완료.
+holdout,H0118,채용메일,,김은우,가가가,full,,"phone_format_variant, surname_title_unlabeled",⏎, ,"[새봄카드] 2차 면접 일정 안내 ⏎  ⏎ 【김은우】 님, 안녕하세요. ⏎ 새봄카드 신입사원"
+holdout,H0118,채용메일,,문시우,가가가,full,,"phone_format_variant, surname_title_unlabeled", ,(,"고, 일정 변경이 필요하시면 인사팀 【문시우】(01008058440)에게 연락 바"
+holdout,H0119,카드발급심사,,강시온,가가가,full,,"address_format_variant, card_format_variant, id_format_variant, josa_attached",⏎,님,[카드 발급 심사 메모] ⏎  ⏎ 【강시온】님 신용카드 신규 발급 건 검토함. ⏎ 
+holdout,H0119,카드발급심사,,강시온,가가가,full,,"address_format_variant, card_format_variant, id_format_variant, josa_attached",⏎, ,원구 솔내로 8 104동 606호 ⏎  ⏎ 【강시온】 고객은 연회비 면제 조건을 문의함.
+holdout,H0119,카드발급심사,,권채원,가가가,full,,"address_format_variant, card_format_variant, id_format_variant, josa_attached", ,이,연회비 면제 조건을 문의함. 심사역 【권채원】이 조건 안내 완료.
+holdout,H0120,감사지적,,서은정,가가가,full,,josa_attached, ,이,사항 ⏎  ⏎ 감사 결과 리스크관리팀 소속 【서은정】이 고객 윤소연의 주민등록번호와 휴대
+holdout,H0120,감사지적,,윤소연,가가가,full,,josa_attached, ,의,과 리스크관리팀 소속 서은정이 고객 【윤소연】의 주민등록번호와 휴대전화 번호(01
+holdout,H0120,감사지적,,서은정,가가가,full,,josa_attached, ,에,"처리 지침 위반에 해당한다. ⏎ 조치: 【서은정】에 대한 개인정보 보호 재교육, 소속"
+holdout,H0120,감사지적,,최미경,가가가,full,,josa_attached, ,에,"개인정보 보호 재교육, 소속 부서장 【최미경】에게 관리 감독 강화 요청."
+holdout,H0121,피해접수,,송 우진,가 가가,spaced,,"card_format_variant, spaced_name", , , 9월 8일 17:49 ⏎ 피해 고객: 【송 우진】 (010-0285-2041) ⏎ 사건 
+holdout,H0121,피해접수,,송우진,가가가,full,,"card_format_variant, spaced_name",⏎,님,호: 경찰청 2026-589140 ⏎  ⏎ 【송우진】님은 검찰을 사칭한 전화를 받고 카드
+holdout,H0121,피해접수,,김성호,가가가,full,,"card_format_variant, spaced_name", , ,건은 모두 승인 전 차단됨. ⏎ 담당: 【김성호】 (리스크관리팀)
+holdout,H0122,VOC요약,,윤선영,가가가,full,,"josa_attached, phone_format_variant, spaced_name", , ,-03-21) ⏎  ⏎ VOC-5225 | 【윤선영】 고객 | 앱 로그인 오류 | 처리 
+holdout,H0122,VOC요약,,김 서연,가 가가,spaced,,"josa_attached, phone_format_variant, spaced_name", , , | 처리 완료 ⏎ VOC-2045 | 【김 서연】 고객 | 포인트 소멸 문의 | 처리
+holdout,H0122,VOC요약,,남궁나연,가가가가,full,,"josa_attached, phone_format_variant, spaced_name", ,님,의 | 처리 중 ⏎ VOC-4868 | 【남궁나연】님 | 결제 알림 미수신 (010.0
+holdout,H0122,VOC요약,,김서연,가가가,full,,"josa_attached, phone_format_variant, spaced_name", , ,383) | 처리 완료 ⏎  ⏎ 특이사항: 【김서연】 고객은 동일 건으로 세 번째 문의.
+holdout,H0122,VOC요약,,이지영,가가가,full,,"josa_attached, phone_format_variant, spaced_name", ,이, 동일 건으로 세 번째 문의. 담당 【이지영】이 직접 회신 예정.
+holdout,H0123,자동이체신청서,,한다인,가가가,full,,"account_format_variant, address_format_variant, id_format_variant, phone_format_variant, single_char_given_name", ,⏎,일 2026-01-07) ⏎  ⏎ 신청인: 【한다인】 ⏎ 주민등록번호: 740109 1179
+holdout,H0123,자동이체신청서,,송현,가가,full,,"account_format_variant, address_format_variant, id_format_variant, phone_format_variant, single_char_given_name", , ,동의합니다. ⏎ 접수 담당: 카드운영팀 【송현】 (내선 9376)
+holdout,H0124,고객편지,,재원,가가,given,,"given_only, surname_title_unlabeled", , ,"문에 정신이 없었는데, 상담해 주신 【재원】 님 덕분에 금방 해결했어요. ⏎ 특히 "
+holdout,H0124,고객편지,,김지우,가가가,full,,"given_only, surname_title_unlabeled",⏎, ,했습니다. ⏎ 꼭 칭찬 부탁드립니다. ⏎  ⏎ 【김지우】 드림 (jw.kim83@exampl
+holdout,H0125,자동이체신청서,,제갈준,가가가,full,,"account_format_variant, address_format_variant, compound_surname, id_format_variant, phone_format_variant, single_char_given_name", ,⏎,일 2026-01-25) ⏎  ⏎ 신청인: 【제갈준】 ⏎ 주민등록번호: 75110517338
+holdout,H0125,자동이체신청서,,제갈하율,가가가가,full,,"account_format_variant, address_format_variant, compound_surname, id_format_variant, phone_format_variant, single_char_given_name", , ,동의합니다. ⏎ 접수 담당: 여신심사팀 【제갈하율】 (내선 1015)
+holdout,H0126,녹취요약,,재원,가가,given,,"given_only, phone_format_variant, spaced_name", ,:," CALL-97046473 ⏎  ⏎ 상담사 【재원】: 네, 새봄카드 고객센터입니다. ⏎ 고"
+holdout,H0126,녹취요약,,정성호,가가가,full,,"given_only, phone_format_variant, spaced_name", ,인,"고객: 카드 결제가 안 돼서요. 저 【정성호】인데요. ⏎ 상담사: 정성호 고객님, 본"
+holdout,H0126,녹취요약,,정성호,가가가,full,,"given_only, phone_format_variant, spaced_name", , ,"돼서요. 저 정성호인데요. ⏎ 상담사: 【정성호】 고객님, 본인 확인을 위해 휴대전화"
+holdout,H0126,녹취요약,,정 성호,가 가가,spaced,,"given_only, phone_format_variant, spaced_name", , ,서 쓰는 번호로 바꿨어요. ⏎  ⏎ 요약: 【정 성호】 고객님께서 해외 체류 중 결제 거절
+holdout,H0127,피해접수,,박 현준,가 가가,spaced,,"card_format_variant, spaced_name", , ,-06-18 11:36 ⏎ 피해 고객: 【박 현준】 (010-0495-5746) ⏎ 사건 
+holdout,H0127,피해접수,,박현준,가가가,full,,"card_format_variant, spaced_name",⏎,님,호: 경찰청 2026-150143 ⏎  ⏎ 【박현준】님은 검찰을 사칭한 전화를 받고 카드
+holdout,H0127,피해접수,,김성호,가가가,full,,"card_format_variant, spaced_name", , ,건은 모두 승인 전 차단됨. ⏎ 담당: 【김성호】 (리스크관리팀)
+holdout,H0128,해외송금접수,,김온유,가가가,full,,"account_format_variant, compound_surname, given_only, phone_format_variant, single_char_given_name", , ,해외송금 접수 내역 ⏎  ⏎ 송금인: 【김온유】 (+82 10-8138-9758) ⏎ 
+holdout,H0128,해외송금접수,,제갈혁,가가가,full,,"account_format_variant, compound_surname, given_only, phone_format_variant, single_char_given_name", , ,228-736-761508 ⏎ 수취인: 【제갈혁】 (현지 연락 이메일 k_jegal9
+holdout,H0128,해외송금접수,,온유,가가,given,,"account_format_variant, compound_surname, given_only, phone_format_variant, single_char_given_name",⏎, ,"et) ⏎ 송금액: USD 7,200 ⏎  ⏎ 【온유】 님이 유학 중인 가족에게 보내는 생"
+holdout,H0128,해외송금접수,,박예준,가가가,full,,"account_format_variant, compound_surname, given_only, phone_format_variant, single_char_given_name", ,,게 보내는 생활비라고 함. 처리자: 【박예준】
+holdout,H0129,감사지적,,정예린,가가가,full,,josa_attached, ,이, 사항 ⏎  ⏎ 감사 결과 고객보호팀 소속 【정예린】이 고객 홍예린의 주민등록번호와 휴대
+holdout,H0129,감사지적,,홍예린,가가가,full,,josa_attached, ,의,결과 고객보호팀 소속 정예린이 고객 【홍예린】의 주민등록번호와 휴대전화 번호(01
+holdout,H0129,감사지적,,정예린,가가가,full,,josa_attached, ,에,"처리 지침 위반에 해당한다. ⏎ 조치: 【정예린】에 대한 개인정보 보호 재교육, 소속"
+holdout,H0129,감사지적,,이지영,가가가,full,,josa_attached, ,에,"개인정보 보호 재교육, 소속 부서장 【이지영】에게 관리 감독 강화 요청."
+holdout,H0130,법인카드소명,,김성호,가가가,full,,, ,⏎, ⏎ 소명자: 리스크관리팀 / 부장 / 【김성호】 ⏎ 사용일: 2026년 7월 1일 ⏎ 사용
+holdout,H0130,법인카드소명,,이지영,가가가,full,,, , ,실임을 확인합니다. ⏎  ⏎ 확인자: 팀장 【이지영】 (서명)
+holdout,H0131,우편반송처리,,황 담,가 가,spaced,,"address_format_variant, card_format_variant, single_char_given_name, spaced_name", ,⏎,편물 반송 처리 기록 ⏎  ⏎ 대상 고객: 【황 담】 ⏎ 카드번호: 9410154728038
+holdout,H0131,우편반송처리,,조윤슬,가가가,full,,"address_format_variant, card_format_variant, single_char_given_name, spaced_name", ,,소로 재발송함. ⏎ 처리: 리스크관리팀 【조윤슬】
+holdout,H0132,가맹점변경,,윤소연,가가가,full,,"address_format_variant, phone_format_variant", ,⏎,가맹점 정보 변경 요청서 ⏎  ⏎ 대표자: 【윤소연】 ⏎ 사업장 주소: 대구광역시 수성구 솔
+holdout,H0132,가맹점변경,,김서준,가가가,full,,"address_format_variant, phone_format_variant", , ,26-642-843469 ⏎  ⏎ 접수자: 【김서준】 / 접수일: 2026-09-10
+holdout,H0133,VOC요약,,송우진,가가가,full,,"josa_attached, phone_format_variant, spaced_name", , ,-05-02) ⏎  ⏎ VOC-3400 | 【송우진】 고객 | 앱 로그인 오류 | 처리 
+holdout,H0133,VOC요약,,윤 선영,가 가가,spaced,,"josa_attached, phone_format_variant, spaced_name", , , | 처리 완료 ⏎ VOC-3110 | 【윤 선영】 고객 | 포인트 소멸 문의 | 처리
+holdout,H0133,VOC요약,,박현준,가가가,full,,"josa_attached, phone_format_variant, spaced_name", ,님,의 | 처리 중 ⏎ VOC-1433 | 【박현준】님 | 결제 알림 미수신 (01004
+holdout,H0133,VOC요약,,윤선영,가가가,full,,"josa_attached, phone_format_variant, spaced_name", , ,746) | 처리 완료 ⏎  ⏎ 특이사항: 【윤선영】 고객은 동일 건으로 세 번째 문의.
+holdout,H0133,VOC요약,,이지영,가가가,full,,"josa_attached, phone_format_variant, spaced_name", ,이, 동일 건으로 세 번째 문의. 담당 【이지영】이 직접 회신 예정.
+holdout,H0134,감사지적,,안태현,가가가,full,,"josa_attached, phone_format_variant", ,이, 사항 ⏎  ⏎ 감사 결과 채권관리팀 소속 【안태현】이 고객 김지훈의 주민등록번호와 휴대
+holdout,H0134,감사지적,,김지훈,가가가,full,,"josa_attached, phone_format_variant", ,의,결과 채권관리팀 소속 안태현이 고객 【김지훈】의 주민등록번호와 휴대전화 번호(01
+holdout,H0134,감사지적,,안태현,가가가,full,,"josa_attached, phone_format_variant", ,에,"처리 지침 위반에 해당한다. ⏎ 조치: 【안태현】에 대한 개인정보 보호 재교육, 소속"
+holdout,H0134,감사지적,,서혜진,가가가,full,,"josa_attached, phone_format_variant", ,에,"개인정보 보호 재교육, 소속 부서장 【서혜진】에게 관리 감독 강화 요청."
+holdout,H0135,카드발급심사,,선우하람,가가가가,full,,"address_format_variant, card_format_variant, compound_surname, josa_attached, single_char_given_name, spaced_name",⏎,님,[카드 발급 심사 메모] ⏎  ⏎ 【선우하람】님 신용카드 신규 발급 건 검토함. ⏎ 
+holdout,H0135,카드발급심사,,선우 하람,가가 가가,spaced,,"address_format_variant, card_format_variant, compound_surname, josa_attached, single_char_given_name, spaced_name",⏎, ,3 새봄아파트 114동 1798호 ⏎  ⏎ 【선우 하람】 고객은 연회비 면제 조건을 문의함.
+holdout,H0135,카드발급심사,,정별,가가,full,,"address_format_variant, card_format_variant, compound_surname, josa_attached, single_char_given_name, spaced_name", ,이,연회비 면제 조건을 문의함. 심사역 【정별】이 조건 안내 완료.
+holdout,H0136,대리인위임확인,,남궁찬,가가가,full,,"account_format_variant, compound_surname, id_format_variant, josa_attached, phone_format_variant, single_char_given_name, spaced_name", , ,대리인 위임 확인서 ⏎  ⏎ 위임인: 【남궁찬】 / 주민등록번호 9205111393
+holdout,H0136,대리인위임확인,,제갈찬,가가가,full,,"account_format_variant, compound_surname, id_format_variant, josa_attached, phone_format_variant, single_char_given_name, spaced_name", , , 9205111393152 ⏎ 대리인: 【제갈찬】 / 주민등록번호 040815-357
+holdout,H0136,대리인위임확인,,남궁찬,가가가,full,,"account_format_variant, compound_surname, id_format_variant, josa_attached, phone_format_variant, single_char_given_name, spaced_name",⏎,이,: 43-450637-449293 ⏎  ⏎ 【남궁찬】이 입원 중이어서 제갈 찬에게 업무를
+holdout,H0136,대리인위임확인,,제갈 찬,가가 가,spaced,,"account_format_variant, compound_surname, id_format_variant, josa_attached, phone_format_variant, single_char_given_name, spaced_name", ,에,49293 ⏎  ⏎ 남궁찬이 입원 중이어서 【제갈 찬】에게 업무를 위임함. 확인 담당 제갈
+holdout,H0136,대리인위임확인,,제갈린,가가가,full,,"account_format_variant, compound_surname, id_format_variant, josa_attached, phone_format_variant, single_char_given_name, spaced_name", , , 찬에게 업무를 위임함. 확인 담당 【제갈린】 대리.
+holdout,H0137,녹취요약,,동현,가가,given,,"given_only, phone_format_variant, spaced_name", ,:," CALL-50926383 ⏎  ⏎ 상담사 【동현】: 네, 새봄카드 고객센터입니다. ⏎ 고"
+holdout,H0137,녹취요약,,이하린,가가가,full,,"given_only, phone_format_variant, spaced_name", ,인,"고객: 카드 결제가 안 돼서요. 저 【이하린】인데요. ⏎ 상담사: 이하린 고객님, 본"
+holdout,H0137,녹취요약,,이하린,가가가,full,,"given_only, phone_format_variant, spaced_name", , ,"돼서요. 저 이하린인데요. ⏎ 상담사: 【이하린】 고객님, 본인 확인을 위해 휴대전화"
+holdout,H0137,녹취요약,,이 하린,가 가가,spaced,,"given_only, phone_format_variant, spaced_name", , ,서 쓰는 번호로 바꿨어요. ⏎  ⏎ 요약: 【이 하린】 고객님께서 해외 체류 중 결제 거절
+holdout,H0138,고객편지,,동현,가가,given,,"given_only, surname_title_unlabeled", , ,"문에 정신이 없었는데, 상담해 주신 【동현】 님 덕분에 금방 해결했어요. ⏎ 특히 "
+holdout,H0138,고객편지,,송진우,가가가,full,,"given_only, surname_title_unlabeled",⏎, ,했습니다. ⏎ 꼭 칭찬 부탁드립니다. ⏎  ⏎ 【송진우】 드림 (jw.song12@examp
+holdout,H0139,해외송금접수,,전린,가가,full,,"account_format_variant, given_only, single_char_given_name", , ,해외송금 접수 내역 ⏎  ⏎ 송금인: 【전린】 (010-5094-3471) ⏎ 출금 
+holdout,H0139,해외송금접수,,이지후,가가가,full,,"account_format_variant, given_only, single_char_given_name", , ,89984511034854 ⏎ 수취인: 【이지후】 (현지 연락 이메일 lee.k@ex
+holdout,H0139,해외송금접수,,린,가,given,,"account_format_variant, given_only, single_char_given_name",⏎, ,"et) ⏎ 송금액: USD 3,000 ⏎  ⏎ 【린】 님이 유학 중인 가족에게 보내는 생"
+holdout,H0139,해외송금접수,,조찬,가가,full,,"account_format_variant, given_only, single_char_given_name", ,,게 보내는 생활비라고 함. 처리자: 【조찬】
+holdout,H0140,법인카드소명,,문시우,가가가,full,,, ,⏎,명서 ⏎  ⏎ 소명자: 인사팀 / 과장 / 【문시우】 ⏎ 사용일: 2026년 1월 12일 ⏎ 사
+holdout,H0140,법인카드소명,,이지영,가가가,full,,, , ,실임을 확인합니다. ⏎  ⏎ 확인자: 팀장 【이지영】 (서명)
+holdout,H0141,한도심사결과,,김서연,가가가,full,,address_format_variant,⏎, ,"남시 분당구 마루길 151, 12층 ⏎ 【김서연】 님 귀하 ⏎  ⏎ 카드 이용한도 상향 심사"
+holdout,H0141,한도심사결과,,양서현,가가가,full,,address_format_variant, ,(,관련하여 궁금하신 점은 담당 심사역 【양서현】(02-3103-5320)에게 문의해
+holdout,H0142,VOC요약,,정성호,가가가,full,,"josa_attached, spaced_name", , ,4월 10일) ⏎  ⏎ VOC-5036 | 【정성호】 고객 | 앱 로그인 오류 | 처리 
+holdout,H0142,VOC요약,,박 현준,가 가가,spaced,,"josa_attached, spaced_name", , , | 처리 완료 ⏎ VOC-6544 | 【박 현준】 고객 | 포인트 소멸 문의 | 처리
+holdout,H0142,VOC요약,,김은우,가가가,full,,"josa_attached, spaced_name", ,님,의 | 처리 중 ⏎ VOC-3902 | 【김은우】님 | 결제 알림 미수신 (010-0
+holdout,H0142,VOC요약,,박현준,가가가,full,,"josa_attached, spaced_name", , ,701) | 처리 완료 ⏎  ⏎ 특이사항: 【박현준】 고객은 동일 건으로 세 번째 문의.
+holdout,H0142,VOC요약,,이지영,가가가,full,,"josa_attached, spaced_name", ,이, 동일 건으로 세 번째 문의. 담당 【이지영】이 직접 회신 예정.
+holdout,H0143,우편반송처리,,남궁 하람,가가 가가,spaced,,"address_format_variant, card_format_variant, compound_surname, spaced_name", ,⏎,편물 반송 처리 기록 ⏎  ⏎ 대상 고객: 【남궁 하람】 ⏎ 카드번호: 9410888539336
+holdout,H0143,우편반송처리,,남궁온유,가가가가,full,,"address_format_variant, card_format_variant, compound_surname, spaced_name", ,,주소로 재발송함. ⏎ 처리: 여신심사팀 【남궁온유】
+holdout,H0145,가맹점변경,,임우진,가가가,full,,phone_format_variant, ,⏎,가맹점 정보 변경 요청서 ⏎  ⏎ 대표자: 【임우진】 ⏎ 사업장 주소: 인천광역시 연수구 하
+holdout,H0145,가맹점변경,,김주원,가가가,full,,phone_format_variant, , ,46-715-406304 ⏎  ⏎ 접수자: 【김주원】 / 접수일: 2026년 5월 28일
+holdout,H0146,권한신청,,양서현,가가가,full,,homonym, ,⏎,템 접근 권한 신청 ⏎  ⏎ 신청자 성명: 【양서현】 ⏎ 사번: SB915413 ⏎ 부서/직급:
+holdout,H0146,권한신청,,서혜진,가가가,full,,homonym, , ,위한 고객 이력 확인 ⏎  ⏎ 1차 승인: 【서혜진】 팀장 ⏎ 최종 승인: 정보보호팀 이서연
+holdout,H0146,권한신청,,이서연,가가가,full,,homonym, ,,서혜진 팀장 ⏎ 최종 승인: 정보보호팀 【이서연】
+holdout,H0147,분쟁조정,,송진우,가가가,full,,"id_format_variant, spaced_name", , , 조정 검토 의견서 ⏎  ⏎ 1. 신청인: 【송진우】 (주민등록번호 000201 3451
+holdout,H0147,분쟁조정,,박은정,가가가,full,,"id_format_variant, spaced_name", , ,) ⏎ 2. 피신청인: 미르보안 (담당 【박은정】 매니저) ⏎ 3. 쟁점 ⏎ 신청인은 미르보
+holdout,H0147,분쟁조정,,박 은정,가 가가,spaced,,"id_format_variant, spaced_name", , ,금액의 반환을 요구함. 피신청인 측 【박 은정】 매니저는 해지 접수 기록이 없다고 
+holdout,H0147,분쟁조정,,이지영,가가가,full,,"id_format_variant, spaced_name", ,,다고 판단함. ⏎  ⏎ 검토자: 고객보호팀 【이지영】
+holdout,H0148,채용메일,,류승현,가가가,full,,surname_title_unlabeled,⏎, ,"[새봄카드] 2차 면접 일정 안내 ⏎  ⏎ 【류승현】 님, 안녕하세요. ⏎ 새봄카드 신입사원"
+holdout,H0148,채용메일,,문시우,가가가,full,,surname_title_unlabeled, ,(,"고, 일정 변경이 필요하시면 인사팀 【문시우】(010-0805-8440)에게 연락"
+holdout,H0149,한도심사결과,,윤소연,가가가,full,,address_format_variant,⏎, ,"솔내로 15, 2127호 (범어동) ⏎ 【윤소연】 님 귀하 ⏎  ⏎ 카드 이용한도 상향 심사"
+holdout,H0149,한도심사결과,,양서현,가가가,full,,address_format_variant, ,(,관련하여 궁금하신 점은 담당 심사역 【양서현】(02-3103-5320)에게 문의해
+holdout,H0150,자동이체신청서,,임하율,가가가,full,,"account_format_variant, address_format_variant, id_format_variant, phone_format_variant", ,⏎,일 2026-07-25) ⏎  ⏎ 신청인: 【임하율】 ⏎ 주민등록번호: 790322 2055
+holdout,H0150,자동이체신청서,,홍시온,가가가,full,,"account_format_variant, address_format_variant, id_format_variant, phone_format_variant", , ,동의합니다. ⏎ 접수 담당: 여신심사팀 【홍시온】 (내선 4510)
+holdout,H0151,채용메일,,홍예린,가가가,full,,"phone_format_variant, surname_title_unlabeled",⏎, ,"[새봄카드] 2차 면접 일정 안내 ⏎  ⏎ 【홍예린】 님, 안녕하세요. ⏎ 새봄카드 신입사원"
+holdout,H0151,채용메일,,문시우,가가가,full,,"phone_format_variant, surname_title_unlabeled", ,(,"고, 일정 변경이 필요하시면 인사팀 【문시우】(01008058440)에게 연락 바"
+holdout,H0152,우편반송처리,,정설,가가,full,,"address_format_variant, card_format_variant, single_char_given_name", ,⏎,편물 반송 처리 기록 ⏎  ⏎ 대상 고객: 【정설】 ⏎ 카드번호: 5327875004743
+holdout,H0152,우편반송처리,,강지후,가가가,full,,"address_format_variant, card_format_variant, single_char_given_name", ,,주소로 재발송함. ⏎ 처리: 카드운영팀 【강지후】
+holdout,H0153,출장보고,,김성호,가가가,full,,"homonym, phone_format_variant", , ,--- | --- | --- | ⏎ | 【김성호】 | 리스크관리팀 | 02360231
+holdout,H0153,출장보고,,김민준,가가가,full,,"homonym, phone_format_variant", , ,리팀 | 0236023149 | ⏎ | 【김민준】 | 고객센터 | 02 3779 42
+holdout,H0153,출장보고,,박은정,가가가,full,,"homonym, phone_format_variant", , , | 02 3779 4221 | ⏎ | 【박은정】 | 미르보안 | 010-0288-7
+holdout,H0153,출장보고,,김선우,가가가,full,,"homonym, phone_format_variant", , ,| 010-0288-7184 | ⏎ | 【김선우】 | 코드브릿지 | sw.kim29@
+holdout,H0153,출장보고,,박은정,가가가,full,,"homonym, phone_format_variant", , ,내용: 상담 녹취 보관 절차 확인. 【박은정】 매니저에게 보관 기간 초과 파일 삭
+holdout,H0154,피해접수,,정 성호,가 가가,spaced,,"card_format_variant, spaced_name", , ,-07-27 16:04 ⏎ 피해 고객: 【정 성호】 (010-0732-6448) ⏎ 사건 
+holdout,H0154,피해접수,,정성호,가가가,full,,"card_format_variant, spaced_name",⏎,님,호: 경찰청 2026-921245 ⏎  ⏎ 【정성호】님은 검찰을 사칭한 전화를 받고 카드
+holdout,H0154,피해접수,,김성호,가가가,full,,"card_format_variant, spaced_name", , ,건은 모두 승인 전 차단됨. ⏎ 담당: 【김성호】 (리스크관리팀)
+holdout,H0155,해외송금접수,,최로운,가가가,full,,"account_format_variant, given_only, phone_format_variant, single_char_given_name", , ,해외송금 접수 내역 ⏎  ⏎ 송금인: 【최로운】 (010 8564 7073) ⏎ 출금 
+holdout,H0155,해외송금접수,,최별,가가,full,,"account_format_variant, given_only, phone_format_variant, single_char_given_name", , ,553-51-9657924 ⏎ 수취인: 【최별】 (현지 연락 이메일 choi-k87
+holdout,H0155,해외송금접수,,로운,가가,given,,"account_format_variant, given_only, phone_format_variant, single_char_given_name",⏎, ,"om) ⏎ 송금액: USD 9,000 ⏎  ⏎ 【로운】 님이 유학 중인 가족에게 보내는 생"
+holdout,H0155,해외송금접수,,이린,가가,full,,"account_format_variant, given_only, phone_format_variant, single_char_given_name", ,,게 보내는 생활비라고 함. 처리자: 【이린】
+holdout,H0157,자동이체신청서,,최라온,가가가,full,,"account_format_variant, address_format_variant, compound_surname, id_format_variant, phone_format_variant", ,⏎,일 2026-03-21) ⏎  ⏎ 신청인: 【최라온】 ⏎ 주민등록번호: 81100915305
+holdout,H0157,자동이체신청서,,선우예준,가가가가,full,,"account_format_variant, address_format_variant, compound_surname, id_format_variant, phone_format_variant", , ,의합니다. ⏎ 접수 담당: 리스크관리팀 【선우예준】 (내선 5092)
+holdout,H0158,분쟁조정,,김서연,가가가,full,,"id_format_variant, spaced_name", , , 조정 검토 의견서 ⏎  ⏎ 1. 신청인: 【김서연】 (주민등록번호 011218-3013
+holdout,H0158,분쟁조정,,김수아,가가가,full,,"id_format_variant, spaced_name", , , 피신청인: 데이터온시스템즈 (담당 【김수아】 매니저) ⏎ 3. 쟁점 ⏎ 신청인은 데이터
+holdout,H0158,분쟁조정,,김 수아,가 가가,spaced,,"id_format_variant, spaced_name", , ,금액의 반환을 요구함. 피신청인 측 【김 수아】 매니저는 해지 접수 기록이 없다고 
+holdout,H0158,분쟁조정,,이지영,가가가,full,,"id_format_variant, spaced_name", ,,다고 판단함. ⏎  ⏎ 검토자: 고객보호팀 【이지영】
+holdout,H0159,VOC요약,,이하린,가가가,full,,"homonym, josa_attached, phone_format_variant, spaced_name", , ,-03-10) ⏎  ⏎ VOC-5455 | 【이하린】 고객 | 앱 로그인 오류 | 처리 
+holdout,H0159,VOC요약,,김 민준,가 가가,spaced,,"homonym, josa_attached, phone_format_variant, spaced_name", , , | 처리 완료 ⏎ VOC-5693 | 【김 민준】 고객 | 포인트 소멸 문의 | 처리
+holdout,H0159,VOC요약,,남궁나연,가가가가,full,,"homonym, josa_attached, phone_format_variant, spaced_name", ,님,의 | 처리 중 ⏎ VOC-5744 | 【남궁나연】님 | 결제 알림 미수신 (010.0
+holdout,H0159,VOC요약,,김민준,가가가,full,,"homonym, josa_attached, phone_format_variant, spaced_name", , ,383) | 처리 완료 ⏎  ⏎ 특이사항: 【김민준】 고객은 동일 건으로 세 번째 문의.
+holdout,H0159,VOC요약,,정예린,가가가,full,,"homonym, josa_attached, phone_format_variant, spaced_name", ,이, 동일 건으로 세 번째 문의. 담당 【정예린】이 직접 회신 예정.
+holdout,H0160,녹취요약,,동현,가가,given,,"given_only, phone_format_variant, spaced_name", ,:," CALL-69924229 ⏎  ⏎ 상담사 【동현】: 네, 새봄카드 고객센터입니다. ⏎ 고"
+holdout,H0160,녹취요약,,홍예린,가가가,full,,"given_only, phone_format_variant, spaced_name", ,인,"고객: 카드 결제가 안 돼서요. 저 【홍예린】인데요. ⏎ 상담사: 홍예린 고객님, 본"
+holdout,H0160,녹취요약,,홍예린,가가가,full,,"given_only, phone_format_variant, spaced_name", , ,"돼서요. 저 홍예린인데요. ⏎ 상담사: 【홍예린】 고객님, 본인 확인을 위해 휴대전화"
+holdout,H0160,녹취요약,,홍 예린,가 가가,spaced,,"given_only, phone_format_variant, spaced_name", , ,서 쓰는 번호로 바꿨어요. ⏎  ⏎ 요약: 【홍 예린】 고객님께서 해외 체류 중 결제 거절
+holdout,H0161,VOC요약,,송진우,가가가,full,,"josa_attached, phone_format_variant, spaced_name", , ,-11-12) ⏎  ⏎ VOC-4228 | 【송진우】 고객 | 앱 로그인 오류 | 처리 
+holdout,H0161,VOC요약,,황보 현우,가가 가가,spaced,,"josa_attached, phone_format_variant, spaced_name", , , | 처리 완료 ⏎ VOC-7555 | 【황보 현우】 고객 | 포인트 소멸 문의 | 처리
+holdout,H0161,VOC요약,,윤소연,가가가,full,,"josa_attached, phone_format_variant, spaced_name", ,님,의 | 처리 중 ⏎ VOC-3402 | 【윤소연】님 | 결제 알림 미수신 (010.0
+holdout,H0161,VOC요약,,황보현우,가가가가,full,,"josa_attached, phone_format_variant, spaced_name", , ,320) | 처리 완료 ⏎  ⏎ 특이사항: 【황보현우】 고객은 동일 건으로 세 번째 문의.
+holdout,H0161,VOC요약,,이지영,가가가,full,,"josa_attached, phone_format_variant, spaced_name", ,이, 동일 건으로 세 번째 문의. 담당 【이지영】이 직접 회신 예정.
+holdout,H0162,피해접수,,박 현준,가 가가,spaced,,"card_format_variant, phone_format_variant, spaced_name", , , 1월 3일 17:58 ⏎ 피해 고객: 【박 현준】 (010 0495 5746) ⏎ 사건 
+holdout,H0162,피해접수,,박현준,가가가,full,,"card_format_variant, phone_format_variant, spaced_name",⏎,님,호: 경찰청 2026-135533 ⏎  ⏎ 【박현준】님은 검찰을 사칭한 전화를 받고 카드
+holdout,H0162,피해접수,,김성호,가가가,full,,"card_format_variant, phone_format_variant, spaced_name", , ,건은 모두 승인 전 차단됨. ⏎ 담당: 【김성호】 (리스크관리팀)
+holdout,H0163,대리인위임확인,,홍윤,가가,full,,"account_format_variant, compound_surname, id_format_variant, josa_attached, phone_format_variant, single_char_given_name, spaced_name", , ,대리인 위임 확인서 ⏎  ⏎ 위임인: 【홍윤】 / 주민등록번호 020212 368
+holdout,H0163,대리인위임확인,,남궁가은,가가가가,full,,"account_format_variant, compound_surname, id_format_variant, josa_attached, phone_format_variant, single_char_given_name, spaced_name", , ,020212 3680014 ⏎ 대리인: 【남궁가은】 / 주민등록번호 750114-180
+holdout,H0163,대리인위임확인,,홍윤,가가,full,,"account_format_variant, compound_surname, id_format_variant, josa_attached, phone_format_variant, single_char_given_name, spaced_name",⏎,이,: 370-846374-27598 ⏎  ⏎ 【홍윤】이 입원 중이어서 남궁 가은에게 업무
+holdout,H0163,대리인위임확인,,남궁 가은,가가 가가,spaced,,"account_format_variant, compound_surname, id_format_variant, josa_attached, phone_format_variant, single_char_given_name, spaced_name", ,에,-27598 ⏎  ⏎ 홍윤이 입원 중이어서 【남궁 가은】에게 업무를 위임함. 확인 담당 전가
+holdout,H0163,대리인위임확인,,전가은,가가가,full,,"account_format_variant, compound_surname, id_format_variant, josa_attached, phone_format_variant, single_char_given_name, spaced_name", , ,가은에게 업무를 위임함. 확인 담당 【전가은】 과장.
+holdout,H0164,감사지적,,양서현,가가가,full,,josa_attached, ,이, 사항 ⏎  ⏎ 감사 결과 여신심사팀 소속 【양서현】이 고객 남궁나연의 주민등록번호와 휴
+holdout,H0164,감사지적,,남궁나연,가가가가,full,,josa_attached, ,의,결과 여신심사팀 소속 양서현이 고객 【남궁나연】의 주민등록번호와 휴대전화 번호(01
+holdout,H0164,감사지적,,양서현,가가가,full,,josa_attached, ,에,"처리 지침 위반에 해당한다. ⏎ 조치: 【양서현】에 대한 개인정보 보호 재교육, 소속"
+holdout,H0164,감사지적,,김소율,가가가,full,,josa_attached, ,에,"개인정보 보호 재교육, 소속 부서장 【김소율】에게 관리 감독 강화 요청."
+holdout,H0165,VOC요약,,윤선영,가가가,full,,"josa_attached, phone_format_variant, spaced_name", , ,-07-19) ⏎  ⏎ VOC-8673 | 【윤선영】 고객 | 앱 로그인 오류 | 처리 
+holdout,H0165,VOC요약,,남궁 나연,가가 가가,spaced,,"josa_attached, phone_format_variant, spaced_name", , , | 처리 완료 ⏎ VOC-4799 | 【남궁 나연】 고객 | 포인트 소멸 문의 | 처리
+holdout,H0165,VOC요약,,류현정,가가가,full,,"josa_attached, phone_format_variant, spaced_name", ,님,의 | 처리 중 ⏎ VOC-4557 | 【류현정】님 | 결제 알림 미수신 (01003
+holdout,H0165,VOC요약,,남궁나연,가가가가,full,,"josa_attached, phone_format_variant, spaced_name", , ,221) | 처리 완료 ⏎  ⏎ 특이사항: 【남궁나연】 고객은 동일 건으로 세 번째 문의.
+holdout,H0165,VOC요약,,이지영,가가가,full,,"josa_attached, phone_format_variant, spaced_name", ,이, 동일 건으로 세 번째 문의. 담당 【이지영】이 직접 회신 예정.
+holdout,H0166,영문혼용메일,,김선우,가가가,full,,"phone_format_variant, surname_title_unlabeled", , ,"tion schedule ⏎  ⏎ Dear 【김선우】 매니저님, ⏎  ⏎ Thank you fo"
+holdout,H0166,영문혼용메일,,김미영,가가가,full,,"phone_format_variant, surname_title_unlabeled",⏎,⏎,"360. ⏎  ⏎ Best regards, ⏎ 【김미영】 ⏎ Digital Strategy Te"
+holdout,H0167,채용메일,,임우진,가가가,full,,surname_title_unlabeled,⏎, ,"[새봄카드] 2차 면접 일정 안내 ⏎  ⏎ 【임우진】 님, 안녕하세요. ⏎ 새봄카드 신입사원"
+holdout,H0167,채용메일,,김윤서,가가가,full,,surname_title_unlabeled, ,(,"고, 일정 변경이 필요하시면 인사팀 【김윤서】(010-0302-9189)에게 연락"
+holdout,H0168,가맹점변경,,정하은,가가가,full,,"homonym, phone_format_variant", ,⏎,가맹점 정보 변경 요청서 ⏎  ⏎ 대표자: 【정하은】 ⏎ 사업장 주소: 서울특별시 마포구 별
+holdout,H0168,가맹점변경,,김주원,가가가,full,,"homonym, phone_format_variant", , ,16-495-543422 ⏎  ⏎ 접수자: 【김주원】 / 접수일: 2026년 5월 16일
+holdout,H0171,해외송금접수,,남궁하율,가가가가,full,,"account_format_variant, compound_surname, given_only, single_char_given_name", , ,해외송금 접수 내역 ⏎  ⏎ 송금인: 【남궁하율】 (010-8652-9211) ⏎ 출금 
+holdout,H0171,해외송금접수,,신설,가가,full,,"account_format_variant, compound_surname, given_only, single_char_given_name", , ,53-33-885487-4 ⏎ 수취인: 【신설】 (현지 연락 이메일 k_shin15
+holdout,H0171,해외송금접수,,하율,가가,given,,"account_format_variant, compound_surname, given_only, single_char_given_name",⏎, ,"et) ⏎ 송금액: USD 4,200 ⏎  ⏎ 【하율】 님이 유학 중인 가족에게 보내는 생"
+holdout,H0171,해외송금접수,,이라온,가가가,full,,"account_format_variant, compound_surname, given_only, single_char_given_name", ,,게 보내는 생활비라고 함. 처리자: 【이라온】
+holdout,H0173,고객편지,,동현,가가,given,,"given_only, surname_title_unlabeled", , ,"문에 정신이 없었는데, 상담해 주신 【동현】 님 덕분에 금방 해결했어요. ⏎ 특히 "
+holdout,H0173,고객편지,,윤소연,가가가,full,,"given_only, surname_title_unlabeled",⏎, ,했습니다. ⏎ 꼭 칭찬 부탁드립니다. ⏎  ⏎ 【윤소연】 드림 (sy.yoon45@examp
+holdout,H0174,해외송금접수,,홍서진,가가가,full,,"account_format_variant, compound_surname, given_only, single_char_given_name", , ,해외송금 접수 내역 ⏎  ⏎ 송금인: 【홍서진】 (010-5262-3794) ⏎ 출금 
+holdout,H0174,해외송금접수,,선우태오,가가가가,full,,"account_format_variant, compound_surname, given_only, single_char_given_name", , ,: 038644353095 ⏎ 수취인: 【선우태오】 (현지 연락 이메일 ksunwoo8
+holdout,H0174,해외송금접수,,서진,가가,given,,"account_format_variant, compound_surname, given_only, single_char_given_name",⏎, ,"om) ⏎ 송금액: USD 8,600 ⏎  ⏎ 【서진】 님이 유학 중인 가족에게 보내는 생"
+holdout,H0174,해외송금접수,,윤솔,가가,full,,"account_format_variant, compound_surname, given_only, single_char_given_name", ,,게 보내는 생활비라고 함. 처리자: 【윤솔】
+holdout,H0175,채용메일,,홍예린,가가가,full,,surname_title_unlabeled,⏎, ,"[새봄카드] 2차 면접 일정 안내 ⏎  ⏎ 【홍예린】 님, 안녕하세요. ⏎ 새봄카드 신입사원"
+holdout,H0175,채용메일,,문시우,가가가,full,,surname_title_unlabeled, ,(,"고, 일정 변경이 필요하시면 인사팀 【문시우】(010-0805-8440)에게 연락"
+holdout,H0176,경조사공지,,문시우,가가가,full,,"given_only, phone_format_variant", , ,[부고] 인사팀 【문시우】 과장 조모상 ⏎  ⏎ 인사팀 문시우 과장의
+holdout,H0176,경조사공지,,문시우,가가가,full,,"given_only, phone_format_variant", , ,인사팀 문시우 과장 조모상 ⏎  ⏎ 인사팀 【문시우】 과장의 조모 故 윤선영님께서 별세하
+holdout,H0176,경조사공지,,윤선영,가가가,full,,"given_only, phone_format_variant", ,님,상 ⏎  ⏎ 인사팀 문시우 과장의 조모 故 【윤선영】님께서 별세하셨기에 삼가 알려드립니다
+holdout,H0176,경조사공지,,문시우,가가가,full,,"given_only, phone_format_variant", , , 2026년 12월 16일 ⏎ 연락처: 【문시우】 과장 010.0805.8440 ⏎  ⏎ 마
+holdout,H0176,경조사공지,,윤서,가가,given,,"given_only, phone_format_variant", , ,로 함께해 주시기 바랍니다. ⏎ 인사팀 【윤서】 드림
+holdout,H0177,대리인위임확인,,안담,가가,full,,"account_format_variant, id_format_variant, josa_attached, phone_format_variant, single_char_given_name, spaced_name", , ,대리인 위임 확인서 ⏎  ⏎ 위임인: 【안담】 / 주민등록번호 760106-269
+holdout,H0177,대리인위임확인,,신하람,가가가,full,,"account_format_variant, id_format_variant, josa_attached, phone_format_variant, single_char_given_name, spaced_name", , ,760106-2697180 ⏎ 대리인: 【신하람】 / 주민등록번호 891214 185
+holdout,H0177,대리인위임확인,,안담,가가,full,,"account_format_variant, id_format_variant, josa_attached, phone_format_variant, single_char_given_name, spaced_name",⏎,이,좌: 592-22-377288-8 ⏎  ⏎ 【안담】이 입원 중이어서 신 하람에게 업무를
+holdout,H0177,대리인위임확인,,신 하람,가 가가,spaced,,"account_format_variant, id_format_variant, josa_attached, phone_format_variant, single_char_given_name, spaced_name", ,에,7288-8 ⏎  ⏎ 안담이 입원 중이어서 【신 하람】에게 업무를 위임함. 확인 담당 윤온
+holdout,H0177,대리인위임확인,,윤온유,가가가,full,,"account_format_variant, id_format_variant, josa_attached, phone_format_variant, single_char_given_name, spaced_name", , ,하람에게 업무를 위임함. 확인 담당 【윤온유】 대리.
+holdout,H0178,고객편지,,민준,가가,given,,"given_only, homonym, surname_title_unlabeled", , ,"문에 정신이 없었는데, 상담해 주신 【민준】 님 덕분에 금방 해결했어요. ⏎ 특히 "
+holdout,H0178,고객편지,,정하은,가가가,full,,"given_only, homonym, surname_title_unlabeled",⏎, ,했습니다. ⏎ 꼭 칭찬 부탁드립니다. ⏎  ⏎ 【정하은】 드림 (he.jung42@examp
+holdout,H0179,한도심사결과,,윤선영,가가가,full,,address_format_variant,⏎, ,울특별시 강남구 대치동 753-33 ⏎ 【윤선영】 님 귀하 ⏎  ⏎ 카드 이용한도 상향 심사
+holdout,H0179,한도심사결과,,양서현,가가가,full,,address_format_variant, ,(,관련하여 궁금하신 점은 담당 심사역 【양서현】(02-3103-5320)에게 문의해
+holdout,H0180,우편반송처리,,황 태오,가 가가,spaced,,"address_format_variant, card_format_variant, single_char_given_name, spaced_name", ,⏎,편물 반송 처리 기록 ⏎  ⏎ 대상 고객: 【황 태오】 ⏎ 카드번호: 4518-7990-751
+holdout,H0180,우편반송처리,,임솔,가가,full,,"address_format_variant, card_format_variant, single_char_given_name, spaced_name", ,,주소로 재발송함. ⏎ 처리: 고객보호팀 【임솔】
+holdout,H0182,녹취요약,,재원,가가,given,,"given_only, phone_format_variant, spaced_name", ,:," CALL-90745957 ⏎  ⏎ 상담사 【재원】: 네, 새봄카드 고객센터입니다. ⏎ 고"
+holdout,H0182,녹취요약,,류승현,가가가,full,,"given_only, phone_format_variant, spaced_name", ,인,"고객: 카드 결제가 안 돼서요. 저 【류승현】인데요. ⏎ 상담사: 류승현 고객님, 본"
+holdout,H0182,녹취요약,,류승현,가가가,full,,"given_only, phone_format_variant, spaced_name", , ,"돼서요. 저 류승현인데요. ⏎ 상담사: 【류승현】 고객님, 본인 확인을 위해 휴대전화"
+holdout,H0182,녹취요약,,류 승현,가 가가,spaced,,"given_only, phone_format_variant, spaced_name", , ,서 쓰는 번호로 바꿨어요. ⏎  ⏎ 요약: 【류 승현】 고객님께서 해외 체류 중 결제 거절
+holdout,H0183,채용메일,,남궁나연,가가가가,full,,"phone_format_variant, surname_title_unlabeled",⏎, ,"[새봄카드] 2차 면접 일정 안내 ⏎  ⏎ 【남궁나연】 님, 안녕하세요. ⏎ 새봄카드 신입사원"
+holdout,H0183,채용메일,,문시우,가가가,full,,"phone_format_variant, surname_title_unlabeled", ,(,"고, 일정 변경이 필요하시면 인사팀 【문시우】(010.0805.8440)에게 연락"
+holdout,H0184,법인카드소명,,김재원,가가가,full,,, ,⏎,서 ⏎  ⏎ 소명자: 고객센터 / 과장 / 【김재원】 ⏎ 사용일: 2026년 11월 24일 ⏎ 
+holdout,H0184,법인카드소명,,박동현,가가가,full,,, , ,실임을 확인합니다. ⏎  ⏎ 확인자: 팀장 【박동현】 (서명)
+holdout,H0186,가맹점변경,,송진우,가가가,full,,address_format_variant, ,⏎,가맹점 정보 변경 요청서 ⏎  ⏎ 대표자: 【송진우】 ⏎ 사업장 주소: 부산 수영구 한빛로 
+holdout,H0186,가맹점변경,,김주원,가가가,full,,address_format_variant, , ,03-831-290427 ⏎  ⏎ 접수자: 【김주원】 / 접수일: 2026-04-24
+holdout,H0187,권한신청,,박도윤,가가가,full,,homonym, ,⏎,템 접근 권한 신청 ⏎  ⏎ 신청자 성명: 【박도윤】 ⏎ 사번: SB199813 ⏎ 부서/직급:
+holdout,H0187,권한신청,,박동현,가가가,full,,homonym, , ,위한 고객 이력 확인 ⏎  ⏎ 1차 승인: 【박동현】 팀장 ⏎ 최종 승인: 정보보호팀 서혜진
+holdout,H0187,권한신청,,서혜진,가가가,full,,homonym, ,,박동현 팀장 ⏎ 최종 승인: 정보보호팀 【서혜진】

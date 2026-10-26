@@ -1,0 +1,28 @@
+﻿system,doc_id,error_type,label,gold_text,pred_text,confidence,context
+atonlee,H0003,경계 오류,person,이민재,이민재 책임,,"schedule  Dear 【이민재】 책임님,  Thank yo"
+atonlee,H0005,라벨 오류(→account_number),phone_number,02-3425-7293,02-3425-7293,,강연우 | 디지털전략팀 | 【02-3425-7293】 | | 문시우 | 인사팀 
+atonlee,H0020,경계 오류,address,"대전광역시 유성구 새봄로 79, 504호",대전광역시 유성구 새봄로 79,,"자: 김은우 사업장 주소: 【대전광역시 유성구 새봄로 79, 504호】 대표자 연락처: 010-0"
+atonlee,H0024,미탐,phone_number,0232576696,,,| 박동현 | 고객센터 | 【0232576696】 | | 김민준 | 고객센터
+atonlee,H0027,경계 오류,person,이서연,이서연 책임,,"schedule  Dear 【이서연】 책임님,  Thank yo"
+atonlee,H0030,경계 오류,address,"대전광역시 유성구 미리내로 97, 4층",대전광역시 유성구 미리내로 97,,"자: 김민준 사업장 주소: 【대전광역시 유성구 미리내로 97, 4층】 대표자 연락처: 010-0"
+atonlee,H0042,경계 오류,person,정현우,정현우 책임,,"schedule  Dear 【정현우】 책임님,  Thank yo"
+atonlee,H0067,라벨 오류(→account_number),phone_number,02-3472-7917,02-3472-7917,, 김소율 | 여신심사팀 | 【02-3472-7917】 | | 최예준 | 채권관리
+atonlee,H0067,미탐,phone_number,02-3522-8799,,, 최예준 | 채권관리팀 | 【02-3522-8799】 | | 김선우 | 코드브릿
+atonlee,H0069,경계 오류,person,이민재,이민재 책임,,"schedule  Dear 【이민재】 책임님,  Thank yo"
+atonlee,H0070,미탐,phone_number,0230941003,,,김미영 | 디지털전략팀 | 【0230941003】 | | 이민재 | 코드브릿
+atonlee,H0075,경계 오류,person,김은정,김은정 책임,,"schedule  Dear 【김은정】 책임님,  Thank yo"
+atonlee,H0076,미탐,person,전 찬,,, 처리 기록  대상 고객: 【전 찬】 카드번호: 3565 895
+atonlee,H0080,미탐,account_number,19-535247-861756,,, 포인트 환급 환급 계좌: 【19-535247-861756】  홍결이 입원 중이어서 이
+atonlee,H0083,경계 오류,person,전예은,전예은 책임,,"schedule  Dear 【전예은】 책임님,  Thank yo"
+atonlee,H0093,경계 오류,person,김소율,김소율 차장,, 이력 확인  1차 승인: 【김소율】 차장 최종 승인: 정보보호
+atonlee,H0101,미탐,phone_number,02-3734-8035,,, 김주원 | 카드운영팀 | 【02-3734-8035】 | | 김은정 | 다솜콜솔
+atonlee,H0125,미탐,account_number,653438611431,,,49 출금 계좌: 누리은행 【653438611431】 연락처: +82 10-57
+atonlee,H0135,미탐,person,정별,,,제 조건을 문의함. 심사역 【정별】이 조건 안내 완료.
+atonlee,H0136,미탐,account_number,43-450637-449293,,, 포인트 환급 환급 계좌: 【43-450637-449293】  남궁찬이 입원 중이어서 
+atonlee,H0139,라벨 오류(→card_number),account_number,89984511034854,89984511034854,,4-3471) 출금 계좌: 【89984511034854】 수취인: 이지후 (현지 연
+atonlee,H0139,미탐,person,린,,,"금액: USD 3,000  【린】 님이 유학 중인 가족에게 "
+atonlee,H0150,미탐,account_number,2482678126095,,,82 출금 계좌: 가람은행 【2482678126095】 연락처: +82 10-15
+atonlee,H0153,미탐,phone_number,0236023149,,,김성호 | 리스크관리팀 | 【0236023149】 | | 김민준 | 고객센터
+atonlee,H0157,미탐,account_number,977918048996,,, 출금 계좌: 다온저축은행 【977918048996】 연락처: 010282374
+atonlee,H0171,미탐,person,신설,,,-885487-4 수취인: 【신설】 (현지 연락 이메일 k_s
+atonlee,H0174,미탐,account_number,038644353095,,,2-3794) 출금 계좌: 【038644353095】 수취인: 선우태오 (현지 

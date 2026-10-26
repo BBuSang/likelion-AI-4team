@@ -24,7 +24,9 @@ from common import DATA, ROOT
 from run_compare import load_gold, load_pred, summarize
 
 GOLD = {"dev": "pii_synth_finance_dev.jsonl", "test": "pii_synth_finance_test.jsonl", "edge": "edge_cases.jsonl",
-        "synth_dev": "generated/synth_dev.jsonl", "synth_holdout": "generated/synth_holdout.jsonl"}
+        "synth_dev": "generated/synth_dev.jsonl", "synth_holdout": "generated/synth_holdout.jsonl",
+        "synth_fresh": "generated/synth_fresh.jsonl",
+        "synth_hard_dev": "generated/synth_hard_dev.jsonl", "synth_hard_eval": "generated/synth_hard_eval.jsonl"}
 # 표시 이름 → 예측 파일 이름 (atonlee 는 우리 pipeline 버전 koelectra_pii).
 # 팀 결정(2026-10-23): 토큰 모델은 atonlee 하나만 사용. 다른 모델을 비교하려면 여기에 추가 (예: "veil": "veil")
 #   atonlee: 팀원 래퍼(detectors/hf_ner.py)로 문서를 한 번에 처리. pipeline 방식(koelectra_pii)과의 비교는 worklog 15-2

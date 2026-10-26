@@ -1,0 +1,71 @@
+﻿doc_id,label,gold_text,caught_by,context
+H0001,person,시우,rules+atonlee|atonlee, 주시기 바랍니다. 인사팀 【시우】 드림
+H0004,person,재원,rules+atonlee|atonlee,"-96250608  상담사 【재원】: 네, 새봄카드 고객센터입"
+H0005,phone_number,02-3425-7293,rules+atonlee|rules,강연우 | 디지털전략팀 | 【02-3425-7293】 | | 문시우 | 인사팀 
+H0008,person,재원,rules+atonlee|atonlee,"이 없었는데, 상담해 주신 【재원】 님 덕분에 금방 해결했어요"
+H0009,person,박별,rules+atonlee|atonlee,72-89-0813128  【박별】이 입원 중이어서 오담에게 
+H0009,person,오담,rules+atonlee|atonlee,8  박별이 입원 중이어서 【오담】에게 업무를 위임함. 확인 
+H0012,person,동현,rules+atonlee|atonlee,"-32963858  상담사 【동현】: 네, 새봄카드 고객센터입"
+H0024,phone_number,0232576696,rules+atonlee|rules,| 박동현 | 고객센터 | 【0232576696】 | | 김민준 | 고객센터
+H0028,person,전별,rules+atonlee|atonlee,5-31-231761-6  【전별】이 입원 중이어서 신 하율에
+H0029,person,이하린,rules+atonlee|atonlee,"서구 별빛길 87, 13층 【이하린】 님 귀하  카드 이용한도 "
+H0031,person,강린,rules+atonlee|atonlee, 접수 담당: 리스크관리팀 【강린】 (내선 7703)
+H0040,person,동현,rules+atonlee|atonlee,"-65005204  상담사 【동현】: 네, 새봄카드 고객센터입"
+H0044,person,시우,rules+atonlee|atonlee, 주시기 바랍니다. 인사팀 【시우】 드림
+H0048,person,강혁,rules+atonlee|atonlee,발송함. 처리: 고객보호팀 【강혁】
+H0052,person,정성호,rules+atonlee|atonlee,심사팀 소속 김소율이 고객 【정성호】의 주민등록번호와 휴대전화 
+H0052,person,박동현,rules+atonlee|atonlee,"보호 재교육, 소속 부서장 【박동현】에게 관리 감독 강화 요청."
+H0053,person,동현,rules+atonlee|atonlee,"이 없었는데, 상담해 주신 【동현】 님 덕분에 금방 해결했어요"
+H0057,person,오가은,rules+atonlee|atonlee,제 조건을 문의함. 심사역 【오가은】이 조건 안내 완료.
+H0058,person,민준,rules+atonlee|atonlee,"-84386706  상담사 【민준】: 네, 새봄카드 고객센터입"
+H0061,person,박현,rules+atonlee|atonlee,발송함. 처리: 여신심사팀 【박현】
+H0064,person,민준,rules+atonlee|atonlee,"이 없었는데, 상담해 주신 【민준】 님 덕분에 금방 해결했어요"
+H0067,phone_number,02-3472-7917,rules+atonlee|rules, 김소율 | 여신심사팀 | 【02-3472-7917】 | | 최예준 | 채권관리
+H0067,phone_number,02-3522-8799,rules+atonlee|rules, 최예준 | 채권관리팀 | 【02-3522-8799】 | | 김선우 | 코드브릿
+H0068,person,정하은,rules+atonlee|atonlee,"19, 112동 2301호 【정하은】 님 귀하  카드 이용한도 "
+H0070,person,김미영,rules+atonlee|atonlee, 3103 5320 | | 【김미영】 | 디지털전략팀 | 023
+H0070,phone_number,0230941003,rules+atonlee|rules,김미영 | 디지털전략팀 | 【0230941003】 | | 이민재 | 코드브릿
+H0072,person,권도윤,rules+atonlee|atonlee,제 조건을 문의함. 심사역 【권도윤】이 조건 안내 완료.
+H0073,person,동현,rules+atonlee|atonlee,"-70086593  상담사 【동현】: 네, 새봄카드 고객센터입"
+H0076,person,전 찬,rules+atonlee|rules, 처리 기록  대상 고객: 【전 찬】 카드번호: 3565 895
+H0077,person,시우,rules+atonlee|atonlee, 주시기 바랍니다. 인사팀 【시우】 드림
+H0079,person,한별,rules+atonlee|atonlee,87-137-046154  【한별】이 입원 중이어서 권윤슬에게
+H0080,account_number,19-535247-861756,rules+atonlee|rules, 포인트 환급 환급 계좌: 【19-535247-861756】  홍결이 입원 중이어서 이
+H0080,person,홍결,rules+atonlee|atonlee,535247-861756  【홍결】이 입원 중이어서 이예준에게
+H0084,person,박현준,rules+atonlee|atonlee,운영팀 소속 김주원이 고객 【박현준】의 주민등록번호와 휴대전화 
+H0084,person,박동현,rules+atonlee|atonlee,"보호 재교육, 소속 부서장 【박동현】에게 관리 감독 강화 요청."
+H0088,person,동현,rules+atonlee|atonlee,"이 없었는데, 상담해 주신 【동현】 님 덕분에 금방 해결했어요"
+H0091,person,시우,rules+atonlee|atonlee, 주시기 바랍니다. 인사팀 【시우】 드림
+H0092,person,동현,rules+atonlee|atonlee,"이 없었는데, 상담해 주신 【동현】 님 덕분에 금방 해결했어요"
+H0094,person,권솔,rules+atonlee|atonlee,9-22-700264-3  【권솔】이 입원 중이어서 남궁 훈에
+H0094,person,남궁 훈,rules+atonlee|atonlee,3  권솔이 입원 중이어서 【남궁 훈】에게 업무를 위임함. 확인 
+H0097,person,시우,rules+atonlee|atonlee, 주시기 바랍니다. 인사팀 【시우】 드림
+H0101,phone_number,02-3734-8035,rules+atonlee|rules, 김주원 | 카드운영팀 | 【02-3734-8035】 | | 김은정 | 다솜콜솔
+H0110,person,동현,rules+atonlee|atonlee,"-24914935  상담사 【동현】: 네, 새봄카드 고객센터입"
+H0123,person,송현,rules+atonlee|atonlee,. 접수 담당: 카드운영팀 【송현】 (내선 9376)
+H0124,person,재원,rules+atonlee|atonlee,"이 없었는데, 상담해 주신 【재원】 님 덕분에 금방 해결했어요"
+H0125,account_number,653438611431,rules+atonlee|rules,49 출금 계좌: 누리은행 【653438611431】 연락처: +82 10-57
+H0126,person,재원,rules+atonlee|atonlee,"-97046473  상담사 【재원】: 네, 새봄카드 고객센터입"
+H0128,person,온유,rules+atonlee|atonlee,"금액: USD 7,200  【온유】 님이 유학 중인 가족에게 "
+H0135,person,정별,rules+atonlee|rules,제 조건을 문의함. 심사역 【정별】이 조건 안내 완료.
+H0136,account_number,43-450637-449293,rules+atonlee|rules, 포인트 환급 환급 계좌: 【43-450637-449293】  남궁찬이 입원 중이어서 
+H0136,person,제갈 찬,rules+atonlee|atonlee,  남궁찬이 입원 중이어서 【제갈 찬】에게 업무를 위임함. 확인 
+H0137,person,동현,rules+atonlee|atonlee,"-50926383  상담사 【동현】: 네, 새봄카드 고객센터입"
+H0138,person,동현,rules+atonlee|atonlee,"이 없었는데, 상담해 주신 【동현】 님 덕분에 금방 해결했어요"
+H0139,account_number,89984511034854,rules+atonlee|rules,4-3471) 출금 계좌: 【89984511034854】 수취인: 이지후 (현지 연
+H0139,person,조찬,rules+atonlee|atonlee, 생활비라고 함. 처리자: 【조찬】
+H0150,account_number,2482678126095,rules+atonlee|rules,82 출금 계좌: 가람은행 【2482678126095】 연락처: +82 10-15
+H0152,person,정설,rules+atonlee|atonlee, 처리 기록  대상 고객: 【정설】 카드번호: 53278750
+H0153,phone_number,0236023149,rules+atonlee|rules,김성호 | 리스크관리팀 | 【0236023149】 | | 김민준 | 고객센터
+H0157,account_number,977918048996,rules+atonlee|rules, 출금 계좌: 다온저축은행 【977918048996】 연락처: 010282374
+H0160,person,동현,rules+atonlee|atonlee,"-69924229  상담사 【동현】: 네, 새봄카드 고객센터입"
+H0163,person,홍윤,rules+atonlee|atonlee,-846374-27598  【홍윤】이 입원 중이어서 남궁 가은
+H0171,person,신설,rules+atonlee|rules,-885487-4 수취인: 【신설】 (현지 연락 이메일 k_s
+H0173,person,동현,rules+atonlee|atonlee,"이 없었는데, 상담해 주신 【동현】 님 덕분에 금방 해결했어요"
+H0174,account_number,038644353095,rules+atonlee|rules,2-3794) 출금 계좌: 【038644353095】 수취인: 선우태오 (현지 
+H0174,person,서진,rules+atonlee|atonlee,"금액: USD 8,600  【서진】 님이 유학 중인 가족에게 "
+H0177,person,안담,rules+atonlee|atonlee,2-22-377288-8  【안담】이 입원 중이어서 신 하람에
+H0178,person,민준,rules+atonlee|atonlee,"이 없었는데, 상담해 주신 【민준】 님 덕분에 금방 해결했어요"
+H0179,person,윤선영,rules+atonlee|atonlee,강남구 대치동 753-33 【윤선영】 님 귀하  카드 이용한도 
+H0180,person,임솔,rules+atonlee|atonlee,발송함. 처리: 고객보호팀 【임솔】
+H0182,person,재원,rules+atonlee|atonlee,"-90745957  상담사 【재원】: 네, 새봄카드 고객센터입"

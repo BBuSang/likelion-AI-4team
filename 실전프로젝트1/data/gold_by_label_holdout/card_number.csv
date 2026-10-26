@@ -1,0 +1,27 @@
+﻿split,doc_id,doc_type,template,text,shape,form,person_id,hard_cases,prev_char,next_char,context
+holdout,H0002,카드발급심사,,5243526018159087,9999999999999999,,,"address_format_variant, card_format_variant, id_format_variant, josa_attached, single_char_given_name", ,⏎,932 ⏎ 결과: 승인. 발급 카드번호 【5243526018159087】 ⏎ 배송지: 서울 송파구 도담길 125
+holdout,H0026,피해접수,,3565-3016-6131-8603,9999-9999-9999-9999,,,"card_format_variant, phone_format_variant, spaced_name", ,와,검찰을 사칭한 전화를 받고 카드번호 【3565-3016-6131-8603】와 유효기간을 알려주었다고 진술함. 
+holdout,H0036,피해접수,,9410-9139-0996-0303,9999-9999-9999-9999,,,spaced_name, ,와,검찰을 사칭한 전화를 받고 카드번호 【9410-9139-0996-0303】와 유효기간을 알려주었다고 진술함. 
+holdout,H0048,우편반송처리,,6253824628194825,9999999999999999,,,"address_format_variant, card_format_variant, single_char_given_name", ,⏎,록 ⏎  ⏎ 대상 고객: 황시온 ⏎ 카드번호: 【6253824628194825】 ⏎ 반송 주소: 대구광역시 수성구 범어
+holdout,H0057,카드발급심사,,5327199351819094,9999999999999999,,,"address_format_variant, card_format_variant, id_format_variant, josa_attached, phone_format_variant", ,⏎,748 ⏎ 결과: 승인. 발급 카드번호 【5327199351819094】 ⏎ 배송지: 부산광역시 수영구 여울길 
+holdout,H0061,우편반송처리,,9410378657975434,9999999999999999,,,"address_format_variant, card_format_variant, single_char_given_name, spaced_name", ,⏎, ⏎  ⏎ 대상 고객: 임 로운 ⏎ 카드번호: 【9410378657975434】 ⏎ 반송 주소: 서울특별시 송파구 잠실
+holdout,H0065,피해접수,,4518-2319-4875-7495,9999-9999-9999-9999,,,"card_format_variant, spaced_name", ,와,검찰을 사칭한 전화를 받고 카드번호 【4518-2319-4875-7495】와 유효기간을 알려주었다고 진술함. 
+holdout,H0072,카드발급심사,,4518 1186 2527 6016,9999 9999 9999 9999,,,"address_format_variant, card_format_variant, id_format_variant, josa_attached, phone_format_variant", ,⏎,148 ⏎ 결과: 승인. 발급 카드번호 【4518 1186 2527 6016】 ⏎ 배송지: 서울특별시 강남구 대치동 
+holdout,H0076,우편반송처리,,3565 8955 5979 7117,9999 9999 9999 9999,,,"address_format_variant, card_format_variant, compound_surname, single_char_given_name, spaced_name", ,⏎,록 ⏎  ⏎ 대상 고객: 전 찬 ⏎ 카드번호: 【3565 8955 5979 7117】 ⏎ 반송 주소: 부산광역시 수영구 광안
+holdout,H0081,우편반송처리,,4092-4710-4974-6500,9999-9999-9999-9999,,,"address_format_variant, card_format_variant, single_char_given_name", ,⏎,기록 ⏎  ⏎ 대상 고객: 오솔 ⏎ 카드번호: 【4092-4710-4974-6500】 ⏎ 반송 주소: 대구광역시 달서구 여울
+holdout,H0100,피해접수,,5243 7529 1703 4235,9999 9999 9999 9999,,,"card_format_variant, spaced_name", ,와,검찰을 사칭한 전화를 받고 카드번호 【5243 7529 1703 4235】와 유효기간을 알려주었다고 진술함. 
+holdout,H0103,카드발급심사,,4518-6671-2768-4267,9999-9999-9999-9999,,,"address_format_variant, card_format_variant, id_format_variant, josa_attached, phone_format_variant", ,⏎,664 ⏎ 결과: 승인. 발급 카드번호 【4518-6671-2768-4267】 ⏎ 배송지: (05299) 서울특별시 
+holdout,H0105,카드발급심사,,5327846563212233,9999999999999999,,,"address_format_variant, card_format_variant, josa_attached, phone_format_variant, single_char_given_name", ,⏎,090 ⏎ 결과: 승인. 발급 카드번호 【5327846563212233】 ⏎ 배송지: (06795) 서울특별시 
+holdout,H0111,피해접수,,6253307924402688,9999999999999999,,,"card_format_variant, spaced_name", ,와,검찰을 사칭한 전화를 받고 카드번호 【6253307924402688】와 유효기간을 알려주었다고 진술함. 
+holdout,H0116,카드발급심사,,5243 5995 2890 7865,9999 9999 9999 9999,,,"address_format_variant, card_format_variant, josa_attached, phone_format_variant, spaced_name", ,⏎,626 ⏎ 결과: 승인. 발급 카드번호 【5243 5995 2890 7865】 ⏎ 배송지: 서울특별시 강남구 가온로 
+holdout,H0117,카드발급심사,,5327 6661 7603 1378,9999 9999 9999 9999,,,"address_format_variant, card_format_variant, compound_surname, id_format_variant, josa_attached, spaced_name", ,⏎,316 ⏎ 결과: 승인. 발급 카드번호 【5327 6661 7603 1378】 ⏎ 배송지: 경기도 용인시 수지구 죽전
+holdout,H0119,카드발급심사,,3565-2159-0109-2812,9999-9999-9999-9999,,,"address_format_variant, card_format_variant, id_format_variant, josa_attached", ,⏎,760 ⏎ 결과: 승인. 발급 카드번호 【3565-2159-0109-2812】 ⏎ 배송지: 서울 노원구 솔내로 8 1
+holdout,H0121,피해접수,,5243 5901 3962 4593,9999 9999 9999 9999,,,"card_format_variant, spaced_name", ,와,검찰을 사칭한 전화를 받고 카드번호 【5243 5901 3962 4593】와 유효기간을 알려주었다고 진술함. 
+holdout,H0127,피해접수,,4092-5711-7777-4123,9999-9999-9999-9999,,,"card_format_variant, spaced_name", ,와,검찰을 사칭한 전화를 받고 카드번호 【4092-5711-7777-4123】와 유효기간을 알려주었다고 진술함. 
+holdout,H0131,우편반송처리,,9410154728038522,9999999999999999,,,"address_format_variant, card_format_variant, single_char_given_name, spaced_name", ,⏎,록 ⏎  ⏎ 대상 고객: 황 담 ⏎ 카드번호: 【9410154728038522】 ⏎ 반송 주소: 대구 수성구 마루길 8
+holdout,H0135,카드발급심사,,6253 8084 1485 2530,9999 9999 9999 9999,,,"address_format_variant, card_format_variant, compound_surname, josa_attached, single_char_given_name, spaced_name", ,⏎,515 ⏎ 결과: 승인. 발급 카드번호 【6253 8084 1485 2530】 ⏎ 배송지: 대구광역시 수성구 마루길 
+holdout,H0143,우편반송처리,,9410888539336332,9999999999999999,,,"address_format_variant, card_format_variant, compound_surname, spaced_name", ,⏎, ⏎ 대상 고객: 남궁 하람 ⏎ 카드번호: 【9410888539336332】 ⏎ 반송 주소: 충청남도 아산시 배방읍
+holdout,H0152,우편반송처리,,5327875004743951,9999999999999999,,,"address_format_variant, card_format_variant, single_char_given_name", ,⏎,기록 ⏎  ⏎ 대상 고객: 정설 ⏎ 카드번호: 【5327875004743951】 ⏎ 반송 주소: 충청남도 아산시 배방읍
+holdout,H0154,피해접수,,5243755131373537,9999999999999999,,,"card_format_variant, spaced_name", ,와,검찰을 사칭한 전화를 받고 카드번호 【5243755131373537】와 유효기간을 알려주었다고 진술함. 
+holdout,H0162,피해접수,,4092-5711-7777-4123,9999-9999-9999-9999,,,"card_format_variant, phone_format_variant, spaced_name", ,와,검찰을 사칭한 전화를 받고 카드번호 【4092-5711-7777-4123】와 유효기간을 알려주었다고 진술함. 
+holdout,H0180,우편반송처리,,4518-7990-7511-6370,9999-9999-9999-9999,,,"address_format_variant, card_format_variant, single_char_given_name, spaced_name", ,⏎, ⏎  ⏎ 대상 고객: 황 태오 ⏎ 카드번호: 【4518-7990-7511-6370】 ⏎ 반송 주소: 대구 달서구 도담길 1
