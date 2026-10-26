@@ -1,0 +1,31 @@
+문서 379건, 정답 개체 1892개
+
+=== 전체 성능 ===
+시스템           | strict P      R     F1 | partial P      R     F1 | mask_rec |    ms/문서
+--------------------------------------------------------------------------------------
+선정_v7         |    0.771  0.812  0.791 |     0.881  0.928  0.904 |    0.956 |     17.8
+hybrid_best   |    0.827  0.838  0.833 |     0.886  0.899  0.892 |    0.952 |     27.6
+final_model   |    0.827  0.838  0.833 |     0.887  0.899  0.893 |    0.952 |     27.0
+
+=== 라벨별 partial 재현율 (정밀도) ===
+라벨                                       선정_v7     hybrid_best     final_model
+person                            0.927 (0.88)    0.867 (0.89)    0.867 (0.89)
+phone_number                      0.934 (0.92)    0.934 (0.92)    0.934 (0.92)
+email                             0.969 (0.87)    0.969 (0.87)    0.969 (0.87)
+address                           0.942 (0.94)    0.942 (0.95)    0.942 (0.95)
+resident_registration_number      1.000 (0.87)    1.000 (0.87)    1.000 (0.87)
+account_number                    0.837 (0.78)    0.844 (0.78)    0.844 (0.78)
+card_number                       0.893 (0.82)    0.893 (0.83)    0.893 (0.83)
+
+=== 어려운 사례 (재현율 또는 오탐 수) ===
+항목 (대상 수)                                  선정_v7   hybrid_best   final_model
+josa_attached (person) (0)                     -             -             -
+spaced_name (person) (0)                       -             -             -
+given_only (person) (0)                        -             -             -
+phone_format_variant (phone_number) (0)             -             -             -
+homonym (person) (0)                           -             -             -
+[추가] person form=full (0)                      -             -             -
+[추가] person form=spaced (0)                    -             -             -
+[추가] person form=given (0)                     -             -             -
+
+결과 저장: C:/Users/USER/AppData/Local/Temp/claude/C--Users-USER-Desktop-likelion-AI-4team/e776826d-5890-450f-ae2d-b4bd12b7b9a4/scratchpad/final5/cmp_synth_hard_dev/

@@ -1,0 +1,8 @@
+﻿label,선정_v7_recall,선정_v7_precision,hybrid_best_recall,hybrid_best_precision,final_model_recall,final_model_precision
+person,1.0,0.9798,1.0,0.9913,1.0,0.9913
+phone_number,1.0,1.0,1.0,1.0,1.0,1.0
+email,1.0,1.0,1.0,1.0,1.0,1.0
+address,1.0,1.0,1.0,1.0,1.0,1.0
+resident_registration_number,1.0,1.0,1.0,1.0,1.0,1.0
+account_number,1.0,1.0,1.0,1.0,1.0,1.0
+card_number,1.0,1.0,1.0,1.0,1.0,1.0

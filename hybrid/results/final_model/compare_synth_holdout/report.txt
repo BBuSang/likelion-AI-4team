@@ -1,0 +1,31 @@
+문서 994건, 정답 개체 1732개
+
+=== 전체 성능 ===
+시스템           | strict P      R     F1 | partial P      R     F1 | mask_rec |    ms/문서
+--------------------------------------------------------------------------------------
+선정_v7         |    0.909  0.979  0.942 |     0.920  0.991  0.954 |    0.988 |     15.2
+hybrid_best   |    0.926  0.980  0.952 |     0.935  0.990  0.962 |    0.988 |     44.3
+final_model   |    0.943  0.980  0.961 |     0.952  0.990  0.971 |    0.988 |     18.6
+
+=== 라벨별 partial 재현율 (정밀도) ===
+라벨                                       선정_v7     hybrid_best     final_model
+person                            0.999 (0.91)    0.997 (0.95)    0.997 (0.95)
+phone_number                      1.000 (0.95)    1.000 (0.95)    1.000 (0.96)
+email                             0.991 (0.98)    0.991 (0.98)    0.991 (0.98)
+address                           0.964 (0.92)    0.964 (0.92)    0.964 (0.92)
+resident_registration_number      0.988 (0.70)    0.988 (0.70)    0.988 (0.87)
+account_number                    0.983 (0.94)    0.983 (0.94)    0.983 (0.95)
+card_number                       0.966 (0.98)    0.966 (0.98)    0.966 (0.98)
+
+=== 어려운 사례 (재현율 또는 오탐 수) ===
+항목 (대상 수)                                  선정_v7   hybrid_best   final_model
+josa_attached (person) (0)                     -             -             -
+spaced_name (person) (0)                       -             -             -
+given_only (person) (0)                        -             -             -
+phone_format_variant (phone_number) (0)             -             -             -
+homonym (person) (0)                           -             -             -
+[추가] person form=full (0)                      -             -             -
+[추가] person form=spaced (0)                    -             -             -
+[추가] person form=given (0)                     -             -             -
+
+결과 저장: C:/Users/USER/AppData/Local/Temp/claude/C--Users-USER-Desktop-likelion-AI-4team/e776826d-5890-450f-ae2d-b4bd12b7b9a4/scratchpad/final5/cmp_synth_holdout/

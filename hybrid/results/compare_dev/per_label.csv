@@ -1,8 +1,0 @@
-﻿label,기존rules_recall,기존rules_precision,hosung_rules_recall,hosung_rules_precision,선정_recall,선정_precision,rules_best_recall,rules_best_precision,rules_best_nofix_recall,rules_best_nofix_precision,hybrid_v1_recall,hybrid_v1_precision,hybrid_v2_recall,hybrid_v2_precision,hybrid_v3_recall,hybrid_v3_precision,hybrid_best_recall,hybrid_best_precision,hybrid_best_nofix_recall,hybrid_best_nofix_precision
-person,1.0,1.0,0.9941,1.0,1.0,0.9798,1.0,1.0,1.0,1.0,1.0,0.9913,1.0,0.9913,1.0,0.9913,1.0,0.9913,1.0,0.9913
-phone_number,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
-email,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
-address,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
-resident_registration_number,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
-account_number,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
-card_number,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0

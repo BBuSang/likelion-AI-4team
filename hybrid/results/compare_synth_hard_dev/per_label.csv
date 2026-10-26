@@ -1,8 +1,0 @@
-﻿label,hybrid_best_recall,hybrid_best_precision
-person,0.8667,0.892
-phone_number,0.9345,0.9188
-email,0.9692,0.869
-address,0.942,0.9489
-resident_registration_number,1.0,0.8739
-account_number,0.844,0.7778
-card_number,0.8933,0.8272

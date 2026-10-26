@@ -1,0 +1,35 @@
+문서 200건, 정답 개체 1165개
+
+=== 전체 성능 ===
+시스템           | strict P      R     F1 | partial P      R     F1 | mask_rec |    ms/문서
+--------------------------------------------------------------------------------------
+선정_v7         |    0.968  0.997  0.982 |     0.970  1.000  0.985 |    1.000 |     57.5
+hybrid_best   |    0.997  1.000  0.998 |     0.997  1.000  0.998 |    1.000 |     79.3
+final_model   |    0.997  1.000  0.999 |     0.997  1.000  0.999 |    1.000 |     32.2
+
+=== 라벨별 partial 재현율 (정밀도) ===
+라벨                                       선정_v7     hybrid_best     final_model
+person                            1.000 (0.96)    1.000 (0.99)    1.000 (1.00)
+phone_number                      1.000 (1.00)    1.000 (1.00)    1.000 (1.00)
+email                             1.000 (1.00)    1.000 (1.00)    1.000 (1.00)
+address                           1.000 (1.00)    1.000 (1.00)    1.000 (1.00)
+resident_registration_number      1.000 (1.00)    1.000 (1.00)    1.000 (1.00)
+account_number                    1.000 (1.00)    1.000 (1.00)    1.000 (1.00)
+card_number                       1.000 (1.00)    1.000 (1.00)    1.000 (1.00)
+
+=== 어려운 사례 (재현율 또는 오탐 수) ===
+항목 (대상 수)                                  선정_v7   hybrid_best   final_model
+josa_attached (person) (342)               1.000         1.000         1.000
+spaced_name (person) (231)                 1.000         1.000         1.000
+given_only (person) (231)                  1.000         1.000         1.000
+phone_format_variant (phone_number) (61)         1.000         1.000         1.000
+homonym (person) (233)                     1.000         1.000         1.000
+[추가] person form=full (680)                1.000         1.000         1.000
+[추가] person form=spaced (51)               1.000         1.000         1.000
+[추가] person form=given (44)                1.000         1.000         1.000
+[추가] decoy_company_phone 오탐수 (24)              8             0             0
+[추가] decoy_words 오탐수 (20)                      8             0             0
+[추가] decoy_numbers 오탐수 (5)                     0             0             0
+[추가] no_pii 오탐수 (32)                           8             0             0
+
+결과 저장: C:/Users/USER/AppData/Local/Temp/claude/C--Users-USER-Desktop-likelion-AI-4team/e776826d-5890-450f-ae2d-b4bd12b7b9a4/scratchpad/final5/cmp_pii_synth_finance_test/

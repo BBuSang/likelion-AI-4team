@@ -1,0 +1,31 @@
+문서 1775건, 정답 개체 5918개
+
+=== 전체 성능 ===
+시스템           | strict P      R     F1 | partial P      R     F1 | mask_rec |    ms/문서
+--------------------------------------------------------------------------------------
+선정_v7         |    0.843  0.861  0.852 |     0.943  0.963  0.953 |    0.977 |     18.0
+hybrid_best   |    0.918  0.920  0.919 |     0.952  0.954  0.953 |    0.983 |     20.8
+final_model   |    0.920  0.920  0.920 |     0.955  0.954  0.954 |    0.983 |     20.6
+
+=== 라벨별 partial 재현율 (정밀도) ===
+라벨                                       선정_v7     hybrid_best     final_model
+person                            0.961 (0.92)    0.937 (0.94)    0.937 (0.95)
+phone_number                      0.958 (0.98)    0.958 (0.98)    0.958 (0.98)
+email                             1.000 (0.98)    1.000 (0.98)    1.000 (0.98)
+address                           0.922 (0.98)    0.919 (0.98)    0.919 (0.98)
+resident_registration_number      0.996 (0.97)    0.996 (0.97)    0.996 (0.98)
+account_number                    0.932 (0.87)    0.948 (0.87)    0.948 (0.87)
+card_number                       1.000 (0.96)    1.000 (0.96)    1.000 (0.96)
+
+=== 어려운 사례 (재현율 또는 오탐 수) ===
+항목 (대상 수)                                  선정_v7   hybrid_best   final_model
+josa_attached (person) (0)                     -             -             -
+spaced_name (person) (0)                       -             -             -
+given_only (person) (0)                        -             -             -
+phone_format_variant (phone_number) (0)             -             -             -
+homonym (person) (0)                           -             -             -
+[추가] person form=full (0)                      -             -             -
+[추가] person form=spaced (0)                    -             -             -
+[추가] person form=given (0)                     -             -             -
+
+결과 저장: C:/Users/USER/AppData/Local/Temp/claude/C--Users-USER-Desktop-likelion-AI-4team/e776826d-5890-450f-ae2d-b4bd12b7b9a4/scratchpad/final5/cmp_synth_fresh/

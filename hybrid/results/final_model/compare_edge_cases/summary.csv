@@ -1,0 +1,4 @@
+﻿system,strict_p,strict_r,strict_f1,partial_p,partial_r,partial_f1,mask_rec,ms_per_doc
+선정_v7,0.9587,1.0,0.9789,0.9587,1.0,0.9789,1.0,11.3
+hybrid_best,0.9748,1.0,0.9872,0.9748,1.0,0.9872,1.0,40.8
+final_model,0.9748,1.0,0.9872,0.9748,1.0,0.9872,1.0,30.9

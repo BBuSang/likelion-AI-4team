@@ -1,0 +1,19 @@
+﻿item,n,선정_v7,hybrid_best,final_model
+josa_attached (person),157,1.0,1.0,1.0
+spaced_name (person),205,0.9951219512195122,0.9951219512195122,1.0
+given_only (person),135,0.9851851851851852,0.9851851851851852,0.9925925925925926
+phone_format_variant (phone_number),89,1.0,1.0,1.0
+homonym (person),102,1.0,1.0,1.0
+card_format_variant (card_number),25,1.0,1.0,1.0
+id_format_variant (resident_registration_number),30,1.0,1.0,1.0
+account_format_variant (account_number),23,0.9565217391304348,1.0,1.0
+address_format_variant (address),41,0.9512195121951219,1.0,1.0
+single_char_given_name (person),38,0.9473684210526315,0.9473684210526315,1.0
+compound_surname (person),25,1.0,1.0,1.0
+[추가] person form=full,471,0.9978768577494692,0.9978768577494692,1.0
+[추가] person form=spaced,53,0.9811320754716981,0.9811320754716981,1.0
+[추가] person form=given,36,0.9722222222222222,0.9722222222222222,0.9722222222222222
+[추가] decoy_company_phone 오탐수,8,8,8,8
+[추가] decoy_words 오탐수,14,8,8,8
+[추가] decoy_numbers 오탐수,6,0,0,0
+[추가] no_pii 오탐수,14,8,8,8

@@ -1,0 +1,4 @@
+﻿system,doc_id,error_type,label,gold_text,pred_text,confidence,context
+final_model,D0182,오탐,person,,이첩,,8 접수 경로: 금융감독원 【이첩】 민원인: 정지호 (연락처 
+final_model,D0240,오탐,person,,이첩,,1 접수 경로: 금융감독원 【이첩】 민원인: 노성호 (연락처 
+final_model,D0285,오탐,person,,이첩,,0 접수 경로: 금융감독원 【이첩】 민원인: 윤선영 (연락처 

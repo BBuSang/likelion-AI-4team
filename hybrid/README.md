@@ -1,54 +1,60 @@
-# hybrid — 결합 규칙기반(rules_best) + atonlee 하이브리드(hybrid_best)
+# hybrid — final_model (규칙 + atonlee 하이브리드)
 
-기존 규칙기반(`detectors/rules.py`, kloid99 브랜치)과 hosung 규칙기반(`detectors/hosung_rules.py`, 팀장님 `rule_based.py` 사본)을 합쳐 개선한 규칙기반입니다. 이를 atonlee 토큰 모델과 결합한 하이브리드도 함께 들어 있습니다. 작성일 2026-10-26.
+금융 사내 문서에서 개인정보 7종을 찾는 최종 탐지기입니다. 규칙 기반 결과를 우선으로 두고, 겹치지 않는 atonlee 토큰 모델 결과를 걸러서 더합니다. 작성일 2026-10-26.
 
-**Holdout 평가 보고서(⑤~⑧): [holdout_report.md](holdout_report.md)**
+**검사 수치(보고서 ⑤~⑧ 표 대응): [final_model_수치.md](final_model_수치.md)**
 
 ## 실행
 
 ```
 cd hybrid
-python -X utf8 run_detect.py --detector rules_best --split dev
-python -X utf8 run_detect.py --detector hybrid_best --split test
-python -X utf8 run_detect.py --detector hybrid_best --data data/holdout_labeled.jsonl
-python -X utf8 run_compare.py --gold data/holdout_labeled.jsonl --pred hybrid_best=preds/hybrid_best_holdout_labeled.jsonl --out results/check
+python -X utf8 run_detect.py --detector final_model --split dev
+python -X utf8 run_detect.py --detector final_model --data data/holdout_labeled.jsonl
+python -X utf8 run_compare.py --gold data/holdout_labeled.jsonl --pred final_model=preds/final_model_holdout_labeled.jsonl --out results/check
 ```
 
 필요 패키지: `kiwipiepy==0.24.1`, `transformers`, `torch` (atonlee 모델은 처음 실행할 때 Hugging Face에서 내려받음).
 
 | 환경변수 | 기본 | 설명 |
 |---|---|---|
-| `PII_HOLDOUT_FIXES` | `1` | `0`이면 holdout 오류를 보고 넣은 수정을 모두 끔 (holdout 공정 채점용) |
+| `PII_HOLDOUT_FIXES` | `1` | `0`이면 holdout 오류를 보고 넣은 수정(hosung v8 규칙 재구현 포함)을 모두 끔 |
 | `PII_HARD_FIXES` | `1` | `0`이면 synth_hard_dev 오류를 보고 넣은 수정(이름 뒤 호칭·조사 자르기, 괄호 없는 우편번호)을 끔 |
 | `PII_HYBRID_MODE` | `union` | `names`면 모델에서 두 글자 이상 이름만 가져옴 |
 | `PII_MODEL_NAME_FILTER` | `1` | `0`이면 모델 이름 거르기를 끔 |
 
 ## 구성
 
+`final_model`은 아래 순서로 다른 탐지기 파일을 불러 씁니다. 하나라도 지우면 실행되지 않습니다.
+
 | 파일 | 내용 |
 |---|---|
-| `detectors/rules_best.py` | **결합 규칙기반**. hosung 규칙을 그대로 돌린 뒤, 겹치지 않는 곳에만 규칙을 더하고 오탐을 거름 (파일 맨 위 설명 참고) |
-| `detectors/hybrid_best.py` | **하이브리드**. rules_best 결과를 우선으로 두고, 겹치지 않는 atonlee 결과(모든 라벨)를 거른 뒤 더함 |
-| `detectors/hosung_rules.py` | hosung `rule_based.py` 사본 (import 2줄만 바꿈, 로직은 원본 그대로) |
+| `detectors/final_model.py` | **최종 탐지기**. hybrid_best + hosung v8 규칙 중 빠져 있던 것(worklog 24-1 설명대로 다시 구현. v8 코드는 저장소에 없음) |
+| `detectors/hybrid_best.py` | 규칙 + atonlee 결합, 모델 결과 후처리(hosung `postprocess.py` 사본)와 모델 이름 거르기 |
+| `detectors/rules_best.py` | 결합 규칙기반: hosung 규칙 + 기존 kloid99 rules 일부 + 이름·형식 보강 |
+| `detectors/hosung_rules.py` | hosung `rule_based.py` v7 사본 (import 2줄만 바꿈) |
 | `detectors/analyzers.py` | hosung 형태소 분석기 어댑터 사본 |
-| `detectors/rules.py`, `ner.py`, `base.py` | 기존 저장소 파일 사본 (rules_best·hybrid_best가 사용) |
-| `run_detect.py`, `run_compare.py` | 실행기·채점기 (채점기는 holdout 태그를 지원하는 `holdout/run_compare.py`) |
-| `data/` | dev·test·holdout + hosung 추가 데이터(edge_cases, synth_dev, synth_holdout) |
-| `preds/` | 선정 탐지기(`selected_hosung+atonlee_*`), `*_nofix_*`(holdout 수정 끔), 최종(`rules_best_*`, `hybrid_best_*`) 예측 |
-| `results/` | 데이터별 채점 결과 (`compare_<데이터>/summary.csv`, `per_label.csv`, `hard_cases.csv`, `errors_*.csv`, `report.txt`), holdout 데이터 관찰 |
+| `detectors/rules.py` | 기존 kloid99 규칙기반 (rules_best가 일부 사용) |
+| `detectors/ner.py` | 토큰 분류 모델 래퍼 (atonlee) |
+| `detectors/base.py`, `__init__.py` | 공통 후처리 (run_detect가 사용) |
+| `run_detect.py`, `run_compare.py` | 실행기·채점기 (holdout 태그 지원판) |
+| `data/` | dev · test · holdout · edge_cases · synth_dev · synth_holdout · synth_hard_dev · synth_hard_eval · synth_fresh |
+| `preds/final_model_*.jsonl` | final_model 예측 (9개 세트) |
+| `preds/final_rules_*.jsonl`, `preds/final_token_*.jsonl` | final_model의 규칙 부분·토큰 부분 예측 (dev·test·holdout) |
+| `preds/selected_hosung+atonlee_*.jsonl` | 개선 전 비교 기준: 팀 선정 탐지기 v7 (hosung 규칙 v7 + atonlee) |
+| `results/final_model/` | 채점 결과: `compare_<데이터>/`(v7 · hybrid_best · final_model), `components_holdout/`(구성 요소별), `make_components.py` |
 
-## 결과 (strict F1 · mask_rec)
+## 결과 요약 (strict F1 · mask_rec)
 
-| 시스템 | dev | test | holdout | synth_holdout |
-|---|---|---|---|---|
-| 기존 rules | 1.000 · 1.000 | 1.000 · 1.000 | 0.833 · 0.855 | 0.866 · 0.914 |
-| hosung rules | 0.998 · 0.999 | 0.993 · 0.997 | 0.923 · 0.961 | 0.954 · 0.972 |
-| rules_best_nofix | 1.000 · 1.000 | 0.998 · 1.000 | 0.932 · 0.964 | 0.964 · 0.976 |
-| **rules_best** | 1.000 · 1.000 | 0.998 · 1.000 | 0.961 · 0.983 | 0.965 · 0.976 |
-| 선정 탐지기 (hosung rules + atonlee) | 0.994 · 1.000 | 0.982 · 1.000 | 0.944 · 0.993 | 0.943 · 0.988 |
-| hybrid_best_nofix | 0.997 · 1.000 | 0.995 · 1.000 | 0.952 · 0.991 | 0.950 · 0.988 |
-| **hybrid_best** | 0.997 · 1.000 | 0.997 · 1.000 | 0.994 · 0.999 | 0.950 · 0.988 |
+| 데이터 | 개선 전 (v7) | **final_model** | 참고: hosung v8 |
+|---|---|---|---|
+| dev | 0.994 · 1.000 | **0.997 · 1.000** | 0.994 · 1.000 |
+| test | 0.982 · 1.000 | **0.999 · 1.000** | 0.986 · 1.000 |
+| 멘토 holdout | 0.944 · 0.993 | **0.995 · 1.000** | 0.995 · 1.000 |
+| 일상 문서 평가용 (synth_holdout) | 0.943 · 0.988 | **0.961 · 0.988** | 0.956 · 0.988 |
+| synth_fresh | 0.852 · 0.977 | **0.920 · 0.983** | 0.855 · 0.976 |
+| synth_hard_eval | 0.767 · 0.941 | **0.816 · 0.934** | 0.781 · 0.933 |
 
-- holdout 점수에서 `_nofix`가 아닌 행은 holdout 오류를 보고 고친 결과입니다. 처음 보는 데이터에서 기대할 성능은 `_nofix` 행과 synth_holdout 쪽이 더 정확합니다.
-- synth_holdout도 마지막 회귀 확인 때 오류를 일부 봤습니다. 자세한 데이터 사용 기록은 보고서 ⑧에 있습니다.
-- 처리 시간은 hybrid_best가 holdout에서 문서당 약 28ms입니다(같은 조건 연속 측정). 컴퓨터 부하에 따라 크게 흔들려서 `summary.csv`의 ms 값은 참고용입니다.
+- **holdout 점수는 holdout 오류를 보고 고친 값입니다.** 일반화 성능으로 보기 어렵고, 처음 보는 데이터에 가까운 것은 synth_fresh와 synth_hard_eval입니다.
+- **synth_hard_eval에서는 mask_rec가 개선 전보다 낮습니다**(0.941 → 0.934). 일반 단어와 같은 이름을 놓친 탓입니다.
+- **hosung v9는 hard_eval이 더 높습니다**(F1 0.861). 자세한 내용은 [final_model_수치.md](final_model_수치.md)에 있습니다.
+- **처리 시간**: holdout에서 문서당 약 29~35ms입니다(PC 부하로 흔들림).

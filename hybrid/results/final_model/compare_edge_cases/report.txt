@@ -1,0 +1,34 @@
+문서 64건, 정답 개체 116개
+
+=== 전체 성능 ===
+시스템           | strict P      R     F1 | partial P      R     F1 | mask_rec |    ms/문서
+--------------------------------------------------------------------------------------
+선정_v7         |    0.959  1.000  0.979 |     0.959  1.000  0.979 |    1.000 |     11.3
+hybrid_best   |    0.975  1.000  0.987 |     0.975  1.000  0.987 |    1.000 |     40.8
+final_model   |    0.975  1.000  0.987 |     0.975  1.000  0.987 |    1.000 |     30.9
+
+=== 라벨별 partial 재현율 (정밀도) ===
+라벨                                       선정_v7     hybrid_best     final_model
+person                            1.000 (0.93)    1.000 (0.96)    1.000 (0.96)
+phone_number                      1.000 (0.95)    1.000 (0.95)    1.000 (0.95)
+email                             1.000 (1.00)    1.000 (1.00)    1.000 (1.00)
+address                           1.000 (1.00)    1.000 (1.00)    1.000 (1.00)
+resident_registration_number      1.000 (1.00)    1.000 (1.00)    1.000 (1.00)
+account_number                    1.000 (1.00)    1.000 (1.00)    1.000 (1.00)
+card_number                       1.000 (1.00)    1.000 (1.00)    1.000 (1.00)
+
+=== 어려운 사례 (재현율 또는 오탐 수) ===
+항목 (대상 수)                                  선정_v7   hybrid_best   final_model
+josa_attached (person) (0)                     -             -             -
+spaced_name (person) (0)                       -             -             -
+given_only (person) (0)                        -             -             -
+phone_format_variant (phone_number) (0)             -             -             -
+homonym (person) (0)                           -             -             -
+[추가] person form=full (0)                      -             -             -
+[추가] person form=spaced (0)                    -             -             -
+[추가] person form=given (0)                     -             -             -
+[추가] decoy_company_phone 오탐수 (1)               0             0             0
+[추가] decoy_words 오탐수 (3)                       0             0             0
+[추가] decoy_numbers 오탐수 (1)                     0             0             0
+
+결과 저장: C:/Users/USER/AppData/Local/Temp/claude/C--Users-USER-Desktop-likelion-AI-4team/e776826d-5890-450f-ae2d-b4bd12b7b9a4/scratchpad/final5/cmp_edge_cases/

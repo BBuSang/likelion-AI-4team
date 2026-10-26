@@ -1,0 +1,64 @@
+{"id": "E001", "entities": [{"label": "phone_number", "start": 12, "end": 25}], "ms": 25.01}
+{"id": "E002", "entities": [{"label": "phone_number", "start": 11, "end": 25}], "ms": 1131.14}
+{"id": "E003", "entities": [{"label": "phone_number", "start": 14, "end": 26}, {"label": "phone_number", "start": 31, "end": 44}], "ms": 9.38}
+{"id": "E004", "entities": [{"label": "phone_number", "start": 6, "end": 17}], "ms": 12.15}
+{"id": "E005", "entities": [{"label": "phone_number", "start": 14, "end": 27}], "ms": 14.63}
+{"id": "E006", "entities": [{"label": "phone_number", "start": 12, "end": 26}], "ms": 14.83}
+{"id": "E007", "entities": [{"label": "phone_number", "start": 10, "end": 26}, {"label": "phone_number", "start": 30, "end": 46}], "ms": 13.83}
+{"id": "E008", "entities": [{"label": "phone_number", "start": 6, "end": 19}, {"label": "phone_number", "start": 22, "end": 25}], "ms": 12.99}
+{"id": "E009", "entities": [{"label": "phone_number", "start": 4, "end": 21}, {"label": "person", "start": 27, "end": 30}, {"label": "phone_number", "start": 36, "end": 49}], "ms": 16.42}
+{"id": "E010", "entities": [], "ms": 14.55}
+{"id": "E011", "entities": [{"label": "account_number", "start": 12, "end": 28}, {"label": "person", "start": 34, "end": 37}], "ms": 14.92}
+{"id": "E012", "entities": [{"label": "account_number", "start": 5, "end": 19}], "ms": 12.08}
+{"id": "E013", "entities": [{"label": "account_number", "start": 5, "end": 20}], "ms": 12.83}
+{"id": "E014", "entities": [{"label": "account_number", "start": 3, "end": 19}], "ms": 12.54}
+{"id": "E015", "entities": [{"label": "account_number", "start": 6, "end": 21}, {"label": "account_number", "start": 28, "end": 42}], "ms": 12.22}
+{"id": "E016", "entities": [{"label": "account_number", "start": 17, "end": 30}], "ms": 13.54}
+{"id": "E017", "entities": [{"label": "account_number", "start": 9, "end": 23}], "ms": 13.69}
+{"id": "E018", "entities": [], "ms": 13.7}
+{"id": "E019", "entities": [{"label": "address", "start": 4, "end": 24}], "ms": 12.93}
+{"id": "E020", "entities": [{"label": "address", "start": 6, "end": 26}], "ms": 11.95}
+{"id": "E021", "entities": [{"label": "address", "start": 4, "end": 24}, {"label": "address", "start": 29, "end": 44}], "ms": 15.33}
+{"id": "E022", "entities": [{"label": "address", "start": 6, "end": 25}], "ms": 12.56}
+{"id": "E023", "entities": [{"label": "address", "start": 0, "end": 18}], "ms": 13.47}
+{"id": "E024", "entities": [{"label": "address", "start": 0, "end": 29}], "ms": 14.52}
+{"id": "E025", "entities": [{"label": "address", "start": 0, "end": 19}, {"label": "address", "start": 21, "end": 38}], "ms": 12.48}
+{"id": "E026", "entities": [{"label": "address", "start": 0, "end": 31}], "ms": 12.53}
+{"id": "E027", "entities": [{"label": "person", "start": 3, "end": 5}, {"label": "person", "start": 17, "end": 19}], "ms": 13.78}
+{"id": "E028", "entities": [{"label": "person", "start": 4, "end": 8}, {"label": "person", "start": 21, "end": 25}], "ms": 16.38}
+{"id": "E029", "entities": [{"label": "person", "start": 0, "end": 4}, {"label": "person", "start": 9, "end": 14}, {"label": "person", "start": 19, "end": 23}], "ms": 16.9}
+{"id": "E030", "entities": [{"label": "person", "start": 5, "end": 12}, {"label": "phone_number", "start": 19, "end": 32}], "ms": 13.81}
+{"id": "E031", "entities": [{"label": "person", "start": 5, "end": 15}, {"label": "person", "start": 22, "end": 32}], "ms": 12.69}
+{"id": "E032", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "person", "start": 8, "end": 10}], "ms": 13.52}
+{"id": "E033", "entities": [], "ms": 12.09}
+{"id": "E034", "entities": [{"label": "email", "start": 6, "end": 30}], "ms": 12.12}
+{"id": "E035", "entities": [{"label": "email", "start": 6, "end": 32}, {"label": "email", "start": 37, "end": 64}], "ms": 13.54}
+{"id": "E036", "entities": [{"label": "email", "start": 7, "end": 31}], "ms": 11.24}
+{"id": "E037", "entities": [{"label": "card_number", "start": 5, "end": 21}], "ms": 11.37}
+{"id": "E038", "entities": [{"label": "card_number", "start": 3, "end": 22}, {"label": "person", "start": 24, "end": 27}, {"label": "card_number", "start": 28, "end": 45}], "ms": 12.43}
+{"id": "E039", "entities": [{"label": "card_number", "start": 10, "end": 29}], "ms": 11.71}
+{"id": "E040", "entities": [{"label": "resident_registration_number", "start": 8, "end": 22}], "ms": 10.16}
+{"id": "E041", "entities": [{"label": "resident_registration_number", "start": 5, "end": 18}, {"label": "resident_registration_number", "start": 25, "end": 41}], "ms": 11.88}
+{"id": "E042", "entities": [{"label": "resident_registration_number", "start": 7, "end": 21}], "ms": 10.56}
+{"id": "E043", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "person", "start": 21, "end": 25}, {"label": "person", "start": 34, "end": 36}], "ms": 14.64}
+{"id": "E044", "entities": [{"label": "person", "start": 4, "end": 7}, {"label": "person", "start": 21, "end": 23}], "ms": 13.39}
+{"id": "E045", "entities": [{"label": "person", "start": 18, "end": 21}], "ms": 10.34}
+{"id": "E046", "entities": [{"label": "person", "start": 14, "end": 17}], "ms": 8.71}
+{"id": "E047", "entities": [{"label": "person", "start": 6, "end": 17}, {"label": "person", "start": 22, "end": 26}], "ms": 9.11}
+{"id": "E048", "entities": [], "ms": 7.46}
+{"id": "E049", "entities": [{"label": "account_number", "start": 7, "end": 21}, {"label": "account_number", "start": 29, "end": 41}], "ms": 11.69}
+{"id": "E050", "entities": [{"label": "phone_number", "start": 11, "end": 24}, {"label": "phone_number", "start": 47, "end": 59}], "ms": 13.6}
+{"id": "E051", "entities": [{"label": "address", "start": 0, "end": 34}], "ms": 11.97}
+{"id": "E052", "entities": [{"label": "address", "start": 5, "end": 29}], "ms": 11.49}
+{"id": "E053", "entities": [{"label": "person", "start": 3, "end": 6}, {"label": "phone_number", "start": 7, "end": 20}], "ms": 13.46}
+{"id": "E054", "entities": [{"label": "person", "start": 4, "end": 7}, {"label": "account_number", "start": 12, "end": 26}], "ms": 12.35}
+{"id": "E055", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 14, "end": 29}], "ms": 13.25}
+{"id": "E056", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 11, "end": 27}], "ms": 11.99}
+{"id": "E057", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 12.72}
+{"id": "E058", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "person", "start": 13, "end": 16}, {"label": "person", "start": 21, "end": 24}], "ms": 15.71}
+{"id": "E059", "entities": [{"label": "person", "start": 0, "end": 2}, {"label": "person", "start": 8, "end": 10}], "ms": 9.94}
+{"id": "E060", "entities": [], "ms": 10.51}
+{"id": "E061", "entities": [{"label": "person", "start": 31, "end": 34}, {"label": "person", "start": 49, "end": 53}, {"label": "person", "start": 58, "end": 61}, {"label": "person", "start": 85, "end": 88}, {"label": "card_number", "start": 101, "end": 120}, {"label": "phone_number", "start": 167, "end": 180}, {"label": "email", "start": 184, "end": 213}, {"label": "person", "start": 225, "end": 228}], "ms": 24.27}
+{"id": "E062", "entities": [{"label": "person", "start": 16, "end": 24}, {"label": "resident_registration_number", "start": 34, "end": 48}, {"label": "phone_number", "start": 55, "end": 71}, {"label": "address", "start": 76, "end": 97}, {"label": "account_number", "start": 114, "end": 127}, {"label": "card_number", "start": 161, "end": 177}, {"label": "person", "start": 191, "end": 199}], "ms": 23.33}
+{"id": "E063", "entities": [{"label": "person", "start": 34, "end": 36}, {"label": "person", "start": 38, "end": 43}, {"label": "person", "start": 45, "end": 56}, {"label": "person", "start": 58, "end": 61}, {"label": "person", "start": 66, "end": 69}, {"label": "person", "start": 79, "end": 84}, {"label": "person", "start": 113, "end": 124}, {"label": "phone_number", "start": 141, "end": 154}, {"label": "person", "start": 171, "end": 173}], "ms": 19.75}
+{"id": "E064", "entities": [{"label": "person", "start": 20, "end": 23}, {"label": "person", "start": 25, "end": 27}, {"label": "person", "start": 33, "end": 36}, {"label": "person", "start": 46, "end": 49}, {"label": "person", "start": 54, "end": 56}, {"label": "person", "start": 79, "end": 82}, {"label": "address", "start": 93, "end": 107}], "ms": 17.25}
