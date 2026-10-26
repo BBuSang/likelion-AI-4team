@@ -1,0 +1,148 @@
+﻿id,doc_type,label,text,start,end,form,hard_cases
+H0001,경조사공지,phone_number,010-0999-1956,114,127,,given_only
+H0002,카드발급심사,phone_number,010-9247-3932,73,86,,address_format_variant|card_format_variant|id_format_variant|josa_attached|single_char_given_name
+H0003,영문혼용메일,phone_number,+82 10-0971-7912,299,315,,phone_format_variant|surname_title_unlabeled
+H0004,녹취요약,phone_number,+82 10-0322-1774,132,148,,given_only|homonym|phone_format_variant|spaced_name
+H0005,출장보고,phone_number,02-3425-7293,112,124,,homonym|phone_format_variant
+H0005,출장보고,phone_number,02-3324-8498,141,153,,homonym|phone_format_variant
+H0005,출장보고,phone_number,01001524303,173,184,,homonym|phone_format_variant
+H0006,가맹점변경,phone_number,010-0791-2924,66,79,,address_format_variant
+H0007,한도심사결과,phone_number,02-3103-5320,218,230,,address_format_variant
+H0009,대리인위임확인,phone_number,+82 10-0952-7888,81,97,,account_format_variant|id_format_variant|josa_attached|phone_format_variant|single_char_given_name
+H0011,자동이체신청서,phone_number,02-7565-9163,93,105,,account_format_variant|address_format_variant|id_format_variant|phone_format_variant|single_char_given_name
+H0012,녹취요약,phone_number,+82 10-0732-6448,132,148,,given_only|phone_format_variant|spaced_name
+H0014,감사지적,phone_number,01007278790,58,69,,josa_attached|phone_format_variant
+H0015,채용메일,phone_number,010-0662-5393,212,225,,surname_title_unlabeled
+H0016,자동이체신청서,phone_number,010-6443-7540,92,105,,account_format_variant|address_format_variant|compound_surname|id_format_variant|single_char_given_name
+H0017,VOC요약,phone_number,010-0933-5186,128,141,,homonym|josa_attached|spaced_name
+H0020,가맹점변경,phone_number,010-0238-4701,64,77,,
+H0021,감사지적,phone_number,010 0351 8383,59,72,,josa_attached|phone_format_variant
+H0022,VOC요약,phone_number,010-0306-5929,128,141,,homonym|josa_attached|spaced_name
+H0023,VOC요약,phone_number,010 0933 5186,130,143,,homonym|josa_attached|phone_format_variant|spaced_name
+H0024,출장보고,phone_number,0232576696,110,120,,homonym|phone_format_variant
+H0024,출장보고,phone_number,02-3779-4221,138,150,,homonym|phone_format_variant
+H0024,출장보고,phone_number,010-0398-1492,170,183,,homonym|phone_format_variant
+H0025,경조사공지,phone_number,01009592111,112,123,,given_only|homonym|phone_format_variant
+H0026,피해접수,phone_number,01007510340,53,64,,card_format_variant|phone_format_variant|spaced_name
+H0027,영문혼용메일,phone_number,+82 10-0659-1360,299,315,,homonym|phone_format_variant|surname_title_unlabeled
+H0028,대리인위임확인,phone_number,02-5288-9930,81,93,,account_format_variant|id_format_variant|josa_attached|phone_format_variant|single_char_given_name|spaced_name
+H0029,한도심사결과,phone_number,02-3103-5320,202,214,,
+H0030,가맹점변경,phone_number,010-0933-5186,63,76,,homonym
+H0031,자동이체신청서,phone_number,010-7495-3899,89,102,,account_format_variant|address_format_variant|id_format_variant|single_char_given_name
+H0035,채용메일,phone_number,01008058440,218,229,,phone_format_variant|surname_title_unlabeled
+H0036,피해접수,phone_number,010-0464-1363,53,66,,spaced_name
+H0040,녹취요약,phone_number,+82 10-0351-8383,134,150,,given_only|phone_format_variant|spaced_name
+H0042,영문혼용메일,phone_number,+82 10-0659-1360,300,316,,phone_format_variant|surname_title_unlabeled
+H0043,영문혼용메일,phone_number,+82 10-0659-1360,300,316,,phone_format_variant|surname_title_unlabeled
+H0044,경조사공지,phone_number,010-0133-2455,113,126,,given_only
+H0045,한도심사결과,phone_number,02-3103-5320,210,222,,homonym
+H0046,가맹점변경,phone_number,010-0554-9969,71,84,,
+H0047,자동이체신청서,phone_number,010 9936 1462,92,105,,account_format_variant|compound_surname|phone_format_variant
+H0049,출장보고,phone_number,02-3888-2288,113,125,,homonym
+H0049,출장보고,phone_number,02-3223-2724,144,156,,homonym
+H0049,출장보고,phone_number,010-0107-0953,178,191,,homonym
+H0052,감사지적,phone_number,010.0732.6448,57,70,,josa_attached|phone_format_variant
+H0054,경조사공지,phone_number,010.0659.1360,116,129,,given_only|phone_format_variant
+H0056,출장보고,phone_number,02-3734-8035,112,124,,phone_format_variant
+H0056,출장보고,phone_number,02-3257-6696,142,154,,phone_format_variant
+H0056,출장보고,phone_number,010.0147.1165,172,185,,phone_format_variant
+H0057,카드발급심사,phone_number,02-8235-2748,74,86,,address_format_variant|card_format_variant|id_format_variant|josa_attached|phone_format_variant
+H0058,녹취요약,phone_number,+82 10-0791-2924,132,148,,given_only|homonym|phone_format_variant|spaced_name
+H0059,VOC요약,phone_number,01006080969,128,139,,josa_attached|phone_format_variant|spaced_name
+H0062,감사지적,phone_number,010-0933-5186,57,70,,homonym|josa_attached
+H0065,피해접수,phone_number,010-0111-2320,53,66,,card_format_variant|spaced_name
+H0067,출장보고,phone_number,02-3472-7917,113,125,,
+H0067,출장보고,phone_number,02-3522-8799,144,156,,
+H0067,출장보고,phone_number,010-0467-7471,175,188,,
+H0068,한도심사결과,phone_number,02 3103 5320,211,223,,homonym|phone_format_variant
+H0069,영문혼용메일,phone_number,+82 10-0659-1360,299,315,,phone_format_variant|surname_title_unlabeled
+H0070,출장보고,phone_number,02 3103 5320,112,124,,phone_format_variant
+H0070,출장보고,phone_number,0230941003,144,154,,phone_format_variant
+H0070,출장보고,phone_number,010-0538-0499,173,186,,phone_format_variant
+H0071,한도심사결과,phone_number,02.3472.7917,203,215,,address_format_variant|phone_format_variant
+H0072,카드발급심사,phone_number,010 0660 0148,73,86,,address_format_variant|card_format_variant|id_format_variant|josa_attached|phone_format_variant
+H0073,녹취요약,phone_number,+82 10-0111-2320,132,148,,given_only|phone_format_variant|spaced_name
+H0074,해외송금접수,phone_number,010-7131-5882,22,35,,account_format_variant|given_only|single_char_given_name
+H0075,영문혼용메일,phone_number,+82 10-0659-1360,299,315,,homonym|phone_format_variant|surname_title_unlabeled
+H0077,경조사공지,phone_number,010-0659-1360,115,128,,given_only
+H0079,대리인위임확인,phone_number,010-1193-3098,81,94,,account_format_variant|id_format_variant|josa_attached|single_char_given_name
+H0080,대리인위임확인,phone_number,010.5501.2460,82,95,,account_format_variant|compound_surname|id_format_variant|josa_attached|phone_format_variant|single_char_given_name
+H0083,영문혼용메일,phone_number,+82 10-0659-1360,299,315,,phone_format_variant|surname_title_unlabeled
+H0084,감사지적,phone_number,010 0495 5746,57,70,,josa_attached|phone_format_variant
+H0085,감사지적,phone_number,010.0653.0185,57,70,,homonym|josa_attached|phone_format_variant
+H0086,출장보고,phone_number,02-3888-2288,113,125,,phone_format_variant
+H0086,출장보고,phone_number,02-3833-9572,144,156,,phone_format_variant
+H0086,출장보고,phone_number,010.0288.7184,174,187,,phone_format_variant
+H0087,가맹점변경,phone_number,010-0554-9969,71,84,,
+H0091,경조사공지,phone_number,010-0863-8414,113,126,,given_only
+H0094,대리인위임확인,phone_number,+82 10-4321-1999,83,99,,account_format_variant|compound_surname|josa_attached|phone_format_variant|single_char_given_name|spaced_name
+H0096,해외송금접수,phone_number,010-8810-7128,22,35,,account_format_variant|given_only
+H0097,경조사공지,phone_number,010.0186.6844,115,128,,given_only|phone_format_variant
+H0099,출장보고,phone_number,02-3005-2525,112,124,,
+H0099,출장보고,phone_number,02-3602-3149,144,156,,
+H0099,출장보고,phone_number,010-0147-1165,174,187,,
+H0100,피해접수,phone_number,010-0653-0185,55,68,,card_format_variant|spaced_name
+H0101,출장보고,phone_number,02-3602-3149,114,126,,phone_format_variant
+H0101,출장보고,phone_number,02-3734-8035,145,157,,phone_format_variant
+H0101,출장보고,phone_number,01001524303,177,188,,phone_format_variant
+H0103,카드발급심사,phone_number,01000379664,73,84,,address_format_variant|card_format_variant|id_format_variant|josa_attached|phone_format_variant
+H0105,카드발급심사,phone_number,+82 10-7134-7090,74,90,,address_format_variant|card_format_variant|josa_attached|phone_format_variant|single_char_given_name
+H0106,한도심사결과,phone_number,02.3472.7917,203,215,,homonym|phone_format_variant
+H0109,경조사공지,phone_number,010-0133-2455,113,126,,given_only
+H0110,녹취요약,phone_number,+82 10-0608-0969,132,148,,given_only|phone_format_variant|spaced_name
+H0111,피해접수,phone_number,010-0383-9051,55,68,,card_format_variant|spaced_name
+H0112,채용메일,phone_number,010-0805-8440,211,224,,surname_title_unlabeled
+H0113,녹취요약,phone_number,+82 10-0933-5186,132,148,,given_only|homonym|phone_format_variant|spaced_name
+H0114,한도심사결과,phone_number,02-3108-6345,211,223,,address_format_variant
+H0116,카드발급심사,phone_number,010.7176.8626,74,87,,address_format_variant|card_format_variant|josa_attached|phone_format_variant|spaced_name
+H0117,카드발급심사,phone_number,010-1940-1316,75,88,,address_format_variant|card_format_variant|compound_surname|id_format_variant|josa_attached|spaced_name
+H0118,채용메일,phone_number,01008058440,212,223,,phone_format_variant|surname_title_unlabeled
+H0119,카드발급심사,phone_number,010-1395-2760,74,87,,address_format_variant|card_format_variant|id_format_variant|josa_attached
+H0120,감사지적,phone_number,010-0111-2320,58,71,,josa_attached
+H0121,피해접수,phone_number,010-0285-2041,54,67,,card_format_variant|spaced_name
+H0122,VOC요약,phone_number,010.0351.8383,129,142,,josa_attached|phone_format_variant|spaced_name
+H0123,자동이체신청서,phone_number,02-2627-8548,93,105,,account_format_variant|address_format_variant|id_format_variant|phone_format_variant|single_char_given_name
+H0125,자동이체신청서,phone_number,+82 10-5784-7365,88,104,,account_format_variant|address_format_variant|compound_surname|id_format_variant|phone_format_variant|single_char_given_name
+H0126,녹취요약,phone_number,+82 10-0732-6448,132,148,,given_only|phone_format_variant|spaced_name
+H0127,피해접수,phone_number,010-0495-5746,53,66,,card_format_variant|spaced_name
+H0128,해외송금접수,phone_number,+82 10-8138-9758,22,38,,account_format_variant|compound_surname|given_only|phone_format_variant|single_char_given_name
+H0129,감사지적,phone_number,010-0608-0969,57,70,,josa_attached
+H0132,가맹점변경,phone_number,010 0111 2320,71,84,,address_format_variant|phone_format_variant
+H0133,VOC요약,phone_number,01004955746,128,139,,josa_attached|phone_format_variant|spaced_name
+H0134,감사지적,phone_number,010.0152.0289,57,70,,josa_attached|phone_format_variant
+H0135,카드발급심사,phone_number,010-0914-3515,75,88,,address_format_variant|card_format_variant|compound_surname|josa_attached|single_char_given_name|spaced_name
+H0136,대리인위임확인,phone_number,02-2108-3997,83,95,,account_format_variant|compound_surname|id_format_variant|josa_attached|phone_format_variant|single_char_given_name|spaced_name
+H0137,녹취요약,phone_number,+82 10-0577-7449,132,148,,given_only|phone_format_variant|spaced_name
+H0139,해외송금접수,phone_number,010-5094-3471,21,34,,account_format_variant|given_only|single_char_given_name
+H0141,한도심사결과,phone_number,02-3103-5320,216,228,,address_format_variant
+H0142,VOC요약,phone_number,010-0238-4701,130,143,,josa_attached|spaced_name
+H0145,가맹점변경,phone_number,010.0554.9969,71,84,,phone_format_variant
+H0148,채용메일,phone_number,010-0805-8440,210,223,,surname_title_unlabeled
+H0149,한도심사결과,phone_number,02-3103-5320,212,224,,address_format_variant
+H0150,자동이체신청서,phone_number,+82 10-1516-7717,90,106,,account_format_variant|address_format_variant|id_format_variant|phone_format_variant
+H0151,채용메일,phone_number,01008058440,209,220,,phone_format_variant|surname_title_unlabeled
+H0153,출장보고,phone_number,0236023149,113,123,,homonym|phone_format_variant
+H0153,출장보고,phone_number,02 3779 4221,141,153,,homonym|phone_format_variant
+H0153,출장보고,phone_number,010-0288-7184,171,184,,homonym|phone_format_variant
+H0154,피해접수,phone_number,010-0732-6448,53,66,,card_format_variant|spaced_name
+H0155,해외송금접수,phone_number,010 8564 7073,22,35,,account_format_variant|given_only|phone_format_variant|single_char_given_name
+H0157,자동이체신청서,phone_number,01028237449,90,101,,account_format_variant|address_format_variant|compound_surname|id_format_variant|phone_format_variant
+H0159,VOC요약,phone_number,010.0351.8383,129,142,,homonym|josa_attached|phone_format_variant|spaced_name
+H0160,녹취요약,phone_number,+82 10-0608-0969,132,148,,given_only|phone_format_variant|spaced_name
+H0161,VOC요약,phone_number,010.0111.2320,129,142,,josa_attached|phone_format_variant|spaced_name
+H0162,피해접수,phone_number,010 0495 5746,54,67,,card_format_variant|phone_format_variant|spaced_name
+H0163,대리인위임확인,phone_number,010.7191.7930,84,97,,account_format_variant|compound_surname|id_format_variant|josa_attached|phone_format_variant|single_char_given_name|spaced_name
+H0164,감사지적,phone_number,010-0351-8383,58,71,,josa_attached
+H0165,VOC요약,phone_number,01003760221,129,140,,josa_attached|phone_format_variant|spaced_name
+H0166,영문혼용메일,phone_number,+82 10-0659-1360,302,318,,phone_format_variant|surname_title_unlabeled
+H0167,채용메일,phone_number,010-0302-9189,210,223,,surname_title_unlabeled
+H0168,가맹점변경,phone_number,010.0306.5929,70,83,,homonym|phone_format_variant
+H0171,해외송금접수,phone_number,010-8652-9211,23,36,,account_format_variant|compound_surname|given_only|single_char_given_name
+H0174,해외송금접수,phone_number,010-5262-3794,22,35,,account_format_variant|compound_surname|given_only|single_char_given_name
+H0175,채용메일,phone_number,010-0805-8440,211,224,,surname_title_unlabeled
+H0176,경조사공지,phone_number,010.0805.8440,111,124,,given_only|phone_format_variant
+H0177,대리인위임확인,phone_number,010.7374.7292,83,96,,account_format_variant|id_format_variant|josa_attached|phone_format_variant|single_char_given_name|spaced_name
+H0179,한도심사결과,phone_number,02-3103-5320,201,213,,address_format_variant
+H0182,녹취요약,phone_number,+82 10-0383-9051,132,148,,given_only|phone_format_variant|spaced_name
+H0183,채용메일,phone_number,010.0805.8440,214,227,,phone_format_variant|surname_title_unlabeled
+H0186,가맹점변경,phone_number,010-0791-2924,66,79,,address_format_variant

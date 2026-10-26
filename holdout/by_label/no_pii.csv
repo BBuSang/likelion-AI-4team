@@ -1,0 +1,15 @@
+﻿id,doc_type,label,text,start,end,form,hard_cases
+H0010,공지,no_pii,,,,,decoy_numbers|decoy_words|no_pii
+H0032,공지,no_pii,,,,,decoy_company_phone|decoy_words|no_pii
+H0034,공지,no_pii,,,,,decoy_company_phone|decoy_words|no_pii
+H0050,공지,no_pii,,,,,decoy_numbers|decoy_words|no_pii
+H0060,공지,no_pii,,,,,decoy_numbers|decoy_words|no_pii
+H0078,공지,no_pii,,,,,decoy_company_phone|decoy_words|no_pii
+H0098,공지,no_pii,,,,,decoy_company_phone|decoy_words|no_pii
+H0144,공지,no_pii,,,,,decoy_numbers|decoy_words|no_pii
+H0156,공지,no_pii,,,,,decoy_numbers|decoy_words|no_pii
+H0169,공지,no_pii,,,,,decoy_company_phone|decoy_words|no_pii
+H0170,공지,no_pii,,,,,decoy_company_phone|decoy_words|no_pii
+H0172,공지,no_pii,,,,,decoy_numbers|decoy_words|no_pii
+H0181,공지,no_pii,,,,,decoy_company_phone|decoy_words|no_pii
+H0185,공지,no_pii,,,,,decoy_company_phone|decoy_words|no_pii

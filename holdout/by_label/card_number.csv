@@ -1,0 +1,27 @@
+﻿id,doc_type,label,text,start,end,form,hard_cases
+H0002,카드발급심사,card_number,5243526018159087,103,119,,address_format_variant|card_format_variant|id_format_variant|josa_attached|single_char_given_name
+H0026,피해접수,card_number,3565-3016-6131-8603,116,135,,card_format_variant|phone_format_variant|spaced_name
+H0036,피해접수,card_number,9410-9139-0996-0303,118,137,,spaced_name
+H0048,우편반송처리,card_number,6253824628194825,31,47,,address_format_variant|card_format_variant|single_char_given_name
+H0057,카드발급심사,card_number,5327199351819094,103,119,,address_format_variant|card_format_variant|id_format_variant|josa_attached|phone_format_variant
+H0061,우편반송처리,card_number,9410378657975434,32,48,,address_format_variant|card_format_variant|single_char_given_name|spaced_name
+H0065,피해접수,card_number,4518-2319-4875-7495,118,137,,card_format_variant|spaced_name
+H0072,카드발급심사,card_number,4518 1186 2527 6016,103,122,,address_format_variant|card_format_variant|id_format_variant|josa_attached|phone_format_variant
+H0076,우편반송처리,card_number,3565 8955 5979 7117,31,50,,address_format_variant|card_format_variant|compound_surname|single_char_given_name|spaced_name
+H0081,우편반송처리,card_number,4092-4710-4974-6500,30,49,,address_format_variant|card_format_variant|single_char_given_name
+H0100,피해접수,card_number,5243 7529 1703 4235,120,139,,card_format_variant|spaced_name
+H0103,카드발급심사,card_number,4518-6671-2768-4267,101,120,,address_format_variant|card_format_variant|id_format_variant|josa_attached|phone_format_variant
+H0105,카드발급심사,card_number,5327846563212233,107,123,,address_format_variant|card_format_variant|josa_attached|phone_format_variant|single_char_given_name
+H0111,피해접수,card_number,6253307924402688,120,136,,card_format_variant|spaced_name
+H0116,카드발급심사,card_number,5243 5995 2890 7865,104,123,,address_format_variant|card_format_variant|josa_attached|phone_format_variant|spaced_name
+H0117,카드발급심사,card_number,5327 6661 7603 1378,105,124,,address_format_variant|card_format_variant|compound_surname|id_format_variant|josa_attached|spaced_name
+H0119,카드발급심사,card_number,3565-2159-0109-2812,104,123,,address_format_variant|card_format_variant|id_format_variant|josa_attached
+H0121,피해접수,card_number,5243 5901 3962 4593,119,138,,card_format_variant|spaced_name
+H0127,피해접수,card_number,4092-5711-7777-4123,118,137,,card_format_variant|spaced_name
+H0131,우편반송처리,card_number,9410154728038522,31,47,,address_format_variant|card_format_variant|single_char_given_name|spaced_name
+H0135,카드발급심사,card_number,6253 8084 1485 2530,105,124,,address_format_variant|card_format_variant|compound_surname|josa_attached|single_char_given_name|spaced_name
+H0143,우편반송처리,card_number,9410888539336332,33,49,,address_format_variant|card_format_variant|compound_surname|spaced_name
+H0152,우편반송처리,card_number,5327875004743951,30,46,,address_format_variant|card_format_variant|single_char_given_name
+H0154,피해접수,card_number,5243755131373537,118,134,,card_format_variant|spaced_name
+H0162,피해접수,card_number,4092-5711-7777-4123,119,138,,card_format_variant|phone_format_variant|spaced_name
+H0180,우편반송처리,card_number,4518-7990-7511-6370,32,51,,address_format_variant|card_format_variant|single_char_given_name|spaced_name
