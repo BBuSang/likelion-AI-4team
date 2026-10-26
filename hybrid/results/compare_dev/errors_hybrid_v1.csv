@@ -1,0 +1,4 @@
+﻿system,doc_id,error_type,label,gold_text,pred_text,confidence,context
+hybrid_v1,D0037,오탐,person,,이첩,,8 접수 경로: 금융감독원 【이첩】 민원인: 노성호 (연락처 
+hybrid_v1,D0047,오탐,person,,이첩,,일 접수 경로: 금융감독원 【이첩】 민원인: 이선우 (연락처 
+hybrid_v1,D0052,오탐,person,,이첩,,5 접수 경로: 금융감독원 【이첩】 민원인: 이건우 (연락처 

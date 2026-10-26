@@ -1,0 +1,994 @@
+{"id": "S085-04", "entities": [], "ms": 1096.84}
+{"id": "S081-03", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 84, "end": 97}, {"label": "email", "start": 99, "end": 122}], "ms": 2.45}
+{"id": "S081-17", "entities": [{"label": "address", "start": 21, "end": 60}], "ms": 1.12}
+{"id": "S083-08", "entities": [{"label": "person", "start": 10, "end": 13}, {"label": "phone_number", "start": 55, "end": 68}], "ms": 2.18}
+{"id": "S083-20", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "person", "start": 6, "end": 9}, {"label": "phone_number", "start": 75, "end": 88}], "ms": 3.42}
+{"id": "S082-05", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "person", "start": 58, "end": 61}], "ms": 2.76}
+{"id": "S085-09", "entities": [], "ms": 0.92}
+{"id": "S082-08", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "person", "start": 57, "end": 60}, {"label": "person", "start": 78, "end": 81}], "ms": 2.27}
+{"id": "S081-06", "entities": [{"label": "person", "start": 20, "end": 23}, {"label": "account_number", "start": 30, "end": 46}], "ms": 1.58}
+{"id": "S081-07", "entities": [], "ms": 1.17}
+{"id": "S084-10", "entities": [{"label": "account_number", "start": 25, "end": 38}, {"label": "person", "start": 44, "end": 47}], "ms": 1.25}
+{"id": "S083-18", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.6}
+{"id": "S085-13", "entities": [{"label": "person", "start": 10, "end": 13}, {"label": "email", "start": 78, "end": 96}], "ms": 1.78}
+{"id": "S081-10", "entities": [{"label": "person", "start": 98, "end": 101}], "ms": 2.51}
+{"id": "S085-14", "entities": [{"label": "person", "start": 14, "end": 17}, {"label": "person", "start": 36, "end": 39}], "ms": 2.09}
+{"id": "S082-02", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "person", "start": 24, "end": 27}, {"label": "person", "start": 73, "end": 76}], "ms": 3.53}
+{"id": "S085-10", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 99, "end": 112}], "ms": 1.79}
+{"id": "S083-14", "entities": [{"label": "person", "start": 26, "end": 29}, {"label": "account_number", "start": 36, "end": 50}], "ms": 1.48}
+{"id": "S082-01", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "person", "start": 40, "end": 43}, {"label": "phone_number", "start": 119, "end": 131}], "ms": 3.14}
+{"id": "S081-01", "entities": [{"label": "person", "start": 12, "end": 15}, {"label": "person", "start": 17, "end": 20}, {"label": "phone_number", "start": 114, "end": 127}, {"label": "email", "start": 129, "end": 151}], "ms": 4.05}
+{"id": "S085-17", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 66, "end": 81}, {"label": "email", "start": 87, "end": 105}], "ms": 1.69}
+{"id": "S084-07", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.66}
+{"id": "S085-15", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 87, "end": 100}], "ms": 1.78}
+{"id": "S084-03", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "email", "start": 29, "end": 51}], "ms": 1.44}
+{"id": "S085-12", "entities": [{"label": "address", "start": 67, "end": 85}, {"label": "card_number", "start": 98, "end": 117}, {"label": "email", "start": 119, "end": 144}], "ms": 0.99}
+{"id": "S082-12", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "person", "start": 43, "end": 46}, {"label": "email", "start": 68, "end": 85}], "ms": 2.13}
+{"id": "S085-01", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 73, "end": 93}], "ms": 3.71}
+{"id": "S085-07", "entities": [{"label": "person", "start": 42, "end": 45}, {"label": "person", "start": 47, "end": 50}, {"label": "person", "start": 60, "end": 63}], "ms": 4.22}
+{"id": "S084-14", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "person", "start": 13, "end": 16}, {"label": "phone_number", "start": 17, "end": 30}], "ms": 1.45}
+{"id": "S082-19", "entities": [], "ms": 1.07}
+{"id": "S082-16", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.6}
+{"id": "S085-20", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 79, "end": 92}], "ms": 1.64}
+{"id": "S085-18", "entities": [{"label": "account_number", "start": 31, "end": 45}, {"label": "account_number", "start": 47, "end": 61}, {"label": "person", "start": 67, "end": 70}], "ms": 1.42}
+{"id": "S081-05", "entities": [{"label": "person", "start": 3, "end": 6}, {"label": "person", "start": 32, "end": 35}, {"label": "email", "start": 111, "end": 133}], "ms": 1.94}
+{"id": "S084-04", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.4}
+{"id": "S085-05", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 98, "end": 111}, {"label": "email", "start": 113, "end": 131}], "ms": 1.99}
+{"id": "S081-12", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 84, "end": 97}, {"label": "email", "start": 99, "end": 124}], "ms": 1.57}
+{"id": "S084-19", "entities": [{"label": "person", "start": 25, "end": 28}, {"label": "person", "start": 34, "end": 37}, {"label": "phone_number", "start": 104, "end": 117}], "ms": 2.8}
+{"id": "S081-14", "entities": [], "ms": 1.06}
+{"id": "S081-18", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 55, "end": 71}, {"label": "email", "start": 78, "end": 99}], "ms": 1.33}
+{"id": "S082-17", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "email", "start": 89, "end": 113}], "ms": 1.23}
+{"id": "S083-01", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.89}
+{"id": "S083-05", "entities": [], "ms": 0.63}
+{"id": "S081-04", "entities": [{"label": "person", "start": 8, "end": 11}, {"label": "phone_number", "start": 62, "end": 75}], "ms": 1.37}
+{"id": "S081-15", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 81, "end": 94}], "ms": 1.67}
+{"id": "S085-11", "entities": [{"label": "account_number", "start": 23, "end": 37}, {"label": "account_number", "start": 39, "end": 53}, {"label": "person", "start": 60, "end": 63}], "ms": 1.3}
+{"id": "S075-19", "entities": [{"label": "address", "start": 10, "end": 35}], "ms": 2.08}
+{"id": "S075-16", "entities": [{"label": "email", "start": 46, "end": 67}], "ms": 0.78}
+{"id": "S071-08", "entities": [{"label": "person", "start": 3, "end": 6}, {"label": "email", "start": 18, "end": 40}, {"label": "phone_number", "start": 69, "end": 82}], "ms": 1.88}
+{"id": "S074-16", "entities": [{"label": "resident_registration_number", "start": 18, "end": 32}], "ms": 0.72}
+{"id": "S073-04", "entities": [], "ms": 1.07}
+{"id": "S071-01", "entities": [{"label": "address", "start": 83, "end": 108}, {"label": "address", "start": 120, "end": 146}, {"label": "phone_number", "start": 170, "end": 183}], "ms": 1.79}
+{"id": "S073-16", "entities": [{"label": "person", "start": 34, "end": 37}, {"label": "address", "start": 43, "end": 64}], "ms": 1.77}
+{"id": "S072-16", "entities": [], "ms": 0.61}
+{"id": "S071-17", "entities": [], "ms": 0.55}
+{"id": "S075-01", "entities": [], "ms": 1.45}
+{"id": "S072-10", "entities": [{"label": "account_number", "start": 38, "end": 54}], "ms": 0.67}
+{"id": "S072-19", "entities": [{"label": "card_number", "start": 27, "end": 46}], "ms": 1.09}
+{"id": "S072-05", "entities": [{"label": "address", "start": 53, "end": 82}, {"label": "person", "start": 113, "end": 116}, {"label": "email", "start": 118, "end": 138}, {"label": "phone_number", "start": 140, "end": 153}], "ms": 2.02}
+{"id": "S073-10", "entities": [{"label": "person", "start": 36, "end": 39}, {"label": "email", "start": 49, "end": 71}, {"label": "email", "start": 80, "end": 106}], "ms": 1.65}
+{"id": "S075-18", "entities": [], "ms": 1.06}
+{"id": "S074-19", "entities": [], "ms": 0.77}
+{"id": "S072-01", "entities": [{"label": "email", "start": 133, "end": 155}, {"label": "person", "start": 174, "end": 177}], "ms": 2.92}
+{"id": "S071-20", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 34, "end": 48}, {"label": "resident_registration_number", "start": 68, "end": 82}], "ms": 1.46}
+{"id": "S071-15", "entities": [{"label": "person", "start": 13, "end": 16}, {"label": "card_number", "start": 32, "end": 51}, {"label": "email", "start": 68, "end": 87}], "ms": 1.51}
+{"id": "S071-07", "entities": [], "ms": 0.72}
+{"id": "S071-12", "entities": [{"label": "person", "start": 8, "end": 11}, {"label": "phone_number", "start": 20, "end": 33}], "ms": 1.61}
+{"id": "S075-11", "entities": [{"label": "resident_registration_number", "start": 62, "end": 76}], "ms": 0.97}
+{"id": "S074-06", "entities": [{"label": "person", "start": 28, "end": 31}], "ms": 1.18}
+{"id": "S075-05", "entities": [{"label": "account_number", "start": 39, "end": 56}], "ms": 0.77}
+{"id": "S072-09", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "email", "start": 47, "end": 64}, {"label": "resident_registration_number", "start": 89, "end": 103}], "ms": 1.92}
+{"id": "S073-07", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "resident_registration_number", "start": 26, "end": 40}], "ms": 1.65}
+{"id": "S075-20", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 18, "end": 32}, {"label": "address", "start": 38, "end": 61}, {"label": "phone_number", "start": 68, "end": 81}], "ms": 1.78}
+{"id": "S074-20", "entities": [], "ms": 0.8}
+{"id": "S073-15", "entities": [{"label": "person", "start": 55, "end": 58}], "ms": 1.44}
+{"id": "S074-15", "entities": [{"label": "person", "start": 28, "end": 31}, {"label": "phone_number", "start": 41, "end": 54}], "ms": 1.4}
+{"id": "S075-06", "entities": [], "ms": 0.9}
+{"id": "S074-09", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 35, "end": 50}], "ms": 1.33}
+{"id": "S074-12", "entities": [{"label": "phone_number", "start": 16, "end": 29}], "ms": 0.38}
+{"id": "S072-12", "entities": [{"label": "email", "start": 45, "end": 65}], "ms": 0.91}
+{"id": "S071-18", "entities": [{"label": "person", "start": 58, "end": 61}, {"label": "phone_number", "start": 68, "end": 81}], "ms": 1.01}
+{"id": "S072-14", "entities": [], "ms": 0.88}
+{"id": "S071-19", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 51, "end": 64}, {"label": "email", "start": 70, "end": 94}], "ms": 1.27}
+{"id": "S073-19", "entities": [], "ms": 0.7}
+{"id": "S075-03", "entities": [{"label": "address", "start": 23, "end": 51}, {"label": "address", "start": 63, "end": 86}], "ms": 1.25}
+{"id": "S073-11", "entities": [], "ms": 0.84}
+{"id": "S074-04", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 35, "end": 62}], "ms": 1.17}
+{"id": "S075-04", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "card_number", "start": 52, "end": 71}], "ms": 1.61}
+{"id": "S075-17", "entities": [{"label": "card_number", "start": 39, "end": 58}], "ms": 0.6}
+{"id": "S073-01", "entities": [{"label": "address", "start": 58, "end": 80}, {"label": "address", "start": 90, "end": 120}], "ms": 2.05}
+{"id": "S075-12", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 19, "end": 32}], "ms": 1.89}
+{"id": "S074-13", "entities": [{"label": "card_number", "start": 34, "end": 53}], "ms": 0.81}
+{"id": "S072-08", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 65, "end": 78}, {"label": "email", "start": 83, "end": 99}], "ms": 2.04}
+{"id": "S071-09", "entities": [{"label": "person", "start": 6, "end": 9}, {"label": "phone_number", "start": 72, "end": 85}], "ms": 1.86}
+{"id": "S072-15", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "email", "start": 60, "end": 77}, {"label": "phone_number", "start": 84, "end": 97}], "ms": 1.93}
+{"id": "S073-12", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 14, "end": 27}], "ms": 1.34}
+{"id": "S088-14", "entities": [], "ms": 0.59}
+{"id": "S088-11", "entities": [{"label": "person", "start": 10, "end": 13}], "ms": 1.34}
+{"id": "S090-05", "entities": [{"label": "person", "start": 34, "end": 37}], "ms": 1.09}
+{"id": "S089-05", "entities": [{"label": "account_number", "start": 55, "end": 70}], "ms": 0.73}
+{"id": "S088-16", "entities": [], "ms": 0.83}
+{"id": "S087-17", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 56, "end": 69}], "ms": 2.74}
+{"id": "S090-08", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 55, "end": 68}], "ms": 1.44}
+{"id": "S088-07", "entities": [{"label": "email", "start": 29, "end": 50}], "ms": 0.75}
+{"id": "S090-19", "entities": [], "ms": 0.57}
+{"id": "S087-15", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "address", "start": 39, "end": 69}], "ms": 1.99}
+{"id": "S086-14", "entities": [{"label": "person", "start": 23, "end": 26}, {"label": "phone_number", "start": 34, "end": 47}, {"label": "email", "start": 55, "end": 75}, {"label": "card_number", "start": 91, "end": 110}], "ms": 1.98}
+{"id": "S090-10", "entities": [{"label": "person", "start": 42, "end": 45}], "ms": 1.82}
+{"id": "S089-08", "entities": [], "ms": 0.5}
+{"id": "S087-16", "entities": [{"label": "person", "start": 25, "end": 28}, {"label": "address", "start": 35, "end": 59}, {"label": "account_number", "start": 68, "end": 82}, {"label": "email", "start": 89, "end": 107}], "ms": 1.69}
+{"id": "S087-11", "entities": [{"label": "email", "start": 4, "end": 25}], "ms": 0.86}
+{"id": "S089-06", "entities": [], "ms": 0.31}
+{"id": "S089-13", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 42, "end": 57}], "ms": 1.38}
+{"id": "S088-03", "entities": [{"label": "account_number", "start": 24, "end": 38}], "ms": 0.53}
+{"id": "S086-05", "entities": [{"label": "person", "start": 28, "end": 31}], "ms": 0.82}
+{"id": "S090-02", "entities": [], "ms": 1.62}
+{"id": "S089-17", "entities": [{"label": "phone_number", "start": 11, "end": 24}], "ms": 0.43}
+{"id": "S086-08", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 47, "end": 61}, {"label": "email", "start": 74, "end": 94}], "ms": 1.94}
+{"id": "S086-10", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 57, "end": 70}, {"label": "email", "start": 78, "end": 100}], "ms": 1.88}
+{"id": "S086-01", "entities": [{"label": "person", "start": 28, "end": 31}, {"label": "account_number", "start": 87, "end": 101}, {"label": "person", "start": 108, "end": 111}, {"label": "phone_number", "start": 117, "end": 130}], "ms": 1.62}
+{"id": "S090-03", "entities": [{"label": "person", "start": 8, "end": 11}], "ms": 0.95}
+{"id": "S089-19", "entities": [], "ms": 0.38}
+{"id": "S087-10", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.78}
+{"id": "S089-11", "entities": [{"label": "account_number", "start": 26, "end": 39}], "ms": 0.44}
+{"id": "S089-16", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 47, "end": 77}], "ms": 0.89}
+{"id": "S086-03", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "email", "start": 92, "end": 111}], "ms": 1.75}
+{"id": "S088-04", "entities": [], "ms": 0.65}
+{"id": "S086-09", "entities": [{"label": "person", "start": 26, "end": 29}, {"label": "phone_number", "start": 56, "end": 69}], "ms": 0.89}
+{"id": "S087-09", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 76, "end": 92}], "ms": 2.04}
+{"id": "S087-12", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 53, "end": 68}, {"label": "phone_number", "start": 78, "end": 91}], "ms": 2.09}
+{"id": "S086-16", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 50, "end": 63}, {"label": "email", "start": 80, "end": 104}], "ms": 1.69}
+{"id": "S088-18", "entities": [{"label": "email", "start": 23, "end": 43}], "ms": 0.5}
+{"id": "S089-07", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.88}
+{"id": "S088-17", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 33, "end": 59}], "ms": 1.71}
+{"id": "S088-08", "entities": [], "ms": 0.62}
+{"id": "S090-04", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "account_number", "start": 45, "end": 59}], "ms": 1.87}
+{"id": "S090-06", "entities": [], "ms": 0.97}
+{"id": "S088-12", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 31, "end": 50}], "ms": 1.45}
+{"id": "S087-20", "entities": [{"label": "person", "start": 25, "end": 28}, {"label": "email", "start": 55, "end": 84}], "ms": 1.27}
+{"id": "S090-12", "entities": [{"label": "resident_registration_number", "start": 0, "end": 14}, {"label": "person", "start": 21, "end": 24}, {"label": "account_number", "start": 38, "end": 52}], "ms": 1.45}
+{"id": "S087-06", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 64, "end": 83}], "ms": 2.78}
+{"id": "S090-09", "entities": [{"label": "person", "start": 28, "end": 31}, {"label": "email", "start": 41, "end": 62}], "ms": 2.33}
+{"id": "S090-14", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 38, "end": 57}], "ms": 3.62}
+{"id": "S090-17", "entities": [{"label": "card_number", "start": 6, "end": 25}, {"label": "person", "start": 49, "end": 52}], "ms": 2.06}
+{"id": "S089-10", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 4, "end": 24}], "ms": 1.53}
+{"id": "S087-08", "entities": [{"label": "person", "start": 28, "end": 31}, {"label": "account_number", "start": 40, "end": 54}, {"label": "email", "start": 61, "end": 80}], "ms": 1.69}
+{"id": "S068-16", "entities": [], "ms": 1.07}
+{"id": "S068-06", "entities": [], "ms": 0.71}
+{"id": "S068-20", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 14, "end": 27}], "ms": 1.91}
+{"id": "S066-14", "entities": [{"label": "person", "start": 21, "end": 24}], "ms": 3.54}
+{"id": "S066-17", "entities": [], "ms": 1.4}
+{"id": "S069-19", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 13, "end": 27}], "ms": 1.5}
+{"id": "S070-19", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 15, "end": 31}], "ms": 1.77}
+{"id": "S070-17", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 15, "end": 29}], "ms": 1.33}
+{"id": "S070-08", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 22, "end": 35}], "ms": 1.98}
+{"id": "S068-03", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 34, "end": 66}], "ms": 1.71}
+{"id": "S067-07", "entities": [], "ms": 0.92}
+{"id": "S069-04", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 23, "end": 36}], "ms": 1.22}
+{"id": "S067-20", "entities": [], "ms": 0.99}
+{"id": "S066-06", "entities": [{"label": "person", "start": 11, "end": 14}, {"label": "person", "start": 16, "end": 19}, {"label": "person", "start": 21, "end": 24}], "ms": 5.27}
+{"id": "S067-12", "entities": [], "ms": 1.4}
+{"id": "S066-16", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "email", "start": 42, "end": 63}], "ms": 1.45}
+{"id": "S068-12", "entities": [{"label": "person", "start": 8, "end": 11}, {"label": "resident_registration_number", "start": 41, "end": 55}], "ms": 2.19}
+{"id": "S067-11", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 22, "end": 42}], "ms": 1.86}
+{"id": "S070-04", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 2.02}
+{"id": "S066-09", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "resident_registration_number", "start": 20, "end": 34}], "ms": 2.12}
+{"id": "S067-04", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 19, "end": 40}], "ms": 2.63}
+{"id": "S066-11", "entities": [{"label": "person", "start": 11, "end": 14}, {"label": "email", "start": 20, "end": 42}], "ms": 2.86}
+{"id": "S069-06", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 11, "end": 24}], "ms": 1.68}
+{"id": "S070-01", "entities": [], "ms": 0.93}
+{"id": "S067-01", "entities": [], "ms": 1.5}
+{"id": "S069-08", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 9, "end": 28}], "ms": 1.36}
+{"id": "S069-05", "entities": [], "ms": 0.42}
+{"id": "S069-02", "entities": [], "ms": 0.87}
+{"id": "S070-12", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 39, "end": 61}], "ms": 2.61}
+{"id": "S066-07", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 40, "end": 53}, {"label": "phone_number", "start": 60, "end": 73}], "ms": 2.54}
+{"id": "S070-03", "entities": [{"label": "email", "start": 12, "end": 32}], "ms": 1.29}
+{"id": "S068-01", "entities": [], "ms": 0.7}
+{"id": "S070-06", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 17, "end": 33}], "ms": 4.82}
+{"id": "S069-10", "entities": [], "ms": 0.5}
+{"id": "S069-15", "entities": [], "ms": 0.77}
+{"id": "S066-08", "entities": [], "ms": 0.86}
+{"id": "S067-08", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 20, "end": 39}], "ms": 2.81}
+{"id": "S067-18", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.13}
+{"id": "S067-05", "entities": [], "ms": 1.59}
+{"id": "S066-20", "entities": [{"label": "person", "start": 11, "end": 14}, {"label": "email", "start": 42, "end": 57}], "ms": 3.87}
+{"id": "S069-03", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 22, "end": 45}], "ms": 2.65}
+{"id": "S070-05", "entities": [], "ms": 0.77}
+{"id": "S069-12", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 10, "end": 24}], "ms": 1.05}
+{"id": "S070-14", "entities": [], "ms": 0.5}
+{"id": "S070-10", "entities": [{"label": "account_number", "start": 13, "end": 26}], "ms": 0.49}
+{"id": "S068-15", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 28, "end": 53}], "ms": 1.92}
+{"id": "S067-17", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 23, "end": 42}], "ms": 1.07}
+{"id": "S068-19", "entities": [], "ms": 0.68}
+{"id": "S067-14", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.29}
+{"id": "S068-10", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 33, "end": 46}], "ms": 1.24}
+{"id": "S056-11", "entities": [], "ms": 1.95}
+{"id": "S059-02", "entities": [{"label": "resident_registration_number", "start": 17, "end": 31}], "ms": 0.94}
+{"id": "S059-18", "entities": [{"label": "card_number", "start": 22, "end": 41}], "ms": 0.76}
+{"id": "S059-14", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 2.27}
+{"id": "S059-08", "entities": [{"label": "person", "start": 13, "end": 16}], "ms": 1.57}
+{"id": "S059-04", "entities": [{"label": "person", "start": 4, "end": 7}], "ms": 1.2}
+{"id": "S059-13", "entities": [], "ms": 0.51}
+{"id": "S060-12", "entities": [{"label": "account_number", "start": 30, "end": 45}], "ms": 1.13}
+{"id": "S058-10", "entities": [], "ms": 0.8}
+{"id": "S057-03", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "phone_number", "start": 100, "end": 113}, {"label": "email", "start": 117, "end": 136}], "ms": 2.2}
+{"id": "S060-17", "entities": [{"label": "person", "start": 19, "end": 22}, {"label": "phone_number", "start": 28, "end": 41}, {"label": "email", "start": 46, "end": 67}], "ms": 0.93}
+{"id": "S060-09", "entities": [{"label": "person", "start": 22, "end": 25}], "ms": 1.79}
+{"id": "S056-16", "entities": [{"label": "person", "start": 34, "end": 37}, {"label": "person", "start": 45, "end": 48}, {"label": "resident_registration_number", "start": 59, "end": 73}, {"label": "phone_number", "start": 81, "end": 94}], "ms": 1.93}
+{"id": "S058-04", "entities": [{"label": "email", "start": 31, "end": 56}], "ms": 0.6}
+{"id": "S057-07", "entities": [{"label": "person", "start": 37, "end": 40}, {"label": "card_number", "start": 52, "end": 71}], "ms": 3.85}
+{"id": "S058-06", "entities": [{"label": "person", "start": 18, "end": 21}, {"label": "address", "start": 32, "end": 60}], "ms": 2.71}
+{"id": "S059-09", "entities": [], "ms": 0.6}
+{"id": "S058-07", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.89}
+{"id": "S057-20", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 57, "end": 83}], "ms": 1.97}
+{"id": "S060-11", "entities": [{"label": "phone_number", "start": 43, "end": 56}], "ms": 0.96}
+{"id": "S060-08", "entities": [{"label": "phone_number", "start": 57, "end": 70}, {"label": "email", "start": 78, "end": 100}], "ms": 1.18}
+{"id": "S058-16", "entities": [], "ms": 1.12}
+{"id": "S056-19", "entities": [{"label": "person", "start": 17, "end": 20}, {"label": "person", "start": 23, "end": 26}, {"label": "person", "start": 28, "end": 31}, {"label": "email", "start": 39, "end": 60}], "ms": 3.97}
+{"id": "S060-03", "entities": [{"label": "card_number", "start": 30, "end": 49}], "ms": 1.4}
+{"id": "S058-08", "entities": [{"label": "phone_number", "start": 35, "end": 48}], "ms": 0.86}
+{"id": "S056-05", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 81, "end": 94}, {"label": "email", "start": 96, "end": 118}], "ms": 1.87}
+{"id": "S059-10", "entities": [{"label": "address", "start": 12, "end": 40}], "ms": 0.56}
+{"id": "S056-20", "entities": [], "ms": 1.0}
+{"id": "S056-10", "entities": [{"label": "person", "start": 5, "end": 8}, {"label": "address", "start": 15, "end": 37}, {"label": "phone_number", "start": 55, "end": 68}], "ms": 1.79}
+{"id": "S056-15", "entities": [{"label": "person", "start": 72, "end": 75}, {"label": "email", "start": 77, "end": 99}], "ms": 1.49}
+{"id": "S056-02", "entities": [{"label": "person", "start": 47, "end": 50}, {"label": "phone_number", "start": 58, "end": 71}], "ms": 2.0}
+{"id": "S059-12", "entities": [], "ms": 0.45}
+{"id": "S060-14", "entities": [], "ms": 0.9}
+{"id": "S059-11", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 10, "end": 26}], "ms": 1.2}
+{"id": "S058-17", "entities": [{"label": "resident_registration_number", "start": 32, "end": 46}, {"label": "email", "start": 54, "end": 76}], "ms": 0.93}
+{"id": "S057-01", "entities": [{"label": "person", "start": 23, "end": 26}, {"label": "email", "start": 74, "end": 93}], "ms": 3.54}
+{"id": "S057-14", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 51, "end": 72}], "ms": 2.11}
+{"id": "S060-15", "entities": [{"label": "person", "start": 18, "end": 21}, {"label": "resident_registration_number", "start": 31, "end": 45}], "ms": 2.35}
+{"id": "S056-17", "entities": [{"label": "person", "start": 35, "end": 38}, {"label": "phone_number", "start": 46, "end": 59}, {"label": "email", "start": 67, "end": 88}, {"label": "address", "start": 95, "end": 126}], "ms": 2.37}
+{"id": "S058-03", "entities": [{"label": "account_number", "start": 24, "end": 40}], "ms": 0.56}
+{"id": "S056-01", "entities": [{"label": "person", "start": 29, "end": 32}, {"label": "person", "start": 39, "end": 42}, {"label": "phone_number", "start": 98, "end": 111}, {"label": "email", "start": 113, "end": 135}], "ms": 2.83}
+{"id": "S056-06", "entities": [{"label": "person", "start": 34, "end": 37}, {"label": "account_number", "start": 46, "end": 61}, {"label": "phone_number", "start": 85, "end": 98}], "ms": 1.68}
+{"id": "S057-16", "entities": [{"label": "person", "start": 24, "end": 27}, {"label": "resident_registration_number", "start": 34, "end": 48}, {"label": "phone_number", "start": 54, "end": 67}], "ms": 1.76}
+{"id": "S058-15", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 2.02}
+{"id": "S060-02", "entities": [], "ms": 2.31}
+{"id": "S056-12", "entities": [{"label": "person", "start": 45, "end": 48}, {"label": "phone_number", "start": 56, "end": 69}, {"label": "email", "start": 77, "end": 100}], "ms": 3.73}
+{"id": "S056-07", "entities": [{"label": "person", "start": 5, "end": 8}, {"label": "card_number", "start": 17, "end": 36}, {"label": "card_number", "start": 82, "end": 101}], "ms": 3.49}
+{"id": "S057-13", "entities": [], "ms": 1.54}
+{"id": "S059-03", "entities": [{"label": "person", "start": 7, "end": 10}], "ms": 1.78}
+{"id": "S059-05", "entities": [{"label": "email", "start": 33, "end": 57}], "ms": 0.68}
+{"id": "S092-11", "entities": [{"label": "person", "start": 27, "end": 30}, {"label": "person", "start": 32, "end": 35}, {"label": "person", "start": 37, "end": 40}, {"label": "person", "start": 45, "end": 48}], "ms": 3.3}
+{"id": "S092-01", "entities": [{"label": "phone_number", "start": 101, "end": 114}, {"label": "person", "start": 131, "end": 134}], "ms": 2.62}
+{"id": "S094-13", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 11, "end": 30}], "ms": 0.89}
+{"id": "S094-05", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 24, "end": 38}], "ms": 1.38}
+{"id": "S094-11", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 18, "end": 31}], "ms": 0.98}
+{"id": "S093-12", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 31, "end": 50}], "ms": 1.31}
+{"id": "S092-09", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "person", "start": 40, "end": 43}], "ms": 1.92}
+{"id": "S091-14", "entities": [{"label": "address", "start": 43, "end": 62}], "ms": 0.76}
+{"id": "S091-19", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 42, "end": 56}], "ms": 1.3}
+{"id": "S091-20", "entities": [], "ms": 0.92}
+{"id": "S095-07", "entities": [{"label": "person", "start": 56, "end": 59}, {"label": "phone_number", "start": 60, "end": 73}], "ms": 1.34}
+{"id": "S095-06", "entities": [{"label": "person", "start": 38, "end": 41}, {"label": "person", "start": 43, "end": 46}, {"label": "person", "start": 48, "end": 51}], "ms": 4.44}
+{"id": "S092-17", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 36, "end": 55}], "ms": 2.64}
+{"id": "S095-04", "entities": [{"label": "person", "start": 43, "end": 46}, {"label": "email", "start": 63, "end": 83}], "ms": 1.59}
+{"id": "S094-17", "entities": [{"label": "person", "start": 13, "end": 16}, {"label": "email", "start": 22, "end": 45}], "ms": 0.59}
+{"id": "S092-03", "entities": [], "ms": 1.09}
+{"id": "S093-10", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "person", "start": 13, "end": 16}, {"label": "address", "start": 37, "end": 53}, {"label": "phone_number", "start": 69, "end": 82}], "ms": 2.58}
+{"id": "S093-15", "entities": [], "ms": 1.52}
+{"id": "S095-11", "entities": [], "ms": 1.59}
+{"id": "S091-17", "entities": [{"label": "person", "start": 33, "end": 37}], "ms": 2.21}
+{"id": "S092-19", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 23, "end": 46}, {"label": "phone_number", "start": 66, "end": 79}], "ms": 4.16}
+{"id": "S093-13", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 27, "end": 51}], "ms": 2.55}
+{"id": "S093-03", "entities": [{"label": "person", "start": 15, "end": 18}, {"label": "account_number", "start": 34, "end": 50}, {"label": "person", "start": 55, "end": 58}], "ms": 3.48}
+{"id": "S093-14", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 2.55}
+{"id": "S093-01", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 59, "end": 72}], "ms": 2.69}
+{"id": "S094-06", "entities": [], "ms": 1.11}
+{"id": "S092-20", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 53, "end": 76}, {"label": "phone_number", "start": 92, "end": 105}], "ms": 4.69}
+{"id": "S091-16", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 66, "end": 88}], "ms": 4.09}
+{"id": "S095-18", "entities": [{"label": "person", "start": 19, "end": 22}, {"label": "person", "start": 24, "end": 27}, {"label": "person", "start": 29, "end": 33}, {"label": "person", "start": 35, "end": 38}, {"label": "person", "start": 39, "end": 42}], "ms": 10.64}
+{"id": "S093-04", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 45, "end": 63}], "ms": 2.81}
+{"id": "S091-09", "entities": [], "ms": 1.3}
+{"id": "S095-08", "entities": [], "ms": 1.16}
+{"id": "S093-08", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "person", "start": 5, "end": 8}, {"label": "person", "start": 10, "end": 13}], "ms": 3.86}
+{"id": "S092-07", "entities": [{"label": "person", "start": 31, "end": 34}], "ms": 2.06}
+{"id": "S094-10", "entities": [], "ms": 0.25}
+{"id": "S094-08", "entities": [{"label": "email", "start": 7, "end": 26}], "ms": 0.49}
+{"id": "S091-01", "entities": [{"label": "person", "start": 72, "end": 75}, {"label": "phone_number", "start": 79, "end": 92}, {"label": "email", "start": 94, "end": 118}], "ms": 1.66}
+{"id": "S095-17", "entities": [], "ms": 0.61}
+{"id": "S091-06", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 39, "end": 53}], "ms": 3.98}
+{"id": "S092-14", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 51, "end": 66}, {"label": "email", "start": 71, "end": 93}, {"label": "phone_number", "start": 97, "end": 110}], "ms": 1.87}
+{"id": "S092-06", "entities": [{"label": "email", "start": 51, "end": 68}], "ms": 1.63}
+{"id": "S094-15", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 24, "end": 37}, {"label": "address", "start": 43, "end": 61}], "ms": 3.38}
+{"id": "S093-11", "entities": [], "ms": 2.14}
+{"id": "S091-15", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 40, "end": 63}], "ms": 4.4}
+{"id": "S094-07", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 13, "end": 27}], "ms": 3.2}
+{"id": "S094-19", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 37, "end": 51}, {"label": "phone_number", "start": 57, "end": 70}], "ms": 2.34}
+{"id": "S093-17", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 17, "end": 43}, {"label": "email", "start": 63, "end": 88}], "ms": 4.13}
+{"id": "S093-02", "entities": [], "ms": 1.29}
+{"id": "S095-15", "entities": [], "ms": 1.31}
+{"id": "S093-06", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 38, "end": 62}], "ms": 2.22}
+{"id": "S022-05", "entities": [{"label": "phone_number", "start": 39, "end": 52}], "ms": 1.62}
+{"id": "S025-11", "entities": [{"label": "person", "start": 23, "end": 26}, {"label": "phone_number", "start": 32, "end": 45}], "ms": 2.73}
+{"id": "S024-02", "entities": [{"label": "card_number", "start": 10, "end": 29}], "ms": 0.99}
+{"id": "S021-04", "entities": [{"label": "person", "start": 9, "end": 11}, {"label": "email", "start": 30, "end": 55}, {"label": "address", "start": 78, "end": 116}], "ms": 1.79}
+{"id": "S023-19", "entities": [], "ms": 0.99}
+{"id": "S024-06", "entities": [], "ms": 0.71}
+{"id": "S024-13", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 15, "end": 29}], "ms": 1.52}
+{"id": "S022-02", "entities": [{"label": "address", "start": 0, "end": 20}, {"label": "email", "start": 82, "end": 105}], "ms": 1.2}
+{"id": "S025-20", "entities": [{"label": "person", "start": 27, "end": 30}, {"label": "email", "start": 36, "end": 55}], "ms": 1.62}
+{"id": "S022-07", "entities": [], "ms": 1.02}
+{"id": "S021-05", "entities": [{"label": "account_number", "start": 48, "end": 65}, {"label": "person", "start": 74, "end": 77}], "ms": 1.78}
+{"id": "S021-14", "entities": [{"label": "person", "start": 4, "end": 7}, {"label": "phone_number", "start": 87, "end": 100}], "ms": 2.34}
+{"id": "S023-06", "entities": [{"label": "person", "start": 31, "end": 34}, {"label": "resident_registration_number", "start": 41, "end": 55}, {"label": "phone_number", "start": 61, "end": 74}], "ms": 3.11}
+{"id": "S025-01", "entities": [], "ms": 1.4}
+{"id": "S023-10", "entities": [{"label": "account_number", "start": 34, "end": 49}, {"label": "account_number", "start": 57, "end": 73}, {"label": "person", "start": 89, "end": 92}], "ms": 3.4}
+{"id": "S022-10", "entities": [{"label": "account_number", "start": 12, "end": 26}, {"label": "person", "start": 60, "end": 63}], "ms": 2.94}
+{"id": "S021-20", "entities": [{"label": "person", "start": 5, "end": 8}, {"label": "resident_registration_number", "start": 17, "end": 31}, {"label": "address", "start": 36, "end": 50}, {"label": "phone_number", "start": 107, "end": 120}, {"label": "email", "start": 126, "end": 150}], "ms": 4.08}
+{"id": "S021-18", "entities": [], "ms": 2.06}
+{"id": "S021-11", "entities": [], "ms": 1.66}
+{"id": "S024-10", "entities": [{"label": "person", "start": 31, "end": 33}, {"label": "phone_number", "start": 42, "end": 55}], "ms": 0.9}
+{"id": "S025-15", "entities": [{"label": "person", "start": 25, "end": 28}, {"label": "phone_number", "start": 34, "end": 47}], "ms": 1.91}
+{"id": "S023-03", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 65, "end": 87}, {"label": "phone_number", "start": 91, "end": 104}], "ms": 1.93}
+{"id": "S022-15", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 58, "end": 73}], "ms": 1.09}
+{"id": "S025-13", "entities": [{"label": "person", "start": 33, "end": 36}, {"label": "person", "start": 44, "end": 47}], "ms": 1.68}
+{"id": "S022-17", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 29, "end": 48}], "ms": 1.5}
+{"id": "S021-10", "entities": [{"label": "person", "start": 4, "end": 7}, {"label": "phone_number", "start": 70, "end": 83}, {"label": "email", "start": 89, "end": 114}, {"label": "resident_registration_number", "start": 123, "end": 137}], "ms": 2.39}
+{"id": "S025-14", "entities": [{"label": "email", "start": 4, "end": 26}], "ms": 0.57}
+{"id": "S025-03", "entities": [{"label": "address", "start": 31, "end": 52}], "ms": 0.82}
+{"id": "S022-11", "entities": [], "ms": 0.8}
+{"id": "S024-03", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 31, "end": 50}], "ms": 1.26}
+{"id": "S024-07", "entities": [], "ms": 0.68}
+{"id": "S022-16", "entities": [{"label": "person", "start": 24, "end": 27}, {"label": "account_number", "start": 37, "end": 51}, {"label": "phone_number", "start": 62, "end": 75}, {"label": "email", "start": 81, "end": 102}], "ms": 1.35}
+{"id": "S025-02", "entities": [{"label": "email", "start": 43, "end": 63}], "ms": 1.14}
+{"id": "S022-12", "entities": [{"label": "phone_number", "start": 61, "end": 74}, {"label": "email", "start": 80, "end": 99}], "ms": 0.96}
+{"id": "S022-14", "entities": [], "ms": 0.86}
+{"id": "S025-09", "entities": [{"label": "address", "start": 29, "end": 56}, {"label": "person", "start": 67, "end": 70}], "ms": 1.86}
+{"id": "S024-01", "entities": [{"label": "phone_number", "start": 22, "end": 35}], "ms": 0.52}
+{"id": "S022-01", "entities": [{"label": "email", "start": 104, "end": 127}, {"label": "phone_number", "start": 129, "end": 142}], "ms": 1.42}
+{"id": "S023-18", "entities": [{"label": "person", "start": 19, "end": 22}, {"label": "phone_number", "start": 28, "end": 41}, {"label": "address", "start": 47, "end": 72}], "ms": 1.6}
+{"id": "S024-11", "entities": [{"label": "card_number", "start": 10, "end": 29}, {"label": "person", "start": 49, "end": 52}], "ms": 1.14}
+{"id": "S023-15", "entities": [{"label": "person", "start": 25, "end": 28}, {"label": "account_number", "start": 38, "end": 52}, {"label": "phone_number", "start": 59, "end": 72}], "ms": 1.01}
+{"id": "S024-05", "entities": [{"label": "account_number", "start": 21, "end": 38}], "ms": 0.37}
+{"id": "S024-19", "entities": [], "ms": 0.67}
+{"id": "S023-17", "entities": [], "ms": 0.87}
+{"id": "S023-01", "entities": [{"label": "person", "start": 40, "end": 43}, {"label": "phone_number", "start": 52, "end": 65}], "ms": 2.08}
+{"id": "S024-17", "entities": [{"label": "account_number", "start": 19, "end": 36}], "ms": 1.22}
+{"id": "S024-12", "entities": [{"label": "account_number", "start": 30, "end": 47}], "ms": 0.94}
+{"id": "S024-08", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 35, "end": 57}], "ms": 1.54}
+{"id": "S025-06", "entities": [{"label": "resident_registration_number", "start": 44, "end": 58}], "ms": 0.99}
+{"id": "S023-20", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 77, "end": 90}, {"label": "email", "start": 96, "end": 116}], "ms": 1.72}
+{"id": "S011-16", "entities": [], "ms": 0.74}
+{"id": "S013-01", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.68}
+{"id": "S015-10", "entities": [{"label": "card_number", "start": 51, "end": 70}], "ms": 1.04}
+{"id": "S012-18", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 73, "end": 97}], "ms": 1.83}
+{"id": "S011-05", "entities": [{"label": "person", "start": 37, "end": 40}, {"label": "phone_number", "start": 48, "end": 61}, {"label": "address", "start": 68, "end": 98}], "ms": 2.04}
+{"id": "S011-13", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 67, "end": 89}], "ms": 0.88}
+{"id": "S013-06", "entities": [{"label": "phone_number", "start": 62, "end": 75}], "ms": 1.05}
+{"id": "S015-01", "entities": [{"label": "address", "start": 88, "end": 114}, {"label": "phone_number", "start": 123, "end": 136}], "ms": 1.72}
+{"id": "S012-05", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 27, "end": 51}, {"label": "address", "start": 57, "end": 81}], "ms": 2.1}
+{"id": "S013-19", "entities": [], "ms": 0.67}
+{"id": "S013-04", "entities": [], "ms": 0.9}
+{"id": "S012-17", "entities": [], "ms": 1.0}
+{"id": "S014-19", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.21}
+{"id": "S014-12", "entities": [], "ms": 0.31}
+{"id": "S015-03", "entities": [{"label": "person", "start": 32, "end": 34}, {"label": "phone_number", "start": 45, "end": 58}], "ms": 1.03}
+{"id": "S011-14", "entities": [{"label": "person", "start": 21, "end": 24}, {"label": "address", "start": 31, "end": 59}, {"label": "phone_number", "start": 67, "end": 80}, {"label": "person", "start": 90, "end": 93}], "ms": 1.31}
+{"id": "S012-20", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 24, "end": 43}, {"label": "address", "start": 79, "end": 99}], "ms": 1.25}
+{"id": "S012-01", "entities": [{"label": "person", "start": 107, "end": 110}, {"label": "phone_number", "start": 122, "end": 135}, {"label": "address", "start": 169, "end": 196}], "ms": 2.57}
+{"id": "S014-15", "entities": [], "ms": 0.43}
+{"id": "S012-02", "entities": [], "ms": 0.85}
+{"id": "S013-08", "entities": [{"label": "email", "start": 40, "end": 60}], "ms": 0.58}
+{"id": "S015-16", "entities": [{"label": "person", "start": 60, "end": 64}, {"label": "phone_number", "start": 71, "end": 84}, {"label": "address", "start": 92, "end": 123}], "ms": 1.54}
+{"id": "S013-20", "entities": [{"label": "account_number", "start": 39, "end": 54}], "ms": 0.87}
+{"id": "S012-08", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 2.26}
+{"id": "S014-13", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 17, "end": 46}], "ms": 1.37}
+{"id": "S011-15", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 67, "end": 80}], "ms": 1.22}
+{"id": "S015-14", "entities": [{"label": "person", "start": 58, "end": 62}, {"label": "email", "start": 67, "end": 91}], "ms": 1.72}
+{"id": "S011-17", "entities": [{"label": "address", "start": 37, "end": 61}, {"label": "address", "start": 73, "end": 97}, {"label": "person", "start": 105, "end": 108}, {"label": "phone_number", "start": 117, "end": 130}], "ms": 1.97}
+{"id": "S012-11", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 60, "end": 73}], "ms": 1.98}
+{"id": "S011-20", "entities": [{"label": "person", "start": 42, "end": 45}, {"label": "phone_number", "start": 53, "end": 66}, {"label": "address", "start": 73, "end": 106}, {"label": "card_number", "start": 115, "end": 134}], "ms": 1.11}
+{"id": "S015-13", "entities": [{"label": "person", "start": 13, "end": 16}, {"label": "person", "start": 47, "end": 51}, {"label": "phone_number", "start": 57, "end": 70}, {"label": "address", "start": 79, "end": 103}], "ms": 2.46}
+{"id": "S012-06", "entities": [], "ms": 1.14}
+{"id": "S012-12", "entities": [], "ms": 0.85}
+{"id": "S011-04", "entities": [], "ms": 1.46}
+{"id": "S011-06", "entities": [{"label": "person", "start": 8, "end": 11}, {"label": "phone_number", "start": 23, "end": 36}, {"label": "address", "start": 46, "end": 76}], "ms": 1.87}
+{"id": "S015-08", "entities": [{"label": "person", "start": 82, "end": 86}, {"label": "address", "start": 92, "end": 123}], "ms": 1.98}
+{"id": "S011-09", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 85, "end": 109}], "ms": 1.64}
+{"id": "S015-04", "entities": [{"label": "address", "start": 70, "end": 100}], "ms": 1.58}
+{"id": "S012-09", "entities": [], "ms": 1.18}
+{"id": "S013-05", "entities": [{"label": "phone_number", "start": 30, "end": 43}], "ms": 0.62}
+{"id": "S011-07", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 56, "end": 69}, {"label": "phone_number", "start": 81, "end": 94}], "ms": 1.55}
+{"id": "S014-10", "entities": [], "ms": 0.38}
+{"id": "S011-03", "entities": [{"label": "address", "start": 20, "end": 51}, {"label": "person", "start": 59, "end": 62}, {"label": "phone_number", "start": 70, "end": 83}], "ms": 1.67}
+{"id": "S014-01", "entities": [{"label": "person", "start": 34, "end": 37}], "ms": 0.9}
+{"id": "S011-11", "entities": [{"label": "person", "start": 47, "end": 50}, {"label": "address", "start": 57, "end": 83}, {"label": "phone_number", "start": 91, "end": 104}], "ms": 2.19}
+{"id": "S012-13", "entities": [{"label": "address", "start": 45, "end": 68}, {"label": "phone_number", "start": 75, "end": 88}, {"label": "person", "start": 103, "end": 106}], "ms": 2.28}
+{"id": "S013-14", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.92}
+{"id": "S012-16", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "address", "start": 70, "end": 93}, {"label": "address", "start": 105, "end": 126}, {"label": "phone_number", "start": 136, "end": 149}], "ms": 1.95}
+{"id": "S013-09", "entities": [{"label": "person", "start": 8, "end": 11}, {"label": "person", "start": 27, "end": 30}], "ms": 1.93}
+{"id": "S015-19", "entities": [{"label": "account_number", "start": 30, "end": 46}, {"label": "person", "start": 65, "end": 69}, {"label": "email", "start": 74, "end": 97}], "ms": 1.59}
+{"id": "S016-08", "entities": [{"label": "person", "start": 4, "end": 7}, {"label": "address", "start": 14, "end": 44}, {"label": "phone_number", "start": 52, "end": 65}], "ms": 1.35}
+{"id": "S016-15", "entities": [], "ms": 1.0}
+{"id": "S016-17", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 19, "end": 46}, {"label": "phone_number", "start": 54, "end": 67}], "ms": 1.65}
+{"id": "S016-20", "entities": [], "ms": 0.55}
+{"id": "S016-18", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 16, "end": 29}], "ms": 3.07}
+{"id": "S017-12", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 57, "end": 70}, {"label": "resident_registration_number", "start": 80, "end": 94}], "ms": 1.43}
+{"id": "S018-07", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.23}
+{"id": "S020-20", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 5, "end": 19}, {"label": "phone_number", "start": 21, "end": 34}, {"label": "card_number", "start": 56, "end": 75}], "ms": 1.53}
+{"id": "S017-02", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.75}
+{"id": "S019-18", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 4, "end": 17}], "ms": 1.17}
+{"id": "S019-08", "entities": [{"label": "person", "start": 4, "end": 7}, {"label": "address", "start": 12, "end": 32}], "ms": 1.04}
+{"id": "S020-16", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 5, "end": 18}, {"label": "email", "start": 20, "end": 38}], "ms": 1.44}
+{"id": "S017-04", "entities": [{"label": "person", "start": 9, "end": 12}, {"label": "phone_number", "start": 33, "end": 46}], "ms": 1.46}
+{"id": "S020-14", "entities": [], "ms": 0.45}
+{"id": "S020-10", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 5, "end": 25}, {"label": "card_number", "start": 56, "end": 75}], "ms": 1.51}
+{"id": "S019-19", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.27}
+{"id": "S018-10", "entities": [{"label": "person", "start": 22, "end": 25}, {"label": "phone_number", "start": 30, "end": 43}, {"label": "resident_registration_number", "start": 50, "end": 64}, {"label": "account_number", "start": 72, "end": 88}], "ms": 1.84}
+{"id": "S018-02", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "phone_number", "start": 54, "end": 67}, {"label": "email", "start": 75, "end": 97}], "ms": 1.88}
+{"id": "S017-14", "entities": [{"label": "person", "start": 22, "end": 25}, {"label": "phone_number", "start": 31, "end": 44}, {"label": "email", "start": 50, "end": 74}, {"label": "person", "start": 75, "end": 78}], "ms": 2.02}
+{"id": "S018-14", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 76, "end": 89}, {"label": "card_number", "start": 99, "end": 118}], "ms": 1.51}
+{"id": "S017-11", "entities": [{"label": "person", "start": 75, "end": 78}, {"label": "phone_number", "start": 80, "end": 93}], "ms": 2.17}
+{"id": "S017-20", "entities": [], "ms": 0.66}
+{"id": "S016-12", "entities": [], "ms": 0.67}
+{"id": "S016-03", "entities": [{"label": "person", "start": 13, "end": 16}, {"label": "phone_number", "start": 24, "end": 37}], "ms": 1.33}
+{"id": "S018-20", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.36}
+{"id": "S020-02", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 61, "end": 80}], "ms": 1.22}
+{"id": "S019-04", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 38, "end": 51}], "ms": 1.16}
+{"id": "S020-04", "entities": [], "ms": 0.75}
+{"id": "S020-09", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 38, "end": 51}], "ms": 1.96}
+{"id": "S020-17", "entities": [], "ms": 0.93}
+{"id": "S018-15", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 27, "end": 50}], "ms": 1.74}
+{"id": "S017-13", "entities": [{"label": "person", "start": 34, "end": 38}, {"label": "person", "start": 45, "end": 48}], "ms": 1.3}
+{"id": "S016-11", "entities": [{"label": "person", "start": 18, "end": 22}, {"label": "person", "start": 42, "end": 45}, {"label": "phone_number", "start": 54, "end": 67}, {"label": "card_number", "start": 88, "end": 107}], "ms": 1.63}
+{"id": "S017-07", "entities": [{"label": "person", "start": 11, "end": 14}, {"label": "resident_registration_number", "start": 16, "end": 30}, {"label": "phone_number", "start": 32, "end": 45}], "ms": 1.34}
+{"id": "S019-10", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.08}
+{"id": "S016-02", "entities": [{"label": "person", "start": 26, "end": 29}, {"label": "email", "start": 31, "end": 52}], "ms": 1.04}
+{"id": "S019-16", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.27}
+{"id": "S020-12", "entities": [], "ms": 0.51}
+{"id": "S020-01", "entities": [{"label": "person", "start": 27, "end": 30}, {"label": "phone_number", "start": 60, "end": 73}], "ms": 1.25}
+{"id": "S017-18", "entities": [{"label": "person", "start": 44, "end": 47}, {"label": "phone_number", "start": 53, "end": 66}], "ms": 1.28}
+{"id": "S018-06", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 49, "end": 62}], "ms": 1.48}
+{"id": "S017-16", "entities": [{"label": "person", "start": 29, "end": 32}, {"label": "phone_number", "start": 37, "end": 50}, {"label": "card_number", "start": 58, "end": 77}], "ms": 1.92}
+{"id": "S018-08", "entities": [], "ms": 0.78}
+{"id": "S017-10", "entities": [{"label": "person", "start": 21, "end": 24}, {"label": "phone_number", "start": 26, "end": 39}, {"label": "email", "start": 41, "end": 63}], "ms": 1.33}
+{"id": "S019-06", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 4, "end": 17}], "ms": 1.56}
+{"id": "S017-05", "entities": [], "ms": 1.41}
+{"id": "S018-04", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 29, "end": 50}, {"label": "card_number", "start": 72, "end": 91}], "ms": 1.89}
+{"id": "S019-07", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 37, "end": 56}], "ms": 1.28}
+{"id": "S038-13", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 6, "end": 30}], "ms": 1.51}
+{"id": "S038-06", "entities": [{"label": "person", "start": 3, "end": 6}, {"label": "resident_registration_number", "start": 45, "end": 59}], "ms": 1.42}
+{"id": "S038-16", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 62, "end": 75}], "ms": 2.44}
+{"id": "S036-15", "entities": [{"label": "person", "start": 20, "end": 23}, {"label": "phone_number", "start": 31, "end": 44}, {"label": "account_number", "start": 53, "end": 67}], "ms": 1.35}
+{"id": "S036-03", "entities": [{"label": "person", "start": 30, "end": 33}, {"label": "resident_registration_number", "start": 44, "end": 58}, {"label": "phone_number", "start": 66, "end": 79}, {"label": "email", "start": 87, "end": 109}, {"label": "account_number", "start": 130, "end": 144}], "ms": 2.57}
+{"id": "S036-19", "entities": [{"label": "person", "start": 15, "end": 18}, {"label": "resident_registration_number", "start": 29, "end": 43}, {"label": "phone_number", "start": 51, "end": 64}, {"label": "account_number", "start": 94, "end": 108}, {"label": "card_number", "start": 117, "end": 136}], "ms": 1.59}
+{"id": "S039-06", "entities": [], "ms": 0.46}
+{"id": "S040-06", "entities": [], "ms": 0.62}
+{"id": "S038-05", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 57, "end": 76}], "ms": 1.18}
+{"id": "S040-03", "entities": [{"label": "email", "start": 65, "end": 88}], "ms": 0.95}
+{"id": "S039-11", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.28}
+{"id": "S036-01", "entities": [{"label": "person", "start": 55, "end": 58}, {"label": "phone_number", "start": 65, "end": 78}, {"label": "email", "start": 85, "end": 105}], "ms": 2.19}
+{"id": "S039-08", "entities": [], "ms": 0.3}
+{"id": "S040-20", "entities": [], "ms": 0.75}
+{"id": "S037-03", "entities": [{"label": "person", "start": 20, "end": 23}], "ms": 1.32}
+{"id": "S037-11", "entities": [], "ms": 0.89}
+{"id": "S037-01", "entities": [{"label": "person", "start": 37, "end": 40}, {"label": "person", "start": 88, "end": 91}, {"label": "resident_registration_number", "start": 100, "end": 114}, {"label": "phone_number", "start": 122, "end": 135}, {"label": "account_number", "start": 144, "end": 160}], "ms": 5.02}
+{"id": "S040-11", "entities": [], "ms": 1.09}
+{"id": "S037-14", "entities": [{"label": "account_number", "start": 34, "end": 48}, {"label": "person", "start": 53, "end": 56}, {"label": "phone_number", "start": 61, "end": 74}], "ms": 1.38}
+{"id": "S037-08", "entities": [{"label": "person", "start": 17, "end": 20}, {"label": "resident_registration_number", "start": 57, "end": 71}, {"label": "account_number", "start": 79, "end": 92}, {"label": "email", "start": 116, "end": 134}], "ms": 2.15}
+{"id": "S037-07", "entities": [{"label": "person", "start": 47, "end": 50}, {"label": "resident_registration_number", "start": 60, "end": 74}, {"label": "phone_number", "start": 80, "end": 93}, {"label": "account_number", "start": 100, "end": 116}], "ms": 1.79}
+{"id": "S036-13", "entities": [{"label": "person", "start": 27, "end": 30}, {"label": "address", "start": 37, "end": 63}, {"label": "phone_number", "start": 71, "end": 84}, {"label": "resident_registration_number", "start": 95, "end": 109}, {"label": "email", "start": 117, "end": 135}], "ms": 1.43}
+{"id": "S036-08", "entities": [], "ms": 0.73}
+{"id": "S040-13", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 40, "end": 54}], "ms": 1.54}
+{"id": "S037-20", "entities": [{"label": "person", "start": 48, "end": 51}, {"label": "phone_number", "start": 57, "end": 70}, {"label": "email", "start": 76, "end": 98}], "ms": 1.7}
+{"id": "S038-15", "entities": [{"label": "card_number", "start": 42, "end": 61}], "ms": 0.69}
+{"id": "S039-16", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 8, "end": 27}], "ms": 0.89}
+{"id": "S040-12", "entities": [], "ms": 0.76}
+{"id": "S038-17", "entities": [], "ms": 1.21}
+{"id": "S038-18", "entities": [{"label": "address", "start": 47, "end": 77}, {"label": "person", "start": 83, "end": 86}], "ms": 1.07}
+{"id": "S038-09", "entities": [{"label": "phone_number", "start": 45, "end": 58}], "ms": 0.61}
+{"id": "S039-07", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.45}
+{"id": "S037-09", "entities": [{"label": "person", "start": 14, "end": 17}, {"label": "email", "start": 47, "end": 69}, {"label": "account_number", "start": 74, "end": 87}], "ms": 1.25}
+{"id": "S039-20", "entities": [], "ms": 0.32}
+{"id": "S039-17", "entities": [], "ms": 0.43}
+{"id": "S039-18", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 23, "end": 37}], "ms": 0.91}
+{"id": "S038-14", "entities": [], "ms": 0.59}
+{"id": "S039-12", "entities": [], "ms": 0.25}
+{"id": "S036-16", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.45}
+{"id": "S037-12", "entities": [{"label": "person", "start": 10, "end": 13}, {"label": "resident_registration_number", "start": 25, "end": 39}, {"label": "account_number", "start": 47, "end": 61}, {"label": "email", "start": 83, "end": 103}], "ms": 0.81}
+{"id": "S036-11", "entities": [{"label": "person", "start": 41, "end": 44}, {"label": "resident_registration_number", "start": 55, "end": 69}, {"label": "email", "start": 77, "end": 98}, {"label": "account_number", "start": 107, "end": 121}], "ms": 1.6}
+{"id": "S037-19", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 40, "end": 54}, {"label": "account_number", "start": 67, "end": 80}, {"label": "phone_number", "start": 86, "end": 99}], "ms": 1.52}
+{"id": "S039-13", "entities": [{"label": "phone_number", "start": 15, "end": 28}, {"label": "email", "start": 33, "end": 54}], "ms": 0.44}
+{"id": "S040-15", "entities": [], "ms": 0.93}
+{"id": "S036-20", "entities": [], "ms": 0.66}
+{"id": "S036-07", "entities": [{"label": "person", "start": 15, "end": 18}, {"label": "resident_registration_number", "start": 29, "end": 43}, {"label": "address", "start": 50, "end": 65}, {"label": "account_number", "start": 84, "end": 98}], "ms": 1.75}
+{"id": "S040-08", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 2.25}
+{"id": "S040-01", "entities": [{"label": "person", "start": 63, "end": 66}, {"label": "resident_registration_number", "start": 76, "end": 90}], "ms": 1.74}
+{"id": "S039-14", "entities": [], "ms": 0.44}
+{"id": "S036-10", "entities": [{"label": "person", "start": 21, "end": 24}, {"label": "phone_number", "start": 32, "end": 45}, {"label": "address", "start": 52, "end": 82}, {"label": "account_number", "start": 91, "end": 105}], "ms": 1.45}
+{"id": "S005-10", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 75, "end": 91}], "ms": 1.31}
+{"id": "S002-14", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 19, "end": 33}], "ms": 1.02}
+{"id": "S001-13", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 28, "end": 41}], "ms": 1.49}
+{"id": "S001-04", "entities": [{"label": "person", "start": 25, "end": 28}, {"label": "address", "start": 54, "end": 80}, {"label": "address", "start": 90, "end": 119}], "ms": 1.5}
+{"id": "S002-07", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 115, "end": 128}], "ms": 1.7}
+{"id": "S002-10", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 58, "end": 79}], "ms": 1.22}
+{"id": "S002-15", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 69, "end": 101}], "ms": 1.55}
+{"id": "S005-06", "entities": [{"label": "person", "start": 16, "end": 19}, {"label": "email", "start": 69, "end": 89}], "ms": 1.65}
+{"id": "S004-17", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 11, "end": 30}], "ms": 1.34}
+{"id": "S001-01", "entities": [{"label": "person", "start": 31, "end": 34}, {"label": "person", "start": 43, "end": 46}, {"label": "resident_registration_number", "start": 108, "end": 122}, {"label": "phone_number", "start": 125, "end": 138}], "ms": 2.32}
+{"id": "S004-16", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 8, "end": 20}, {"label": "email", "start": 37, "end": 62}], "ms": 1.08}
+{"id": "S005-14", "entities": [], "ms": 0.78}
+{"id": "S005-08", "entities": [{"label": "email", "start": 51, "end": 72}, {"label": "person", "start": 100, "end": 103}, {"label": "phone_number", "start": 104, "end": 117}, {"label": "person", "start": 132, "end": 135}], "ms": 2.4}
+{"id": "S004-13", "entities": [{"label": "phone_number", "start": 10, "end": 23}, {"label": "person", "start": 25, "end": 28}], "ms": 1.26}
+{"id": "S001-15", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 38, "end": 68}, {"label": "address", "start": 71, "end": 94}, {"label": "email", "start": 106, "end": 126}, {"label": "phone_number", "start": 128, "end": 141}], "ms": 1.55}
+{"id": "S004-20", "entities": [], "ms": 0.52}
+{"id": "S002-13", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "address", "start": 65, "end": 89}], "ms": 1.5}
+{"id": "S003-01", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.49}
+{"id": "S005-05", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.51}
+{"id": "S003-19", "entities": [{"label": "account_number", "start": 5, "end": 21}, {"label": "person", "start": 32, "end": 35}], "ms": 1.93}
+{"id": "S001-05", "entities": [{"label": "person", "start": 8, "end": 11}, {"label": "phone_number", "start": 41, "end": 54}], "ms": 1.6}
+{"id": "S004-11", "entities": [{"label": "person", "start": 13, "end": 16}], "ms": 1.09}
+{"id": "S003-12", "entities": [{"label": "phone_number", "start": 13, "end": 26}], "ms": 0.59}
+{"id": "S002-17", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "phone_number", "start": 77, "end": 90}], "ms": 1.79}
+{"id": "S004-04", "entities": [{"label": "person", "start": 26, "end": 29}], "ms": 1.23}
+{"id": "S005-07", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 67, "end": 86}], "ms": 1.84}
+{"id": "S005-01", "entities": [{"label": "person", "start": 16, "end": 19}, {"label": "address", "start": 61, "end": 88}, {"label": "email", "start": 96, "end": 118}], "ms": 2.06}
+{"id": "S002-01", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "card_number", "start": 53, "end": 72}, {"label": "address", "start": 133, "end": 159}, {"label": "email", "start": 184, "end": 212}], "ms": 2.69}
+{"id": "S001-14", "entities": [{"label": "person", "start": 16, "end": 19}, {"label": "card_number", "start": 52, "end": 71}, {"label": "phone_number", "start": 80, "end": 93}], "ms": 1.55}
+{"id": "S003-02", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "phone_number", "start": 21, "end": 34}], "ms": 1.77}
+{"id": "S003-03", "entities": [{"label": "card_number", "start": 23, "end": 42}], "ms": 0.84}
+{"id": "S003-13", "entities": [{"label": "account_number", "start": 27, "end": 42}], "ms": 0.83}
+{"id": "S003-05", "entities": [], "ms": 0.62}
+{"id": "S005-15", "entities": [{"label": "person", "start": 9, "end": 12}, {"label": "address", "start": 40, "end": 72}], "ms": 1.58}
+{"id": "S001-12", "entities": [], "ms": 0.85}
+{"id": "S004-03", "entities": [{"label": "phone_number", "start": 0, "end": 13}], "ms": 0.35}
+{"id": "S005-02", "entities": [{"label": "person", "start": 18, "end": 21}], "ms": 1.68}
+{"id": "S003-16", "entities": [], "ms": 0.44}
+{"id": "S004-15", "entities": [], "ms": 0.39}
+{"id": "S002-04", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 66, "end": 79}], "ms": 0.86}
+{"id": "S002-16", "entities": [], "ms": 0.86}
+{"id": "S003-17", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 16, "end": 30}], "ms": 0.87}
+{"id": "S005-04", "entities": [], "ms": 0.67}
+{"id": "S004-07", "entities": [{"label": "phone_number", "start": 0, "end": 13}, {"label": "person", "start": 15, "end": 18}, {"label": "address", "start": 35, "end": 63}], "ms": 0.63}
+{"id": "S004-01", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.35}
+{"id": "S002-03", "entities": [], "ms": 0.78}
+{"id": "S005-17", "entities": [{"label": "person", "start": 9, "end": 12}, {"label": "resident_registration_number", "start": 41, "end": 55}], "ms": 2.24}
+{"id": "S005-18", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 35, "end": 49}, {"label": "email", "start": 88, "end": 109}], "ms": 1.84}
+{"id": "S001-06", "entities": [{"label": "person", "start": 25, "end": 28}, {"label": "email", "start": 58, "end": 80}, {"label": "email", "start": 94, "end": 122}], "ms": 1.89}
+{"id": "S004-14", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 6, "end": 20}, {"label": "address", "start": 37, "end": 64}], "ms": 1.58}
+{"id": "S034-08", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 21, "end": 47}], "ms": 1.25}
+{"id": "S035-09", "entities": [{"label": "person", "start": 21, "end": 24}, {"label": "person", "start": 30, "end": 33}], "ms": 2.62}
+{"id": "S035-02", "entities": [], "ms": 1.03}
+{"id": "S032-07", "entities": [{"label": "person", "start": 11, "end": 14}, {"label": "phone_number", "start": 78, "end": 91}], "ms": 1.97}
+{"id": "S031-10", "entities": [], "ms": 0.57}
+{"id": "S033-07", "entities": [{"label": "email", "start": 8, "end": 37}], "ms": 0.39}
+{"id": "S035-20", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 15, "end": 27}, {"label": "email", "start": 33, "end": 50}], "ms": 1.54}
+{"id": "S034-17", "entities": [], "ms": 0.49}
+{"id": "S032-14", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 25, "end": 54}], "ms": 2.18}
+{"id": "S031-07", "entities": [{"label": "person", "start": 4, "end": 7}, {"label": "email", "start": 9, "end": 28}, {"label": "phone_number", "start": 74, "end": 87}], "ms": 1.62}
+{"id": "S032-09", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "address", "start": 29, "end": 58}], "ms": 1.94}
+{"id": "S033-15", "entities": [], "ms": 0.55}
+{"id": "S033-16", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 19, "end": 44}], "ms": 1.51}
+{"id": "S031-13", "entities": [{"label": "email", "start": 45, "end": 65}], "ms": 0.87}
+{"id": "S035-07", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.76}
+{"id": "S034-05", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 14, "end": 40}], "ms": 1.52}
+{"id": "S031-17", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 17, "end": 41}, {"label": "phone_number", "start": 74, "end": 87}], "ms": 1.58}
+{"id": "S031-05", "entities": [{"label": "person", "start": 10, "end": 13}, {"label": "phone_number", "start": 39, "end": 52}, {"label": "address", "start": 67, "end": 91}], "ms": 1.56}
+{"id": "S034-04", "entities": [], "ms": 0.39}
+{"id": "S035-12", "entities": [{"label": "person", "start": 43, "end": 46}], "ms": 1.94}
+{"id": "S034-18", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 35, "end": 48}], "ms": 1.56}
+{"id": "S035-04", "entities": [{"label": "person", "start": 16, "end": 19}, {"label": "phone_number", "start": 59, "end": 72}, {"label": "person", "start": 80, "end": 83}], "ms": 2.79}
+{"id": "S034-01", "entities": [{"label": "person", "start": 0, "end": 4}, {"label": "address", "start": 36, "end": 62}], "ms": 1.35}
+{"id": "S033-01", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.57}
+{"id": "S031-06", "entities": [], "ms": 0.75}
+{"id": "S033-13", "entities": [], "ms": 0.44}
+{"id": "S032-10", "entities": [{"label": "email", "start": 6, "end": 32}], "ms": 0.85}
+{"id": "S033-10", "entities": [], "ms": 0.55}
+{"id": "S034-14", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "phone_number", "start": 15, "end": 28}, {"label": "address", "start": 34, "end": 61}], "ms": 1.03}
+{"id": "S032-11", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "account_number", "start": 32, "end": 46}], "ms": 1.23}
+{"id": "S032-05", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "person", "start": 18, "end": 21}, {"label": "resident_registration_number", "start": 61, "end": 75}], "ms": 1.6}
+{"id": "S033-02", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 16, "end": 30}], "ms": 1.24}
+{"id": "S033-19", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.27}
+{"id": "S033-09", "entities": [{"label": "phone_number", "start": 33, "end": 46}], "ms": 1.44}
+{"id": "S034-10", "entities": [{"label": "person", "start": 18, "end": 21}], "ms": 1.0}
+{"id": "S034-11", "entities": [{"label": "person", "start": 4, "end": 7}, {"label": "address", "start": 32, "end": 58}], "ms": 1.41}
+{"id": "S033-03", "entities": [], "ms": 0.51}
+{"id": "S033-05", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 27, "end": 55}], "ms": 1.48}
+{"id": "S034-02", "entities": [{"label": "person", "start": 4, "end": 7}, {"label": "phone_number", "start": 12, "end": 25}, {"label": "email", "start": 32, "end": 57}], "ms": 0.97}
+{"id": "S034-09", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "phone_number", "start": 16, "end": 29}, {"label": "account_number", "start": 41, "end": 57}], "ms": 1.23}
+{"id": "S033-18", "entities": [], "ms": 0.76}
+{"id": "S031-20", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "person", "start": 38, "end": 41}, {"label": "email", "start": 42, "end": 63}], "ms": 1.65}
+{"id": "S034-03", "entities": [{"label": "account_number", "start": 21, "end": 38}, {"label": "person", "start": 40, "end": 43}], "ms": 0.76}
+{"id": "S035-05", "entities": [], "ms": 0.96}
+{"id": "S034-15", "entities": [{"label": "person", "start": 4, "end": 7}, {"label": "account_number", "start": 14, "end": 31}], "ms": 1.28}
+{"id": "S034-16", "entities": [{"label": "person", "start": 4, "end": 7}, {"label": "resident_registration_number", "start": 14, "end": 28}, {"label": "card_number", "start": 33, "end": 52}], "ms": 1.2}
+{"id": "S032-19", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 56, "end": 69}], "ms": 1.62}
+{"id": "S035-13", "entities": [], "ms": 0.9}
+{"id": "S032-17", "entities": [], "ms": 1.14}
+{"id": "S031-01", "entities": [{"label": "person", "start": 10, "end": 13}, {"label": "address", "start": 17, "end": 46}, {"label": "phone_number", "start": 112, "end": 125}], "ms": 2.49}
+{"id": "S026-15", "entities": [{"label": "person", "start": 4, "end": 7}, {"label": "phone_number", "start": 43, "end": 56}], "ms": 1.19}
+{"id": "S029-17", "entities": [], "ms": 0.43}
+{"id": "S030-18", "entities": [{"label": "account_number", "start": 31, "end": 45}, {"label": "person", "start": 60, "end": 63}], "ms": 1.2}
+{"id": "S027-12", "entities": [{"label": "email", "start": 55, "end": 77}], "ms": 0.75}
+{"id": "S028-18", "entities": [{"label": "person", "start": 13, "end": 16}, {"label": "email", "start": 23, "end": 44}], "ms": 1.5}
+{"id": "S030-01", "entities": [{"label": "phone_number", "start": 51, "end": 64}, {"label": "address", "start": 82, "end": 109}], "ms": 1.09}
+{"id": "S026-04", "entities": [{"label": "person", "start": 33, "end": 36}, {"label": "phone_number", "start": 46, "end": 59}], "ms": 1.65}
+{"id": "S028-08", "entities": [], "ms": 0.86}
+{"id": "S029-14", "entities": [], "ms": 0.64}
+{"id": "S028-04", "entities": [{"label": "person", "start": 8, "end": 11}, {"label": "address", "start": 44, "end": 71}], "ms": 1.37}
+{"id": "S028-16", "entities": [], "ms": 0.82}
+{"id": "S030-08", "entities": [{"label": "email", "start": 42, "end": 62}], "ms": 0.58}
+{"id": "S026-01", "entities": [{"label": "person", "start": 67, "end": 70}, {"label": "phone_number", "start": 78, "end": 91}, {"label": "address", "start": 101, "end": 132}], "ms": 2.07}
+{"id": "S027-16", "entities": [{"label": "person", "start": 10, "end": 13}, {"label": "account_number", "start": 30, "end": 46}], "ms": 1.38}
+{"id": "S028-11", "entities": [{"label": "person", "start": 17, "end": 20}, {"label": "phone_number", "start": 31, "end": 44}], "ms": 1.21}
+{"id": "S026-03", "entities": [{"label": "person", "start": 30, "end": 33}, {"label": "person", "start": 39, "end": 42}, {"label": "address", "start": 64, "end": 93}, {"label": "account_number", "start": 102, "end": 119}, {"label": "phone_number", "start": 127, "end": 140}], "ms": 1.62}
+{"id": "S029-08", "entities": [{"label": "account_number", "start": 7, "end": 19}, {"label": "person", "start": 22, "end": 26}], "ms": 1.06}
+{"id": "S027-18", "entities": [{"label": "person", "start": 15, "end": 18}, {"label": "phone_number", "start": 58, "end": 71}, {"label": "email", "start": 80, "end": 101}], "ms": 1.05}
+{"id": "S028-06", "entities": [{"label": "person", "start": 49, "end": 52}], "ms": 1.69}
+{"id": "S028-09", "entities": [{"label": "card_number", "start": 33, "end": 52}, {"label": "person", "start": 74, "end": 78}], "ms": 0.99}
+{"id": "S027-11", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 32, "end": 46}, {"label": "card_number", "start": 73, "end": 92}], "ms": 0.86}
+{"id": "S026-14", "entities": [{"label": "person", "start": 24, "end": 27}, {"label": "phone_number", "start": 35, "end": 48}, {"label": "address", "start": 55, "end": 82}], "ms": 1.57}
+{"id": "S029-02", "entities": [], "ms": 0.36}
+{"id": "S028-10", "entities": [{"label": "person", "start": 13, "end": 16}, {"label": "phone_number", "start": 70, "end": 83}], "ms": 1.86}
+{"id": "S027-06", "entities": [{"label": "person", "start": 12, "end": 15}, {"label": "account_number", "start": 65, "end": 81}], "ms": 1.59}
+{"id": "S029-20", "entities": [], "ms": 0.91}
+{"id": "S030-13", "entities": [], "ms": 0.73}
+{"id": "S030-12", "entities": [{"label": "email", "start": 32, "end": 57}], "ms": 0.57}
+{"id": "S028-15", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 13, "end": 32}], "ms": 1.23}
+{"id": "S027-19", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "email", "start": 60, "end": 77}], "ms": 2.01}
+{"id": "S029-16", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 38, "end": 52}], "ms": 1.46}
+{"id": "S028-05", "entities": [{"label": "phone_number", "start": 69, "end": 82}], "ms": 0.97}
+{"id": "S028-17", "entities": [{"label": "person", "start": 12, "end": 15}, {"label": "address", "start": 22, "end": 51}], "ms": 1.58}
+{"id": "S026-10", "entities": [{"label": "person", "start": 45, "end": 48}, {"label": "person", "start": 54, "end": 57}, {"label": "address", "start": 65, "end": 91}, {"label": "phone_number", "start": 97, "end": 110}, {"label": "account_number", "start": 118, "end": 135}, {"label": "resident_registration_number", "start": 148, "end": 162}], "ms": 2.49}
+{"id": "S027-01", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "account_number", "start": 75, "end": 91}, {"label": "address", "start": 104, "end": 124}], "ms": 2.0}
+{"id": "S029-10", "entities": [{"label": "person", "start": 11, "end": 14}, {"label": "email", "start": 28, "end": 48}], "ms": 1.34}
+{"id": "S030-07", "entities": [{"label": "address", "start": 59, "end": 83}], "ms": 0.84}
+{"id": "S027-17", "entities": [], "ms": 0.76}
+{"id": "S030-16", "entities": [{"label": "phone_number", "start": 42, "end": 55}], "ms": 0.97}
+{"id": "S026-02", "entities": [{"label": "person", "start": 15, "end": 18}, {"label": "email", "start": 45, "end": 64}], "ms": 0.74}
+{"id": "S030-06", "entities": [{"label": "phone_number", "start": 50, "end": 63}], "ms": 0.77}
+{"id": "S030-14", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 53, "end": 66}, {"label": "email", "start": 68, "end": 91}], "ms": 1.97}
+{"id": "S028-19", "entities": [], "ms": 0.76}
+{"id": "S027-13", "entities": [{"label": "person", "start": 10, "end": 13}, {"label": "phone_number", "start": 60, "end": 73}], "ms": 1.81}
+{"id": "S030-02", "entities": [{"label": "email", "start": 46, "end": 70}], "ms": 0.59}
+{"id": "S028-20", "entities": [{"label": "person", "start": 15, "end": 18}, {"label": "account_number", "start": 30, "end": 42}, {"label": "email", "start": 61, "end": 79}], "ms": 1.43}
+{"id": "S027-10", "entities": [], "ms": 0.67}
+{"id": "S026-19", "entities": [{"label": "person", "start": 16, "end": 19}, {"label": "resident_registration_number", "start": 28, "end": 42}], "ms": 1.34}
+{"id": "S029-15", "entities": [{"label": "card_number", "start": 9, "end": 28}, {"label": "person", "start": 29, "end": 32}], "ms": 0.89}
+{"id": "S029-04", "entities": [{"label": "address", "start": 33, "end": 58}], "ms": 0.52}
+{"id": "S041-07", "entities": [{"label": "person", "start": 22, "end": 25}, {"label": "phone_number", "start": 33, "end": 46}, {"label": "resident_registration_number", "start": 57, "end": 71}, {"label": "email", "start": 79, "end": 102}], "ms": 1.23}
+{"id": "S045-03", "entities": [{"label": "person", "start": 25, "end": 28}, {"label": "phone_number", "start": 44, "end": 57}], "ms": 1.48}
+{"id": "S043-18", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 20, "end": 33}], "ms": 1.44}
+{"id": "S041-10", "entities": [{"label": "person", "start": 25, "end": 28}, {"label": "phone_number", "start": 37, "end": 50}, {"label": "email", "start": 58, "end": 81}, {"label": "address", "start": 88, "end": 114}], "ms": 1.6}
+{"id": "S043-07", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 47, "end": 63}], "ms": 1.79}
+{"id": "S044-02", "entities": [{"label": "email", "start": 6, "end": 20}], "ms": 0.38}
+{"id": "S042-18", "entities": [], "ms": 0.77}
+{"id": "S042-07", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.76}
+{"id": "S042-15", "entities": [{"label": "person", "start": 15, "end": 18}], "ms": 1.42}
+{"id": "S043-05", "entities": [{"label": "person", "start": 23, "end": 26}, {"label": "email", "start": 28, "end": 54}, {"label": "phone_number", "start": 56, "end": 69}, {"label": "person", "start": 73, "end": 76}, {"label": "email", "start": 78, "end": 104}, {"label": "phone_number", "start": 106, "end": 119}], "ms": 2.21}
+{"id": "S044-11", "entities": [], "ms": 0.64}
+{"id": "S045-09", "entities": [], "ms": 1.46}
+{"id": "S043-03", "entities": [], "ms": 1.39}
+{"id": "S045-11", "entities": [{"label": "account_number", "start": 61, "end": 77}], "ms": 2.96}
+{"id": "S045-20", "entities": [], "ms": 2.92}
+{"id": "S043-10", "entities": [{"label": "person", "start": 25, "end": 28}, {"label": "card_number", "start": 51, "end": 70}], "ms": 2.62}
+{"id": "S045-14", "entities": [{"label": "person", "start": 18, "end": 21}, {"label": "email", "start": 52, "end": 72}], "ms": 1.82}
+{"id": "S042-11", "entities": [], "ms": 1.04}
+{"id": "S041-13", "entities": [{"label": "person", "start": 22, "end": 25}, {"label": "resident_registration_number", "start": 36, "end": 50}, {"label": "account_number", "start": 59, "end": 75}, {"label": "phone_number", "start": 83, "end": 96}, {"label": "email", "start": 104, "end": 125}], "ms": 1.48}
+{"id": "S044-16", "entities": [{"label": "person", "start": 4, "end": 7}, {"label": "address", "start": 11, "end": 42}], "ms": 1.32}
+{"id": "S044-04", "entities": [{"label": "person", "start": 5, "end": 8}, {"label": "address", "start": 13, "end": 35}], "ms": 0.97}
+{"id": "S044-18", "entities": [], "ms": 0.33}
+{"id": "S041-05", "entities": [{"label": "person", "start": 19, "end": 22}, {"label": "phone_number", "start": 30, "end": 43}, {"label": "email", "start": 51, "end": 74}, {"label": "account_number", "start": 96, "end": 112}], "ms": 1.49}
+{"id": "S041-06", "entities": [{"label": "person", "start": 6, "end": 9}], "ms": 1.28}
+{"id": "S041-18", "entities": [{"label": "person", "start": 35, "end": 38}], "ms": 1.6}
+{"id": "S041-15", "entities": [], "ms": 1.18}
+{"id": "S043-13", "entities": [{"label": "address", "start": 42, "end": 63}], "ms": 0.78}
+{"id": "S042-19", "entities": [{"label": "person", "start": 4, "end": 7}], "ms": 1.73}
+{"id": "S043-20", "entities": [], "ms": 0.81}
+{"id": "S041-09", "entities": [], "ms": 0.85}
+{"id": "S042-09", "entities": [{"label": "person", "start": 52, "end": 55}, {"label": "email", "start": 61, "end": 79}], "ms": 1.53}
+{"id": "S044-19", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 8, "end": 21}, {"label": "email", "start": 27, "end": 50}, {"label": "account_number", "start": 57, "end": 73}], "ms": 1.04}
+{"id": "S043-02", "entities": [{"label": "person", "start": 13, "end": 16}, {"label": "phone_number", "start": 35, "end": 48}], "ms": 1.04}
+{"id": "S044-12", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "phone_number", "start": 15, "end": 28}], "ms": 0.78}
+{"id": "S044-20", "entities": [{"label": "person", "start": 11, "end": 14}], "ms": 0.86}
+{"id": "S041-04", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.41}
+{"id": "S044-01", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 19, "end": 32}], "ms": 1.12}
+{"id": "S042-10", "entities": [{"label": "person", "start": 32, "end": 35}], "ms": 1.46}
+{"id": "S045-17", "entities": [], "ms": 0.55}
+{"id": "S041-14", "entities": [{"label": "person", "start": 4, "end": 7}], "ms": 1.45}
+{"id": "S045-19", "entities": [{"label": "address", "start": 36, "end": 67}], "ms": 1.64}
+{"id": "S045-02", "entities": [{"label": "person", "start": 29, "end": 33}], "ms": 1.9}
+{"id": "S043-09", "entities": [{"label": "person", "start": 6, "end": 9}, {"label": "email", "start": 55, "end": 84}], "ms": 3.03}
+{"id": "S044-15", "entities": [], "ms": 0.35}
+{"id": "S042-14", "entities": [], "ms": 0.87}
+{"id": "S045-18", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 25, "end": 38}, {"label": "phone_number", "start": 52, "end": 65}], "ms": 1.6}
+{"id": "S045-16", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 57, "end": 76}, {"label": "card_number", "start": 88, "end": 107}], "ms": 1.69}
+{"id": "S045-07", "entities": [], "ms": 0.73}
+{"id": "S043-08", "entities": [{"label": "person", "start": 37, "end": 40}, {"label": "person", "start": 42, "end": 45}, {"label": "person", "start": 47, "end": 50}], "ms": 2.9}
+{"id": "S043-19", "entities": [], "ms": 0.83}
+{"id": "S051-10", "entities": [{"label": "card_number", "start": 35, "end": 54}, {"label": "email", "start": 68, "end": 88}], "ms": 0.89}
+{"id": "S055-01", "entities": [{"label": "card_number", "start": 56, "end": 75}], "ms": 1.11}
+{"id": "S052-01", "entities": [{"label": "card_number", "start": 38, "end": 57}, {"label": "person", "start": 119, "end": 122}], "ms": 2.19}
+{"id": "S055-19", "entities": [{"label": "card_number", "start": 31, "end": 50}, {"label": "person", "start": 54, "end": 57}, {"label": "phone_number", "start": 66, "end": 79}], "ms": 1.19}
+{"id": "S051-05", "entities": [], "ms": 0.61}
+{"id": "S054-11", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 4, "end": 26}, {"label": "address", "start": 49, "end": 73}], "ms": 1.14}
+{"id": "S055-11", "entities": [{"label": "card_number", "start": 34, "end": 53}, {"label": "person", "start": 59, "end": 62}, {"label": "email", "start": 100, "end": 120}], "ms": 1.88}
+{"id": "S052-12", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "card_number", "start": 17, "end": 36}, {"label": "email", "start": 99, "end": 120}], "ms": 1.51}
+{"id": "S055-04", "entities": [{"label": "card_number", "start": 17, "end": 36}, {"label": "person", "start": 38, "end": 41}], "ms": 1.41}
+{"id": "S053-04", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 41, "end": 60}, {"label": "phone_number", "start": 70, "end": 83}], "ms": 1.51}
+{"id": "S052-08", "entities": [{"label": "card_number", "start": 8, "end": 27}, {"label": "resident_registration_number", "start": 42, "end": 56}, {"label": "person", "start": 62, "end": 65}], "ms": 1.37}
+{"id": "S052-06", "entities": [{"label": "card_number", "start": 25, "end": 44}, {"label": "resident_registration_number", "start": 71, "end": 85}], "ms": 0.9}
+{"id": "S053-15", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 14, "end": 33}, {"label": "email", "start": 45, "end": 67}], "ms": 1.01}
+{"id": "S054-02", "entities": [{"label": "person", "start": 31, "end": 34}, {"label": "email", "start": 35, "end": 54}], "ms": 1.01}
+{"id": "S051-08", "entities": [{"label": "person", "start": 20, "end": 23}, {"label": "card_number", "start": 54, "end": 73}, {"label": "phone_number", "start": 81, "end": 94}], "ms": 1.32}
+{"id": "S055-14", "entities": [{"label": "person", "start": 15, "end": 18}, {"label": "email", "start": 20, "end": 40}, {"label": "card_number", "start": 47, "end": 66}], "ms": 1.42}
+{"id": "S053-19", "entities": [], "ms": 0.52}
+{"id": "S052-19", "entities": [{"label": "card_number", "start": 15, "end": 34}, {"label": "email", "start": 60, "end": 81}], "ms": 0.54}
+{"id": "S054-07", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 4, "end": 17}, {"label": "card_number", "start": 25, "end": 44}], "ms": 1.24}
+{"id": "S051-06", "entities": [{"label": "person", "start": 23, "end": 26}, {"label": "card_number", "start": 38, "end": 57}, {"label": "phone_number", "start": 65, "end": 78}, {"label": "address", "start": 85, "end": 109}], "ms": 1.54}
+{"id": "S052-09", "entities": [{"label": "card_number", "start": 22, "end": 41}, {"label": "person", "start": 51, "end": 54}, {"label": "address", "start": 60, "end": 84}], "ms": 1.35}
+{"id": "S054-05", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 4, "end": 18}, {"label": "card_number", "start": 26, "end": 45}], "ms": 0.82}
+{"id": "S054-17", "entities": [], "ms": 0.49}
+{"id": "S051-14", "entities": [{"label": "address", "start": 6, "end": 27}, {"label": "card_number", "start": 41, "end": 60}, {"label": "person", "start": 68, "end": 71}, {"label": "phone_number", "start": 79, "end": 92}], "ms": 0.85}
+{"id": "S054-06", "entities": [{"label": "person", "start": 18, "end": 21}, {"label": "email", "start": 22, "end": 41}], "ms": 0.77}
+{"id": "S053-07", "entities": [{"label": "person", "start": 21, "end": 24}, {"label": "resident_registration_number", "start": 31, "end": 45}, {"label": "card_number", "start": 52, "end": 71}], "ms": 1.42}
+{"id": "S053-18", "entities": [{"label": "person", "start": 20, "end": 23}, {"label": "phone_number", "start": 30, "end": 43}, {"label": "resident_registration_number", "start": 53, "end": 67}, {"label": "card_number", "start": 75, "end": 94}, {"label": "account_number", "start": 100, "end": 114}], "ms": 1.21}
+{"id": "S054-01", "entities": [{"label": "person", "start": 12, "end": 15}, {"label": "phone_number", "start": 16, "end": 29}], "ms": 1.0}
+{"id": "S051-09", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 8, "end": 21}, {"label": "card_number", "start": 57, "end": 76}, {"label": "address", "start": 81, "end": 101}], "ms": 1.62}
+{"id": "S055-16", "entities": [], "ms": 0.89}
+{"id": "S054-08", "entities": [], "ms": 0.55}
+{"id": "S053-14", "entities": [], "ms": 0.58}
+{"id": "S055-13", "entities": [], "ms": 0.54}
+{"id": "S051-07", "entities": [{"label": "card_number", "start": 5, "end": 24}, {"label": "person", "start": 58, "end": 61}, {"label": "email", "start": 63, "end": 84}, {"label": "resident_registration_number", "start": 93, "end": 107}], "ms": 1.6}
+{"id": "S052-14", "entities": [{"label": "card_number", "start": 5, "end": 24}, {"label": "person", "start": 44, "end": 47}, {"label": "phone_number", "start": 53, "end": 66}], "ms": 1.65}
+{"id": "S055-17", "entities": [{"label": "card_number", "start": 8, "end": 27}, {"label": "person", "start": 38, "end": 41}, {"label": "phone_number", "start": 43, "end": 56}, {"label": "email", "start": 58, "end": 77}, {"label": "address", "start": 98, "end": 122}], "ms": 1.13}
+{"id": "S051-03", "entities": [{"label": "card_number", "start": 10, "end": 29}, {"label": "person", "start": 53, "end": 56}, {"label": "email", "start": 57, "end": 80}], "ms": 1.6}
+{"id": "S053-02", "entities": [{"label": "person", "start": 8, "end": 11}, {"label": "phone_number", "start": 16, "end": 29}], "ms": 0.94}
+{"id": "S054-16", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 4, "end": 24}, {"label": "phone_number", "start": 26, "end": 39}, {"label": "card_number", "start": 54, "end": 73}], "ms": 1.13}
+{"id": "S052-11", "entities": [{"label": "card_number", "start": 59, "end": 78}, {"label": "person", "start": 84, "end": 87}], "ms": 1.76}
+{"id": "S053-06", "entities": [{"label": "person", "start": 28, "end": 31}, {"label": "card_number", "start": 39, "end": 58}], "ms": 1.08}
+{"id": "S051-02", "entities": [{"label": "person", "start": 14, "end": 17}, {"label": "phone_number", "start": 23, "end": 36}, {"label": "card_number", "start": 69, "end": 88}], "ms": 1.16}
+{"id": "S055-20", "entities": [], "ms": 0.73}
+{"id": "S051-04", "entities": [{"label": "card_number", "start": 22, "end": 41}, {"label": "person", "start": 47, "end": 50}, {"label": "address", "start": 57, "end": 83}], "ms": 1.74}
+{"id": "S055-05", "entities": [{"label": "card_number", "start": 49, "end": 68}, {"label": "card_number", "start": 82, "end": 101}, {"label": "phone_number", "start": 123, "end": 136}], "ms": 1.45}
+{"id": "S051-15", "entities": [], "ms": 0.54}
+{"id": "S052-03", "entities": [{"label": "card_number", "start": 17, "end": 36}, {"label": "address", "start": 51, "end": 72}, {"label": "email", "start": 114, "end": 135}], "ms": 1.2}
+{"id": "S052-13", "entities": [{"label": "card_number", "start": 21, "end": 40}, {"label": "person", "start": 45, "end": 48}], "ms": 1.71}
+{"id": "S054-10", "entities": [{"label": "resident_registration_number", "start": 4, "end": 18}], "ms": 0.41}
+{"id": "S051-17", "entities": [{"label": "card_number", "start": 10, "end": 29}, {"label": "person", "start": 49, "end": 52}, {"label": "phone_number", "start": 57, "end": 70}, {"label": "account_number", "start": 75, "end": 92}], "ms": 1.51}
+{"id": "S078-14", "entities": [{"label": "email", "start": 19, "end": 42}], "ms": 0.43}
+{"id": "S076-06", "entities": [{"label": "person", "start": 75, "end": 78}, {"label": "phone_number", "start": 84, "end": 97}], "ms": 1.11}
+{"id": "S076-02", "entities": [{"label": "person", "start": 5, "end": 8}, {"label": "person", "start": 14, "end": 17}, {"label": "address", "start": 24, "end": 51}, {"label": "phone_number", "start": 61, "end": 74}], "ms": 2.14}
+{"id": "S078-01", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 43, "end": 66}], "ms": 1.67}
+{"id": "S079-20", "entities": [{"label": "person", "start": 15, "end": 18}], "ms": 1.65}
+{"id": "S078-20", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 32, "end": 58}, {"label": "person", "start": 66, "end": 69}, {"label": "phone_number", "start": 75, "end": 88}], "ms": 3.08}
+{"id": "S076-05", "entities": [{"label": "person", "start": 25, "end": 28}, {"label": "person", "start": 38, "end": 41}, {"label": "address", "start": 44, "end": 70}, {"label": "phone_number", "start": 73, "end": 86}, {"label": "person", "start": 95, "end": 98}, {"label": "address", "start": 101, "end": 126}, {"label": "phone_number", "start": 129, "end": 142}], "ms": 3.46}
+{"id": "S077-06", "entities": [], "ms": 0.51}
+{"id": "S078-03", "entities": [], "ms": 0.39}
+{"id": "S080-16", "entities": [], "ms": 0.65}
+{"id": "S076-10", "entities": [{"label": "person", "start": 16, "end": 19}, {"label": "phone_number", "start": 26, "end": 39}, {"label": "address", "start": 71, "end": 96}], "ms": 1.49}
+{"id": "S078-16", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "person", "start": 32, "end": 35}, {"label": "phone_number", "start": 37, "end": 50}, {"label": "address", "start": 58, "end": 82}], "ms": 2.32}
+{"id": "S076-12", "entities": [], "ms": 0.7}
+{"id": "S076-01", "entities": [{"label": "person", "start": 22, "end": 25}, {"label": "phone_number", "start": 31, "end": 44}, {"label": "address", "start": 51, "end": 77}, {"label": "person", "start": 86, "end": 89}, {"label": "email", "start": 91, "end": 111}], "ms": 1.15}
+{"id": "S080-02", "entities": [{"label": "person", "start": 62, "end": 65}, {"label": "phone_number", "start": 79, "end": 92}], "ms": 1.33}
+{"id": "S078-04", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.57}
+{"id": "S080-12", "entities": [{"label": "person", "start": 31, "end": 34}, {"label": "phone_number", "start": 40, "end": 53}, {"label": "address", "start": 61, "end": 84}], "ms": 1.3}
+{"id": "S079-11", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.85}
+{"id": "S077-04", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 41, "end": 54}], "ms": 1.08}
+{"id": "S079-12", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 14, "end": 42}, {"label": "resident_registration_number", "start": 50, "end": 64}, {"label": "phone_number", "start": 69, "end": 82}], "ms": 1.16}
+{"id": "S077-15", "entities": [{"label": "person", "start": 5, "end": 8}, {"label": "phone_number", "start": 18, "end": 31}, {"label": "address", "start": 39, "end": 67}, {"label": "resident_registration_number", "start": 76, "end": 90}], "ms": 0.81}
+{"id": "S076-04", "entities": [{"label": "person", "start": 29, "end": 32}, {"label": "address", "start": 39, "end": 60}, {"label": "phone_number", "start": 68, "end": 81}], "ms": 1.25}
+{"id": "S079-14", "entities": [], "ms": 0.31}
+{"id": "S080-01", "entities": [{"label": "person", "start": 42, "end": 45}, {"label": "phone_number", "start": 52, "end": 65}, {"label": "address", "start": 71, "end": 101}, {"label": "email", "start": 116, "end": 137}], "ms": 2.03}
+{"id": "S080-17", "entities": [{"label": "person", "start": 37, "end": 40}, {"label": "phone_number", "start": 46, "end": 59}, {"label": "address", "start": 65, "end": 85}], "ms": 1.63}
+{"id": "S080-04", "entities": [{"label": "person", "start": 17, "end": 20}, {"label": "person", "start": 42, "end": 45}, {"label": "phone_number", "start": 51, "end": 64}, {"label": "address", "start": 72, "end": 92}], "ms": 2.37}
+{"id": "S080-09", "entities": [{"label": "person", "start": 19, "end": 22}, {"label": "address", "start": 27, "end": 49}, {"label": "phone_number", "start": 54, "end": 67}], "ms": 1.56}
+{"id": "S077-16", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "address", "start": 47, "end": 67}, {"label": "phone_number", "start": 75, "end": 88}], "ms": 1.55}
+{"id": "S076-15", "entities": [{"label": "person", "start": 25, "end": 28}, {"label": "phone_number", "start": 34, "end": 47}, {"label": "address", "start": 55, "end": 76}], "ms": 1.56}
+{"id": "S078-08", "entities": [{"label": "person", "start": 31, "end": 34}, {"label": "phone_number", "start": 40, "end": 53}, {"label": "address", "start": 58, "end": 79}], "ms": 2.12}
+{"id": "S079-13", "entities": [{"label": "person", "start": 4, "end": 8}], "ms": 1.53}
+{"id": "S078-05", "entities": [{"label": "person", "start": 20, "end": 23}, {"label": "address", "start": 37, "end": 61}, {"label": "person", "start": 69, "end": 72}, {"label": "phone_number", "start": 78, "end": 91}], "ms": 1.49}
+{"id": "S080-10", "entities": [], "ms": 0.86}
+{"id": "S077-09", "entities": [{"label": "person", "start": 31, "end": 34}, {"label": "email", "start": 37, "end": 56}, {"label": "address", "start": 64, "end": 84}], "ms": 1.28}
+{"id": "S079-02", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 38, "end": 51}], "ms": 1.4}
+{"id": "S076-20", "entities": [{"label": "person", "start": 8, "end": 11}, {"label": "person", "start": 20, "end": 23}, {"label": "email", "start": 36, "end": 59}, {"label": "phone_number", "start": 67, "end": 80}, {"label": "address", "start": 88, "end": 112}, {"label": "account_number", "start": 134, "end": 148}], "ms": 1.79}
+{"id": "S077-08", "entities": [{"label": "person", "start": 5, "end": 8}, {"label": "person", "start": 14, "end": 17}, {"label": "phone_number", "start": 19, "end": 32}, {"label": "address", "start": 38, "end": 66}, {"label": "address", "start": 72, "end": 102}], "ms": 2.48}
+{"id": "S079-05", "entities": [{"label": "person", "start": 13, "end": 16}, {"label": "email", "start": 17, "end": 37}, {"label": "address", "start": 42, "end": 68}], "ms": 1.52}
+{"id": "S079-15", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 4, "end": 24}, {"label": "card_number", "start": 30, "end": 49}], "ms": 0.94}
+{"id": "S076-14", "entities": [{"label": "person", "start": 20, "end": 23}, {"label": "phone_number", "start": 31, "end": 44}, {"label": "card_number", "start": 53, "end": 72}, {"label": "address", "start": 80, "end": 102}], "ms": 1.59}
+{"id": "S080-19", "entities": [{"label": "person", "start": 15, "end": 18}, {"label": "phone_number", "start": 23, "end": 36}, {"label": "account_number", "start": 41, "end": 56}], "ms": 1.7}
+{"id": "S077-20", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 30, "end": 53}, {"label": "phone_number", "start": 86, "end": 99}], "ms": 1.23}
+{"id": "S079-18", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "person", "start": 20, "end": 23}, {"label": "email", "start": 24, "end": 43}, {"label": "address", "start": 48, "end": 68}], "ms": 1.46}
+{"id": "S077-17", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 48, "end": 65}], "ms": 1.41}
+{"id": "S076-07", "entities": [{"label": "person", "start": 28, "end": 31}, {"label": "phone_number", "start": 38, "end": 51}, {"label": "address", "start": 57, "end": 80}, {"label": "card_number", "start": 102, "end": 121}], "ms": 1.74}
+{"id": "S080-14", "entities": [{"label": "resident_registration_number", "start": 29, "end": 43}, {"label": "person", "start": 44, "end": 47}], "ms": 1.01}
+{"id": "S078-15", "entities": [], "ms": 0.52}
+{"id": "S080-07", "entities": [], "ms": 0.67}
+{"id": "S078-06", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 31, "end": 50}], "ms": 1.43}
+{"id": "S078-13", "entities": [{"label": "address", "start": 5, "end": 28}, {"label": "person", "start": 36, "end": 39}, {"label": "phone_number", "start": 45, "end": 58}], "ms": 1.07}
+{"id": "S049-07", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.55}
+{"id": "S048-08", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 34, "end": 54}], "ms": 1.09}
+{"id": "S046-20", "entities": [{"label": "person", "start": 36, "end": 39}, {"label": "email", "start": 40, "end": 62}, {"label": "phone_number", "start": 64, "end": 77}], "ms": 1.34}
+{"id": "S048-17", "entities": [], "ms": 0.41}
+{"id": "S050-03", "entities": [], "ms": 1.4}
+{"id": "S047-14", "entities": [], "ms": 0.99}
+{"id": "S047-06", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 58, "end": 79}, {"label": "phone_number", "start": 84, "end": 97}], "ms": 1.75}
+{"id": "S050-08", "entities": [{"label": "person", "start": 21, "end": 24}, {"label": "person", "start": 26, "end": 29}, {"label": "person", "start": 31, "end": 34}], "ms": 2.49}
+{"id": "S049-03", "entities": [], "ms": 0.35}
+{"id": "S050-19", "entities": [], "ms": 0.53}
+{"id": "S046-07", "entities": [{"label": "person", "start": 38, "end": 41}, {"label": "person", "start": 43, "end": 46}, {"label": "person", "start": 48, "end": 51}], "ms": 2.67}
+{"id": "S049-16", "entities": [{"label": "address", "start": 26, "end": 55}, {"label": "phone_number", "start": 70, "end": 83}], "ms": 0.98}
+{"id": "S047-08", "entities": [], "ms": 0.74}
+{"id": "S046-12", "entities": [{"label": "person", "start": 36, "end": 39}, {"label": "person", "start": 47, "end": 50}], "ms": 1.79}
+{"id": "S048-07", "entities": [], "ms": 0.45}
+{"id": "S049-20", "entities": [], "ms": 0.58}
+{"id": "S047-02", "entities": [], "ms": 1.19}
+{"id": "S050-20", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "person", "start": 11, "end": 14}, {"label": "phone_number", "start": 38, "end": 51}], "ms": 2.87}
+{"id": "S050-01", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "phone_number", "start": 41, "end": 54}], "ms": 1.65}
+{"id": "S049-15", "entities": [{"label": "person", "start": 30, "end": 33}, {"label": "account_number", "start": 38, "end": 54}], "ms": 1.12}
+{"id": "S046-15", "entities": [{"label": "person", "start": 35, "end": 38}, {"label": "person", "start": 52, "end": 55}], "ms": 2.21}
+{"id": "S047-18", "entities": [], "ms": 0.67}
+{"id": "S048-14", "entities": [], "ms": 0.35}
+{"id": "S048-12", "entities": [{"label": "person", "start": 17, "end": 20}, {"label": "person", "start": 22, "end": 25}, {"label": "person", "start": 27, "end": 30}], "ms": 2.18}
+{"id": "S049-17", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 8, "end": 28}], "ms": 1.37}
+{"id": "S048-15", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "person", "start": 29, "end": 32}, {"label": "account_number", "start": 39, "end": 55}], "ms": 1.49}
+{"id": "S049-14", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 5, "end": 26}], "ms": 0.97}
+{"id": "S048-01", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "phone_number", "start": 61, "end": 74}], "ms": 1.66}
+{"id": "S050-05", "entities": [{"label": "person", "start": 32, "end": 35}, {"label": "person", "start": 37, "end": 40}, {"label": "person", "start": 42, "end": 45}, {"label": "phone_number", "start": 51, "end": 63}], "ms": 3.22}
+{"id": "S048-19", "entities": [{"label": "person", "start": 11, "end": 14}, {"label": "person", "start": 16, "end": 19}, {"label": "person", "start": 21, "end": 24}, {"label": "person", "start": 26, "end": 29}, {"label": "person", "start": 31, "end": 34}], "ms": 2.94}
+{"id": "S046-03", "entities": [{"label": "account_number", "start": 21, "end": 35}], "ms": 0.57}
+{"id": "S050-15", "entities": [], "ms": 0.67}
+{"id": "S046-06", "entities": [{"label": "address", "start": 62, "end": 89}, {"label": "address", "start": 101, "end": 127}], "ms": 1.15}
+{"id": "S048-11", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.2}
+{"id": "S046-10", "entities": [{"label": "person", "start": 24, "end": 27}, {"label": "person", "start": 29, "end": 32}, {"label": "phone_number", "start": 62, "end": 75}, {"label": "email", "start": 79, "end": 97}], "ms": 2.19}
+{"id": "S048-06", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 15, "end": 28}, {"label": "email", "start": 30, "end": 52}], "ms": 0.97}
+{"id": "S050-06", "entities": [{"label": "person", "start": 10, "end": 13}, {"label": "person", "start": 22, "end": 25}, {"label": "email", "start": 31, "end": 57}], "ms": 2.18}
+{"id": "S049-12", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 8, "end": 27}], "ms": 1.08}
+{"id": "S049-05", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 39, "end": 55}], "ms": 1.92}
+{"id": "S047-10", "entities": [{"label": "account_number", "start": 29, "end": 43}, {"label": "person", "start": 52, "end": 55}, {"label": "phone_number", "start": 61, "end": 74}], "ms": 1.89}
+{"id": "S049-09", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 29, "end": 48}], "ms": 1.49}
+{"id": "S048-09", "entities": [{"label": "account_number", "start": 19, "end": 35}, {"label": "person", "start": 45, "end": 48}], "ms": 1.46}
+{"id": "S046-17", "entities": [{"label": "person", "start": 21, "end": 24}, {"label": "person", "start": 26, "end": 29}, {"label": "card_number", "start": 36, "end": 55}, {"label": "person", "start": 57, "end": 60}, {"label": "card_number", "start": 63, "end": 82}, {"label": "person", "start": 84, "end": 87}], "ms": 1.86}
+{"id": "S047-03", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 45, "end": 59}], "ms": 1.74}
+{"id": "S048-16", "entities": [{"label": "person", "start": 9, "end": 12}, {"label": "address", "start": 21, "end": 42}], "ms": 1.07}
+{"id": "S050-16", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 37, "end": 51}], "ms": 1.1}
+{"id": "S049-04", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 8, "end": 21}], "ms": 0.75}
+{"id": "S046-01", "entities": [], "ms": 0.79}
+{"id": "S046-16", "entities": [{"label": "person", "start": 25, "end": 28}, {"label": "person", "start": 46, "end": 49}], "ms": 1.23}
+{"id": "S048-02", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 35, "end": 50}, {"label": "person", "start": 65, "end": 68}], "ms": 1.39}
+{"id": "S099-16", "entities": [{"label": "email", "start": 0, "end": 21}], "ms": 0.48}
+{"id": "S100-02", "entities": [], "ms": 1.76}
+{"id": "S098-01", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 77, "end": 99}], "ms": 1.52}
+{"id": "S098-11", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 13, "end": 27}], "ms": 1.5}
+{"id": "S096-04", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 65, "end": 78}, {"label": "card_number", "start": 90, "end": 109}], "ms": 0.79}
+{"id": "S097-19", "entities": [{"label": "person", "start": 19, "end": 22}, {"label": "email", "start": 28, "end": 48}], "ms": 1.51}
+{"id": "S100-04", "entities": [{"label": "person", "start": 30, "end": 33}, {"label": "card_number", "start": 80, "end": 99}], "ms": 1.73}
+{"id": "S097-02", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "person", "start": 69, "end": 72}, {"label": "person", "start": 74, "end": 77}, {"label": "person", "start": 79, "end": 82}, {"label": "phone_number", "start": 97, "end": 110}, {"label": "email", "start": 116, "end": 137}], "ms": 3.37}
+{"id": "S100-10", "entities": [{"label": "person", "start": 4, "end": 7}, {"label": "resident_registration_number", "start": 33, "end": 47}, {"label": "email", "start": 59, "end": 82}], "ms": 1.22}
+{"id": "S097-07", "entities": [{"label": "person", "start": 35, "end": 38}, {"label": "account_number", "start": 63, "end": 77}, {"label": "email", "start": 95, "end": 113}], "ms": 1.35}
+{"id": "S100-15", "entities": [{"label": "person", "start": 25, "end": 28}, {"label": "account_number", "start": 43, "end": 56}], "ms": 1.12}
+{"id": "S096-19", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 32, "end": 45}, {"label": "resident_registration_number", "start": 54, "end": 68}, {"label": "account_number", "start": 84, "end": 100}], "ms": 1.45}
+{"id": "S098-19", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 17, "end": 39}], "ms": 2.16}
+{"id": "S100-18", "entities": [], "ms": 1.1}
+{"id": "S098-07", "entities": [{"label": "person", "start": 57, "end": 60}], "ms": 1.18}
+{"id": "S097-01", "entities": [{"label": "person", "start": 42, "end": 45}, {"label": "person", "start": 66, "end": 69}, {"label": "phone_number", "start": 75, "end": 88}, {"label": "email", "start": 94, "end": 114}], "ms": 2.87}
+{"id": "S099-08", "entities": [{"label": "person", "start": 17, "end": 20}, {"label": "card_number", "start": 29, "end": 48}], "ms": 1.26}
+{"id": "S098-17", "entities": [{"label": "phone_number", "start": 7, "end": 20}], "ms": 0.57}
+{"id": "S097-12", "entities": [{"label": "person", "start": 13, "end": 16}, {"label": "person", "start": 24, "end": 27}, {"label": "email", "start": 73, "end": 95}], "ms": 1.96}
+{"id": "S100-06", "entities": [{"label": "person", "start": 59, "end": 62}, {"label": "person", "start": 97, "end": 100}], "ms": 1.85}
+{"id": "S097-03", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "email", "start": 96, "end": 115}], "ms": 2.0}
+{"id": "S100-13", "entities": [{"label": "person", "start": 25, "end": 28}, {"label": "email", "start": 68, "end": 90}], "ms": 1.36}
+{"id": "S096-11", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 100, "end": 123}], "ms": 2.65}
+{"id": "S098-04", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 11, "end": 30}], "ms": 1.1}
+{"id": "S096-14", "entities": [], "ms": 0.82}
+{"id": "S100-05", "entities": [{"label": "person", "start": 4, "end": 7}, {"label": "account_number", "start": 47, "end": 63}, {"label": "email", "start": 82, "end": 102}], "ms": 1.77}
+{"id": "S100-19", "entities": [{"label": "person", "start": 4, "end": 7}, {"label": "resident_registration_number", "start": 19, "end": 33}, {"label": "email", "start": 39, "end": 61}, {"label": "card_number", "start": 81, "end": 100}], "ms": 1.57}
+{"id": "S096-20", "entities": [], "ms": 0.61}
+{"id": "S100-11", "entities": [{"label": "person", "start": 10, "end": 14}, {"label": "address", "start": 55, "end": 84}], "ms": 1.92}
+{"id": "S099-01", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 43, "end": 56}], "ms": 1.4}
+{"id": "S099-18", "entities": [], "ms": 0.46}
+{"id": "S098-02", "entities": [{"label": "phone_number", "start": 41, "end": 54}], "ms": 0.71}
+{"id": "S097-05", "entities": [{"label": "person", "start": 13, "end": 16}, {"label": "person", "start": 24, "end": 27}, {"label": "phone_number", "start": 50, "end": 63}, {"label": "email", "start": 69, "end": 91}], "ms": 2.72}
+{"id": "S099-14", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 65, "end": 78}], "ms": 2.19}
+{"id": "S098-18", "entities": [], "ms": 0.64}
+{"id": "S096-06", "entities": [], "ms": 1.23}
+{"id": "S099-11", "entities": [{"label": "person", "start": 21, "end": 24}], "ms": 1.46}
+{"id": "S099-15", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 32, "end": 46}], "ms": 1.13}
+{"id": "S098-20", "entities": [], "ms": 0.52}
+{"id": "S098-10", "entities": [{"label": "person", "start": 39, "end": 42}, {"label": "email", "start": 55, "end": 73}], "ms": 1.2}
+{"id": "S099-05", "entities": [{"label": "person", "start": 25, "end": 28}, {"label": "person", "start": 30, "end": 33}, {"label": "person", "start": 35, "end": 38}], "ms": 2.03}
+{"id": "S099-17", "entities": [{"label": "address", "start": 29, "end": 51}, {"label": "person", "start": 61, "end": 64}], "ms": 1.04}
+{"id": "S099-19", "entities": [], "ms": 0.38}
+{"id": "S096-12", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 33, "end": 46}, {"label": "card_number", "start": 55, "end": 74}], "ms": 1.39}
+{"id": "S100-03", "entities": [{"label": "person", "start": 77, "end": 80}], "ms": 1.88}
+{"id": "S096-10", "entities": [{"label": "person", "start": 18, "end": 21}, {"label": "phone_number", "start": 43, "end": 56}], "ms": 0.98}
+{"id": "S097-17", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.28}
+{"id": "S098-08", "entities": [], "ms": 1.11}
+{"id": "S096-08", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "person", "start": 5, "end": 8}, {"label": "resident_registration_number", "start": 15, "end": 29}, {"label": "phone_number", "start": 35, "end": 48}, {"label": "account_number", "start": 60, "end": 76}, {"label": "person", "start": 83, "end": 86}], "ms": 3.12}
+{"id": "S096-05", "entities": [{"label": "person", "start": 16, "end": 19}, {"label": "phone_number", "start": 39, "end": 52}, {"label": "email", "start": 63, "end": 86}], "ms": 1.6}
+{"id": "S006-19", "entities": [{"label": "person", "start": 12, "end": 15}, {"label": "email", "start": 21, "end": 42}, {"label": "phone_number", "start": 48, "end": 61}, {"label": "card_number", "start": 68, "end": 87}], "ms": 0.92}
+{"id": "S006-08", "entities": [], "ms": 0.75}
+{"id": "S007-14", "entities": [{"label": "card_number", "start": 65, "end": 84}, {"label": "person", "start": 102, "end": 105}, {"label": "phone_number", "start": 111, "end": 124}], "ms": 0.96}
+{"id": "S008-06", "entities": [{"label": "address", "start": 4, "end": 28}, {"label": "account_number", "start": 40, "end": 55}], "ms": 0.96}
+{"id": "S006-07", "entities": [{"label": "account_number", "start": 7, "end": 19}, {"label": "person", "start": 26, "end": 29}, {"label": "phone_number", "start": 35, "end": 48}, {"label": "email", "start": 54, "end": 79}], "ms": 1.3}
+{"id": "S007-16", "entities": [{"label": "account_number", "start": 40, "end": 55}, {"label": "person", "start": 72, "end": 75}], "ms": 1.18}
+{"id": "S010-12", "entities": [], "ms": 0.81}
+{"id": "S009-03", "entities": [{"label": "email", "start": 7, "end": 26}], "ms": 0.44}
+{"id": "S010-16", "entities": [], "ms": 0.63}
+{"id": "S008-02", "entities": [{"label": "phone_number", "start": 33, "end": 46}, {"label": "account_number", "start": 54, "end": 71}], "ms": 0.68}
+{"id": "S006-04", "entities": [{"label": "person", "start": 13, "end": 16}], "ms": 1.54}
+{"id": "S010-17", "entities": [{"label": "person", "start": 18, "end": 21}, {"label": "email", "start": 23, "end": 42}, {"label": "account_number", "start": 51, "end": 67}], "ms": 1.78}
+{"id": "S008-16", "entities": [], "ms": 0.7}
+{"id": "S006-18", "entities": [{"label": "person", "start": 4, "end": 7}, {"label": "email", "start": 19, "end": 42}, {"label": "account_number", "start": 49, "end": 63}, {"label": "phone_number", "start": 68, "end": 81}], "ms": 1.07}
+{"id": "S007-06", "entities": [{"label": "card_number", "start": 46, "end": 65}, {"label": "person", "start": 82, "end": 85}, {"label": "email", "start": 91, "end": 111}], "ms": 1.5}
+{"id": "S010-13", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "resident_registration_number", "start": 8, "end": 22}, {"label": "account_number", "start": 40, "end": 56}], "ms": 1.39}
+{"id": "S008-14", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 26, "end": 49}, {"label": "account_number", "start": 58, "end": 73}], "ms": 0.89}
+{"id": "S009-05", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 49, "end": 68}], "ms": 1.64}
+{"id": "S010-15", "entities": [{"label": "person", "start": 4, "end": 7}, {"label": "phone_number", "start": 9, "end": 22}, {"label": "address", "start": 62, "end": 87}], "ms": 1.17}
+{"id": "S010-01", "entities": [{"label": "person", "start": 96, "end": 99}, {"label": "email", "start": 101, "end": 121}], "ms": 1.62}
+{"id": "S008-20", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 17, "end": 45}, {"label": "phone_number", "start": 51, "end": 64}, {"label": "account_number", "start": 69, "end": 84}], "ms": 1.66}
+{"id": "S010-03", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 28, "end": 47}], "ms": 1.26}
+{"id": "S008-08", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.17}
+{"id": "S007-05", "entities": [{"label": "account_number", "start": 71, "end": 86}, {"label": "person", "start": 91, "end": 94}, {"label": "email", "start": 100, "end": 124}], "ms": 1.62}
+{"id": "S009-01", "entities": [{"label": "phone_number", "start": 41, "end": 54}], "ms": 1.23}
+{"id": "S007-20", "entities": [], "ms": 0.57}
+{"id": "S010-04", "entities": [{"label": "person", "start": 12, "end": 15}, {"label": "phone_number", "start": 17, "end": 30}], "ms": 1.39}
+{"id": "S009-09", "entities": [{"label": "account_number", "start": 30, "end": 46}, {"label": "person", "start": 52, "end": 55}], "ms": 0.94}
+{"id": "S007-10", "entities": [{"label": "person", "start": 42, "end": 45}, {"label": "email", "start": 51, "end": 74}, {"label": "account_number", "start": 81, "end": 96}], "ms": 1.71}
+{"id": "S008-18", "entities": [], "ms": 0.48}
+{"id": "S007-17", "entities": [], "ms": 0.64}
+{"id": "S009-19", "entities": [{"label": "account_number", "start": 36, "end": 50}], "ms": 0.41}
+{"id": "S010-08", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 34, "end": 47}], "ms": 1.74}
+{"id": "S007-11", "entities": [{"label": "person", "start": 48, "end": 51}, {"label": "phone_number", "start": 57, "end": 70}, {"label": "account_number", "start": 77, "end": 91}], "ms": 1.37}
+{"id": "S008-07", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "email", "start": 51, "end": 72}], "ms": 1.63}
+{"id": "S008-13", "entities": [{"label": "email", "start": 22, "end": 48}], "ms": 0.55}
+{"id": "S006-06", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "resident_registration_number", "start": 59, "end": 73}, {"label": "account_number", "start": 85, "end": 99}], "ms": 1.72}
+{"id": "S008-17", "entities": [{"label": "email", "start": 4, "end": 26}], "ms": 0.86}
+{"id": "S007-02", "entities": [{"label": "person", "start": 67, "end": 70}, {"label": "phone_number", "start": 96, "end": 109}], "ms": 1.54}
+{"id": "S010-18", "entities": [], "ms": 1.73}
+{"id": "S010-09", "entities": [{"label": "person", "start": 19, "end": 22}, {"label": "email", "start": 24, "end": 45}, {"label": "card_number", "start": 92, "end": 111}], "ms": 2.12}
+{"id": "S007-04", "entities": [{"label": "person", "start": 10, "end": 13}, {"label": "card_number", "start": 67, "end": 86}, {"label": "email", "start": 92, "end": 112}, {"label": "phone_number", "start": 114, "end": 127}], "ms": 1.9}
+{"id": "S007-01", "entities": [{"label": "card_number", "start": 107, "end": 126}, {"label": "phone_number", "start": 157, "end": 170}, {"label": "email", "start": 174, "end": 194}, {"label": "person", "start": 210, "end": 213}], "ms": 2.39}
+{"id": "S006-20", "entities": [], "ms": 0.58}
+{"id": "S008-09", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 33, "end": 52}], "ms": 1.31}
+{"id": "S009-17", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 13, "end": 32}, {"label": "resident_registration_number", "start": 41, "end": 55}], "ms": 1.32}
+{"id": "S006-17", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 44, "end": 63}, {"label": "account_number", "start": 68, "end": 82}], "ms": 1.33}
+{"id": "S009-20", "entities": [{"label": "person", "start": 7, "end": 15}], "ms": 1.35}
+{"id": "S008-04", "entities": [{"label": "person", "start": 7, "end": 10}], "ms": 1.68}
+{"id": "S010-05", "entities": [], "ms": 0.58}
+{"id": "S064-15", "entities": [], "ms": 0.74}
+{"id": "S061-05", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 58, "end": 82}], "ms": 2.06}
+{"id": "S063-11", "entities": [], "ms": 0.56}
+{"id": "S062-03", "entities": [], "ms": 0.83}
+{"id": "S061-02", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 80, "end": 93}], "ms": 1.64}
+{"id": "S063-08", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 17, "end": 34}], "ms": 1.19}
+{"id": "S061-17", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "account_number", "start": 58, "end": 70}], "ms": 1.42}
+{"id": "S064-13", "entities": [{"label": "person", "start": 7, "end": 10}, {"label": "address", "start": 30, "end": 51}], "ms": 1.31}
+{"id": "S062-05", "entities": [{"label": "person", "start": 6, "end": 9}, {"label": "email", "start": 49, "end": 68}], "ms": 1.21}
+{"id": "S063-01", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 25, "end": 47}], "ms": 1.37}
+{"id": "S065-04", "entities": [], "ms": 0.66}
+{"id": "S064-16", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 13, "end": 38}], "ms": 1.11}
+{"id": "S063-16", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 16, "end": 27}], "ms": 1.21}
+{"id": "S063-10", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 16, "end": 38}], "ms": 1.14}
+{"id": "S065-06", "entities": [], "ms": 1.18}
+{"id": "S064-07", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.73}
+{"id": "S064-05", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 32, "end": 58}], "ms": 1.3}
+{"id": "S064-11", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 42, "end": 64}], "ms": 1.3}
+{"id": "S065-11", "entities": [], "ms": 0.63}
+{"id": "S063-07", "entities": [], "ms": 0.37}
+{"id": "S064-08", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 38, "end": 51}], "ms": 1.27}
+{"id": "S061-11", "entities": [{"label": "person", "start": 27, "end": 30}], "ms": 1.74}
+{"id": "S062-04", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.58}
+{"id": "S065-15", "entities": [], "ms": 0.8}
+{"id": "S065-03", "entities": [{"label": "person", "start": 9, "end": 12}, {"label": "email", "start": 35, "end": 56}], "ms": 1.49}
+{"id": "S065-14", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 44, "end": 72}, {"label": "address", "start": 78, "end": 106}], "ms": 1.08}
+{"id": "S063-06", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 16, "end": 29}], "ms": 1.3}
+{"id": "S061-01", "entities": [{"label": "person", "start": 7, "end": 10}], "ms": 2.14}
+{"id": "S063-15", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "account_number", "start": 21, "end": 38}], "ms": 0.69}
+{"id": "S062-18", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 19, "end": 38}], "ms": 1.05}
+{"id": "S061-19", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "email", "start": 44, "end": 76}], "ms": 1.09}
+{"id": "S065-16", "entities": [{"label": "person", "start": 6, "end": 9}, {"label": "address", "start": 37, "end": 65}], "ms": 1.45}
+{"id": "S064-14", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "phone_number", "start": 28, "end": 41}], "ms": 1.08}
+{"id": "S064-06", "entities": [{"label": "person", "start": 4, "end": 7}, {"label": "resident_registration_number", "start": 27, "end": 41}], "ms": 1.39}
+{"id": "S065-01", "entities": [{"label": "person", "start": 5, "end": 8}, {"label": "email", "start": 22, "end": 45}], "ms": 1.49}
+{"id": "S061-03", "entities": [{"label": "person", "start": 49, "end": 52}, {"label": "account_number", "start": 61, "end": 73}], "ms": 1.15}
+{"id": "S064-09", "entities": [], "ms": 0.71}
+{"id": "S064-17", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 33, "end": 52}], "ms": 1.22}
+{"id": "S064-04", "entities": [{"label": "person", "start": 12, "end": 15}], "ms": 1.37}
+{"id": "S061-15", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "card_number", "start": 52, "end": 71}], "ms": 1.28}
+{"id": "S061-09", "entities": [], "ms": 0.89}
+{"id": "S063-19", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 0.91}
+{"id": "S064-20", "entities": [], "ms": 1.31}
+{"id": "S065-02", "entities": [{"label": "person", "start": 4, "end": 7}, {"label": "phone_number", "start": 10, "end": 23}], "ms": 1.62}
+{"id": "S063-14", "entities": [], "ms": 0.63}
+{"id": "S065-20", "entities": [{"label": "person", "start": 0, "end": 3}, {"label": "address", "start": 27, "end": 55}], "ms": 1.68}
+{"id": "S061-07", "entities": [{"label": "card_number", "start": 36, "end": 55}], "ms": 0.6}
+{"id": "S061-16", "entities": [{"label": "person", "start": 3, "end": 6}, {"label": "resident_registration_number", "start": 27, "end": 41}], "ms": 1.51}
+{"id": "S062-19", "entities": [], "ms": 0.82}
+{"id": "S062-11", "entities": [{"label": "person", "start": 0, "end": 3}], "ms": 1.41}

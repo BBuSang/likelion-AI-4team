@@ -1,0 +1,9 @@
+﻿system,doc_id,error_type,label,gold_text,pred_text,confidence,context
+hybrid_v3,D0113,경계 오류,person,은영,은영이,,서 달래 박도윤: 알겠어. 【은영】이랑 같이 정리해서 올릴게
+hybrid_v3,D0176,경계 오류,person,서연,서연이,,서 달래 김진우: 알겠어. 【서연】이랑 같이 정리해서 올릴게
+hybrid_v3,D0182,오탐,person,,이첩,,8 접수 경로: 금융감독원 【이첩】 민원인: 정지호 (연락처 
+hybrid_v3,D0240,오탐,person,,이첩,,1 접수 경로: 금융감독원 【이첩】 민원인: 노성호 (연락처 
+hybrid_v3,D0282,오탐,person,,고객명,,원: 정성호 (고객센터)  【고객명】: 이재원 연락처: 010-
+hybrid_v3,D0285,오탐,person,,이첩,,0 접수 경로: 금융감독원 【이첩】 민원인: 윤선영 (연락처 
+hybrid_v3,D0287,오탐,person,,미르보안,,카드 대표이사 김예준 을: 【미르보안】 대표이사 이준서
+hybrid_v3,D0291,오탐,person,,미르보안,,카드 대표이사 김예준 을: 【미르보안】 대표이사 이준서

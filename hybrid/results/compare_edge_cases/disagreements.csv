@@ -1,0 +1,38 @@
+﻿doc_id,label,gold_text,caught_by,context
+E002,phone_number,(051) 742-0091,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,부산 지점 연락처는 【(051) 742-0091】입니다.
+E006,phone_number,0504-1234-0987,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,배달 주문에 안심번호 【0504-1234-0987】가 기록되어 있었음.
+E007,phone_number,+82-10-0482-7713,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,해외 체류 중이라 【+82-10-0482-7713】 또는 +82 10 0482
+E007,phone_number,+82 10 0482 7713,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,0-0482-7713 또는 【+82 10 0482 7713】로 연락 부탁.
+E009,phone_number,010 - 0482 - 7713,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,"연락처 【010 - 0482 - 7713】 (띄어쓴 하이픈), 보조 "
+E009,phone_number,010–0482–7714,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix," (띄어쓴 하이픈), 보조 【010–0482–7714】 (다른 대시)"
+E015,account_number,3333-02-7654321,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,"카카오뱅크 【3333-02-7654321】, 토스뱅크 1000-012"
+E016,account_number,010-0482-7713,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,뱅크 계좌(휴대폰 번호): 【010-0482-7713】로 송금 받기로 함.
+E017,account_number,11002345678901,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,환불 받을 계좌 【11002345678901】 (하나은행)로 처리.
+E025,address,"강남구 테헤란로 152, 12층",hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,"도 제주시 첨단로 242, 【강남구 테헤란로 152, 12층】"
+E027,person,이현,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, 김솔님이 지점을 방문함. 【이현】 고객도 동행.
+E028,person,김하늘별,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,미래 대리가 응대함. 고객 【김하늘별】님 문의.
+E029,person,제갈 성렬,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,"남궁민수 고객, 【제갈 성렬】 대리, 선우 진 과장 참석"
+E029,person,선우 진,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix," 고객, 제갈 성렬 대리, 【선우 진】 과장 참석."
+E030,person,응우옌 반 안,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,고객명: 【응우옌 반 안】 / 연락처 010-0911
+E031,person,John Smith,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,예금주: 【John Smith】 / 성명: KIM MINJ
+E031,person,KIM MINJUN,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,hn Smith / 성명: 【KIM MINJUN】
+E032,person,한결,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,정다운 고객과 【한결】 씨가 함께 방문. 한결같이
+E036,email,minsu.kim[at]example.com,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,스팸 때문에 【minsu.kim[at]example.com】 형식으로 적어 둠.
+E038,card_number,3782-822463-10005,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,"0098 2211, 아멕스 【3782-822463-10005】"
+E039,card_number,5412-75**-****-2210,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,고객 화면 표시값 【5412-75**-****-2210】 확인.
+E041,resident_registration_number,9005122345678,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,주민번호 【9005122345678】 / 재입력 900512 -
+E042,resident_registration_number,900512-2******,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,화면 표시: 【900512-2******】
+E047,person,Lee Jiyoung,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,From: 【Lee Jiyoung】 To: 윤 하람 님
+E049,account_number,12345601234567,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,"환불은 국민 【12345601234567】, 또는 신한 1102345"
+E049,account_number,110234567890,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,"1234567, 또는 신한 【110234567890】로 받기로 함."
+E059,person,장미,선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,【장미】 고객님과 하늘 씨가 함께 
+E059,person,하늘,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,장미 고객님과 【하늘】 씨가 함께 방문함.
+E062,person,응우옌 티 마이,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,민원 처리 기록] 민원인: 【응우옌 티 마이】 (외국인등록번호 88031
+E062,phone_number,+82 10 5521 0399,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,-6123456) 연락처: 【+82 10 5521 0399】 주소: 경기 안산시 단원구
+E062,account_number,010-5521-0399,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,민원 내용: 토스뱅크 계좌(【010-5521-0399】)로 받은 환불금이 두 번 
+E062,person,응우옌 티 마이,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,7) 결제 내역과 대조 후 【응우옌 티 마이】 고객에게 결과 안내 예정.
+E063,person,김솔,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,"0-20 10:00 참석: 【김솔】, 남궁 하늘, Daniel"
+E063,person,남궁 하늘,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix," 10:00 참석: 김솔, 【남궁 하늘】, Daniel Park, "
+E063,person,Daniel Park,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,"참석: 김솔, 남궁 하늘, 【Daniel Park】, 정다운 불참: 이우리 ("
+E063,person,남궁 하늘,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,: 이우리 (연차)  1. 【남궁 하늘】 차장이 지난 분기 민원 처
+E063,person,Daniel Park,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,처리 현황을 공유함. 2. 【Daniel Park】 매니저는 시스템 이관 일정

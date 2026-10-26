@@ -1,0 +1,91 @@
+﻿system,doc_id,error_type,label,gold_text,pred_text,confidence,context
+hybrid_best_nofix,S081-20,오탐,person,,김미영,,본사 【김미영】 부장님의 부친께서 노환으로
+hybrid_best_nofix,S081-20,오탐,person,,노환,, 김미영 부장님의 부친께서 【노환】으로 별세하셨음을 알립니다.
+hybrid_best_nofix,S084-09,경계 오류,account_number,우리은행 1000-202-340001,1000-202-340001,," 명복을 빕니다. 조의금은 【우리은행 1000-202-340001】, 예금주 이성민입니다."
+hybrid_best_nofix,S085-06,미탐,address,경상남도 창원시 마산합포구 오동로 88 1호실,,, 희망병원 장례식장 1호실(【경상남도 창원시 마산합포구 오동로 88 1호실】) 조의금 전달 문의: ka
+hybrid_best_nofix,S085-06,오탐,address,,경남 창원시 마산합포구 오동로 88 희망병원 장례식장 1호,, 알려드립니다. 장례식장: 【경남 창원시 마산합포구 오동로 88 희망병원 장례식장 1호】실(경상남도 창원시 마산합포
+hybrid_best_nofix,S083-07,오탐,person,,수진,,서 있습니다. 참석 여부는 【수진】씨에게 바로 연락 주세요.
+hybrid_best_nofix,S085-02,미탐,address,대전광역시 서구 계룡로 275 새길병원 장례식장 2호실,,, 새길병원 장례식장 2호실(【대전광역시 서구 계룡로 275 새길병원 장례식장 2호실】) 연락처: 010.0340
+hybrid_best_nofix,S082-20,미탐,address,"경기도 용인시 수지구 효자촌로 55, 수지파티룸",,,"(금) 6:00pm 장소: 【경기도 용인시 수지구 효자촌로 55, 수지파티룸】 참석 가능하신 분은 윤지섭"
+hybrid_best_nofix,S084-11,오탐,phone_number,,080-056-9876,,조화 주문하실 분은 【080-056-9876】(대표번호)로 연락 바랍니다
+hybrid_best_nofix,S082-07,오탐,phone_number,,02-0000-1122,,", 더리치웨딩 1홀(문의: 【02-0000-1122】)"
+hybrid_best_nofix,S081-19,오탐,account_number,,978-89-1234-567-8,,안 작성법' - ISBN: 【978-89-1234-567-8】 - 출간일: 2024년 7
+hybrid_best_nofix,S084-18,경계 오류,account_number,국민은행 033-00-204582,033-00-204582,,"상 조문 및 부의금 계좌: 【국민은행 033-00-204582】, 예금주 민수진."
+hybrid_best_nofix,S071-05,오탐,account_number,,112-36-85013,,요합니다. 사업자 등록번호 【112-36-85013】로 요청합니다. 담당자 이재
+hybrid_best_nofix,S072-06,오탐,resident_registration_number,,20240611-789,,"으로 상품 주문(주문번호: 【20240611-789】)했는데, 주문내역 확인이 "
+hybrid_best_nofix,S072-07,오탐,account_number,,123-45-67890,,의드립니다. 사업자등록번호 【123-45-67890】로 전자세금계산서 발송 부탁
+hybrid_best_nofix,S075-10,오탐,resident_registration_number,,20240628-485792,,"품이 있습니다. 주문번호는 【20240628-485792】이고, 누락된 상품명은 '스"
+hybrid_best_nofix,S073-08,라벨 오류(→resident_registration_number),account_number,2040000121786,2040000121786,,"0550050를 삭제하고, 【2040000121786】로 변경해주세요."
+hybrid_best_nofix,S071-10,오탐,phone_number,,00561792,,경 희망합니다. 주문번호는 【00561792】입니다.
+hybrid_best_nofix,S074-10,오탐,resident_registration_number,,20240408-00593,,", 김수진입니다. 주문번호 【20240408-00593】의 배송지 변경 요청합니다."
+hybrid_best_nofix,S090-01,오탐,account_number,,1002-345-678901,,다. 입금 계좌는 우리은행 【1002-345-678901】 입니다.
+hybrid_best_nofix,S058-14,오탐,person,,햇살론,,"상담사님, 신청한 【햇살론】 승인 여부 알 수 있을까요"
+hybrid_best_nofix,S058-14,오탐,account_number,,2024-0608-9941,,알 수 있을까요? 접수번호 【2024-0608-9941】 입니다.
+hybrid_best_nofix,S057-08,오탐,phone_number,,02-100-1000,,해주시기 바랍니다. 문의는 【02-100-1000】으로 주셔도 됩니다.
+hybrid_best_nofix,S091-12,오탐,person,,어게인,,현 - 상영 영화: '비긴 【어게인】' - 다음 일정: 7월 1
+hybrid_best_nofix,S095-13,오탐,address,,"용산구 새빛로 24, 2층",,"파티 안내 장소: 빵굽는집(【용산구 새빛로 24, 2층】) 시간: 17시~20시 회"
+hybrid_best_nofix,S093-09,오탐,address,,"종로구 창신동 35-4, 4층",,"반상회는 이계진 동장님 집(【종로구 창신동 35-4, 4층】)에서 6월 10일 저녁 7"
+hybrid_best_nofix,S093-16,오탐,person,,이수빈,,0-000123-35777(【이수빈】)로 이번 달 20일까지 입
+hybrid_best_nofix,S092-02,오탐,person,,동우회,,"음악 감상 【동우회】 회원 여러분께,   다음 "
+hybrid_best_nofix,S022-19,오탐,resident_registration_number,,20230420-007,,0일 접수된 민원(접수번호 【20230420-007】)에 대한 진행상황을 문의드
+hybrid_best_nofix,S025-18,오탐,account_number,,2024-0609-0319,,리 요청합니다. 주문번호는 【2024-0609-0319】입니다.
+hybrid_best_nofix,S015-18,오탐,person,,주문하,,처음 【주문하】는 고객입니다! 혹시 배송 
+hybrid_best_nofix,S018-16,오탐,person,,한방내,,"mple.com. 진료과: 【한방내】과, 예약일: 4월 27일("
+hybrid_best_nofix,S018-01,미탐,address,서울시 강남구 도곡로 17길 33 4층,,,"과 예약해드렸어요. 위치는 【서울시 강남구 도곡로 17길 33 4층】이고요, 예약 확인 문자 드"
+hybrid_best_nofix,S016-01,오탐,resident_registration_number,,20240611-201,,료과: 치과   접수번호: 【20240611-201】
+hybrid_best_nofix,S016-06,오탐,resident_registration_number,,20240702-187,,.2122   진찰권번호: 【20240702-187】
+hybrid_best_nofix,S016-14,오탐,person,,삼대천왕,,-948523   식당명: 【삼대천왕】   예약일시: 2024년 
+hybrid_best_nofix,S040-16,경계 오류,account_number,농협 301-0990-556800,301-0990-556800,,험금 수령은 김상욱 명의의 【농협 301-0990-556800】로 부탁드립니다.
+hybrid_best_nofix,S040-02,경계 오류,account_number,우리은행 100-2039-487750,100-2039-487750,, 있더라고요. 수령 계좌는 【우리은행 100-2039-487750】로 부탁드립니다. 수고가 많
+hybrid_best_nofix,S040-14,경계 오류,account_number,하나 115-0087-629401,하나,,.1120   계좌번호 : 【하나 115-0087-629401】   빠른 보험금 지급 요청
+hybrid_best_nofix,S036-04,오탐,account_number,,240405-9922,,문의드립니다.   접수번호 【240405-9922】   서류 보완 요청이 있어
+hybrid_best_nofix,S002-18,오탐,phone_number,,02-1588-3527,,~오후 6시 - 대표번호: 【02-1588-3527】 - 홈페이지: www.ex
+hybrid_best_nofix,S002-18,오탐,email,,www.examplecounseling.co.kr,,8-3527 - 홈페이지: 【www.examplecounseling.co.kr】
+hybrid_best_nofix,S002-08,오탐,person,,정세림,,3-028932 (예금주: 【정세림】) 입금 확인 시 별도 안내
+hybrid_best_nofix,S005-16,오탐,person,,재상담,,백소현 고객님 【재상담】 요청 남겨주셨습니다.   
+hybrid_best_nofix,S004-12,오탐,resident_registration_number,,1245-20240610,,"접수번호 【1245-20240610】, 조은비 고객 단순 문의("
+hybrid_best_nofix,S004-18,오탐,person,,담장자,,상담 【담장자】 최은찬이(가) 모두콜센터 
+hybrid_best_nofix,S001-08,오탐,person,,남기심,, 010.0800.2991 【남기심】.   이벤트 할인 안내 및
+hybrid_best_nofix,S035-06,오탐,account_number,,987001-04-345678,, 확인 바랍니다. 국민은행 【987001-04-345678】 (예금주: 이준식)로 입금
+hybrid_best_nofix,S035-11,경계 오류,account_number,우리은행 1000-4992-888844,1000-4992-888844,,"500,000원은 오늘 중 【우리은행 1000-4992-888844】로 송금하겠습니다."
+hybrid_best_nofix,S032-01,오탐,address,,"서울시 송파구 잠실로 202, 11동 1202호",,"데 등기부등본 상 주소가 ""【서울시 송파구 잠실로 202, 11동 1202호】""로 되어 있는데, 실제 저"
+hybrid_best_nofix,S027-05,오탐,phone_number,,010.0782.1942,,", 거래 희망하시면 박민기(【010.0782.1942】|phone_number)로"
+hybrid_best_nofix,S029-13,오탐,account_number,,898-0014-5532,,배송추적번호: 【898-0014-5532】   문의는 1588-000
+hybrid_best_nofix,S026-05,미탐,address,"부산광역시 진구 중앙대로 990, 3층",,,".net 희망 거래 장소: 【부산광역시 진구 중앙대로 990, 3층】 제품명: 다이슨 무선 청소"
+hybrid_best_nofix,S027-15,오탐,phone_number,,001-0098-3342,,"료했습니다.   송장번호는 【001-0098-3342】이고, 수령 정보는 대구시 "
+hybrid_best_nofix,S028-13,미탐,address,"대전광역시 유성구 대학로 91, 이노빌딩 1층 로비",,,"감사합니다. 직거래 장소는 【대전광역시 유성구 대학로 91, 이노빌딩 1층 로비】로 오시면 됩니다. 시간 조"
+hybrid_best_nofix,S027-09,오탐,account_number,,4213-0917-0021,,"연님,   상품 송장번호는 【4213-0917-0021】입니다. 배송지는 부산 해운"
+hybrid_best_nofix,S042-05,오탐,phone_number,,02-0000-1234,,"2, 18층 HR실 문의: 【02-0000-1234】 (대표번호)"
+hybrid_best_nofix,S041-08,오탐,phone_number,,02-0000-3333,,되었습니다.   문의사항은 【02-0000-3333】(채용전용 전화)로 연락 바
+hybrid_best_nofix,S043-15,오탐,email,,hr_docu@careers.example.com,,이메일 다시 안내드립니다. 【hr_docu@careers.example.com】 으로 파일 첨부해서 보내주
+hybrid_best_nofix,S051-20,오탐,person,,이성현,," 16:50, 처리 담당: 【이성현】, 분실 처리 완료."
+hybrid_best_nofix,S055-07,미탐,resident_registration_number,1999-11-23,,,"지 처리해주세요. 하재민, 【1999-11-23】, 카드번호 5358-000"
+hybrid_best_nofix,S053-10,오탐,resident_registration_number,,20240613-0324,,드분실 신고 내역 접수번호 【20240613-0324】번으로 남겼습니다. 연락처 
+hybrid_best_nofix,S053-09,오탐,person,,예진,,"【예진】아, 방금 분실 신고했어. "
+hybrid_best_nofix,S052-07,오탐,person,,안양역,,4-7777)를 오늘 아침 【안양역】 근처에서 분실했습니다. 명
+hybrid_best_nofix,S053-16,오탐,person,,승준,,"【승준】아, 카드 6011-0072"
+hybrid_best_nofix,S052-05,오탐,card_number,,0602-0000-5658-9000,,롯데카드 【0602-0000-5658-9000】 분실 신고합니다. 어제 밤
+hybrid_best_nofix,S076-09,경계 오류,address,서울특별시 중구 명동길 11 1층 카페,서울특별시 중구 명동길 11 1층,,3.8802 - 배송장소: 【서울특별시 중구 명동길 11 1층 카페】 - 물품: 서류
+hybrid_best_nofix,S078-10,경계 오류,account_number,우리은행 1000-456-954821,1000-456-954821,, 계좌이체로 드릴게요.   【우리은행 1000-456-954821】 이 계좌 확인 부탁드립니다
+hybrid_best_nofix,S078-18,경계 오류,account_number,농협 302-0000-874512,302-0000-874512,,-2017   입금 계좌: 【농협 302-0000-874512】
+hybrid_best_nofix,S077-14,오탐,account_number,,3492-5551-0248,,택배 운송장 번호 【3492-5551-0248】로 금일 박스 2개 발송했습
+hybrid_best_nofix,S046-09,오탐,person,,이경화,,"97 (카카오뱅크, 예금주 【이경화】)"
+hybrid_best_nofix,S050-18,경계 오류,account_number,신한 110-029-184912,110-029-184912,,): 김서희 / 계좌번호: 【신한 110-029-184912】 / 입금일 2024-06-
+hybrid_best_nofix,S048-10,오탐,account_number,,24-06-10,,초등부 주간 알림장 【24-06-10】 배포합니다. 첨부 파일 참
+hybrid_best_nofix,S050-09,경계 오류,account_number,국민은행 918302-49-024150,918302-49-024150,,학생의 학원비 입금 계좌: 【국민은행 918302-49-024150】입니다. 6월분 입금 확인 
+hybrid_best_nofix,S050-17,오탐,person,,책정리,,2층 도서실 【책정리】 봉사자 모집합니다. 6월 
+hybrid_best_nofix,S049-01,미탐,resident_registration_number,2024.07.14-034,,,최윤아 학생의 【2024.07.14-034】 확인 요청드립니다. 행정실
+hybrid_best_nofix,S049-11,오탐,person,,안내된,,"정 관련하여 연락드렸으나, 【안내된】 ohyeji76@examp"
+hybrid_best_nofix,S096-02,오탐,address,,부산광역시 해운대구 해운대해변로 102,,리스 호텔 부산 - 주소: 【부산광역시 해운대구 해운대해변로 102】 - 예약자 연락처: 010
+hybrid_best_nofix,S096-01,오탐,person,,오사카,,7-05 09:10 도착: 【오사카】(KIX) 2024-07-0
+hybrid_best_nofix,S097-08,라벨 오류(→phone_number),card_number,4312.0033.2654.0913,4312.0033.2654.0913,,23-22입니다. 카드번호 【4312.0033.2654.0913】로 결제하였으니 환불 절차 
+hybrid_best_nofix,S100-08,오탐,resident_registration_number,,20240610-0187,,"경 요청드립니다. 예약번호 【20240610-0187】이고, 예약자 이현우의 연락"
+hybrid_best_nofix,S096-09,오탐,resident_registration_number,,20240618-00034,,박민호(【20240618-00034】) 고객님이 항공권 마일리지
+hybrid_best_nofix,S100-16,오탐,person,,진에어,,"여러분, 【진에어】 항공권 특가 세일 한다고 "
+hybrid_best_nofix,S096-07,오탐,resident_registration_number,,20240617-0982,, 수정 요청 - 예약번호: 【20240617-0982】 - 구간: 인천-로스앤젤레
+hybrid_best_nofix,S007-18,오탐,resident_registration_number,,20240612-0251,,"리미엄 베개’, 주문번호: 【20240612-0251】 이메일: bada99@ex"
+hybrid_best_nofix,S007-19,오탐,email,,연락처,,제품 결함 구매자명 김정민 【연락처】 kim.jm@example
+hybrid_best_nofix,S007-09,오탐,phone_number,,20240601-0017,, 구매자 송예린 주문번호: 【20240601-0017】 전화: 010.0700.8
+hybrid_best_nofix,S061-08,미탐,email,yujin_jang,,,부탁드립니다. - 이메일: 【yujin_jang】
+hybrid_best_nofix,S065-05,미탐,account_number,003902178330,,,탁드립니다. 등록된 정보는 【003902178330】입니다. 이상이 있으면 재등
+hybrid_best_nofix,S064-02,오탐,person,,서명본,, 영업팀에서 요청한 계약서 【서명본】 ahkim79@exampl

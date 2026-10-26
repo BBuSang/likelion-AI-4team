@@ -1,0 +1,59 @@
+==================== dev
+  docs 100
+  ents 548
+  chars/doc 283
+  ents/doc 5.48
+  labels {'person': 340, 'phone_number': 82, 'address': 41, 'email': 33, 'resident_registration_number': 20, 'account_number': 16, 'card_number': 16}
+  doc_type {'대출상담': 15, '카드분실상담': 13, '업무메일': 12, '공지': 10, '민원처리': 10, '회의록': 8, '민원현황': 5, '인사발령': 5, '고객정보변경': 5, '이상거래탐지': 5, '연체안내': 4, '상품안내': 3, '용역계약서': 3, '사내메신저': 2}
+  hard {'spaced_name': 27, 'phone_format_variant': 24, 'homonym': 23, 'josa_attached': 22, 'no_pii': 18, 'surname_title_unlabeled': 17, 'decoy_company_phone': 13, 'given_only': 13, 'decoy_words': 10, 'decoy_numbers': 5}
+  no_pii_docs 18
+  person_form {'full': 298, 'spaced': 27, 'given': 15}
+  person_len {3: 323, 2: 15, 4: 2}
+  compound 2
+  fmt[phone_number] {'휴대폰 하이픈': 49, '휴대폰 구분자 없음': 16, '휴대폰 점': 8, '휴대폰 공백': 3, '지역/기타 하이픈': 3, '지역/기타 구분자 없음': 2, '지역/기타 점': 1}
+  fmt[email] {'example.net': 11, 'saebomcard.example.com': 11, 'example.com': 4, 'codebridge.example.com': 3, 'example.org': 1, 'dasomcall.example.com': 1, 'mirsec.example.com': 1, 'dataon.example.com': 1}
+  fmt[address] {'도로명+동호층': 41}
+  fmt[resident_registration_number] {'하이픈': 20}
+  fmt[account_number] {'3-6-2': 16}
+  fmt[card_number] {'4-4-4-4': 16}
+  templates 23
+==================== test
+  docs 200
+  ents 1165
+  chars/doc 278
+  ents/doc 5.83
+  labels {'person': 775, 'phone_number': 168, 'email': 80, 'address': 63, 'resident_registration_number': 27, 'account_number': 27, 'card_number': 25}
+  doc_type {'업무메일': 28, '회의록': 22, '카드분실상담': 17, '이상거래탐지': 15, '대출상담': 15, '민원처리': 15, '공지': 15, '사내메신저': 13, '상품안내': 12, '용역계약서': 12, '연체안내': 11, '인사발령': 10, '고객정보변경': 10, '민원현황': 5}
+  hard {'josa_attached': 52, 'spaced_name': 51, 'homonym': 49, 'phone_format_variant': 41, 'surname_title_unlabeled': 40, 'no_pii': 32, 'given_only': 31, 'decoy_company_phone': 24, 'decoy_words': 20, 'decoy_numbers': 5}
+  no_pii_docs 32
+  person_form {'full': 680, 'spaced': 51, 'given': 44}
+  person_len {3: 717, 2: 44, 4: 14}
+  compound 14
+  fmt[phone_number] {'휴대폰 하이픈': 107, '휴대폰 구분자 없음': 19, '지역/기타 하이픈': 14, '휴대폰 점': 11, '휴대폰 공백': 8, '지역/기타 공백': 4, '지역/기타 구분자 없음': 3, '지역/기타 점': 2}
+  fmt[email] {'saebomcard.example.com': 33, 'example.net': 16, 'mirsec.example.com': 10, 'example.com': 8, 'dasomcall.example.com': 5, 'codebridge.example.com': 4, 'dataon.example.com': 3, 'example.org': 1}
+  fmt[address] {'도로명+동호층': 63}
+  fmt[resident_registration_number] {'하이픈': 27}
+  fmt[account_number] {'3-6-2': 27}
+  fmt[card_number] {'4-4-4-4': 25}
+  templates 23
+==================== holdout
+  docs 187
+  ents 912
+  chars/doc 206
+  ents/doc 4.88
+  labels {'person': 560, 'phone_number': 147, 'address': 52, 'resident_registration_number': 43, 'email': 43, 'account_number': 41, 'card_number': 26}
+  doc_type {'공지': 14, '녹취요약': 11, '출장보고': 10, '한도심사결과': 10, '분쟁조정': 10, '감사지적': 10, 'VOC요약': 10, '법인카드소명': 10, '경조사공지': 9, '카드발급심사': 9, '가맹점변경': 9, '고객편지': 9, '채용메일': 9, '권한신청': 9, '피해접수': 9, '영문혼용메일': 8, '대리인위임확인': 8, '자동이체신청서': 8, '우편반송처리': 8, '해외송금접수': 7}
+  hard {'phone_format_variant': 75, 'spaced_name': 53, 'josa_attached': 37, 'given_only': 36, 'address_format_variant': 33, 'id_format_variant': 30, 'single_char_given_name': 29, 'homonym': 29, 'surname_title_unlabeled': 26, 'card_format_variant': 25, 'account_format_variant': 23, 'compound_surname': 15, 'decoy_words': 14, 'no_pii': 14, 'decoy_company_phone': 8, 'decoy_numbers': 6}
+  no_pii_docs 14
+  person_form {'full': 471, 'spaced': 53, 'given': 36}
+  person_len {3: 454, 2: 73, 4: 32, 1: 1}
+  compound 43
+  fmt[phone_number] {'휴대폰 하이픈': 48, '지역/기타 하이픈': 27, '+82 국제': 25, '휴대폰 점': 18, '휴대폰 구분자 없음': 13, '휴대폰 공백': 8, '지역/기타 구분자 없음': 3, '지역/기타 공백': 3, '지역/기타 점': 2}
+  fmt[email] {'example.com': 11, 'saebomcard.example.com': 8, 'example.net': 8, 'example.org': 5, 'codebridge.example.com': 5, 'dasomcall.example.com': 2, 'dataon.example.com': 2, 'mirsec.example.com': 1, 'mail.example.org': 1}
+  fmt[address] {'도로명+동호층': 32, '지번': 13, '우편번호+도로명+동호층': 5, '지번+읍면+번지': 2}
+  fmt[resident_registration_number] {'붙여씀': 17, '공백': 13, '하이픈': 13}
+  fmt[account_number] {'3-6-2': 9, '4-3-6': 9, '4-2-7': 5, '3-2-6-1': 5, '3-3-6': 3, '붙여씀(12자리)': 3, '6-2-6': 2, '2-6-6': 2, '붙여씀(14자리)': 1, '붙여씀(13자리)': 1, '3-6-5': 1}
+  fmt[card_number] {'붙여씀': 10, '4-4-4-4': 9, '4-4-4-4 공백': 7}
+  templates 1
+templates holdout∩(dev∪test): 0 / 1 [None]
+doc_type holdout only: {'법인카드소명', '대리인위임확인', '영문혼용메일', '감사지적', '자동이체신청서', '고객편지', '녹취요약', 'VOC요약', '피해접수', '분쟁조정', '카드발급심사', '채용메일', '권한신청', '경조사공지', '우편반송처리', '가맹점변경', '출장보고', '한도심사결과', '해외송금접수'} | dev/test only: {'민원현황', '이상거래탐지', '민원처리', '대출상담', '연체안내', '사내메신저', '인사발령', '상품안내', '카드분실상담', '용역계약서', '고객정보변경', '업무메일', '회의록'}

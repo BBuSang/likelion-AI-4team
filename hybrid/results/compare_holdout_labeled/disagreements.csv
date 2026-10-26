@@ -1,0 +1,207 @@
+﻿doc_id,label,gold_text,caught_by,context
+H0001,person,시우,선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, 주시기 바랍니다. 인사팀 【시우】 드림
+H0002,resident_registration_number,8510152928320,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, 본인 확인: 주민등록번호 【8510152928320】 / 휴대전화 010-924
+H0003,phone_number,+82 10-0971-7912,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, to call me at 【+82 10-0971-7912】.  Best regards
+H0004,person,재원,선정|hybrid_v3|hybrid_best,"-96250608  상담사 【재원】: 네, 새봄카드 고객센터입"
+H0004,person,정하은,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,드 결제가 안 돼서요. 저 【정하은】인데요. 상담사: 정하은 고
+H0004,phone_number,+82 10-0322-1774,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,말씀 부탁드립니다. 고객: 【+82 10-0322-1774】이요. 해외에서 쓰는 번호로
+H0005,person,강연우,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, --- | --- | | 【강연우】 | 디지털전략팀 | 02-
+H0005,person,문시우,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,-3425-7293 | | 【문시우】 | 인사팀 | 02-332
+H0007,person,양서현,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,궁금하신 점은 담당 심사역 【양서현】(02-3103-5320)에
+H0008,person,재원,선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,"이 없었는데, 상담해 주신 【재원】 님 덕분에 금방 해결했어요"
+H0009,person,박별,기존rules|선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,인 위임 확인서  위임인: 【박별】 / 주민등록번호 95050
+H0009,resident_registration_number,9505032187153,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,인: 박별 / 주민등록번호 【9505032187153】 대리인: 오담 / 주민등록
+H0009,person,오담,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,032187153 대리인: 【오담】 / 주민등록번호 77080
+H0009,resident_registration_number,770802 1978865,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,인: 오담 / 주민등록번호 【770802 1978865】 / 연락처 +82 10-0
+H0009,phone_number,+82 10-0952-7888,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, 1978865 / 연락처 【+82 10-0952-7888】 위임 내용: 카드 해지 및
+H0009,account_number,0872-89-0813128,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, 포인트 환급 환급 계좌: 【0872-89-0813128】  박별이 입원 중이어서 오
+H0009,person,박별,기존rules|선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,72-89-0813128  【박별】이 입원 중이어서 오담에게 
+H0009,person,오담,선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,8  박별이 입원 중이어서 【오담】에게 업무를 위임함. 확인 
+H0011,person,오현,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,6-02-25)  신청인: 【오현】 주민등록번호: 860217
+H0011,resident_registration_number,8602172834901,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,청인: 오현 주민등록번호: 【8602172834901】 출금 계좌: 다온저축은행 
+H0012,person,동현,선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,"-32963858  상담사 【동현】: 네, 새봄카드 고객센터입"
+H0012,person,정성호,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,드 결제가 안 돼서요. 저 【정성호】인데요. 상담사: 정성호 고
+H0012,phone_number,+82 10-0732-6448,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,말씀 부탁드립니다. 고객: 【+82 10-0732-6448】이요. 해외에서 쓰는 번호로
+H0013,resident_registration_number,6507072989864,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,: 남궁나연 (주민등록번호 【6507072989864】) 2. 피신청인: 코드브릿
+H0016,resident_registration_number,840126 2226899,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,인: 윤시온 주민등록번호: 【840126 2226899】 출금 계좌: 누리은행 84
+H0016,account_number,8473-88-0614143,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,99 출금 계좌: 누리은행 【8473-88-0614143】 연락처: 010-6443-
+H0018,person,최예준,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,: 채권관리팀 / 사원 / 【최예준】 사용일: 2026-01-2
+H0024,person,박동현,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, --- | --- | | 【박동현】 | 고객센터 | 02325
+H0024,person,김민준,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,0232576696 | | 【김민준】 | 고객센터 | 02-37
+H0025,person,윤서,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, 주시기 바랍니다. 인사팀 【윤서】 드림
+H0027,phone_number,+82 10-0659-1360,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, to call me at 【+82 10-0659-1360】.  Best regards
+H0027,person,김미영,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix," Best regards, 【김미영】 Digital Strate"
+H0028,person,전별,선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,인 위임 확인서  위임인: 【전별】 / 주민등록번호 64102
+H0028,resident_registration_number,6410201212509,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,인: 전별 / 주민등록번호 【6410201212509】 대리인: 신하율 / 주민등
+H0028,resident_registration_number,9101142659611,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,: 신하율 / 주민등록번호 【9101142659611】 / 연락처 02-5288-
+H0028,account_number,515-31-231761-6,선정|rules_best|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, 포인트 환급 환급 계좌: 【515-31-231761-6】  전별이 입원 중이어서 신
+H0028,person,전별,선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,5-31-231761-6  【전별】이 입원 중이어서 신 하율에
+H0029,person,이하린,기존rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,"서구 별빛길 87, 13층 【이하린】 님 귀하  카드 이용한도 "
+H0029,person,양서현,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,궁금하신 점은 담당 심사역 【양서현】(02-3103-5320)에
+H0031,person,홍훈,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,6-04-28)  신청인: 【홍훈】 주민등록번호: 980902
+H0031,resident_registration_number,9809022243208,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,청인: 홍훈 주민등록번호: 【9809022243208】 출금 계좌: 새봄은행 25
+H0031,person,강린,선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, 접수 담당: 리스크관리팀 【강린】 (내선 7703)
+H0037,resident_registration_number,9611151554491,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,인: 송우진 (주민등록번호 【9611151554491】) 2. 피신청인: 미르보안
+H0039,person,문지훈,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,: 고객보호팀 / 과장 / 【문지훈】 사용일: 2026년 5월 
+H0039,person,안태현,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,인합니다.  확인자: 부장 【안태현】 (서명)
+H0040,person,동현,선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,"-65005204  상담사 【동현】: 네, 새봄카드 고객센터입"
+H0040,person,남궁나연,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,드 결제가 안 돼서요. 저 【남궁나연】인데요. 상담사: 남궁나연 
+H0040,phone_number,+82 10-0351-8383,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,말씀 부탁드립니다. 고객: 【+82 10-0351-8383】이요. 해외에서 쓰는 번호로
+H0041,person,최미경,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,인합니다.  확인자: 팀장 【최미경】 (서명)
+H0042,phone_number,+82 10-0659-1360,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, to call me at 【+82 10-0659-1360】.  Best regards
+H0042,person,김미영,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix," Best regards, 【김미영】 Digital Strate"
+H0043,phone_number,+82 10-0659-1360,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, to call me at 【+82 10-0659-1360】.  Best regards
+H0043,person,김미영,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix," Best regards, 【김미영】 Digital Strate"
+H0044,person,시우,선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, 주시기 바랍니다. 인사팀 【시우】 드림
+H0045,person,양서현,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,궁금하신 점은 담당 심사역 【양서현】(02-3103-5320)에
+H0047,account_number,056-75-340175-9,rules_best|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best,91 출금 계좌: 누리은행 【056-75-340175-9】 연락처: 010 9936 
+H0048,person,강혁,선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,발송함. 처리: 고객보호팀 【강혁】
+H0049,person,박도윤,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,-3888-2288 | | 【박도윤】 | 여신심사팀 | 02-3
+H0049,person,한시우,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,-0107-0953 | | 【한시우】 | 다솜콜솔루션 | sw.
+H0052,person,정성호,기존rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,심사팀 소속 김소율이 고객 【정성호】의 주민등록번호와 휴대전화 
+H0052,person,박동현,선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,"보호 재교육, 소속 부서장 【박동현】에게 관리 감독 강화 요청."
+H0053,person,동현,기존rules|선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,"이 없었는데, 상담해 주신 【동현】 님 덕분에 금방 해결했어요"
+H0054,person,하윤,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, 주시기 바랍니다. 인사팀 【하윤】 드림
+H0056,person,박동현,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,-3734-8035 | | 【박동현】 | 고객센터 | 02-32
+H0057,resident_registration_number,640415 1752720,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, 본인 확인: 주민등록번호 【640415 1752720】 / 휴대전화 02-8235
+H0057,person,오가은,선정|hybrid_v3|hybrid_best,제 조건을 문의함. 심사역 【오가은】이 조건 안내 완료.
+H0058,person,민준,선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,"-84386706  상담사 【민준】: 네, 새봄카드 고객센터입"
+H0058,person,송진우,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,드 결제가 안 돼서요. 저 【송진우】인데요. 상담사: 송진우 고
+H0058,phone_number,+82 10-0791-2924,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,말씀 부탁드립니다. 고객: 【+82 10-0791-2924】이요. 해외에서 쓰는 번호로
+H0061,person,박현,선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,발송함. 처리: 여신심사팀 【박현】
+H0063,resident_registration_number,710627 2207552,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,인: 정하은 (주민등록번호 【710627 2207552】) 2. 피신청인: 다솜콜솔
+H0064,person,민준,기존rules|선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,"이 없었는데, 상담해 주신 【민준】 님 덕분에 금방 해결했어요"
+H0067,person,김소율,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, --- | --- | | 【김소율】 | 여신심사팀 | 02-3
+H0067,person,최예준,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,-3472-7917 | | 【최예준】 | 채권관리팀 | 02-3
+H0067,person,전예은,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,-0467-7471 | | 【전예은】 | 데이터온시스템즈 | y
+H0068,person,정하은,기존rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,"19, 112동 2301호 【정하은】 님 귀하  카드 이용한도 "
+H0068,person,양서현,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,궁금하신 점은 담당 심사역 【양서현】(02 3103 5320)에
+H0069,phone_number,+82 10-0659-1360,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, to call me at 【+82 10-0659-1360】.  Best regards
+H0069,person,김미영,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix," Best regards, 【김미영】 Digital Strate"
+H0070,person,양서현,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, --- | --- | | 【양서현】 | 여신심사팀 | 02 3
+H0070,person,김미영,선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, 3103 5320 | | 【김미영】 | 디지털전략팀 | 023
+H0071,person,김소율,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,궁금하신 점은 담당 심사역 【김소율】(02.3472.7917)에
+H0072,resident_registration_number,9302052899781,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, 본인 확인: 주민등록번호 【9302052899781】 / 휴대전화 010 066
+H0072,person,권도윤,선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,제 조건을 문의함. 심사역 【권도윤】이 조건 안내 완료.
+H0073,person,동현,선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,"-70086593  상담사 【동현】: 네, 새봄카드 고객센터입"
+H0073,person,윤소연,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,드 결제가 안 돼서요. 저 【윤소연】인데요. 상담사: 윤소연 고
+H0073,phone_number,+82 10-0111-2320,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,말씀 부탁드립니다. 고객: 【+82 10-0111-2320】이요. 해외에서 쓰는 번호로
+H0074,account_number,0184-03-3256022,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,1-5882) 출금 계좌: 【0184-03-3256022】 수취인: 정온유 (현지 연
+H0074,person,임린,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, 생활비라고 함. 처리자: 【임린】
+H0075,phone_number,+82 10-0659-1360,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, to call me at 【+82 10-0659-1360】.  Best regards
+H0075,person,김미영,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix," Best regards, 【김미영】 Digital Strate"
+H0077,person,시우,선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, 주시기 바랍니다. 인사팀 【시우】 드림
+H0079,person,한별,기존rules|선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,인 위임 확인서  위임인: 【한별】 / 주민등록번호 00051
+H0079,resident_registration_number,0005184681140,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,인: 한별 / 주민등록번호 【0005184681140】 대리인: 권윤슬 / 주민등
+H0079,resident_registration_number,6604241786726,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,: 권윤슬 / 주민등록번호 【6604241786726】 / 연락처 010-1193
+H0079,person,한별,기존rules|선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,87-137-046154  【한별】이 입원 중이어서 권윤슬에게
+H0080,person,홍결,기존rules|선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,인 위임 확인서  위임인: 【홍결】 / 주민등록번호 83082
+H0080,resident_registration_number,8308282817109,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,인: 홍결 / 주민등록번호 【8308282817109】 대리인: 이예준 / 주민등
+H0080,person,홍결,기존rules|선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,535247-861756  【홍결】이 입원 중이어서 이예준에게
+H0081,person,오솔,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, 처리 기록  대상 고객: 【오솔】 카드번호: 4092-471
+H0081,person,신이안,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,발송함. 처리: 카드운영팀 【신이안】
+H0083,phone_number,+82 10-0659-1360,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, to call me at 【+82 10-0659-1360】.  Best regards
+H0083,person,김미영,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix," Best regards, 【김미영】 Digital Strate"
+H0084,person,박현준,기존rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,운영팀 소속 김주원이 고객 【박현준】의 주민등록번호와 휴대전화 
+H0084,person,박동현,선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,"보호 재교육, 소속 부서장 【박동현】에게 관리 감독 강화 요청."
+H0085,person,김소율,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,"보호 재교육, 소속 부서장 【김소율】에게 관리 감독 강화 요청."
+H0088,person,동현,기존rules|선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,"이 없었는데, 상담해 주신 【동현】 님 덕분에 금방 해결했어요"
+H0089,resident_registration_number,9102281504896,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,인: 임우진 (주민등록번호 【9102281504896】) 2. 피신청인: 데이터온
+H0090,person,강연우,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, 디지털전략팀 / 차장 / 【강연우】 사용일: 2026년 2월 
+H0091,person,시우,선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, 주시기 바랍니다. 인사팀 【시우】 드림
+H0092,person,동현,기존rules|선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,"이 없었는데, 상담해 주신 【동현】 님 덕분에 금방 해결했어요"
+H0094,person,권솔,기존rules|선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,인 위임 확인서  위임인: 【권솔】 / 주민등록번호 81071
+H0094,phone_number,+82 10-4321-1999,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,-2214963 / 연락처 【+82 10-4321-1999】 위임 내용: 카드 해지 및
+H0094,account_number,819-22-700264-3,선정|rules_best|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, 포인트 환급 환급 계좌: 【819-22-700264-3】  권솔이 입원 중이어서 남
+H0094,person,권솔,기존rules|선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,9-22-700264-3  【권솔】이 입원 중이어서 남궁 훈에
+H0094,person,남궁 훈,선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,3  권솔이 입원 중이어서 【남궁 훈】에게 업무를 위임함. 확인 
+H0094,person,이현,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,업무를 위임함. 확인 담당 【이현】 과장.
+H0095,person,김민준,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,자: 고객센터 / 대리 / 【김민준】 사용일: 2026-10-1
+H0096,account_number,5528-12-7466144,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,0-7128) 출금 계좌: 【5528-12-7466144】 수취인: 전도윤 (현지 연
+H0096,person,전도윤,기존rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,2-7466144 수취인: 【전도윤】 (현지 연락 이메일 k_j
+H0097,person,시우,선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, 주시기 바랍니다. 인사팀 【시우】 드림
+H0102,resident_registration_number,000201 3451321,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,인: 송진우 (주민등록번호 【000201 3451321】) 2. 피신청인: 코드브릿
+H0103,resident_registration_number,8211081028362,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, 본인 확인: 주민등록번호 【8211081028362】 / 휴대전화 0100037
+H0103,person,권온유,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,제 조건을 문의함. 심사역 【권온유】이 조건 안내 완료.
+H0105,phone_number,+82 10-7134-7090,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,2281837 / 휴대전화 【+82 10-7134-7090】 결과: 승인. 발급 카드번
+H0106,person,김소율,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,궁금하신 점은 담당 심사역 【김소율】(02.3472.7917)에
+H0107,resident_registration_number,910508 1982178,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,인: 김민준 (주민등록번호 【910508 1982178】) 2. 피신청인: 데이터온
+H0109,person,하윤,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, 주시기 바랍니다. 인사팀 【하윤】 드림
+H0110,person,동현,선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,"-24914935  상담사 【동현】: 네, 새봄카드 고객센터입"
+H0110,person,홍예린,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,드 결제가 안 돼서요. 저 【홍예린】인데요. 상담사: 홍예린 고
+H0110,phone_number,+82 10-0608-0969,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,말씀 부탁드립니다. 고객: 【+82 10-0608-0969】이요. 해외에서 쓰는 번호로
+H0113,person,김민준,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,드 결제가 안 돼서요. 저 【김민준】인데요. 상담사: 김민준 고
+H0113,phone_number,+82 10-0933-5186,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,말씀 부탁드립니다. 고객: 【+82 10-0933-5186】이요. 해외에서 쓰는 번호로
+H0114,person,허서연,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,궁금하신 점은 담당 심사역 【허서연】(02-3108-6345)에
+H0117,resident_registration_number,790408 1584181,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, 본인 확인: 주민등록번호 【790408 1584181】 / 휴대전화 010-194
+H0117,person,서라온,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,제 조건을 문의함. 심사역 【서라온】이 조건 안내 완료.
+H0119,resident_registration_number,630611 1869786,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, 본인 확인: 주민등록번호 【630611 1869786】 / 휴대전화 010-139
+H0119,person,권채원,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,제 조건을 문의함. 심사역 【권채원】이 조건 안내 완료.
+H0120,person,최미경,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,"보호 재교육, 소속 부서장 【최미경】에게 관리 감독 강화 요청."
+H0123,resident_registration_number,740109 1179266,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,인: 한다인 주민등록번호: 【740109 1179266】 출금 계좌: 가람은행 12
+H0123,person,송현,선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,. 접수 담당: 카드운영팀 【송현】 (내선 9376)
+H0124,person,재원,선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,"이 없었는데, 상담해 주신 【재원】 님 덕분에 금방 해결했어요"
+H0125,resident_registration_number,7511051733849,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,인: 제갈준 주민등록번호: 【7511051733849】 출금 계좌: 누리은행 65
+H0125,account_number,653438611431,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,49 출금 계좌: 누리은행 【653438611431】 연락처: +82 10-57
+H0125,phone_number,+82 10-5784-7365,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,438611431 연락처: 【+82 10-5784-7365】 청구지 주소: (11313
+H0126,person,재원,선정|hybrid_v3|hybrid_best,"-97046473  상담사 【재원】: 네, 새봄카드 고객센터입"
+H0126,person,정성호,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,드 결제가 안 돼서요. 저 【정성호】인데요. 상담사: 정성호 고
+H0126,phone_number,+82 10-0732-6448,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,말씀 부탁드립니다. 고객: 【+82 10-0732-6448】이요. 해외에서 쓰는 번호로
+H0128,phone_number,+82 10-8138-9758,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, 내역  송금인: 김온유 (【+82 10-8138-9758】) 출금 계좌: 228-73
+H0128,person,온유,기존rules|선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,"금액: USD 7,200  【온유】 님이 유학 중인 가족에게 "
+H0131,person,황 담,선정|hybrid_v3|hybrid_best, 처리 기록  대상 고객: 【황 담】 카드번호: 94101547
+H0134,person,서혜진,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,"보호 재교육, 소속 부서장 【서혜진】에게 관리 감독 강화 요청."
+H0135,person,정별,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,제 조건을 문의함. 심사역 【정별】이 조건 안내 완료.
+H0136,resident_registration_number,9205111393152,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,: 남궁찬 / 주민등록번호 【9205111393152】 대리인: 제갈찬 / 주민등
+H0136,person,제갈 찬,선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,  남궁찬이 입원 중이어서 【제갈 찬】에게 업무를 위임함. 확인 
+H0137,person,동현,선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,"-50926383  상담사 【동현】: 네, 새봄카드 고객센터입"
+H0137,person,이하린,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,드 결제가 안 돼서요. 저 【이하린】인데요. 상담사: 이하린 고
+H0137,phone_number,+82 10-0577-7449,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,말씀 부탁드립니다. 고객: 【+82 10-0577-7449】이요. 해외에서 쓰는 번호로
+H0138,person,동현,기존rules|선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,"이 없었는데, 상담해 주신 【동현】 님 덕분에 금방 해결했어요"
+H0139,person,전린,선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,송금 접수 내역  송금인: 【전린】 (010-5094-3471
+H0139,account_number,89984511034854,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,4-3471) 출금 계좌: 【89984511034854】 수취인: 이지후 (현지 연
+H0139,person,조찬,선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, 생활비라고 함. 처리자: 【조찬】
+H0140,person,문시우,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,명자: 인사팀 / 과장 / 【문시우】 사용일: 2026년 1월 
+H0141,person,양서현,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,궁금하신 점은 담당 심사역 【양서현】(02-3103-5320)에
+H0143,person,남궁 하람,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, 처리 기록  대상 고객: 【남궁 하람】 카드번호: 94108885
+H0143,address,충청남도 아산시 배방읍 252-4,기존rules|rules_best|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best,9336332 반송 주소: 【충청남도 아산시 배방읍 252-4】 변경 주소: 충청남도 아산
+H0147,resident_registration_number,000201 3451321,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,인: 송진우 (주민등록번호 【000201 3451321】) 2. 피신청인: 미르보안
+H0149,person,양서현,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,궁금하신 점은 담당 심사역 【양서현】(02-3103-5320)에
+H0150,resident_registration_number,790322 2055682,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,인: 임하율 주민등록번호: 【790322 2055682】 출금 계좌: 가람은행 24
+H0150,account_number,2482678126095,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,82 출금 계좌: 가람은행 【2482678126095】 연락처: +82 10-15
+H0150,phone_number,+82 10-1516-7717,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,678126095 연락처: 【+82 10-1516-7717】 청구지 주소: 부산광역시 
+H0152,person,정설,선정|hybrid_v3|hybrid_best, 처리 기록  대상 고객: 【정설】 카드번호: 53278750
+H0152,address,충청남도 아산시 배방읍 727-4,기존rules|rules_best|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best,4743951 반송 주소: 【충청남도 아산시 배방읍 727-4】 변경 주소: 충청남도 아산
+H0153,person,김민준,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,0236023149 | | 【김민준】 | 고객센터 | 02 37
+H0155,account_number,3553-51-9657924,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,4 7073) 출금 계좌: 【3553-51-9657924】 수취인: 최별 (현지 연락
+H0155,person,최별,선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,1-9657924 수취인: 【최별】 (현지 연락 이메일 cho
+H0155,person,이린,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, 생활비라고 함. 처리자: 【이린】
+H0157,resident_registration_number,8110091530561,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,인: 최라온 주민등록번호: 【8110091530561】 출금 계좌: 다온저축은행 
+H0157,account_number,977918048996,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, 출금 계좌: 다온저축은행 【977918048996】 연락처: 010282374
+H0160,person,동현,선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,"-69924229  상담사 【동현】: 네, 새봄카드 고객센터입"
+H0160,person,홍예린,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,드 결제가 안 돼서요. 저 【홍예린】인데요. 상담사: 홍예린 고
+H0160,phone_number,+82 10-0608-0969,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,말씀 부탁드립니다. 고객: 【+82 10-0608-0969】이요. 해외에서 쓰는 번호로
+H0163,person,홍윤,기존rules|선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,인 위임 확인서  위임인: 【홍윤】 / 주민등록번호 02021
+H0163,resident_registration_number,020212 3680014,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,인: 홍윤 / 주민등록번호 【020212 3680014】 대리인: 남궁가은 / 주민
+H0163,person,홍윤,기존rules|선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,-846374-27598  【홍윤】이 입원 중이어서 남궁 가은
+H0164,person,김소율,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,"보호 재교육, 소속 부서장 【김소율】에게 관리 감독 강화 요청."
+H0166,phone_number,+82 10-0659-1360,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, to call me at 【+82 10-0659-1360】.  Best regards
+H0166,person,김미영,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix," Best regards, 【김미영】 Digital Strate"
+H0171,account_number,553-33-885487-4,선정|rules_best|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,2-9211) 출금 계좌: 【553-33-885487-4】 수취인: 신설 (현지 연락
+H0173,person,동현,기존rules|선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,"이 없었는데, 상담해 주신 【동현】 님 덕분에 금방 해결했어요"
+H0174,account_number,038644353095,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,2-3794) 출금 계좌: 【038644353095】 수취인: 선우태오 (현지 
+H0174,person,서진,기존rules|선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,"금액: USD 8,600  【서진】 님이 유학 중인 가족에게 "
+H0174,person,윤솔,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, 생활비라고 함. 처리자: 【윤솔】
+H0176,person,윤서,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, 주시기 바랍니다. 인사팀 【윤서】 드림
+H0177,person,안담,기존rules|선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,인 위임 확인서  위임인: 【안담】 / 주민등록번호 76010
+H0177,resident_registration_number,891214 1857843,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,: 신하람 / 주민등록번호 【891214 1857843】 / 연락처 010.7374
+H0177,account_number,592-22-377288-8,선정|rules_best|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix, 포인트 환급 환급 계좌: 【592-22-377288-8】  안담이 입원 중이어서 신
+H0177,person,안담,기존rules|선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,2-22-377288-8  【안담】이 입원 중이어서 신 하람에
+H0178,person,민준,기존rules|선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,"이 없었는데, 상담해 주신 【민준】 님 덕분에 금방 해결했어요"
+H0179,person,윤선영,기존rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,강남구 대치동 753-33 【윤선영】 님 귀하  카드 이용한도 
+H0179,person,양서현,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,궁금하신 점은 담당 심사역 【양서현】(02-3103-5320)에
+H0180,person,임솔,선정|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,발송함. 처리: 고객보호팀 【임솔】
+H0182,person,재원,선정|hybrid_v3|hybrid_best,"-90745957  상담사 【재원】: 네, 새봄카드 고객센터입"
+H0182,person,류승현,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,드 결제가 안 돼서요. 저 【류승현】인데요. 상담사: 류승현 고
+H0182,phone_number,+82 10-0383-9051,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,말씀 부탁드립니다. 고객: 【+82 10-0383-9051】이요. 해외에서 쓰는 번호로
+H0184,person,박동현,hosung_rules|선정|rules_best|rules_best_nofix|hybrid_v1|hybrid_v2|hybrid_v3|hybrid_best|hybrid_best_nofix,인합니다.  확인자: 팀장 【박동현】 (서명)

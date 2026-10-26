@@ -1,0 +1,9 @@
+﻿item,n,기존rules,hosung_rules,선정,rules_best,rules_best_nofix,hybrid_v1,hybrid_v2,hybrid_v3,hybrid_best,hybrid_best_nofix
+josa_attached (person),0,,,,,,,,,,
+spaced_name (person),0,,,,,,,,,,
+given_only (person),0,,,,,,,,,,
+phone_format_variant (phone_number),0,,,,,,,,,,
+homonym (person),0,,,,,,,,,,
+[추가] person form=full,0,,,,,,,,,,
+[추가] person form=spaced,0,,,,,,,,,,
+[추가] person form=given,0,,,,,,,,,,
