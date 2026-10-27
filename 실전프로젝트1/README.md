@@ -48,7 +48,6 @@
 │   ├── template_experiment.py  처음 보는 문서 하락 폭 추정
 │   ├── compare_analyzers.py  형태소 분석기 5종 비교
 │   └── edge_report.py        엣지 케이스 종류별 채점
-├── docs/team_baek/         baek 팀원 LLM 7종 비교 문서 (참고용)
 ├── tools/                  데이터 만들 때만 + LLM 비교 도구(merge_rules_llm, make_compare_table, eval_customer — baek 팀원)
 │   ├── make_gold_by_label.py   data/gold_by_label/
 │   ├── make_edge_cases.py      data/edge_cases.jsonl
