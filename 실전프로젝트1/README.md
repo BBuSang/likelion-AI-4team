@@ -18,10 +18,13 @@
 │   ├── 8_Holdout_개선_내역             ⑧   개선 전후 + dev·test 재확인
 │   └── 9_부록_개선_과정과_데이터_사용_기록
 │       PDF 다시 만들기: python -X utf8 tools/build_report.py (PowerShell에서 실행)
+├── presentation/           발표 자료 (발표자료.html 원본 → 발표자료.pdf, 16:9 12장)
+│       PDF 다시 만들기: python -X utf8 tools/build_slides.py (PowerShell에서 실행)
 ├── worklog.md              작업 기록 (결과·판단 근거 전부)
 ├── run_detect.py           탐지기 실행 → preds/ 에 예측 파일 저장
 ├── run_compare.py          채점기 (멘토 제공 holdout 버전, 수정하지 않음)
 ├── make_union.py           두 탐지기 결과 합치기 (합집합)
+├── pii_detector.py         운영 탐지기(규칙 + atonlee)를 문서 1건 단위로 호출 — 실전 2 가명처리용
 ├── common.py               데이터 읽기·경로(ROOT, DATA)·공통 기능
 ├── postprocess.py          모델 경계 보정, 대표번호·장소 주소 제외
 ├── detectors/              탐지기
