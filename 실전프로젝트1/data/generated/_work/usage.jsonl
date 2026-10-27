@@ -1,0 +1,100 @@
+{"batch": "001", "model": "gpt-4.1", "category": "상담 기록", "style": "공식 문서·기록", "prompt_tokens": 660, "completion_tokens": 1926, "finish_reason": "stop", "sec": 14.0}
+{"batch": "002", "model": "gpt-4.1", "category": "상담 기록", "style": "이메일", "prompt_tokens": 645, "completion_tokens": 1585, "finish_reason": "stop", "sec": 10.0}
+{"batch": "003", "model": "gpt-4.1", "category": "상담 기록", "style": "메신저 대화", "prompt_tokens": 657, "completion_tokens": 1117, "finish_reason": "stop", "sec": 7.1}
+{"batch": "004", "model": "gpt-4.1", "category": "상담 기록", "style": "짧은 메모", "prompt_tokens": 657, "completion_tokens": 1005, "finish_reason": "stop", "sec": 6.8}
+{"batch": "005", "model": "gpt-4.1", "category": "상담 기록", "style": "게시판 글", "prompt_tokens": 651, "completion_tokens": 1402, "finish_reason": "stop", "sec": 9.0}
+{"batch": "006", "model": "gpt-4.1", "category": "환불 요청", "style": "공식 문서·기록", "prompt_tokens": 663, "completion_tokens": 1433, "finish_reason": "stop", "sec": 8.2}
+{"batch": "007", "model": "gpt-4.1", "category": "환불 요청", "style": "이메일", "prompt_tokens": 648, "completion_tokens": 1619, "finish_reason": "stop", "sec": 12.6}
+{"batch": "008", "model": "gpt-4.1", "category": "환불 요청", "style": "메신저 대화", "prompt_tokens": 660, "completion_tokens": 1316, "finish_reason": "stop", "sec": 8.4}
+{"batch": "009", "model": "gpt-4.1", "category": "환불 요청", "style": "짧은 메모", "prompt_tokens": 660, "completion_tokens": 1077, "finish_reason": "stop", "sec": 7.3}
+{"batch": "010", "model": "gpt-4.1", "category": "환불 요청", "style": "게시판 글", "prompt_tokens": 654, "completion_tokens": 1362, "finish_reason": "stop", "sec": 9.8}
+{"batch": "011", "model": "gpt-4.1", "category": "배송·택배 문의", "style": "공식 문서·기록", "prompt_tokens": 669, "completion_tokens": 1826, "finish_reason": "stop", "sec": 12.8}
+{"batch": "012", "model": "gpt-4.1", "category": "배송·택배 문의", "style": "이메일", "prompt_tokens": 654, "completion_tokens": 1573, "finish_reason": "stop", "sec": 9.2}
+{"batch": "013", "model": "gpt-4.1", "category": "배송·택배 문의", "style": "메신저 대화", "prompt_tokens": 666, "completion_tokens": 1295, "finish_reason": "stop", "sec": 8.2}
+{"batch": "014", "model": "gpt-4.1", "category": "배송·택배 문의", "style": "짧은 메모", "prompt_tokens": 666, "completion_tokens": 915, "finish_reason": "stop", "sec": 5.3}
+{"batch": "015", "model": "gpt-4.1", "category": "배송·택배 문의", "style": "게시판 글", "prompt_tokens": 660, "completion_tokens": 1655, "finish_reason": "stop", "sec": 8.3}
+{"batch": "016", "model": "gpt-4.1", "category": "병원·식당·숙소 예약", "style": "공식 문서·기록", "prompt_tokens": 681, "completion_tokens": 1894, "finish_reason": "stop", "sec": 12.8}
+{"batch": "017", "model": "gpt-4.1", "category": "병원·식당·숙소 예약", "style": "이메일", "prompt_tokens": 666, "completion_tokens": 1531, "finish_reason": "stop", "sec": 8.5}
+{"batch": "018", "model": "gpt-4.1", "category": "병원·식당·숙소 예약", "style": "메신저 대화", "prompt_tokens": 678, "completion_tokens": 1533, "finish_reason": "stop", "sec": 11.8}
+{"batch": "019", "model": "gpt-4.1", "category": "병원·식당·숙소 예약", "style": "짧은 메모", "prompt_tokens": 678, "completion_tokens": 1219, "finish_reason": "stop", "sec": 9.7}
+{"batch": "020", "model": "gpt-4.1", "category": "병원·식당·숙소 예약", "style": "게시판 글", "prompt_tokens": 672, "completion_tokens": 1328, "finish_reason": "stop", "sec": 7.5}
+{"batch": "021", "model": "gpt-4.1", "category": "민원 접수", "style": "공식 문서·기록", "prompt_tokens": 666, "completion_tokens": 1781, "finish_reason": "stop", "sec": 12.0}
+{"batch": "022", "model": "gpt-4.1", "category": "민원 접수", "style": "이메일", "prompt_tokens": 651, "completion_tokens": 1346, "finish_reason": "stop", "sec": 7.2}
+{"batch": "023", "model": "gpt-4.1", "category": "민원 접수", "style": "메신저 대화", "prompt_tokens": 663, "completion_tokens": 1473, "finish_reason": "stop", "sec": 9.7}
+{"batch": "024", "model": "gpt-4.1", "category": "민원 접수", "style": "짧은 메모", "prompt_tokens": 663, "completion_tokens": 1066, "finish_reason": "stop", "sec": 9.0}
+{"batch": "025", "model": "gpt-4.1", "category": "민원 접수", "style": "게시판 글", "prompt_tokens": 657, "completion_tokens": 1142, "finish_reason": "stop", "sec": 7.2}
+{"batch": "026", "model": "gpt-4.1", "category": "중고거래", "style": "공식 문서·기록", "prompt_tokens": 666, "completion_tokens": 1751, "finish_reason": "stop", "sec": 9.0}
+{"batch": "027", "model": "gpt-4.1", "category": "중고거래", "style": "이메일", "prompt_tokens": 651, "completion_tokens": 1430, "finish_reason": "stop", "sec": 8.8}
+{"batch": "028", "model": "gpt-4.1", "category": "중고거래", "style": "메신저 대화", "prompt_tokens": 663, "completion_tokens": 1397, "finish_reason": "stop", "sec": 15.5}
+{"batch": "029", "model": "gpt-4.1", "category": "중고거래", "style": "짧은 메모", "prompt_tokens": 663, "completion_tokens": 1014, "finish_reason": "stop", "sec": 9.7}
+{"batch": "030", "model": "gpt-4.1", "category": "중고거래", "style": "게시판 글", "prompt_tokens": 657, "completion_tokens": 1340, "finish_reason": "stop", "sec": 8.5}
+{"batch": "031", "model": "gpt-4.1", "category": "이사·부동산 계약", "style": "공식 문서·기록", "prompt_tokens": 675, "completion_tokens": 1569, "finish_reason": "stop", "sec": 9.3}
+{"batch": "032", "model": "gpt-4.1", "category": "이사·부동산 계약", "style": "이메일", "prompt_tokens": 660, "completion_tokens": 1538, "finish_reason": "stop", "sec": 8.6}
+{"batch": "033", "model": "gpt-4.1", "category": "이사·부동산 계약", "style": "메신저 대화", "prompt_tokens": 672, "completion_tokens": 1074, "finish_reason": "stop", "sec": 6.0}
+{"batch": "034", "model": "gpt-4.1", "category": "이사·부동산 계약", "style": "짧은 메모", "prompt_tokens": 672, "completion_tokens": 1123, "finish_reason": "stop", "sec": 6.8}
+{"batch": "035", "model": "gpt-4.1", "category": "이사·부동산 계약", "style": "게시판 글", "prompt_tokens": 666, "completion_tokens": 1449, "finish_reason": "stop", "sec": 9.7}
+{"batch": "036", "model": "gpt-4.1", "category": "보험금 청구", "style": "공식 문서·기록", "prompt_tokens": 666, "completion_tokens": 1893, "finish_reason": "stop", "sec": 10.8}
+{"batch": "037", "model": "gpt-4.1", "category": "보험금 청구", "style": "이메일", "prompt_tokens": 651, "completion_tokens": 1698, "finish_reason": "stop", "sec": 10.3}
+{"batch": "038", "model": "gpt-4.1", "category": "보험금 청구", "style": "메신저 대화", "prompt_tokens": 663, "completion_tokens": 1245, "finish_reason": "stop", "sec": 9.4}
+{"batch": "039", "model": "gpt-4.1", "category": "보험금 청구", "style": "짧은 메모", "prompt_tokens": 663, "completion_tokens": 916, "finish_reason": "stop", "sec": 6.7}
+{"batch": "040", "model": "gpt-4.1", "category": "보험금 청구", "style": "게시판 글", "prompt_tokens": 657, "completion_tokens": 1297, "finish_reason": "stop", "sec": 10.0}
+{"batch": "041", "model": "gpt-4.1", "category": "채용·입사 지원", "style": "공식 문서·기록", "prompt_tokens": 672, "completion_tokens": 1604, "finish_reason": "stop", "sec": 8.9}
+{"batch": "042", "model": "gpt-4.1", "category": "채용·입사 지원", "style": "이메일", "prompt_tokens": 657, "completion_tokens": 1383, "finish_reason": "stop", "sec": 8.5}
+{"batch": "043", "model": "gpt-4.1", "category": "채용·입사 지원", "style": "메신저 대화", "prompt_tokens": 669, "completion_tokens": 1319, "finish_reason": "stop", "sec": 8.8}
+{"batch": "044", "model": "gpt-4.1", "category": "채용·입사 지원", "style": "짧은 메모", "prompt_tokens": 669, "completion_tokens": 957, "finish_reason": "stop", "sec": 9.7}
+{"batch": "045", "model": "gpt-4.1", "category": "채용·입사 지원", "style": "게시판 글", "prompt_tokens": 663, "completion_tokens": 1332, "finish_reason": "stop", "sec": 8.6}
+{"batch": "046", "model": "gpt-4.1", "category": "학교·학원 공지", "style": "공식 문서·기록", "prompt_tokens": 672, "completion_tokens": 1468, "finish_reason": "stop", "sec": 9.8}
+{"batch": "047", "model": "gpt-4.1", "category": "학교·학원 공지", "style": "이메일", "prompt_tokens": 657, "completion_tokens": 1455, "finish_reason": "stop", "sec": 8.2}
+{"batch": "048", "model": "gpt-4.1", "category": "학교·학원 공지", "style": "메신저 대화", "prompt_tokens": 669, "completion_tokens": 1168, "finish_reason": "stop", "sec": 6.8}
+{"batch": "049", "model": "gpt-4.1", "category": "학교·학원 공지", "style": "짧은 메모", "prompt_tokens": 669, "completion_tokens": 1276, "finish_reason": "stop", "sec": 9.4}
+{"batch": "050", "model": "gpt-4.1", "category": "학교·학원 공지", "style": "게시판 글", "prompt_tokens": 663, "completion_tokens": 1231, "finish_reason": "stop", "sec": 7.5}
+{"batch": "051", "model": "gpt-4.1", "category": "카드 분실·정지", "style": "공식 문서·기록", "prompt_tokens": 672, "completion_tokens": 1856, "finish_reason": "stop", "sec": 9.1}
+{"batch": "052", "model": "gpt-4.1", "category": "카드 분실·정지", "style": "이메일", "prompt_tokens": 657, "completion_tokens": 1644, "finish_reason": "stop", "sec": 9.3}
+{"batch": "053", "model": "gpt-4.1", "category": "카드 분실·정지", "style": "메신저 대화", "prompt_tokens": 669, "completion_tokens": 1478, "finish_reason": "stop", "sec": 11.1}
+{"batch": "054", "model": "gpt-4.1", "category": "카드 분실·정지", "style": "짧은 메모", "prompt_tokens": 669, "completion_tokens": 1277, "finish_reason": "stop", "sec": 9.6}
+{"batch": "055", "model": "gpt-4.1", "category": "카드 분실·정지", "style": "게시판 글", "prompt_tokens": 663, "completion_tokens": 1510, "finish_reason": "stop", "sec": 10.9}
+{"batch": "056", "model": "gpt-4.1", "category": "대출·금융 상담", "style": "공식 문서·기록", "prompt_tokens": 672, "completion_tokens": 2156, "finish_reason": "stop", "sec": 9.9}
+{"batch": "057", "model": "gpt-4.1", "category": "대출·금융 상담", "style": "이메일", "prompt_tokens": 657, "completion_tokens": 1525, "finish_reason": "stop", "sec": 9.9}
+{"batch": "058", "model": "gpt-4.1", "category": "대출·금융 상담", "style": "메신저 대화", "prompt_tokens": 669, "completion_tokens": 1237, "finish_reason": "stop", "sec": 8.4}
+{"batch": "059", "model": "gpt-4.1", "category": "대출·금융 상담", "style": "짧은 메모", "prompt_tokens": 669, "completion_tokens": 976, "finish_reason": "stop", "sec": 5.8}
+{"batch": "060", "model": "gpt-4.1", "category": "대출·금융 상담", "style": "게시판 글", "prompt_tokens": 663, "completion_tokens": 1492, "finish_reason": "stop", "sec": 8.5}
+{"batch": "061", "model": "gpt-4.1", "category": "회사 업무 메일", "style": "공식 문서·기록", "prompt_tokens": 666, "completion_tokens": 1360, "finish_reason": "stop", "sec": 11.6}
+{"batch": "062", "model": "gpt-4.1", "category": "회사 업무 메일", "style": "이메일", "prompt_tokens": 651, "completion_tokens": 1157, "finish_reason": "stop", "sec": 10.5}
+{"batch": "063", "model": "gpt-4.1", "category": "회사 업무 메일", "style": "메신저 대화", "prompt_tokens": 663, "completion_tokens": 1089, "finish_reason": "stop", "sec": 8.5}
+{"batch": "064", "model": "gpt-4.1", "category": "회사 업무 메일", "style": "짧은 메모", "prompt_tokens": 663, "completion_tokens": 1101, "finish_reason": "stop", "sec": 7.8}
+{"batch": "065", "model": "gpt-4.1", "category": "회사 업무 메일", "style": "게시판 글", "prompt_tokens": 657, "completion_tokens": 1208, "finish_reason": "stop", "sec": 7.4}
+{"batch": "066", "model": "gpt-4.1", "category": "단체 대화방", "style": "공식 문서·기록", "prompt_tokens": 669, "completion_tokens": 1174, "finish_reason": "stop", "sec": 7.4}
+{"batch": "067", "model": "gpt-4.1", "category": "단체 대화방", "style": "이메일", "prompt_tokens": 654, "completion_tokens": 1139, "finish_reason": "stop", "sec": 6.8}
+{"batch": "068", "model": "gpt-4.1", "category": "단체 대화방", "style": "메신저 대화", "prompt_tokens": 666, "completion_tokens": 1120, "finish_reason": "stop", "sec": 7.8}
+{"batch": "069", "model": "gpt-4.1", "category": "단체 대화방", "style": "짧은 메모", "prompt_tokens": 666, "completion_tokens": 978, "finish_reason": "stop", "sec": 7.1}
+{"batch": "070", "model": "gpt-4.1", "category": "단체 대화방", "style": "게시판 글", "prompt_tokens": 660, "completion_tokens": 1000, "finish_reason": "stop", "sec": 6.1}
+{"batch": "071", "model": "gpt-4.1", "category": "고객 문의 게시판", "style": "공식 문서·기록", "prompt_tokens": 666, "completion_tokens": 1494, "finish_reason": "stop", "sec": 11.8}
+{"batch": "072", "model": "gpt-4.1", "category": "고객 문의 게시판", "style": "이메일", "prompt_tokens": 651, "completion_tokens": 1534, "finish_reason": "stop", "sec": 12.3}
+{"batch": "073", "model": "gpt-4.1", "category": "고객 문의 게시판", "style": "메신저 대화", "prompt_tokens": 663, "completion_tokens": 1319, "finish_reason": "stop", "sec": 8.9}
+{"batch": "074", "model": "gpt-4.1", "category": "고객 문의 게시판", "style": "짧은 메모", "prompt_tokens": 663, "completion_tokens": 1036, "finish_reason": "stop", "sec": 6.9}
+{"batch": "075", "model": "gpt-4.1", "category": "고객 문의 게시판", "style": "게시판 글", "prompt_tokens": 657, "completion_tokens": 1281, "finish_reason": "stop", "sec": 8.3}
+{"batch": "076", "model": "gpt-4.1", "category": "택배·퀵 접수", "style": "공식 문서·기록", "prompt_tokens": 678, "completion_tokens": 2037, "finish_reason": "stop", "sec": 11.3}
+{"batch": "077", "model": "gpt-4.1", "category": "택배·퀵 접수", "style": "이메일", "prompt_tokens": 663, "completion_tokens": 1592, "finish_reason": "stop", "sec": 9.1}
+{"batch": "078", "model": "gpt-4.1", "category": "택배·퀵 접수", "style": "메신저 대화", "prompt_tokens": 675, "completion_tokens": 1443, "finish_reason": "stop", "sec": 9.4}
+{"batch": "079", "model": "gpt-4.1", "category": "택배·퀵 접수", "style": "짧은 메모", "prompt_tokens": 675, "completion_tokens": 1312, "finish_reason": "stop", "sec": 8.1}
+{"batch": "080", "model": "gpt-4.1", "category": "택배·퀵 접수", "style": "게시판 글", "prompt_tokens": 669, "completion_tokens": 1397, "finish_reason": "stop", "sec": 9.9}
+{"batch": "081", "model": "gpt-4.1", "category": "경조사 안내", "style": "공식 문서·기록", "prompt_tokens": 666, "completion_tokens": 1816, "finish_reason": "stop", "sec": 16.7}
+{"batch": "082", "model": "gpt-4.1", "category": "경조사 안내", "style": "이메일", "prompt_tokens": 651, "completion_tokens": 1811, "finish_reason": "stop", "sec": 9.9}
+{"batch": "083", "model": "gpt-4.1", "category": "경조사 안내", "style": "메신저 대화", "prompt_tokens": 663, "completion_tokens": 1374, "finish_reason": "stop", "sec": 7.8}
+{"batch": "084", "model": "gpt-4.1", "category": "경조사 안내", "style": "짧은 메모", "prompt_tokens": 663, "completion_tokens": 1200, "finish_reason": "stop", "sec": 7.9}
+{"batch": "085", "model": "gpt-4.1", "category": "경조사 안내", "style": "게시판 글", "prompt_tokens": 657, "completion_tokens": 1806, "finish_reason": "stop", "sec": 9.7}
+{"batch": "086", "model": "gpt-4.1", "category": "관리비·공과금 안내", "style": "공식 문서·기록", "prompt_tokens": 675, "completion_tokens": 1647, "finish_reason": "stop", "sec": 9.0}
+{"batch": "087", "model": "gpt-4.1", "category": "관리비·공과금 안내", "style": "이메일", "prompt_tokens": 660, "completion_tokens": 1513, "finish_reason": "stop", "sec": 12.7}
+{"batch": "088", "model": "gpt-4.1", "category": "관리비·공과금 안내", "style": "메신저 대화", "prompt_tokens": 672, "completion_tokens": 1221, "finish_reason": "stop", "sec": 6.8}
+{"batch": "089", "model": "gpt-4.1", "category": "관리비·공과금 안내", "style": "짧은 메모", "prompt_tokens": 672, "completion_tokens": 1102, "finish_reason": "stop", "sec": 8.6}
+{"batch": "090", "model": "gpt-4.1", "category": "관리비·공과금 안내", "style": "게시판 글", "prompt_tokens": 666, "completion_tokens": 1231, "finish_reason": "stop", "sec": 7.4}
+{"batch": "091", "model": "gpt-4.1", "category": "동호회·모임 공지", "style": "공식 문서·기록", "prompt_tokens": 678, "completion_tokens": 1549, "finish_reason": "stop", "sec": 9.1}
+{"batch": "092", "model": "gpt-4.1", "category": "동호회·모임 공지", "style": "이메일", "prompt_tokens": 663, "completion_tokens": 1627, "finish_reason": "stop", "sec": 10.9}
+{"batch": "093", "model": "gpt-4.1", "category": "동호회·모임 공지", "style": "메신저 대화", "prompt_tokens": 675, "completion_tokens": 1382, "finish_reason": "stop", "sec": 8.9}
+{"batch": "094", "model": "gpt-4.1", "category": "동호회·모임 공지", "style": "짧은 메모", "prompt_tokens": 675, "completion_tokens": 1202, "finish_reason": "stop", "sec": 9.6}
+{"batch": "095", "model": "gpt-4.1", "category": "동호회·모임 공지", "style": "게시판 글", "prompt_tokens": 669, "completion_tokens": 1553, "finish_reason": "stop", "sec": 9.5}
+{"batch": "096", "model": "gpt-4.1", "category": "항공·여행 예약", "style": "공식 문서·기록", "prompt_tokens": 672, "completion_tokens": 1918, "finish_reason": "stop", "sec": 11.0}
+{"batch": "097", "model": "gpt-4.1", "category": "항공·여행 예약", "style": "이메일", "prompt_tokens": 657, "completion_tokens": 1700, "finish_reason": "stop", "sec": 14.9}
+{"batch": "098", "model": "gpt-4.1", "category": "항공·여행 예약", "style": "메신저 대화", "prompt_tokens": 669, "completion_tokens": 1270, "finish_reason": "stop", "sec": 12.0}
+{"batch": "099", "model": "gpt-4.1", "category": "항공·여행 예약", "style": "짧은 메모", "prompt_tokens": 669, "completion_tokens": 1226, "finish_reason": "stop", "sec": 7.1}
+{"batch": "100", "model": "gpt-4.1", "category": "항공·여행 예약", "style": "게시판 글", "prompt_tokens": 663, "completion_tokens": 1533, "finish_reason": "stop", "sec": 9.7}

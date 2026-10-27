@@ -1,0 +1,5 @@
+﻿system,doc_id,error_type,label,gold_text,pred_text,confidence,context
+rules+atonlee,E005,오탐,person,,재택,,【재택】 근무자 인터넷 전화 070
+rules+atonlee,E009,오탐,person,,하이픈,,"82 - 7713 (띄어쓴 【하이픈】), 보조 010–0482–"
+rules+atonlee,E021,오탐,person,,배송지,,【배송지】 충남 천안시 동남구 신부동
+rules+atonlee,E038,오탐,person,,아멕스,,"531 0098 2211, 【아멕스】 3782-822463-10"

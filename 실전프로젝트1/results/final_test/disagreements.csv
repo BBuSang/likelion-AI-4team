@@ -1,0 +1,61 @@
+﻿doc_id,label,gold_text,caught_by,context
+D0101,person,허수아,rules|atonlee|rules+atonlee,09 보고자: 리스크관리팀 【허수아】  탐지 내용 정하은 고객 
+D0113,person,상훈,rules|atonlee|rules+atonlee,"026-07-08 박도윤: 【상훈】아, 오늘 회의 자료 어디 "
+D0113,person,은영,rules|atonlee|rules+atonlee,서 달래 박도윤: 알겠어. 【은영】이랑 같이 정리해서 올릴게
+D0115,person,정현준,atonlee|rules+atonlee|llm,리팀 정서연 - 카드운영팀 【정현준】  2. 전보 - 김서준 대
+D0121,person,신승현,rules|atonlee|rules+atonlee,방문 (강남지점) 담당자: 【신승현】 과장 / 내선 7323  
+D0121,person,허수아,rules|atonlee|rules+atonlee,서류 제출 후 리스크관리팀 【허수아】 부장에게 심사를 요청하기로
+D0122,person,은영,rules|atonlee|rules+atonlee,신 과장이 초안을 작성하고 【은영】 씨가 검토  다음 회의: 
+D0124,person,허수아,rules|atonlee|rules+atonlee,서류 제출 후 리스크관리팀 【허수아】 부장에게 심사를 요청하기로
+D0125,person,현준,atonlee|rules+atonlee,서 달래 이준우: 알겠어. 【현준】이랑 같이 정리해서 올릴게
+D0133,person,허수아,rules|atonlee|rules+atonlee,확인 부탁드려요. 검토 후 【허수아】 부장님께 바로 올려 주셔도
+D0133,person,김은정,rules|atonlee|rules+atonlee,로 올려 주셔도 됩니다.  【김은정】 드림
+D0137,person,최혜진,rules|rules+atonlee|llm,님이 내일까지 보고서 달래 【최혜진】: 알겠어. 준우랑 같이 정
+D0137,person,준우,atonlee|rules+atonlee|llm,서 달래 최혜진: 알겠어. 【준우】랑 같이 정리해서 올릴게
+D0145,person,손 하윤,rules|rules+atonlee|llm,0:55 상담원: 신승현  【손 하윤】 고객(010-0794-22
+D0146,person,민준,rules|atonlee|rules+atonlee,이 과장이 초안을 작성하고 【민준】 씨가 검토  다음 회의: 
+D0157,person,지영,rules|atonlee|rules+atonlee,정 대리가 초안을 작성하고 【지영】 씨가 검토  다음 회의: 
+D0176,person,상훈,rules|atonlee|rules+atonlee,"6년 4월 22일 김진우: 【상훈】아, 오늘 회의 자료 어디 "
+D0176,person,서연,rules|atonlee|rules+atonlee,서 달래 김진우: 알겠어. 【서연】이랑 같이 정리해서 올릴게
+D0181,person,허수아,rules|atonlee|rules+atonlee,확인 부탁드려요. 검토 후 【허수아】 부장님께 바로 올려 주셔도
+D0183,person,민준,rules|atonlee|rules+atonlee,"026-03-22 이은서: 【민준】아, 오늘 회의 자료 어디 "
+D0183,person,이은서,rules|rules+atonlee|llm,님이 내일까지 보고서 달래 【이은서】: 알겠어. 윤서랑 같이 정
+D0183,person,윤서,atonlee|rules+atonlee|llm,서 달래 이은서: 알겠어. 【윤서】랑 같이 정리해서 올릴게
+D0184,person,소율,rules|atonlee|rules+atonlee,정 부장이 초안을 작성하고 【소율】 씨가 검토  다음 회의: 
+D0186,person,이 승현,rules|rules+atonlee|llm,1:38 상담원: 신승현  【이 승현】 고객(010-0552-49
+D0190,person,김 수빈,rules|rules+atonlee|llm,0:16 상담원: 김은영  【김 수빈】 고객(010-0114-43
+D0193,person,김 수빈,rules|rules+atonlee|llm,5:07 상담원: 신승현  【김 수빈】 고객(010-0114-43
+D0195,person,이준우,rules|rules+atonlee|llm,님이 내일까지 보고서 달래 【이준우】: 알겠어. 서현이랑 같이 
+D0195,person,서현,atonlee|rules+atonlee,서 달래 이준우: 알겠어. 【서현】이랑 같이 정리해서 올릴게
+D0199,person,은서,rules|atonlee|rules+atonlee,이 차장이 초안을 작성하고 【은서】 씨가 검토  다음 회의: 
+D0200,person,상훈,rules|atonlee|rules+atonlee,허 부장이 초안을 작성하고 【상훈】 씨가 검토  다음 회의: 
+D0206,person,박도윤,rules|atonlee|rules+atonlee,방문 (강남지점) 담당자: 【박도윤】 과장 / 내선 6112  
+D0206,person,허수아,rules|atonlee|rules+atonlee,서류 제출 후 리스크관리팀 【허수아】 부장에게 심사를 요청하기로
+D0206,account_number,216-127172-33,rules|rules+atonlee|llm, 입금 계좌: 가람저축은행 【216-127172-33】
+D0208,person,성호,rules|atonlee|rules+atonlee,이 과장이 초안을 작성하고 【성호】 씨가 검토  다음 회의: 
+D0215,phone_number,02-4483-7272,rules|atonlee|rules+atonlee,박도윤 드림 IT운영팀 | 【02-4483-7272】 | dy.park05@sa
+D0216,person,혜진,rules|atonlee|rules+atonlee,"26년 3월 3일 정성호: 【혜진】아, 오늘 회의 자료 어디 "
+D0216,person,상훈,atonlee|rules+atonlee,서 달래 정성호: 알겠어. 【상훈】이랑 같이 정리해서 올릴게
+D0217,person,은영,rules|atonlee|rules+atonlee,"6년 6월 28일 이서연: 【은영】아, 오늘 회의 자료 어디 "
+D0217,person,소연,atonlee|rules+atonlee,서 달래 이서연: 알겠어. 【소연】이랑 같이 정리해서 올릴게
+D0218,person,김은정,rules|atonlee|rules+atonlee,) 처리 담당: 고객보호팀 【김은정】 부장 검토자: 최지영 팀장
+D0222,person,김 수빈,rules|rules+atonlee|llm,2:09 상담원: 신승현  【김 수빈】 고객(01001144332
+D0226,person,신승현,rules|rules+atonlee|llm,님이 내일까지 보고서 달래 【신승현】: 알겠어. 소율이랑 같이 
+D0226,person,소율,atonlee|rules+atonlee|llm,서 달래 신승현: 알겠어. 【소율】이랑 같이 정리해서 올릴게
+D0227,person,현준,atonlee|rules+atonlee,서 달래 최지영: 알겠어. 【현준】이랑 같이 정리해서 올릴게
+D0229,phone_number,0239644249,rules|rules+atonlee|llm," 갑: IT운영팀 박예린 (【0239644249】, yr.park76@sae"
+D0231,person,준서,rules|atonlee|rules+atonlee,허 부장이 초안을 작성하고 【준서】 씨가 검토  다음 회의: 
+D0238,person,허수아,rules|atonlee|rules+atonlee,터 김서준  2. 전보 - 【허수아】 부장: 리스크관리팀 → 리
+D0244,phone_number,02 4483 7272,rules|atonlee|rules+atonlee,박도윤 드림 IT운영팀 | 【02 4483 7272】 | dy.park05@sa
+D0265,person,신승현,rules|atonlee|rules+atonlee,방문 (강남지점) 담당자: 【신승현】 과장 / 내선 6554  
+D0268,person,남성호,rules|rules+atonlee|llm,님이 내일까지 보고서 달래 【남성호】: 알겠어. 민준이랑 같이 
+D0268,person,민준,atonlee|rules+atonlee,서 달래 남성호: 알겠어. 【민준】이랑 같이 정리해서 올릴게
+D0274,phone_number,0239611452,rules|rules+atonlee|llm," 갑: IT운영팀 최혜진 (【0239611452】, hj.choi34@sae"
+D0284,person,은서,atonlee|rules+atonlee|llm,서 달래 신승현: 알겠어. 【은서】랑 같이 정리해서 올릴게
+D0289,phone_number,0238806413,rules|rules+atonlee|llm," 갑: IT운영팀 이준우 (【0238806413】, jw.lee66@saeb"
+D0296,person,성호,rules|atonlee|rules+atonlee,"6년 4월 22일 김은영: 【성호】야, 오늘 회의 자료 어디 "
+D0296,person,김은영,rules|rules+atonlee|llm,님이 내일까지 보고서 달래 【김은영】: 알겠어. 상훈이랑 같이 
+D0296,person,상훈,atonlee|rules+atonlee,서 달래 김은영: 알겠어. 【상훈】이랑 같이 정리해서 올릴게
+D0298,person,서준,rules|atonlee|rules+atonlee,김 과장이 초안을 작성하고 【서준】 씨가 검토  다음 회의: 
+D0300,person,정하은,rules|rules+atonlee|llm,초안 보내드립니다. 민원인 【정하은】 고객 주소가 부산광역시 해
+D0300,person,허수아,rules|atonlee|rules+atonlee,확인 부탁드려요. 검토 후 【허수아】 부장님께 바로 올려 주셔도

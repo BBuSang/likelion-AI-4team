@@ -1,0 +1,8 @@
+﻿label,rules_recall,rules_precision,atonlee_recall,atonlee_precision,rules+atonlee_recall,rules+atonlee_precision,llm_recall,llm_precision
+person,0.9941,1.0,0.9735,0.9793,1.0,0.9798,0.9294,0.9968
+phone_number,1.0,1.0,0.9756,1.0,1.0,1.0,1.0,1.0
+email,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+address,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+resident_registration_number,1.0,1.0,1.0,0.9524,1.0,1.0,1.0,1.0
+account_number,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+card_number,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0

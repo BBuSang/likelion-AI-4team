@@ -1,0 +1,1116 @@
+﻿split,doc_id,doc_type,template,text,shape,form,person_id,hard_cases,prev_char,next_char,context
+dev,D0002,대출상담,loan_2,김은영,가가가,full,P003,"josa_attached, phone_format_variant, spaced_name", ,⏎,년 9월 21일 18:28 ⏎ 상담원: 【김은영】 ⏎  ⏎ 윤 선영 고객(0100349206
+dev,D0002,대출상담,loan_2,윤 선영,가 가가,spaced,P051,"josa_attached, phone_format_variant, spaced_name",⏎, ,21일 18:28 ⏎ 상담원: 김은영 ⏎  ⏎ 【윤 선영】 고객(01003492063)이 기존
+dev,D0002,대출상담,loan_2,윤선영,가가가,full,P051,"josa_attached, phone_format_variant, spaced_name",⏎,은,7@example.net로 발송함. ⏎ 【윤선영】은 서류를 준비한 뒤 다시 연락하겠다
+dev,D0003,대출상담,loan_1,김은영,가가가,full,P003,, , ,영업점 방문 (여의도지점) ⏎ 담당자: 【김은영】 대리 / 내선 7999 ⏎  ⏎ 1. 고객
+dev,D0003,대출상담,loan_1,최채원,가가가,full,P046,, ,⏎,999 ⏎  ⏎ 1. 고객 정보 ⏎ - 성명: 【최채원】 ⏎ - 주민등록번호: 751126-22
+dev,D0003,대출상담,loan_1,최채원,가가가,full,P046,,⏎, ,"프리랜서 디자이너 ⏎  ⏎ 2. 상담 내용 ⏎ 【최채원】 고객은 카드론 상품으로 3000,0"
+dev,D0003,대출상담,loan_1,최지영,가가가,full,P011,, , ,소득 증빙 서류 제출 후 고객보호팀 【최지영】 팀장에게 심사를 요청하기로 함. ⏎  ⏎ 
+dev,D0007,사내메신저,messenger,김서연,가가가,full,P029,"given_only, josa_attached, surname_title_unlabeled",⏎,:,"[사내 메신저] 2026-08-04 ⏎ 【김서연】: 승현아, 오늘 회의 자료 어디 있"
+dev,D0007,사내메신저,messenger,승현,가가,given,P013,"given_only, josa_attached, surname_title_unlabeled", ,아,"신저] 2026-08-04 ⏎ 김서연: 【승현】아, 오늘 회의 자료 어디 있어? ⏎ 신"
+dev,D0007,사내메신저,messenger,신승현,가가가,full,P013,"given_only, josa_attached, surname_title_unlabeled",⏎,:,"현아, 오늘 회의 자료 어디 있어? ⏎ 【신승현】: 공유 폴더에 올려놨어. 근데 전서"
+dev,D0007,사내메신저,messenger,전서윤,가가가,full,P052,"given_only, josa_attached, surname_title_unlabeled", , ,승현: 공유 폴더에 올려놨어. 근데 【전서윤】 고객 건은 아직 정리 못 했어 ⏎ 김서
+dev,D0007,사내메신저,messenger,김서연,가가가,full,P029,"given_only, josa_attached, surname_title_unlabeled",⏎,:,서윤 고객 건은 아직 정리 못 했어 ⏎ 【김서연】: 그 고객 연락처 010-0863-
+dev,D0007,사내메신저,messenger,신승현,가가가,full,P013,"given_only, josa_attached, surname_title_unlabeled",⏎,:,1 맞지? 내가 오후에 전화해 볼게 ⏎ 【신승현】: 응 부탁해. 아 그리고 허 부장님
+dev,D0007,사내메신저,messenger,김서연,가가가,full,P029,"given_only, josa_attached, surname_title_unlabeled",⏎,:, 허 부장님이 내일까지 보고서 달래 ⏎ 【김서연】: 알겠어. 은서랑 같이 정리해서 올
+dev,D0007,사내메신저,messenger,은서,가가,given,P007,"given_only, josa_attached, surname_title_unlabeled", ,랑,까지 보고서 달래 ⏎ 김서연: 알겠어. 【은서】랑 같이 정리해서 올릴게
+dev,D0009,사내메신저,messenger,이윤서,가가가,full,P022,"given_only, homonym, josa_attached, surname_title_unlabeled",⏎,:,"내 메신저] 2026년 3월 13일 ⏎ 【이윤서】: 지영아, 오늘 회의 자료 어디 있"
+dev,D0009,사내메신저,messenger,지영,가가,given,P011,"given_only, homonym, josa_attached, surname_title_unlabeled", ,아,"] 2026년 3월 13일 ⏎ 이윤서: 【지영】아, 오늘 회의 자료 어디 있어? ⏎ 최"
+dev,D0009,사내메신저,messenger,최지영,가가가,full,P011,"given_only, homonym, josa_attached, surname_title_unlabeled",⏎,:,"영아, 오늘 회의 자료 어디 있어? ⏎ 【최지영】: 공유 폴더에 올려놨어. 근데 정하"
+dev,D0009,사내메신저,messenger,정하은,가가가,full,P073,"given_only, homonym, josa_attached, surname_title_unlabeled", , ,지영: 공유 폴더에 올려놨어. 근데 【정하은】 고객 건은 아직 정리 못 했어 ⏎ 이윤
+dev,D0009,사내메신저,messenger,이윤서,가가가,full,P022,"given_only, homonym, josa_attached, surname_title_unlabeled",⏎,:,하은 고객 건은 아직 정리 못 했어 ⏎ 【이윤서】: 그 고객 연락처 010-0922-
+dev,D0009,사내메신저,messenger,최지영,가가가,full,P011,"given_only, homonym, josa_attached, surname_title_unlabeled",⏎,:,8 맞지? 내가 오후에 전화해 볼게 ⏎ 【최지영】: 응 부탁해. 아 그리고 허 부장님
+dev,D0009,사내메신저,messenger,이윤서,가가가,full,P022,"given_only, homonym, josa_attached, surname_title_unlabeled",⏎,:, 허 부장님이 내일까지 보고서 달래 ⏎ 【이윤서】: 알겠어. 소율이랑 같이 정리해서 
+dev,D0009,사내메신저,messenger,소율,가가,given,P004,"given_only, homonym, josa_attached, surname_title_unlabeled", ,이,까지 보고서 달래 ⏎ 이윤서: 알겠어. 【소율】이랑 같이 정리해서 올릴게
+dev,D0012,회의록,meeting_1,박예린,가가가,full,P030,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,(,"장소: 본사 12층 회의실 ⏎ 참석자: 【박예린】(팀장), 남성호, 이소율, 오다은("
+dev,D0012,회의록,meeting_1,남성호,가가가,full,P027,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,",","층 회의실 ⏎ 참석자: 박예린(팀장), 【남성호】, 이소율, 오다은(데이터온시스템즈)"
+dev,D0012,회의록,meeting_1,이소율,가가가,full,P004,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,","," ⏎ 참석자: 박예린(팀장), 남성호, 【이소율】, 오다은(데이터온시스템즈) ⏎ 작성자:"
+dev,D0012,회의록,meeting_1,오다은,가가가,full,P034,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,(," 박예린(팀장), 남성호, 이소율, 【오다은】(데이터온시스템즈) ⏎ 작성자: 남성호 ⏎ "
+dev,D0012,회의록,meeting_1,남성호,가가가,full,P027,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,⏎, 오다은(데이터온시스템즈) ⏎ 작성자: 【남성호】 ⏎  ⏎ 논의 내용 ⏎ 1. 박 예린 팀장이 
+dev,D0012,회의록,meeting_1,박 예린,가 가가,spaced,P030,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , , ⏎ 작성자: 남성호 ⏎  ⏎ 논의 내용 ⏎ 1. 【박 예린】 팀장이 지난 분기 추진 현황을 공유
+dev,D0012,회의록,meeting_1,오다은,가가가,full,P034,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , ,황을 공유함. ⏎ 2. 데이터온시스템즈 【오다은】 매니저는 시스템 이관 일정이 2주 
+dev,D0012,회의록,meeting_1,이소율,가가가,full,P004,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,은,주 지연될 수 있다고 보고함. ⏎ 3. 【이소율】은 고객 안내 문자 발송 시점을 이관
+dev,D0012,회의록,meeting_1,소율,가가,given,P004,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , , 문구는 남 부장이 초안을 작성하고 【소율】 씨가 검토 ⏎  ⏎ 다음 회의: 2026-
+dev,D0013,회의록,meeting_2,김은영,가가가,full,P003,"homonym, josa_attached", ,",","검 ⏎ 2026년 10월 3일 ⏎  ⏎ 참석: 【김은영】, 박준서, 김서연 ⏎ 불참: 이서연 ("
+dev,D0013,회의록,meeting_2,박준서,가가가,full,P015,"homonym, josa_attached", ,",","6년 10월 3일 ⏎  ⏎ 참석: 김은영, 【박준서】, 김서연 ⏎ 불참: 이서연 (연차) ⏎  ⏎ "
+dev,D0013,회의록,meeting_2,김서연,가가가,full,P029,"homonym, josa_attached", ,⏎,"월 3일 ⏎  ⏎ 참석: 김은영, 박준서, 【김서연】 ⏎ 불참: 이서연 (연차) ⏎  ⏎ - 김은영"
+dev,D0013,회의록,meeting_2,이서연,가가가,full,P068,"homonym, josa_attached", , ,": 김은영, 박준서, 김서연 ⏎ 불참: 【이서연】 (연차) ⏎  ⏎ - 김은영: 신규 카드 "
+dev,D0013,회의록,meeting_2,김은영,가가가,full,P003,"homonym, josa_attached", ,:,김서연 ⏎ 불참: 이서연 (연차) ⏎  ⏎ - 【김은영】: 신규 카드 발급 심사 자동화 진행
+dev,D0013,회의록,meeting_2,박준서,가가가,full,P015,"homonym, josa_attached", ,:,발급 심사 자동화 진행률 70% ⏎ - 【박준서】: 고객 문의 응대 스크립트 개정안 
+dev,D0013,회의록,meeting_2,김서연,가가가,full,P029,"homonym, josa_attached", ,:, 응대 스크립트 개정안 작성 중 ⏎ - 【김서연】: 연체 고객 안내 문자 문구 법무 
+dev,D0013,회의록,meeting_2,이서연,가가가,full,P068,"homonym, josa_attached",⏎,이, 법무 검토 요청 완료 ⏎  ⏎ 공유 사항 ⏎ 【이서연】이 복귀하면 개인정보 처리방침 개정 
+dev,D0014,업무메일,email_internal,지영,가가,given,P011,"given_only, homonym",⏎, ,"민원 회신 초안 검토 부탁드립니다 ⏎  ⏎ 【지영】 씨, 안녕하세요. ⏎ 어제 접수된 민원"
+dev,D0014,업무메일,email_internal,정하은,가가가,full,P073,"given_only, homonym", , ,) 회신 초안 보내드립니다. 민원인 【정하은】 고객 주소가 경기도 성남시 분당구 
+dev,D0014,업무메일,email_internal,허수아,가가가,full,P008,"given_only, homonym", , ,것 같아 확인 부탁드려요. ⏎ 검토 후 【허수아】 부장님께 바로 올려 주셔도 됩니다.
+dev,D0014,업무메일,email_internal,김은정,가가가,full,P031,"given_only, homonym",⏎, ,장님께 바로 올려 주셔도 됩니다. ⏎  ⏎ 【김은정】 드림
+dev,D0015,인사발령,hr_notice,최지영,가가가,full,P011,homonym, ,⏎,합니다. ⏎  ⏎ 1. 승진 ⏎ - 고객보호팀 【최지영】 ⏎ - 여신심사팀 박도윤 ⏎  ⏎ 2. 전보 ⏎ 
+dev,D0015,인사발령,hr_notice,박도윤,가가가,full,P070,homonym, ,⏎,- 고객보호팀 최지영 ⏎ - 여신심사팀 【박도윤】 ⏎  ⏎ 2. 전보 ⏎ - 김은영 대리: 여신
+dev,D0015,인사발령,hr_notice,김은영,가가가,full,P003,homonym, , , 여신심사팀 박도윤 ⏎  ⏎ 2. 전보 ⏎ - 【김은영】 대리: 여신심사팀 → 리스크관리팀 ⏎ 
+dev,D0015,인사발령,hr_notice,안소연,가가가,full,P006,homonym, , ,리: 여신심사팀 → 리스크관리팀 ⏎ - 【안소연】 대리: 인사팀 → 디지털전략팀 ⏎  ⏎ 발
+dev,D0015,인사발령,hr_notice,전경희,가가가,full,P026,homonym, , ," 2026.06.23 ⏎ 문의: 인사팀 【전경희】 (내선 6212, kh.jeon50"
+dev,D0016,고객정보변경,info_change,김서준,가가가,full,P012,josa_attached, , ,: 2026년 5월 18일 ⏎ 처리자: 【김서준】 (고객센터) ⏎  ⏎ 변경 요청 고객: 노
+dev,D0016,고객정보변경,info_change,노성호,가가가,full,P050,josa_attached, ,⏎,준 (고객센터) ⏎  ⏎ 변경 요청 고객: 【노성호】 ⏎ 본인 확인: 주민등록번호 99012
+dev,D0016,고객정보변경,info_change,노성호,가가가,full,P050,josa_attached, ,는, 예약된 안내 문자는 모두 취소함. 【노성호】는 결제일 변경도 원했으나 다음 달부
+dev,D0017,인사발령,hr_notice,이소율,가가가,full,P004,, ,⏎,합니다. ⏎  ⏎ 1. 승진 ⏎ - 카드운영팀 【이소율】 ⏎ - 고객센터 정성호 ⏎  ⏎ 2. 전보 ⏎ -
+dev,D0017,인사발령,hr_notice,정성호,가가가,full,P002,, ,⏎, ⏎ - 카드운영팀 이소율 ⏎ - 고객센터 【정성호】 ⏎  ⏎ 2. 전보 ⏎ - 허수아 부장: 리스
+dev,D0017,인사발령,hr_notice,허수아,가가가,full,P008,, , ,- 고객센터 정성호 ⏎  ⏎ 2. 전보 ⏎ - 【허수아】 부장: 리스크관리팀 → 리스크관리팀
+dev,D0017,인사발령,hr_notice,김은정,가가가,full,P031,, , ,: 리스크관리팀 → 리스크관리팀 ⏎ - 【김은정】 부장: 고객보호팀 → 디지털전략팀 ⏎ 
+dev,D0017,인사발령,hr_notice,김윤서,가가가,full,P016,, , ,"2026년 1월 9일 ⏎ 문의: 인사팀 【김윤서】 (내선 6209, ys.kim15@"
+dev,D0019,인사발령,hr_notice,김은영,가가가,full,P003,homonym, ,⏎,합니다. ⏎  ⏎ 1. 승진 ⏎ - 여신심사팀 【김은영】 ⏎ - IT운영팀 박도윤 ⏎  ⏎ 2. 전보 ⏎ 
+dev,D0019,인사발령,hr_notice,박도윤,가가가,full,P071,homonym, ,⏎,- 여신심사팀 김은영 ⏎ - IT운영팀 【박도윤】 ⏎  ⏎ 2. 전보 ⏎ - 김서준 대리: 고객
+dev,D0019,인사발령,hr_notice,김서준,가가가,full,P012,homonym, , , IT운영팀 박도윤 ⏎  ⏎ 2. 전보 ⏎ - 【김서준】 대리: 고객센터 → 리스크관리팀 ⏎ -
+dev,D0019,인사발령,hr_notice,이준우,가가가,full,P010,homonym, , ,대리: 고객센터 → 리스크관리팀 ⏎ - 【이준우】 사원: IT운영팀 → 디지털전략팀 ⏎ 
+dev,D0019,인사발령,hr_notice,안소연,가가가,full,P006,homonym, , ," 2026-09-23 ⏎ 문의: 인사팀 【안소연】 (내선 4470, sy.ahn20@"
+dev,D0021,카드분실상담,card_lost_2,오 서연,가 가가,spaced,P044,"decoy_company_phone, spaced_name, surname_title_unlabeled", , , ⏎  ⏎ 담당: 고객센터 정 부장 ⏎ 고객: 【오 서연】 님 / 010-0957-9616 ⏎  ⏎ 
+dev,D0021,카드분실상담,card_lost_2,오서연,가가가,full,P044,"decoy_company_phone, spaced_name, surname_title_unlabeled",⏎,님, 님 / 010-0957-9616 ⏎  ⏎ 【오서연】님께서 해외 출장 중 카드를 분실했다
+dev,D0022,대출상담,loan_2,김은영,가가가,full,P003,"josa_attached, phone_format_variant, spaced_name", ,⏎,26-10-15 16:21 ⏎ 상담원: 【김은영】 ⏎  ⏎ 노 성호 고객(010.0564.6
+dev,D0022,대출상담,loan_2,노 성호,가 가가,spaced,P050,"josa_attached, phone_format_variant, spaced_name",⏎, ,-15 16:21 ⏎ 상담원: 김은영 ⏎  ⏎ 【노 성호】 고객(010.0564.6078)이 
+dev,D0022,대출상담,loan_2,노성호,가가가,full,P050,"josa_attached, phone_format_variant, spaced_name",⏎,는,8@example.net로 발송함. ⏎ 【노성호】는 서류를 준비한 뒤 다시 연락하겠다
+dev,D0023,고객정보변경,info_change,김서준,가가가,full,P012,"josa_attached, phone_format_variant", , ,: 2026년 6월 18일 ⏎ 처리자: 【김서준】 (고객센터) ⏎  ⏎ 변경 요청 고객: 정
+dev,D0023,고객정보변경,info_change,정지호,가가가,full,P057,"josa_attached, phone_format_variant", ,⏎,준 (고객센터) ⏎  ⏎ 변경 요청 고객: 【정지호】 ⏎ 본인 확인: 주민등록번호 99071
+dev,D0023,고객정보변경,info_change,정지호,가가가,full,P057,"josa_attached, phone_format_variant", ,는, 예약된 안내 문자는 모두 취소함. 【정지호】는 결제일 변경도 원했으나 다음 달부
+dev,D0024,인사발령,hr_notice,이준우,가가가,full,P010,, ,⏎,합니다. ⏎  ⏎ 1. 승진 ⏎ - IT운영팀 【이준우】 ⏎ - 채권관리팀 이상훈 ⏎  ⏎ 2. 전보 ⏎ 
+dev,D0024,인사발령,hr_notice,이상훈,가가가,full,P009,, ,⏎,- IT운영팀 이준우 ⏎ - 채권관리팀 【이상훈】 ⏎  ⏎ 2. 전보 ⏎ - 이소율 차장: 카드
+dev,D0024,인사발령,hr_notice,이소율,가가가,full,P004,, , , 채권관리팀 이상훈 ⏎  ⏎ 2. 전보 ⏎ - 【이소율】 차장: 카드운영팀 → 리스크관리팀 ⏎ 
+dev,D0024,인사발령,hr_notice,정성호,가가가,full,P002,, , ,장: 카드운영팀 → 리스크관리팀 ⏎ - 【정성호】 부장: 고객센터 → 디지털전략팀 ⏎  ⏎ 
+dev,D0024,인사발령,hr_notice,안소연,가가가,full,P006,, , ,"2026년 8월 4일 ⏎ 문의: 인사팀 【안소연】 (내선 3682, sy.ahn20@"
+dev,D0025,대출상담,loan_1,김은영,가가가,full,P003,, , ,영업점 방문 (해운대지점) ⏎ 담당자: 【김은영】 대리 / 내선 7678 ⏎  ⏎ 1. 고객
+dev,D0025,대출상담,loan_1,김수빈,가가가,full,P049,, ,⏎,678 ⏎  ⏎ 1. 고객 정보 ⏎ - 성명: 【김수빈】 ⏎ - 주민등록번호: 880120-27
+dev,D0025,대출상담,loan_1,김수빈,가가가,full,P049,,⏎, ,프리랜서 디자이너 ⏎  ⏎ 2. 상담 내용 ⏎ 【김수빈】 고객은 새봄 직장인 신용대출 상품으
+dev,D0025,대출상담,loan_1,허수아,가가가,full,P008,, , ,득 증빙 서류 제출 후 리스크관리팀 【허수아】 부장에게 심사를 요청하기로 함. ⏎  ⏎ 
+dev,D0027,고객정보변경,info_change,김서준,가가가,full,P012,"josa_attached, phone_format_variant", , ,일: 2026년 9월 5일 ⏎ 처리자: 【김서준】 (고객센터) ⏎  ⏎ 변경 요청 고객: 오
+dev,D0027,고객정보변경,info_change,오서연,가가가,full,P044,"josa_attached, phone_format_variant", ,⏎,준 (고객센터) ⏎  ⏎ 변경 요청 고객: 【오서연】 ⏎ 본인 확인: 주민등록번호 83062
+dev,D0027,고객정보변경,info_change,오서연,가가가,full,P044,"josa_attached, phone_format_variant", ,은, 예약된 안내 문자는 모두 취소함. 【오서연】은 결제일 변경도 원했으나 다음 달부
+dev,D0028,이상거래탐지,fds_2,김 하준,가 가가,spaced,P018,spaced_name, ,⏎,기록 - 2026-07-25 ⏎ 담당: 【김 하준】 ⏎ 대상: 정지호 / 010-0612-
+dev,D0028,이상거래탐지,fds_2,정지호,가가가,full,P057,spaced_name, , ,-07-25 ⏎ 담당: 김 하준 ⏎ 대상: 【정지호】 / 010-0612-9154 ⏎  ⏎ 새벽
+dev,D0028,이상거래탐지,fds_2,정지호,가가가,full,P057,spaced_name, ,님,결제가 반복되어 확인 전화를 드림. 【정지호】님은 해당 결제가 자녀의 게임 결제라
+dev,D0029,카드분실상담,card_lost_1,김서준,가가가,full,P012,phone_format_variant, , ,26-03-27 17:09 ⏎ 상담원: 【김서준】 (고객센터) ⏎  ⏎ 고객명: 윤선영 ⏎ 연락
+dev,D0029,카드분실상담,card_lost_1,윤선영,가가가,full,P051,phone_format_variant, ,⏎,원: 김서준 (고객센터) ⏎  ⏎ 고객명: 【윤선영】 ⏎ 연락처: 01003492063 ⏎ 카드
+dev,D0029,카드분실상담,card_lost_1,윤선영,가가가,full,P051,phone_format_variant,⏎, ,85-0643-1712 ⏎  ⏎ 상담 내용 ⏎ 【윤선영】 고객이 오늘 오전 지갑을 잃어버렸다
+dev,D0030,연체안내,collection,이상훈,가가가,full,P009,, ,⏎,-19 16:14 ⏎ 담당: 채권관리팀 【이상훈】 ⏎ 고객: 정은영 (010-0597-9
+dev,D0030,연체안내,collection,정은영,가가가,full,P056,, , ,4 ⏎ 담당: 채권관리팀 이상훈 ⏎ 고객: 【정은영】 (010-0597-9946) ⏎  ⏎ 연체
+dev,D0030,연체안내,collection,정은영,가가가,full,P056,, ,님,"000원, 연체 73일 ⏎ 통화 내용: 【정은영】님은 이번 주 금요일까지 하늘빛은행 "
+dev,D0031,민원처리,complaint_2,전서윤,가가가,full,P052,"spaced_name, surname_title_unlabeled", ,님,/ 2026년 12월 27일 ⏎  ⏎ 고객 【전서윤】님이 이번 달 카드 대금이 온누리은행
+dev,D0031,민원처리,complaint_2,전 서윤,가 가가,spaced,P052,"spaced_name, surname_title_unlabeled", , ,"20,000원은 당일 환급 처리함. 【전 서윤】 고객은 재발 방지 대책을 요청하였고"
+dev,D0031,민원처리,complaint_2,이준우,가가가,full,P010,"spaced_name, surname_title_unlabeled", , ,"방지 대책을 요청하였고, IT운영팀 【이준우】 사원에게 원인 분석을 의뢰함. ⏎ 회신"
+dev,D0032,업무메일,email_audit,정서현,가가가,full,P005,"homonym, phone_format_variant, spaced_name", ,입, 위탁 점검 결과 공유 ⏎  ⏎ 정보보호팀 【정서현】입니다. ⏎ 코드브릿지에 대한 상반기 개
+dev,D0032,업무메일,email_audit,정서현,가가가,full,P005,"homonym, phone_format_variant, spaced_name", ,","," 2026-02-04 ⏎ 2. 점검자: 【정서현】, 이서연 ⏎ 3. 수탁사 담당자: 문은"
+dev,D0032,업무메일,email_audit,이서연,가가가,full,P068,"homonym, phone_format_variant, spaced_name", ,⏎,"-02-04 ⏎ 2. 점검자: 정서현, 【이서연】 ⏎ 3. 수탁사 담당자: 문은정 매니저"
+dev,D0032,업무메일,email_audit,문은정,가가가,full,P037,"homonym, phone_format_variant, spaced_name", , ,"서현, 이서연 ⏎ 3. 수탁사 담당자: 【문은정】 매니저 (010.0561.7253,"
+dev,D0032,업무메일,email_audit,이 서연,가 가가,spaced,P068,"homonym, phone_format_variant, spaced_name", , , 제출을 요청했습니다. 관련 문의는 【이 서연】 과장에게 해주세요.
+dev,D0033,대출상담,loan_1,신승현,가가가,full,P013,, , ,영업점 방문 (해운대지점) ⏎ 담당자: 【신승현】 과장 / 내선 2011 ⏎  ⏎ 1. 고객
+dev,D0033,대출상담,loan_1,오영호,가가가,full,P063,, ,⏎,011 ⏎  ⏎ 1. 고객 정보 ⏎ - 성명: 【오영호】 ⏎ - 주민등록번호: 680327-15
+dev,D0033,대출상담,loan_1,오영호,가가가,full,P063,,⏎, , 중소기업 사무직 ⏎  ⏎ 2. 상담 내용 ⏎ 【오영호】 고객은 새봄 중금리 대출 상품으로 
+dev,D0033,대출상담,loan_1,허수아,가가가,full,P008,, , ,득 증빙 서류 제출 후 리스크관리팀 【허수아】 부장에게 심사를 요청하기로 함. ⏎  ⏎ 
+dev,D0034,고객정보변경,info_change,김서준,가가가,full,P012,josa_attached, , ,리일: 2026-10-08 ⏎ 처리자: 【김서준】 (고객센터) ⏎  ⏎ 변경 요청 고객: 박
+dev,D0034,고객정보변경,info_change,박준우,가가가,full,P061,josa_attached, ,⏎,준 (고객센터) ⏎  ⏎ 변경 요청 고객: 【박준우】 ⏎ 본인 확인: 주민등록번호 73060
+dev,D0034,고객정보변경,info_change,박준우,가가가,full,P061,josa_attached, ,는, 예약된 안내 문자는 모두 취소함. 【박준우】는 결제일 변경도 원했으나 다음 달부
+dev,D0035,회의록,meeting_1,정성호,가가가,full,P002,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,(,"장소: 본사 12층 회의실 ⏎ 참석자: 【정성호】(부장), 이소율, 김서준, 강민재("
+dev,D0035,회의록,meeting_1,이소율,가가가,full,P004,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,",","층 회의실 ⏎ 참석자: 정성호(부장), 【이소율】, 김서준, 강민재(미르보안) ⏎ 작성자"
+dev,D0035,회의록,meeting_1,김서준,가가가,full,P012,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,","," ⏎ 참석자: 정성호(부장), 이소율, 【김서준】, 강민재(미르보안) ⏎ 작성자: 이소율"
+dev,D0035,회의록,meeting_1,강민재,가가가,full,P039,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,(," 정성호(부장), 이소율, 김서준, 【강민재】(미르보안) ⏎ 작성자: 이소율 ⏎  ⏎ 논의 "
+dev,D0035,회의록,meeting_1,이소율,가가가,full,P004,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,⏎,"김서준, 강민재(미르보안) ⏎ 작성자: 【이소율】 ⏎  ⏎ 논의 내용 ⏎ 1. 정 성호 부장이 "
+dev,D0035,회의록,meeting_1,정 성호,가 가가,spaced,P002,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , , ⏎ 작성자: 이소율 ⏎  ⏎ 논의 내용 ⏎ 1. 【정 성호】 부장이 지난 분기 추진 현황을 공유
+dev,D0035,회의록,meeting_1,강민재,가가가,full,P039,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , ,추진 현황을 공유함. ⏎ 2. 미르보안 【강민재】 책임은 시스템 이관 일정이 2주 지
+dev,D0035,회의록,meeting_1,김서준,가가가,full,P012,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,은,주 지연될 수 있다고 보고함. ⏎ 3. 【김서준】은 고객 안내 문자 발송 시점을 이관
+dev,D0035,회의록,meeting_1,서준,가가,given,P012,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , , 문구는 이 차장이 초안을 작성하고 【서준】 씨가 검토 ⏎  ⏎ 다음 회의: 2026.
+dev,D0037,민원처리,complaint_1,노성호,가가가,full,P050,, , ,수 경로: 금융감독원 이첩 ⏎ 민원인: 【노성호】 (연락처 010-0564-6078)
+dev,D0037,민원처리,complaint_1,최지영,가가가,full,P011,, , ,-6078) ⏎ 처리 담당: 고객보호팀 【최지영】 팀장 ⏎ 검토자: 이소율 차장 ⏎  ⏎ [민원
+dev,D0037,민원처리,complaint_1,이소율,가가가,full,P004,, , ,: 고객보호팀 최지영 팀장 ⏎ 검토자: 【이소율】 차장 ⏎  ⏎ [민원 요지] ⏎ 민원인은 연회
+dev,D0037,민원처리,complaint_1,이소율,가가가,full,P004,, , , ⏎ 연회비 전액 환불 및 사과 안내. 【이소율】 차장의 승인 후 2026.07.08
+dev,D0038,민원처리,complaint_2,전서윤,가가가,full,P052,"spaced_name, surname_title_unlabeled", ,님, / 2026년 1월 28일 ⏎  ⏎ 고객 【전서윤】님이 이번 달 카드 대금이 가람저축은
+dev,D0038,민원처리,complaint_2,전 서윤,가 가가,spaced,P052,"spaced_name, surname_title_unlabeled", , ,"12,000원은 당일 환급 처리함. 【전 서윤】 고객은 재발 방지 대책을 요청하였고"
+dev,D0038,민원처리,complaint_2,박예린,가가가,full,P030,"spaced_name, surname_title_unlabeled", , ,"방지 대책을 요청하였고, IT운영팀 【박예린】 팀장에게 원인 분석을 의뢰함. ⏎ 회신"
+dev,D0039,회의록,meeting_1,이소율,가가가,full,P004,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,(,"장소: 본사 12층 회의실 ⏎ 참석자: 【이소율】(차장), 강민서, 안소연, 오다은("
+dev,D0039,회의록,meeting_1,강민서,가가가,full,P017,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,",","층 회의실 ⏎ 참석자: 이소율(차장), 【강민서】, 안소연, 오다은(데이터온시스템즈)"
+dev,D0039,회의록,meeting_1,안소연,가가가,full,P006,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,","," ⏎ 참석자: 이소율(차장), 강민서, 【안소연】, 오다은(데이터온시스템즈) ⏎ 작성자:"
+dev,D0039,회의록,meeting_1,오다은,가가가,full,P034,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,(," 이소율(차장), 강민서, 안소연, 【오다은】(데이터온시스템즈) ⏎ 작성자: 강민서 ⏎ "
+dev,D0039,회의록,meeting_1,강민서,가가가,full,P017,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,⏎, 오다은(데이터온시스템즈) ⏎ 작성자: 【강민서】 ⏎  ⏎ 논의 내용 ⏎ 1. 이 소율 차장이 
+dev,D0039,회의록,meeting_1,이 소율,가 가가,spaced,P004,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , , ⏎ 작성자: 강민서 ⏎  ⏎ 논의 내용 ⏎ 1. 【이 소율】 차장이 지난 분기 추진 현황을 공유
+dev,D0039,회의록,meeting_1,오다은,가가가,full,P034,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , ,황을 공유함. ⏎ 2. 데이터온시스템즈 【오다은】 매니저는 시스템 이관 일정이 2주 
+dev,D0039,회의록,meeting_1,안소연,가가가,full,P006,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,은,주 지연될 수 있다고 보고함. ⏎ 3. 【안소연】은 고객 안내 문자 발송 시점을 이관
+dev,D0039,회의록,meeting_1,소연,가가,given,P006,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , , 문구는 강 사원이 초안을 작성하고 【소연】 씨가 검토 ⏎  ⏎ 다음 회의: 2026년
+dev,D0040,민원처리,complaint_1,이선우,가가가,full,P055,phone_format_variant, , ,수 경로: 금융감독원 이첩 ⏎ 민원인: 【이선우】 (연락처 01008195062) ⏎ 처
+dev,D0040,민원처리,complaint_1,김은정,가가가,full,P031,phone_format_variant, , ,95062) ⏎ 처리 담당: 고객보호팀 【김은정】 부장 ⏎ 검토자: 허수아 부장 ⏎  ⏎ [민원
+dev,D0040,민원처리,complaint_1,허수아,가가가,full,P008,phone_format_variant, , ,: 고객보호팀 김은정 부장 ⏎ 검토자: 【허수아】 부장 ⏎  ⏎ [민원 요지] ⏎ 민원인은 연회
+dev,D0040,민원처리,complaint_1,허수아,가가가,full,P008,phone_format_variant, , , ⏎ 연회비 전액 환불 및 사과 안내. 【허수아】 부장의 승인 후 2026년 1월 1
+dev,D0041,민원처리,complaint_1,김민준,가가가,full,P067,homonym, , ,수 경로: 금융감독원 이첩 ⏎ 민원인: 【김민준】 (연락처 010-0144-3268)
+dev,D0041,민원처리,complaint_1,최지영,가가가,full,P011,homonym, , ,-3268) ⏎ 처리 담당: 고객보호팀 【최지영】 팀장 ⏎ 검토자: 이소율 차장 ⏎  ⏎ [민원
+dev,D0041,민원처리,complaint_1,이소율,가가가,full,P004,homonym, , ,: 고객보호팀 최지영 팀장 ⏎ 검토자: 【이소율】 차장 ⏎  ⏎ [민원 요지] ⏎ 민원인은 연회
+dev,D0041,민원처리,complaint_1,이소율,가가가,full,P004,homonym, , , ⏎ 연회비 전액 환불 및 사과 안내. 【이소율】 차장의 승인 후 2026-03-04
+dev,D0042,회의록,meeting_2,이상훈,가가가,full,P009,"homonym, josa_attached", ,",","점검 ⏎ 2026년 5월 8일 ⏎  ⏎ 참석: 【이상훈】, 김민준, 정성호 ⏎ 불참: 최혜진 ("
+dev,D0042,회의록,meeting_2,김민준,가가가,full,P066,"homonym, josa_attached", ,",","26년 5월 8일 ⏎  ⏎ 참석: 이상훈, 【김민준】, 정성호 ⏎ 불참: 최혜진 (연차) ⏎  ⏎ "
+dev,D0042,회의록,meeting_2,정성호,가가가,full,P002,"homonym, josa_attached", ,⏎,"월 8일 ⏎  ⏎ 참석: 이상훈, 김민준, 【정성호】 ⏎ 불참: 최혜진 (연차) ⏎  ⏎ - 이상훈"
+dev,D0042,회의록,meeting_2,최혜진,가가가,full,P020,"homonym, josa_attached", , ,": 이상훈, 김민준, 정성호 ⏎ 불참: 【최혜진】 (연차) ⏎  ⏎ - 이상훈: 신규 카드 "
+dev,D0042,회의록,meeting_2,이상훈,가가가,full,P009,"homonym, josa_attached", ,:,정성호 ⏎ 불참: 최혜진 (연차) ⏎  ⏎ - 【이상훈】: 신규 카드 발급 심사 자동화 진행
+dev,D0042,회의록,meeting_2,김민준,가가가,full,P066,"homonym, josa_attached", ,:,발급 심사 자동화 진행률 70% ⏎ - 【김민준】: 고객 문의 응대 스크립트 개정안 
+dev,D0042,회의록,meeting_2,정성호,가가가,full,P002,"homonym, josa_attached", ,:, 응대 스크립트 개정안 작성 중 ⏎ - 【정성호】: 연체 고객 안내 문자 문구 법무 
+dev,D0042,회의록,meeting_2,최혜진,가가가,full,P020,"homonym, josa_attached",⏎,이, 법무 검토 요청 완료 ⏎  ⏎ 공유 사항 ⏎ 【최혜진】이 복귀하면 개인정보 처리방침 개정 
+dev,D0043,용역계약서,contract,이준우,가가가,full,P010,phone_format_variant, , ,"제5조(담당자) ⏎   갑: IT운영팀 【이준우】 (0238806413, jw.lee"
+dev,D0043,용역계약서,contract,신현준,가가가,full,P043,phone_format_variant, , ,"d.example.com) ⏎   을: 【신현준】 매니저 (01006640224, h"
+dev,D0043,용역계약서,contract,김예준,가가가,full,P001,phone_format_variant, ,⏎,07-08 ⏎  ⏎ 갑: 새봄카드 대표이사 【김예준】 ⏎ 을: 다솜콜솔루션 대표이사 배현정
+dev,D0043,용역계약서,contract,배현정,가가가,full,P041,phone_format_variant, ,, 김예준 ⏎ 을: 다솜콜솔루션 대표이사 【배현정】
+dev,D0044,민원처리,complaint_2,오서연,가가가,full,P044,"homonym, spaced_name, surname_title_unlabeled", ,님,49 / 2026-02-23 ⏎  ⏎ 고객 【오서연】님이 이번 달 카드 대금이 하늘빛은행
+dev,D0044,민원처리,complaint_2,오 서연,가 가가,spaced,P044,"homonym, spaced_name, surname_title_unlabeled", , ,"00,000원은 당일 환급 처리함. 【오 서연】 고객은 재발 방지 대책을 요청하였고"
+dev,D0044,민원처리,complaint_2,박도윤,가가가,full,P071,"homonym, spaced_name, surname_title_unlabeled", , ,"방지 대책을 요청하였고, IT운영팀 【박도윤】 대리에게 원인 분석을 의뢰함. ⏎ 회신"
+dev,D0045,대출상담,loan_1,신승현,가가가,full,P013,phone_format_variant, , , 영업점 방문 (강남지점) ⏎ 담당자: 【신승현】 과장 / 내선 4876 ⏎  ⏎ 1. 고객
+dev,D0045,대출상담,loan_1,손하윤,가가가,full,P048,phone_format_variant, ,⏎,876 ⏎  ⏎ 1. 고객 정보 ⏎ - 성명: 【손하윤】 ⏎ - 주민등록번호: 770210-24
+dev,D0045,대출상담,loan_1,손하윤,가가가,full,P048,phone_format_variant,⏎, , 중소기업 사무직 ⏎  ⏎ 2. 상담 내용 ⏎ 【손하윤】 고객은 새봄 사업자 운영자금 대출 
+dev,D0045,대출상담,loan_1,정성호,가가가,full,P002,phone_format_variant, , , 소득 증빙 서류 제출 후 고객센터 【정성호】 부장에게 심사를 요청하기로 함. ⏎  ⏎ 
+dev,D0047,민원처리,complaint_1,이선우,가가가,full,P055,, , ,수 경로: 금융감독원 이첩 ⏎ 민원인: 【이선우】 (연락처 010-0819-5062)
+dev,D0047,민원처리,complaint_1,최지영,가가가,full,P011,, , ,-5062) ⏎ 처리 담당: 고객보호팀 【최지영】 팀장 ⏎ 검토자: 이윤서 팀장 ⏎  ⏎ [민원
+dev,D0047,민원처리,complaint_1,이윤서,가가가,full,P022,, , ,: 고객보호팀 최지영 팀장 ⏎ 검토자: 【이윤서】 팀장 ⏎  ⏎ [민원 요지] ⏎ 민원인은 연회
+dev,D0047,민원처리,complaint_1,이윤서,가가가,full,P022,, , , ⏎ 연회비 전액 환불 및 사과 안내. 【이윤서】 팀장의 승인 후 2026.02.25
+dev,D0048,카드분실상담,card_lost_1,김서준,가가가,full,P012,, , ,26-10-04 11:20 ⏎ 상담원: 【김서준】 (고객센터) ⏎  ⏎ 고객명: 김수빈 ⏎ 연락
+dev,D0048,카드분실상담,card_lost_1,김수빈,가가가,full,P049,, ,⏎,원: 김서준 (고객센터) ⏎  ⏎ 고객명: 【김수빈】 ⏎ 연락처: 010-0114-4332 ⏎ 
+dev,D0048,카드분실상담,card_lost_1,김수빈,가가가,full,P049,,⏎, ,74-5171-2369 ⏎  ⏎ 상담 내용 ⏎ 【김수빈】 고객이 오늘 오전 지갑을 잃어버렸다
+dev,D0049,대출상담,loan_2,김은영,가가가,full,P003,"josa_attached, spaced_name", ,⏎,26-11-26 18:03 ⏎ 상담원: 【김은영】 ⏎  ⏎ 김 수빈 고객(010-0114-4
+dev,D0049,대출상담,loan_2,김 수빈,가 가가,spaced,P049,"josa_attached, spaced_name",⏎, ,-26 18:03 ⏎ 상담원: 김은영 ⏎  ⏎ 【김 수빈】 고객(010-0114-4332)이 
+dev,D0049,대출상담,loan_2,김수빈,가가가,full,P049,"josa_attached, spaced_name",⏎,은,2@example.net로 발송함. ⏎ 【김수빈】은 서류를 준비한 뒤 다시 연락하겠다
+dev,D0050,연체안내,collection,이상훈,가가가,full,P009,, ,⏎,-25 14:34 ⏎ 담당: 채권관리팀 【이상훈】 ⏎ 고객: 최채원 (010-0129-0
+dev,D0050,연체안내,collection,최채원,가가가,full,P046,, , ,4 ⏎ 담당: 채권관리팀 이상훈 ⏎ 고객: 【최채원】 (010-0129-0753) ⏎  ⏎ 연체
+dev,D0050,연체안내,collection,최채원,가가가,full,P046,, ,님,"000원, 연체 71일 ⏎ 통화 내용: 【최채원】님은 이번 주 금요일까지 온누리은행 "
+dev,D0052,민원처리,complaint_1,이건우,가가가,full,P047,phone_format_variant, , ,수 경로: 금융감독원 이첩 ⏎ 민원인: 【이건우】 (연락처 010 0552 5661)
+dev,D0052,민원처리,complaint_1,최지영,가가가,full,P011,phone_format_variant, , , 5661) ⏎ 처리 담당: 고객보호팀 【최지영】 팀장 ⏎ 검토자: 허수아 부장 ⏎  ⏎ [민원
+dev,D0052,민원처리,complaint_1,허수아,가가가,full,P008,phone_format_variant, , ,: 고객보호팀 최지영 팀장 ⏎ 검토자: 【허수아】 부장 ⏎  ⏎ [민원 요지] ⏎ 민원인은 연회
+dev,D0052,민원처리,complaint_1,허수아,가가가,full,P008,phone_format_variant, , , ⏎ 연회비 전액 환불 및 사과 안내. 【허수아】 부장의 승인 후 2026.10.02
+dev,D0053,대출상담,loan_1,신승현,가가가,full,P013,, , ,영업점 방문 (해운대지점) ⏎ 담당자: 【신승현】 과장 / 내선 6865 ⏎  ⏎ 1. 고객
+dev,D0053,대출상담,loan_1,박민재,가가가,full,P058,, ,⏎,865 ⏎  ⏎ 1. 고객 정보 ⏎ - 성명: 【박민재】 ⏎ - 주민등록번호: 700308-11
+dev,D0053,대출상담,loan_1,박민재,가가가,full,P058,,⏎, ,- 직업: 공무원 ⏎  ⏎ 2. 상담 내용 ⏎ 【박민재】 고객은 새봄 중금리 대출 상품으로 
+dev,D0053,대출상담,loan_1,전경희,가가가,full,P026,, , ,. 소득 증빙 서류 제출 후 인사팀 【전경희】 팀장에게 심사를 요청하기로 함. ⏎  ⏎ 
+dev,D0054,카드분실상담,card_lost_1,정성호,가가가,full,P002,phone_format_variant, , ,6년 1월 3일 15:23 ⏎ 상담원: 【정성호】 (고객센터) ⏎  ⏎ 고객명: 오서연 ⏎ 연락
+dev,D0054,카드분실상담,card_lost_1,오서연,가가가,full,P044,phone_format_variant, ,⏎,원: 정성호 (고객센터) ⏎  ⏎ 고객명: 【오서연】 ⏎ 연락처: 010.0957.9616 ⏎ 
+dev,D0054,카드분실상담,card_lost_1,오서연,가가가,full,P044,phone_format_variant,⏎, ,98-2146-5847 ⏎  ⏎ 상담 내용 ⏎ 【오서연】 고객이 오늘 오전 지갑을 잃어버렸다
+dev,D0055,이상거래탐지,fds_1,허수아,가가가,full,P008,"homonym, phone_format_variant", ,⏎,5 15:03 ⏎ 보고자: 리스크관리팀 【허수아】 ⏎  ⏎ 탐지 내용 ⏎ 김민준 고객 명의 카드
+dev,D0055,이상거래탐지,fds_1,김민준,가가가,full,P067,"homonym, phone_format_variant",⏎, ,: 리스크관리팀 허수아 ⏎  ⏎ 탐지 내용 ⏎ 【김민준】 고객 명의 카드(9410-2058-
+dev,D0055,이상거래탐지,fds_1,김민준,가가가,full,P067,"homonym, phone_format_variant", , ,0144.3268)로 확인 전화 → 【김민준】 고객 본인이 결제하지 않았다고 답변
+dev,D0055,이상거래탐지,fds_1,이소율,가가가,full,P004,"homonym, phone_format_variant", , , 유사 패턴이 늘고 있어 카드운영팀 【이소율】 차장에게 탐지 규칙 보완을 요청함.
+dev,D0056,카드분실상담,card_lost_1,김서준,가가가,full,P012,phone_format_variant, , ,26-04-02 16:06 ⏎ 상담원: 【김서준】 (고객센터) ⏎  ⏎ 고객명: 정우진 ⏎ 연락
+dev,D0056,카드분실상담,card_lost_1,정우진,가가가,full,P054,phone_format_variant, ,⏎,원: 김서준 (고객센터) ⏎  ⏎ 고객명: 【정우진】 ⏎ 연락처: 010.0675.9202 ⏎ 
+dev,D0056,카드분실상담,card_lost_1,정우진,가가가,full,P054,phone_format_variant,⏎, ,27-1111-6153 ⏎  ⏎ 상담 내용 ⏎ 【정우진】 고객이 오늘 오전 지갑을 잃어버렸다
+dev,D0057,대출상담,loan_2,박도윤,가가가,full,P070,"homonym, josa_attached, spaced_name", ,⏎,26-02-16 14:41 ⏎ 상담원: 【박도윤】 ⏎  ⏎ 최 채원 고객(010-0129-0
+dev,D0057,대출상담,loan_2,최 채원,가 가가,spaced,P046,"homonym, josa_attached, spaced_name",⏎, ,-16 14:41 ⏎ 상담원: 박도윤 ⏎  ⏎ 【최 채원】 고객(010-0129-0753)이 
+dev,D0057,대출상담,loan_2,최채원,가가가,full,P046,"homonym, josa_attached, spaced_name",⏎,은,9@example.net로 발송함. ⏎ 【최채원】은 서류를 준비한 뒤 다시 연락하겠다
+dev,D0058,대출상담,loan_1,신승현,가가가,full,P013,"homonym, phone_format_variant", , ,영업점 방문 (해운대지점) ⏎ 담당자: 【신승현】 과장 / 내선 3660 ⏎  ⏎ 1. 고객
+dev,D0058,대출상담,loan_1,정하은,가가가,full,P073,"homonym, phone_format_variant", ,⏎,660 ⏎  ⏎ 1. 고객 정보 ⏎ - 성명: 【정하은】 ⏎ - 주민등록번호: 010621-40
+dev,D0058,대출상담,loan_1,정하은,가가가,full,P073,"homonym, phone_format_variant",⏎, ,- 직업: 공무원 ⏎  ⏎ 2. 상담 내용 ⏎ 【정하은】 고객은 새봄 중금리 대출 상품으로 
+dev,D0058,대출상담,loan_1,허수아,가가가,full,P008,"homonym, phone_format_variant", , ,득 증빙 서류 제출 후 리스크관리팀 【허수아】 부장에게 심사를 요청하기로 함. ⏎  ⏎ 
+dev,D0059,회의록,meeting_1,최지영,가가가,full,P011,"given_only, homonym, josa_attached, spaced_name, surname_title_unlabeled", ,(,"장소: 본사 12층 회의실 ⏎ 참석자: 【최지영】(팀장), 최혜진, 이준우, 이서연("
+dev,D0059,회의록,meeting_1,최혜진,가가가,full,P020,"given_only, homonym, josa_attached, spaced_name, surname_title_unlabeled", ,",","층 회의실 ⏎ 참석자: 최지영(팀장), 【최혜진】, 이준우, 이서연(미르보안) ⏎ 작성자"
+dev,D0059,회의록,meeting_1,이준우,가가가,full,P010,"given_only, homonym, josa_attached, spaced_name, surname_title_unlabeled", ,","," ⏎ 참석자: 최지영(팀장), 최혜진, 【이준우】, 이서연(미르보안) ⏎ 작성자: 최혜진"
+dev,D0059,회의록,meeting_1,이서연,가가가,full,P069,"given_only, homonym, josa_attached, spaced_name, surname_title_unlabeled", ,(," 최지영(팀장), 최혜진, 이준우, 【이서연】(미르보안) ⏎ 작성자: 최혜진 ⏎  ⏎ 논의 "
+dev,D0059,회의록,meeting_1,최혜진,가가가,full,P020,"given_only, homonym, josa_attached, spaced_name, surname_title_unlabeled", ,⏎,"이준우, 이서연(미르보안) ⏎ 작성자: 【최혜진】 ⏎  ⏎ 논의 내용 ⏎ 1. 최 지영 팀장이 "
+dev,D0059,회의록,meeting_1,최 지영,가 가가,spaced,P011,"given_only, homonym, josa_attached, spaced_name, surname_title_unlabeled", , , ⏎ 작성자: 최혜진 ⏎  ⏎ 논의 내용 ⏎ 1. 【최 지영】 팀장이 지난 분기 추진 현황을 공유
+dev,D0059,회의록,meeting_1,이서연,가가가,full,P069,"given_only, homonym, josa_attached, spaced_name, surname_title_unlabeled", , ,추진 현황을 공유함. ⏎ 2. 미르보안 【이서연】 책임은 시스템 이관 일정이 2주 지
+dev,D0059,회의록,meeting_1,이준우,가가가,full,P010,"given_only, homonym, josa_attached, spaced_name, surname_title_unlabeled", ,는,주 지연될 수 있다고 보고함. ⏎ 3. 【이준우】는 고객 안내 문자 발송 시점을 이관
+dev,D0059,회의록,meeting_1,준우,가가,given,P010,"given_only, homonym, josa_attached, spaced_name, surname_title_unlabeled", , , 문구는 최 차장이 초안을 작성하고 【준우】 씨가 검토 ⏎  ⏎ 다음 회의: 2026-
+dev,D0060,대출상담,loan_2,박도윤,가가가,full,P070,"homonym, josa_attached, phone_format_variant, spaced_name", ,⏎,26-01-08 14:52 ⏎ 상담원: 【박도윤】 ⏎  ⏎ 이 건우 고객(010.0552.5
+dev,D0060,대출상담,loan_2,이 건우,가 가가,spaced,P047,"homonym, josa_attached, phone_format_variant, spaced_name",⏎, ,-08 14:52 ⏎ 상담원: 박도윤 ⏎  ⏎ 【이 건우】 고객(010.0552.5661)이 
+dev,D0060,대출상담,loan_2,이건우,가가가,full,P047,"homonym, josa_attached, phone_format_variant, spaced_name",⏎,는,1@example.com로 발송함. ⏎ 【이건우】는 서류를 준비한 뒤 다시 연락하겠다
+dev,D0061,카드분실상담,card_lost_1,김서준,가가가,full,P012,, , ,년 3월 21일 15:50 ⏎ 상담원: 【김서준】 (고객센터) ⏎  ⏎ 고객명: 박준우 ⏎ 연락
+dev,D0061,카드분실상담,card_lost_1,박준우,가가가,full,P061,, ,⏎,원: 김서준 (고객센터) ⏎  ⏎ 고객명: 【박준우】 ⏎ 연락처: 010-0186-5072 ⏎ 
+dev,D0061,카드분실상담,card_lost_1,박준우,가가가,full,P061,,⏎, ,49-2519-2541 ⏎  ⏎ 상담 내용 ⏎ 【박준우】 고객이 오늘 오전 지갑을 잃어버렸다
+dev,D0062,업무메일,email_audit,이서연,가가가,full,P068,"homonym, spaced_name", ,입, 위탁 점검 결과 공유 ⏎  ⏎ 정보보호팀 【이서연】입니다. ⏎ 미르보안에 대한 상반기 개인
+dev,D0062,업무메일,email_audit,이서연,가가가,full,P068,"homonym, spaced_name", ,",","026년 7월 28일 ⏎ 2. 점검자: 【이서연】, 정서현 ⏎ 3. 수탁사 담당자: 이서"
+dev,D0062,업무메일,email_audit,정서현,가가가,full,P005,"homonym, spaced_name", ,⏎,"7월 28일 ⏎ 2. 점검자: 이서연, 【정서현】 ⏎ 3. 수탁사 담당자: 이서연 책임 "
+dev,D0062,업무메일,email_audit,이서연,가가가,full,P069,"homonym, spaced_name", , ,"서연, 정서현 ⏎ 3. 수탁사 담당자: 【이서연】 책임 (010-0400-5262, "
+dev,D0062,업무메일,email_audit,정 서현,가 가가,spaced,P005,"homonym, spaced_name", , , 제출을 요청했습니다. 관련 문의는 【정 서현】 대리에게 해주세요.
+dev,D0063,회의록,meeting_2,정현준,가가가,full,P014,josa_attached, ,",","검 ⏎ 2026년 8월 24일 ⏎  ⏎ 참석: 【정현준】, 정성호, 김서연 ⏎ 불참: 정서현 ("
+dev,D0063,회의록,meeting_2,정성호,가가가,full,P002,josa_attached, ,",","6년 8월 24일 ⏎  ⏎ 참석: 정현준, 【정성호】, 김서연 ⏎ 불참: 정서현 (연차) ⏎  ⏎ "
+dev,D0063,회의록,meeting_2,김서연,가가가,full,P029,josa_attached, ,⏎," 24일 ⏎  ⏎ 참석: 정현준, 정성호, 【김서연】 ⏎ 불참: 정서현 (연차) ⏎  ⏎ - 정현준"
+dev,D0063,회의록,meeting_2,정서현,가가가,full,P005,josa_attached, , ,": 정현준, 정성호, 김서연 ⏎ 불참: 【정서현】 (연차) ⏎  ⏎ - 정현준: 신규 카드 "
+dev,D0063,회의록,meeting_2,정현준,가가가,full,P014,josa_attached, ,:,김서연 ⏎ 불참: 정서현 (연차) ⏎  ⏎ - 【정현준】: 신규 카드 발급 심사 자동화 진행
+dev,D0063,회의록,meeting_2,정성호,가가가,full,P002,josa_attached, ,:,발급 심사 자동화 진행률 70% ⏎ - 【정성호】: 고객 문의 응대 스크립트 개정안 
+dev,D0063,회의록,meeting_2,김서연,가가가,full,P029,josa_attached, ,:, 응대 스크립트 개정안 작성 중 ⏎ - 【김서연】: 연체 고객 안내 문자 문구 법무 
+dev,D0063,회의록,meeting_2,정서현,가가가,full,P005,josa_attached,⏎,이, 법무 검토 요청 완료 ⏎  ⏎ 공유 사항 ⏎ 【정서현】이 복귀하면 개인정보 처리방침 개정 
+dev,D0064,고객정보변경,info_change,정성호,가가가,full,P002,"josa_attached, phone_format_variant", , ,일: 2026년 4월 7일 ⏎ 처리자: 【정성호】 (고객센터) ⏎  ⏎ 변경 요청 고객: 이
+dev,D0064,고객정보변경,info_change,이재원,가가가,full,P062,"josa_attached, phone_format_variant", ,⏎,호 (고객센터) ⏎  ⏎ 변경 요청 고객: 【이재원】 ⏎ 본인 확인: 주민등록번호 73041
+dev,D0064,고객정보변경,info_change,이재원,가가가,full,P062,"josa_attached, phone_format_variant", ,은, 예약된 안내 문자는 모두 취소함. 【이재원】은 결제일 변경도 원했으나 다음 달부
+dev,D0065,대출상담,loan_2,김은영,가가가,full,P003,"josa_attached, spaced_name", ,⏎,26-07-24 11:21 ⏎ 상담원: 【김은영】 ⏎  ⏎ 이 승현 고객(010-0552-4
+dev,D0065,대출상담,loan_2,이 승현,가 가가,spaced,P059,"josa_attached, spaced_name",⏎, ,-24 11:21 ⏎ 상담원: 김은영 ⏎  ⏎ 【이 승현】 고객(010-0552-4961)이 
+dev,D0065,대출상담,loan_2,이승현,가가가,full,P059,"josa_attached, spaced_name",⏎,은,9@example.net로 발송함. ⏎ 【이승현】은 서류를 준비한 뒤 다시 연락하겠다
+dev,D0066,카드분실상담,card_lost_1,김민준,가가가,full,P066,homonym, , ,26-05-23 17:59 ⏎ 상담원: 【김민준】 (고객센터) ⏎  ⏎ 고객명: 손하윤 ⏎ 연락
+dev,D0066,카드분실상담,card_lost_1,손하윤,가가가,full,P048,homonym, ,⏎,원: 김민준 (고객센터) ⏎  ⏎ 고객명: 【손하윤】 ⏎ 연락처: 010-0794-2240 ⏎ 
+dev,D0066,카드분실상담,card_lost_1,손하윤,가가가,full,P048,homonym,⏎, ,09-0974-3959 ⏎  ⏎ 상담 내용 ⏎ 【손하윤】 고객이 오늘 오전 지갑을 잃어버렸다
+dev,D0067,업무메일,email_vendor,손하은,가가가,full,P036,, , ,"스템 테스트 일정 협의 ⏎  ⏎ 코드브릿지 【손하은】 책임님께, ⏎  ⏎ 안녕하세요, 새봄카드 "
+dev,D0067,업무메일,email_vendor,최혜진,가가가,full,P020,, ,입," ⏎  ⏎ 안녕하세요, 새봄카드 IT운영팀 【최혜진】입니다. ⏎ 지난 회의에서 말씀드린 통합"
+dev,D0067,업무메일,email_vendor,박하린,가가가,full,P025,, , ,"보내드릴 수 없어, 저희 정보보호팀 【박하린】 과장이 별도로 전달드릴 예정입니다."
+dev,D0067,업무메일,email_vendor,최혜진,가가가,full,P020,,⏎, ,0282-9512로 연락 주세요. ⏎  ⏎ 【최혜진】 드림 ⏎ IT운영팀 | 02-3961-
+dev,D0068,용역계약서,contract,최혜진,가가가,full,P020,phone_format_variant, , ,"제5조(담당자) ⏎   갑: IT운영팀 【최혜진】 (02.3961.1452, hj.c"
+dev,D0068,용역계약서,contract,손하은,가가가,full,P036,phone_format_variant, , ,"d.example.com) ⏎   을: 【손하은】 책임 (010-0288-0841, "
+dev,D0068,용역계약서,contract,김예준,가가가,full,P001,phone_format_variant, ,⏎,11.24 ⏎  ⏎ 갑: 새봄카드 대표이사 【김예준】 ⏎ 을: 코드브릿지 대표이사 허하은
+dev,D0068,용역계약서,contract,허하은,가가가,full,P035,phone_format_variant, ,,사 김예준 ⏎ 을: 코드브릿지 대표이사 【허하은】
+dev,D0069,업무메일,email_internal,서준,가가,given,P012,given_only,⏎, ,"민원 회신 초안 검토 부탁드립니다 ⏎  ⏎ 【서준】 씨, 안녕하세요. ⏎ 어제 접수된 민원"
+dev,D0069,업무메일,email_internal,김수빈,가가가,full,P049,given_only, , ,) 회신 초안 보내드립니다. 민원인 【김수빈】 고객 주소가 대전광역시 유성구 가람
+dev,D0069,업무메일,email_internal,정성호,가가가,full,P002,given_only, , ,것 같아 확인 부탁드려요. ⏎ 검토 후 【정성호】 부장님께 바로 올려 주셔도 됩니다.
+dev,D0069,업무메일,email_internal,최지영,가가가,full,P011,given_only,⏎, ,장님께 바로 올려 주셔도 됩니다. ⏎  ⏎ 【최지영】 드림
+dev,D0070,회의록,meeting_1,이윤서,가가가,full,P022,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,(,"장소: 본사 12층 회의실 ⏎ 참석자: 【이윤서】(팀장), 안소연, 정서현, 이수아("
+dev,D0070,회의록,meeting_1,안소연,가가가,full,P006,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,",","층 회의실 ⏎ 참석자: 이윤서(팀장), 【안소연】, 정서현, 이수아(다솜콜솔루션) ⏎ 작"
+dev,D0070,회의록,meeting_1,정서현,가가가,full,P005,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,","," ⏎ 참석자: 이윤서(팀장), 안소연, 【정서현】, 이수아(다솜콜솔루션) ⏎ 작성자: 안"
+dev,D0070,회의록,meeting_1,이수아,가가가,full,P042,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,(," 이윤서(팀장), 안소연, 정서현, 【이수아】(다솜콜솔루션) ⏎ 작성자: 안소연 ⏎  ⏎ 논"
+dev,D0070,회의록,meeting_1,안소연,가가가,full,P006,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,⏎,"현, 이수아(다솜콜솔루션) ⏎ 작성자: 【안소연】 ⏎  ⏎ 논의 내용 ⏎ 1. 이 윤서 팀장이 "
+dev,D0070,회의록,meeting_1,이 윤서,가 가가,spaced,P022,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , , ⏎ 작성자: 안소연 ⏎  ⏎ 논의 내용 ⏎ 1. 【이 윤서】 팀장이 지난 분기 추진 현황을 공유
+dev,D0070,회의록,meeting_1,이수아,가가가,full,P042,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , , 현황을 공유함. ⏎ 2. 다솜콜솔루션 【이수아】 책임은 시스템 이관 일정이 2주 지
+dev,D0070,회의록,meeting_1,정서현,가가가,full,P005,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,은,주 지연될 수 있다고 보고함. ⏎ 3. 【정서현】은 고객 안내 문자 발송 시점을 이관
+dev,D0070,회의록,meeting_1,서현,가가,given,P005,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , , 문구는 안 대리가 초안을 작성하고 【서현】 씨가 검토 ⏎  ⏎ 다음 회의: 2026-
+dev,D0071,업무메일,email_internal,은영,가가,given,P003,given_only,⏎, ,"민원 회신 초안 검토 부탁드립니다 ⏎  ⏎ 【은영】 씨, 안녕하세요. ⏎ 어제 접수된 민원"
+dev,D0071,업무메일,email_internal,정지호,가가가,full,P057,given_only, , ,) 회신 초안 보내드립니다. 민원인 【정지호】 고객 주소가 광주광역시 북구 하늬로
+dev,D0071,업무메일,email_internal,최지영,가가가,full,P011,given_only, , ,것 같아 확인 부탁드려요. ⏎ 검토 후 【최지영】 팀장님께 바로 올려 주셔도 됩니다.
+dev,D0071,업무메일,email_internal,김은정,가가가,full,P031,given_only,⏎, ,장님께 바로 올려 주셔도 됩니다. ⏎  ⏎ 【김은정】 드림
+dev,D0072,용역계약서,contract,이준우,가가가,full,P010,phone_format_variant, , ,"제5조(담당자) ⏎   갑: IT운영팀 【이준우】 (02-3880-6413, jw.l"
+dev,D0072,용역계약서,contract,손하은,가가가,full,P036,phone_format_variant, , ,"d.example.com) ⏎   을: 【손하은】 책임 (010.0288.0841, "
+dev,D0072,용역계약서,contract,김예준,가가가,full,P001,phone_format_variant, ,⏎,01-27 ⏎  ⏎ 갑: 새봄카드 대표이사 【김예준】 ⏎ 을: 코드브릿지 대표이사 허하은
+dev,D0072,용역계약서,contract,허하은,가가가,full,P035,phone_format_variant, ,,사 김예준 ⏎ 을: 코드브릿지 대표이사 【허하은】
+dev,D0073,대출상담,loan_2,김진우,가가가,full,P023,"josa_attached, phone_format_variant, spaced_name", ,⏎,년 10월 7일 11:02 ⏎ 상담원: 【김진우】 ⏎  ⏎ 윤 선영 고객(010.0349.2
+dev,D0073,대출상담,loan_2,윤 선영,가 가가,spaced,P051,"josa_attached, phone_format_variant, spaced_name",⏎, , 7일 11:02 ⏎ 상담원: 김진우 ⏎  ⏎ 【윤 선영】 고객(010.0349.2063)이 
+dev,D0073,대출상담,loan_2,윤선영,가가가,full,P051,"josa_attached, phone_format_variant, spaced_name",⏎,은,7@example.net로 발송함. ⏎ 【윤선영】은 서류를 준비한 뒤 다시 연락하겠다
+dev,D0075,연체안내,collection,이상훈,가가가,full,P009,phone_format_variant, ,⏎,-05 09:51 ⏎ 담당: 채권관리팀 【이상훈】 ⏎ 고객: 김수연 (0100643483
+dev,D0075,연체안내,collection,김수연,가가가,full,P053,phone_format_variant, , ,1 ⏎ 담당: 채권관리팀 이상훈 ⏎ 고객: 【김수연】 (01006434831) ⏎  ⏎ 연체 내
+dev,D0075,연체안내,collection,김수연,가가가,full,P053,phone_format_variant, ,님,"000원, 연체 65일 ⏎ 통화 내용: 【김수연】님은 이번 주 금요일까지 하늘빛은행 "
+dev,D0076,이상거래탐지,fds_1,허수아,가가가,full,P008,, ,⏎,일 18:32 ⏎ 보고자: 리스크관리팀 【허수아】 ⏎  ⏎ 탐지 내용 ⏎ 이승현 고객 명의 카드
+dev,D0076,이상거래탐지,fds_1,이승현,가가가,full,P059,,⏎, ,: 리스크관리팀 허수아 ⏎  ⏎ 탐지 내용 ⏎ 【이승현】 고객 명의 카드(9410-1277-
+dev,D0076,이상거래탐지,fds_1,이승현,가가가,full,P059,, , ,0552-4961)로 확인 전화 → 【이승현】 고객 본인이 결제하지 않았다고 답변
+dev,D0076,이상거래탐지,fds_1,정성호,가가가,full,P002,, , ,근 유사 패턴이 늘고 있어 고객센터 【정성호】 부장에게 탐지 규칙 보완을 요청함.
+dev,D0077,카드분실상담,card_lost_2,손 유진,가 가가,spaced,P045,"decoy_company_phone, spaced_name, surname_title_unlabeled", , , ⏎  ⏎ 담당: 고객센터 정 부장 ⏎ 고객: 【손 유진】 님 / 010-0638-7486 ⏎  ⏎ 
+dev,D0077,카드분실상담,card_lost_2,손유진,가가가,full,P045,"decoy_company_phone, spaced_name, surname_title_unlabeled",⏎,님, 님 / 010-0638-7486 ⏎  ⏎ 【손유진】님께서 해외 출장 중 카드를 분실했다
+dev,D0078,업무메일,email_internal,진우,가가,given,P023,given_only,⏎, ,"민원 회신 초안 검토 부탁드립니다 ⏎  ⏎ 【진우】 씨, 안녕하세요. ⏎ 어제 접수된 민원"
+dev,D0078,업무메일,email_internal,이선우,가가가,full,P055,given_only, , ,) 회신 초안 보내드립니다. 민원인 【이선우】 고객 주소가 인천광역시 부평구 새봄
+dev,D0078,업무메일,email_internal,정성호,가가가,full,P002,given_only, , ,것 같아 확인 부탁드려요. ⏎ 검토 후 【정성호】 부장님께 바로 올려 주셔도 됩니다.
+dev,D0078,업무메일,email_internal,최지영,가가가,full,P011,given_only,⏎, ,장님께 바로 올려 주셔도 됩니다. ⏎  ⏎ 【최지영】 드림
+dev,D0080,인사발령,hr_notice,이준우,가가가,full,P010,, ,⏎,합니다. ⏎  ⏎ 1. 승진 ⏎ - IT운영팀 【이준우】 ⏎ - 카드운영팀 강성호 ⏎  ⏎ 2. 전보 ⏎ 
+dev,D0080,인사발령,hr_notice,강성호,가가가,full,P024,, ,⏎,- IT운영팀 이준우 ⏎ - 카드운영팀 【강성호】 ⏎  ⏎ 2. 전보 ⏎ - 전경희 팀장: 인사
+dev,D0080,인사발령,hr_notice,전경희,가가가,full,P026,, , , 카드운영팀 강성호 ⏎  ⏎ 2. 전보 ⏎ - 【전경희】 팀장: 인사팀 → 리스크관리팀 ⏎ - 
+dev,D0080,인사발령,hr_notice,이상훈,가가가,full,P009,, , , 팀장: 인사팀 → 리스크관리팀 ⏎ - 【이상훈】 과장: 채권관리팀 → 디지털전략팀 ⏎ 
+dev,D0080,인사발령,hr_notice,안소연,가가가,full,P006,, , ,"26년 12월 24일 ⏎ 문의: 인사팀 【안소연】 (내선 7480, sy.ahn20@"
+dev,D0081,카드분실상담,card_lost_2,김 수연,가 가가,spaced,P053,"decoy_company_phone, spaced_name, surname_title_unlabeled", , , ⏎  ⏎ 담당: 고객센터 정 부장 ⏎ 고객: 【김 수연】 님 / 010-0643-4831 ⏎  ⏎ 
+dev,D0081,카드분실상담,card_lost_2,김수연,가가가,full,P053,"decoy_company_phone, spaced_name, surname_title_unlabeled",⏎,님, 님 / 010-0643-4831 ⏎  ⏎ 【김수연】님께서 해외 출장 중 카드를 분실했다
+dev,D0082,업무메일,email_vendor,권선영,가가가,full,P040,, , ,"시스템 테스트 일정 협의 ⏎  ⏎ 미르보안 【권선영】 매니저님께, ⏎  ⏎ 안녕하세요, 새봄카드"
+dev,D0082,업무메일,email_vendor,이준우,가가가,full,P010,, ,입," ⏎  ⏎ 안녕하세요, 새봄카드 IT운영팀 【이준우】입니다. ⏎ 지난 회의에서 말씀드린 통합"
+dev,D0082,업무메일,email_vendor,정서현,가가가,full,P005,, , ,"보내드릴 수 없어, 저희 정보보호팀 【정서현】 대리가 별도로 전달드릴 예정입니다."
+dev,D0082,업무메일,email_vendor,이준우,가가가,full,P010,,⏎, ,0343-4562로 연락 주세요. ⏎  ⏎ 【이준우】 드림 ⏎ IT운영팀 | 02-3880-
+dev,D0084,이상거래탐지,fds_1,김하준,가가가,full,P018,phone_format_variant, ,⏎,일 10:47 ⏎ 보고자: 리스크관리팀 【김하준】 ⏎  ⏎ 탐지 내용 ⏎ 남궁다은 고객 명의 카
+dev,D0084,이상거래탐지,fds_1,남궁다은,가가가가,full,P064,phone_format_variant,⏎, ,: 리스크관리팀 김하준 ⏎  ⏎ 탐지 내용 ⏎ 【남궁다은】 고객 명의 카드(9410-6853-
+dev,D0084,이상거래탐지,fds_1,남궁다은,가가가가,full,P064,phone_format_variant, , ,003937740)로 확인 전화 → 【남궁다은】 고객 본인이 결제하지 않았다고 답변
+dev,D0084,이상거래탐지,fds_1,허수아,가가가,full,P008,phone_format_variant, , ,유사 패턴이 늘고 있어 리스크관리팀 【허수아】 부장에게 탐지 규칙 보완을 요청함.
+dev,D0085,카드분실상담,card_lost_2,정 우진,가 가가,spaced,P054,"decoy_company_phone, spaced_name, surname_title_unlabeled", , , ⏎  ⏎ 담당: 고객센터 김 대리 ⏎ 고객: 【정 우진】 님 / 010-0675-9202 ⏎  ⏎ 
+dev,D0085,카드분실상담,card_lost_2,정우진,가가가,full,P054,"decoy_company_phone, spaced_name, surname_title_unlabeled",⏎,님, 님 / 010-0675-9202 ⏎  ⏎ 【정우진】님께서 해외 출장 중 카드를 분실했다
+dev,D0086,업무메일,email_vendor,강민재,가가가,full,P039,"homonym, phone_format_variant", , ,"시스템 테스트 일정 협의 ⏎  ⏎ 미르보안 【강민재】 책임님께, ⏎  ⏎ 안녕하세요, 새봄카드 "
+dev,D0086,업무메일,email_vendor,박도윤,가가가,full,P071,"homonym, phone_format_variant", ,입," ⏎  ⏎ 안녕하세요, 새봄카드 IT운영팀 【박도윤】입니다. ⏎ 지난 회의에서 말씀드린 통합"
+dev,D0086,업무메일,email_vendor,박준서,가가가,full,P015,"homonym, phone_format_variant", , ,"보내드릴 수 없어, 저희 정보보호팀 【박준서】 사원이 별도로 전달드릴 예정입니다."
+dev,D0086,업무메일,email_vendor,박도윤,가가가,full,P071,"homonym, phone_format_variant",⏎, ,719-2513으로 연락 주세요. ⏎  ⏎ 【박도윤】 드림 ⏎ IT운영팀 | 02448372
+dev,D0088,연체안내,collection,이상훈,가가가,full,P009,phone_format_variant, ,⏎, 9일 11:27 ⏎ 담당: 채권관리팀 【이상훈】 ⏎ 고객: 김수연 (0100643483
+dev,D0088,연체안내,collection,김수연,가가가,full,P053,phone_format_variant, , ,7 ⏎ 담당: 채권관리팀 이상훈 ⏎ 고객: 【김수연】 (01006434831) ⏎  ⏎ 연체 내
+dev,D0088,연체안내,collection,김수연,가가가,full,P053,phone_format_variant, ,님,"000원, 연체 74일 ⏎ 통화 내용: 【김수연】님은 이번 주 금요일까지 온누리은행 "
+dev,D0089,대출상담,loan_1,김은영,가가가,full,P003,, , , 영업점 방문 (강남지점) ⏎ 담당자: 【김은영】 대리 / 내선 5954 ⏎  ⏎ 1. 고객
+dev,D0089,대출상담,loan_1,손하윤,가가가,full,P048,, ,⏎,954 ⏎  ⏎ 1. 고객 정보 ⏎ - 성명: 【손하윤】 ⏎ - 주민등록번호: 770210-24
+dev,D0089,대출상담,loan_1,손하윤,가가가,full,P048,,⏎, , 중소기업 사무직 ⏎  ⏎ 2. 상담 내용 ⏎ 【손하윤】 고객은 새봄 사업자 운영자금 대출 
+dev,D0089,대출상담,loan_1,이윤서,가가가,full,P022,, , , 소득 증빙 서류 제출 후 고객센터 【이윤서】 팀장에게 심사를 요청하기로 함. ⏎  ⏎ 
+dev,D0090,민원처리,complaint_1,김민준,가가가,full,P067,"homonym, phone_format_variant", , ,수 경로: 금융감독원 이첩 ⏎ 민원인: 【김민준】 (연락처 01001443268) ⏎ 처
+dev,D0090,민원처리,complaint_1,최지영,가가가,full,P011,"homonym, phone_format_variant", , ,43268) ⏎ 처리 담당: 고객보호팀 【최지영】 팀장 ⏎ 검토자: 전경희 팀장 ⏎  ⏎ [민원
+dev,D0090,민원처리,complaint_1,전경희,가가가,full,P026,"homonym, phone_format_variant", , ,: 고객보호팀 최지영 팀장 ⏎ 검토자: 【전경희】 팀장 ⏎  ⏎ [민원 요지] ⏎ 민원인은 연회
+dev,D0090,민원처리,complaint_1,전경희,가가가,full,P026,"homonym, phone_format_variant", , , ⏎ 연회비 전액 환불 및 사과 안내. 【전경희】 팀장의 승인 후 2026-09-21
+dev,D0091,카드분실상담,card_lost_2,최 채원,가 가가,spaced,P046,"decoy_company_phone, spaced_name, surname_title_unlabeled", , , ⏎  ⏎ 담당: 고객센터 김 대리 ⏎ 고객: 【최 채원】 님 / 010-0129-0753 ⏎  ⏎ 
+dev,D0091,카드분실상담,card_lost_2,최채원,가가가,full,P046,"decoy_company_phone, spaced_name, surname_title_unlabeled",⏎,님, 님 / 010-0129-0753 ⏎  ⏎ 【최채원】님께서 해외 출장 중 카드를 분실했다
+dev,D0093,민원처리,complaint_2,노성호,가가가,full,P050,"homonym, spaced_name, surname_title_unlabeled", ,님,37 / 2026-07-19 ⏎  ⏎ 고객 【노성호】님이 이번 달 카드 대금이 온누리은행
+dev,D0093,민원처리,complaint_2,노 성호,가 가가,spaced,P050,"homonym, spaced_name, surname_title_unlabeled", , ,"00,000원은 당일 환급 처리함. 【노 성호】 고객은 재발 방지 대책을 요청하였고"
+dev,D0093,민원처리,complaint_2,박도윤,가가가,full,P071,"homonym, spaced_name, surname_title_unlabeled", , ,"방지 대책을 요청하였고, IT운영팀 【박도윤】 대리에게 원인 분석을 의뢰함. ⏎ 회신"
+dev,D0094,이상거래탐지,fds_2,허 수아,가 가가,spaced,P008,spaced_name, ,⏎,기록 - 2026-10-22 ⏎ 담당: 【허 수아】 ⏎ 대상: 오서연 / 010-0957-
+dev,D0094,이상거래탐지,fds_2,오서연,가가가,full,P044,spaced_name, , ,-10-22 ⏎ 담당: 허 수아 ⏎ 대상: 【오서연】 / 010-0957-9616 ⏎  ⏎ 새벽
+dev,D0094,이상거래탐지,fds_2,오서연,가가가,full,P044,spaced_name, ,님,결제가 반복되어 확인 전화를 드림. 【오서연】님은 해당 결제가 자녀의 게임 결제라
+dev,D0095,카드분실상담,card_lost_1,김서준,가가가,full,P012,homonym, , , 11월 22일 13:46 ⏎ 상담원: 【김서준】 (고객센터) ⏎  ⏎ 고객명: 김민준 ⏎ 연락
+dev,D0095,카드분실상담,card_lost_1,김민준,가가가,full,P067,homonym, ,⏎,원: 김서준 (고객센터) ⏎  ⏎ 고객명: 【김민준】 ⏎ 연락처: 010-0144-3268 ⏎ 
+dev,D0095,카드분실상담,card_lost_1,김민준,가가가,full,P067,homonym,⏎, ,58-5277-2217 ⏎  ⏎ 상담 내용 ⏎ 【김민준】 고객이 오늘 오전 지갑을 잃어버렸다
+dev,D0096,업무메일,email_audit,정서현,가가가,full,P005,"homonym, spaced_name", ,입, 위탁 점검 결과 공유 ⏎  ⏎ 정보보호팀 【정서현】입니다. ⏎ 데이터온시스템즈에 대한 상반
+dev,D0096,업무메일,email_audit,정서현,가가가,full,P005,"homonym, spaced_name", ,","," 2026-04-01 ⏎ 2. 점검자: 【정서현】, 이서연 ⏎ 3. 수탁사 담당자: 김영"
+dev,D0096,업무메일,email_audit,이서연,가가가,full,P068,"homonym, spaced_name", ,⏎,"-04-01 ⏎ 2. 점검자: 정서현, 【이서연】 ⏎ 3. 수탁사 담당자: 김영호 책임 "
+dev,D0096,업무메일,email_audit,김영호,가가가,full,P033,"homonym, spaced_name", , ,"서현, 이서연 ⏎ 3. 수탁사 담당자: 【김영호】 책임 (010-0668-3937, "
+dev,D0096,업무메일,email_audit,이 서연,가 가가,spaced,P068,"homonym, spaced_name", , , 제출을 요청했습니다. 관련 문의는 【이 서연】 과장에게 해주세요.
+dev,D0097,업무메일,email_internal,수아,가가,given,P008,"given_only, homonym",⏎, ,"민원 회신 초안 검토 부탁드립니다 ⏎  ⏎ 【수아】 씨, 안녕하세요. ⏎ 어제 접수된 민원"
+dev,D0097,업무메일,email_internal,김민준,가가가,full,P067,"given_only, homonym", , ,) 회신 초안 보내드립니다. 민원인 【김민준】 고객 주소가 서울특별시 강서구 새봄
+dev,D0097,업무메일,email_internal,정성호,가가가,full,P002,"given_only, homonym", , ,것 같아 확인 부탁드려요. ⏎ 검토 후 【정성호】 부장님께 바로 올려 주셔도 됩니다.
+dev,D0097,업무메일,email_internal,최지영,가가가,full,P011,"given_only, homonym",⏎, ,장님께 바로 올려 주셔도 됩니다. ⏎  ⏎ 【최지영】 드림
+dev,D0098,대출상담,loan_1,신승현,가가가,full,P013,, , ,영업점 방문 (여의도지점) ⏎ 담당자: 【신승현】 과장 / 내선 3415 ⏎  ⏎ 1. 고객
+dev,D0098,대출상담,loan_1,손유진,가가가,full,P045,, ,⏎,415 ⏎  ⏎ 1. 고객 정보 ⏎ - 성명: 【손유진】 ⏎ - 주민등록번호: 710228-24
+dev,D0098,대출상담,loan_1,손유진,가가가,full,P045,,⏎, ," 중소기업 사무직 ⏎  ⏎ 2. 상담 내용 ⏎ 【손유진】 고객은 카드론 상품으로 120,00"
+dev,D0098,대출상담,loan_1,이윤서,가가가,full,P022,, , , 소득 증빙 서류 제출 후 고객센터 【이윤서】 팀장에게 심사를 요청하기로 함. ⏎  ⏎ 
+dev,D0099,카드분실상담,card_lost_2,최 채원,가 가가,spaced,P046,"decoy_company_phone, spaced_name, surname_title_unlabeled", , , ⏎  ⏎ 담당: 고객센터 김 대리 ⏎ 고객: 【최 채원】 님 / 010-0129-0753 ⏎  ⏎ 
+dev,D0099,카드분실상담,card_lost_2,최채원,가가가,full,P046,"decoy_company_phone, spaced_name, surname_title_unlabeled",⏎,님, 님 / 010-0129-0753 ⏎  ⏎ 【최채원】님께서 해외 출장 중 카드를 분실했다
+dev,D0100,업무메일,email_internal,민준,가가,given,P066,"given_only, homonym",⏎, ,"민원 회신 초안 검토 부탁드립니다 ⏎  ⏎ 【민준】 씨, 안녕하세요. ⏎ 어제 접수된 민원"
+dev,D0100,업무메일,email_internal,이선우,가가가,full,P055,"given_only, homonym", , ,) 회신 초안 보내드립니다. 민원인 【이선우】 고객 주소가 인천광역시 부평구 새봄
+dev,D0100,업무메일,email_internal,남성호,가가가,full,P027,"given_only, homonym", , ,것 같아 확인 부탁드려요. ⏎ 검토 후 【남성호】 부장님께 바로 올려 주셔도 됩니다.
+dev,D0100,업무메일,email_internal,조민준,가가가,full,P021,"given_only, homonym",⏎, ,장님께 바로 올려 주셔도 됩니다. ⏎  ⏎ 【조민준】 드림
+test,D0101,이상거래탐지,fds_1,허수아,가가가,full,P008,homonym, ,⏎,일 09:09 ⏎ 보고자: 리스크관리팀 【허수아】 ⏎  ⏎ 탐지 내용 ⏎ 정하은 고객 명의 카드
+test,D0101,이상거래탐지,fds_1,정하은,가가가,full,P072,homonym,⏎, ,: 리스크관리팀 허수아 ⏎  ⏎ 탐지 내용 ⏎ 【정하은】 고객 명의 카드(9410-7868-
+test,D0101,이상거래탐지,fds_1,정하은,가가가,full,P072,homonym, , ,0973-1213)로 확인 전화 → 【정하은】 고객 본인이 결제하지 않았다고 답변
+test,D0101,이상거래탐지,fds_1,이소율,가가가,full,P004,homonym, , , 유사 패턴이 늘고 있어 카드운영팀 【이소율】 차장에게 탐지 규칙 보완을 요청함.
+test,D0102,카드분실상담,card_lost_2,손 유진,가 가가,spaced,P045,"decoy_company_phone, spaced_name, surname_title_unlabeled", , , ⏎  ⏎ 담당: 고객센터 정 부장 ⏎ 고객: 【손 유진】 님 / 010-0638-7486 ⏎  ⏎ 
+test,D0102,카드분실상담,card_lost_2,손유진,가가가,full,P045,"decoy_company_phone, spaced_name, surname_title_unlabeled",⏎,님, 님 / 010-0638-7486 ⏎  ⏎ 【손유진】님께서 해외 출장 중 카드를 분실했다
+test,D0103,인사발령,hr_notice,남성호,가가가,full,P027,, ,⏎,니다. ⏎  ⏎ 1. 승진 ⏎ - 디지털전략팀 【남성호】 ⏎ - IT운영팀 이준우 ⏎  ⏎ 2. 전보 ⏎ 
+test,D0103,인사발령,hr_notice,이준우,가가가,full,P010,, ,⏎, 디지털전략팀 남성호 ⏎ - IT운영팀 【이준우】 ⏎  ⏎ 2. 전보 ⏎ - 이소율 차장: 카드
+test,D0103,인사발령,hr_notice,이소율,가가가,full,P004,, , , IT운영팀 이준우 ⏎  ⏎ 2. 전보 ⏎ - 【이소율】 차장: 카드운영팀 → 리스크관리팀 ⏎ 
+test,D0103,인사발령,hr_notice,허수아,가가가,full,P008,, , ,장: 카드운영팀 → 리스크관리팀 ⏎ - 【허수아】 부장: 리스크관리팀 → 디지털전략팀
+test,D0103,인사발령,hr_notice,안소연,가가가,full,P006,, , ," 2026-11-20 ⏎ 문의: 인사팀 【안소연】 (내선 5878, sy.ahn20@"
+test,D0105,고객정보변경,info_change,김서준,가가가,full,P012,josa_attached, , ,리일: 2026-02-25 ⏎ 처리자: 【김서준】 (고객센터) ⏎  ⏎ 변경 요청 고객: 정
+test,D0105,고객정보변경,info_change,정우진,가가가,full,P054,josa_attached, ,⏎,준 (고객센터) ⏎  ⏎ 변경 요청 고객: 【정우진】 ⏎ 본인 확인: 주민등록번호 00021
+test,D0105,고객정보변경,info_change,정우진,가가가,full,P054,josa_attached, ,은, 예약된 안내 문자는 모두 취소함. 【정우진】은 결제일 변경도 원했으나 다음 달부
+test,D0106,대출상담,loan_1,김은영,가가가,full,P003,, , , 영업점 방문 (분당지점) ⏎ 담당자: 【김은영】 대리 / 내선 5256 ⏎  ⏎ 1. 고객
+test,D0106,대출상담,loan_1,손하윤,가가가,full,P048,, ,⏎,256 ⏎  ⏎ 1. 고객 정보 ⏎ - 성명: 【손하윤】 ⏎ - 주민등록번호: 770210-24
+test,D0106,대출상담,loan_1,손하윤,가가가,full,P048,,⏎, ,프리랜서 디자이너 ⏎  ⏎ 2. 상담 내용 ⏎ 【손하윤】 고객은 새봄 사업자 운영자금 대출 
+test,D0106,대출상담,loan_1,허수아,가가가,full,P008,, , ,득 증빙 서류 제출 후 리스크관리팀 【허수아】 부장에게 심사를 요청하기로 함. ⏎  ⏎ 
+test,D0107,민원처리,complaint_2,김민준,가가가,full,P067,"homonym, spaced_name, surname_title_unlabeled", ,님,58 / 2026-09-17 ⏎  ⏎ 고객 【김민준】님이 이번 달 카드 대금이 온누리은행
+test,D0107,민원처리,complaint_2,김 민준,가 가가,spaced,P067,"homonym, spaced_name, surname_title_unlabeled", , ,"20,000원은 당일 환급 처리함. 【김 민준】 고객은 재발 방지 대책을 요청하였고"
+test,D0107,민원처리,complaint_2,최혜진,가가가,full,P020,"homonym, spaced_name, surname_title_unlabeled", , ,"방지 대책을 요청하였고, IT운영팀 【최혜진】 차장에게 원인 분석을 의뢰함. ⏎ 회신"
+test,D0108,회의록,meeting_1,박예린,가가가,full,P030,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,(,"장소: 본사 12층 회의실 ⏎ 참석자: 【박예린】(팀장), 김은영, 이소율, 김영호("
+test,D0108,회의록,meeting_1,김은영,가가가,full,P003,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,",","층 회의실 ⏎ 참석자: 박예린(팀장), 【김은영】, 이소율, 김영호(데이터온시스템즈)"
+test,D0108,회의록,meeting_1,이소율,가가가,full,P004,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,","," ⏎ 참석자: 박예린(팀장), 김은영, 【이소율】, 김영호(데이터온시스템즈) ⏎ 작성자:"
+test,D0108,회의록,meeting_1,김영호,가가가,full,P033,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,(," 박예린(팀장), 김은영, 이소율, 【김영호】(데이터온시스템즈) ⏎ 작성자: 김은영 ⏎ "
+test,D0108,회의록,meeting_1,김은영,가가가,full,P003,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,⏎, 김영호(데이터온시스템즈) ⏎ 작성자: 【김은영】 ⏎  ⏎ 논의 내용 ⏎ 1. 박 예린 팀장이 
+test,D0108,회의록,meeting_1,박 예린,가 가가,spaced,P030,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , , ⏎ 작성자: 김은영 ⏎  ⏎ 논의 내용 ⏎ 1. 【박 예린】 팀장이 지난 분기 추진 현황을 공유
+test,D0108,회의록,meeting_1,김영호,가가가,full,P033,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , ,황을 공유함. ⏎ 2. 데이터온시스템즈 【김영호】 책임은 시스템 이관 일정이 2주 지
+test,D0108,회의록,meeting_1,이소율,가가가,full,P004,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,은,주 지연될 수 있다고 보고함. ⏎ 3. 【이소율】은 고객 안내 문자 발송 시점을 이관
+test,D0108,회의록,meeting_1,소율,가가,given,P004,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , , 문구는 김 대리가 초안을 작성하고 【소율】 씨가 검토 ⏎  ⏎ 다음 회의: 2026.
+test,D0109,용역계약서,contract,이준우,가가가,full,P010,phone_format_variant, , ,"제5조(담당자) ⏎   갑: IT운영팀 【이준우】 (02.3880.6413, jw.l"
+test,D0109,용역계약서,contract,문은정,가가가,full,P037,phone_format_variant, , ,"d.example.com) ⏎   을: 【문은정】 매니저 (010-0561-7253,"
+test,D0109,용역계약서,contract,김예준,가가가,full,P001,phone_format_variant, ,⏎,10.26 ⏎  ⏎ 갑: 새봄카드 대표이사 【김예준】 ⏎ 을: 코드브릿지 대표이사 허하은
+test,D0109,용역계약서,contract,허하은,가가가,full,P035,phone_format_variant, ,,사 김예준 ⏎ 을: 코드브릿지 대표이사 【허하은】
+test,D0110,연체안내,collection,이상훈,가가가,full,P009,, ,⏎,-11 09:15 ⏎ 담당: 채권관리팀 【이상훈】 ⏎ 고객: 노성호 (010-0564-6
+test,D0110,연체안내,collection,노성호,가가가,full,P050,, , ,5 ⏎ 담당: 채권관리팀 이상훈 ⏎ 고객: 【노성호】 (010-0564-6078) ⏎  ⏎ 연체
+test,D0110,연체안내,collection,노성호,가가가,full,P050,, ,님,"000원, 연체 10일 ⏎ 통화 내용: 【노성호】님은 이번 주 금요일까지 온누리은행 "
+test,D0113,사내메신저,messenger,박도윤,가가가,full,P071,"given_only, homonym, josa_attached, phone_format_variant, surname_title_unlabeled",⏎,:,"[사내 메신저] 2026-07-08 ⏎ 【박도윤】: 상훈아, 오늘 회의 자료 어디 있"
+test,D0113,사내메신저,messenger,상훈,가가,given,P009,"given_only, homonym, josa_attached, phone_format_variant, surname_title_unlabeled", ,아,"신저] 2026-07-08 ⏎ 박도윤: 【상훈】아, 오늘 회의 자료 어디 있어? ⏎ 이"
+test,D0113,사내메신저,messenger,이상훈,가가가,full,P009,"given_only, homonym, josa_attached, phone_format_variant, surname_title_unlabeled",⏎,:,"훈아, 오늘 회의 자료 어디 있어? ⏎ 【이상훈】: 공유 폴더에 올려놨어. 근데 김수"
+test,D0113,사내메신저,messenger,김수빈,가가가,full,P049,"given_only, homonym, josa_attached, phone_format_variant, surname_title_unlabeled", , ,상훈: 공유 폴더에 올려놨어. 근데 【김수빈】 고객 건은 아직 정리 못 했어 ⏎ 박도
+test,D0113,사내메신저,messenger,박도윤,가가가,full,P071,"given_only, homonym, josa_attached, phone_format_variant, surname_title_unlabeled",⏎,:,수빈 고객 건은 아직 정리 못 했어 ⏎ 【박도윤】: 그 고객 연락처 010011443
+test,D0113,사내메신저,messenger,이상훈,가가가,full,P009,"given_only, homonym, josa_attached, phone_format_variant, surname_title_unlabeled",⏎,:,2 맞지? 내가 오후에 전화해 볼게 ⏎ 【이상훈】: 응 부탁해. 아 그리고 정 부장님
+test,D0113,사내메신저,messenger,박도윤,가가가,full,P071,"given_only, homonym, josa_attached, phone_format_variant, surname_title_unlabeled",⏎,:, 정 부장님이 내일까지 보고서 달래 ⏎ 【박도윤】: 알겠어. 은영이랑 같이 정리해서 
+test,D0113,사내메신저,messenger,은영,가가,given,P003,"given_only, homonym, josa_attached, phone_format_variant, surname_title_unlabeled", ,이,까지 보고서 달래 ⏎ 박도윤: 알겠어. 【은영】이랑 같이 정리해서 올릴게
+test,D0114,민원처리,complaint_1,김수빈,가가가,full,P049,, , ,수 경로: 금융감독원 이첩 ⏎ 민원인: 【김수빈】 (연락처 010-0114-4332)
+test,D0114,민원처리,complaint_1,최지영,가가가,full,P011,, , ,-4332) ⏎ 처리 담당: 고객보호팀 【최지영】 팀장 ⏎ 검토자: 박예린 팀장 ⏎  ⏎ [민원
+test,D0114,민원처리,complaint_1,박예린,가가가,full,P030,, , ,: 고객보호팀 최지영 팀장 ⏎ 검토자: 【박예린】 팀장 ⏎  ⏎ [민원 요지] ⏎ 민원인은 연회
+test,D0114,민원처리,complaint_1,박예린,가가가,full,P030,, , , ⏎ 연회비 전액 환불 및 사과 안내. 【박예린】 팀장의 승인 후 2026년 2월 7
+test,D0115,인사발령,hr_notice,정서연,가가가,full,P019,, ,⏎,합니다. ⏎  ⏎ 1. 승진 ⏎ - 채권관리팀 【정서연】 ⏎ - 카드운영팀 정현준 ⏎  ⏎ 2. 전보 ⏎ 
+test,D0115,인사발령,hr_notice,정현준,가가가,full,P014,, ,⏎,- 채권관리팀 정서연 ⏎ - 카드운영팀 【정현준】 ⏎  ⏎ 2. 전보 ⏎ - 김서준 대리: 고객
+test,D0115,인사발령,hr_notice,김서준,가가가,full,P012,, , , 카드운영팀 정현준 ⏎  ⏎ 2. 전보 ⏎ - 【김서준】 대리: 고객센터 → 리스크관리팀 ⏎ -
+test,D0115,인사발령,hr_notice,최지영,가가가,full,P011,, , ,대리: 고객센터 → 리스크관리팀 ⏎ - 【최지영】 팀장: 고객보호팀 → 디지털전략팀 ⏎ 
+test,D0115,인사발령,hr_notice,안소연,가가가,full,P006,, , ," 2026.10.11 ⏎ 문의: 인사팀 【안소연】 (내선 5812, sy.ahn20@"
+test,D0116,고객정보변경,info_change,김민준,가가가,full,P066,"homonym, josa_attached", , ,: 2026년 12월 2일 ⏎ 처리자: 【김민준】 (고객센터) ⏎  ⏎ 변경 요청 고객: 최
+test,D0116,고객정보변경,info_change,최채원,가가가,full,P046,"homonym, josa_attached", ,⏎,준 (고객센터) ⏎  ⏎ 변경 요청 고객: 【최채원】 ⏎ 본인 확인: 주민등록번호 75112
+test,D0116,고객정보변경,info_change,최채원,가가가,full,P046,"homonym, josa_attached", ,은, 예약된 안내 문자는 모두 취소함. 【최채원】은 결제일 변경도 원했으나 다음 달부
+test,D0117,인사발령,hr_notice,남성호,가가가,full,P027,homonym, ,⏎,니다. ⏎  ⏎ 1. 승진 ⏎ - 디지털전략팀 【남성호】 ⏎ - 정보보호팀 정서현 ⏎  ⏎ 2. 전보 ⏎ 
+test,D0117,인사발령,hr_notice,정서현,가가가,full,P005,homonym, ,⏎, 디지털전략팀 남성호 ⏎ - 정보보호팀 【정서현】 ⏎  ⏎ 2. 전보 ⏎ - 이준우 사원: IT
+test,D0117,인사발령,hr_notice,이준우,가가가,full,P010,homonym, , , 정보보호팀 정서현 ⏎  ⏎ 2. 전보 ⏎ - 【이준우】 사원: IT운영팀 → 리스크관리팀 ⏎ 
+test,D0117,인사발령,hr_notice,박도윤,가가가,full,P071,homonym, , ,원: IT운영팀 → 리스크관리팀 ⏎ - 【박도윤】 대리: IT운영팀 → 디지털전략팀 ⏎ 
+test,D0117,인사발령,hr_notice,안소연,가가가,full,P006,homonym, , ,"026년 8월 22일 ⏎ 문의: 인사팀 【안소연】 (내선 7394, sy.ahn20@"
+test,D0118,용역계약서,contract,이준우,가가가,full,P010,homonym, , ,"제5조(담당자) ⏎   갑: IT운영팀 【이준우】 (02-3880-6413, jw.l"
+test,D0118,용역계약서,contract,이서연,가가가,full,P069,homonym, , ,"d.example.com) ⏎   을: 【이서연】 책임 (010-0400-5262, "
+test,D0118,용역계약서,contract,김예준,가가가,full,P001,homonym, ,⏎,2월 5일 ⏎  ⏎ 갑: 새봄카드 대표이사 【김예준】 ⏎ 을: 미르보안 대표이사 이준서
+test,D0118,용역계약서,contract,이준서,가가가,full,P038,homonym, ,,이사 김예준 ⏎ 을: 미르보안 대표이사 【이준서】
+test,D0119,업무메일,email_audit,정서현,가가가,full,P005,"phone_format_variant, spaced_name", ,입, 위탁 점검 결과 공유 ⏎  ⏎ 정보보호팀 【정서현】입니다. ⏎ 다솜콜솔루션에 대한 상반기 
+test,D0119,업무메일,email_audit,정서현,가가가,full,P005,"phone_format_variant, spaced_name", ,","," 2026-04-06 ⏎ 2. 점검자: 【정서현】, 박준서 ⏎ 3. 수탁사 담당자: 신현"
+test,D0119,업무메일,email_audit,박준서,가가가,full,P015,"phone_format_variant, spaced_name", ,⏎,"-04-06 ⏎ 2. 점검자: 정서현, 【박준서】 ⏎ 3. 수탁사 담당자: 신현준 매니저"
+test,D0119,업무메일,email_audit,신현준,가가가,full,P043,"phone_format_variant, spaced_name", , ,"서현, 박준서 ⏎ 3. 수탁사 담당자: 【신현준】 매니저 (010.0664.0224,"
+test,D0119,업무메일,email_audit,박 준서,가 가가,spaced,P015,"phone_format_variant, spaced_name", , , 제출을 요청했습니다. 관련 문의는 【박 준서】 사원에게 해주세요.
+test,D0120,업무메일,email_audit,정서현,가가가,full,P005,"homonym, phone_format_variant, spaced_name", ,입, 위탁 점검 결과 공유 ⏎  ⏎ 정보보호팀 【정서현】입니다. ⏎ 미르보안에 대한 상반기 개인
+test,D0120,업무메일,email_audit,정서현,가가가,full,P005,"homonym, phone_format_variant, spaced_name", ,","," 2026-06-09 ⏎ 2. 점검자: 【정서현】, 이서연 ⏎ 3. 수탁사 담당자: 권선"
+test,D0120,업무메일,email_audit,이서연,가가가,full,P068,"homonym, phone_format_variant, spaced_name", ,⏎,"-06-09 ⏎ 2. 점검자: 정서현, 【이서연】 ⏎ 3. 수탁사 담당자: 권선영 매니저"
+test,D0120,업무메일,email_audit,권선영,가가가,full,P040,"homonym, phone_format_variant, spaced_name", , ,"서현, 이서연 ⏎ 3. 수탁사 담당자: 【권선영】 매니저 (01004309891, s"
+test,D0120,업무메일,email_audit,이 서연,가 가가,spaced,P068,"homonym, phone_format_variant, spaced_name", , , 제출을 요청했습니다. 관련 문의는 【이 서연】 과장에게 해주세요.
+test,D0121,대출상담,loan_1,신승현,가가가,full,P013,, , , 영업점 방문 (강남지점) ⏎ 담당자: 【신승현】 과장 / 내선 7323 ⏎  ⏎ 1. 고객
+test,D0121,대출상담,loan_1,노나연,가가가,full,P060,, ,⏎,323 ⏎  ⏎ 1. 고객 정보 ⏎ - 성명: 【노나연】 ⏎ - 주민등록번호: 710714-24
+test,D0121,대출상담,loan_1,노나연,가가가,full,P060,,⏎, ,프리랜서 디자이너 ⏎  ⏎ 2. 상담 내용 ⏎ 【노나연】 고객은 새봄 직장인 신용대출 상품으
+test,D0121,대출상담,loan_1,허수아,가가가,full,P008,, , ,득 증빙 서류 제출 후 리스크관리팀 【허수아】 부장에게 심사를 요청하기로 함. ⏎  ⏎ 
+test,D0122,회의록,meeting_1,김은정,가가가,full,P031,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,(,"장소: 본사 12층 회의실 ⏎ 참석자: 【김은정】(부장), 신승현, 김은영, 김영호("
+test,D0122,회의록,meeting_1,신승현,가가가,full,P013,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,",","층 회의실 ⏎ 참석자: 김은정(부장), 【신승현】, 김은영, 김영호(데이터온시스템즈)"
+test,D0122,회의록,meeting_1,김은영,가가가,full,P003,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,","," ⏎ 참석자: 김은정(부장), 신승현, 【김은영】, 김영호(데이터온시스템즈) ⏎ 작성자:"
+test,D0122,회의록,meeting_1,김영호,가가가,full,P033,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,(," 김은정(부장), 신승현, 김은영, 【김영호】(데이터온시스템즈) ⏎ 작성자: 신승현 ⏎ "
+test,D0122,회의록,meeting_1,신승현,가가가,full,P013,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,⏎, 김영호(데이터온시스템즈) ⏎ 작성자: 【신승현】 ⏎  ⏎ 논의 내용 ⏎ 1. 김 은정 부장이 
+test,D0122,회의록,meeting_1,김 은정,가 가가,spaced,P031,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , , ⏎ 작성자: 신승현 ⏎  ⏎ 논의 내용 ⏎ 1. 【김 은정】 부장이 지난 분기 추진 현황을 공유
+test,D0122,회의록,meeting_1,김영호,가가가,full,P033,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , ,황을 공유함. ⏎ 2. 데이터온시스템즈 【김영호】 책임은 시스템 이관 일정이 2주 지
+test,D0122,회의록,meeting_1,김은영,가가가,full,P003,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,은,주 지연될 수 있다고 보고함. ⏎ 3. 【김은영】은 고객 안내 문자 발송 시점을 이관
+test,D0122,회의록,meeting_1,은영,가가,given,P003,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , , 문구는 신 과장이 초안을 작성하고 【은영】 씨가 검토 ⏎  ⏎ 다음 회의: 2026.
+test,D0123,회의록,meeting_2,이윤서,가가가,full,P022,"homonym, josa_attached", ,","," 점검 ⏎ 2026-10-08 ⏎  ⏎ 참석: 【이윤서】, 이서연, 이소율 ⏎ 불참: 신승현 ("
+test,D0123,회의록,meeting_2,이서연,가가가,full,P068,"homonym, josa_attached", ,",","026-10-08 ⏎  ⏎ 참석: 이윤서, 【이서연】, 이소율 ⏎ 불참: 신승현 (연차) ⏎  ⏎ "
+test,D0123,회의록,meeting_2,이소율,가가가,full,P004,"homonym, josa_attached", ,⏎,"0-08 ⏎  ⏎ 참석: 이윤서, 이서연, 【이소율】 ⏎ 불참: 신승현 (연차) ⏎  ⏎ - 이윤서"
+test,D0123,회의록,meeting_2,신승현,가가가,full,P013,"homonym, josa_attached", , ,": 이윤서, 이서연, 이소율 ⏎ 불참: 【신승현】 (연차) ⏎  ⏎ - 이윤서: 신규 카드 "
+test,D0123,회의록,meeting_2,이윤서,가가가,full,P022,"homonym, josa_attached", ,:,이소율 ⏎ 불참: 신승현 (연차) ⏎  ⏎ - 【이윤서】: 신규 카드 발급 심사 자동화 진행
+test,D0123,회의록,meeting_2,이서연,가가가,full,P068,"homonym, josa_attached", ,:,발급 심사 자동화 진행률 70% ⏎ - 【이서연】: 고객 문의 응대 스크립트 개정안 
+test,D0123,회의록,meeting_2,이소율,가가가,full,P004,"homonym, josa_attached", ,:, 응대 스크립트 개정안 작성 중 ⏎ - 【이소율】: 연체 고객 안내 문자 문구 법무 
+test,D0123,회의록,meeting_2,신승현,가가가,full,P013,"homonym, josa_attached",⏎,이, 법무 검토 요청 완료 ⏎  ⏎ 공유 사항 ⏎ 【신승현】이 복귀하면 개인정보 처리방침 개정 
+test,D0124,대출상담,loan_1,박도윤,가가가,full,P070,homonym, , ,영업점 방문 (해운대지점) ⏎ 담당자: 【박도윤】 과장 / 내선 6650 ⏎  ⏎ 1. 고객
+test,D0124,대출상담,loan_1,정하은,가가가,full,P073,homonym, ,⏎,650 ⏎  ⏎ 1. 고객 정보 ⏎ - 성명: 【정하은】 ⏎ - 주민등록번호: 010621-40
+test,D0124,대출상담,loan_1,정하은,가가가,full,P073,homonym,⏎, ," 중소기업 사무직 ⏎  ⏎ 2. 상담 내용 ⏎ 【정하은】 고객은 카드론 상품으로 12,000"
+test,D0124,대출상담,loan_1,허수아,가가가,full,P008,homonym, , ,득 증빙 서류 제출 후 리스크관리팀 【허수아】 부장에게 심사를 요청하기로 함. ⏎  ⏎ 
+test,D0125,사내메신저,messenger,이준우,가가가,full,P010,"given_only, josa_attached, surname_title_unlabeled",⏎,:,"내 메신저] 2026년 7월 12일 ⏎ 【이준우】: 서연아, 오늘 회의 자료 어디 있"
+test,D0125,사내메신저,messenger,서연,가가,given,P029,"given_only, josa_attached, surname_title_unlabeled", ,아,"] 2026년 7월 12일 ⏎ 이준우: 【서연】아, 오늘 회의 자료 어디 있어? ⏎ 김"
+test,D0125,사내메신저,messenger,김서연,가가가,full,P029,"given_only, josa_attached, surname_title_unlabeled",⏎,:,"연아, 오늘 회의 자료 어디 있어? ⏎ 【김서연】: 공유 폴더에 올려놨어. 근데 노성"
+test,D0125,사내메신저,messenger,노성호,가가가,full,P050,"given_only, josa_attached, surname_title_unlabeled", , ,서연: 공유 폴더에 올려놨어. 근데 【노성호】 고객 건은 아직 정리 못 했어 ⏎ 이준
+test,D0125,사내메신저,messenger,이준우,가가가,full,P010,"given_only, josa_attached, surname_title_unlabeled",⏎,:,성호 고객 건은 아직 정리 못 했어 ⏎ 【이준우】: 그 고객 연락처 010-0564-
+test,D0125,사내메신저,messenger,김서연,가가가,full,P029,"given_only, josa_attached, surname_title_unlabeled",⏎,:,8 맞지? 내가 오후에 전화해 볼게 ⏎ 【김서연】: 응 부탁해. 아 그리고 최 팀장님
+test,D0125,사내메신저,messenger,이준우,가가가,full,P010,"given_only, josa_attached, surname_title_unlabeled",⏎,:, 최 팀장님이 내일까지 보고서 달래 ⏎ 【이준우】: 알겠어. 현준이랑 같이 정리해서 
+test,D0125,사내메신저,messenger,현준,가가,given,P014,"given_only, josa_attached, surname_title_unlabeled", ,이,까지 보고서 달래 ⏎ 이준우: 알겠어. 【현준】이랑 같이 정리해서 올릴게
+test,D0126,인사발령,hr_notice,박도윤,가가가,full,P071,homonym, ,⏎,합니다. ⏎  ⏎ 1. 승진 ⏎ - IT운영팀 【박도윤】 ⏎ - 리스크관리팀 이주원 ⏎  ⏎ 2. 전보
+test,D0126,인사발령,hr_notice,이주원,가가가,full,P028,homonym, ,⏎, IT운영팀 박도윤 ⏎ - 리스크관리팀 【이주원】 ⏎  ⏎ 2. 전보 ⏎ - 김은영 대리: 여신
+test,D0126,인사발령,hr_notice,김은영,가가가,full,P003,homonym, , ,리스크관리팀 이주원 ⏎  ⏎ 2. 전보 ⏎ - 【김은영】 대리: 여신심사팀 → 리스크관리팀 ⏎ 
+test,D0126,인사발령,hr_notice,강민서,가가가,full,P017,homonym, , ,리: 여신심사팀 → 리스크관리팀 ⏎ - 【강민서】 사원: 디지털전략팀 → 디지털전략팀
+test,D0126,인사발령,hr_notice,안소연,가가가,full,P006,homonym, , ," 2026-08-10 ⏎ 문의: 인사팀 【안소연】 (내선 3702, sy.ahn20@"
+test,D0128,고객정보변경,info_change,정성호,가가가,full,P002,"josa_attached, phone_format_variant", , ,리일: 2026-11-23 ⏎ 처리자: 【정성호】 (고객센터) ⏎  ⏎ 변경 요청 고객: 손
+test,D0128,고객정보변경,info_change,손하윤,가가가,full,P048,"josa_attached, phone_format_variant", ,⏎,호 (고객센터) ⏎  ⏎ 변경 요청 고객: 【손하윤】 ⏎ 본인 확인: 주민등록번호 77021
+test,D0128,고객정보변경,info_change,손하윤,가가가,full,P048,"josa_attached, phone_format_variant", ,은, 예약된 안내 문자는 모두 취소함. 【손하윤】은 결제일 변경도 원했으나 다음 달부
+test,D0129,카드분실상담,card_lost_1,김서준,가가가,full,P012,phone_format_variant, , ,26-01-03 18:26 ⏎ 상담원: 【김서준】 (고객센터) ⏎  ⏎ 고객명: 남궁다은 ⏎ 연
+test,D0129,카드분실상담,card_lost_1,남궁다은,가가가가,full,P064,phone_format_variant, ,⏎,원: 김서준 (고객센터) ⏎  ⏎ 고객명: 【남궁다은】 ⏎ 연락처: 010 0393 7740 ⏎ 
+test,D0129,카드분실상담,card_lost_1,남궁다은,가가가가,full,P064,phone_format_variant,⏎, ,53-6153-0511 ⏎  ⏎ 상담 내용 ⏎ 【남궁다은】 고객이 오늘 오전 지갑을 잃어버렸다
+test,D0130,민원처리,complaint_2,박민재,가가가,full,P058,"homonym, spaced_name, surname_title_unlabeled", ,님, / 2026년 12월 8일 ⏎  ⏎ 고객 【박민재】님이 이번 달 카드 대금이 가람저축은
+test,D0130,민원처리,complaint_2,박 민재,가 가가,spaced,P058,"homonym, spaced_name, surname_title_unlabeled", , ,"00,000원은 당일 환급 처리함. 【박 민재】 고객은 재발 방지 대책을 요청하였고"
+test,D0130,민원처리,complaint_2,박도윤,가가가,full,P071,"homonym, spaced_name, surname_title_unlabeled", , ,"방지 대책을 요청하였고, IT운영팀 【박도윤】 대리에게 원인 분석을 의뢰함. ⏎ 회신"
+test,D0132,회의록,meeting_2,신승현,가가가,full,P013,josa_attached, ,","," ⏎ 2026년 12월 21일 ⏎  ⏎ 참석: 【신승현】, 이소율, 최지영 ⏎ 불참: 안소연 ("
+test,D0132,회의록,meeting_2,이소율,가가가,full,P004,josa_attached, ,",","년 12월 21일 ⏎  ⏎ 참석: 신승현, 【이소율】, 최지영 ⏎ 불참: 안소연 (연차) ⏎  ⏎ "
+test,D0132,회의록,meeting_2,최지영,가가가,full,P011,josa_attached, ,⏎," 21일 ⏎  ⏎ 참석: 신승현, 이소율, 【최지영】 ⏎ 불참: 안소연 (연차) ⏎  ⏎ - 신승현"
+test,D0132,회의록,meeting_2,안소연,가가가,full,P006,josa_attached, , ,": 신승현, 이소율, 최지영 ⏎ 불참: 【안소연】 (연차) ⏎  ⏎ - 신승현: 신규 카드 "
+test,D0132,회의록,meeting_2,신승현,가가가,full,P013,josa_attached, ,:,최지영 ⏎ 불참: 안소연 (연차) ⏎  ⏎ - 【신승현】: 신규 카드 발급 심사 자동화 진행
+test,D0132,회의록,meeting_2,이소율,가가가,full,P004,josa_attached, ,:,발급 심사 자동화 진행률 70% ⏎ - 【이소율】: 고객 문의 응대 스크립트 개정안 
+test,D0132,회의록,meeting_2,최지영,가가가,full,P011,josa_attached, ,:, 응대 스크립트 개정안 작성 중 ⏎ - 【최지영】: 연체 고객 안내 문자 문구 법무 
+test,D0132,회의록,meeting_2,안소연,가가가,full,P006,josa_attached,⏎,이, 법무 검토 요청 완료 ⏎  ⏎ 공유 사항 ⏎ 【안소연】이 복귀하면 개인정보 처리방침 개정 
+test,D0133,업무메일,email_internal,은영,가가,given,P003,given_only,⏎, ,"민원 회신 초안 검토 부탁드립니다 ⏎  ⏎ 【은영】 씨, 안녕하세요. ⏎ 어제 접수된 민원"
+test,D0133,업무메일,email_internal,오서연,가가가,full,P044,given_only, , ,) 회신 초안 보내드립니다. 민원인 【오서연】 고객 주소가 대전광역시 유성구 온누
+test,D0133,업무메일,email_internal,허수아,가가가,full,P008,given_only, , ,것 같아 확인 부탁드려요. ⏎ 검토 후 【허수아】 부장님께 바로 올려 주셔도 됩니다.
+test,D0133,업무메일,email_internal,김은정,가가가,full,P031,given_only,⏎, ,장님께 바로 올려 주셔도 됩니다. ⏎  ⏎ 【김은정】 드림
+test,D0134,이상거래탐지,fds_2,허 수아,가 가가,spaced,P008,spaced_name, ,⏎, - 2026년 10월 8일 ⏎ 담당: 【허 수아】 ⏎ 대상: 박준우 / 010-0186-
+test,D0134,이상거래탐지,fds_2,박준우,가가가,full,P061,spaced_name, , ,10월 8일 ⏎ 담당: 허 수아 ⏎ 대상: 【박준우】 / 010-0186-5072 ⏎  ⏎ 새벽
+test,D0134,이상거래탐지,fds_2,박준우,가가가,full,P061,spaced_name, ,님,결제가 반복되어 확인 전화를 드림. 【박준우】님은 해당 결제가 자녀의 게임 결제라
+test,D0135,고객정보변경,info_change,이윤서,가가가,full,P022,"josa_attached, phone_format_variant", , ,일: 2026년 3월 2일 ⏎ 처리자: 【이윤서】 (고객센터) ⏎  ⏎ 변경 요청 고객: 김
+test,D0135,고객정보변경,info_change,김수빈,가가가,full,P049,"josa_attached, phone_format_variant", ,⏎,서 (고객센터) ⏎  ⏎ 변경 요청 고객: 【김수빈】 ⏎ 본인 확인: 주민등록번호 88012
+test,D0135,고객정보변경,info_change,김수빈,가가가,full,P049,"josa_attached, phone_format_variant", ,은, 예약된 안내 문자는 모두 취소함. 【김수빈】은 결제일 변경도 원했으나 다음 달부
+test,D0136,대출상담,loan_2,김은영,가가가,full,P003,"josa_attached, spaced_name", ,⏎,26-10-08 16:36 ⏎ 상담원: 【김은영】 ⏎  ⏎ 전 서윤 고객(010-0863-1
+test,D0136,대출상담,loan_2,전 서윤,가 가가,spaced,P052,"josa_attached, spaced_name",⏎, ,-08 16:36 ⏎ 상담원: 김은영 ⏎  ⏎ 【전 서윤】 고객(010-0863-1041)이 
+test,D0136,대출상담,loan_2,전서윤,가가가,full,P052,"josa_attached, spaced_name",⏎,은,8@example.com로 발송함. ⏎ 【전서윤】은 서류를 준비한 뒤 다시 연락하겠다
+test,D0137,사내메신저,messenger,최혜진,가가가,full,P020,"given_only, homonym, josa_attached, surname_title_unlabeled",⏎,:,"[사내 메신저] 2026-11-05 ⏎ 【최혜진】: 소연아, 오늘 회의 자료 어디 있"
+test,D0137,사내메신저,messenger,소연,가가,given,P006,"given_only, homonym, josa_attached, surname_title_unlabeled", ,아,"신저] 2026-11-05 ⏎ 최혜진: 【소연】아, 오늘 회의 자료 어디 있어? ⏎ 안"
+test,D0137,사내메신저,messenger,안소연,가가가,full,P006,"given_only, homonym, josa_attached, surname_title_unlabeled",⏎,:,"연아, 오늘 회의 자료 어디 있어? ⏎ 【안소연】: 공유 폴더에 올려놨어. 근데 김민"
+test,D0137,사내메신저,messenger,김민준,가가가,full,P067,"given_only, homonym, josa_attached, surname_title_unlabeled", , ,소연: 공유 폴더에 올려놨어. 근데 【김민준】 고객 건은 아직 정리 못 했어 ⏎ 최혜
+test,D0137,사내메신저,messenger,최혜진,가가가,full,P020,"given_only, homonym, josa_attached, surname_title_unlabeled",⏎,:,민준 고객 건은 아직 정리 못 했어 ⏎ 【최혜진】: 그 고객 연락처 010-0144-
+test,D0137,사내메신저,messenger,안소연,가가가,full,P006,"given_only, homonym, josa_attached, surname_title_unlabeled",⏎,:,8 맞지? 내가 오후에 전화해 볼게 ⏎ 【안소연】: 응 부탁해. 아 그리고 이 차장님
+test,D0137,사내메신저,messenger,최혜진,가가가,full,P020,"given_only, homonym, josa_attached, surname_title_unlabeled",⏎,:, 이 차장님이 내일까지 보고서 달래 ⏎ 【최혜진】: 알겠어. 준우랑 같이 정리해서 올
+test,D0137,사내메신저,messenger,준우,가가,given,P010,"given_only, homonym, josa_attached, surname_title_unlabeled", ,랑,까지 보고서 달래 ⏎ 최혜진: 알겠어. 【준우】랑 같이 정리해서 올릴게
+test,D0138,민원처리,complaint_2,이건우,가가가,full,P047,"spaced_name, surname_title_unlabeled", ,님, / 2026년 2월 15일 ⏎  ⏎ 고객 【이건우】님이 이번 달 카드 대금이 하늘빛은행
+test,D0138,민원처리,complaint_2,이 건우,가 가가,spaced,P047,"spaced_name, surname_title_unlabeled", , ,"30,000원은 당일 환급 처리함. 【이 건우】 고객은 재발 방지 대책을 요청하였고"
+test,D0138,민원처리,complaint_2,이준우,가가가,full,P010,"spaced_name, surname_title_unlabeled", , ,"방지 대책을 요청하였고, IT운영팀 【이준우】 사원에게 원인 분석을 의뢰함. ⏎ 회신"
+test,D0139,연체안내,collection,이상훈,가가가,full,P009,phone_format_variant, ,⏎,17일 12:07 ⏎ 담당: 채권관리팀 【이상훈】 ⏎ 고객: 최채원 (0100129075
+test,D0139,연체안내,collection,최채원,가가가,full,P046,phone_format_variant, , ,7 ⏎ 담당: 채권관리팀 이상훈 ⏎ 고객: 【최채원】 (01001290753) ⏎  ⏎ 연체 내
+test,D0139,연체안내,collection,최채원,가가가,full,P046,phone_format_variant, ,님,"000원, 연체 56일 ⏎ 통화 내용: 【최채원】님은 이번 주 금요일까지 온누리은행 "
+test,D0140,이상거래탐지,fds_2,허 수아,가 가가,spaced,P008,spaced_name, ,⏎,기록 - 2026-02-18 ⏎ 담당: 【허 수아】 ⏎ 대상: 박준우 / 010-0186-
+test,D0140,이상거래탐지,fds_2,박준우,가가가,full,P061,spaced_name, , ,-02-18 ⏎ 담당: 허 수아 ⏎ 대상: 【박준우】 / 010-0186-5072 ⏎  ⏎ 새벽
+test,D0140,이상거래탐지,fds_2,박준우,가가가,full,P061,spaced_name, ,님,결제가 반복되어 확인 전화를 드림. 【박준우】님은 해당 결제가 자녀의 게임 결제라
+test,D0141,업무메일,email_vendor,문은정,가가가,full,P037,homonym, , ,"스템 테스트 일정 협의 ⏎  ⏎ 코드브릿지 【문은정】 매니저님께, ⏎  ⏎ 안녕하세요, 새봄카드"
+test,D0141,업무메일,email_vendor,최혜진,가가가,full,P020,homonym, ,입," ⏎  ⏎ 안녕하세요, 새봄카드 IT운영팀 【최혜진】입니다. ⏎ 지난 회의에서 말씀드린 통합"
+test,D0141,업무메일,email_vendor,이서연,가가가,full,P068,homonym, , ,"보내드릴 수 없어, 저희 정보보호팀 【이서연】 과장이 별도로 전달드릴 예정입니다."
+test,D0141,업무메일,email_vendor,최혜진,가가가,full,P020,homonym,⏎, ,0282-9512로 연락 주세요. ⏎  ⏎ 【최혜진】 드림 ⏎ IT운영팀 | 02-3961-
+test,D0142,연체안내,collection,이상훈,가가가,full,P009,, ,⏎,20일 13:00 ⏎ 담당: 채권관리팀 【이상훈】 ⏎ 고객: 정지호 (010-0612-9
+test,D0142,연체안내,collection,정지호,가가가,full,P057,, , ,0 ⏎ 담당: 채권관리팀 이상훈 ⏎ 고객: 【정지호】 (010-0612-9154) ⏎  ⏎ 연체
+test,D0142,연체안내,collection,정지호,가가가,full,P057,, ,님,"000원, 연체 22일 ⏎ 통화 내용: 【정지호】님은 이번 주 금요일까지 온누리은행 "
+test,D0145,대출상담,loan_2,신승현,가가가,full,P013,"josa_attached, spaced_name", ,⏎,6년 6월 1일 10:55 ⏎ 상담원: 【신승현】 ⏎  ⏎ 손 하윤 고객(010-0794-2
+test,D0145,대출상담,loan_2,손 하윤,가 가가,spaced,P048,"josa_attached, spaced_name",⏎, , 1일 10:55 ⏎ 상담원: 신승현 ⏎  ⏎ 【손 하윤】 고객(010-0794-2240)이 
+test,D0145,대출상담,loan_2,손하윤,가가가,full,P048,"josa_attached, spaced_name",⏎,은,0@example.net로 발송함. ⏎ 【손하윤】은 서류를 준비한 뒤 다시 연락하겠다
+test,D0146,회의록,meeting_1,김은정,가가가,full,P031,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,(,"장소: 본사 12층 회의실 ⏎ 참석자: 【김은정】(부장), 이주원, 조민준, 김영호("
+test,D0146,회의록,meeting_1,이주원,가가가,full,P028,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,",","층 회의실 ⏎ 참석자: 김은정(부장), 【이주원】, 조민준, 김영호(데이터온시스템즈)"
+test,D0146,회의록,meeting_1,조민준,가가가,full,P021,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,","," ⏎ 참석자: 김은정(부장), 이주원, 【조민준】, 김영호(데이터온시스템즈) ⏎ 작성자:"
+test,D0146,회의록,meeting_1,김영호,가가가,full,P033,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,(," 김은정(부장), 이주원, 조민준, 【김영호】(데이터온시스템즈) ⏎ 작성자: 이주원 ⏎ "
+test,D0146,회의록,meeting_1,이주원,가가가,full,P028,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,⏎, 김영호(데이터온시스템즈) ⏎ 작성자: 【이주원】 ⏎  ⏎ 논의 내용 ⏎ 1. 김 은정 부장이 
+test,D0146,회의록,meeting_1,김 은정,가 가가,spaced,P031,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , , ⏎ 작성자: 이주원 ⏎  ⏎ 논의 내용 ⏎ 1. 【김 은정】 부장이 지난 분기 추진 현황을 공유
+test,D0146,회의록,meeting_1,김영호,가가가,full,P033,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , ,황을 공유함. ⏎ 2. 데이터온시스템즈 【김영호】 책임은 시스템 이관 일정이 2주 지
+test,D0146,회의록,meeting_1,조민준,가가가,full,P021,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,은,주 지연될 수 있다고 보고함. ⏎ 3. 【조민준】은 고객 안내 문자 발송 시점을 이관
+test,D0146,회의록,meeting_1,민준,가가,given,P021,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , , 문구는 이 과장이 초안을 작성하고 【민준】 씨가 검토 ⏎  ⏎ 다음 회의: 2026.
+test,D0147,용역계약서,contract,박예린,가가가,full,P030,, , ,"제5조(담당자) ⏎   갑: IT운영팀 【박예린】 (02-3964-4249, yr.p"
+test,D0147,용역계약서,contract,오다은,가가가,full,P034,, , ,"d.example.com) ⏎   을: 【오다은】 매니저 (010-0564-4438,"
+test,D0147,용역계약서,contract,김예준,가가가,full,P001,, ,⏎,월 10일 ⏎  ⏎ 갑: 새봄카드 대표이사 【김예준】 ⏎ 을: 데이터온시스템즈 대표이사 박미
+test,D0147,용역계약서,contract,박미영,가가가,full,P032,, ,,예준 ⏎ 을: 데이터온시스템즈 대표이사 【박미영】
+test,D0148,업무메일,email_audit,정서현,가가가,full,P005,spaced_name, ,입, 위탁 점검 결과 공유 ⏎  ⏎ 정보보호팀 【정서현】입니다. ⏎ 다솜콜솔루션에 대한 상반기 
+test,D0148,업무메일,email_audit,정서현,가가가,full,P005,spaced_name, ,",","026년 6월 27일 ⏎ 2. 점검자: 【정서현】, 박준서 ⏎ 3. 수탁사 담당자: 신현"
+test,D0148,업무메일,email_audit,박준서,가가가,full,P015,spaced_name, ,⏎,"6월 27일 ⏎ 2. 점검자: 정서현, 【박준서】 ⏎ 3. 수탁사 담당자: 신현준 매니저"
+test,D0148,업무메일,email_audit,신현준,가가가,full,P043,spaced_name, , ,"서현, 박준서 ⏎ 3. 수탁사 담당자: 【신현준】 매니저 (010-0664-0224,"
+test,D0148,업무메일,email_audit,박 준서,가 가가,spaced,P015,spaced_name, , , 제출을 요청했습니다. 관련 문의는 【박 준서】 사원에게 해주세요.
+test,D0149,대출상담,loan_1,신승현,가가가,full,P013,phone_format_variant, , , 영업점 방문 (분당지점) ⏎ 담당자: 【신승현】 과장 / 내선 4215 ⏎  ⏎ 1. 고객
+test,D0149,대출상담,loan_1,이건우,가가가,full,P047,phone_format_variant, ,⏎,215 ⏎  ⏎ 1. 고객 정보 ⏎ - 성명: 【이건우】 ⏎ - 주민등록번호: 990413-17
+test,D0149,대출상담,loan_1,이건우,가가가,full,P047,phone_format_variant,⏎, , 중소기업 사무직 ⏎  ⏎ 2. 상담 내용 ⏎ 【이건우】 고객은 새봄 중금리 대출 상품으로 
+test,D0149,대출상담,loan_1,최혜진,가가가,full,P020,phone_format_variant, , ,소득 증빙 서류 제출 후 IT운영팀 【최혜진】 차장에게 심사를 요청하기로 함. ⏎  ⏎ 
+test,D0150,업무메일,email_vendor,손하은,가가가,full,P036,, , ,"스템 테스트 일정 협의 ⏎  ⏎ 코드브릿지 【손하은】 책임님께, ⏎  ⏎ 안녕하세요, 새봄카드 "
+test,D0150,업무메일,email_vendor,최혜진,가가가,full,P020,, ,입," ⏎  ⏎ 안녕하세요, 새봄카드 IT운영팀 【최혜진】입니다. ⏎ 지난 회의에서 말씀드린 통합"
+test,D0150,업무메일,email_vendor,정서현,가가가,full,P005,, , ,"보내드릴 수 없어, 저희 정보보호팀 【정서현】 대리가 별도로 전달드릴 예정입니다."
+test,D0150,업무메일,email_vendor,최혜진,가가가,full,P020,,⏎, ,0282-9512로 연락 주세요. ⏎  ⏎ 【최혜진】 드림 ⏎ IT운영팀 | 02-3961-
+test,D0151,연체안내,collection,정서연,가가가,full,P019,, ,⏎,-21 11:16 ⏎ 담당: 채권관리팀 【정서연】 ⏎ 고객: 최채원 (010-0129-0
+test,D0151,연체안내,collection,최채원,가가가,full,P046,, , ,6 ⏎ 담당: 채권관리팀 정서연 ⏎ 고객: 【최채원】 (010-0129-0753) ⏎  ⏎ 연체
+test,D0151,연체안내,collection,최채원,가가가,full,P046,, ,님,"000원, 연체 77일 ⏎ 통화 내용: 【최채원】님은 이번 주 금요일까지 가람저축은행"
+test,D0152,용역계약서,contract,박도윤,가가가,full,P071,"homonym, phone_format_variant", , ,"제5조(담당자) ⏎   갑: IT운영팀 【박도윤】 (02.4483.7272, dy.p"
+test,D0152,용역계약서,contract,신현준,가가가,full,P043,"homonym, phone_format_variant", , ,"d.example.com) ⏎   을: 【신현준】 매니저 (01006640224, h"
+test,D0152,용역계약서,contract,김예준,가가가,full,P001,"homonym, phone_format_variant", ,⏎,11.20 ⏎  ⏎ 갑: 새봄카드 대표이사 【김예준】 ⏎ 을: 다솜콜솔루션 대표이사 배현정
+test,D0152,용역계약서,contract,배현정,가가가,full,P041,"homonym, phone_format_variant", ,, 김예준 ⏎ 을: 다솜콜솔루션 대표이사 【배현정】
+test,D0154,업무메일,email_audit,정서현,가가가,full,P005,"phone_format_variant, spaced_name", ,입, 위탁 점검 결과 공유 ⏎  ⏎ 정보보호팀 【정서현】입니다. ⏎ 미르보안에 대한 상반기 개인
+test,D0154,업무메일,email_audit,정서현,가가가,full,P005,"phone_format_variant, spaced_name", ,",","26년 12월 23일 ⏎ 2. 점검자: 【정서현】, 박준서 ⏎ 3. 수탁사 담당자: 권선"
+test,D0154,업무메일,email_audit,박준서,가가가,full,P015,"phone_format_variant, spaced_name", ,⏎,"2월 23일 ⏎ 2. 점검자: 정서현, 【박준서】 ⏎ 3. 수탁사 담당자: 권선영 매니저"
+test,D0154,업무메일,email_audit,권선영,가가가,full,P040,"phone_format_variant, spaced_name", , ,"서현, 박준서 ⏎ 3. 수탁사 담당자: 【권선영】 매니저 (01004309891, s"
+test,D0154,업무메일,email_audit,박 준서,가 가가,spaced,P015,"phone_format_variant, spaced_name", , , 제출을 요청했습니다. 관련 문의는 【박 준서】 사원에게 해주세요.
+test,D0155,카드분실상담,card_lost_2,정 지호,가 가가,spaced,P057,"decoy_company_phone, spaced_name, surname_title_unlabeled", , , ⏎  ⏎ 담당: 고객센터 정 부장 ⏎ 고객: 【정 지호】 님 / 010-0612-9154 ⏎  ⏎ 
+test,D0155,카드분실상담,card_lost_2,정지호,가가가,full,P057,"decoy_company_phone, spaced_name, surname_title_unlabeled",⏎,님, 님 / 010-0612-9154 ⏎  ⏎ 【정지호】님께서 해외 출장 중 카드를 분실했다
+test,D0156,회의록,meeting_2,박하린,가가가,full,P025,josa_attached, ,",","검 ⏎ 2026년 8월 10일 ⏎  ⏎ 참석: 【박하린】, 남성호, 이주원 ⏎ 불참: 안소연 ("
+test,D0156,회의록,meeting_2,남성호,가가가,full,P027,josa_attached, ,",","6년 8월 10일 ⏎  ⏎ 참석: 박하린, 【남성호】, 이주원 ⏎ 불참: 안소연 (연차) ⏎  ⏎ "
+test,D0156,회의록,meeting_2,이주원,가가가,full,P028,josa_attached, ,⏎," 10일 ⏎  ⏎ 참석: 박하린, 남성호, 【이주원】 ⏎ 불참: 안소연 (연차) ⏎  ⏎ - 박하린"
+test,D0156,회의록,meeting_2,안소연,가가가,full,P006,josa_attached, , ,": 박하린, 남성호, 이주원 ⏎ 불참: 【안소연】 (연차) ⏎  ⏎ - 박하린: 신규 카드 "
+test,D0156,회의록,meeting_2,박하린,가가가,full,P025,josa_attached, ,:,이주원 ⏎ 불참: 안소연 (연차) ⏎  ⏎ - 【박하린】: 신규 카드 발급 심사 자동화 진행
+test,D0156,회의록,meeting_2,남성호,가가가,full,P027,josa_attached, ,:,발급 심사 자동화 진행률 70% ⏎ - 【남성호】: 고객 문의 응대 스크립트 개정안 
+test,D0156,회의록,meeting_2,이주원,가가가,full,P028,josa_attached, ,:, 응대 스크립트 개정안 작성 중 ⏎ - 【이주원】: 연체 고객 안내 문자 문구 법무 
+test,D0156,회의록,meeting_2,안소연,가가가,full,P006,josa_attached,⏎,이, 법무 검토 요청 완료 ⏎  ⏎ 공유 사항 ⏎ 【안소연】이 복귀하면 개인정보 처리방침 개정 
+test,D0157,회의록,meeting_1,정성호,가가가,full,P002,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,(,"장소: 본사 12층 회의실 ⏎ 참석자: 【정성호】(부장), 정서현, 최지영, 오다은("
+test,D0157,회의록,meeting_1,정서현,가가가,full,P005,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,",","층 회의실 ⏎ 참석자: 정성호(부장), 【정서현】, 최지영, 오다은(데이터온시스템즈)"
+test,D0157,회의록,meeting_1,최지영,가가가,full,P011,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,","," ⏎ 참석자: 정성호(부장), 정서현, 【최지영】, 오다은(데이터온시스템즈) ⏎ 작성자:"
+test,D0157,회의록,meeting_1,오다은,가가가,full,P034,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,(," 정성호(부장), 정서현, 최지영, 【오다은】(데이터온시스템즈) ⏎ 작성자: 정서현 ⏎ "
+test,D0157,회의록,meeting_1,정서현,가가가,full,P005,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,⏎, 오다은(데이터온시스템즈) ⏎ 작성자: 【정서현】 ⏎  ⏎ 논의 내용 ⏎ 1. 정 성호 부장이 
+test,D0157,회의록,meeting_1,정 성호,가 가가,spaced,P002,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , , ⏎ 작성자: 정서현 ⏎  ⏎ 논의 내용 ⏎ 1. 【정 성호】 부장이 지난 분기 추진 현황을 공유
+test,D0157,회의록,meeting_1,오다은,가가가,full,P034,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , ,황을 공유함. ⏎ 2. 데이터온시스템즈 【오다은】 매니저는 시스템 이관 일정이 2주 
+test,D0157,회의록,meeting_1,최지영,가가가,full,P011,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,은,주 지연될 수 있다고 보고함. ⏎ 3. 【최지영】은 고객 안내 문자 발송 시점을 이관
+test,D0157,회의록,meeting_1,지영,가가,given,P011,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , , 문구는 정 대리가 초안을 작성하고 【지영】 씨가 검토 ⏎  ⏎ 다음 회의: 2026년
+test,D0158,업무메일,email_vendor,문은정,가가가,full,P037,homonym, , ,"스템 테스트 일정 협의 ⏎  ⏎ 코드브릿지 【문은정】 매니저님께, ⏎  ⏎ 안녕하세요, 새봄카드"
+test,D0158,업무메일,email_vendor,박도윤,가가가,full,P071,homonym, ,입," ⏎  ⏎ 안녕하세요, 새봄카드 IT운영팀 【박도윤】입니다. ⏎ 지난 회의에서 말씀드린 통합"
+test,D0158,업무메일,email_vendor,정서현,가가가,full,P005,homonym, , ,"보내드릴 수 없어, 저희 정보보호팀 【정서현】 대리가 별도로 전달드릴 예정입니다."
+test,D0158,업무메일,email_vendor,박도윤,가가가,full,P071,homonym,⏎, ,719-2513으로 연락 주세요. ⏎  ⏎ 【박도윤】 드림 ⏎ IT운영팀 | 02-4483-
+test,D0159,연체안내,collection,이상훈,가가가,full,P009,phone_format_variant, ,⏎,-15 13:00 ⏎ 담당: 채권관리팀 【이상훈】 ⏎ 고객: 남궁다은 (010 0393 
+test,D0159,연체안내,collection,남궁다은,가가가가,full,P064,phone_format_variant, , ,0 ⏎ 담당: 채권관리팀 이상훈 ⏎ 고객: 【남궁다은】 (010 0393 7740) ⏎  ⏎ 연체
+test,D0159,연체안내,collection,남궁다은,가가가가,full,P064,phone_format_variant, ,님,"000원, 연체 30일 ⏎ 통화 내용: 【남궁다은】님은 이번 주 금요일까지 온누리은행 "
+test,D0160,인사발령,hr_notice,김은영,가가가,full,P003,homonym, ,⏎,합니다. ⏎  ⏎ 1. 승진 ⏎ - 여신심사팀 【김은영】 ⏎ - IT운영팀 박예린 ⏎  ⏎ 2. 전보 ⏎ 
+test,D0160,인사발령,hr_notice,박예린,가가가,full,P030,homonym, ,⏎,- 여신심사팀 김은영 ⏎ - IT운영팀 【박예린】 ⏎  ⏎ 2. 전보 ⏎ - 이은서 대리: 디지
+test,D0160,인사발령,hr_notice,이은서,가가가,full,P007,homonym, , , IT운영팀 박예린 ⏎  ⏎ 2. 전보 ⏎ - 【이은서】 대리: 디지털전략팀 → 리스크관리팀
+test,D0160,인사발령,hr_notice,박도윤,가가가,full,P070,homonym, , ,: 디지털전략팀 → 리스크관리팀 ⏎ - 【박도윤】 과장: 여신심사팀 → 디지털전략팀 ⏎ 
+test,D0160,인사발령,hr_notice,안소연,가가가,full,P006,homonym, , ," 2026.10.11 ⏎ 문의: 인사팀 【안소연】 (내선 5647, sy.ahn20@"
+test,D0161,연체안내,collection,이상훈,가가가,full,P009,, ,⏎, 4일 12:10 ⏎ 담당: 채권관리팀 【이상훈】 ⏎ 고객: 황보지영 (010-0688-
+test,D0161,연체안내,collection,황보지영,가가가가,full,P065,, , ,0 ⏎ 담당: 채권관리팀 이상훈 ⏎ 고객: 【황보지영】 (010-0688-3963) ⏎  ⏎ 연체
+test,D0161,연체안내,collection,황보지영,가가가가,full,P065,, ,님,"000원, 연체 54일 ⏎ 통화 내용: 【황보지영】님은 이번 주 금요일까지 가람저축은행"
+test,D0162,용역계약서,contract,박예린,가가가,full,P030,, , ,"제5조(담당자) ⏎   갑: IT운영팀 【박예린】 (02-3964-4249, yr.p"
+test,D0162,용역계약서,contract,손하은,가가가,full,P036,, , ,"d.example.com) ⏎   을: 【손하은】 책임 (010-0288-0841, "
+test,D0162,용역계약서,contract,김예준,가가가,full,P001,, ,⏎,2월 1일 ⏎  ⏎ 갑: 새봄카드 대표이사 【김예준】 ⏎ 을: 코드브릿지 대표이사 허하은
+test,D0162,용역계약서,contract,허하은,가가가,full,P035,, ,,사 김예준 ⏎ 을: 코드브릿지 대표이사 【허하은】
+test,D0163,인사발령,hr_notice,박하린,가가가,full,P025,, ,⏎,합니다. ⏎  ⏎ 1. 승진 ⏎ - 정보보호팀 【박하린】 ⏎ - 인사팀 전경희 ⏎  ⏎ 2. 전보 ⏎ - 
+test,D0163,인사발령,hr_notice,전경희,가가가,full,P026,, ,⏎,진 ⏎ - 정보보호팀 박하린 ⏎ - 인사팀 【전경희】 ⏎  ⏎ 2. 전보 ⏎ - 이은서 대리: 디지
+test,D0163,인사발령,hr_notice,이은서,가가가,full,P007,, , , ⏎ - 인사팀 전경희 ⏎  ⏎ 2. 전보 ⏎ - 【이은서】 대리: 디지털전략팀 → 리스크관리팀
+test,D0163,인사발령,hr_notice,김서준,가가가,full,P012,, , ,: 디지털전략팀 → 리스크관리팀 ⏎ - 【김서준】 대리: 고객센터 → 디지털전략팀 ⏎  ⏎ 
+test,D0163,인사발령,hr_notice,안소연,가가가,full,P006,, , ,"2026년 1월 5일 ⏎ 문의: 인사팀 【안소연】 (내선 3469, sy.ahn20@"
+test,D0164,카드분실상담,card_lost_1,정성호,가가가,full,P002,, , ,년 2월 11일 17:29 ⏎ 상담원: 【정성호】 (고객센터) ⏎  ⏎ 고객명: 정우진 ⏎ 연락
+test,D0164,카드분실상담,card_lost_1,정우진,가가가,full,P054,, ,⏎,원: 정성호 (고객센터) ⏎  ⏎ 고객명: 【정우진】 ⏎ 연락처: 010-0675-9202 ⏎ 
+test,D0164,카드분실상담,card_lost_1,정우진,가가가,full,P054,,⏎, ,27-1111-6153 ⏎  ⏎ 상담 내용 ⏎ 【정우진】 고객이 오늘 오전 지갑을 잃어버렸다
+test,D0165,이상거래탐지,fds_2,허 수아,가 가가,spaced,P008,spaced_name, ,⏎, - 2026년 8월 25일 ⏎ 담당: 【허 수아】 ⏎ 대상: 남궁다은 / 010-0393
+test,D0165,이상거래탐지,fds_2,남궁다은,가가가가,full,P064,spaced_name, , ,8월 25일 ⏎ 담당: 허 수아 ⏎ 대상: 【남궁다은】 / 010-0393-7740 ⏎  ⏎ 새벽
+test,D0165,이상거래탐지,fds_2,남궁다은,가가가가,full,P064,spaced_name, ,님,결제가 반복되어 확인 전화를 드림. 【남궁다은】님은 해당 결제가 자녀의 게임 결제라
+test,D0166,업무메일,email_vendor,오다은,가가가,full,P034,, , ,"테스트 일정 협의 ⏎  ⏎ 데이터온시스템즈 【오다은】 매니저님께, ⏎  ⏎ 안녕하세요, 새봄카드"
+test,D0166,업무메일,email_vendor,이준우,가가가,full,P010,, ,입," ⏎  ⏎ 안녕하세요, 새봄카드 IT운영팀 【이준우】입니다. ⏎ 지난 회의에서 말씀드린 통합"
+test,D0166,업무메일,email_vendor,박하린,가가가,full,P025,, , ,"보내드릴 수 없어, 저희 정보보호팀 【박하린】 과장이 별도로 전달드릴 예정입니다."
+test,D0166,업무메일,email_vendor,이준우,가가가,full,P010,,⏎, ,0343-4562로 연락 주세요. ⏎  ⏎ 【이준우】 드림 ⏎ IT운영팀 | 02-3880-
+test,D0167,카드분실상담,card_lost_1,정성호,가가가,full,P002,, , ,년 6월 26일 14:59 ⏎ 상담원: 【정성호】 (고객센터) ⏎  ⏎ 고객명: 최채원 ⏎ 연락
+test,D0167,카드분실상담,card_lost_1,최채원,가가가,full,P046,, ,⏎,원: 정성호 (고객센터) ⏎  ⏎ 고객명: 【최채원】 ⏎ 연락처: 010-0129-0753 ⏎ 
+test,D0167,카드분실상담,card_lost_1,최채원,가가가,full,P046,,⏎, ,91-3431-6113 ⏎  ⏎ 상담 내용 ⏎ 【최채원】 고객이 오늘 오전 지갑을 잃어버렸다
+test,D0168,고객정보변경,info_change,김민준,가가가,full,P066,"homonym, josa_attached, phone_format_variant", , ,리일: 2026-03-21 ⏎ 처리자: 【김민준】 (고객센터) ⏎  ⏎ 변경 요청 고객: 정
+test,D0168,고객정보변경,info_change,정하은,가가가,full,P073,"homonym, josa_attached, phone_format_variant", ,⏎,준 (고객센터) ⏎  ⏎ 변경 요청 고객: 【정하은】 ⏎ 본인 확인: 주민등록번호 01062
+test,D0168,고객정보변경,info_change,정하은,가가가,full,P073,"homonym, josa_attached, phone_format_variant", ,은, 예약된 안내 문자는 모두 취소함. 【정하은】은 결제일 변경도 원했으나 다음 달부
+test,D0174,이상거래탐지,fds_1,허수아,가가가,full,P008,"homonym, phone_format_variant", ,⏎,6 17:57 ⏎ 보고자: 리스크관리팀 【허수아】 ⏎  ⏎ 탐지 내용 ⏎ 정하은 고객 명의 카드
+test,D0174,이상거래탐지,fds_1,정하은,가가가,full,P072,"homonym, phone_format_variant",⏎, ,: 리스크관리팀 허수아 ⏎  ⏎ 탐지 내용 ⏎ 【정하은】 고객 명의 카드(9410-7868-
+test,D0174,이상거래탐지,fds_1,정하은,가가가,full,P072,"homonym, phone_format_variant", , ,009731213)로 확인 전화 → 【정하은】 고객 본인이 결제하지 않았다고 답변
+test,D0174,이상거래탐지,fds_1,전경희,가가가,full,P026,"homonym, phone_format_variant", , ,최근 유사 패턴이 늘고 있어 인사팀 【전경희】 팀장에게 탐지 규칙 보완을 요청함.
+test,D0175,이상거래탐지,fds_1,허수아,가가가,full,P008,"homonym, phone_format_variant", ,⏎,일 17:54 ⏎ 보고자: 리스크관리팀 【허수아】 ⏎  ⏎ 탐지 내용 ⏎ 정하은 고객 명의 카드
+test,D0175,이상거래탐지,fds_1,정하은,가가가,full,P073,"homonym, phone_format_variant",⏎, ,: 리스크관리팀 허수아 ⏎  ⏎ 탐지 내용 ⏎ 【정하은】 고객 명의 카드(9410-2583-
+test,D0175,이상거래탐지,fds_1,정하은,가가가,full,P073,"homonym, phone_format_variant", , ,009229038)로 확인 전화 → 【정하은】 고객 본인이 결제하지 않았다고 답변
+test,D0175,이상거래탐지,fds_1,이소율,가가가,full,P004,"homonym, phone_format_variant", , , 유사 패턴이 늘고 있어 카드운영팀 【이소율】 차장에게 탐지 규칙 보완을 요청함.
+test,D0176,사내메신저,messenger,김진우,가가가,full,P023,"given_only, homonym, josa_attached, surname_title_unlabeled",⏎,:,"내 메신저] 2026년 4월 22일 ⏎ 【김진우】: 상훈아, 오늘 회의 자료 어디 있"
+test,D0176,사내메신저,messenger,상훈,가가,given,P009,"given_only, homonym, josa_attached, surname_title_unlabeled", ,아,"] 2026년 4월 22일 ⏎ 김진우: 【상훈】아, 오늘 회의 자료 어디 있어? ⏎ 이"
+test,D0176,사내메신저,messenger,이상훈,가가가,full,P009,"given_only, homonym, josa_attached, surname_title_unlabeled",⏎,:,"훈아, 오늘 회의 자료 어디 있어? ⏎ 【이상훈】: 공유 폴더에 올려놨어. 근데 이건"
+test,D0176,사내메신저,messenger,이건우,가가가,full,P047,"given_only, homonym, josa_attached, surname_title_unlabeled", , ,상훈: 공유 폴더에 올려놨어. 근데 【이건우】 고객 건은 아직 정리 못 했어 ⏎ 김진
+test,D0176,사내메신저,messenger,김진우,가가가,full,P023,"given_only, homonym, josa_attached, surname_title_unlabeled",⏎,:,건우 고객 건은 아직 정리 못 했어 ⏎ 【김진우】: 그 고객 연락처 010-0552-
+test,D0176,사내메신저,messenger,이상훈,가가가,full,P009,"given_only, homonym, josa_attached, surname_title_unlabeled",⏎,:,1 맞지? 내가 오후에 전화해 볼게 ⏎ 【이상훈】: 응 부탁해. 아 그리고 남 부장님
+test,D0176,사내메신저,messenger,김진우,가가가,full,P023,"given_only, homonym, josa_attached, surname_title_unlabeled",⏎,:, 남 부장님이 내일까지 보고서 달래 ⏎ 【김진우】: 알겠어. 서연이랑 같이 정리해서 
+test,D0176,사내메신저,messenger,서연,가가,given,P068,"given_only, homonym, josa_attached, surname_title_unlabeled", ,이,까지 보고서 달래 ⏎ 김진우: 알겠어. 【서연】이랑 같이 정리해서 올릴게
+test,D0178,대출상담,loan_1,박도윤,가가가,full,P070,homonym, , ,영업점 방문 (여의도지점) ⏎ 담당자: 【박도윤】 과장 / 내선 7369 ⏎  ⏎ 1. 고객
+test,D0178,대출상담,loan_1,박민재,가가가,full,P058,homonym, ,⏎,369 ⏎  ⏎ 1. 고객 정보 ⏎ - 성명: 【박민재】 ⏎ - 주민등록번호: 700308-11
+test,D0178,대출상담,loan_1,박민재,가가가,full,P058,homonym,⏎, ,: 제조업 생산직 ⏎  ⏎ 2. 상담 내용 ⏎ 【박민재】 고객은 새봄 사업자 운영자금 대출 
+test,D0178,대출상담,loan_1,이소율,가가가,full,P004,homonym, , ,소득 증빙 서류 제출 후 카드운영팀 【이소율】 차장에게 심사를 요청하기로 함. ⏎  ⏎ 
+test,D0179,용역계약서,contract,박도윤,가가가,full,P071,homonym, , ,"제5조(담당자) ⏎   갑: IT운영팀 【박도윤】 (02-4483-7272, dy.p"
+test,D0179,용역계약서,contract,손하은,가가가,full,P036,homonym, , ,"d.example.com) ⏎   을: 【손하은】 책임 (010-0288-0841, "
+test,D0179,용역계약서,contract,김예준,가가가,full,P001,homonym, ,⏎,12.24 ⏎  ⏎ 갑: 새봄카드 대표이사 【김예준】 ⏎ 을: 코드브릿지 대표이사 허하은
+test,D0179,용역계약서,contract,허하은,가가가,full,P035,homonym, ,,사 김예준 ⏎ 을: 코드브릿지 대표이사 【허하은】
+test,D0181,업무메일,email_internal,서연,가가,given,P068,"given_only, homonym",⏎, ,"민원 회신 초안 검토 부탁드립니다 ⏎  ⏎ 【서연】 씨, 안녕하세요. ⏎ 어제 접수된 민원"
+test,D0181,업무메일,email_internal,이건우,가가가,full,P047,"given_only, homonym", , ,) 회신 초안 보내드립니다. 민원인 【이건우】 고객 주소가 대전광역시 유성구 별빛
+test,D0181,업무메일,email_internal,허수아,가가가,full,P008,"given_only, homonym", , ,것 같아 확인 부탁드려요. ⏎ 검토 후 【허수아】 부장님께 바로 올려 주셔도 됩니다.
+test,D0181,업무메일,email_internal,조민준,가가가,full,P021,"given_only, homonym",⏎, ,장님께 바로 올려 주셔도 됩니다. ⏎  ⏎ 【조민준】 드림
+test,D0182,민원처리,complaint_1,정지호,가가가,full,P057,, , ,수 경로: 금융감독원 이첩 ⏎ 민원인: 【정지호】 (연락처 010-0612-9154)
+test,D0182,민원처리,complaint_1,최지영,가가가,full,P011,, , ,-9154) ⏎ 처리 담당: 고객보호팀 【최지영】 팀장 ⏎ 검토자: 이소율 차장 ⏎  ⏎ [민원
+test,D0182,민원처리,complaint_1,이소율,가가가,full,P004,, , ,: 고객보호팀 최지영 팀장 ⏎ 검토자: 【이소율】 차장 ⏎  ⏎ [민원 요지] ⏎ 민원인은 연회
+test,D0182,민원처리,complaint_1,이소율,가가가,full,P004,, , , ⏎ 연회비 전액 환불 및 사과 안내. 【이소율】 차장의 승인 후 2026년 2월 1
+test,D0183,사내메신저,messenger,이은서,가가가,full,P007,"given_only, homonym, josa_attached, surname_title_unlabeled",⏎,:,"[사내 메신저] 2026-03-22 ⏎ 【이은서】: 민준아, 오늘 회의 자료 어디 있"
+test,D0183,사내메신저,messenger,민준,가가,given,P066,"given_only, homonym, josa_attached, surname_title_unlabeled", ,아,"신저] 2026-03-22 ⏎ 이은서: 【민준】아, 오늘 회의 자료 어디 있어? ⏎ 김"
+test,D0183,사내메신저,messenger,김민준,가가가,full,P066,"given_only, homonym, josa_attached, surname_title_unlabeled",⏎,:,"준아, 오늘 회의 자료 어디 있어? ⏎ 【김민준】: 공유 폴더에 올려놨어. 근데 오서"
+test,D0183,사내메신저,messenger,오서연,가가가,full,P044,"given_only, homonym, josa_attached, surname_title_unlabeled", , ,민준: 공유 폴더에 올려놨어. 근데 【오서연】 고객 건은 아직 정리 못 했어 ⏎ 이은
+test,D0183,사내메신저,messenger,이은서,가가가,full,P007,"given_only, homonym, josa_attached, surname_title_unlabeled",⏎,:,서연 고객 건은 아직 정리 못 했어 ⏎ 【이은서】: 그 고객 연락처 010-0957-
+test,D0183,사내메신저,messenger,김민준,가가가,full,P066,"given_only, homonym, josa_attached, surname_title_unlabeled",⏎,:,6 맞지? 내가 오후에 전화해 볼게 ⏎ 【김민준】: 응 부탁해. 아 그리고 정 부장님
+test,D0183,사내메신저,messenger,이은서,가가가,full,P007,"given_only, homonym, josa_attached, surname_title_unlabeled",⏎,:, 정 부장님이 내일까지 보고서 달래 ⏎ 【이은서】: 알겠어. 윤서랑 같이 정리해서 올
+test,D0183,사내메신저,messenger,윤서,가가,given,P022,"given_only, homonym, josa_attached, surname_title_unlabeled", ,랑,까지 보고서 달래 ⏎ 이은서: 알겠어. 【윤서】랑 같이 정리해서 올릴게
+test,D0184,회의록,meeting_1,허수아,가가가,full,P008,"given_only, homonym, josa_attached, spaced_name, surname_title_unlabeled", ,(,"장소: 본사 12층 회의실 ⏎ 참석자: 【허수아】(부장), 정성호, 이소율, 이서연("
+test,D0184,회의록,meeting_1,정성호,가가가,full,P002,"given_only, homonym, josa_attached, spaced_name, surname_title_unlabeled", ,",","층 회의실 ⏎ 참석자: 허수아(부장), 【정성호】, 이소율, 이서연(미르보안) ⏎ 작성자"
+test,D0184,회의록,meeting_1,이소율,가가가,full,P004,"given_only, homonym, josa_attached, spaced_name, surname_title_unlabeled", ,","," ⏎ 참석자: 허수아(부장), 정성호, 【이소율】, 이서연(미르보안) ⏎ 작성자: 정성호"
+test,D0184,회의록,meeting_1,이서연,가가가,full,P069,"given_only, homonym, josa_attached, spaced_name, surname_title_unlabeled", ,(," 허수아(부장), 정성호, 이소율, 【이서연】(미르보안) ⏎ 작성자: 정성호 ⏎  ⏎ 논의 "
+test,D0184,회의록,meeting_1,정성호,가가가,full,P002,"given_only, homonym, josa_attached, spaced_name, surname_title_unlabeled", ,⏎,"이소율, 이서연(미르보안) ⏎ 작성자: 【정성호】 ⏎  ⏎ 논의 내용 ⏎ 1. 허 수아 부장이 "
+test,D0184,회의록,meeting_1,허 수아,가 가가,spaced,P008,"given_only, homonym, josa_attached, spaced_name, surname_title_unlabeled", , , ⏎ 작성자: 정성호 ⏎  ⏎ 논의 내용 ⏎ 1. 【허 수아】 부장이 지난 분기 추진 현황을 공유
+test,D0184,회의록,meeting_1,이서연,가가가,full,P069,"given_only, homonym, josa_attached, spaced_name, surname_title_unlabeled", , ,추진 현황을 공유함. ⏎ 2. 미르보안 【이서연】 책임은 시스템 이관 일정이 2주 지
+test,D0184,회의록,meeting_1,이소율,가가가,full,P004,"given_only, homonym, josa_attached, spaced_name, surname_title_unlabeled", ,은,주 지연될 수 있다고 보고함. ⏎ 3. 【이소율】은 고객 안내 문자 발송 시점을 이관
+test,D0184,회의록,meeting_1,소율,가가,given,P004,"given_only, homonym, josa_attached, spaced_name, surname_title_unlabeled", , , 문구는 정 부장이 초안을 작성하고 【소율】 씨가 검토 ⏎  ⏎ 다음 회의: 2026.
+test,D0185,업무메일,email_audit,정서현,가가가,full,P005,spaced_name, ,입, 위탁 점검 결과 공유 ⏎  ⏎ 정보보호팀 【정서현】입니다. ⏎ 코드브릿지에 대한 상반기 개
+test,D0185,업무메일,email_audit,정서현,가가가,full,P005,spaced_name, ,",","26년 11월 26일 ⏎ 2. 점검자: 【정서현】, 박준서 ⏎ 3. 수탁사 담당자: 손하"
+test,D0185,업무메일,email_audit,박준서,가가가,full,P015,spaced_name, ,⏎,"1월 26일 ⏎ 2. 점검자: 정서현, 【박준서】 ⏎ 3. 수탁사 담당자: 손하은 책임 "
+test,D0185,업무메일,email_audit,손하은,가가가,full,P036,spaced_name, , ,"서현, 박준서 ⏎ 3. 수탁사 담당자: 【손하은】 책임 (010-0288-0841, "
+test,D0185,업무메일,email_audit,박 준서,가 가가,spaced,P015,spaced_name, , , 제출을 요청했습니다. 관련 문의는 【박 준서】 사원에게 해주세요.
+test,D0186,대출상담,loan_2,신승현,가가가,full,P013,"josa_attached, spaced_name", ,⏎,년 5월 21일 11:38 ⏎ 상담원: 【신승현】 ⏎  ⏎ 이 승현 고객(010-0552-4
+test,D0186,대출상담,loan_2,이 승현,가 가가,spaced,P059,"josa_attached, spaced_name",⏎, ,21일 11:38 ⏎ 상담원: 신승현 ⏎  ⏎ 【이 승현】 고객(010-0552-4961)이 
+test,D0186,대출상담,loan_2,이승현,가가가,full,P059,"josa_attached, spaced_name",⏎,은,9@example.net로 발송함. ⏎ 【이승현】은 서류를 준비한 뒤 다시 연락하겠다
+test,D0187,고객정보변경,info_change,이윤서,가가가,full,P022,"josa_attached, phone_format_variant", , ,리일: 2026-02-14 ⏎ 처리자: 【이윤서】 (고객센터) ⏎  ⏎ 변경 요청 고객: 이
+test,D0187,고객정보변경,info_change,이건우,가가가,full,P047,"josa_attached, phone_format_variant", ,⏎,서 (고객센터) ⏎  ⏎ 변경 요청 고객: 【이건우】 ⏎ 본인 확인: 주민등록번호 99041
+test,D0187,고객정보변경,info_change,이건우,가가가,full,P047,"josa_attached, phone_format_variant", ,는, 예약된 안내 문자는 모두 취소함. 【이건우】는 결제일 변경도 원했으나 다음 달부
+test,D0188,회의록,meeting_2,허수아,가가가,full,P008,josa_attached, ,","," 점검 ⏎ 2026-11-17 ⏎  ⏎ 참석: 【허수아】, 김은영, 이소율 ⏎ 불참: 최지영 ("
+test,D0188,회의록,meeting_2,김은영,가가가,full,P003,josa_attached, ,",","026-11-17 ⏎  ⏎ 참석: 허수아, 【김은영】, 이소율 ⏎ 불참: 최지영 (연차) ⏎  ⏎ "
+test,D0188,회의록,meeting_2,이소율,가가가,full,P004,josa_attached, ,⏎,"1-17 ⏎  ⏎ 참석: 허수아, 김은영, 【이소율】 ⏎ 불참: 최지영 (연차) ⏎  ⏎ - 허수아"
+test,D0188,회의록,meeting_2,최지영,가가가,full,P011,josa_attached, , ,": 허수아, 김은영, 이소율 ⏎ 불참: 【최지영】 (연차) ⏎  ⏎ - 허수아: 신규 카드 "
+test,D0188,회의록,meeting_2,허수아,가가가,full,P008,josa_attached, ,:,이소율 ⏎ 불참: 최지영 (연차) ⏎  ⏎ - 【허수아】: 신규 카드 발급 심사 자동화 진행
+test,D0188,회의록,meeting_2,김은영,가가가,full,P003,josa_attached, ,:,발급 심사 자동화 진행률 70% ⏎ - 【김은영】: 고객 문의 응대 스크립트 개정안 
+test,D0188,회의록,meeting_2,이소율,가가가,full,P004,josa_attached, ,:, 응대 스크립트 개정안 작성 중 ⏎ - 【이소율】: 연체 고객 안내 문자 문구 법무 
+test,D0188,회의록,meeting_2,최지영,가가가,full,P011,josa_attached,⏎,이, 법무 검토 요청 완료 ⏎  ⏎ 공유 사항 ⏎ 【최지영】이 복귀하면 개인정보 처리방침 개정 
+test,D0189,이상거래탐지,fds_2,이 주원,가 가가,spaced,P028,spaced_name, ,⏎,기록 - 2026-02-15 ⏎ 담당: 【이 주원】 ⏎ 대상: 남궁다은 / 010-0393
+test,D0189,이상거래탐지,fds_2,남궁다은,가가가가,full,P064,spaced_name, , ,-02-15 ⏎ 담당: 이 주원 ⏎ 대상: 【남궁다은】 / 010-0393-7740 ⏎  ⏎ 새벽
+test,D0189,이상거래탐지,fds_2,남궁다은,가가가가,full,P064,spaced_name, ,님,결제가 반복되어 확인 전화를 드림. 【남궁다은】님은 해당 결제가 자녀의 게임 결제라
+test,D0190,대출상담,loan_2,김은영,가가가,full,P003,"josa_attached, spaced_name", ,⏎,26-01-28 10:16 ⏎ 상담원: 【김은영】 ⏎  ⏎ 김 수빈 고객(010-0114-4
+test,D0190,대출상담,loan_2,김 수빈,가 가가,spaced,P049,"josa_attached, spaced_name",⏎, ,-28 10:16 ⏎ 상담원: 김은영 ⏎  ⏎ 【김 수빈】 고객(010-0114-4332)이 
+test,D0190,대출상담,loan_2,김수빈,가가가,full,P049,"josa_attached, spaced_name",⏎,은,2@example.net로 발송함. ⏎ 【김수빈】은 서류를 준비한 뒤 다시 연락하겠다
+test,D0191,이상거래탐지,fds_2,이 주원,가 가가,spaced,P028,"homonym, spaced_name", ,⏎,기록 - 2026-10-12 ⏎ 담당: 【이 주원】 ⏎ 대상: 정하은 / 010-0922-
+test,D0191,이상거래탐지,fds_2,정하은,가가가,full,P073,"homonym, spaced_name", , ,-10-12 ⏎ 담당: 이 주원 ⏎ 대상: 【정하은】 / 010-0922-9038 ⏎  ⏎ 새벽
+test,D0191,이상거래탐지,fds_2,정하은,가가가,full,P073,"homonym, spaced_name", ,님,결제가 반복되어 확인 전화를 드림. 【정하은】님은 해당 결제가 자녀의 게임 결제라
+test,D0193,대출상담,loan_2,신승현,가가가,full,P013,"josa_attached, spaced_name", ,⏎,년 5월 17일 15:07 ⏎ 상담원: 【신승현】 ⏎  ⏎ 김 수빈 고객(010-0114-4
+test,D0193,대출상담,loan_2,김 수빈,가 가가,spaced,P049,"josa_attached, spaced_name",⏎, ,17일 15:07 ⏎ 상담원: 신승현 ⏎  ⏎ 【김 수빈】 고객(010-0114-4332)이 
+test,D0193,대출상담,loan_2,김수빈,가가가,full,P049,"josa_attached, spaced_name",⏎,은,2@example.net로 발송함. ⏎ 【김수빈】은 서류를 준비한 뒤 다시 연락하겠다
+test,D0195,사내메신저,messenger,이준우,가가가,full,P010,"given_only, josa_attached, surname_title_unlabeled",⏎,:,"[사내 메신저] 2026-05-28 ⏎ 【이준우】: 윤서야, 오늘 회의 자료 어디 있"
+test,D0195,사내메신저,messenger,윤서,가가,given,P022,"given_only, josa_attached, surname_title_unlabeled", ,야,"신저] 2026-05-28 ⏎ 이준우: 【윤서】야, 오늘 회의 자료 어디 있어? ⏎ 이"
+test,D0195,사내메신저,messenger,이윤서,가가가,full,P022,"given_only, josa_attached, surname_title_unlabeled",⏎,:,"서야, 오늘 회의 자료 어디 있어? ⏎ 【이윤서】: 공유 폴더에 올려놨어. 근데 최채"
+test,D0195,사내메신저,messenger,최채원,가가가,full,P046,"given_only, josa_attached, surname_title_unlabeled", , ,윤서: 공유 폴더에 올려놨어. 근데 【최채원】 고객 건은 아직 정리 못 했어 ⏎ 이준
+test,D0195,사내메신저,messenger,이준우,가가가,full,P010,"given_only, josa_attached, surname_title_unlabeled",⏎,:,채원 고객 건은 아직 정리 못 했어 ⏎ 【이준우】: 그 고객 연락처 010-0129-
+test,D0195,사내메신저,messenger,이윤서,가가가,full,P022,"given_only, josa_attached, surname_title_unlabeled",⏎,:,3 맞지? 내가 오후에 전화해 볼게 ⏎ 【이윤서】: 응 부탁해. 아 그리고 이 차장님
+test,D0195,사내메신저,messenger,이준우,가가가,full,P010,"given_only, josa_attached, surname_title_unlabeled",⏎,:, 이 차장님이 내일까지 보고서 달래 ⏎ 【이준우】: 알겠어. 서현이랑 같이 정리해서 
+test,D0195,사내메신저,messenger,서현,가가,given,P005,"given_only, josa_attached, surname_title_unlabeled", ,이,까지 보고서 달래 ⏎ 이준우: 알겠어. 【서현】이랑 같이 정리해서 올릴게
+test,D0196,이상거래탐지,fds_2,허 수아,가 가가,spaced,P008,"homonym, spaced_name", ,⏎, - 2026년 4월 20일 ⏎ 담당: 【허 수아】 ⏎ 대상: 정하은 / 010-0922-
+test,D0196,이상거래탐지,fds_2,정하은,가가가,full,P073,"homonym, spaced_name", , ,4월 20일 ⏎ 담당: 허 수아 ⏎ 대상: 【정하은】 / 010-0922-9038 ⏎  ⏎ 새벽
+test,D0196,이상거래탐지,fds_2,정하은,가가가,full,P073,"homonym, spaced_name", ,님,결제가 반복되어 확인 전화를 드림. 【정하은】님은 해당 결제가 자녀의 게임 결제라
+test,D0197,고객정보변경,info_change,김서준,가가가,full,P012,josa_attached, , ,리일: 2026-07-21 ⏎ 처리자: 【김서준】 (고객센터) ⏎  ⏎ 변경 요청 고객: 이
+test,D0197,고객정보변경,info_change,이건우,가가가,full,P047,josa_attached, ,⏎,준 (고객센터) ⏎  ⏎ 변경 요청 고객: 【이건우】 ⏎ 본인 확인: 주민등록번호 99041
+test,D0197,고객정보변경,info_change,이건우,가가가,full,P047,josa_attached, ,는, 예약된 안내 문자는 모두 취소함. 【이건우】는 결제일 변경도 원했으나 다음 달부
+test,D0198,민원처리,complaint_2,손하윤,가가가,full,P048,"spaced_name, surname_title_unlabeled", ,님,/ 2026년 10월 11일 ⏎  ⏎ 고객 【손하윤】님이 이번 달 카드 대금이 하늘빛은행
+test,D0198,민원처리,complaint_2,손 하윤,가 가가,spaced,P048,"spaced_name, surname_title_unlabeled", , ,"12,000원은 당일 환급 처리함. 【손 하윤】 고객은 재발 방지 대책을 요청하였고"
+test,D0198,민원처리,complaint_2,이준우,가가가,full,P010,"spaced_name, surname_title_unlabeled", , ,"방지 대책을 요청하였고, IT운영팀 【이준우】 사원에게 원인 분석을 의뢰함. ⏎ 회신"
+test,D0199,회의록,meeting_1,전경희,가가가,full,P026,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,(,"장소: 본사 12층 회의실 ⏎ 참석자: 【전경희】(팀장), 이소율, 이은서, 문은정("
+test,D0199,회의록,meeting_1,이소율,가가가,full,P004,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,",","층 회의실 ⏎ 참석자: 전경희(팀장), 【이소율】, 이은서, 문은정(코드브릿지) ⏎ 작성"
+test,D0199,회의록,meeting_1,이은서,가가가,full,P007,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,","," ⏎ 참석자: 전경희(팀장), 이소율, 【이은서】, 문은정(코드브릿지) ⏎ 작성자: 이소"
+test,D0199,회의록,meeting_1,문은정,가가가,full,P037,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,(," 전경희(팀장), 이소율, 이은서, 【문은정】(코드브릿지) ⏎ 작성자: 이소율 ⏎  ⏎ 논의"
+test,D0199,회의록,meeting_1,이소율,가가가,full,P004,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,⏎,"은서, 문은정(코드브릿지) ⏎ 작성자: 【이소율】 ⏎  ⏎ 논의 내용 ⏎ 1. 전 경희 팀장이 "
+test,D0199,회의록,meeting_1,전 경희,가 가가,spaced,P026,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , , ⏎ 작성자: 이소율 ⏎  ⏎ 논의 내용 ⏎ 1. 【전 경희】 팀장이 지난 분기 추진 현황을 공유
+test,D0199,회의록,meeting_1,문은정,가가가,full,P037,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , ,진 현황을 공유함. ⏎ 2. 코드브릿지 【문은정】 매니저는 시스템 이관 일정이 2주 
+test,D0199,회의록,meeting_1,이은서,가가가,full,P007,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,는,주 지연될 수 있다고 보고함. ⏎ 3. 【이은서】는 고객 안내 문자 발송 시점을 이관
+test,D0199,회의록,meeting_1,은서,가가,given,P007,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , , 문구는 이 차장이 초안을 작성하고 【은서】 씨가 검토 ⏎  ⏎ 다음 회의: 2026.
+test,D0200,회의록,meeting_1,박예린,가가가,full,P030,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,(,"장소: 본사 12층 회의실 ⏎ 참석자: 【박예린】(팀장), 허수아, 이상훈, 손하은("
+test,D0200,회의록,meeting_1,허수아,가가가,full,P008,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,",","층 회의실 ⏎ 참석자: 박예린(팀장), 【허수아】, 이상훈, 손하은(코드브릿지) ⏎ 작성"
+test,D0200,회의록,meeting_1,이상훈,가가가,full,P009,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,","," ⏎ 참석자: 박예린(팀장), 허수아, 【이상훈】, 손하은(코드브릿지) ⏎ 작성자: 허수"
+test,D0200,회의록,meeting_1,손하은,가가가,full,P036,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,(," 박예린(팀장), 허수아, 이상훈, 【손하은】(코드브릿지) ⏎ 작성자: 허수아 ⏎  ⏎ 논의"
+test,D0200,회의록,meeting_1,허수아,가가가,full,P008,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,⏎,"상훈, 손하은(코드브릿지) ⏎ 작성자: 【허수아】 ⏎  ⏎ 논의 내용 ⏎ 1. 박 예린 팀장이 "
+test,D0200,회의록,meeting_1,박 예린,가 가가,spaced,P030,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , , ⏎ 작성자: 허수아 ⏎  ⏎ 논의 내용 ⏎ 1. 【박 예린】 팀장이 지난 분기 추진 현황을 공유
+test,D0200,회의록,meeting_1,손하은,가가가,full,P036,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , ,진 현황을 공유함. ⏎ 2. 코드브릿지 【손하은】 책임은 시스템 이관 일정이 2주 지
+test,D0200,회의록,meeting_1,이상훈,가가가,full,P009,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,은,주 지연될 수 있다고 보고함. ⏎ 3. 【이상훈】은 고객 안내 문자 발송 시점을 이관
+test,D0200,회의록,meeting_1,상훈,가가,given,P009,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , , 문구는 허 부장이 초안을 작성하고 【상훈】 씨가 검토 ⏎  ⏎ 다음 회의: 2026-
+test,D0201,회의록,meeting_1,허수아,가가가,full,P008,"given_only, homonym, josa_attached, spaced_name, surname_title_unlabeled", ,(,"장소: 본사 12층 회의실 ⏎ 참석자: 【허수아】(부장), 김민준, 이소율, 권선영("
+test,D0201,회의록,meeting_1,김민준,가가가,full,P066,"given_only, homonym, josa_attached, spaced_name, surname_title_unlabeled", ,",","층 회의실 ⏎ 참석자: 허수아(부장), 【김민준】, 이소율, 권선영(미르보안) ⏎ 작성자"
+test,D0201,회의록,meeting_1,이소율,가가가,full,P004,"given_only, homonym, josa_attached, spaced_name, surname_title_unlabeled", ,","," ⏎ 참석자: 허수아(부장), 김민준, 【이소율】, 권선영(미르보안) ⏎ 작성자: 김민준"
+test,D0201,회의록,meeting_1,권선영,가가가,full,P040,"given_only, homonym, josa_attached, spaced_name, surname_title_unlabeled", ,(," 허수아(부장), 김민준, 이소율, 【권선영】(미르보안) ⏎ 작성자: 김민준 ⏎  ⏎ 논의 "
+test,D0201,회의록,meeting_1,김민준,가가가,full,P066,"given_only, homonym, josa_attached, spaced_name, surname_title_unlabeled", ,⏎,"이소율, 권선영(미르보안) ⏎ 작성자: 【김민준】 ⏎  ⏎ 논의 내용 ⏎ 1. 허 수아 부장이 "
+test,D0201,회의록,meeting_1,허 수아,가 가가,spaced,P008,"given_only, homonym, josa_attached, spaced_name, surname_title_unlabeled", , , ⏎ 작성자: 김민준 ⏎  ⏎ 논의 내용 ⏎ 1. 【허 수아】 부장이 지난 분기 추진 현황을 공유
+test,D0201,회의록,meeting_1,권선영,가가가,full,P040,"given_only, homonym, josa_attached, spaced_name, surname_title_unlabeled", , ,추진 현황을 공유함. ⏎ 2. 미르보안 【권선영】 매니저는 시스템 이관 일정이 2주 
+test,D0201,회의록,meeting_1,이소율,가가가,full,P004,"given_only, homonym, josa_attached, spaced_name, surname_title_unlabeled", ,은,주 지연될 수 있다고 보고함. ⏎ 3. 【이소율】은 고객 안내 문자 발송 시점을 이관
+test,D0201,회의록,meeting_1,소율,가가,given,P004,"given_only, homonym, josa_attached, spaced_name, surname_title_unlabeled", , , 문구는 김 대리가 초안을 작성하고 【소율】 씨가 검토 ⏎  ⏎ 다음 회의: 2026.
+test,D0203,카드분실상담,card_lost_2,최 채원,가 가가,spaced,P046,"decoy_company_phone, phone_format_variant, spaced_name, surname_title_unlabeled", , , ⏎  ⏎ 담당: 고객센터 정 부장 ⏎ 고객: 【최 채원】 님 / 010.0129.0753 ⏎  ⏎ 
+test,D0203,카드분실상담,card_lost_2,최채원,가가가,full,P046,"decoy_company_phone, phone_format_variant, spaced_name, surname_title_unlabeled",⏎,님, 님 / 010.0129.0753 ⏎  ⏎ 【최채원】님께서 해외 출장 중 카드를 분실했다
+test,D0204,회의록,meeting_2,이소율,가가가,full,P004,josa_attached, ,",","검 ⏎ 2026년 3월 11일 ⏎  ⏎ 참석: 【이소율】, 이준우, 최지영 ⏎ 불참: 강민서 ("
+test,D0204,회의록,meeting_2,이준우,가가가,full,P010,josa_attached, ,",","6년 3월 11일 ⏎  ⏎ 참석: 이소율, 【이준우】, 최지영 ⏎ 불참: 강민서 (연차) ⏎  ⏎ "
+test,D0204,회의록,meeting_2,최지영,가가가,full,P011,josa_attached, ,⏎," 11일 ⏎  ⏎ 참석: 이소율, 이준우, 【최지영】 ⏎ 불참: 강민서 (연차) ⏎  ⏎ - 이소율"
+test,D0204,회의록,meeting_2,강민서,가가가,full,P017,josa_attached, , ,": 이소율, 이준우, 최지영 ⏎ 불참: 【강민서】 (연차) ⏎  ⏎ - 이소율: 신규 카드 "
+test,D0204,회의록,meeting_2,이소율,가가가,full,P004,josa_attached, ,:,최지영 ⏎ 불참: 강민서 (연차) ⏎  ⏎ - 【이소율】: 신규 카드 발급 심사 자동화 진행
+test,D0204,회의록,meeting_2,이준우,가가가,full,P010,josa_attached, ,:,발급 심사 자동화 진행률 70% ⏎ - 【이준우】: 고객 문의 응대 스크립트 개정안 
+test,D0204,회의록,meeting_2,최지영,가가가,full,P011,josa_attached, ,:, 응대 스크립트 개정안 작성 중 ⏎ - 【최지영】: 연체 고객 안내 문자 문구 법무 
+test,D0204,회의록,meeting_2,강민서,가가가,full,P017,josa_attached,⏎,가, 법무 검토 요청 완료 ⏎  ⏎ 공유 사항 ⏎ 【강민서】가 복귀하면 개인정보 처리방침 개정 
+test,D0205,회의록,meeting_2,이윤서,가가가,full,P022,josa_attached, ,",","점검 ⏎ 2026년 3월 3일 ⏎  ⏎ 참석: 【이윤서】, 이소율, 정서현 ⏎ 불참: 이은서 ("
+test,D0205,회의록,meeting_2,이소율,가가가,full,P004,josa_attached, ,",","26년 3월 3일 ⏎  ⏎ 참석: 이윤서, 【이소율】, 정서현 ⏎ 불참: 이은서 (연차) ⏎  ⏎ "
+test,D0205,회의록,meeting_2,정서현,가가가,full,P005,josa_attached, ,⏎,"월 3일 ⏎  ⏎ 참석: 이윤서, 이소율, 【정서현】 ⏎ 불참: 이은서 (연차) ⏎  ⏎ - 이윤서"
+test,D0205,회의록,meeting_2,이은서,가가가,full,P007,josa_attached, , ,": 이윤서, 이소율, 정서현 ⏎ 불참: 【이은서】 (연차) ⏎  ⏎ - 이윤서: 신규 카드 "
+test,D0205,회의록,meeting_2,이윤서,가가가,full,P022,josa_attached, ,:,정서현 ⏎ 불참: 이은서 (연차) ⏎  ⏎ - 【이윤서】: 신규 카드 발급 심사 자동화 진행
+test,D0205,회의록,meeting_2,이소율,가가가,full,P004,josa_attached, ,:,발급 심사 자동화 진행률 70% ⏎ - 【이소율】: 고객 문의 응대 스크립트 개정안 
+test,D0205,회의록,meeting_2,정서현,가가가,full,P005,josa_attached, ,:, 응대 스크립트 개정안 작성 중 ⏎ - 【정서현】: 연체 고객 안내 문자 문구 법무 
+test,D0205,회의록,meeting_2,이은서,가가가,full,P007,josa_attached,⏎,가, 법무 검토 요청 완료 ⏎  ⏎ 공유 사항 ⏎ 【이은서】가 복귀하면 개인정보 처리방침 개정 
+test,D0206,대출상담,loan_1,박도윤,가가가,full,P070,homonym, , , 영업점 방문 (강남지점) ⏎ 담당자: 【박도윤】 과장 / 내선 6112 ⏎  ⏎ 1. 고객
+test,D0206,대출상담,loan_1,정하은,가가가,full,P072,homonym, ,⏎,112 ⏎  ⏎ 1. 고객 정보 ⏎ - 성명: 【정하은】 ⏎ - 주민등록번호: 770910-23
+test,D0206,대출상담,loan_1,정하은,가가가,full,P072,homonym,⏎, ,프리랜서 디자이너 ⏎  ⏎ 2. 상담 내용 ⏎ 【정하은】 고객은 새봄 직장인 신용대출 상품으
+test,D0206,대출상담,loan_1,허수아,가가가,full,P008,homonym, , ,득 증빙 서류 제출 후 리스크관리팀 【허수아】 부장에게 심사를 요청하기로 함. ⏎  ⏎ 
+test,D0207,카드분실상담,card_lost_1,김서준,가가가,full,P012,, , ,26-07-05 16:20 ⏎ 상담원: 【김서준】 (고객센터) ⏎  ⏎ 고객명: 정은영 ⏎ 연락
+test,D0207,카드분실상담,card_lost_1,정은영,가가가,full,P056,, ,⏎,원: 김서준 (고객센터) ⏎  ⏎ 고객명: 【정은영】 ⏎ 연락처: 010-0597-9946 ⏎ 
+test,D0207,카드분실상담,card_lost_1,정은영,가가가,full,P056,,⏎, ,99-1022-9010 ⏎  ⏎ 상담 내용 ⏎ 【정은영】 고객이 오늘 오전 지갑을 잃어버렸다
+test,D0208,회의록,meeting_1,최지영,가가가,full,P011,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,(,"장소: 본사 12층 회의실 ⏎ 참석자: 【최지영】(팀장), 이상훈, 강성호, 손하은("
+test,D0208,회의록,meeting_1,이상훈,가가가,full,P009,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,",","층 회의실 ⏎ 참석자: 최지영(팀장), 【이상훈】, 강성호, 손하은(코드브릿지) ⏎ 작성"
+test,D0208,회의록,meeting_1,강성호,가가가,full,P024,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,","," ⏎ 참석자: 최지영(팀장), 이상훈, 【강성호】, 손하은(코드브릿지) ⏎ 작성자: 이상"
+test,D0208,회의록,meeting_1,손하은,가가가,full,P036,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,(," 최지영(팀장), 이상훈, 강성호, 【손하은】(코드브릿지) ⏎ 작성자: 이상훈 ⏎  ⏎ 논의"
+test,D0208,회의록,meeting_1,이상훈,가가가,full,P009,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,⏎,"성호, 손하은(코드브릿지) ⏎ 작성자: 【이상훈】 ⏎  ⏎ 논의 내용 ⏎ 1. 최 지영 팀장이 "
+test,D0208,회의록,meeting_1,최 지영,가 가가,spaced,P011,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , , ⏎ 작성자: 이상훈 ⏎  ⏎ 논의 내용 ⏎ 1. 【최 지영】 팀장이 지난 분기 추진 현황을 공유
+test,D0208,회의록,meeting_1,손하은,가가가,full,P036,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , ,진 현황을 공유함. ⏎ 2. 코드브릿지 【손하은】 책임은 시스템 이관 일정이 2주 지
+test,D0208,회의록,meeting_1,강성호,가가가,full,P024,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,는,주 지연될 수 있다고 보고함. ⏎ 3. 【강성호】는 고객 안내 문자 발송 시점을 이관
+test,D0208,회의록,meeting_1,성호,가가,given,P024,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , , 문구는 이 과장이 초안을 작성하고 【성호】 씨가 검토 ⏎  ⏎ 다음 회의: 2026년
+test,D0209,민원처리,complaint_2,오서연,가가가,full,P044,"spaced_name, surname_title_unlabeled", ,님,47 / 2026-09-04 ⏎  ⏎ 고객 【오서연】님이 이번 달 카드 대금이 가람저축은
+test,D0209,민원처리,complaint_2,오 서연,가 가가,spaced,P044,"spaced_name, surname_title_unlabeled", , ,"80,000원은 당일 환급 처리함. 【오 서연】 고객은 재발 방지 대책을 요청하였고"
+test,D0209,민원처리,complaint_2,박예린,가가가,full,P030,"spaced_name, surname_title_unlabeled", , ,"방지 대책을 요청하였고, IT운영팀 【박예린】 팀장에게 원인 분석을 의뢰함. ⏎ 회신"
+test,D0210,업무메일,email_vendor,이서연,가가가,full,P069,"homonym, phone_format_variant", , ,"시스템 테스트 일정 협의 ⏎  ⏎ 미르보안 【이서연】 책임님께, ⏎  ⏎ 안녕하세요, 새봄카드 "
+test,D0210,업무메일,email_vendor,박예린,가가가,full,P030,"homonym, phone_format_variant", ,입," ⏎  ⏎ 안녕하세요, 새봄카드 IT운영팀 【박예린】입니다. ⏎ 지난 회의에서 말씀드린 통합"
+test,D0210,업무메일,email_vendor,이서연,가가가,full,P068,"homonym, phone_format_variant", , ,"보내드릴 수 없어, 저희 정보보호팀 【이서연】 과장이 별도로 전달드릴 예정입니다."
+test,D0210,업무메일,email_vendor,박예린,가가가,full,P030,"homonym, phone_format_variant",⏎, ,008073978로 연락 주세요. ⏎  ⏎ 【박예린】 드림 ⏎ IT운영팀 | 02-3964-
+test,D0211,업무메일,email_vendor,신현준,가가가,full,P043,homonym, , ,"템 테스트 일정 협의 ⏎  ⏎ 다솜콜솔루션 【신현준】 매니저님께, ⏎  ⏎ 안녕하세요, 새봄카드"
+test,D0211,업무메일,email_vendor,박도윤,가가가,full,P071,homonym, ,입," ⏎  ⏎ 안녕하세요, 새봄카드 IT운영팀 【박도윤】입니다. ⏎ 지난 회의에서 말씀드린 통합"
+test,D0211,업무메일,email_vendor,정서현,가가가,full,P005,homonym, , ,"보내드릴 수 없어, 저희 정보보호팀 【정서현】 대리가 별도로 전달드릴 예정입니다."
+test,D0211,업무메일,email_vendor,박도윤,가가가,full,P071,homonym,⏎, ,719-2513으로 연락 주세요. ⏎  ⏎ 【박도윤】 드림 ⏎ IT운영팀 | 02-4483-
+test,D0212,민원처리,complaint_1,손유진,가가가,full,P045,, , ,수 경로: 금융감독원 이첩 ⏎ 민원인: 【손유진】 (연락처 010-0638-7486)
+test,D0212,민원처리,complaint_1,조민준,가가가,full,P021,, , ,-7486) ⏎ 처리 담당: 고객보호팀 【조민준】 과장 ⏎ 검토자: 정성호 부장 ⏎  ⏎ [민원
+test,D0212,민원처리,complaint_1,정성호,가가가,full,P002,, , ,: 고객보호팀 조민준 과장 ⏎ 검토자: 【정성호】 부장 ⏎  ⏎ [민원 요지] ⏎ 민원인은 연회
+test,D0212,민원처리,complaint_1,정성호,가가가,full,P002,, , , ⏎ 연회비 전액 환불 및 사과 안내. 【정성호】 부장의 승인 후 2026년 4월 9
+test,D0213,업무메일,email_audit,정서현,가가가,full,P005,spaced_name, ,입, 위탁 점검 결과 공유 ⏎  ⏎ 정보보호팀 【정서현】입니다. ⏎ 다솜콜솔루션에 대한 상반기 
+test,D0213,업무메일,email_audit,정서현,가가가,full,P005,spaced_name, ,","," 2026-04-28 ⏎ 2. 점검자: 【정서현】, 박준서 ⏎ 3. 수탁사 담당자: 이수"
+test,D0213,업무메일,email_audit,박준서,가가가,full,P015,spaced_name, ,⏎,"-04-28 ⏎ 2. 점검자: 정서현, 【박준서】 ⏎ 3. 수탁사 담당자: 이수아 책임 "
+test,D0213,업무메일,email_audit,이수아,가가가,full,P042,spaced_name, , ,"서현, 박준서 ⏎ 3. 수탁사 담당자: 【이수아】 책임 (010-0773-8889, "
+test,D0213,업무메일,email_audit,박 준서,가 가가,spaced,P015,spaced_name, , , 제출을 요청했습니다. 관련 문의는 【박 준서】 사원에게 해주세요.
+test,D0215,업무메일,email_vendor,강민재,가가가,full,P039,homonym, , ,"시스템 테스트 일정 협의 ⏎  ⏎ 미르보안 【강민재】 책임님께, ⏎  ⏎ 안녕하세요, 새봄카드 "
+test,D0215,업무메일,email_vendor,박도윤,가가가,full,P071,homonym, ,입," ⏎  ⏎ 안녕하세요, 새봄카드 IT운영팀 【박도윤】입니다. ⏎ 지난 회의에서 말씀드린 통합"
+test,D0215,업무메일,email_vendor,정서현,가가가,full,P005,homonym, , ,"보내드릴 수 없어, 저희 정보보호팀 【정서현】 대리가 별도로 전달드릴 예정입니다."
+test,D0215,업무메일,email_vendor,박도윤,가가가,full,P071,homonym,⏎, ,719-2513으로 연락 주세요. ⏎  ⏎ 【박도윤】 드림 ⏎ IT운영팀 | 02-4483-
+test,D0216,사내메신저,messenger,정성호,가가가,full,P002,"given_only, josa_attached, phone_format_variant, surname_title_unlabeled",⏎,:,"사내 메신저] 2026년 3월 3일 ⏎ 【정성호】: 혜진아, 오늘 회의 자료 어디 있"
+test,D0216,사내메신저,messenger,혜진,가가,given,P020,"given_only, josa_attached, phone_format_variant, surname_title_unlabeled", ,아,"저] 2026년 3월 3일 ⏎ 정성호: 【혜진】아, 오늘 회의 자료 어디 있어? ⏎ 최"
+test,D0216,사내메신저,messenger,최혜진,가가가,full,P020,"given_only, josa_attached, phone_format_variant, surname_title_unlabeled",⏎,:,"진아, 오늘 회의 자료 어디 있어? ⏎ 【최혜진】: 공유 폴더에 올려놨어. 근데 최채"
+test,D0216,사내메신저,messenger,최채원,가가가,full,P046,"given_only, josa_attached, phone_format_variant, surname_title_unlabeled", , ,혜진: 공유 폴더에 올려놨어. 근데 【최채원】 고객 건은 아직 정리 못 했어 ⏎ 정성
+test,D0216,사내메신저,messenger,정성호,가가가,full,P002,"given_only, josa_attached, phone_format_variant, surname_title_unlabeled",⏎,:,채원 고객 건은 아직 정리 못 했어 ⏎ 【정성호】: 그 고객 연락처 010012907
+test,D0216,사내메신저,messenger,최혜진,가가가,full,P020,"given_only, josa_attached, phone_format_variant, surname_title_unlabeled",⏎,:,3 맞지? 내가 오후에 전화해 볼게 ⏎ 【최혜진】: 응 부탁해. 아 그리고 허 부장님
+test,D0216,사내메신저,messenger,정성호,가가가,full,P002,"given_only, josa_attached, phone_format_variant, surname_title_unlabeled",⏎,:, 허 부장님이 내일까지 보고서 달래 ⏎ 【정성호】: 알겠어. 상훈이랑 같이 정리해서 
+test,D0216,사내메신저,messenger,상훈,가가,given,P009,"given_only, josa_attached, phone_format_variant, surname_title_unlabeled", ,이,까지 보고서 달래 ⏎ 정성호: 알겠어. 【상훈】이랑 같이 정리해서 올릴게
+test,D0217,사내메신저,messenger,이서연,가가가,full,P068,"given_only, homonym, josa_attached, surname_title_unlabeled",⏎,:,"내 메신저] 2026년 6월 28일 ⏎ 【이서연】: 은영아, 오늘 회의 자료 어디 있"
+test,D0217,사내메신저,messenger,은영,가가,given,P003,"given_only, homonym, josa_attached, surname_title_unlabeled", ,아,"] 2026년 6월 28일 ⏎ 이서연: 【은영】아, 오늘 회의 자료 어디 있어? ⏎ 김"
+test,D0217,사내메신저,messenger,김은영,가가가,full,P003,"given_only, homonym, josa_attached, surname_title_unlabeled",⏎,:,"영아, 오늘 회의 자료 어디 있어? ⏎ 【김은영】: 공유 폴더에 올려놨어. 근데 최채"
+test,D0217,사내메신저,messenger,최채원,가가가,full,P046,"given_only, homonym, josa_attached, surname_title_unlabeled", , ,은영: 공유 폴더에 올려놨어. 근데 【최채원】 고객 건은 아직 정리 못 했어 ⏎ 이서
+test,D0217,사내메신저,messenger,이서연,가가가,full,P068,"given_only, homonym, josa_attached, surname_title_unlabeled",⏎,:,채원 고객 건은 아직 정리 못 했어 ⏎ 【이서연】: 그 고객 연락처 010-0129-
+test,D0217,사내메신저,messenger,김은영,가가가,full,P003,"given_only, homonym, josa_attached, surname_title_unlabeled",⏎,:,3 맞지? 내가 오후에 전화해 볼게 ⏎ 【김은영】: 응 부탁해. 아 그리고 이 팀장님
+test,D0217,사내메신저,messenger,이서연,가가가,full,P068,"given_only, homonym, josa_attached, surname_title_unlabeled",⏎,:, 이 팀장님이 내일까지 보고서 달래 ⏎ 【이서연】: 알겠어. 소연이랑 같이 정리해서 
+test,D0217,사내메신저,messenger,소연,가가,given,P006,"given_only, homonym, josa_attached, surname_title_unlabeled", ,이,까지 보고서 달래 ⏎ 이서연: 알겠어. 【소연】이랑 같이 정리해서 올릴게
+test,D0218,민원처리,complaint_1,이건우,가가가,full,P047,, , ,수 경로: 금융감독원 이첩 ⏎ 민원인: 【이건우】 (연락처 010-0552-5661)
+test,D0218,민원처리,complaint_1,김은정,가가가,full,P031,, , ,-5661) ⏎ 처리 담당: 고객보호팀 【김은정】 부장 ⏎ 검토자: 최지영 팀장 ⏎  ⏎ [민원
+test,D0218,민원처리,complaint_1,최지영,가가가,full,P011,, , ,: 고객보호팀 김은정 부장 ⏎ 검토자: 【최지영】 팀장 ⏎  ⏎ [민원 요지] ⏎ 민원인은 연회
+test,D0218,민원처리,complaint_1,최지영,가가가,full,P011,, , , ⏎ 연회비 전액 환불 및 사과 안내. 【최지영】 팀장의 승인 후 2026.03.23
+test,D0219,연체안내,collection,이상훈,가가가,full,P009,"homonym, phone_format_variant", ,⏎,-03 11:39 ⏎ 담당: 채권관리팀 【이상훈】 ⏎ 고객: 정하은 (0100922903
+test,D0219,연체안내,collection,정하은,가가가,full,P073,"homonym, phone_format_variant", , ,9 ⏎ 담당: 채권관리팀 이상훈 ⏎ 고객: 【정하은】 (01009229038) ⏎  ⏎ 연체 내
+test,D0219,연체안내,collection,정하은,가가가,full,P073,"homonym, phone_format_variant", ,님,"000원, 연체 39일 ⏎ 통화 내용: 【정하은】님은 이번 주 금요일까지 하늘빛은행 "
+test,D0220,카드분실상담,card_lost_2,이 승현,가 가가,spaced,P059,"decoy_company_phone, spaced_name, surname_title_unlabeled", , , ⏎  ⏎ 담당: 고객센터 정 부장 ⏎ 고객: 【이 승현】 님 / 010-0552-4961 ⏎  ⏎ 
+test,D0220,카드분실상담,card_lost_2,이승현,가가가,full,P059,"decoy_company_phone, spaced_name, surname_title_unlabeled",⏎,님, 님 / 010-0552-4961 ⏎  ⏎ 【이승현】님께서 해외 출장 중 카드를 분실했다
+test,D0221,업무메일,email_vendor,권선영,가가가,full,P040,phone_format_variant, , ,"시스템 테스트 일정 협의 ⏎  ⏎ 미르보안 【권선영】 매니저님께, ⏎  ⏎ 안녕하세요, 새봄카드"
+test,D0221,업무메일,email_vendor,이준우,가가가,full,P010,phone_format_variant, ,입," ⏎  ⏎ 안녕하세요, 새봄카드 IT운영팀 【이준우】입니다. ⏎ 지난 회의에서 말씀드린 통합"
+test,D0221,업무메일,email_vendor,박준서,가가가,full,P015,phone_format_variant, , ,"보내드릴 수 없어, 저희 정보보호팀 【박준서】 사원이 별도로 전달드릴 예정입니다."
+test,D0221,업무메일,email_vendor,이준우,가가가,full,P010,phone_format_variant,⏎, ,0343.4562로 연락 주세요. ⏎  ⏎ 【이준우】 드림 ⏎ IT운영팀 | 02 3880 
+test,D0222,대출상담,loan_2,신승현,가가가,full,P013,"josa_attached, phone_format_variant, spaced_name", ,⏎,년 5월 21일 12:09 ⏎ 상담원: 【신승현】 ⏎  ⏎ 김 수빈 고객(0100114433
+test,D0222,대출상담,loan_2,김 수빈,가 가가,spaced,P049,"josa_attached, phone_format_variant, spaced_name",⏎, ,21일 12:09 ⏎ 상담원: 신승현 ⏎  ⏎ 【김 수빈】 고객(01001144332)이 기존
+test,D0222,대출상담,loan_2,김수빈,가가가,full,P049,"josa_attached, phone_format_variant, spaced_name",⏎,은,2@example.net로 발송함. ⏎ 【김수빈】은 서류를 준비한 뒤 다시 연락하겠다
+test,D0223,업무메일,email_vendor,신현준,가가가,full,P043,"homonym, phone_format_variant", , ,"템 테스트 일정 협의 ⏎  ⏎ 다솜콜솔루션 【신현준】 매니저님께, ⏎  ⏎ 안녕하세요, 새봄카드"
+test,D0223,업무메일,email_vendor,이준우,가가가,full,P010,"homonym, phone_format_variant", ,입," ⏎  ⏎ 안녕하세요, 새봄카드 IT운영팀 【이준우】입니다. ⏎ 지난 회의에서 말씀드린 통합"
+test,D0223,업무메일,email_vendor,이서연,가가가,full,P068,"homonym, phone_format_variant", , ,"보내드릴 수 없어, 저희 정보보호팀 【이서연】 과장이 별도로 전달드릴 예정입니다."
+test,D0223,업무메일,email_vendor,이준우,가가가,full,P010,"homonym, phone_format_variant",⏎, ,0343-4562로 연락 주세요. ⏎  ⏎ 【이준우】 드림 ⏎ IT운영팀 | 02 3880 
+test,D0224,민원처리,complaint_2,이건우,가가가,full,P047,"spaced_name, surname_title_unlabeled", ,님,/ 2026년 11월 26일 ⏎  ⏎ 고객 【이건우】님이 이번 달 카드 대금이 온누리은행
+test,D0224,민원처리,complaint_2,이 건우,가 가가,spaced,P047,"spaced_name, surname_title_unlabeled", , ," 3,000원은 당일 환급 처리함. 【이 건우】 고객은 재발 방지 대책을 요청하였고"
+test,D0224,민원처리,complaint_2,이준우,가가가,full,P010,"spaced_name, surname_title_unlabeled", , ,"방지 대책을 요청하였고, IT운영팀 【이준우】 사원에게 원인 분석을 의뢰함. ⏎ 회신"
+test,D0226,사내메신저,messenger,신승현,가가가,full,P013,"given_only, josa_attached, surname_title_unlabeled",⏎,:,"내 메신저] 2026년 7월 25일 ⏎ 【신승현】: 서현아, 오늘 회의 자료 어디 있"
+test,D0226,사내메신저,messenger,서현,가가,given,P005,"given_only, josa_attached, surname_title_unlabeled", ,아,"] 2026년 7월 25일 ⏎ 신승현: 【서현】아, 오늘 회의 자료 어디 있어? ⏎ 정"
+test,D0226,사내메신저,messenger,정서현,가가가,full,P005,"given_only, josa_attached, surname_title_unlabeled",⏎,:,"현아, 오늘 회의 자료 어디 있어? ⏎ 【정서현】: 공유 폴더에 올려놨어. 근데 박준"
+test,D0226,사내메신저,messenger,박준우,가가가,full,P061,"given_only, josa_attached, surname_title_unlabeled", , ,서현: 공유 폴더에 올려놨어. 근데 【박준우】 고객 건은 아직 정리 못 했어 ⏎ 신승
+test,D0226,사내메신저,messenger,신승현,가가가,full,P013,"given_only, josa_attached, surname_title_unlabeled",⏎,:,준우 고객 건은 아직 정리 못 했어 ⏎ 【신승현】: 그 고객 연락처 010-0186-
+test,D0226,사내메신저,messenger,정서현,가가가,full,P005,"given_only, josa_attached, surname_title_unlabeled",⏎,:,2 맞지? 내가 오후에 전화해 볼게 ⏎ 【정서현】: 응 부탁해. 아 그리고 전 팀장님
+test,D0226,사내메신저,messenger,신승현,가가가,full,P013,"given_only, josa_attached, surname_title_unlabeled",⏎,:, 전 팀장님이 내일까지 보고서 달래 ⏎ 【신승현】: 알겠어. 소율이랑 같이 정리해서 
+test,D0226,사내메신저,messenger,소율,가가,given,P004,"given_only, josa_attached, surname_title_unlabeled", ,이,까지 보고서 달래 ⏎ 신승현: 알겠어. 【소율】이랑 같이 정리해서 올릴게
+test,D0227,사내메신저,messenger,최지영,가가가,full,P011,"given_only, josa_attached, phone_format_variant, surname_title_unlabeled",⏎,:," 메신저] 2026년 12월 24일 ⏎ 【최지영】: 소율아, 오늘 회의 자료 어디 있"
+test,D0227,사내메신저,messenger,소율,가가,given,P004,"given_only, josa_attached, phone_format_variant, surname_title_unlabeled", ,아," 2026년 12월 24일 ⏎ 최지영: 【소율】아, 오늘 회의 자료 어디 있어? ⏎ 이"
+test,D0227,사내메신저,messenger,이소율,가가가,full,P004,"given_only, josa_attached, phone_format_variant, surname_title_unlabeled",⏎,:,"율아, 오늘 회의 자료 어디 있어? ⏎ 【이소율】: 공유 폴더에 올려놨어. 근데 박준"
+test,D0227,사내메신저,messenger,박준우,가가가,full,P061,"given_only, josa_attached, phone_format_variant, surname_title_unlabeled", , ,소율: 공유 폴더에 올려놨어. 근데 【박준우】 고객 건은 아직 정리 못 했어 ⏎ 최지
+test,D0227,사내메신저,messenger,최지영,가가가,full,P011,"given_only, josa_attached, phone_format_variant, surname_title_unlabeled",⏎,:,준우 고객 건은 아직 정리 못 했어 ⏎ 【최지영】: 그 고객 연락처 010.0186.
+test,D0227,사내메신저,messenger,이소율,가가가,full,P004,"given_only, josa_attached, phone_format_variant, surname_title_unlabeled",⏎,:,2 맞지? 내가 오후에 전화해 볼게 ⏎ 【이소율】: 응 부탁해. 아 그리고 남 부장님
+test,D0227,사내메신저,messenger,최지영,가가가,full,P011,"given_only, josa_attached, phone_format_variant, surname_title_unlabeled",⏎,:, 남 부장님이 내일까지 보고서 달래 ⏎ 【최지영】: 알겠어. 현준이랑 같이 정리해서 
+test,D0227,사내메신저,messenger,현준,가가,given,P014,"given_only, josa_attached, phone_format_variant, surname_title_unlabeled", ,이,까지 보고서 달래 ⏎ 최지영: 알겠어. 【현준】이랑 같이 정리해서 올릴게
+test,D0229,용역계약서,contract,박예린,가가가,full,P030,phone_format_variant, , ,"제5조(담당자) ⏎   갑: IT운영팀 【박예린】 (0239644249, yr.par"
+test,D0229,용역계약서,contract,오다은,가가가,full,P034,phone_format_variant, , ,"d.example.com) ⏎   을: 【오다은】 매니저 (010-0564-4438,"
+test,D0229,용역계약서,contract,김예준,가가가,full,P001,phone_format_variant, ,⏎,07.04 ⏎  ⏎ 갑: 새봄카드 대표이사 【김예준】 ⏎ 을: 데이터온시스템즈 대표이사 박미
+test,D0229,용역계약서,contract,박미영,가가가,full,P032,phone_format_variant, ,,예준 ⏎ 을: 데이터온시스템즈 대표이사 【박미영】
+test,D0230,이상거래탐지,fds_1,허수아,가가가,full,P008,phone_format_variant, ,⏎,일 16:54 ⏎ 보고자: 리스크관리팀 【허수아】 ⏎  ⏎ 탐지 내용 ⏎ 박민재 고객 명의 카드
+test,D0230,이상거래탐지,fds_1,박민재,가가가,full,P058,phone_format_variant,⏎, ,: 리스크관리팀 허수아 ⏎  ⏎ 탐지 내용 ⏎ 【박민재】 고객 명의 카드(9410-2975-
+test,D0230,이상거래탐지,fds_1,박민재,가가가,full,P058,phone_format_variant, , ,008635562)로 확인 전화 → 【박민재】 고객 본인이 결제하지 않았다고 답변
+test,D0230,이상거래탐지,fds_1,최지영,가가가,full,P011,phone_format_variant, , , 유사 패턴이 늘고 있어 고객보호팀 【최지영】 팀장에게 탐지 규칙 보완을 요청함.
+test,D0231,회의록,meeting_1,남성호,가가가,full,P027,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,(,"장소: 본사 12층 회의실 ⏎ 참석자: 【남성호】(부장), 허수아, 박준서, 김영호("
+test,D0231,회의록,meeting_1,허수아,가가가,full,P008,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,",","층 회의실 ⏎ 참석자: 남성호(부장), 【허수아】, 박준서, 김영호(데이터온시스템즈)"
+test,D0231,회의록,meeting_1,박준서,가가가,full,P015,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,","," ⏎ 참석자: 남성호(부장), 허수아, 【박준서】, 김영호(데이터온시스템즈) ⏎ 작성자:"
+test,D0231,회의록,meeting_1,김영호,가가가,full,P033,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,(," 남성호(부장), 허수아, 박준서, 【김영호】(데이터온시스템즈) ⏎ 작성자: 허수아 ⏎ "
+test,D0231,회의록,meeting_1,허수아,가가가,full,P008,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,⏎, 김영호(데이터온시스템즈) ⏎ 작성자: 【허수아】 ⏎  ⏎ 논의 내용 ⏎ 1. 남 성호 부장이 
+test,D0231,회의록,meeting_1,남 성호,가 가가,spaced,P027,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , , ⏎ 작성자: 허수아 ⏎  ⏎ 논의 내용 ⏎ 1. 【남 성호】 부장이 지난 분기 추진 현황을 공유
+test,D0231,회의록,meeting_1,김영호,가가가,full,P033,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , ,황을 공유함. ⏎ 2. 데이터온시스템즈 【김영호】 책임은 시스템 이관 일정이 2주 지
+test,D0231,회의록,meeting_1,박준서,가가가,full,P015,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,는,주 지연될 수 있다고 보고함. ⏎ 3. 【박준서】는 고객 안내 문자 발송 시점을 이관
+test,D0231,회의록,meeting_1,준서,가가,given,P015,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , , 문구는 허 부장이 초안을 작성하고 【준서】 씨가 검토 ⏎  ⏎ 다음 회의: 2026년
+test,D0232,회의록,meeting_2,김서준,가가가,full,P012,josa_attached, ,",","점검 ⏎ 2026년 9월 9일 ⏎  ⏎ 참석: 【김서준】, 안소연, 정서연 ⏎ 불참: 이상훈 ("
+test,D0232,회의록,meeting_2,안소연,가가가,full,P006,josa_attached, ,",","26년 9월 9일 ⏎  ⏎ 참석: 김서준, 【안소연】, 정서연 ⏎ 불참: 이상훈 (연차) ⏎  ⏎ "
+test,D0232,회의록,meeting_2,정서연,가가가,full,P019,josa_attached, ,⏎,"월 9일 ⏎  ⏎ 참석: 김서준, 안소연, 【정서연】 ⏎ 불참: 이상훈 (연차) ⏎  ⏎ - 김서준"
+test,D0232,회의록,meeting_2,이상훈,가가가,full,P009,josa_attached, , ,": 김서준, 안소연, 정서연 ⏎ 불참: 【이상훈】 (연차) ⏎  ⏎ - 김서준: 신규 카드 "
+test,D0232,회의록,meeting_2,김서준,가가가,full,P012,josa_attached, ,:,정서연 ⏎ 불참: 이상훈 (연차) ⏎  ⏎ - 【김서준】: 신규 카드 발급 심사 자동화 진행
+test,D0232,회의록,meeting_2,안소연,가가가,full,P006,josa_attached, ,:,발급 심사 자동화 진행률 70% ⏎ - 【안소연】: 고객 문의 응대 스크립트 개정안 
+test,D0232,회의록,meeting_2,정서연,가가가,full,P019,josa_attached, ,:, 응대 스크립트 개정안 작성 중 ⏎ - 【정서연】: 연체 고객 안내 문자 문구 법무 
+test,D0232,회의록,meeting_2,이상훈,가가가,full,P009,josa_attached,⏎,이, 법무 검토 요청 완료 ⏎  ⏎ 공유 사항 ⏎ 【이상훈】이 복귀하면 개인정보 처리방침 개정 
+test,D0233,민원처리,complaint_2,오서연,가가가,full,P044,"spaced_name, surname_title_unlabeled", ,님,78 / 2026-07-17 ⏎  ⏎ 고객 【오서연】님이 이번 달 카드 대금이 가람저축은
+test,D0233,민원처리,complaint_2,오 서연,가 가가,spaced,P044,"spaced_name, surname_title_unlabeled", , ,"12,000원은 당일 환급 처리함. 【오 서연】 고객은 재발 방지 대책을 요청하였고"
+test,D0233,민원처리,complaint_2,이준우,가가가,full,P010,"spaced_name, surname_title_unlabeled", , ,"방지 대책을 요청하였고, IT운영팀 【이준우】 사원에게 원인 분석을 의뢰함. ⏎ 회신"
+test,D0234,카드분실상담,card_lost_2,정 우진,가 가가,spaced,P054,"decoy_company_phone, phone_format_variant, spaced_name, surname_title_unlabeled", , , ⏎  ⏎ 담당: 고객센터 김 대리 ⏎ 고객: 【정 우진】 님 / 010 0675 9202 ⏎  ⏎ 
+test,D0234,카드분실상담,card_lost_2,정우진,가가가,full,P054,"decoy_company_phone, phone_format_variant, spaced_name, surname_title_unlabeled",⏎,님, 님 / 010 0675 9202 ⏎  ⏎ 【정우진】님께서 해외 출장 중 카드를 분실했다
+test,D0237,대출상담,loan_1,김은영,가가가,full,P003,phone_format_variant, , ,영업점 방문 (여의도지점) ⏎ 담당자: 【김은영】 대리 / 내선 5728 ⏎  ⏎ 1. 고객
+test,D0237,대출상담,loan_1,손하윤,가가가,full,P048,phone_format_variant, ,⏎,728 ⏎  ⏎ 1. 고객 정보 ⏎ - 성명: 【손하윤】 ⏎ - 주민등록번호: 770210-24
+test,D0237,대출상담,loan_1,손하윤,가가가,full,P048,phone_format_variant,⏎, ,- 직업: 공무원 ⏎  ⏎ 2. 상담 내용 ⏎ 【손하윤】 고객은 새봄 중금리 대출 상품으로 
+test,D0237,대출상담,loan_1,최혜진,가가가,full,P020,phone_format_variant, , ,소득 증빙 서류 제출 후 IT운영팀 【최혜진】 차장에게 심사를 요청하기로 함. ⏎  ⏎ 
+test,D0238,인사발령,hr_notice,이준우,가가가,full,P010,, ,⏎,합니다. ⏎  ⏎ 1. 승진 ⏎ - IT운영팀 【이준우】 ⏎ - 고객센터 김서준 ⏎  ⏎ 2. 전보 ⏎ -
+test,D0238,인사발령,hr_notice,김서준,가가가,full,P012,, ,⏎, ⏎ - IT운영팀 이준우 ⏎ - 고객센터 【김서준】 ⏎  ⏎ 2. 전보 ⏎ - 허수아 부장: 리스
+test,D0238,인사발령,hr_notice,허수아,가가가,full,P008,, , ,- 고객센터 김서준 ⏎  ⏎ 2. 전보 ⏎ - 【허수아】 부장: 리스크관리팀 → 리스크관리팀
+test,D0238,인사발령,hr_notice,김진우,가가가,full,P023,, , ,: 리스크관리팀 → 리스크관리팀 ⏎ - 【김진우】 과장: 여신심사팀 → 디지털전략팀 ⏎ 
+test,D0238,인사발령,hr_notice,안소연,가가가,full,P006,, , ," 2026-06-08 ⏎ 문의: 인사팀 【안소연】 (내선 5968, sy.ahn20@"
+test,D0240,민원처리,complaint_1,노성호,가가가,full,P050,phone_format_variant, , ,수 경로: 금융감독원 이첩 ⏎ 민원인: 【노성호】 (연락처 01005646078) ⏎ 처
+test,D0240,민원처리,complaint_1,김은정,가가가,full,P031,phone_format_variant, , ,46078) ⏎ 처리 담당: 고객보호팀 【김은정】 부장 ⏎ 검토자: 허수아 부장 ⏎  ⏎ [민원
+test,D0240,민원처리,complaint_1,허수아,가가가,full,P008,phone_format_variant, , ,: 고객보호팀 김은정 부장 ⏎ 검토자: 【허수아】 부장 ⏎  ⏎ [민원 요지] ⏎ 민원인은 연회
+test,D0240,민원처리,complaint_1,허수아,가가가,full,P008,phone_format_variant, , , ⏎ 연회비 전액 환불 및 사과 안내. 【허수아】 부장의 승인 후 2026-05-03
+test,D0241,연체안내,collection,이상훈,가가가,full,P009,phone_format_variant, ,⏎,17일 10:10 ⏎ 담당: 채권관리팀 【이상훈】 ⏎ 고객: 오서연 (0100957961
+test,D0241,연체안내,collection,오서연,가가가,full,P044,phone_format_variant, , ,0 ⏎ 담당: 채권관리팀 이상훈 ⏎ 고객: 【오서연】 (01009579616) ⏎  ⏎ 연체 내
+test,D0241,연체안내,collection,오서연,가가가,full,P044,phone_format_variant, ,님,",000원, 연체 6일 ⏎ 통화 내용: 【오서연】님은 이번 주 금요일까지 온누리은행 "
+test,D0242,이상거래탐지,fds_2,허 수아,가 가가,spaced,P008,spaced_name, ,⏎,록 - 2026년 1월 4일 ⏎ 담당: 【허 수아】 ⏎ 대상: 전서윤 / 010-0863-
+test,D0242,이상거래탐지,fds_2,전서윤,가가가,full,P052,spaced_name, , , 1월 4일 ⏎ 담당: 허 수아 ⏎ 대상: 【전서윤】 / 010-0863-1041 ⏎  ⏎ 새벽
+test,D0242,이상거래탐지,fds_2,전서윤,가가가,full,P052,spaced_name, ,님,결제가 반복되어 확인 전화를 드림. 【전서윤】님은 해당 결제가 자녀의 게임 결제라
+test,D0243,고객정보변경,info_change,정성호,가가가,full,P002,josa_attached, , ,: 2026년 6월 16일 ⏎ 처리자: 【정성호】 (고객센터) ⏎  ⏎ 변경 요청 고객: 전
+test,D0243,고객정보변경,info_change,전서윤,가가가,full,P052,josa_attached, ,⏎,호 (고객센터) ⏎  ⏎ 변경 요청 고객: 【전서윤】 ⏎ 본인 확인: 주민등록번호 91091
+test,D0243,고객정보변경,info_change,전서윤,가가가,full,P052,josa_attached, ,은, 예약된 안내 문자는 모두 취소함. 【전서윤】은 결제일 변경도 원했으나 다음 달부
+test,D0244,업무메일,email_vendor,김영호,가가가,full,P033,"homonym, phone_format_variant", , ,"테스트 일정 협의 ⏎  ⏎ 데이터온시스템즈 【김영호】 책임님께, ⏎  ⏎ 안녕하세요, 새봄카드 "
+test,D0244,업무메일,email_vendor,박도윤,가가가,full,P071,"homonym, phone_format_variant", ,입," ⏎  ⏎ 안녕하세요, 새봄카드 IT운영팀 【박도윤】입니다. ⏎ 지난 회의에서 말씀드린 통합"
+test,D0244,업무메일,email_vendor,정서현,가가가,full,P005,"homonym, phone_format_variant", , ,"보내드릴 수 없어, 저희 정보보호팀 【정서현】 대리가 별도로 전달드릴 예정입니다."
+test,D0244,업무메일,email_vendor,박도윤,가가가,full,P071,"homonym, phone_format_variant",⏎, ,719-2513으로 연락 주세요. ⏎  ⏎ 【박도윤】 드림 ⏎ IT운영팀 | 02 4483 
+test,D0245,민원처리,complaint_1,김민준,가가가,full,P067,homonym, , ,수 경로: 금융감독원 이첩 ⏎ 민원인: 【김민준】 (연락처 010-0144-3268)
+test,D0245,민원처리,complaint_1,최지영,가가가,full,P011,homonym, , ,-3268) ⏎ 처리 담당: 고객보호팀 【최지영】 팀장 ⏎ 검토자: 허수아 부장 ⏎  ⏎ [민원
+test,D0245,민원처리,complaint_1,허수아,가가가,full,P008,homonym, , ,: 고객보호팀 최지영 팀장 ⏎ 검토자: 【허수아】 부장 ⏎  ⏎ [민원 요지] ⏎ 민원인은 연회
+test,D0245,민원처리,complaint_1,허수아,가가가,full,P008,homonym, , , ⏎ 연회비 전액 환불 및 사과 안내. 【허수아】 부장의 승인 후 2026-08-08
+test,D0246,고객정보변경,info_change,이윤서,가가가,full,P022,josa_attached, , ,: 2026년 1월 19일 ⏎ 처리자: 【이윤서】 (고객센터) ⏎  ⏎ 변경 요청 고객: 오
+test,D0246,고객정보변경,info_change,오서연,가가가,full,P044,josa_attached, ,⏎,서 (고객센터) ⏎  ⏎ 변경 요청 고객: 【오서연】 ⏎ 본인 확인: 주민등록번호 83062
+test,D0246,고객정보변경,info_change,오서연,가가가,full,P044,josa_attached, ,은, 예약된 안내 문자는 모두 취소함. 【오서연】은 결제일 변경도 원했으나 다음 달부
+test,D0247,업무메일,email_audit,정서현,가가가,full,P005,spaced_name, ,입, 위탁 점검 결과 공유 ⏎  ⏎ 정보보호팀 【정서현】입니다. ⏎ 미르보안에 대한 상반기 개인
+test,D0247,업무메일,email_audit,정서현,가가가,full,P005,spaced_name, ,","," 2026-02-16 ⏎ 2. 점검자: 【정서현】, 박하린 ⏎ 3. 수탁사 담당자: 강민"
+test,D0247,업무메일,email_audit,박하린,가가가,full,P025,spaced_name, ,⏎,"-02-16 ⏎ 2. 점검자: 정서현, 【박하린】 ⏎ 3. 수탁사 담당자: 강민재 책임 "
+test,D0247,업무메일,email_audit,강민재,가가가,full,P039,spaced_name, , ,"서현, 박하린 ⏎ 3. 수탁사 담당자: 【강민재】 책임 (010-0946-2330, "
+test,D0247,업무메일,email_audit,박 하린,가 가가,spaced,P025,spaced_name, , , 제출을 요청했습니다. 관련 문의는 【박 하린】 과장에게 해주세요.
+test,D0248,카드분실상담,card_lost_1,김민준,가가가,full,P066,homonym, , ,26-02-18 09:55 ⏎ 상담원: 【김민준】 (고객센터) ⏎  ⏎ 고객명: 황보지영 ⏎ 연
+test,D0248,카드분실상담,card_lost_1,황보지영,가가가가,full,P065,homonym, ,⏎,원: 김민준 (고객센터) ⏎  ⏎ 고객명: 【황보지영】 ⏎ 연락처: 010-0688-3963 ⏎ 
+test,D0248,카드분실상담,card_lost_1,황보지영,가가가가,full,P065,homonym,⏎, ,10-3697-1176 ⏎  ⏎ 상담 내용 ⏎ 【황보지영】 고객이 오늘 오전 지갑을 잃어버렸다
+test,D0249,카드분실상담,card_lost_2,전 서윤,가 가가,spaced,P052,"decoy_company_phone, spaced_name, surname_title_unlabeled", , , ⏎  ⏎ 담당: 고객센터 김 대리 ⏎ 고객: 【전 서윤】 님 / 010-0863-1041 ⏎  ⏎ 
+test,D0249,카드분실상담,card_lost_2,전서윤,가가가,full,P052,"decoy_company_phone, spaced_name, surname_title_unlabeled",⏎,님, 님 / 010-0863-1041 ⏎  ⏎ 【전서윤】님께서 해외 출장 중 카드를 분실했다
+test,D0250,카드분실상담,card_lost_1,정성호,가가가,full,P002,homonym, , ,6년 8월 4일 18:55 ⏎ 상담원: 【정성호】 (고객센터) ⏎  ⏎ 고객명: 김민준 ⏎ 연락
+test,D0250,카드분실상담,card_lost_1,김민준,가가가,full,P067,homonym, ,⏎,원: 정성호 (고객센터) ⏎  ⏎ 고객명: 【김민준】 ⏎ 연락처: 010-0144-3268 ⏎ 
+test,D0250,카드분실상담,card_lost_1,김민준,가가가,full,P067,homonym,⏎, ,58-5277-2217 ⏎  ⏎ 상담 내용 ⏎ 【김민준】 고객이 오늘 오전 지갑을 잃어버렸다
+test,D0251,고객정보변경,info_change,김서준,가가가,full,P012,"homonym, josa_attached", , ,리일: 2026-05-14 ⏎ 처리자: 【김서준】 (고객센터) ⏎  ⏎ 변경 요청 고객: 정
+test,D0251,고객정보변경,info_change,정하은,가가가,full,P073,"homonym, josa_attached", ,⏎,준 (고객센터) ⏎  ⏎ 변경 요청 고객: 【정하은】 ⏎ 본인 확인: 주민등록번호 01062
+test,D0251,고객정보변경,info_change,정하은,가가가,full,P073,"homonym, josa_attached", ,은, 예약된 안내 문자는 모두 취소함. 【정하은】은 결제일 변경도 원했으나 다음 달부
+test,D0253,업무메일,email_internal,성호,가가,given,P002,given_only,⏎, ,"민원 회신 초안 검토 부탁드립니다 ⏎  ⏎ 【성호】 씨, 안녕하세요. ⏎ 어제 접수된 민원"
+test,D0253,업무메일,email_internal,정은영,가가가,full,P056,given_only, , ,) 회신 초안 보내드립니다. 민원인 【정은영】 고객 주소가 부산광역시 수영구 별빛
+test,D0253,업무메일,email_internal,이소율,가가가,full,P004,given_only, , ,것 같아 확인 부탁드려요. ⏎ 검토 후 【이소율】 차장님께 바로 올려 주셔도 됩니다.
+test,D0253,업무메일,email_internal,조민준,가가가,full,P021,given_only,⏎, ,장님께 바로 올려 주셔도 됩니다. ⏎  ⏎ 【조민준】 드림
+test,D0256,인사발령,hr_notice,김은정,가가가,full,P031,, ,⏎,합니다. ⏎  ⏎ 1. 승진 ⏎ - 고객보호팀 【김은정】 ⏎ - 카드운영팀 이소율 ⏎  ⏎ 2. 전보 ⏎ 
+test,D0256,인사발령,hr_notice,이소율,가가가,full,P004,, ,⏎,- 고객보호팀 김은정 ⏎ - 카드운영팀 【이소율】 ⏎  ⏎ 2. 전보 ⏎ - 최지영 팀장: 고객
+test,D0256,인사발령,hr_notice,최지영,가가가,full,P011,, , , 카드운영팀 이소율 ⏎  ⏎ 2. 전보 ⏎ - 【최지영】 팀장: 고객보호팀 → 리스크관리팀 ⏎ 
+test,D0256,인사발령,hr_notice,이은서,가가가,full,P007,, , ,장: 고객보호팀 → 리스크관리팀 ⏎ - 【이은서】 대리: 디지털전략팀 → 디지털전략팀
+test,D0256,인사발령,hr_notice,김윤서,가가가,full,P016,, , ," 2026-08-12 ⏎ 문의: 인사팀 【김윤서】 (내선 2184, ys.kim15@"
+test,D0257,연체안내,collection,정서연,가가가,full,P019,phone_format_variant, ,⏎,28일 09:24 ⏎ 담당: 채권관리팀 【정서연】 ⏎ 고객: 이건우 (010 0552 5
+test,D0257,연체안내,collection,이건우,가가가,full,P047,phone_format_variant, , ,4 ⏎ 담당: 채권관리팀 정서연 ⏎ 고객: 【이건우】 (010 0552 5661) ⏎  ⏎ 연체
+test,D0257,연체안내,collection,이건우,가가가,full,P047,phone_format_variant, ,님,"000원, 연체 60일 ⏎ 통화 내용: 【이건우】님은 이번 주 금요일까지 가람저축은행"
+test,D0258,회의록,meeting_2,허수아,가가가,full,P008,josa_attached, ,","," 점검 ⏎ 2026-04-09 ⏎  ⏎ 참석: 【허수아】, 이은서, 안소연 ⏎ 불참: 박예린 ("
+test,D0258,회의록,meeting_2,이은서,가가가,full,P007,josa_attached, ,",","026-04-09 ⏎  ⏎ 참석: 허수아, 【이은서】, 안소연 ⏎ 불참: 박예린 (연차) ⏎  ⏎ "
+test,D0258,회의록,meeting_2,안소연,가가가,full,P006,josa_attached, ,⏎,"4-09 ⏎  ⏎ 참석: 허수아, 이은서, 【안소연】 ⏎ 불참: 박예린 (연차) ⏎  ⏎ - 허수아"
+test,D0258,회의록,meeting_2,박예린,가가가,full,P030,josa_attached, , ,": 허수아, 이은서, 안소연 ⏎ 불참: 【박예린】 (연차) ⏎  ⏎ - 허수아: 신규 카드 "
+test,D0258,회의록,meeting_2,허수아,가가가,full,P008,josa_attached, ,:,안소연 ⏎ 불참: 박예린 (연차) ⏎  ⏎ - 【허수아】: 신규 카드 발급 심사 자동화 진행
+test,D0258,회의록,meeting_2,이은서,가가가,full,P007,josa_attached, ,:,발급 심사 자동화 진행률 70% ⏎ - 【이은서】: 고객 문의 응대 스크립트 개정안 
+test,D0258,회의록,meeting_2,안소연,가가가,full,P006,josa_attached, ,:, 응대 스크립트 개정안 작성 중 ⏎ - 【안소연】: 연체 고객 안내 문자 문구 법무 
+test,D0258,회의록,meeting_2,박예린,가가가,full,P030,josa_attached,⏎,이, 법무 검토 요청 완료 ⏎  ⏎ 공유 사항 ⏎ 【박예린】이 복귀하면 개인정보 처리방침 개정 
+test,D0259,카드분실상담,card_lost_2,윤 선영,가 가가,spaced,P051,"decoy_company_phone, spaced_name, surname_title_unlabeled", , , ⏎  ⏎ 담당: 고객센터 김 대리 ⏎ 고객: 【윤 선영】 님 / 010-0349-2063 ⏎  ⏎ 
+test,D0259,카드분실상담,card_lost_2,윤선영,가가가,full,P051,"decoy_company_phone, spaced_name, surname_title_unlabeled",⏎,님, 님 / 010-0349-2063 ⏎  ⏎ 【윤선영】님께서 해외 출장 중 카드를 분실했다
+test,D0260,연체안내,collection,이상훈,가가가,full,P009,, ,⏎,20일 11:43 ⏎ 담당: 채권관리팀 【이상훈】 ⏎ 고객: 손하윤 (010-0794-2
+test,D0260,연체안내,collection,손하윤,가가가,full,P048,, , ,3 ⏎ 담당: 채권관리팀 이상훈 ⏎ 고객: 【손하윤】 (010-0794-2240) ⏎  ⏎ 연체
+test,D0260,연체안내,collection,손하윤,가가가,full,P048,, ,님,"000원, 연체 17일 ⏎ 통화 내용: 【손하윤】님은 이번 주 금요일까지 가람저축은행"
+test,D0261,연체안내,collection,이상훈,가가가,full,P009,homonym, ,⏎,19일 10:42 ⏎ 담당: 채권관리팀 【이상훈】 ⏎ 고객: 정하은 (010-0973-1
+test,D0261,연체안내,collection,정하은,가가가,full,P072,homonym, , ,2 ⏎ 담당: 채권관리팀 이상훈 ⏎ 고객: 【정하은】 (010-0973-1213) ⏎  ⏎ 연체
+test,D0261,연체안내,collection,정하은,가가가,full,P072,homonym, ,님,"000원, 연체 37일 ⏎ 통화 내용: 【정하은】님은 이번 주 금요일까지 온누리은행 "
+test,D0263,민원처리,complaint_2,정하은,가가가,full,P073,"homonym, spaced_name, surname_title_unlabeled", ,님, / 2026년 3월 21일 ⏎  ⏎ 고객 【정하은】님이 이번 달 카드 대금이 하늘빛은행
+test,D0263,민원처리,complaint_2,정 하은,가 가가,spaced,P073,"homonym, spaced_name, surname_title_unlabeled", , ,"80,000원은 당일 환급 처리함. 【정 하은】 고객은 재발 방지 대책을 요청하였고"
+test,D0263,민원처리,complaint_2,이준우,가가가,full,P010,"homonym, spaced_name, surname_title_unlabeled", , ,"방지 대책을 요청하였고, IT운영팀 【이준우】 사원에게 원인 분석을 의뢰함. ⏎ 회신"
+test,D0264,인사발령,hr_notice,이상훈,가가가,full,P009,, ,⏎,합니다. ⏎  ⏎ 1. 승진 ⏎ - 채권관리팀 【이상훈】 ⏎ - IT운영팀 이준우 ⏎  ⏎ 2. 전보 ⏎ 
+test,D0264,인사발령,hr_notice,이준우,가가가,full,P010,, ,⏎,- 채권관리팀 이상훈 ⏎ - IT운영팀 【이준우】 ⏎  ⏎ 2. 전보 ⏎ - 김서준 대리: 고객
+test,D0264,인사발령,hr_notice,김서준,가가가,full,P012,, , , IT운영팀 이준우 ⏎  ⏎ 2. 전보 ⏎ - 【김서준】 대리: 고객센터 → 리스크관리팀 ⏎ -
+test,D0264,인사발령,hr_notice,이주원,가가가,full,P028,, , ,대리: 고객센터 → 리스크관리팀 ⏎ - 【이주원】 과장: 리스크관리팀 → 디지털전략팀
+test,D0264,인사발령,hr_notice,안소연,가가가,full,P006,, , ,"026년 8월 20일 ⏎ 문의: 인사팀 【안소연】 (내선 3464, sy.ahn20@"
+test,D0265,대출상담,loan_1,신승현,가가가,full,P013,, , , 영업점 방문 (강남지점) ⏎ 담당자: 【신승현】 과장 / 내선 6554 ⏎  ⏎ 1. 고객
+test,D0265,대출상담,loan_1,황보지영,가가가가,full,P065,, ,⏎,554 ⏎  ⏎ 1. 고객 정보 ⏎ - 성명: 【황보지영】 ⏎ - 주민등록번호: 661122-21
+test,D0265,대출상담,loan_1,황보지영,가가가가,full,P065,,⏎, , 중소기업 사무직 ⏎  ⏎ 2. 상담 내용 ⏎ 【황보지영】 고객은 새봄 직장인 신용대출 상품으
+test,D0265,대출상담,loan_1,정성호,가가가,full,P002,, , , 소득 증빙 서류 제출 후 고객센터 【정성호】 부장에게 심사를 요청하기로 함. ⏎  ⏎ 
+test,D0266,대출상담,loan_2,신승현,가가가,full,P013,"josa_attached, spaced_name", ,⏎,26-01-22 13:08 ⏎ 상담원: 【신승현】 ⏎  ⏎ 전 서윤 고객(010-0863-1
+test,D0266,대출상담,loan_2,전 서윤,가 가가,spaced,P052,"josa_attached, spaced_name",⏎, ,-22 13:08 ⏎ 상담원: 신승현 ⏎  ⏎ 【전 서윤】 고객(010-0863-1041)이 
+test,D0266,대출상담,loan_2,전서윤,가가가,full,P052,"josa_attached, spaced_name",⏎,은,8@example.com로 발송함. ⏎ 【전서윤】은 서류를 준비한 뒤 다시 연락하겠다
+test,D0268,사내메신저,messenger,남성호,가가가,full,P027,"given_only, josa_attached, phone_format_variant, surname_title_unlabeled",⏎,:,"사내 메신저] 2026년 8월 4일 ⏎ 【남성호】: 서현아, 오늘 회의 자료 어디 있"
+test,D0268,사내메신저,messenger,서현,가가,given,P005,"given_only, josa_attached, phone_format_variant, surname_title_unlabeled", ,아,"저] 2026년 8월 4일 ⏎ 남성호: 【서현】아, 오늘 회의 자료 어디 있어? ⏎ 정"
+test,D0268,사내메신저,messenger,정서현,가가가,full,P005,"given_only, josa_attached, phone_format_variant, surname_title_unlabeled",⏎,:,"현아, 오늘 회의 자료 어디 있어? ⏎ 【정서현】: 공유 폴더에 올려놨어. 근데 손유"
+test,D0268,사내메신저,messenger,손유진,가가가,full,P045,"given_only, josa_attached, phone_format_variant, surname_title_unlabeled", , ,서현: 공유 폴더에 올려놨어. 근데 【손유진】 고객 건은 아직 정리 못 했어 ⏎ 남성
+test,D0268,사내메신저,messenger,남성호,가가가,full,P027,"given_only, josa_attached, phone_format_variant, surname_title_unlabeled",⏎,:,유진 고객 건은 아직 정리 못 했어 ⏎ 【남성호】: 그 고객 연락처 010063874
+test,D0268,사내메신저,messenger,정서현,가가가,full,P005,"given_only, josa_attached, phone_format_variant, surname_title_unlabeled",⏎,:,6 맞지? 내가 오후에 전화해 볼게 ⏎ 【정서현】: 응 부탁해. 아 그리고 허 부장님
+test,D0268,사내메신저,messenger,남성호,가가가,full,P027,"given_only, josa_attached, phone_format_variant, surname_title_unlabeled",⏎,:, 허 부장님이 내일까지 보고서 달래 ⏎ 【남성호】: 알겠어. 민준이랑 같이 정리해서 
+test,D0268,사내메신저,messenger,민준,가가,given,P021,"given_only, josa_attached, phone_format_variant, surname_title_unlabeled", ,이,까지 보고서 달래 ⏎ 남성호: 알겠어. 【민준】이랑 같이 정리해서 올릴게
+test,D0270,이상거래탐지,fds_1,허수아,가가가,full,P008,phone_format_variant, ,⏎,9 16:05 ⏎ 보고자: 리스크관리팀 【허수아】 ⏎  ⏎ 탐지 내용 ⏎ 윤선영 고객 명의 카드
+test,D0270,이상거래탐지,fds_1,윤선영,가가가,full,P051,phone_format_variant,⏎, ,: 리스크관리팀 허수아 ⏎  ⏎ 탐지 내용 ⏎ 【윤선영】 고객 명의 카드(9410-1585-
+test,D0270,이상거래탐지,fds_1,윤선영,가가가,full,P051,phone_format_variant, , ,0349 2063)로 확인 전화 → 【윤선영】 고객 본인이 결제하지 않았다고 답변
+test,D0270,이상거래탐지,fds_1,정성호,가가가,full,P002,phone_format_variant, , ,근 유사 패턴이 늘고 있어 고객센터 【정성호】 부장에게 탐지 규칙 보완을 요청함.
+test,D0271,이상거래탐지,fds_1,허수아,가가가,full,P008,, ,⏎,일 11:07 ⏎ 보고자: 리스크관리팀 【허수아】 ⏎  ⏎ 탐지 내용 ⏎ 노성호 고객 명의 카드
+test,D0271,이상거래탐지,fds_1,노성호,가가가,full,P050,,⏎, ,: 리스크관리팀 허수아 ⏎  ⏎ 탐지 내용 ⏎ 【노성호】 고객 명의 카드(9410-7461-
+test,D0271,이상거래탐지,fds_1,노성호,가가가,full,P050,, , ,0564-6078)로 확인 전화 → 【노성호】 고객 본인이 결제하지 않았다고 답변
+test,D0271,이상거래탐지,fds_1,정성호,가가가,full,P002,, , ,근 유사 패턴이 늘고 있어 고객센터 【정성호】 부장에게 탐지 규칙 보완을 요청함.
+test,D0272,업무메일,email_audit,정서현,가가가,full,P005,"homonym, spaced_name", ,입, 위탁 점검 결과 공유 ⏎  ⏎ 정보보호팀 【정서현】입니다. ⏎ 미르보안에 대한 상반기 개인
+test,D0272,업무메일,email_audit,정서현,가가가,full,P005,"homonym, spaced_name", ,",","2026년 1월 9일 ⏎ 2. 점검자: 【정서현】, 이서연 ⏎ 3. 수탁사 담당자: 이서"
+test,D0272,업무메일,email_audit,이서연,가가가,full,P068,"homonym, spaced_name", ,⏎," 1월 9일 ⏎ 2. 점검자: 정서현, 【이서연】 ⏎ 3. 수탁사 담당자: 이서연 책임 "
+test,D0272,업무메일,email_audit,이서연,가가가,full,P069,"homonym, spaced_name", , ,"서현, 이서연 ⏎ 3. 수탁사 담당자: 【이서연】 책임 (010-0400-5262, "
+test,D0272,업무메일,email_audit,이 서연,가 가가,spaced,P068,"homonym, spaced_name", , , 제출을 요청했습니다. 관련 문의는 【이 서연】 과장에게 해주세요.
+test,D0273,회의록,meeting_2,강민서,가가가,full,P017,josa_attached, ,","," 점검 ⏎ 2026-11-26 ⏎  ⏎ 참석: 【강민서】, 정성호, 김하준 ⏎ 불참: 김서준 ("
+test,D0273,회의록,meeting_2,정성호,가가가,full,P002,josa_attached, ,",","026-11-26 ⏎  ⏎ 참석: 강민서, 【정성호】, 김하준 ⏎ 불참: 김서준 (연차) ⏎  ⏎ "
+test,D0273,회의록,meeting_2,김하준,가가가,full,P018,josa_attached, ,⏎,"1-26 ⏎  ⏎ 참석: 강민서, 정성호, 【김하준】 ⏎ 불참: 김서준 (연차) ⏎  ⏎ - 강민서"
+test,D0273,회의록,meeting_2,김서준,가가가,full,P012,josa_attached, , ,": 강민서, 정성호, 김하준 ⏎ 불참: 【김서준】 (연차) ⏎  ⏎ - 강민서: 신규 카드 "
+test,D0273,회의록,meeting_2,강민서,가가가,full,P017,josa_attached, ,:,김하준 ⏎ 불참: 김서준 (연차) ⏎  ⏎ - 【강민서】: 신규 카드 발급 심사 자동화 진행
+test,D0273,회의록,meeting_2,정성호,가가가,full,P002,josa_attached, ,:,발급 심사 자동화 진행률 70% ⏎ - 【정성호】: 고객 문의 응대 스크립트 개정안 
+test,D0273,회의록,meeting_2,김하준,가가가,full,P018,josa_attached, ,:, 응대 스크립트 개정안 작성 중 ⏎ - 【김하준】: 연체 고객 안내 문자 문구 법무 
+test,D0273,회의록,meeting_2,김서준,가가가,full,P012,josa_attached,⏎,이, 법무 검토 요청 완료 ⏎  ⏎ 공유 사항 ⏎ 【김서준】이 복귀하면 개인정보 처리방침 개정 
+test,D0274,용역계약서,contract,최혜진,가가가,full,P020,phone_format_variant, , ,"제5조(담당자) ⏎   갑: IT운영팀 【최혜진】 (0239611452, hj.cho"
+test,D0274,용역계약서,contract,신현준,가가가,full,P043,phone_format_variant, , ,"d.example.com) ⏎   을: 【신현준】 매니저 (010-0664-0224,"
+test,D0274,용역계약서,contract,김예준,가가가,full,P001,phone_format_variant, ,⏎,월 25일 ⏎  ⏎ 갑: 새봄카드 대표이사 【김예준】 ⏎ 을: 다솜콜솔루션 대표이사 배현정
+test,D0274,용역계약서,contract,배현정,가가가,full,P041,phone_format_variant, ,, 김예준 ⏎ 을: 다솜콜솔루션 대표이사 【배현정】
+test,D0275,업무메일,email_audit,정서현,가가가,full,P005,"homonym, spaced_name", ,입, 위탁 점검 결과 공유 ⏎  ⏎ 정보보호팀 【정서현】입니다. ⏎ 미르보안에 대한 상반기 개인
+test,D0275,업무메일,email_audit,정서현,가가가,full,P005,"homonym, spaced_name", ,",","026년 11월 7일 ⏎ 2. 점검자: 【정서현】, 이서연 ⏎ 3. 수탁사 담당자: 이서"
+test,D0275,업무메일,email_audit,이서연,가가가,full,P068,"homonym, spaced_name", ,⏎,"11월 7일 ⏎ 2. 점검자: 정서현, 【이서연】 ⏎ 3. 수탁사 담당자: 이서연 책임 "
+test,D0275,업무메일,email_audit,이서연,가가가,full,P069,"homonym, spaced_name", , ,"서현, 이서연 ⏎ 3. 수탁사 담당자: 【이서연】 책임 (010-0400-5262, "
+test,D0275,업무메일,email_audit,이 서연,가 가가,spaced,P068,"homonym, spaced_name", , , 제출을 요청했습니다. 관련 문의는 【이 서연】 과장에게 해주세요.
+test,D0276,카드분실상담,card_lost_1,김서준,가가가,full,P012,, , ,26-11-14 16:38 ⏎ 상담원: 【김서준】 (고객센터) ⏎  ⏎ 고객명: 손유진 ⏎ 연락
+test,D0276,카드분실상담,card_lost_1,손유진,가가가,full,P045,, ,⏎,원: 김서준 (고객센터) ⏎  ⏎ 고객명: 【손유진】 ⏎ 연락처: 010-0638-7486 ⏎ 
+test,D0276,카드분실상담,card_lost_1,손유진,가가가,full,P045,,⏎, ,76-6270-2894 ⏎  ⏎ 상담 내용 ⏎ 【손유진】 고객이 오늘 오전 지갑을 잃어버렸다
+test,D0277,회의록,meeting_2,강민서,가가가,full,P017,josa_attached, ,","," 점검 ⏎ 2026-09-19 ⏎  ⏎ 참석: 【강민서】, 안소연, 정서현 ⏎ 불참: 이소율 ("
+test,D0277,회의록,meeting_2,안소연,가가가,full,P006,josa_attached, ,",","026-09-19 ⏎  ⏎ 참석: 강민서, 【안소연】, 정서현 ⏎ 불참: 이소율 (연차) ⏎  ⏎ "
+test,D0277,회의록,meeting_2,정서현,가가가,full,P005,josa_attached, ,⏎,"9-19 ⏎  ⏎ 참석: 강민서, 안소연, 【정서현】 ⏎ 불참: 이소율 (연차) ⏎  ⏎ - 강민서"
+test,D0277,회의록,meeting_2,이소율,가가가,full,P004,josa_attached, , ,": 강민서, 안소연, 정서현 ⏎ 불참: 【이소율】 (연차) ⏎  ⏎ - 강민서: 신규 카드 "
+test,D0277,회의록,meeting_2,강민서,가가가,full,P017,josa_attached, ,:,정서현 ⏎ 불참: 이소율 (연차) ⏎  ⏎ - 【강민서】: 신규 카드 발급 심사 자동화 진행
+test,D0277,회의록,meeting_2,안소연,가가가,full,P006,josa_attached, ,:,발급 심사 자동화 진행률 70% ⏎ - 【안소연】: 고객 문의 응대 스크립트 개정안 
+test,D0277,회의록,meeting_2,정서현,가가가,full,P005,josa_attached, ,:, 응대 스크립트 개정안 작성 중 ⏎ - 【정서현】: 연체 고객 안내 문자 문구 법무 
+test,D0277,회의록,meeting_2,이소율,가가가,full,P004,josa_attached,⏎,이, 법무 검토 요청 완료 ⏎  ⏎ 공유 사항 ⏎ 【이소율】이 복귀하면 개인정보 처리방침 개정 
+test,D0278,업무메일,email_internal,준우,가가,given,P010,given_only,⏎, ,"민원 회신 초안 검토 부탁드립니다 ⏎  ⏎ 【준우】 씨, 안녕하세요. ⏎ 어제 접수된 민원"
+test,D0278,업무메일,email_internal,오서연,가가가,full,P044,given_only, , ,) 회신 초안 보내드립니다. 민원인 【오서연】 고객 주소가 대전광역시 유성구 온누
+test,D0278,업무메일,email_internal,이소율,가가가,full,P004,given_only, , ,것 같아 확인 부탁드려요. ⏎ 검토 후 【이소율】 차장님께 바로 올려 주셔도 됩니다.
+test,D0278,업무메일,email_internal,조민준,가가가,full,P021,given_only,⏎, ,장님께 바로 올려 주셔도 됩니다. ⏎  ⏎ 【조민준】 드림
+test,D0279,인사발령,hr_notice,이소율,가가가,full,P004,homonym, ,⏎,합니다. ⏎  ⏎ 1. 승진 ⏎ - 카드운영팀 【이소율】 ⏎ - 디지털전략팀 이은서 ⏎  ⏎ 2. 전보
+test,D0279,인사발령,hr_notice,이은서,가가가,full,P007,homonym, ,⏎, 카드운영팀 이소율 ⏎ - 디지털전략팀 【이은서】 ⏎  ⏎ 2. 전보 ⏎ - 정서현 대리: 정보
+test,D0279,인사발령,hr_notice,정서현,가가가,full,P005,homonym, , ,디지털전략팀 이은서 ⏎  ⏎ 2. 전보 ⏎ - 【정서현】 대리: 정보보호팀 → 리스크관리팀 ⏎ 
+test,D0279,인사발령,hr_notice,김민준,가가가,full,P066,homonym, , ,리: 정보보호팀 → 리스크관리팀 ⏎ - 【김민준】 대리: 고객센터 → 디지털전략팀 ⏎  ⏎ 
+test,D0279,인사발령,hr_notice,안소연,가가가,full,P006,homonym, , ," 2026-07-15 ⏎ 문의: 인사팀 【안소연】 (내선 3138, sy.ahn20@"
+test,D0280,이상거래탐지,fds_1,허수아,가가가,full,P008,, ,⏎,6 18:29 ⏎ 보고자: 리스크관리팀 【허수아】 ⏎  ⏎ 탐지 내용 ⏎ 김수연 고객 명의 카드
+test,D0280,이상거래탐지,fds_1,김수연,가가가,full,P053,,⏎, ,: 리스크관리팀 허수아 ⏎  ⏎ 탐지 내용 ⏎ 【김수연】 고객 명의 카드(9410-1771-
+test,D0280,이상거래탐지,fds_1,김수연,가가가,full,P053,, , ,0643-4831)로 확인 전화 → 【김수연】 고객 본인이 결제하지 않았다고 답변
+test,D0280,이상거래탐지,fds_1,이윤서,가가가,full,P022,, , ,근 유사 패턴이 늘고 있어 고객센터 【이윤서】 팀장에게 탐지 규칙 보완을 요청함.
+test,D0281,이상거래탐지,fds_1,이주원,가가가,full,P028,, ,⏎,일 09:36 ⏎ 보고자: 리스크관리팀 【이주원】 ⏎  ⏎ 탐지 내용 ⏎ 이선우 고객 명의 카드
+test,D0281,이상거래탐지,fds_1,이선우,가가가,full,P055,,⏎, ,: 리스크관리팀 이주원 ⏎  ⏎ 탐지 내용 ⏎ 【이선우】 고객 명의 카드(9410-5149-
+test,D0281,이상거래탐지,fds_1,이선우,가가가,full,P055,, , ,0819-5062)로 확인 전화 → 【이선우】 고객 본인이 결제하지 않았다고 답변
+test,D0281,이상거래탐지,fds_1,최지영,가가가,full,P011,, , , 유사 패턴이 늘고 있어 고객보호팀 【최지영】 팀장에게 탐지 규칙 보완을 요청함.
+test,D0282,카드분실상담,card_lost_1,정성호,가가가,full,P002,, , ,26-06-10 10:29 ⏎ 상담원: 【정성호】 (고객센터) ⏎  ⏎ 고객명: 이재원 ⏎ 연락
+test,D0282,카드분실상담,card_lost_1,이재원,가가가,full,P062,, ,⏎,원: 정성호 (고객센터) ⏎  ⏎ 고객명: 【이재원】 ⏎ 연락처: 010-0257-2658 ⏎ 
+test,D0282,카드분실상담,card_lost_1,이재원,가가가,full,P062,,⏎, ,22-1418-8805 ⏎  ⏎ 상담 내용 ⏎ 【이재원】 고객이 오늘 오전 지갑을 잃어버렸다
+test,D0283,업무메일,email_vendor,오다은,가가가,full,P034,, , ,"테스트 일정 협의 ⏎  ⏎ 데이터온시스템즈 【오다은】 매니저님께, ⏎  ⏎ 안녕하세요, 새봄카드"
+test,D0283,업무메일,email_vendor,최혜진,가가가,full,P020,, ,입," ⏎  ⏎ 안녕하세요, 새봄카드 IT운영팀 【최혜진】입니다. ⏎ 지난 회의에서 말씀드린 통합"
+test,D0283,업무메일,email_vendor,정서현,가가가,full,P005,, , ,"보내드릴 수 없어, 저희 정보보호팀 【정서현】 대리가 별도로 전달드릴 예정입니다."
+test,D0283,업무메일,email_vendor,최혜진,가가가,full,P020,,⏎, ,0282-9512로 연락 주세요. ⏎  ⏎ 【최혜진】 드림 ⏎ IT운영팀 | 02-3961-
+test,D0284,사내메신저,messenger,신승현,가가가,full,P013,"given_only, homonym, josa_attached, phone_format_variant, surname_title_unlabeled",⏎,:,"내 메신저] 2026년 5월 25일 ⏎ 【신승현】: 도윤아, 오늘 회의 자료 어디 있"
+test,D0284,사내메신저,messenger,도윤,가가,given,P071,"given_only, homonym, josa_attached, phone_format_variant, surname_title_unlabeled", ,아,"] 2026년 5월 25일 ⏎ 신승현: 【도윤】아, 오늘 회의 자료 어디 있어? ⏎ 박"
+test,D0284,사내메신저,messenger,박도윤,가가가,full,P071,"given_only, homonym, josa_attached, phone_format_variant, surname_title_unlabeled",⏎,:,"윤아, 오늘 회의 자료 어디 있어? ⏎ 【박도윤】: 공유 폴더에 올려놨어. 근데 이건"
+test,D0284,사내메신저,messenger,이건우,가가가,full,P047,"given_only, homonym, josa_attached, phone_format_variant, surname_title_unlabeled", , ,도윤: 공유 폴더에 올려놨어. 근데 【이건우】 고객 건은 아직 정리 못 했어 ⏎ 신승
+test,D0284,사내메신저,messenger,신승현,가가가,full,P013,"given_only, homonym, josa_attached, phone_format_variant, surname_title_unlabeled",⏎,:,건우 고객 건은 아직 정리 못 했어 ⏎ 【신승현】: 그 고객 연락처 010.0552.
+test,D0284,사내메신저,messenger,박도윤,가가가,full,P071,"given_only, homonym, josa_attached, phone_format_variant, surname_title_unlabeled",⏎,:,1 맞지? 내가 오후에 전화해 볼게 ⏎ 【박도윤】: 응 부탁해. 아 그리고 최 팀장님
+test,D0284,사내메신저,messenger,신승현,가가가,full,P013,"given_only, homonym, josa_attached, phone_format_variant, surname_title_unlabeled",⏎,:, 최 팀장님이 내일까지 보고서 달래 ⏎ 【신승현】: 알겠어. 은서랑 같이 정리해서 올
+test,D0284,사내메신저,messenger,은서,가가,given,P007,"given_only, homonym, josa_attached, phone_format_variant, surname_title_unlabeled", ,랑,까지 보고서 달래 ⏎ 신승현: 알겠어. 【은서】랑 같이 정리해서 올릴게
+test,D0285,민원처리,complaint_1,윤선영,가가가,full,P051,phone_format_variant, , ,수 경로: 금융감독원 이첩 ⏎ 민원인: 【윤선영】 (연락처 010.0349.2063)
+test,D0285,민원처리,complaint_1,최지영,가가가,full,P011,phone_format_variant, , ,.2063) ⏎ 처리 담당: 고객보호팀 【최지영】 팀장 ⏎ 검토자: 남성호 부장 ⏎  ⏎ [민원
+test,D0285,민원처리,complaint_1,남성호,가가가,full,P027,phone_format_variant, , ,: 고객보호팀 최지영 팀장 ⏎ 검토자: 【남성호】 부장 ⏎  ⏎ [민원 요지] ⏎ 민원인은 연회
+test,D0285,민원처리,complaint_1,남성호,가가가,full,P027,phone_format_variant, , , ⏎ 연회비 전액 환불 및 사과 안내. 【남성호】 부장의 승인 후 2026-03-08
+test,D0287,용역계약서,contract,박예린,가가가,full,P030,phone_format_variant, , ,"제5조(담당자) ⏎   갑: IT운영팀 【박예린】 (02-3964-4249, yr.p"
+test,D0287,용역계약서,contract,강민재,가가가,full,P039,phone_format_variant, , ,"d.example.com) ⏎   을: 【강민재】 책임 (010 0946 2330, "
+test,D0287,용역계약서,contract,김예준,가가가,full,P001,phone_format_variant, ,⏎,01-21 ⏎  ⏎ 갑: 새봄카드 대표이사 【김예준】 ⏎ 을: 미르보안 대표이사 이준서
+test,D0287,용역계약서,contract,이준서,가가가,full,P038,phone_format_variant, ,,이사 김예준 ⏎ 을: 미르보안 대표이사 【이준서】
+test,D0288,카드분실상담,card_lost_2,최 채원,가 가가,spaced,P046,"decoy_company_phone, spaced_name, surname_title_unlabeled", , , ⏎  ⏎ 담당: 고객센터 김 대리 ⏎ 고객: 【최 채원】 님 / 010-0129-0753 ⏎  ⏎ 
+test,D0288,카드분실상담,card_lost_2,최채원,가가가,full,P046,"decoy_company_phone, spaced_name, surname_title_unlabeled",⏎,님, 님 / 010-0129-0753 ⏎  ⏎ 【최채원】님께서 해외 출장 중 카드를 분실했다
+test,D0289,용역계약서,contract,이준우,가가가,full,P010,phone_format_variant, , ,"제5조(담당자) ⏎   갑: IT운영팀 【이준우】 (0238806413, jw.lee"
+test,D0289,용역계약서,contract,김영호,가가가,full,P033,phone_format_variant, , ,"d.example.com) ⏎   을: 【김영호】 책임 (010-0668-3937, "
+test,D0289,용역계약서,contract,김예준,가가가,full,P001,phone_format_variant, ,⏎,7월 8일 ⏎  ⏎ 갑: 새봄카드 대표이사 【김예준】 ⏎ 을: 데이터온시스템즈 대표이사 박미
+test,D0289,용역계약서,contract,박미영,가가가,full,P032,phone_format_variant, ,,예준 ⏎ 을: 데이터온시스템즈 대표이사 【박미영】
+test,D0290,카드분실상담,card_lost_1,정성호,가가가,full,P002,, , ,6년 9월 4일 11:06 ⏎ 상담원: 【정성호】 (고객센터) ⏎  ⏎ 고객명: 김수빈 ⏎ 연락
+test,D0290,카드분실상담,card_lost_1,김수빈,가가가,full,P049,, ,⏎,원: 정성호 (고객센터) ⏎  ⏎ 고객명: 【김수빈】 ⏎ 연락처: 010-0114-4332 ⏎ 
+test,D0290,카드분실상담,card_lost_1,김수빈,가가가,full,P049,,⏎, ,74-5171-2369 ⏎  ⏎ 상담 내용 ⏎ 【김수빈】 고객이 오늘 오전 지갑을 잃어버렸다
+test,D0291,용역계약서,contract,박도윤,가가가,full,P071,"homonym, phone_format_variant", , ,"제5조(담당자) ⏎   갑: IT운영팀 【박도윤】 (02-4483-7272, dy.p"
+test,D0291,용역계약서,contract,이서연,가가가,full,P069,"homonym, phone_format_variant", , ,"d.example.com) ⏎   을: 【이서연】 책임 (010 0400 5262, "
+test,D0291,용역계약서,contract,김예준,가가가,full,P001,"homonym, phone_format_variant", ,⏎,10.06 ⏎  ⏎ 갑: 새봄카드 대표이사 【김예준】 ⏎ 을: 미르보안 대표이사 이준서
+test,D0291,용역계약서,contract,이준서,가가가,full,P038,"homonym, phone_format_variant", ,,이사 김예준 ⏎ 을: 미르보안 대표이사 【이준서】
+test,D0292,회의록,meeting_2,김진우,가가가,full,P023,"homonym, josa_attached", ,",","검 ⏎ 2026년 12월 5일 ⏎  ⏎ 참석: 【김진우】, 정성호, 이서연 ⏎ 불참: 신승현 ("
+test,D0292,회의록,meeting_2,정성호,가가가,full,P002,"homonym, josa_attached", ,",","6년 12월 5일 ⏎  ⏎ 참석: 김진우, 【정성호】, 이서연 ⏎ 불참: 신승현 (연차) ⏎  ⏎ "
+test,D0292,회의록,meeting_2,이서연,가가가,full,P068,"homonym, josa_attached", ,⏎,"월 5일 ⏎  ⏎ 참석: 김진우, 정성호, 【이서연】 ⏎ 불참: 신승현 (연차) ⏎  ⏎ - 김진우"
+test,D0292,회의록,meeting_2,신승현,가가가,full,P013,"homonym, josa_attached", , ,": 김진우, 정성호, 이서연 ⏎ 불참: 【신승현】 (연차) ⏎  ⏎ - 김진우: 신규 카드 "
+test,D0292,회의록,meeting_2,김진우,가가가,full,P023,"homonym, josa_attached", ,:,이서연 ⏎ 불참: 신승현 (연차) ⏎  ⏎ - 【김진우】: 신규 카드 발급 심사 자동화 진행
+test,D0292,회의록,meeting_2,정성호,가가가,full,P002,"homonym, josa_attached", ,:,발급 심사 자동화 진행률 70% ⏎ - 【정성호】: 고객 문의 응대 스크립트 개정안 
+test,D0292,회의록,meeting_2,이서연,가가가,full,P068,"homonym, josa_attached", ,:, 응대 스크립트 개정안 작성 중 ⏎ - 【이서연】: 연체 고객 안내 문자 문구 법무 
+test,D0292,회의록,meeting_2,신승현,가가가,full,P013,"homonym, josa_attached",⏎,이, 법무 검토 요청 완료 ⏎  ⏎ 공유 사항 ⏎ 【신승현】이 복귀하면 개인정보 처리방침 개정 
+test,D0294,용역계약서,contract,박예린,가가가,full,P030,phone_format_variant, , ,"제5조(담당자) ⏎   갑: IT운영팀 【박예린】 (02 3964 4249, yr.p"
+test,D0294,용역계약서,contract,권선영,가가가,full,P040,phone_format_variant, , ,"d.example.com) ⏎   을: 【권선영】 매니저 (010-0430-9891,"
+test,D0294,용역계약서,contract,김예준,가가가,full,P001,phone_format_variant, ,⏎,월 13일 ⏎  ⏎ 갑: 새봄카드 대표이사 【김예준】 ⏎ 을: 미르보안 대표이사 이준서
+test,D0294,용역계약서,contract,이준서,가가가,full,P038,phone_format_variant, ,,이사 김예준 ⏎ 을: 미르보안 대표이사 【이준서】
+test,D0295,업무메일,email_internal,예린,가가,given,P030,given_only,⏎, ,"민원 회신 초안 검토 부탁드립니다 ⏎  ⏎ 【예린】 씨, 안녕하세요. ⏎ 어제 접수된 민원"
+test,D0295,업무메일,email_internal,노성호,가가가,full,P050,given_only, , ,) 회신 초안 보내드립니다. 민원인 【노성호】 고객 주소가 광주광역시 북구 온누리
+test,D0295,업무메일,email_internal,최혜진,가가가,full,P020,given_only, , ,것 같아 확인 부탁드려요. ⏎ 검토 후 【최혜진】 차장님께 바로 올려 주셔도 됩니다.
+test,D0295,업무메일,email_internal,최지영,가가가,full,P011,given_only,⏎, ,장님께 바로 올려 주셔도 됩니다. ⏎  ⏎ 【최지영】 드림
+test,D0296,사내메신저,messenger,김은영,가가가,full,P003,"given_only, josa_attached, surname_title_unlabeled",⏎,:,"내 메신저] 2026년 4월 22일 ⏎ 【김은영】: 성호야, 오늘 회의 자료 어디 있"
+test,D0296,사내메신저,messenger,성호,가가,given,P024,"given_only, josa_attached, surname_title_unlabeled", ,야,"] 2026년 4월 22일 ⏎ 김은영: 【성호】야, 오늘 회의 자료 어디 있어? ⏎ 강"
+test,D0296,사내메신저,messenger,강성호,가가가,full,P024,"given_only, josa_attached, surname_title_unlabeled",⏎,:,"호야, 오늘 회의 자료 어디 있어? ⏎ 【강성호】: 공유 폴더에 올려놨어. 근데 이건"
+test,D0296,사내메신저,messenger,이건우,가가가,full,P047,"given_only, josa_attached, surname_title_unlabeled", , ,성호: 공유 폴더에 올려놨어. 근데 【이건우】 고객 건은 아직 정리 못 했어 ⏎ 김은
+test,D0296,사내메신저,messenger,김은영,가가가,full,P003,"given_only, josa_attached, surname_title_unlabeled",⏎,:,건우 고객 건은 아직 정리 못 했어 ⏎ 【김은영】: 그 고객 연락처 010-0552-
+test,D0296,사내메신저,messenger,강성호,가가가,full,P024,"given_only, josa_attached, surname_title_unlabeled",⏎,:,1 맞지? 내가 오후에 전화해 볼게 ⏎ 【강성호】: 응 부탁해. 아 그리고 정 부장님
+test,D0296,사내메신저,messenger,김은영,가가가,full,P003,"given_only, josa_attached, surname_title_unlabeled",⏎,:, 정 부장님이 내일까지 보고서 달래 ⏎ 【김은영】: 알겠어. 상훈이랑 같이 정리해서 
+test,D0296,사내메신저,messenger,상훈,가가,given,P009,"given_only, josa_attached, surname_title_unlabeled", ,이,까지 보고서 달래 ⏎ 김은영: 알겠어. 【상훈】이랑 같이 정리해서 올릴게
+test,D0297,업무메일,email_internal,서연,가가,given,P029,given_only,⏎, ,"민원 회신 초안 검토 부탁드립니다 ⏎  ⏎ 【서연】 씨, 안녕하세요. ⏎ 어제 접수된 민원"
+test,D0297,업무메일,email_internal,정지호,가가가,full,P057,given_only, , ,) 회신 초안 보내드립니다. 민원인 【정지호】 고객 주소가 광주광역시 북구 하늬로
+test,D0297,업무메일,email_internal,최지영,가가가,full,P011,given_only, , ,것 같아 확인 부탁드려요. ⏎ 검토 후 【최지영】 팀장님께 바로 올려 주셔도 됩니다.
+test,D0297,업무메일,email_internal,김은정,가가가,full,P031,given_only,⏎, ,장님께 바로 올려 주셔도 됩니다. ⏎  ⏎ 【김은정】 드림
+test,D0298,회의록,meeting_1,이윤서,가가가,full,P022,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,(,"장소: 본사 12층 회의실 ⏎ 참석자: 【이윤서】(팀장), 김진우, 김서준, 이수아("
+test,D0298,회의록,meeting_1,김진우,가가가,full,P023,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,",","층 회의실 ⏎ 참석자: 이윤서(팀장), 【김진우】, 김서준, 이수아(다솜콜솔루션) ⏎ 작"
+test,D0298,회의록,meeting_1,김서준,가가가,full,P012,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,","," ⏎ 참석자: 이윤서(팀장), 김진우, 【김서준】, 이수아(다솜콜솔루션) ⏎ 작성자: 김"
+test,D0298,회의록,meeting_1,이수아,가가가,full,P042,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,(," 이윤서(팀장), 김진우, 김서준, 【이수아】(다솜콜솔루션) ⏎ 작성자: 김진우 ⏎  ⏎ 논"
+test,D0298,회의록,meeting_1,김진우,가가가,full,P023,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,⏎,"준, 이수아(다솜콜솔루션) ⏎ 작성자: 【김진우】 ⏎  ⏎ 논의 내용 ⏎ 1. 이 윤서 팀장이 "
+test,D0298,회의록,meeting_1,이 윤서,가 가가,spaced,P022,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , , ⏎ 작성자: 김진우 ⏎  ⏎ 논의 내용 ⏎ 1. 【이 윤서】 팀장이 지난 분기 추진 현황을 공유
+test,D0298,회의록,meeting_1,이수아,가가가,full,P042,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , , 현황을 공유함. ⏎ 2. 다솜콜솔루션 【이수아】 책임은 시스템 이관 일정이 2주 지
+test,D0298,회의록,meeting_1,김서준,가가가,full,P012,"given_only, josa_attached, spaced_name, surname_title_unlabeled", ,은,주 지연될 수 있다고 보고함. ⏎ 3. 【김서준】은 고객 안내 문자 발송 시점을 이관
+test,D0298,회의록,meeting_1,서준,가가,given,P012,"given_only, josa_attached, spaced_name, surname_title_unlabeled", , , 문구는 김 과장이 초안을 작성하고 【서준】 씨가 검토 ⏎  ⏎ 다음 회의: 2026년
+test,D0299,업무메일,email_audit,박준서,가가가,full,P015,spaced_name, ,입, 위탁 점검 결과 공유 ⏎  ⏎ 정보보호팀 【박준서】입니다. ⏎ 미르보안에 대한 상반기 개인
+test,D0299,업무메일,email_audit,박준서,가가가,full,P015,spaced_name, ,","," 2026-06-10 ⏎ 2. 점검자: 【박준서】, 정서현 ⏎ 3. 수탁사 담당자: 권선"
+test,D0299,업무메일,email_audit,정서현,가가가,full,P005,spaced_name, ,⏎,"-06-10 ⏎ 2. 점검자: 박준서, 【정서현】 ⏎ 3. 수탁사 담당자: 권선영 매니저"
+test,D0299,업무메일,email_audit,권선영,가가가,full,P040,spaced_name, , ,"준서, 정서현 ⏎ 3. 수탁사 담당자: 【권선영】 매니저 (010-0430-9891,"
+test,D0299,업무메일,email_audit,정 서현,가 가가,spaced,P005,spaced_name, , , 제출을 요청했습니다. 관련 문의는 【정 서현】 대리에게 해주세요.
+test,D0300,업무메일,email_internal,소율,가가,given,P004,"given_only, homonym",⏎, ,"민원 회신 초안 검토 부탁드립니다 ⏎  ⏎ 【소율】 씨, 안녕하세요. ⏎ 어제 접수된 민원"
+test,D0300,업무메일,email_internal,정하은,가가가,full,P072,"given_only, homonym", , ,) 회신 초안 보내드립니다. 민원인 【정하은】 고객 주소가 부산광역시 해운대구 다
+test,D0300,업무메일,email_internal,허수아,가가가,full,P008,"given_only, homonym", , ,것 같아 확인 부탁드려요. ⏎ 검토 후 【허수아】 부장님께 바로 올려 주셔도 됩니다.
+test,D0300,업무메일,email_internal,조민준,가가가,full,P021,"given_only, homonym",⏎, ,장님께 바로 올려 주셔도 됩니다. ⏎  ⏎ 【조민준】 드림

@@ -1,0 +1,3 @@
+﻿system,doc_id,error_type,label,gold_text,pred_text,confidence,context
+rules,D0007,미탐,person,은서,,,서 달래 김서연: 알겠어. 【은서】랑 같이 정리해서 올릴게
+rules,D0009,미탐,person,소율,,,서 달래 이윤서: 알겠어. 【소율】이랑 같이 정리해서 올릴게

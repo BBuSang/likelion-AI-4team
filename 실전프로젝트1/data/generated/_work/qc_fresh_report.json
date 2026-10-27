@@ -1,0 +1,42 @@
+{
+ "검수 모델": "gpt-4.1",
+ "검수 문서": 1944,
+ "남긴 문서": 1775,
+ "뺀 문서": 169,
+ "뺀 사유별 문서 수": {
+  "누락": 148,
+  "잘못 표시": 35
+ },
+ "찾은 문제 (라벨별)": {
+  "누락:person": 81,
+  "누락:phone_number": 74,
+  "누락:email": 31,
+  "누락:account_number": 22,
+  "누락:card_number": 18,
+  "잘못 표시:phone_number": 17,
+  "누락:resident_registration_number": 11,
+  "누락:address": 9,
+  "잘못 표시:address": 9,
+  "잘못 표시:person": 6,
+  "잘못 표시:account_number": 6,
+  "잘못 표시:resident_registration_number": 5,
+  "잘못 표시:email": 5,
+  "잘못 표시:card_number": 4,
+  "잘못 표시:": 1
+ },
+ "남긴 문서 정답 수": 5918,
+ "남긴 문서 라벨별": {
+  "person": 2331,
+  "phone_number": 978,
+  "address": 639,
+  "account_number": 541,
+  "email": 514,
+  "resident_registration_number": 512,
+  "card_number": 403
+ },
+ "남긴 문서 중 개인정보 없는 문서": 153,
+ "토큰": {
+  "입력": 1254201,
+  "출력": 28884
+ }
+}

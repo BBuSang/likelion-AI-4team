@@ -1,0 +1,16 @@
+# 비밀값 (API 키, HMAC 키)
+.env
+
+# 실행 결과물
+outputs/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# 엑셀이 파일을 열 때 만드는 잠금 파일
+~$*
+
+실전프로젝트1/worklog.md
+실전프로젝트1/docs/

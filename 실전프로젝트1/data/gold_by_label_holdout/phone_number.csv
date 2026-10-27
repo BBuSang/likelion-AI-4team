@@ -1,0 +1,148 @@
+﻿split,doc_id,doc_type,template,text,shape,form,person_id,hard_cases,prev_char,next_char,context
+holdout,H0001,경조사공지,,010-0999-1956,999-9999-9999,,,given_only, ,⏎, 5월 10일 ⏎ 연락처: 정채원 과장 【010-0999-1956】 ⏎  ⏎ 마음으로 함께해 주시기 바랍니다.
+holdout,H0002,카드발급심사,,010-9247-3932,999-9999-9999,,,"address_format_variant, card_format_variant, id_format_variant, josa_attached, single_char_given_name", ,⏎,510152928320 / 휴대전화 【010-9247-3932】 ⏎ 결과: 승인. 발급 카드번호 524
+holdout,H0003,영문혼용메일,,+82 10-0971-7912,+99 99-9999-9999,,,"phone_format_variant, surname_title_unlabeled", ,.," free to call me at 【+82 10-0971-7912】. ⏎  ⏎ Best regards, ⏎ 김서현"
+holdout,H0004,녹취요약,,+82 10-0322-1774,+99 99-9999-9999,,,"given_only, homonym, phone_format_variant, spaced_name", ,이,화 번호 말씀 부탁드립니다. ⏎ 고객: 【+82 10-0322-1774】이요. 해외에서 쓰는 번호로 바꿨어요
+holdout,H0005,출장보고,,02-3425-7293,99-9999-9999,,,"homonym, phone_format_variant", , , | ⏎ | 강연우 | 디지털전략팀 | 【02-3425-7293】 | ⏎ | 문시우 | 인사팀 | 02-
+holdout,H0005,출장보고,,02-3324-8498,99-9999-9999,,,"homonym, phone_format_variant", , ,293 | ⏎ | 문시우 | 인사팀 | 【02-3324-8498】 | ⏎ | 김은정 | 다솜콜솔루션 | 
+holdout,H0005,출장보고,,01001524303,99999999999,,,"homonym, phone_format_variant", , , | ⏎ | 김은정 | 다솜콜솔루션 | 【01001524303】 | ⏎ | 이서연 | 미르보안 | sy
+holdout,H0006,가맹점변경,,010-0791-2924,999-9999-9999,,,address_format_variant, ,⏎, 115동 458호 ⏎ 대표자 연락처: 【010-0791-2924】 ⏎  ⏎ 변경 사항: 정산 계좌 변경 ⏎   
+holdout,H0007,한도심사결과,,02-3103-5320,99-9999-9999,,,address_format_variant,(,), 궁금하신 점은 담당 심사역 양서현(【02-3103-5320】)에게 문의해 주시기 바랍니다. ⏎  ⏎ 새
+holdout,H0009,대리인위임확인,,+82 10-0952-7888,+99 99-9999-9999,,,"account_format_variant, id_format_variant, josa_attached, phone_format_variant, single_char_given_name", ,⏎,70802 1978865 / 연락처 【+82 10-0952-7888】 ⏎ 위임 내용: 카드 해지 및 잔여 포
+holdout,H0011,자동이체신청서,,02-7565-9163,99-9999-9999,,,"account_format_variant, address_format_variant, id_format_variant, phone_format_variant, single_char_given_name", ,⏎,2199-77-400103 ⏎ 연락처: 【02-7565-9163】 ⏎ 청구지 주소: 부산광역시 사하구 도
+holdout,H0012,녹취요약,,+82 10-0732-6448,+99 99-9999-9999,,,"given_only, phone_format_variant, spaced_name", ,이,화 번호 말씀 부탁드립니다. ⏎ 고객: 【+82 10-0732-6448】이요. 해외에서 쓰는 번호로 바꿨어요
+holdout,H0014,감사지적,,01007278790,99999999999,,,"josa_attached, phone_format_variant",(,),현정의 주민등록번호와 휴대전화 번호(【01007278790】)를 사내 메신저로 전송한 사실이 확
+holdout,H0015,채용메일,,010-0662-5393,999-9999-9999,,,surname_title_unlabeled,(,),정 변경이 필요하시면 인사팀 이하윤(【010-0662-5393】)에게 연락 바랍니다.
+holdout,H0016,자동이체신청서,,010-6443-7540,999-9999-9999,,,"account_format_variant, address_format_variant, compound_surname, id_format_variant, single_char_given_name", ,⏎,473-88-0614143 ⏎ 연락처: 【010-6443-7540】 ⏎ 청구지 주소: 충청남도 천안시 서북
+holdout,H0017,VOC요약,,010-0933-5186,999-9999-9999,,,"homonym, josa_attached, spaced_name",(,),| 김민준님 | 결제 알림 미수신 (【010-0933-5186】) | 처리 완료 ⏎  ⏎ 특이사항: 정성호
+holdout,H0020,가맹점변경,,010-0238-4701,999-9999-9999,,,, ,⏎,"로 79, 504호 ⏎ 대표자 연락처: 【010-0238-4701】 ⏎  ⏎ 변경 사항: 정산 계좌 변경 ⏎   "
+holdout,H0021,감사지적,,010 0351 8383,999 9999 9999,,,"josa_attached, phone_format_variant",(,),나연의 주민등록번호와 휴대전화 번호(【010 0351 8383】)를 사내 메신저로 전송한 사실이 확
+holdout,H0022,VOC요약,,010-0306-5929,999-9999-9999,,,"homonym, josa_attached, spaced_name",(,),| 정하은님 | 결제 알림 미수신 (【010-0306-5929】) | 처리 완료 ⏎  ⏎ 특이사항: 박현정
+holdout,H0023,VOC요약,,010 0933 5186,999 9999 9999,,,"homonym, josa_attached, phone_format_variant, spaced_name",(,),| 김민준님 | 결제 알림 미수신 (【010 0933 5186】) | 처리 완료 ⏎  ⏎ 특이사항: 임우진
+holdout,H0024,출장보고,,0232576696,9999999999,,,"homonym, phone_format_variant", , ,-- | ⏎ | 박동현 | 고객센터 | 【0232576696】 | ⏎ | 김민준 | 고객센터 | 02
+holdout,H0024,출장보고,,02-3779-4221,99-9999-9999,,,"homonym, phone_format_variant", , ,96 | ⏎ | 김민준 | 고객센터 | 【02-3779-4221】 | ⏎ | 한시우 | 다솜콜솔루션 | 
+holdout,H0024,출장보고,,010-0398-1492,999-9999-9999,,,"homonym, phone_format_variant", , , | ⏎ | 한시우 | 다솜콜솔루션 | 【010-0398-1492】 | ⏎ | 김은정 | 다솜콜솔루션 | 
+holdout,H0025,경조사공지,,01009592111,99999999999,,,"given_only, homonym, phone_format_variant", ,⏎, 9월 27일 ⏎ 연락처: 김민준 대리 【01009592111】 ⏎  ⏎ 마음으로 함께해 주시기 바랍니다.
+holdout,H0026,피해접수,,01007510340,99999999999,,,"card_format_variant, phone_format_variant, spaced_name",(,), 18:14 ⏎ 피해 고객: 김 예은 (【01007510340】) ⏎ 사건 번호: 경찰청 2026-62
+holdout,H0027,영문혼용메일,,+82 10-0659-1360,+99 99-9999-9999,,,"homonym, phone_format_variant, surname_title_unlabeled", ,.," free to call me at 【+82 10-0659-1360】. ⏎  ⏎ Best regards, ⏎ 김미영"
+holdout,H0028,대리인위임확인,,02-5288-9930,99-9999-9999,,,"account_format_variant, id_format_variant, josa_attached, phone_format_variant, single_char_given_name, spaced_name", ,⏎,9101142659611 / 연락처 【02-5288-9930】 ⏎ 위임 내용: 카드 해지 및 잔여 포
+holdout,H0029,한도심사결과,,02-3103-5320,99-9999-9999,,,,(,), 궁금하신 점은 담당 심사역 양서현(【02-3103-5320】)에게 문의해 주시기 바랍니다. ⏎  ⏎ 새
+holdout,H0030,가맹점변경,,010-0933-5186,999-9999-9999,,,homonym, ,⏎,"리내로 97, 4층 ⏎ 대표자 연락처: 【010-0933-5186】 ⏎  ⏎ 변경 사항: 정산 계좌 변경 ⏎   "
+holdout,H0031,자동이체신청서,,010-7495-3899,999-9999-9999,,,"account_format_variant, address_format_variant, id_format_variant, single_char_given_name", ,⏎,258-122-528464 ⏎ 연락처: 【010-7495-3899】 ⏎ 청구지 주소: 부산광역시 수영구 광
+holdout,H0035,채용메일,,01008058440,99999999999,,,"phone_format_variant, surname_title_unlabeled",(,),정 변경이 필요하시면 인사팀 문시우(【01008058440】)에게 연락 바랍니다.
+holdout,H0036,피해접수,,010-0464-1363,999-9999-9999,,,spaced_name,(,), 18:08 ⏎ 피해 고객: 김 서연 (【010-0464-1363】) ⏎ 사건 번호: 경찰청 2026-16
+holdout,H0040,녹취요약,,+82 10-0351-8383,+99 99-9999-9999,,,"given_only, phone_format_variant, spaced_name", ,이,화 번호 말씀 부탁드립니다. ⏎ 고객: 【+82 10-0351-8383】이요. 해외에서 쓰는 번호로 바꿨어요
+holdout,H0042,영문혼용메일,,+82 10-0659-1360,+99 99-9999-9999,,,"phone_format_variant, surname_title_unlabeled", ,.," free to call me at 【+82 10-0659-1360】. ⏎  ⏎ Best regards, ⏎ 김미영"
+holdout,H0043,영문혼용메일,,+82 10-0659-1360,+99 99-9999-9999,,,"phone_format_variant, surname_title_unlabeled", ,.," free to call me at 【+82 10-0659-1360】. ⏎  ⏎ Best regards, ⏎ 김미영"
+holdout,H0044,경조사공지,,010-0133-2455,999-9999-9999,,,given_only, ,⏎,6.03.16 ⏎ 연락처: 서혜진 팀장 【010-0133-2455】 ⏎  ⏎ 마음으로 함께해 주시기 바랍니다.
+holdout,H0045,한도심사결과,,02-3103-5320,99-9999-9999,,,homonym,(,), 궁금하신 점은 담당 심사역 양서현(【02-3103-5320】)에게 문의해 주시기 바랍니다. ⏎  ⏎ 새
+holdout,H0046,가맹점변경,,010-0554-9969,999-9999-9999,,,, ,⏎,107동 2101호 ⏎ 대표자 연락처: 【010-0554-9969】 ⏎  ⏎ 변경 사항: 정산 계좌 변경 ⏎   
+holdout,H0047,자동이체신청서,,010 9936 1462,999 9999 9999,,,"account_format_variant, compound_surname, phone_format_variant", ,⏎,56-75-340175-9 ⏎ 연락처: 【010 9936 1462】 ⏎ 청구지 주소: 대구광역시 수성구 도
+holdout,H0049,출장보고,,02-3888-2288,99-9999-9999,,,homonym, , ,- | ⏎ | 이지영 | 고객보호팀 | 【02-3888-2288】 | ⏎ | 박도윤 | 여신심사팀 | 0
+holdout,H0049,출장보고,,02-3223-2724,99-9999-9999,,,homonym, , ,8 | ⏎ | 박도윤 | 여신심사팀 | 【02-3223-2724】 | ⏎ | 김수아 | 데이터온시스템즈 
+holdout,H0049,출장보고,,010-0107-0953,999-9999-9999,,,homonym, , , ⏎ | 김수아 | 데이터온시스템즈 | 【010-0107-0953】 | ⏎ | 한시우 | 다솜콜솔루션 | 
+holdout,H0052,감사지적,,010.0732.6448,999.9999.9999,,,"josa_attached, phone_format_variant",(,),성호의 주민등록번호와 휴대전화 번호(【010.0732.6448】)를 사내 메신저로 전송한 사실이 확
+holdout,H0054,경조사공지,,010.0659.1360,999.9999.9999,,,"given_only, phone_format_variant", ,⏎,년 3월 1일 ⏎ 연락처: 김미영 사원 【010.0659.1360】 ⏎  ⏎ 마음으로 함께해 주시기 바랍니다.
+holdout,H0056,출장보고,,02-3734-8035,99-9999-9999,,,phone_format_variant, , ,- | ⏎ | 김주원 | 카드운영팀 | 【02-3734-8035】 | ⏎ | 박동현 | 고객센터 | 02
+holdout,H0056,출장보고,,02-3257-6696,99-9999-9999,,,phone_format_variant, , ,35 | ⏎ | 박동현 | 고객센터 | 【02-3257-6696】 | ⏎ | 정현우 | 미르보안 | 01
+holdout,H0056,출장보고,,010.0147.1165,999.9999.9999,,,phone_format_variant, , ,96 | ⏎ | 정현우 | 미르보안 | 【010.0147.1165】 | ⏎ | 이민재 | 코드브릿지 | m
+holdout,H0057,카드발급심사,,02-8235-2748,99-9999-9999,,,"address_format_variant, card_format_variant, id_format_variant, josa_attached, phone_format_variant", ,⏎,0415 1752720 / 휴대전화 【02-8235-2748】 ⏎ 결과: 승인. 발급 카드번호 532
+holdout,H0058,녹취요약,,+82 10-0791-2924,+99 99-9999-9999,,,"given_only, homonym, phone_format_variant, spaced_name", ,이,화 번호 말씀 부탁드립니다. ⏎ 고객: 【+82 10-0791-2924】이요. 해외에서 쓰는 번호로 바꿨어요
+holdout,H0059,VOC요약,,01006080969,99999999999,,,"josa_attached, phone_format_variant, spaced_name",(,),| 홍예린님 | 결제 알림 미수신 (【01006080969】) | 처리 완료 ⏎  ⏎ 특이사항: 송진우
+holdout,H0062,감사지적,,010-0933-5186,999-9999-9999,,,"homonym, josa_attached",(,),민준의 주민등록번호와 휴대전화 번호(【010-0933-5186】)를 사내 메신저로 전송한 사실이 확
+holdout,H0065,피해접수,,010-0111-2320,999-9999-9999,,,"card_format_variant, spaced_name",(,), 16:54 ⏎ 피해 고객: 윤 소연 (【010-0111-2320】) ⏎ 사건 번호: 경찰청 2026-82
+holdout,H0067,출장보고,,02-3472-7917,99-9999-9999,,,, , ,- | ⏎ | 김소율 | 여신심사팀 | 【02-3472-7917】 | ⏎ | 최예준 | 채권관리팀 | 0
+holdout,H0067,출장보고,,02-3522-8799,99-9999-9999,,,, , ,7 | ⏎ | 최예준 | 채권관리팀 | 【02-3522-8799】 | ⏎ | 김선우 | 코드브릿지 | 0
+holdout,H0067,출장보고,,010-0467-7471,999-9999-9999,,,, , ,9 | ⏎ | 김선우 | 코드브릿지 | 【010-0467-7471】 | ⏎ | 전예은 | 데이터온시스템즈 
+holdout,H0068,한도심사결과,,02 3103 5320,99 9999 9999,,,"homonym, phone_format_variant",(,), 궁금하신 점은 담당 심사역 양서현(【02 3103 5320】)에게 문의해 주시기 바랍니다. ⏎  ⏎ 새
+holdout,H0069,영문혼용메일,,+82 10-0659-1360,+99 99-9999-9999,,,"phone_format_variant, surname_title_unlabeled", ,.," free to call me at 【+82 10-0659-1360】. ⏎  ⏎ Best regards, ⏎ 김미영"
+holdout,H0070,출장보고,,02 3103 5320,99 9999 9999,,,phone_format_variant, , ,- | ⏎ | 양서현 | 여신심사팀 | 【02 3103 5320】 | ⏎ | 김미영 | 디지털전략팀 | 
+holdout,H0070,출장보고,,0230941003,9999999999,,,phone_format_variant, , , | ⏎ | 김미영 | 디지털전략팀 | 【0230941003】 | ⏎ | 이민재 | 코드브릿지 | 0
+holdout,H0070,출장보고,,010-0538-0499,999-9999-9999,,,phone_format_variant, , ,3 | ⏎ | 이민재 | 코드브릿지 | 【010-0538-0499】 | ⏎ | 김선우 | 코드브릿지 | s
+holdout,H0071,한도심사결과,,02.3472.7917,99.9999.9999,,,"address_format_variant, phone_format_variant",(,), 궁금하신 점은 담당 심사역 김소율(【02.3472.7917】)에게 문의해 주시기 바랍니다. ⏎  ⏎ 새
+holdout,H0072,카드발급심사,,010 0660 0148,999 9999 9999,,,"address_format_variant, card_format_variant, id_format_variant, josa_attached, phone_format_variant", ,⏎,302052899781 / 휴대전화 【010 0660 0148】 ⏎ 결과: 승인. 발급 카드번호 451
+holdout,H0073,녹취요약,,+82 10-0111-2320,+99 99-9999-9999,,,"given_only, phone_format_variant, spaced_name", ,이,화 번호 말씀 부탁드립니다. ⏎ 고객: 【+82 10-0111-2320】이요. 해외에서 쓰는 번호로 바꿨어요
+holdout,H0074,해외송금접수,,010-7131-5882,999-9999-9999,,,"account_format_variant, given_only, single_char_given_name",(,),송금 접수 내역 ⏎  ⏎ 송금인: 신도윤 (【010-7131-5882】) ⏎ 출금 계좌: 0184-03-325
+holdout,H0075,영문혼용메일,,+82 10-0659-1360,+99 99-9999-9999,,,"homonym, phone_format_variant, surname_title_unlabeled", ,.," free to call me at 【+82 10-0659-1360】. ⏎  ⏎ Best regards, ⏎ 김미영"
+holdout,H0077,경조사공지,,010-0659-1360,999-9999-9999,,,given_only, ,⏎,6-03-28 ⏎ 연락처: 김미영 사원 【010-0659-1360】 ⏎  ⏎ 마음으로 함께해 주시기 바랍니다.
+holdout,H0079,대리인위임확인,,010-1193-3098,999-9999-9999,,,"account_format_variant, id_format_variant, josa_attached, single_char_given_name", ,⏎,6604241786726 / 연락처 【010-1193-3098】 ⏎ 위임 내용: 카드 해지 및 잔여 포
+holdout,H0080,대리인위임확인,,010.5501.2460,999.9999.9999,,,"account_format_variant, compound_surname, id_format_variant, josa_attached, phone_format_variant, single_char_given_name", ,⏎,10622-1793196 / 연락처 【010.5501.2460】 ⏎ 위임 내용: 카드 해지 및 잔여 포
+holdout,H0083,영문혼용메일,,+82 10-0659-1360,+99 99-9999-9999,,,"phone_format_variant, surname_title_unlabeled", ,.," free to call me at 【+82 10-0659-1360】. ⏎  ⏎ Best regards, ⏎ 김미영"
+holdout,H0084,감사지적,,010 0495 5746,999 9999 9999,,,"josa_attached, phone_format_variant",(,),현준의 주민등록번호와 휴대전화 번호(【010 0495 5746】)를 사내 메신저로 전송한 사실이 확
+holdout,H0085,감사지적,,010.0653.0185,999.9999.9999,,,"homonym, josa_attached, phone_format_variant",(,),동현의 주민등록번호와 휴대전화 번호(【010.0653.0185】)를 사내 메신저로 전송한 사실이 확
+holdout,H0086,출장보고,,02-3888-2288,99-9999-9999,,,phone_format_variant, , ,- | ⏎ | 이지영 | 고객보호팀 | 【02-3888-2288】 | ⏎ | 신민준 | IT운영팀 | 0
+holdout,H0086,출장보고,,02-3833-9572,99-9999-9999,,,phone_format_variant, , ,8 | ⏎ | 신민준 | IT운영팀 | 【02-3833-9572】 | ⏎ | 박은정 | 미르보안 | 01
+holdout,H0086,출장보고,,010.0288.7184,999.9999.9999,,,phone_format_variant, , ,72 | ⏎ | 박은정 | 미르보안 | 【010.0288.7184】 | ⏎ | 김선우 | 코드브릿지 | s
+holdout,H0087,가맹점변경,,010-0554-9969,999-9999-9999,,,, ,⏎,107동 2101호 ⏎ 대표자 연락처: 【010-0554-9969】 ⏎  ⏎ 변경 사항: 정산 계좌 변경 ⏎   
+holdout,H0091,경조사공지,,010-0863-8414,999-9999-9999,,,given_only, ,⏎, 9월 28일 ⏎ 연락처: 박동현 팀장 【010-0863-8414】 ⏎  ⏎ 마음으로 함께해 주시기 바랍니다.
+holdout,H0094,대리인위임확인,,+82 10-4321-1999,+99 99-9999-9999,,,"account_format_variant, compound_surname, josa_attached, phone_format_variant, single_char_given_name, spaced_name", ,⏎,40824-2214963 / 연락처 【+82 10-4321-1999】 ⏎ 위임 내용: 카드 해지 및 잔여 포
+holdout,H0096,해외송금접수,,010-8810-7128,999-9999-9999,,,"account_format_variant, given_only",(,),송금 접수 내역 ⏎  ⏎ 송금인: 임시온 (【010-8810-7128】) ⏎ 출금 계좌: 5528-12-746
+holdout,H0097,경조사공지,,010.0186.6844,999.9999.9999,,,"given_only, phone_format_variant", ,⏎,6-02-01 ⏎ 연락처: 김성호 부장 【010.0186.6844】 ⏎  ⏎ 마음으로 함께해 주시기 바랍니다.
+holdout,H0099,출장보고,,02-3005-2525,99-9999-9999,,,, , ,-- | ⏎ | 김재원 | 고객센터 | 【02-3005-2525】 | ⏎ | 김성호 | 리스크관리팀 | 
+holdout,H0099,출장보고,,02-3602-3149,99-9999-9999,,,, , , | ⏎ | 김성호 | 리스크관리팀 | 【02-3602-3149】 | ⏎ | 정현우 | 미르보안 | 01
+holdout,H0099,출장보고,,010-0147-1165,999-9999-9999,,,, , ,49 | ⏎ | 정현우 | 미르보안 | 【010-0147-1165】 | ⏎ | 김선우 | 코드브릿지 | s
+holdout,H0100,피해접수,,010-0653-0185,999-9999-9999,,,"card_format_variant, spaced_name",(,), 10:32 ⏎ 피해 고객: 김 동현 (【010-0653-0185】) ⏎ 사건 번호: 경찰청 2026-28
+holdout,H0101,출장보고,,02-3602-3149,99-9999-9999,,,phone_format_variant, , , | ⏎ | 김성호 | 리스크관리팀 | 【02-3602-3149】 | ⏎ | 김주원 | 카드운영팀 | 0
+holdout,H0101,출장보고,,02-3734-8035,99-9999-9999,,,phone_format_variant, , ,9 | ⏎ | 김주원 | 카드운영팀 | 【02-3734-8035】 | ⏎ | 김은정 | 다솜콜솔루션 | 
+holdout,H0101,출장보고,,01001524303,99999999999,,,phone_format_variant, , , | ⏎ | 김은정 | 다솜콜솔루션 | 【01001524303】 | ⏎ | 김수아 | 데이터온시스템즈 
+holdout,H0103,카드발급심사,,01000379664,99999999999,,,"address_format_variant, card_format_variant, id_format_variant, josa_attached, phone_format_variant", ,⏎,211081028362 / 휴대전화 【01000379664】 ⏎ 결과: 승인. 발급 카드번호 451
+holdout,H0105,카드발급심사,,+82 10-7134-7090,+99 99-9999-9999,,,"address_format_variant, card_format_variant, josa_attached, phone_format_variant, single_char_given_name", ,⏎,0404-2281837 / 휴대전화 【+82 10-7134-7090】 ⏎ 결과: 승인. 발급 카드번호 532
+holdout,H0106,한도심사결과,,02.3472.7917,99.9999.9999,,,"homonym, phone_format_variant",(,), 궁금하신 점은 담당 심사역 김소율(【02.3472.7917】)에게 문의해 주시기 바랍니다. ⏎  ⏎ 새
+holdout,H0109,경조사공지,,010-0133-2455,999-9999-9999,,,given_only, ,⏎,6.06.24 ⏎ 연락처: 서혜진 팀장 【010-0133-2455】 ⏎  ⏎ 마음으로 함께해 주시기 바랍니다.
+holdout,H0110,녹취요약,,+82 10-0608-0969,+99 99-9999-9999,,,"given_only, phone_format_variant, spaced_name", ,이,화 번호 말씀 부탁드립니다. ⏎ 고객: 【+82 10-0608-0969】이요. 해외에서 쓰는 번호로 바꿨어요
+holdout,H0111,피해접수,,010-0383-9051,999-9999-9999,,,"card_format_variant, spaced_name",(,), 15:39 ⏎ 피해 고객: 류 승현 (【010-0383-9051】) ⏎ 사건 번호: 경찰청 2026-99
+holdout,H0112,채용메일,,010-0805-8440,999-9999-9999,,,surname_title_unlabeled,(,),정 변경이 필요하시면 인사팀 문시우(【010-0805-8440】)에게 연락 바랍니다.
+holdout,H0113,녹취요약,,+82 10-0933-5186,+99 99-9999-9999,,,"given_only, homonym, phone_format_variant, spaced_name", ,이,화 번호 말씀 부탁드립니다. ⏎ 고객: 【+82 10-0933-5186】이요. 해외에서 쓰는 번호로 바꿨어요
+holdout,H0114,한도심사결과,,02-3108-6345,99-9999-9999,,,address_format_variant,(,), 궁금하신 점은 담당 심사역 허서연(【02-3108-6345】)에게 문의해 주시기 바랍니다. ⏎  ⏎ 새
+holdout,H0116,카드발급심사,,010.7176.8626,999.9999.9999,,,"address_format_variant, card_format_variant, josa_attached, phone_format_variant, spaced_name", ,⏎,1027-2687601 / 휴대전화 【010.7176.8626】 ⏎ 결과: 승인. 발급 카드번호 524
+holdout,H0117,카드발급심사,,010-1940-1316,999-9999-9999,,,"address_format_variant, card_format_variant, compound_surname, id_format_variant, josa_attached, spaced_name", ,⏎,0408 1584181 / 휴대전화 【010-1940-1316】 ⏎ 결과: 승인. 발급 카드번호 532
+holdout,H0118,채용메일,,01008058440,99999999999,,,"phone_format_variant, surname_title_unlabeled",(,),정 변경이 필요하시면 인사팀 문시우(【01008058440】)에게 연락 바랍니다.
+holdout,H0119,카드발급심사,,010-1395-2760,999-9999-9999,,,"address_format_variant, card_format_variant, id_format_variant, josa_attached", ,⏎,0611 1869786 / 휴대전화 【010-1395-2760】 ⏎ 결과: 승인. 발급 카드번호 356
+holdout,H0120,감사지적,,010-0111-2320,999-9999-9999,,,josa_attached,(,),소연의 주민등록번호와 휴대전화 번호(【010-0111-2320】)를 사내 메신저로 전송한 사실이 확
+holdout,H0121,피해접수,,010-0285-2041,999-9999-9999,,,"card_format_variant, spaced_name",(,), 17:49 ⏎ 피해 고객: 송 우진 (【010-0285-2041】) ⏎ 사건 번호: 경찰청 2026-58
+holdout,H0122,VOC요약,,010.0351.8383,999.9999.9999,,,"josa_attached, phone_format_variant, spaced_name",(,), 남궁나연님 | 결제 알림 미수신 (【010.0351.8383】) | 처리 완료 ⏎  ⏎ 특이사항: 김서연
+holdout,H0123,자동이체신청서,,02-2627-8548,99-9999-9999,,,"account_format_variant, address_format_variant, id_format_variant, phone_format_variant, single_char_given_name", ,⏎,6639-94-973768 ⏎ 연락처: 【02-2627-8548】 ⏎ 청구지 주소: 부산광역시 사하구 괴
+holdout,H0125,자동이체신청서,,+82 10-5784-7365,+99 99-9999-9999,,,"account_format_variant, address_format_variant, compound_surname, id_format_variant, phone_format_variant, single_char_given_name", ,⏎,행 653438611431 ⏎ 연락처: 【+82 10-5784-7365】 ⏎ 청구지 주소: (11313) 경기도
+holdout,H0126,녹취요약,,+82 10-0732-6448,+99 99-9999-9999,,,"given_only, phone_format_variant, spaced_name", ,이,화 번호 말씀 부탁드립니다. ⏎ 고객: 【+82 10-0732-6448】이요. 해외에서 쓰는 번호로 바꿨어요
+holdout,H0127,피해접수,,010-0495-5746,999-9999-9999,,,"card_format_variant, spaced_name",(,), 11:36 ⏎ 피해 고객: 박 현준 (【010-0495-5746】) ⏎ 사건 번호: 경찰청 2026-15
+holdout,H0128,해외송금접수,,+82 10-8138-9758,+99 99-9999-9999,,,"account_format_variant, compound_surname, given_only, phone_format_variant, single_char_given_name",(,),송금 접수 내역 ⏎  ⏎ 송금인: 김온유 (【+82 10-8138-9758】) ⏎ 출금 계좌: 228-736-761
+holdout,H0129,감사지적,,010-0608-0969,999-9999-9999,,,josa_attached,(,),예린의 주민등록번호와 휴대전화 번호(【010-0608-0969】)를 사내 메신저로 전송한 사실이 확
+holdout,H0132,가맹점변경,,010 0111 2320,999 9999 9999,,,"address_format_variant, phone_format_variant", ,⏎,127호 (범어동) ⏎ 대표자 연락처: 【010 0111 2320】 ⏎  ⏎ 변경 사항: 정산 계좌 변경 ⏎   
+holdout,H0133,VOC요약,,01004955746,99999999999,,,"josa_attached, phone_format_variant, spaced_name",(,),| 박현준님 | 결제 알림 미수신 (【01004955746】) | 처리 완료 ⏎  ⏎ 특이사항: 윤선영
+holdout,H0134,감사지적,,010.0152.0289,999.9999.9999,,,"josa_attached, phone_format_variant",(,),지훈의 주민등록번호와 휴대전화 번호(【010.0152.0289】)를 사내 메신저로 전송한 사실이 확
+holdout,H0135,카드발급심사,,010-0914-3515,999-9999-9999,,,"address_format_variant, card_format_variant, compound_surname, josa_attached, single_char_given_name, spaced_name", ,⏎,0605-2993167 / 휴대전화 【010-0914-3515】 ⏎ 결과: 승인. 발급 카드번호 625
+holdout,H0136,대리인위임확인,,02-2108-3997,99-9999-9999,,,"account_format_variant, compound_surname, id_format_variant, josa_attached, phone_format_variant, single_char_given_name, spaced_name", ,⏎,40815-3573377 / 연락처 【02-2108-3997】 ⏎ 위임 내용: 카드 해지 및 잔여 포
+holdout,H0137,녹취요약,,+82 10-0577-7449,+99 99-9999-9999,,,"given_only, phone_format_variant, spaced_name", ,이,화 번호 말씀 부탁드립니다. ⏎ 고객: 【+82 10-0577-7449】이요. 해외에서 쓰는 번호로 바꿨어요
+holdout,H0139,해외송금접수,,010-5094-3471,999-9999-9999,,,"account_format_variant, given_only, single_char_given_name",(,),외송금 접수 내역 ⏎  ⏎ 송금인: 전린 (【010-5094-3471】) ⏎ 출금 계좌: 89984511034
+holdout,H0141,한도심사결과,,02-3103-5320,99-9999-9999,,,address_format_variant,(,), 궁금하신 점은 담당 심사역 양서현(【02-3103-5320】)에게 문의해 주시기 바랍니다. ⏎  ⏎ 새
+holdout,H0142,VOC요약,,010-0238-4701,999-9999-9999,,,"josa_attached, spaced_name",(,),| 김은우님 | 결제 알림 미수신 (【010-0238-4701】) | 처리 완료 ⏎  ⏎ 특이사항: 박현준
+holdout,H0145,가맹점변경,,010.0554.9969,999.9999.9999,,,phone_format_variant, ,⏎,107동 2101호 ⏎ 대표자 연락처: 【010.0554.9969】 ⏎  ⏎ 변경 사항: 정산 계좌 변경 ⏎   
+holdout,H0148,채용메일,,010-0805-8440,999-9999-9999,,,surname_title_unlabeled,(,),정 변경이 필요하시면 인사팀 문시우(【010-0805-8440】)에게 연락 바랍니다.
+holdout,H0149,한도심사결과,,02-3103-5320,99-9999-9999,,,address_format_variant,(,), 궁금하신 점은 담당 심사역 양서현(【02-3103-5320】)에게 문의해 주시기 바랍니다. ⏎  ⏎ 새
+holdout,H0150,자동이체신청서,,+82 10-1516-7717,+99 99-9999-9999,,,"account_format_variant, address_format_variant, id_format_variant, phone_format_variant", ,⏎, 2482678126095 ⏎ 연락처: 【+82 10-1516-7717】 ⏎ 청구지 주소: 부산광역시 수영구 도
+holdout,H0151,채용메일,,01008058440,99999999999,,,"phone_format_variant, surname_title_unlabeled",(,),정 변경이 필요하시면 인사팀 문시우(【01008058440】)에게 연락 바랍니다.
+holdout,H0153,출장보고,,0236023149,9999999999,,,"homonym, phone_format_variant", , , | ⏎ | 김성호 | 리스크관리팀 | 【0236023149】 | ⏎ | 김민준 | 고객센터 | 02
+holdout,H0153,출장보고,,02 3779 4221,99 9999 9999,,,"homonym, phone_format_variant", , ,49 | ⏎ | 김민준 | 고객센터 | 【02 3779 4221】 | ⏎ | 박은정 | 미르보안 | 01
+holdout,H0153,출장보고,,010-0288-7184,999-9999-9999,,,"homonym, phone_format_variant", , ,21 | ⏎ | 박은정 | 미르보안 | 【010-0288-7184】 | ⏎ | 김선우 | 코드브릿지 | s
+holdout,H0154,피해접수,,010-0732-6448,999-9999-9999,,,"card_format_variant, spaced_name",(,), 16:04 ⏎ 피해 고객: 정 성호 (【010-0732-6448】) ⏎ 사건 번호: 경찰청 2026-92
+holdout,H0155,해외송금접수,,010 8564 7073,999 9999 9999,,,"account_format_variant, given_only, phone_format_variant, single_char_given_name",(,),송금 접수 내역 ⏎  ⏎ 송금인: 최로운 (【010 8564 7073】) ⏎ 출금 계좌: 3553-51-965
+holdout,H0157,자동이체신청서,,01028237449,99999999999,,,"account_format_variant, address_format_variant, compound_surname, id_format_variant, phone_format_variant", ,⏎,행 977918048996 ⏎ 연락처: 【01028237449】 ⏎ 청구지 주소: (42524) 대구광
+holdout,H0159,VOC요약,,010.0351.8383,999.9999.9999,,,"homonym, josa_attached, phone_format_variant, spaced_name",(,), 남궁나연님 | 결제 알림 미수신 (【010.0351.8383】) | 처리 완료 ⏎  ⏎ 특이사항: 김민준
+holdout,H0160,녹취요약,,+82 10-0608-0969,+99 99-9999-9999,,,"given_only, phone_format_variant, spaced_name", ,이,화 번호 말씀 부탁드립니다. ⏎ 고객: 【+82 10-0608-0969】이요. 해외에서 쓰는 번호로 바꿨어요
+holdout,H0161,VOC요약,,010.0111.2320,999.9999.9999,,,"josa_attached, phone_format_variant, spaced_name",(,),| 윤소연님 | 결제 알림 미수신 (【010.0111.2320】) | 처리 완료 ⏎  ⏎ 특이사항: 황보현
+holdout,H0162,피해접수,,010 0495 5746,999 9999 9999,,,"card_format_variant, phone_format_variant, spaced_name",(,), 17:58 ⏎ 피해 고객: 박 현준 (【010 0495 5746】) ⏎ 사건 번호: 경찰청 2026-13
+holdout,H0163,대리인위임확인,,010.7191.7930,999.9999.9999,,,"account_format_variant, compound_surname, id_format_variant, josa_attached, phone_format_variant, single_char_given_name, spaced_name", ,⏎,50114-1805815 / 연락처 【010.7191.7930】 ⏎ 위임 내용: 카드 해지 및 잔여 포
+holdout,H0164,감사지적,,010-0351-8383,999-9999-9999,,,josa_attached,(,),나연의 주민등록번호와 휴대전화 번호(【010-0351-8383】)를 사내 메신저로 전송한 사실이 확
+holdout,H0165,VOC요약,,01003760221,99999999999,,,"josa_attached, phone_format_variant, spaced_name",(,),| 류현정님 | 결제 알림 미수신 (【01003760221】) | 처리 완료 ⏎  ⏎ 특이사항: 남궁나
+holdout,H0166,영문혼용메일,,+82 10-0659-1360,+99 99-9999-9999,,,"phone_format_variant, surname_title_unlabeled", ,.," free to call me at 【+82 10-0659-1360】. ⏎  ⏎ Best regards, ⏎ 김미영"
+holdout,H0167,채용메일,,010-0302-9189,999-9999-9999,,,surname_title_unlabeled,(,),정 변경이 필요하시면 인사팀 김윤서(【010-0302-9189】)에게 연락 바랍니다.
+holdout,H0168,가맹점변경,,010.0306.5929,999.9999.9999,,,"homonym, phone_format_variant", ,⏎,112동 2301호 ⏎ 대표자 연락처: 【010.0306.5929】 ⏎  ⏎ 변경 사항: 정산 계좌 변경 ⏎   
+holdout,H0171,해외송금접수,,010-8652-9211,999-9999-9999,,,"account_format_variant, compound_surname, given_only, single_char_given_name",(,),금 접수 내역 ⏎  ⏎ 송금인: 남궁하율 (【010-8652-9211】) ⏎ 출금 계좌: 553-33-8854
+holdout,H0174,해외송금접수,,010-5262-3794,999-9999-9999,,,"account_format_variant, compound_surname, given_only, single_char_given_name",(,),송금 접수 내역 ⏎  ⏎ 송금인: 홍서진 (【010-5262-3794】) ⏎ 출금 계좌: 03864435309
+holdout,H0175,채용메일,,010-0805-8440,999-9999-9999,,,surname_title_unlabeled,(,),정 변경이 필요하시면 인사팀 문시우(【010-0805-8440】)에게 연락 바랍니다.
+holdout,H0176,경조사공지,,010.0805.8440,999.9999.9999,,,"given_only, phone_format_variant", ,⏎,12월 16일 ⏎ 연락처: 문시우 과장 【010.0805.8440】 ⏎  ⏎ 마음으로 함께해 주시기 바랍니다.
+holdout,H0177,대리인위임확인,,010.7374.7292,999.9999.9999,,,"account_format_variant, id_format_variant, josa_attached, phone_format_variant, single_char_given_name, spaced_name", ,⏎,91214 1857843 / 연락처 【010.7374.7292】 ⏎ 위임 내용: 카드 해지 및 잔여 포
+holdout,H0179,한도심사결과,,02-3103-5320,99-9999-9999,,,address_format_variant,(,), 궁금하신 점은 담당 심사역 양서현(【02-3103-5320】)에게 문의해 주시기 바랍니다. ⏎  ⏎ 새
+holdout,H0182,녹취요약,,+82 10-0383-9051,+99 99-9999-9999,,,"given_only, phone_format_variant, spaced_name", ,이,화 번호 말씀 부탁드립니다. ⏎ 고객: 【+82 10-0383-9051】이요. 해외에서 쓰는 번호로 바꿨어요
+holdout,H0183,채용메일,,010.0805.8440,999.9999.9999,,,"phone_format_variant, surname_title_unlabeled",(,),정 변경이 필요하시면 인사팀 문시우(【010.0805.8440】)에게 연락 바랍니다.
+holdout,H0186,가맹점변경,,010-0791-2924,999-9999-9999,,,address_format_variant, ,⏎, 115동 458호 ⏎ 대표자 연락처: 【010-0791-2924】 ⏎  ⏎ 변경 사항: 정산 계좌 변경 ⏎   

@@ -1,0 +1,88 @@
+﻿doc_id,label,gold_text,caught_by,context
+S081-06,person,조세연,rules|rules+atonlee, 지급 신청] - 수령인: 【조세연】 - 계좌: 083301.0
+S081-06,account_number,083301.04.111122,rules|rules+atonlee,수령인: 조세연 - 계좌: 【083301.04.111122】 - 신청일: 2024-06
+S081-10,card_number,5348.1200.0000.8531,rules|rules+atonlee, 바랍니다. - 카드번호: 【5348.1200.0000.8531】 - 결제일: 2024-06
+S085-10,address,경기도 수원시 팔달구 효원로 299 3호실,atonlee|rules+atonlee,299 세일장례식장 3호실(【경기도 수원시 팔달구 효원로 299 3호실】) 발인: 2024년 7월 
+S085-12,person,홍지은,atonlee|rules+atonlee,【홍지은】 사우 결혼식 일자: 202
+S081-05,person,배수진,atonlee|rules+atonlee,"- 신랑: 이창수, 신부: 【배수진】 - 예식일: 2024년 9"
+S081-18,account_number,008.002500.22989,rules|rules+atonlee, 7호실 - 조의금 계좌: 【008.002500.22989】 - 문의: yujin.se
+S071-15,person,김라온,rules|rules+atonlee,6월 9일 오후 6시에 【김라온】으로 결제했습니다. 카드번호
+S073-07,resident_registration_number,980426-0430022,atonlee|rules+atonlee,니다. 회원가입 시 입력한 【980426-0430022】이 시스템에 제대로 반영됐는
+S071-18,person,백수연,atonlee|rules+atonlee,"알 수 있을까요? 수령인은 【백수연】, 연락처는 010.0852"
+S073-12,account_number,3020001402987,rules|rules+atonlee,문지원입니다. 환불 계좌 【3020001402987】로 환불 부탁드릴게요. 상품
+S088-07,person,박수연,atonlee|rules+atonlee,"【박수연】, 관리비 자동이체 해지 요"
+S087-16,account_number,123-008-000184,rules|rules+atonlee,", 303호   납부계좌: 【123-008-000184】   문의: kim.dh@e"
+S088-03,account_number,62300471839100,rules|rules+atonlee, 완료했습니다. 송금계좌는 【62300471839100】 맞죠? 혹시 변동 있으면 
+S086-05,person,최재윤,atonlee|rules+atonlee,"요청드립니다. - 세대주: 【최재윤】 - 관리비: 115,900"
+S086-08,account_number,055-000-417855,rules|rules+atonlee,"7,800원 - 납부계좌: 【055-000-417855】 재발송 문자 요청 시 yj"
+S087-10,phone_number,080-001-4582,atonlee|rules+atonlee,"72,400원   문의처: 【080-001-4582】   불편사항 있으시면 언제"
+S060-12,account_number,002280-00991721,rules|rules+atonlee, 있습니다. 기존 대출계좌 【002280-00991721】에 대해 1년 연장 가능한지
+S056-16,person,최휘경,atonlee|rules+atonlee,6-17)   상담 직원: 【최휘경】   고객명: 이경서   주
+S092-11,person,고은비,atonlee|rules+atonlee,", 김하영, 이상훈 불참: 【고은비】 다음 모임 일정은 추후 공"
+S091-14,phone_number,160.0006.3801,atonlee|rules+atonlee,로 29 302호 연락처: 【160.0006.3801】
+S091-19,account_number,11-0000-856123,rules|rules+atonlee,었습니다. 납부 계좌번호: 【11-0000-856123】
+S091-09,phone_number,150.0097.2708,atonlee|rules+atonlee,회원분들은 볼링센터 출입시 【150.0097.2708】로 연락 부탁드립니다.
+S091-06,resident_registration_number,850214-0029211,atonlee|rules+atonlee,재확인 필요합니다. 기존: 【850214-0029211】 정정 사항은 6월 12일까
+S091-06,person,김 다희,atonlee|rules+atonlee,항은 6월 12일까지 총무 【김 다희】에게 알려주세요.
+S092-06,person,박희정,atonlee|rules+atonlee,"프랑스어 스터디 회원【박희정】님, 지난번 출석부에 서명이"
+S094-19,resident_registration_number,820115-2987654,rules|rules+atonlee,"   생년월일, 주민등록번호【820115-2987654】, 연락처(010.0403."
+S025-13,person,이승기,atonlee|rules+atonlee," 전: 이승희, 수정 후: 【이승기】로 변경 부탁합니다."
+S022-12,person,한별,atonlee|rules+atonlee,"않았습니다. 신청자 정보: 【한별】, 연락처 010.0111."
+S012-01,person,장연수,rules|rules+atonlee,을 받지 못했습니다. 혹시 【장연수】라는 이름으로 접수된 010
+S015-04,person,이 태은,atonlee|rules+atonlee,"401호이고, 받는 사람은 【이 태은】입니다.   확인 부탁드립니"
+S013-09,person,박동혁,rules|rules+atonlee,"택배 수령인이 【박동혁】으로 되어 있는데, 실제로는"
+S016-17,person,김해온,rules|rules+atonlee,【김해온】 고객 예약 내역   주소:
+S017-07,resident_registration_number,202509-1010101,atonlee|rules+atonlee,"약 문의드립니다. 김규리, 【202509-1010101】, 010.0039.0039"
+S036-15,account_number,33390006501284,rules|rules+atonlee,5.0138   계좌번호: 【33390006501284】   접수일: 2024년 4
+S036-03,account_number,11098105433224,rules|rules+atonlee, 굿모닝은행   계좌번호: 【11098105433224】
+S036-19,account_number,15000390900216,rules|rules+atonlee,3월 12일   계좌번호: 【15000390900216】   카드번호: 5220-0
+S039-16,card_number,MC1234-5678-9125-2341,rules|rules+atonlee,"고현수님, 【MC1234-5678-9125-2341】 카드로 결제하신 의료비 청"
+S039-18,account_number,35600239428192,rules|rules+atonlee,"험료 자동이체 계좌: 농협 【35600239428192】, 꼭 확인 부탁드립니다."
+S036-11,account_number,12000993401728,rules|rules+atonlee,le.com   계좌번호: 【12000993401728】
+S037-19,account_number,120-00-211840,rules|rules+atonlee,"32 은행: 신한, 계좌: 【120-00-211840】 연락처: 010.0020."
+S036-07,account_number,22098712004123,rules|rules+atonlee,1-1202   계좌번호: 【22098712004123】 (중앙은행)
+S036-10,account_number,65010900123451,rules|rules+atonlee,"동 909호   계좌번호: 【65010900123451】   진단서, 영수증, 통장"
+S002-07,person,유현수,atonlee|rules+atonlee,후 3시~4시 - 상담사: 【유현수】 변경사항 있으시면 010.
+S005-06,person,이태윤,atonlee|rules+atonlee,담 내용 확인차 남깁니다. 【이태윤】 님과의 상담에서 말씀드렸던
+S004-16,person,조지아,rules|rules+atonlee,"【조지아】 고객, 02.0000.67"
+S034-16,resident_registration_number,800101-5123499,rules|rules+atonlee,"계약자 진원호, 주민번호 【800101-5123499】, 카드 5555-1234-"
+S026-03,account_number,092-000123-444455,rules|rules+atonlee,동 302호   계좌번호: 【092-000123-444455】   연락처: 010.033
+S029-08,account_number,11020-509474,rules|rules+atonlee,입금 계좌: 【11020-509474】   이정훈님 명의
+S026-02,person,이하람,atonlee|rules+atonlee,5월 10일 오전 11시경 【이하람】 님이 올린 자전거 거래 문
+S028-20,account_number,688800002312,rules|rules+atonlee,"최진호님이고, 결제 계좌는 【688800002312】번입니다. 혹시 필요하시면 "
+S045-11,person,박진하,atonlee|rules+atonlee,【박진하】 지원자입니다. 면접 교통비
+S043-10,person,김다해,atonlee|rules+atonlee,"을 위해 신분증 사본이랑, 【김다해】 님 카드번호(뒷 4자리만)"
+S051-10,person,윤솔,atonlee|rules+atonlee,8881-1105 신고자: 【윤솔】 이메일: sol_yoon@
+S054-11,person,오하람,rules|rules+atonlee,【오하람】 haraom88@examp
+S052-06,person,윤 경희,atonlee|rules+atonlee,"안녕하세요, 저희 어머니 【윤 경희】의 신한카드(0000-348"
+S054-02,person,민지석,rules|rules+atonlee,용카드 분실함.   문의: 【민지석】 min0927@exampl
+S051-14,person,이지희,atonlee|rules+atonlee,88-2567 - 소유자: 【이지희】 - 연락처: 010.092
+S054-06,person,박태섭,rules|rules+atonlee,장소: 스타벅스 논현점   【박태섭】 tasub83@exampl
+S055-17,person,김수환,atonlee|rules+atonlee,"8745 분실 신고합니다. 【김수환】, 010.0081.5520"
+S052-11,card_number,0007-1000-8000-3550,rules|rules+atonlee,24-06-10 카드번호: 【0007-1000-8000-3550】 명의자: 허은정 확인 후 
+S054-10,person,이종윤,atonlee|rules+atonlee,【이종윤】 920415-1130274
+S078-04,resident_registration_number,780528-******,atonlee|rules+atonlee,남겨주세요.   주민번호: 【780528-******】
+S080-12,person,황종원,atonlee|rules+atonlee,"를 보내야 합니다. 발신인:【황종원】, 연락처:010.0099."
+S079-05,person,최은지,rules|rules+atonlee,금일 발송 건 수신자: 【최은지】 ceunji39@examp
+S079-18,person,도하린,rules|rules+atonlee,"품 반송 요청, 받는 분: 【도하린】 harindo@exampl"
+S047-14,person,김용한,atonlee|rules+atonlee,안녕하세요. 【김용한】 학생의 장학생 선발 결과 
+S049-16,person,한지원,atonlee|rules+atonlee,【한지원】 학생의 주소 변경 관련 안
+S047-08,person,손하은,atonlee|rules+atonlee, 명단 수정 요청드립니다. 【손하은】 학생이 빠진 것으로 확인되
+S049-15,account_number,467800.01.896240,rules|rules+atonlee,. 예금주: 홍지훈 계좌: 【467800.01.896240】 입금 확인 후 교재 배부 
+S049-05,account_number,924500.09.373665,rules|rules+atonlee,변경되었습니다. 새 계좌: 【924500.09.373665】 착오 없으시길 바랍니다. 
+S047-10,account_number,88002349501026,rules|rules+atonlee,"니다.  [계좌번호 정보: 【88002349501026】],  담당자: 김재홍, 문"
+S048-09,account_number,302.0000000.3761,rules|rules+atonlee,"방과후 수업비 인출 계좌는 【302.0000000.3761】 (농협, 예금주 박태은)입"
+S047-03,account_number,43007499539281,rules|rules+atonlee," 안내드립니다.  신한은행 【43007499539281】, 예금주: 동해중학교, 기"
+S046-16,person,최다연,atonlee|rules+atonlee,회 접수번호 안내:   - 【최다연】: 240618-0055  
+S046-16,person,조성호,atonlee|rules+atonlee,40618-0055   - 【조성호】: 240618-0056
+S097-19,card_number,5521.0042.0133.5217,rules|rules+atonlee,"mple.net, 결제카드 【5521.0042.0133.5217】 예매내역 pdf 파일로 회"
+S097-12,card_number,3732.0011.8899.3201,rules|rules+atonlee,"자 정유진입니다. 결제카드 【3732.0011.8899.3201】 사용하였고, 영수증과 확정"
+S097-03,card_number,5512.0087.1122.4447,rules|rules+atonlee,"확인 요청합니다. 카드번호 【5512.0087.1122.4447】로 결제했는데, 영수증도 메"
+S099-11,phone_number,030.8920.1003,atonlee|rules+atonlee,【030.8920.1003】에서 연락드린 한희준입니다.
+S007-16,account_number,121-010-4567890,rules|rules+atonlee, 환불 원합니다. 신한은행 【121-010-4567890】로 환불 부탁드려요.  이름
+S010-15,person,오수진,atonlee|rules+atonlee,"주문자 【오수진】, 010-0333-7542"
+S007-10,account_number,009-0999-333311,rules|rules+atonlee,le.co.kr 계좌번호: 【009-0999-333311】 가능한 빠른 안내 바랍니다
+S007-11,account_number,222-006-112233,rules|rules+atonlee,900.2230 환불계좌: 【222-006-112233】
+S061-17,account_number,208899554220,rules|rules+atonlee,하였습니다. - 계좌번호: 【208899554220】
+S064-08,account_number,100209-184563,rules|rules+atonlee,요청드립니다.   우리은행 【100209-184563】
+S061-03,account_number,102294839101,rules|rules+atonlee,주: 정지호 - 계좌번호: 【102294839101】 - 은행: 하나은행
