@@ -1,0 +1,32 @@
+# 실전 1 실행에 필요한 패키지 (Python 3.13에서 확인한 버전)
+# 설치: pip install -r requirements.txt
+
+# 규칙 기반 (형태소 분석기)
+kiwipiepy==0.24.1
+
+# 토큰 분류 모델 (atonlee 등, CPU로 실행. 모델은 처음 실행할 때 Hugging Face에서 자동으로 내려받음)
+transformers==4.57.1
+torch==2.9.0
+
+# LLM 탐지기·일상 문서 생성 (OpenAI API 키는 프로젝트 맨 위 .env 에: openai-api-key=...)
+openai==2.8.1
+
+# 보고서 PDF 만들기 (tools/build_report.py, Edge 또는 Chrome 필요)
+markdown==3.9
+
+# 선택: 형태소 분석기 비교 실험 (experiments/compare_analyzers.py, Java 필요)
+# konlpy==0.6.0
+
+# 실전 2: pgvector_starter (DB 연결, 임베딩·LLM API 호출)
+# 키트 원본은 numpy==1.26.4, psycopg==3.1.18 고정인데 Python 3.13용 휠이 없어 버전을 올림
+psycopg[binary]==3.2.13
+pgvector==0.3.6
+numpy==2.5.4
+requests==2.32.3
+python-dotenv==1.0.1
+
+# 테스트 (python -m pytest tests -v)
+pytest==9.2.0
+
+# 챗봇 데모 (python -X utf8 -m streamlit run app.py). 답변 마크다운 변환은 위의 markdown 패키지 사용
+streamlit==1.66.1

@@ -1,0 +1,6 @@
+# 화면은 Streamlit 기본 테마를 그대로 씁니다
+[server]
+headless = true
+
+[browser]
+gatherUsageStats = false

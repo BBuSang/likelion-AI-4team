@@ -1,0 +1,28 @@
+# v2 DB (plan_v2.md P1). v1 DB(rag_docker2, 5432)와 볼륨·포트를 분리해 둘 다 띄울 수 있게 함
+# 비밀번호는 상위 폴더 .env 를 같이 씀 → 실행: docker compose --env-file ../.env up -d
+# 적재 전용 계정(ingest_user) 비밀번호는 INGEST_PASSWORD가 없으면 RAG_PASSWORD를 씀 → .env 수정 없이 실행 가능
+name: rag_docker2_v2
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    container_name: pii_rag_db_v2
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-admin}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+      POSTGRES_DB: ${POSTGRES_DB:-pii_rag}
+      RAG_PASSWORD: ${RAG_PASSWORD:?set RAG_PASSWORD in .env}
+      INGEST_PASSWORD: ${INGEST_PASSWORD:-${RAG_PASSWORD}}
+      VAULT_PASSWORD: ${VAULT_PASSWORD:?set VAULT_PASSWORD in .env}
+      EMBED_DIM: ${EMBED_DIM:-1024}
+    ports:
+      - "${V2_DB_PORT:-5433}:5432"
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d:ro
+      - pgdata_v2:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-admin} -d ${POSTGRES_DB:-pii_rag}"]
+      interval: 5s
+      retries: 10
+
+volumes:
+  pgdata_v2:
