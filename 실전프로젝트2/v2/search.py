@@ -39,10 +39,18 @@ INTENT = {
     "피해접수": ["피해"], "영문혼용메일": ["영문"], "대리인위임확인": ["위임"], "자동이체신청서": ["자동이체"],
     "우편반송처리": ["반송"], "해외송금접수": ["해외송금"],
 }
-STATUS_OPEN = ["처리 중", "진행 중", "아직", "안 끝난", "미처리"]
-STATUS_DONE = ["완료", "마무리", "해결", "끝난"]
-# anchor(S6)는 동명이인 혼동 0.045 → 0.041 대신 Recall@10 0.990 → 0.984 라 끔 (worklog 39번)
-ALL_OPTS = {"intent": 1, "region": 1, "status": 1, "line": 1, "role": 1, "entity": 1, "anchor": 0}
+# 처리 상태 어휘 두 벌 (worklog 43번 과적합 점검)
+#   query  : holdout 질의 문구("아직", "안 끝난", "마무리")를 보고 넣은 어휘
+#   general: 문서 상태 값(처리 중·처리 완료)과 표준 동의어만, 질의를 보기 전 기준으로 정한 어휘
+STATUS_WORDS = {
+    "query": (["처리 중", "진행 중", "아직", "안 끝난", "미처리"], ["완료", "마무리", "해결", "끝난"]),
+    "general": (["처리 중", "처리중", "진행 중", "미처리", "미완료"], ["처리 완료", "완료", "종결", "해결"]),
+}
+# 기본값 = G6 (worklog 44번, 새 질의 세트 조정용으로 고정): 상태 일반 어휘, 같은 줄 일치 끔.
+# 같은 줄 일치·질의 어휘는 holdout 질의를 보고 만든 것이라 새 질의에서 효과 0 → 끔 (holdout에서만 Hit@1 +0.057)
+# anchor는 동명이인 혼동 0.045 → 0.041 대신 Recall@10 0.990 → 0.984 라 끔 (worklog 39번)
+ALL_OPTS = {"intent": 1, "region": 1, "status": 1, "status_vocab": "general", "line": 0,
+            "role": 1, "entity": 1, "anchor": 0}
 LINE_STOP = {"고객", "고객님", "님", "건", "문서", "기록", "내역", "관련", "직원", "담당"}
 ORG_WORD_RE = re.compile(r"[가-힣A-Za-z]+(?:팀|센터|본부|지점|실)(?![가-힣])")
 PARTICLE_RE = re.compile(r"(님이|님의|님|이|가|은|는|을|를|에|의|로|으로|도|만|이랑|랑|하고)$")
@@ -60,11 +68,21 @@ def query_stems(masked):
 ID_PREFIX = ("<PHONE_", "<RRN_", "<EMAIL_", "<ACCOUNT_", "<CARD_", "<ADDRESS_")
 
 
-def parse_query(masked, mentions):
+def query_bigrams(masked):
+    """질의 한글 단어의 글자 2-gram (토큰 제외). 손으로 고른 불용어·어간 없이 쓰는 표준 겹침 단위."""
+    grams = set()
+    for w in re.findall(r"[가-힣]+", TOKEN_RE.sub(" ", masked)):
+        grams |= {w[i:i + 2] for i in range(len(w) - 1)}
+    return grams
+
+
+def parse_query(masked, mentions, opts=None):
     """질의 의도 (ops.query_log.parsed). 가명 질의와 질의 언급 역할만 봄."""
+    opts = opts or {}
     intent = sorted(dt for dt, words in INTENT.items() if any(w in masked for w in words))
-    status = "처리 중" if any(w in masked for w in STATUS_OPEN) else \
-        "처리 완료" if any(w in masked for w in STATUS_DONE) else None
+    open_w, done_w = STATUS_WORDS[opts.get("status_vocab", "query")]
+    status = "처리 중" if any(w in masked for w in open_w) else \
+        "처리 완료" if any(w in masked for w in done_w) else None
     region = None
     words = re.findall(r"[가-힣]+", masked)
     for i, w in enumerate(words):
@@ -73,7 +91,8 @@ def parse_query(masked, mentions):
             region = [SIDO_ALIAS[w], [x for x in sgg if re.fullmatch(r"[가-힣]+[시군구]", x)]]
             break
     roles = {m["token"]: m["role"] for m in mentions if m["label"] == "person" and m.get("role")}
-    return {"intent": intent, "status": status, "region": region, "roles": roles, "stems": sorted(query_stems(masked))}
+    units = query_bigrams(masked) if opts.get("line_mode") == "bigram" else query_stems(masked)
+    return {"intent": intent, "status": status, "region": region, "roles": roles, "stems": sorted(units)}
 
 
 class Searcher:
@@ -169,7 +188,8 @@ class Searcher:
                     text = self.doc_lines[d][ln]
                     if text.count("|") < 2:         # 표·목록 줄만 (일반 문장에 쓰면 의미 점수를 덮어 Q063·Q066 하락)
                         continue
-                    text = ORG_WORD_RE.sub(" ", text)  # 부서명 칸(여신심사팀·인사팀)이 "심사"·"인사"와 맞는 것 방지
+                    if o.get("line_org", 1):            # 부서명 칸(여신심사팀·인사팀)이 "심사"·"인사"와 맞는 것 방지
+                        text = ORG_WORD_RE.sub(" ", text)
                     line = max(line, sum(1 for st in parsed["stems"] if st in text))
             intent = int(bool(o.get("intent") and self.doc_type.get(d) in parsed["intent"]))
             region = 0
@@ -187,7 +207,7 @@ class Searcher:
             "SELECT doc_id, 1 - (embedding <=> %s) FROM rag.chunks WHERE kind = 'doc'", (v,))}
 
     def search_masked(self, qrec, k=10, sem=None):
-        parsed = parse_query(qrec["masked_query"], qrec.get("mentions", []))
+        parsed = parse_query(qrec["masked_query"], qrec.get("mentions", []), self.opts)
         sem = sem if sem is not None else self.semantic(qrec["masked_query"])
         ranked, keys = self.rank(qrec["query_tokens"], parsed, sem)
         return ranked[:k], parsed, {d: keys[d] for d in ranked[:k]}

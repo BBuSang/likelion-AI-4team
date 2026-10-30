@@ -58,8 +58,19 @@ def doc_date(masked):
 
 
 def main():
-    docs = jl(OUT / "mentions_holdout.jsonl")
-    raw_len = {d["id"]: len(d["text"]) for d in jl(config.DATA_DIR / "holdout_labeled.jsonl")}
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--corpus", choices=("holdout", "devtest"), default="holdout",
+                    help="devtest = dev+test 300건 (과적합 점검용, 끝나면 holdout으로 다시 적재)")
+    a = ap.parse_args()
+    if a.corpus == "holdout":
+        docs = jl(OUT / "mentions_holdout.jsonl")
+        raws = jl(config.DATA_DIR / "holdout_labeled.jsonl")
+    else:
+        docs = jl(OUT / "mentions_devtest.jsonl")
+        raws = jl(config.DATA_DIR / "pii_synth_finance_dev.jsonl") + jl(config.DATA_DIR / "pii_synth_finance_test.jsonl")
+    raw_len = {d["id"]: len(d["text"]) for d in raws}
+    split_of = {d["id"]: d.get("split", a.corpus) for d in raws}
     t0 = time.perf_counter()
     emb = embed_cached([d["masked"] for d in docs])
     print(f"임베딩 {len(docs)}건 ({time.perf_counter() - t0:.0f}초, 캐시 포함)")
@@ -86,8 +97,9 @@ def main():
             title = next((l for l in masked.split("\n") if l.strip()), "")
             chunk_id = f"{d['id']}#d"
             cur.execute("INSERT INTO rag.documents (doc_id, split, doc_type, title_masked, doc_date, masked_text, "
-                        "char_len, pipeline_ver) VALUES (%s, 'holdout', %s, %s, %s, %s, %s, %s)",
-                        (d["id"], d["doc_type"], title, doc_date(masked), masked, raw_len[d["id"]], PIPELINE_VER))
+                        "char_len, pipeline_ver) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
+                        (d["id"], split_of[d["id"]], d["doc_type"], title, doc_date(masked), masked,
+                         raw_len[d["id"]], PIPELINE_VER))
             cur.execute("INSERT INTO rag.chunks (chunk_id, doc_id, kind, header, masked_text, tokens, embedding) "
                         "VALUES (%s, %s, 'doc', %s, %s, %s, %s)",
                         (chunk_id, d["id"], f"[{d['doc_type']}] {title}", masked,

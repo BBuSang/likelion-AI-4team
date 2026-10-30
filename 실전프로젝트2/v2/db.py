@@ -10,15 +10,17 @@ from pgvector.psycopg import register_vector
 import config
 
 
-def _conn(dsn, vector=True):
-    conn = psycopg.connect(dsn, autocommit=False)
+def _conn(dsn, vector=True, autocommit=False):
+    conn = psycopg.connect(dsn, autocommit=autocommit)
     if vector:
         register_vector(conn)
     return conn
 
 
 def rag_conn():
-    return _conn(config.RAG_DSN)
+    # 자동 커밋: 검색은 읽기만 해서 트랜잭션을 열어 둘 필요가 없음. 열어 두면 데모가 켜진 동안
+    # 재적재(TRUNCATE)가 잠금을 기다리며 멈춤 (worklog 46번)
+    return _conn(config.RAG_DSN, autocommit=True)
 
 
 def ingest_conn():
