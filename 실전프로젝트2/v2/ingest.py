@@ -28,6 +28,7 @@ OUT = V2 / "outputs"
 CACHE = OUT / "emb_cache.json"
 PIPELINE_VER = "v2.0"
 STATUS_RE = re.compile(r"(처리 완료|처리 중|접수 완료|진행 중|승인|반려|보류)")
+RECEIVED_RE = re.compile(r"(?:현재|상태\s*[:|]?)\s*(접수)(?!\s*완료)")     # "접수"는 일반 동사로도 쓰여 상태 자리만 봄
 CASE_RE = re.compile(r"\b([A-Z]{2,5}-\d{3,})\b")
 DATE_RE = re.compile(r"(20\d\d)\s*[-.년]\s*(\d{1,2})\s*[-.월]\s*(\d{1,2})")
 
@@ -60,12 +61,15 @@ def doc_date(masked):
 def main():
     import argparse
     ap = argparse.ArgumentParser()
-    ap.add_argument("--corpus", choices=("holdout", "devtest"), default="holdout",
-                    help="devtest = dev+test 300건 (과적합 점검용, 끝나면 holdout으로 다시 적재)")
+    ap.add_argument("--corpus", choices=("holdout", "devtest", "synth2", "synth3"), default="holdout",
+                    help="devtest = dev+test 300건, synth2 = 개선용, synth3 = 평가용 (끝나면 holdout으로 다시 적재)")
     a = ap.parse_args()
     if a.corpus == "holdout":
         docs = jl(OUT / "mentions_holdout.jsonl")
         raws = jl(config.DATA_DIR / "holdout_labeled.jsonl")
+    elif a.corpus.startswith("synth"):
+        docs = jl(OUT / f"mentions_{a.corpus}.jsonl")
+        raws = jl(config.ROOT / f"{a.corpus}_labeled" / f"{a.corpus}_labeled.jsonl")
     else:
         docs = jl(OUT / "mentions_devtest.jsonl")
         raws = jl(config.DATA_DIR / "pii_synth_finance_dev.jsonl") + jl(config.DATA_DIR / "pii_synth_finance_test.jsonl")
@@ -113,7 +117,7 @@ def main():
                             (mid, d["id"], chunk_id, m["token"], m["label"], m["m_start"], m["m_end"],
                              m["line_no"], m["form"], m["role"], m["own_role"], m["title"], m["org"]))
             for i, line in enumerate(masked.split("\n")):
-                for field, rx in (("status", STATUS_RE), ("case_no", CASE_RE)):
+                for field, rx in (("status", STATUS_RE), ("status", RECEIVED_RE), ("case_no", CASE_RE)):
                     for v in rx.findall(line):
                         cur.execute("INSERT INTO rag.doc_fields (doc_id, chunk_id, line_no, field, value) "
                                     "VALUES (%s, %s, %s, %s, %s)", (d["id"], chunk_id, i, field, v))

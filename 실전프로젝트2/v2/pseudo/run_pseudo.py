@@ -32,7 +32,7 @@ def jl(path):
 def main():
     import argparse
     ap = argparse.ArgumentParser()
-    ap.add_argument("--corpus", choices=("holdout", "devtest"), default="holdout")
+    ap.add_argument("--corpus", choices=("holdout", "devtest", "synth2", "synth3"), default="holdout")
     ap.add_argument("--qset", default="devtest", help="devtest 코퍼스의 질의 세트 이름 (eval_sets/<qset>_queries.jsonl)")
     ap.add_argument("--queries-only", action="store_true", help="문서는 건너뛰고 질의만 가명처리")
     a = ap.parse_args()
@@ -46,6 +46,12 @@ def main():
         docs = jl(config.DATA_DIR / "holdout_labeled.jsonl")
         names = ("pseudo_holdout.jsonl", "mentions_holdout.jsonl", "pseudo_queries.jsonl", "pseudo_timing.json")
         queries = jl(config.DATA_DIR / "holdout_retrieval_queries.jsonl")
+    elif a.corpus.startswith("synth"):
+        folder = config.ROOT / f"{a.corpus}_labeled"
+        docs = jl(folder / f"{a.corpus}_labeled.jsonl")
+        names = (f"pseudo_{a.corpus}.jsonl", f"mentions_{a.corpus}.jsonl", f"pseudo_queries_{a.corpus}.jsonl",
+                 f"pseudo_timing_{a.corpus}.json")
+        queries = jl(folder / f"{a.corpus}_retrieval_queries.jsonl")
     else:
         docs = jl(config.DATA_DIR / "pii_synth_finance_dev.jsonl") + jl(config.DATA_DIR / "pii_synth_finance_test.jsonl")
         names = ("pseudo_devtest.jsonl", "mentions_devtest.jsonl", f"pseudo_queries_{a.qset}.jsonl",

@@ -35,6 +35,9 @@ def spans_of(text, *items):
     ("email", "SY.Yoon@Example.net", "sy.yoon@example.net"),
     ("address", "대구 수성구 달구벌대로 1", "대구광역시 수성구 달구벌대로 1"),
     ("address", "(42110) 대구광역시  수성구 달구벌대로 1", "대구광역시 수성구 달구벌대로 1"),
+    ("address", "부산시 수영구 별빛길 135 7층", "부산광역시 수영구 별빛길 135, 7층"),
+    ("address", "인천 연수구 누리길91, 103호", "인천광역시 연수구 누리길 91, 103호"),
+    ("address", "광주광역시 북구 온누리로48 602호", "광주광역시 북구 온누리로 48, 602호"),
 ])
 def test_normalize_same(label, a, b):
     assert pipeline.normalize(label, a) == pipeline.normalize(label, b)
@@ -42,6 +45,33 @@ def test_normalize_same(label, a, b):
 
 def test_normalize_keeps_different_names():
     assert pipeline.normalize("person", "윤선영") != pipeline.normalize("person", "윤서영")
+
+
+@pytest.mark.parametrize("a,b", [
+    ("부산광역시 수영구 별빛길 135, 7층", "부산광역시 수영구 별빛길 135, 8층"),
+    ("서울특별시 강남구 한빛로 9, 2층", "서울특별시 강남구 한빛로 92층"),
+])
+def test_normalize_keeps_different_addresses(a, b):
+    assert pipeline.normalize("address", a) != pipeline.normalize("address", b)
+
+
+def test_detect_drops_region_named_person(monkeypatch):
+    class Fake:
+        def detect(self, text):
+            return [{"label": "person", "start": text.index(w), "end": text.index(w) + len(w)} for w in ("송파구", "김남구")]
+    monkeypatch.setattr(pipeline, "_detector", Fake())
+    spans = pipeline.detect("서울 송파구 김남구 고객")
+    assert [s["start"] for s in spans] == ["서울 송파구 김남구 고객".index("김남구")]
+
+
+def test_detect_adds_bare_account_number(monkeypatch):
+    class Fake:
+        def detect(self, text):
+            return [{"label": "phone_number", "start": 0, "end": 11}]
+    monkeypatch.setattr(pipeline, "_detector", Fake())
+    text = "01012345678 124507108584 번호 123456789 2026-01-14 110-123-456789"
+    assert [(s["label"], text[s["start"]:s["end"]]) for s in pipeline.detect(text)] == [
+        ("phone_number", "01012345678"), ("account_number", "124507108584")]
 
 
 # ───────── 토큰 ─────────

@@ -12,7 +12,7 @@
   3. 처리 상태 (opts.status) 질의 토큰과 같은 줄에 원하는 상태(처리 중/완료)가 있는 문서
   4. 문서 종류 (opts.intent) 질의에 문서 종류 이름(위임·한도·감사 지적…)이 있으면 그 종류
   5. 지역 (opts.region)    질의의 시·도/시·군·구와 같은 주소를 가진 문서
-  6. 의미 점수             가명 질의 ↔ 가명 본문 임베딩 코사인
+  6. 의미 점수             가명 질의 ↔ 가명 본문 임베딩 코사인. opts.bm25 면 BM25 순위와 RRF로 합친 값
   (4와 5 사이) 같은 줄 단어 (opts.line) 질의 토큰이 있는 표·목록 줄에 질의 단어(앞 두 글자)가 몇 개 있는가.
                            VOC 표처럼 한 문서에 여러 사람 줄이 있을 때 "그 사람 줄의 내용"을 봄 (청크 없이). 부서명은 빼고 비교
   + 1위 개체 기준 (opts.anchor): 위 순서로 1위가 된 문서의 그 사람(개체)과 충돌하는 같은 이름 개체
@@ -20,6 +20,7 @@
                            질의에 역할 표현이 없거나 같은 역할끼리의 동명이인(부서·번호로만 구분)을 위한 것
 """
 import collections
+import math
 import re
 import sys
 from pathlib import Path
@@ -28,7 +29,7 @@ V2 = Path(__file__).resolve().parent
 sys.path.insert(0, str(V2))
 import db  # noqa: E402
 from clients import embed  # noqa: E402
-from pseudo.pipeline import SIDO_ALIAS  # noqa: E402
+from pseudo.pipeline import SIDO_ALIAS, SIGUNGU  # noqa: E402
 
 TOKEN_RE = re.compile(r"<[A-Z]+_[0-9a-f]{8}>")
 INTENT = {
@@ -38,6 +39,13 @@ INTENT = {
     "가맹점변경": ["가맹점"], "고객편지": ["편지"], "채용메일": ["채용"], "권한신청": ["권한"],
     "피해접수": ["피해"], "영문혼용메일": ["영문"], "대리인위임확인": ["위임"], "자동이체신청서": ["자동이체"],
     "우편반송처리": ["반송"], "해외송금접수": ["해외송금"],
+}
+# dev/test 문서 종류 (worklog 49번). 위 목록은 holdout 종류만 있었음. 질의가 아니라 문서 종류 이름에서 정함
+INTENT_DEVTEST = {
+    "대출상담": ["대출"], "민원현황": ["민원현황", "민원 현황"], "사내메신저": ["메신저"], "회의록": ["회의"],
+    "업무메일": ["메일"], "인사발령": ["발령"], "고객정보변경": ["정보변경", "정보 변경"], "상품안내": ["상품"],
+    "카드분실상담": ["분실"], "이상거래탐지": ["이상거래"], "연체안내": ["연체"], "민원처리": ["민원"],
+    "용역계약서": ["용역", "계약서"],
 }
 # 처리 상태 어휘 두 벌 (worklog 43번 과적합 점검)
 #   query  : holdout 질의 문구("아직", "안 끝난", "마무리")를 보고 넣은 어휘
@@ -49,6 +57,11 @@ STATUS_WORDS = {
 # 기본값 = G6 (worklog 44번, 새 질의 세트 조정용으로 고정): 상태 일반 어휘, 같은 줄 일치 끔.
 # 같은 줄 일치·질의 어휘는 holdout 질의를 보고 만든 것이라 새 질의에서 효과 0 → 끔 (holdout에서만 Hit@1 +0.057)
 # anchor는 동명이인 혼동 0.045 → 0.041 대신 Recall@10 0.990 → 0.984 라 끔 (worklog 39번)
+# G7 (worklog 49번, 개발용 100개로 고정) = G6 + 시·도 없는 지역(region_any) + BM25 합치기(bm25).
+# intent_all은 개발용 MRR이 오르지 않아 끔
+# G8 (worklog 54번, synth2로 고정) = G6 + 시·도 없는 지역 + 문서 종류 이름(intent_names) + 역할 완화(role_fallback)
+# + 상태 값 추가(status_more) + 문서 종류를 상태보다 먼저(intent_first). BM25는 synth2에서 MRR이 내려가 끔
+# 현재 기본값 = G6 수정본 (worklog 56번, 사용자 결정): synth3에서 G7·G8 규칙의 효과가 없어 모두 끔. 위 옵션은 비교용으로 남김
 ALL_OPTS = {"intent": 1, "region": 1, "status": 1, "status_vocab": "general", "line": 0,
             "role": 1, "entity": 1, "anchor": 0}
 LINE_STOP = {"고객", "고객님", "님", "건", "문서", "기록", "내역", "관련", "직원", "담당"}
@@ -76,13 +89,24 @@ def query_bigrams(masked):
     return grams
 
 
-def parse_query(masked, mentions, opts=None):
-    """질의 의도 (ops.query_log.parsed). 가명 질의와 질의 언급 역할만 봄."""
+def line_bigrams(line):
+    return [w[i:i + 2] for w in re.findall(r"[가-힣]+", line) for i in range(len(w) - 1)]
+
+
+def parse_query(masked, mentions, opts=None, doc_types=()):
+    """질의 의도 (ops.query_log.parsed). 가명 질의와 질의 언급 역할만 봄. doc_types = 적재된 문서 종류 이름."""
     opts = opts or {}
-    intent = sorted(dt for dt, words in INTENT.items() if any(w in masked for w in words))
+    vocab = {**INTENT, **INTENT_DEVTEST} if opts.get("intent_all") else INTENT
+    intent = {dt for dt, words in vocab.items() if any(w in masked for w in words)}
+    if opts.get("intent_names"):                         # 문서 종류 이름을 그대로 부른 질의 (손으로 만든 목록 불필요)
+        compact = masked.replace(" ", "")
+        intent |= {dt for dt in doc_types if dt in compact}
+    intent = sorted(intent)
     open_w, done_w = STATUS_WORDS[opts.get("status_vocab", "query")]
     status = "처리 중" if any(w in masked for w in open_w) else \
         "처리 완료" if any(w in masked for w in done_w) else None
+    if opts.get("status_more"):                          # 문서의 다른 상태 값 (worklog 54번)
+        status = next((w for w in ("보류", "반려") if w in masked), status) or ("접수" if "접수" in masked else None)
     region = None
     words = re.findall(r"[가-힣]+", masked)
     for i, w in enumerate(words):
@@ -90,6 +114,9 @@ def parse_query(masked, mentions, opts=None):
             sgg = [re.sub(r"(에|쪽|으로|로)$", "", x) for x in words[i + 1:i + 3]]
             region = [SIDO_ALIAS[w], [x for x in sgg if re.fullmatch(r"[가-힣]+[시군구]", x)]]
             break
+    if region is None and opts.get("region_any"):        # 시·도 없이 "수원시 영통구"
+        sgg = [x for x in (re.sub(r"(에|쪽|으로|로)$", "", w) for w in words) if x in SIGUNGU]
+        region = [None, sgg[:2]] if sgg else None
     roles = {m["token"]: m["role"] for m in mentions if m["label"] == "person" and m.get("role")}
     units = query_bigrams(masked) if opts.get("line_mode") == "bigram" else query_stems(masked)
     return {"intent": intent, "status": status, "region": region, "roles": roles, "stems": sorted(units)}
@@ -131,6 +158,24 @@ class Searcher:
         self.status = collections.defaultdict(set)     # doc → {(line, 상태)}
         for d, ln, v in q("SELECT doc_id, line_no, value FROM rag.doc_fields WHERE field = 'status'"):
             self.status[d].add((ln, v))
+        if self.opts.get("bm25"):
+            self.doc_grams = {d: collections.Counter(g for l in ls for g in line_bigrams(l)) for d, ls in self.doc_lines.items()}
+            self.doc_len = {d: sum(c.values()) for d, c in self.doc_grams.items()}
+            self.gram_df = collections.Counter(g for c in self.doc_grams.values() for g in c)
+
+    def fuse(self, masked, sem):
+        """의미 순위와 BM25(글자 2-gram, k1=1.2 b=0.75) 순위를 RRF(k=60)로 합침. 값은 표준 기본값 그대로."""
+        n, avg = len(self.doc_grams), sum(self.doc_len.values()) / max(len(self.doc_grams), 1)
+        bm = {}
+        for d, c in self.doc_grams.items():
+            bm[d] = sum(math.log(1 + (n - self.gram_df[g] + 0.5) / (self.gram_df[g] + 0.5)) * c[g] * 2.2
+                        / (c[g] + 1.2 * (0.25 + 0.75 * self.doc_len[d] / avg))
+                        for g in query_bigrams(masked) if g in c)
+        out = collections.Counter()
+        for scores in (sem, bm):
+            for i, d in enumerate(sorted(scores, key=scores.get, reverse=True), 1):
+                out[d] += 1 / (60 + i)
+        return out
 
     def _doc_roles(self, d, t):
         if self.opts.get("entity") and (d, t) in self.entity:
@@ -181,7 +226,8 @@ class Searcher:
             status = 0
             if o.get("status") and parsed["status"]:
                 want_lines = {ln for t in hits for ln in self.lines[(d, t)]}
-                status = int(any(v == parsed["status"] and (ln in want_lines or not qt) for ln, v in self.status[d]))
+                status = int(any(v == parsed["status"] and (ln in want_lines or not qt or o.get("status_doc"))
+                                 for ln, v in self.status[d]))
             line = 0
             if o.get("line") and hits and parsed["stems"]:
                 for ln in {ln for t in hits for ln in self.lines[(d, t)]}:
@@ -196,9 +242,13 @@ class Searcher:
             if o.get("region") and parsed["region"]:
                 sido, sgg = parsed["region"]
                 for rs, rw in self.regions.get(d, []):
-                    if rs == sido:
+                    if sido is None or rs == sido:
                         region = max(region, 2 if sgg and all(x in rw for x in sgg) else 1 if not sgg else 0)
-            keys[d] = (tok, role, status, intent, line, region, s)
+            keys[d] = (tok, role, intent, status, line, region, s) if o.get("intent_first") else \
+                (tok, role, status, intent, line, region, s)
+        if o.get("role_fallback") and parsed["roles"] and not any(k[0] for k in keys.values()):
+            # 이름은 있는데 역할이 맞는 문서가 하나도 없으면 필터를 풂 (없는 문서보다 뒤로 가는 것 방지)
+            return self._rank(q_tokens, {**parsed, "roles": {}}, sem, drop)
         return sorted(keys, key=keys.get, reverse=True), keys
 
     def semantic(self, masked):
@@ -207,9 +257,14 @@ class Searcher:
             "SELECT doc_id, 1 - (embedding <=> %s) FROM rag.chunks WHERE kind = 'doc'", (v,))}
 
     def search_masked(self, qrec, k=10, sem=None):
-        parsed = parse_query(qrec["masked_query"], qrec.get("mentions", []), self.opts)
+        parsed = parse_query(qrec["masked_query"], qrec.get("mentions", []), self.opts, set(self.doc_type.values()))
         sem = sem if sem is not None else self.semantic(qrec["masked_query"])
-        ranked, keys = self.rank(qrec["query_tokens"], parsed, sem)
+        if self.opts.get("bm25"):
+            fused = self.fuse(qrec["masked_query"], sem)
+            ranked, keys = self.rank(qrec["query_tokens"], parsed, fused)
+            keys = {d: (*v[:6], sem[d]) for d, v in keys.items()}      # 화면·기록의 마지막 값은 의미 점수 유지
+        else:
+            ranked, keys = self.rank(qrec["query_tokens"], parsed, sem)
         return ranked[:k], parsed, {d: keys[d] for d in ranked[:k]}
 
     def search_text(self, query, k=10):

@@ -26,6 +26,7 @@ from search import Searcher  # noqa: E402
 
 OUT = V2 / "outputs"
 BASE = {"intent": 1, "region": 1, "status": 1, "role": 1, "entity": 1}
+X0 = {**BASE, "status_vocab": "general", "region_any": 1}
 SETS = {
     "ladder": [
         ("S0 토큰+의미", {}),
@@ -42,6 +43,52 @@ SETS = {
     "final": [
         ("S0 토큰+의미", {}),
         ("최종 모델(G6)", None),
+    ],
+    "g7": [
+        ("S0 토큰+의미", {}),
+        ("G6", {**BASE, "status_vocab": "general"}),
+        ("G7", {**X0, "bm25": 1}),
+    ],
+    # 과적합 없는 개선 후보 (worklog 49번). 지역명 오탐 제거는 가명처리 단계라 모든 변형에 적용됨
+    "grow": [
+        ("G6 현재", {**BASE, "status_vocab": "general"}),
+        ("A 시도없는지역", {**BASE, "status_vocab": "general", "region_any": 1}),
+        ("B 문서종류전체", {**BASE, "status_vocab": "general", "intent_all": 1}),
+        ("C BM25", {**BASE, "status_vocab": "general", "bm25": 1}),
+        ("AB", {**BASE, "status_vocab": "general", "region_any": 1, "intent_all": 1}),
+        ("AC", {**BASE, "status_vocab": "general", "region_any": 1, "bm25": 1}),
+        ("ABC", {**BASE, "status_vocab": "general", "region_any": 1, "intent_all": 1, "bm25": 1}),
+    ],
+    # synth2 실패에서 찾은 일반 규칙 (worklog 54번). X0 = G6 + 시도없는지역 (BM25 제외)
+    "s2": [
+        ("S0 토큰+의미", {}),
+        ("G6", {**BASE, "status_vocab": "general"}),
+        ("G7", {**BASE, "status_vocab": "general", "region_any": 1, "bm25": 1}),
+        ("X0", X0),
+        ("N 종류이름", {**X0, "intent_names": 1}),
+        ("S 상태값", {**X0, "status_more": 1}),
+        ("F 역할완화", {**X0, "role_fallback": 1}),
+        ("D 상태문서전체", {**X0, "status_doc": 1}),
+        ("O 종류우선", {**X0, "intent_first": 1}),
+        ("NF", {**X0, "intent_names": 1, "role_fallback": 1}),
+        ("NFS", {**X0, "intent_names": 1, "role_fallback": 1, "status_more": 1}),
+        ("NFO", {**X0, "intent_names": 1, "role_fallback": 1, "intent_first": 1}),
+        ("NFSO", {**X0, "intent_names": 1, "role_fallback": 1, "status_more": 1, "intent_first": 1}),
+        ("NFSOD", {**X0, "intent_names": 1, "role_fallback": 1, "status_more": 1, "intent_first": 1, "status_doc": 1}),
+        ("NFSO+BM25", {**X0, "intent_names": 1, "role_fallback": 1, "status_more": 1, "intent_first": 1, "bm25": 1}),
+    ],
+    "g8": [
+        ("S0 토큰+의미", {}),
+        ("G6 수정본", {**BASE, "status_vocab": "general"}),
+        ("G8", {**X0, "intent_names": 1, "role_fallback": 1, "status_more": 1, "intent_first": 1}),
+    ],
+    # 네 규칙이 각각 기여하는지 하나씩 빼 봄 (synth2에서만)
+    "s2_loo": [
+        ("NFSO", {**X0, "intent_names": 1, "role_fallback": 1, "status_more": 1, "intent_first": 1}),
+        ("-N", {**X0, "role_fallback": 1, "status_more": 1, "intent_first": 1}),
+        ("-F", {**X0, "intent_names": 1, "status_more": 1, "intent_first": 1}),
+        ("-S", {**X0, "intent_names": 1, "role_fallback": 1, "intent_first": 1}),
+        ("-O", {**X0, "intent_names": 1, "role_fallback": 1, "status_more": 1}),
     ],
     "rules": [
         ("S0 토큰+의미", {}),
@@ -71,6 +118,9 @@ def doc_persons_of(corpus):
     if corpus == "holdout":
         for d in jl(config.DATA_DIR / "holdout_persons_gold.jsonl"):
             dp[d["id"]] |= {p["person_id"] for p in d["persons"]}
+    elif corpus.startswith("synth"):
+        for d in jl(ROOT / f"{corpus}_labeled" / f"{corpus}_persons_gold.jsonl"):
+            dp[d["id"]] |= {p["person_id"] for p in d["persons"]}
     else:
         for split in ("dev", "test"):
             for d in jl(config.DATA_DIR / f"pii_synth_finance_{split}.jsonl"):
@@ -96,7 +146,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--tag", default="rule")
     ap.add_argument("--set", choices=SETS, default="ladder")
-    ap.add_argument("--corpus", choices=("holdout", "devtest"), default="holdout")
+    ap.add_argument("--corpus", choices=("holdout", "devtest", "synth2", "synth3"), default="holdout")
     ap.add_argument("--split", choices=("all", "tune", "eval"), default="all")
     ap.add_argument("--qset", default="devtest", help="devtest 코퍼스의 질의 세트 이름")
     a = ap.parse_args()
@@ -104,6 +154,9 @@ def main():
     if a.corpus == "holdout":
         queries = jl(OUT / "pseudo_queries.jsonl")
         gold = jl(config.DATA_DIR / "holdout_retrieval_queries_gold.jsonl")
+    elif a.corpus.startswith("synth"):
+        queries = jl(OUT / f"pseudo_queries_{a.corpus}.jsonl")
+        gold = jl(ROOT / f"{a.corpus}_labeled" / f"{a.corpus}_retrieval_queries_gold.jsonl")
     else:
         queries = jl(OUT / f"pseudo_queries_{a.qset}.jsonl")
         gold = jl(V2 / "eval_sets" / f"{a.qset}_queries_gold.jsonl")
