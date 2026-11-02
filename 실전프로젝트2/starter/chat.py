@@ -14,6 +14,7 @@
 LLM_API_KEY 가 없으면 검색 결과까지만 보여줍니다.
 """
 import argparse
+import json
 import re
 import time
 
@@ -27,12 +28,13 @@ SYSTEM = (
     "규칙:\n"
     "1. <PERSON_…>, <PHONE_…> 같은 꺾쇠 토큰은 가명처리된 개인정보입니다. 문서에 나온 그대로 한 글자도 바꾸지 말고 "
     "(대소문자 포함) 복사해 쓰세요. 원래 값을 추측하거나 새 토큰을 만들지 마세요.\n"
-    "2. 근거 문서는 [H0141] 처럼 대괄호로 문서 ID 를 적으세요.\n"
+    "2. 근거 문서는 대괄호로 문서 ID 를 적으세요. [문서]에 있는 ID 만 쓰세요.\n"
     "3. 질문이 '내역·기록·건을 찾아줘'처럼 문서를 찾는 것이면, 질문과 관련된 문서마다 한 줄씩 "
     "'[문서 ID] 문서 종류 — 핵심 내용(무슨 일, 결과·상태, 날짜)' 형식으로 요약하세요. 번호나 ID 만 나열하지 마세요.\n"
     "4. 질문에 토큰(예: <PERSON_…>)이 있으면, 문서에서 그 토큰과 똑같은 토큰이 나오는 줄·문장을 찾아 "
     "그 줄의 내용(문의·업무 종류, 처리 상태, 특이사항)으로 답하세요. 같은 문서의 다른 사람 이야기는 섞지 마세요.\n"
-    "5. 질문과 관련 없는 문서는 빼세요. 관련 문서가 하나도 없으면 '관련 문서에서 찾을 수 없습니다'라고 답하세요.\n"
+    "5. 질문과 관련 없는 문서는 빼고, 뺀 문서의 ID 나 뺀 이유는 답변에 아예 쓰지 마세요. "
+    "관련 문서가 하나도 없으면 '관련 문서에서 찾을 수 없습니다'라고 답하세요.\n"
     "6. 문서 머리의 (검색 근거: …)는 검색 시스템이 가명처리 전 값으로 확인한 사실입니다. 예를 들어 주소가 "
     "<ADDRESS_…> 로 가려져 있어도 '질문의 지역과 같은 지역의 주소가 있음'이면 그 지역 문서로 보고 답하세요."
 )
@@ -51,8 +53,9 @@ _ANY_TOKEN = re.compile(r"<[A-Za-z_]+_[0-9A-Za-z]+>")
 _MARKDOWN = re.compile(r"[*#`>|]")
 
 
-def check_output(answer_text, allowed_tokens):
-    """보여주기 전 출력 검사. (고친 답변, 검사 결과) 반환."""
+def check_output(answer_text, allowed_tokens, safe_words=()):
+    """보여주기 전 출력 검사. (고친 답변, 검사 결과) 반환.
+    safe_words: 개인정보가 아닌 걸 아는 말 (문서 종류 이름). '한도하향통지'를 모델이 이름으로 잡아 가리던 오탐 방지 (19장)"""
     bad = sorted({t for t in _ANY_TOKEN.findall(answer_text) if t not in allowed_tokens})
     fixed = answer_text
     for t in bad:
@@ -60,6 +63,8 @@ def check_output(answer_text, allowed_tokens):
     # 토큰 자리와 마크다운 기호(** # ` > |)는 같은 길이의 공백으로 바꿔 두고 탐지 (위치는 그대로)
     # — '**신청일**:' 같은 굵은 글씨 머리말이 이름으로 잡히던 오탐의 주원인
     probe = _MARKDOWN.sub(" ", _ANY_TOKEN.sub(lambda m: " " * len(m.group()), fixed))
+    for w in safe_words:
+        probe = probe.replace(w, " " * len(w))
     # 적재용 detect() 대신 출력용 detect_output() (이름은 모델만 → '위임인'·'인사팀' 같은 오탐 방지)
     spans = [s for s in pii_pipeline.detect_output(probe) if probe[s["start"]:s["end"]].strip()]
     raw = [{"label": s["label"], "text": probe[s["start"]:s["end"]]} for s in spans]
@@ -93,11 +98,39 @@ def ask_back(amb, cands):
         for tok, role in a["candidates"]:
             ids = [f"[{d['doc_id']}] {d['doc_type']}" for d in cands if tok in d["tokens"]]
             lines.append(f"- {tok} ({_ROLE_KO.get(role, '역할 모름')}): {', '.join(ids) or '-'}")
-    lines.append("어느 분인지 알려 주세요 (고객/직원, 소속 팀, 연락처, 문서 종류 등).")
+    lines.append("\n어느 분인지 알려 주세요 (고객/직원, 소속 팀, 연락처, 문서 종류 등).")
     return "\n".join(lines)
 
 
-def answer(query, k=3, model=None, mode="hybrid", embed_retries=None, rerank=None):
+_CITE_WORD = re.compile(r"\[\s*문서\s*([A-Z]\d{4})\s*\]")  # 추론을 끄면 '[문서 T0139]' 로 씀 → '[T0139]' 로 통일
+
+
+def _complete(masked_q, context, model, on_delta=None):
+    """LLM 호출. on_delta 를 주면 스트리밍: 글자가 올 때마다 지금까지의 글을 넘긴다 (출력 검사 전 글이므로 화면 표시용으로만)."""
+    payload = {"model": model, "temperature": 0,
+               "messages": [{"role": "system", "content": SYSTEM},
+                            {"role": "user", "content": f"[문서]\n{context}\n\n[질문]\n{masked_q}"}]}
+    if config.LLM_REASONING_EFFORT and model == "HCX-007":
+        payload["reasoning_effort"] = config.LLM_REASONING_EFFORT
+    r = requests.post(config.LLM_API_BASE.rstrip("/") + "/chat/completions",
+                      headers={"Authorization": f"Bearer {config.LLM_API_KEY}"},
+                      json={**payload, "stream": on_delta is not None}, timeout=120, stream=on_delta is not None)
+    r.raise_for_status()
+    if on_delta is None:
+        return r.json()["choices"][0]["message"]["content"]
+    text = ""
+    for line in r.iter_lines():
+        if not line.startswith(b"data:") or line[5:].strip() == b"[DONE]":
+            continue
+        choices = json.loads(line[5:]).get("choices") or [{}]
+        piece = (choices[0].get("delta") or {}).get("content")
+        if piece:
+            text += piece
+            on_delta(text)
+    return text
+
+
+def answer(query, k=3, model=None, mode="hybrid", embed_retries=None, rerank=None, on_delta=None):
     t0 = time.perf_counter()
     masked_q, q_tokens, cands = search(query, k * 2, mode=mode, embed_retries=embed_retries, rerank=rerank)
     docs = select_docs(cands, k)
@@ -115,19 +148,12 @@ def answer(query, k=3, model=None, mode="hybrid", embed_retries=None, rerank=Non
     if not config.LLM_API_KEY:
         return result
     t1 = time.perf_counter()
-    r = requests.post(
-        config.LLM_API_BASE.rstrip("/") + "/chat/completions",
-        headers={"Authorization": f"Bearer {config.LLM_API_KEY}"},
-        json={"model": result["model"], "temperature": 0,
-              "messages": [{"role": "system", "content": SYSTEM},
-                           {"role": "user", "content": f"[문서]\n{context}\n\n[질문]\n{masked_q}"}]},
-        timeout=120)
-    r.raise_for_status()
-    raw = r.json()["choices"][0]["message"]["content"]
+    raw = _CITE_WORD.sub(r"[\1]", _complete(masked_q, context, result["model"], on_delta))
     result["timing"]["llm"] = time.perf_counter() - t1
     t2 = time.perf_counter()
     allowed = set(pii_pipeline.TOKEN_PATTERN.findall(context + "\n" + masked_q))
-    result["answer"], result["check"] = check_output(raw, allowed)
+    safe = sorted({d["doc_type"] for d in docs if d.get("doc_type")}, key=len, reverse=True)
+    result["answer"], result["check"] = check_output(raw, allowed, safe)
     result["raw_answer"] = raw
     result["timing"]["check"] = time.perf_counter() - t2
     return result

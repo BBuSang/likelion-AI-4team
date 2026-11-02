@@ -31,6 +31,9 @@ LLM_MODEL = env("LLM_MODEL", "gpt-4o-mini")
 RERANK = env("RERANK", "0") == "1"           # 검색 상위 결과를 LLM 으로 다시 정렬할지 (search.py)
 RERANK_MODEL = env("RERANK_MODEL", "HCX-005")  # 재순위용 (빠른 모델)
 
+# HCX-007 추론 단계 (worklog 19장). none = 끔, 빈 값 = 모델 기본(추론함, 약 5~7초 더 걸림)
+LLM_REASONING_EFFORT = env("LLM_REASONING_EFFORT", "")
+
 # LLM 제공자 (worklog 17장). clova = 위 LLM_API_BASE/KEY(.env), openai = OpenAI API.
 # OpenAI 키는 OPENAI_API_KEY 또는 상위 폴더 .env 의 openai-api-key. 임베딩(bge-m3)은 제공자와 상관없이 그대로
 LLM_PROVIDER = env("LLM_PROVIDER", "clova")
