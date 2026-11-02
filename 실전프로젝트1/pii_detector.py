@@ -11,6 +11,7 @@
 """
 from common import dedupe
 from make_union import union_entities
+from postprocess import drop_field_like_names
 
 
 class PIIDetector:
@@ -23,7 +24,9 @@ class PIIDetector:
     def detect(self, text: str) -> list:
         rules = dedupe(text, self.rules.detect(text))
         token = dedupe(text, self.token.detect(text))
-        return dedupe(text, union_entities([rules, token]))  # 겹치면 규칙 우선, 주소는 긴 쪽
+        merged = dedupe(text, union_entities([rules, token]))  # 겹치면 규칙 우선, 주소는 긴 쪽
+        # v11: 모델의 항목 이름·호칭 오탐. 일반 단어 거르기(is_common_word)는 이름 재현율을 떨어뜨려 쓰지 않음 (worklog 35장)
+        return drop_field_like_names(text, merged)
 
 
 if __name__ == "__main__":

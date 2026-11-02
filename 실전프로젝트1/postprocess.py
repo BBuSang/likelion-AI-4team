@@ -220,3 +220,26 @@ def drop_decoys(text: str, ents: list) -> list:
                 continue
         out.append(e)
     return out
+
+
+# v11 (실전 2 synth2): 토큰 모델이 서식 항목 이름·호칭을 이름으로 잡는 오탐 '신청일시:', '이수일자', '고객명:', '고객님', '인사팀'.
+# 규칙 쪽은 FIELD_LABEL_SUFFIX·NON_NAME_SUFFIX 로 이미 거르지만 합집합에서 모델 결과가 그대로 들어왔음
+FIELD_LIKE_NAME = re.compile(r"^고객|(?:일시|일자|자명|현황)$|[가-힣]팀$")
+
+
+def drop_field_like_names(text: str, ents: list, is_common_word=None) -> list:
+    """이름으로 볼 수 없는 person 구간을 뺀다.
+    - 항목 이름·호칭 모양 (FIELD_LIKE_NAME), 바로 뒤 콜론이 오는 '…일:' '…명:' ('신청일:', '이수자명:')
+    - is_common_word 를 주면: 사전에 있는 일반 단어('보류', '상태')인데 앞뒤에 호칭·직함이 없는 것.
+      '보람님', '새봄 고객님' 처럼 일반 단어와 같은 이름은 호칭이 붙어 있으면 남긴다"""
+    out = []
+    for e in ents:
+        if e["label"] == "person":
+            w, after, before = text[e["start"]:e["end"]], text[e["end"]:e["end"] + 6], text[max(0, e["start"] - 8):e["start"]]
+            titled = re.match(rf"\s?{NAME_TITLE_AFTER}", after) or ROLE_BEFORE.search(before.rstrip())
+            if FIELD_LIKE_NAME.search(w) or (re.match(r"\s?[:：]", after) and w[-1] in "일명"):
+                continue
+            if is_common_word and not titled and is_common_word(w.replace(" ", "")):
+                continue
+        out.append(e)
+    return out
