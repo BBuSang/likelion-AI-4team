@@ -61,7 +61,12 @@ NOT_ACCOUNT_WORDS = re.compile(r"사업자\s?(?:등록)?\s?번호|송장|운송�
 # '고객센터'만으로는 직원 직통번호와 구분이 안 돼서 넣지 않는다
 COMPANY_PHONE_WORDS = re.compile(r"대표\s?번호|대표\s?전화")
 # 번호 뒤에 오는 계좌 문맥: '10920304012로 송금', '503012-0113245에서 송금'
-AFTER_BANK = re.compile(r"\)?\s?(?:으로|로|에서|에)?\s?(?:송금|입금|이체|환불|납부|상환|출금)")
+# v11 (실전 2 synth2 누락): '620053981703 관련 이체', '823837941296 계좌 확인'
+AFTER_BANK = re.compile(r"\)?\s?(?:으로|로|에서|에)?\s?(?:관련\s?)?(?:송금|입금|이체|환불|납부|상환|출금|계좌)")
+# v11: '고객님의 951052030158' 처럼 사람(님·고객)에게 딸린 번호
+PERSON_OWNER = re.compile(r"(?:님|고객)의\s?$")
+# v11: 이미 잡은 번호와 쉼표로 나란히 적힌 번호 '오다인 고객님, 6004071381792, 199347359251', '정보(640308…, 171463033385)'
+LIST_SEP = re.compile(r"\s?,\s?")
 # 하이픈·점으로 나뉜 2~4묶음, 숫자 10~16개 (계좌 문맥이 있을 때만 계좌로 봄)
 LOOSE_NUMBER = re.compile(r"(?<![\d.\-])\d{2,8}(?:[-.]\d{2,8}){1,3}(?![\d.\-])")
 # v9: 공백으로 나눈 계좌 '110 231 392827' (계좌 문맥이 있을 때만, LOOSE_NUMBER 와 같이 처리)
@@ -149,6 +154,9 @@ HONOR_WORDS = ["선생님", "교수님", "원장님", "사장님", "기사님", 
 NAME_HONORIFIC = re.compile(
     rf"(?<![가-힣])([가-힣]{{2,4}})(?=님|씨|\s?(?:{'|'.join(JOB_TITLES)})|\s(?:{'|'.join(HONOR_WORDS)}|고객(?!센터)"
     rf"|명의|이름으로))")
+# v12 (실전 2 synth3 누락 12건 모두): '고객'을 띄어 쓰지 않고 붙인 이름 '함수빈고객님 (', '곽서윤고객님,', '민윤서고객님께'.
+# NAME_HONORIFIC 은 '고객' 앞에 공백을 요구했음. '우수고객님'·'신규고객님'처럼 2글자 일반 단어가 많아 3~4글자만
+GLUED_CUSTOMER_NAME = re.compile(r"(?<![가-힣])([가-힣]{3,4}?)(?=고객(?:님|께|에게|이|은|의|(?![가-힣])))")
 # 서명·인사말: '채민호 드림', '김 올림', '안녕하세요, OO팀 표지원입니다'
 SIGNATURE = re.compile(r"(?<![가-힣])([가-힣]{2,4})(?:\s?(?:드림|올림|배상)(?![가-힣])|입니다)")
 # v9: 부서·호칭 바로 뒤에 띄어쓰기 없이 붙은 이름 '영업팀하늘에게', '고객지원팀이선아고객님', '인사팀최혜진대리님'
@@ -229,8 +237,18 @@ class RuleBasedDetector:
                 before = self._clause_before(text, m.start())
                 if 10 <= digits <= 16 and not NOT_ACCOUNT_WORDS.search(before) and (
                         self._bank_context(text, m.start()) or AFTER_BANK.match(text, m.end())
-                        or BANK_PREFIX.search(text[max(0, m.start() - 12):m.start()])):
+                        or BANK_PREFIX.search(text[max(0, m.start() - 12):m.start()])
+                        or PERSON_OWNER.search(text[max(0, m.start() - 6):m.start()])):
                     add(m.start(), m.end(), "account_number")
+        # v11: 하이픈 없는 숫자가 이미 잡은 번호와 쉼표로 나란히 있으면 같은 사람의 번호 목록으로 본다
+        numbers = [e for e in ents if e["label"] not in ("person", "address", "email")]
+        for m in DIGITS_ONLY.finditer(text):
+            if (any(taken[m.start():m.end()]) or len(m.group()) == 13  # 13자리는 주민번호일 수 있어 모델에 맡김
+                    or NOT_ACCOUNT_WORDS.search(self._clause_before(text, m.start()))):
+                continue
+            if any(LIST_SEP.fullmatch(text[e["end"]:m.start()]) or LIST_SEP.fullmatch(text[m.end():e["start"]])
+                   for e in numbers):
+                add(m.start(), m.end(), "account_number")
 
         if self.context_rules:
             self._context_names(text, add)
@@ -269,7 +287,8 @@ class RuleBasedDetector:
             if word[-1] in PLACE_SUFFIX and (len(toks) == 1 and toks[0].known or re.match(r"\s?\d", text[e:e + 2])):
                 continue
             # '신청+일', '배송+건' 처럼 사전 일반명사 + 사전 조각으로 된 합성어 (실제 이름도 일부 걸려 옵션)
-            if self.compound_filter and self._is_compound(toks):
+            # v12: 문맥 속에선 '선+결제'로 쪼개져 걸러지지 않던 '선결제'(실전 2 synth3) → 낱말만 따로 분석한 결과('선결+제')도 봄
+            if self.compound_filter and (self._is_compound(toks) or self._is_compound(self.an.tokenize(word))):
                 continue
             if word[:2] in COMPOUND_SURNAMES and len(word) == 4:
                 add(s, e, "person")
@@ -387,10 +406,12 @@ class RuleBasedDetector:
             for m in pat.finditer(text):
                 if m.group(1) not in TITLES:
                     add(m.start(1), m.end(1), "person")
-        for pat in (NAME_HONORIFIC, SIGNATURE):
+        for pat in (NAME_HONORIFIC, SIGNATURE, GLUED_CUSTOMER_NAME):
             for m in pat.finditer(text):
                 w = m.group(1)
                 sur_ok = w[:2] in COMPOUND_SURNAMES or w[0] in SURNAMES
+                if pat is GLUED_CUSTOMER_NAME and (self._is_common_word(w) or w[-1] == "중"):
+                    continue  # v12: '주거래고객님', '연체중고객'
                 if sur_ok and w[-1:] not in NON_NAME_SUFFIX and self._looks_like_name(w):
                     add(m.start(1), m.end(1), "person")
         for m in GLUED_DEPT_NAME.finditer(text):

@@ -1,0 +1,10 @@
+.env
+outputs/
+__pycache__/
+*.pyc
+
+# 공유용 압축 파일, 데이터 생성 중간 파일 (생성기 재실행용)
+*.zip
+data/*/_work/templates_raw/
+data/*/_work/usage.jsonl
+*/worklog.md
