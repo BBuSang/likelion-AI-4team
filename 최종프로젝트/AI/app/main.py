@@ -11,6 +11,7 @@ import logging
 
 from fastapi import APIRouter, Depends, FastAPI
 
+from app.api import ingest
 from app.core import config
 from app.core.security import require_service_key
 
@@ -35,7 +36,7 @@ def ping():
     return {"ok": True}
 
 
-# TODO: from app.api import chat, ingest ; internal.include_router(chat.router) ...
+internal.include_router(ingest.router)
 app.include_router(internal)
 
 

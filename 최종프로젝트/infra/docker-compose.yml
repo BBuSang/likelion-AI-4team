@@ -1,0 +1,33 @@
+# 최종프로젝트 로컬 DB (pgvector PostgreSQL 16)
+# 처음 실행할 때 init/ 스크립트가 스키마 4개(app·rag·docs·vault)와 계정을 따로 만듭니다 (worklog 6-1).
+# 비밀번호는 이 폴더의 .env 에서 읽습니다 (.env.example 참고, .env 는 커밋 금지).
+#   실행:      docker compose up -d
+#   초기화:    docker compose down -v   (데이터 전부 지움)
+# 실전 2 DB(5433)와 같이 띄울 수 있게 포트 5434
+name: saebom
+
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    container_name: saebom_db
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-admin}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+      POSTGRES_DB: ${POSTGRES_DB:-saebom}
+      APP_PASSWORD: ${APP_PASSWORD:?set APP_PASSWORD in .env}
+      RAG_PASSWORD: ${RAG_PASSWORD:?set RAG_PASSWORD in .env}
+      DOCS_PASSWORD: ${DOCS_PASSWORD:?set DOCS_PASSWORD in .env}
+      VAULT_PASSWORD: ${VAULT_PASSWORD:?set VAULT_PASSWORD in .env}
+      EMBED_DIM: ${EMBED_DIM:-1024}
+    ports:
+      - "${DB_PORT:-5434}:5432"
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d:ro
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-admin} -d ${POSTGRES_DB:-saebom}"]
+      interval: 5s
+      retries: 10
+
+volumes:
+  pgdata:
