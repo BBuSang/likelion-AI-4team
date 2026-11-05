@@ -1,0 +1,24 @@
+# 최종프로젝트 AI 서버 (Python 3.13 에서 확인)
+# 설치: pip install -r requirements.txt
+
+# 서버
+fastapi==0.115.0
+uvicorn[standard]==0.30.0
+
+# DB
+psycopg[binary]==3.2.13
+pgvector==0.2.5
+
+# 임베딩·LLM 호출, 설정
+numpy==1.26.4
+requests==2.31.0
+python-dotenv==1.0.1
+
+# 개인정보 탐지기 (실전 1 운영 탐지기: 규칙 + atonlee 토큰 분류)
+kiwipiepy==0.24.1
+transformers==4.57.1
+torch==2.9.0
+
+# 테스트
+pytest==7.4.3
+httpx==0.28.1

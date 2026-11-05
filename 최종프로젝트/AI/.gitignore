@@ -1,0 +1,11 @@
+.env
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+# 원문·가명처리 데이터, 캐시, 평가 결과는 올리지 않음
+data/*
+!data/.gitkeep
+outputs/*
+!outputs/.gitkeep

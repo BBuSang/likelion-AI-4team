@@ -18,3 +18,5 @@ __pycache__/
 
 # 개인 도구 설정
 .claude/
+/RAG_교육
+최종프로젝트/worklog.md
