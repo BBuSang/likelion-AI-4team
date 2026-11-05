@@ -1,0 +1,8 @@
+target/
+.settings/
+.classpath
+.factorypath
+.env
+application-local.properties
+*.log
+bin/
