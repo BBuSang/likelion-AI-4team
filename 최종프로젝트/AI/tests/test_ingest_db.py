@@ -44,6 +44,7 @@ def created():
         cur.execute("SELECT DISTINCT unnest(tokens) FROM rag.chunks WHERE doc_id = ANY(%s)", (doc_ids,))
         tokens = [r[0] for r in cur.fetchall()]
         cur.execute("DELETE FROM rag.chunks WHERE doc_id = ANY(%s)", (doc_ids,))
+        cur.execute("DELETE FROM rag.documents WHERE doc_id = ANY(%s)", (doc_ids,))
         cur.execute("DELETE FROM rag.persons WHERE pid = ANY(%s)", (pids,))
     with db.vault_conn() as vc, vc.cursor() as cur:
         cur.execute("DELETE FROM vault.token_map WHERE token = ANY(%s)", (tokens,))

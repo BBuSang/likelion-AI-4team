@@ -178,6 +178,21 @@ def job_summary(job_id):
     return dict(zip(keys, row)) | {"counts": counts, "auto_approved": auto}
 
 
+def list_jobs(limit=50):
+    """업로드 목록 (최근 순) + 상태별 문서 수"""
+    with db.vault_conn() as conn, conn.cursor() as cur:
+        cur.execute("""SELECT j.id, j.uploader, j.source, j.filename, j.total, j.status, j.created_at,
+                              count(d.id) FILTER (WHERE d.status = 'pending'),
+                              count(d.id) FILTER (WHERE d.status = 'stored'),
+                              count(d.id) FILTER (WHERE d.status = 'rejected'),
+                              count(d.id) FILTER (WHERE d.status = 'failed')
+                       FROM vault.ingest_job j LEFT JOIN vault.staging_doc d ON d.job_id = j.id
+                       GROUP BY j.id ORDER BY j.id DESC LIMIT %s""", (max(1, min(int(limit), 200)),))
+        keys = ("id", "uploader", "source", "filename", "total", "status", "created_at",
+                "pending", "stored", "rejected", "failed")
+        return [dict(zip(keys, r)) for r in cur.fetchall()]
+
+
 def list_docs(job_id):
     with db.vault_conn() as conn, conn.cursor() as cur:
         cur.execute("""SELECT id, seq, ext_id, doc_id, doc_type, status, approved_by, jsonb_array_length(detected),
@@ -321,6 +336,10 @@ def _store_doc(d, final, vcur, choices):
             """INSERT INTO rag.chunks (chunk_id, doc_id, chunk_idx, doc_type, masked_text, tokens, embedding)
                VALUES (%(chunk_id)s, %(doc_id)s, %(chunk_idx)s, %(doc_type)s, %(masked_text)s, %(tokens)s, %(embedding)s)""",
             [r | {"embedding": v} for r, v in zip(rows, vecs)])
+        # 문서 권한 행 (11장). 화면 업로드는 담당자·팀을 아직 안 정해서 가장 엄격하게: restricted (감사만 봄)
+        rcur.execute("""INSERT INTO rag.documents (doc_id, doc_type, owner_emp_id, team, visibility, basis)
+                        VALUES (%s, %s, NULL, NULL, 'restricted', %s) ON CONFLICT (doc_id) DO NOTHING""",
+                     (d["doc_id"], d["doc_type"], Jsonb({"source": "upload", "job_id": d["job_id"]})))
         for tok, p in persons.items():
             g = p["g"]
             rcur.execute(

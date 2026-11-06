@@ -1,0 +1,24 @@
+.chat-list { width: 230px; display: flex; flex-direction: column; gap: 4px; }
+.search { display: flex; align-items: center; gap: 6px; border: 1px solid var(--line); border-radius: var(--radius); padding: 0 10px; height: 34px; margin: 8px 0 4px; color: var(--text-3); }
+.search input { border: none; outline: none; flex: 1; min-width: 0; background: transparent; font-size: 13px; }
+.list-head { font-size: 12px; color: var(--text-3); margin: 12px 4px 4px; }
+.conv { display: flex; align-items: center; gap: 4px; padding: 8px 10px; border-radius: var(--radius); cursor: pointer; font-size: 13px; }
+.conv:hover { background: var(--panel-2); }
+.conv.active { background: var(--brand-soft); color: var(--brand-ink); }
+.conv-title { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.icon-btn { border: none; background: none; color: var(--text-3); cursor: pointer; padding: 2px; display: none; }
+.conv:hover .icon-btn { display: inline-flex; }
+.chat-main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.chat-head { display: flex; align-items: center; gap: 10px; padding: 14px 20px; border-bottom: 1px solid var(--line); }
+.chat-body { flex: 1; overflow: auto; padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+.bubble-user { align-self: flex-end; max-width: 70%; background: var(--brand); color: #fff; padding: 9px 14px; border-radius: 14px 14px 4px 14px; white-space: pre-wrap; }
+.answer { align-self: flex-start; max-width: 88%; width: 100%; border: 1px solid var(--line); background: #fbfcff; border-radius: 4px 14px 14px 14px; padding: 12px 16px; cursor: default; }
+.answer.focused { border-color: #b9ccff; }
+.composer { display: flex; gap: 8px; align-items: center; margin: 0 20px 18px; border: 1px solid var(--line-strong); border-radius: 12px; padding: 6px 6px 6px 14px; background: #fff; }
+.composer:focus-within { border-color: var(--brand); box-shadow: 0 0 0 3px var(--brand-soft); }
+.composer input { flex: 1; border: none; outline: none; background: transparent; }
+.empty { margin: auto; text-align: center; max-width: 440px; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.examples { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-top: 8px; }
+.cite { border: none; background: var(--brand-soft); color: var(--brand); border-radius: 5px; padding: 0 5px; font-size: 12px; cursor: pointer; margin: 0 1px; }
+.source { border-bottom: 1px solid #eef1f6; padding: 10px 2px; }
+.source.focused { background: #f5f8ff; border-radius: var(--radius); padding: 10px 8px; }

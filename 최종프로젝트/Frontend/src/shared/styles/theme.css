@@ -1,0 +1,139 @@
+/* 밝은 테마 하나 (worklog 14장). 메인색 = Shinhan Blue #0046FF (신한금융그룹 CI 의 색 값만 빌림, 로고·이름은 안 씀) */
+:root {
+  --brand: #0046ff;
+  --brand-hover: #2878f5;
+  --brand-ink: #00236e;
+  --brand-soft: #e8efff;
+  --sky: #4baff5;
+
+  --bg: #eef3fc;
+  --panel: #ffffff;
+  --panel-2: #f6f8fc;
+  --line: #e3eaf7;
+  --line-strong: #cdd8ec;
+
+  --text: #1f2937;
+  --text-2: #6b7280;
+  --text-3: #9ca3af;
+
+  --ok-bg: #e1f5ee; --ok: #085041;
+  --warn-bg: #fff4dc; --warn: #633806;
+  --bad-bg: #fcebeb; --bad: #791f1f;
+
+  /* 개인정보 라벨 색 (채팅 토큰 칩 = 검수 형광펜 같은 색) */
+  --pii-person: #e8efff; --pii-person-ink: #00236e; --pii-person-line: #7da0ff;
+  --pii-phone: #e1f5ee; --pii-phone-ink: #085041; --pii-phone-line: #5dcaa5;
+  --pii-email: #eeedfe; --pii-email-ink: #3c3489; --pii-email-line: #9a93e6;
+  --pii-address: #faeeda; --pii-address-ink: #633806; --pii-address-line: #ef9f27;
+  --pii-rrn: #fcebeb; --pii-rrn-ink: #791f1f; --pii-rrn-line: #f09595;
+  --pii-account: #fbeaf0; --pii-account-ink: #72243e; --pii-account-line: #ed93b1;
+  --pii-card: #f1efe8; --pii-card-ink: #444441; --pii-card-line: #b4b2a9;
+
+  --radius: 8px;
+  --radius-lg: 12px;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+}
+h1, h2, h3 { margin: 0; font-weight: 600; color: #111827; }
+h1 { font-size: 20px; } h2 { font-size: 16px; } h3 { font-size: 14px; }
+p { margin: 0; }
+a { color: var(--brand); text-decoration: none; }
+button, input, select, textarea { font: inherit; color: inherit; }
+
+/* ---------- 버튼 ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  height: 36px; padding: 0 14px; border-radius: var(--radius);
+  border: 1px solid var(--line-strong); background: var(--panel); cursor: pointer; white-space: nowrap;
+}
+.btn:hover { background: var(--panel-2); }
+.btn:disabled { opacity: .55; cursor: default; }
+.btn-primary { background: var(--brand); border-color: var(--brand); color: #fff; }
+.btn-primary:hover { background: var(--brand-hover); border-color: var(--brand-hover); }
+.btn-outline { border-color: var(--brand); color: var(--brand); }
+.btn-outline:hover { background: var(--brand-soft); }
+.btn-danger { border-color: #f09595; color: var(--bad); }
+.btn-danger:hover { background: var(--bad-bg); }
+.btn-ghost { border-color: transparent; background: transparent; }
+.btn-sm { height: 30px; padding: 0 10px; font-size: 13px; }
+.btn-block { width: 100%; }
+
+/* ---------- 입력 ---------- */
+.field { display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px; }
+.field > span { font-size: 13px; color: #4b5563; }
+.input, .select, .textarea {
+  width: 100%; height: 38px; padding: 0 12px; border: 1px solid var(--line-strong); border-radius: var(--radius);
+  background: #fff; outline: none;
+}
+.textarea { height: auto; min-height: 80px; padding: 10px 12px; resize: vertical; }
+.input:focus, .select:focus, .textarea:focus { border-color: var(--brand); box-shadow: 0 0 0 3px var(--brand-soft); }
+
+/* ---------- 카드·패널 ---------- */
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius-lg); }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 16px 18px; }
+.muted { color: var(--text-2); }
+.small { font-size: 12px; }
+.nowrap { white-space: nowrap; }
+.row { display: flex; align-items: center; gap: 8px; }
+.spacer { flex: 1; }
+.stack { display: flex; flex-direction: column; gap: 12px; }
+
+/* ---------- 배지 ---------- */
+.badge { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 6px; font-size: 12px; white-space: nowrap; }
+.badge-brand { background: var(--brand-soft); color: var(--brand-ink); }
+.badge-ok { background: var(--ok-bg); color: var(--ok); }
+.badge-warn { background: var(--warn-bg); color: var(--warn); }
+.badge-bad { background: var(--bad-bg); color: var(--bad); }
+.badge-gray { background: #f1f3f7; color: #4b5563; }
+
+/* ---------- 알림 ---------- */
+.alert { padding: 10px 12px; border-radius: var(--radius); font-size: 13px; }
+.alert-warn { background: var(--warn-bg); color: var(--warn); }
+.alert-bad { background: var(--bad-bg); color: var(--bad); }
+.alert-ok { background: var(--ok-bg); color: var(--ok); }
+.alert-info { background: var(--brand-soft); color: var(--brand-ink); }
+
+/* ---------- 표 ---------- */
+.table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.table th { text-align: left; font-weight: 500; color: var(--text-2); padding: 10px 12px; border-bottom: 1px solid var(--line); background: var(--panel-2); white-space: nowrap; }
+.table td { padding: 10px 12px; border-bottom: 1px solid #eef1f6; vertical-align: middle; }
+.table tr.clickable { cursor: pointer; }
+.table tr.clickable:hover td { background: #f8faff; }
+.table tr.selected td { background: var(--brand-soft); }
+
+/* ---------- 탭 ---------- */
+.tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); margin-bottom: 14px; }
+.tab { padding: 8px 12px; border: none; background: none; cursor: pointer; color: var(--text-2); border-bottom: 2px solid transparent; margin-bottom: -1px; }
+.tab.active { color: var(--brand); border-bottom-color: var(--brand); font-weight: 500; }
+
+/* ---------- 모달 ---------- */
+.modal-back { position: fixed; inset: 0; background: rgba(17, 24, 39, .35); display: flex; align-items: center; justify-content: center; z-index: 50; }
+.modal { width: min(460px, calc(100vw - 32px)); max-height: calc(100vh - 64px); overflow: auto; }
+
+/* ---------- 개인정보 칩 / 형광펜 ---------- */
+.pii { border-radius: 5px; padding: 0 5px; font-size: 12px; white-space: nowrap; }
+.pii-person { background: var(--pii-person); color: var(--pii-person-ink); }
+.pii-phone { background: var(--pii-phone); color: var(--pii-phone-ink); }
+.pii-email { background: var(--pii-email); color: var(--pii-email-ink); }
+.pii-address { background: var(--pii-address); color: var(--pii-address-ink); }
+.pii-rrn { background: var(--pii-rrn); color: var(--pii-rrn-ink); }
+.pii-account { background: var(--pii-account); color: var(--pii-account-ink); }
+.pii-card { background: var(--pii-card); color: var(--pii-card-ink); }
+.pii-other { background: #f1f3f7; color: #4b5563; }
+.pii-restored { text-decoration: underline dotted; text-underline-offset: 3px; }
+
+/* ---------- 고르기 카드 (승인 화면 직원 후보) ---------- */
+.pick { display: flex; gap: 10px; align-items: flex-start; border: 1px solid var(--line); border-radius: var(--radius); padding: 10px; cursor: pointer; }
+.pick.on { border-color: var(--brand); background: #f7f9ff; }
+.pick.off { opacity: .55; cursor: default; }
+.pick input { margin-top: 4px; }

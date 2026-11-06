@@ -2,6 +2,8 @@ package com.saebom.backend.ai;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.saebom.backend.exception.ApiException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
@@ -25,12 +27,20 @@ import java.util.Optional;
 public class AiClient {
 
     private final RestClient http;
+    private final RestClient chatHttp; // 질문은 검색 + LLM 이라 오래 걸림
+    private final ObjectMapper om = new ObjectMapper();
 
-    public AiClient(@Value("${ai.base-url}") String baseUrl, @Value("${ai.service-key}") String serviceKey) {
+    public AiClient(@Value("${ai.base-url}") String baseUrl, @Value("${ai.service-key}") String serviceKey,
+                    @Value("${ai.chat-timeout-ms:120000}") int chatTimeoutMs) {
+        this.http = client(baseUrl, serviceKey, 30_000);
+        this.chatHttp = client(baseUrl, serviceKey, chatTimeoutMs);
+    }
+
+    private static RestClient client(String baseUrl, String serviceKey, int readTimeoutMs) {
         var factory = new SimpleClientHttpRequestFactory();
         factory.setConnectTimeout(3_000);
-        factory.setReadTimeout(30_000);
-        this.http = RestClient.builder()
+        factory.setReadTimeout(readTimeoutMs);
+        return RestClient.builder()
                 .baseUrl(baseUrl)
                 .requestFactory(factory)
                 .defaultHeader("X-Service-Key", serviceKey)
@@ -88,16 +98,92 @@ public class AiClient {
                 .body(body).retrieve().body(Employee.class));
     }
 
+    // ------------------------------------------------------------------ 질문·복원 (AI 서버 app/api/chat.py)
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public record SourceDoc(@JsonAlias("doc_id") String docId, @JsonAlias("doc_type") String docType,
+                            double score, String snippet) {}
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public record OutputCheck(@JsonAlias("unverified_tokens") List<String> unverifiedTokens,
+                              @JsonAlias("raw_pii") List<Object> rawPii) {}
+
+    /** answer: 토큰 상태 (실명 아님). LLM 키가 없으면 null */
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public record AskResult(@JsonAlias("masked_query") String maskedQuery, String answer,
+                            @JsonAlias("ask_back") boolean askBack, List<SourceDoc> docs, OutputCheck check,
+                            String model, Map<String, Double> timing) {}
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public record RestoreResult(String text, int restored, List<String> denied, List<String> unknown,
+                                List<String> docs) {}
+
+    public AskResult ask(AccessUser user, String query, int k) {
+        return call(() -> chatHttp.post().uri("/internal/chat/ask").contentType(MediaType.APPLICATION_JSON)
+                .body(Map.of("user", user, "query", query, "k", k)).retrieve().body(AskResult.class));
+    }
+
+    public RestoreResult restore(AccessUser user, String actor, String text, List<String> docIds, String purpose) {
+        var body = new java.util.HashMap<String, Object>();
+        body.put("user", user);
+        body.put("actor", actor);
+        body.put("text", text);
+        body.put("doc_ids", docIds);
+        body.put("purpose", purpose);
+        return call(() -> http.post().uri("/internal/chat/restore").contentType(MediaType.APPLICATION_JSON)
+                .body(body).retrieve().body(RestoreResult.class));
+    }
+
+    // ------------------------------------------------------------------ 그대로 넘기는 호출 (적재·통계)
+
+    /** GET /internal{path}. 404 는 ApiException 404 */
+    public JsonNode getJson(String path, Map<String, ?> query) {
+        try {
+            return call(() -> http.get().uri(b -> {
+                b.path("/internal" + path);
+                query.forEach((k, v) -> { if (v != null) b.queryParam(k, v); });
+                return b.build();
+            }).retrieve().body(JsonNode.class));
+        } catch (NotFound e) {
+            throw ApiException.notFound("찾을 수 없습니다.");
+        }
+    }
+
+    /** POST /internal{path} (body 는 JSON). 적재 저장은 임베딩까지 해서 오래 걸릴 수 있어 질문과 같은 대기 시간 */
+    public JsonNode postJson(String path, Object body) {
+        try {
+            return call(() -> chatHttp.post().uri("/internal" + path).contentType(MediaType.APPLICATION_JSON)
+                    .body(body).retrieve().body(JsonNode.class));
+        } catch (NotFound e) {
+            throw ApiException.notFound("찾을 수 없습니다.");
+        }
+    }
+
     // ------------------------------------------------------------------
 
     private static class NotFound extends RuntimeException {}
+
+    private String detail(HttpClientErrorException e, String fallback) {
+        try {
+            var d = om.readTree(e.getResponseBodyAsString()).get("detail");
+            if (d != null && d.isTextual()) return d.asText();
+        } catch (Exception ignored) {
+            // 아래 기본 문구
+        }
+        return fallback;
+    }
 
     private <T> T call(java.util.function.Supplier<T> f) {
         try {
             return f.get();
         } catch (HttpClientErrorException e) {
             if (e.getStatusCode() == HttpStatus.NOT_FOUND) throw new NotFound();
-            // 400 같은 입력 문제는 그대로 알려 주되, AI 서버 내부 내용은 안 보냄
+            // 403 = 권한 판단 (AI app/core/access.py 의 메시지: 우리가 쓴 한국어 문장이라 그대로 보여 줌)
+            if (e.getStatusCode() == HttpStatus.FORBIDDEN) throw ApiException.forbidden(detail(e, "권한이 없습니다."));
+            // 400·409 = 입력·상태 문제. AI 쪽 메시지도 우리가 쓴 문장(값 없음)이라 그대로
+            if (e.getStatusCode() == HttpStatus.BAD_REQUEST) throw ApiException.badRequest(detail(e, "요청이 올바르지 않습니다."));
+            if (e.getStatusCode() == HttpStatus.CONFLICT) throw ApiException.conflict(detail(e, "이미 처리되었습니다."));
+            if (e.getStatusCode().value() == 422) throw ApiException.badRequest("요청 형식이 맞지 않습니다.");
             throw new ApiException(HttpStatus.BAD_GATEWAY, "AI 서버가 요청을 거절했습니다 (" + e.getStatusCode().value() + ")");
         } catch (RestClientException e) {
             throw ApiException.badGateway("AI 서버에 연결할 수 없습니다");

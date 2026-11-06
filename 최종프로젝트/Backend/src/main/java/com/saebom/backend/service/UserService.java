@@ -83,6 +83,14 @@ public class UserService implements UserDetailsService {
         return userRepository.save(user);
     }
 
+    @Transactional
+    public void changePassword(Long userId, String current, String next) {
+        User u = userRepository.findById(userId).orElseThrow(() -> ApiException.notFound("사용자 없음"));
+        if (!passwordEncoder.matches(current, u.getPw())) throw ApiException.badRequest("현재 비밀번호가 맞지 않아요.");
+        if (current.equals(next)) throw ApiException.badRequest("지금과 다른 비밀번호를 입력해 주세요.");
+        u.setPw(passwordEncoder.encode(next));
+    }
+
     public User findByEmail(String email) {
         return userRepository.findByEmail(normalizeEmail(email))
                 .orElseThrow(() -> new UsernameNotFoundException("사용자 없음"));

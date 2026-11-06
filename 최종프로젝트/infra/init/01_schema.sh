@@ -194,6 +194,16 @@ CREATE TABLE vault.review_log (
     created_at      TIMESTAMPTZ DEFAULT now()
 );
 
+-- (최종) 저장된 문서를 관리자가 지운 기록 (worklog 15장). 값 없이 개수만
+CREATE TABLE vault.deletion_log (
+    id          BIGSERIAL PRIMARY KEY,
+    doc_id      TEXT NOT NULL,
+    actor       TEXT NOT NULL,
+    reason      TEXT NOT NULL,
+    counts      JSONB NOT NULL DEFAULT '{}',
+    created_at  TIMESTAMPTZ DEFAULT now()
+);
+
 ALTER TABLE vault.token_map OWNER TO vault_user;
 ALTER TABLE vault.person_mentions OWNER TO vault_user;
 ALTER TABLE vault.person_keys OWNER TO vault_user;
@@ -206,6 +216,8 @@ ALTER SEQUENCE vault.ingest_job_id_seq OWNER TO vault_user;
 ALTER SEQUENCE vault.staging_doc_id_seq OWNER TO vault_user;
 ALTER SEQUENCE vault.review_log_id_seq OWNER TO vault_user;
 ALTER SEQUENCE vault.restore_log_id_seq OWNER TO vault_user;
+ALTER TABLE vault.deletion_log OWNER TO vault_user;
+ALTER SEQUENCE vault.deletion_log_id_seq OWNER TO vault_user;
 
 -- 서로의 스키마에는 접근 불가
 REVOKE ALL ON SCHEMA vault FROM PUBLIC, app_user, rag_user, docs_user;

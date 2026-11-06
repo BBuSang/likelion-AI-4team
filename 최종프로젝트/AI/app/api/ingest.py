@@ -55,6 +55,11 @@ def upload(req: UploadRequest, background: BackgroundTasks):
     return {"job_id": job_id, "total": len(docs), "status": "processing"}
 
 
+@router.get("/jobs")
+def jobs(limit: int = 50):
+    return service.list_jobs(limit)
+
+
 @router.get("/jobs/{job_id}")
 def job(job_id: int):
     s = service.job_summary(job_id)
