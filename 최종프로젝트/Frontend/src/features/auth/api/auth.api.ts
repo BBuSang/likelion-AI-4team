@@ -5,7 +5,14 @@
 
 import axios from 'axios';
 import apiClient from '@/shared/api/client';
-import type { ApiResponse, LoginRequest, LoginResponse, SignupRequest, UserResponse } from '../types/auth.types';
+import type {
+  ApiResponse,
+  LoginRequest,
+  LoginResponse,
+  OptionsResponse,
+  SignupRequest,
+  UserResponse,
+} from '../types/auth.types';
 
 const AUTH_BASE = '/api/auth';
 
@@ -19,6 +26,10 @@ export const checkEmail = async (email: string): Promise<boolean> => {
     throw e;
   }
 };
+
+/** 가입 화면 팀·직급 선택칸 (로그인 없이) */
+export const getOptions = async (): Promise<OptionsResponse> =>
+  (await apiClient.get<OptionsResponse>(`${AUTH_BASE}/options`)).data;
 
 export const signup = async (body: SignupRequest): Promise<ApiResponse> =>
   (await apiClient.post<ApiResponse>(`${AUTH_BASE}/signup`, body)).data;

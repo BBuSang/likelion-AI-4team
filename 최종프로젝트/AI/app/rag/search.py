@@ -28,7 +28,7 @@ import re
 
 import requests
 
-from app.core import config, db
+from app.core import access, config, db
 from app.pii import pii_pipeline
 from .embed import embed
 
@@ -330,9 +330,12 @@ def _reasons(groups, tokens):
     return out
 
 
-def search(query, k=10, conn=None, mode="hybrid", embed_retries=None, rerank=None):
-    """embed_retries: 대화형에서 임베딩 API 재시도 횟수를 줄일 때. 임베딩이 끝내 실패하면(속도 제한 등)
+def search(query, k=10, conn=None, mode="hybrid", embed_retries=None, rerank=None, user=access.SYSTEM):
+    """user: 검색하는 사람 {emp_id, team, role}. 권한 밖 문서는 SQL 에서 먼저 거른다 (worklog 11장, 안내문 "검색 전에").
+    기본값 SYSTEM(전부)은 평가 스크립트용 — 서버 API 는 항상 실제 사용자를 넘긴다.
+    embed_retries: 대화형에서 임베딩 API 재시도 횟수를 줄일 때. 임베딩이 끝내 실패하면(속도 제한 등)
     토큰 조건만으로 찾고, 결과 문서마다 "fallback": True 를 붙인다 (의미 유사도 0)."""
+    acl, acl_params = access.sql(user)  # 역할을 모르면 여기서 AccessError (검색 안 함)
     masked_q, records = mask_query(query, conn)
     q_tokens = sorted({r["token"] for r in records})
     try:
@@ -357,15 +360,20 @@ def search(query, k=10, conn=None, mode="hybrid", embed_retries=None, rerank=Non
                                  | set(g.get("parts", []))})
             if vec is None:  # 의미 검색 없이 토큰 조건(+문서 종류)만
                 cur.execute("SELECT doc_id, chunk_id, masked_text, tokens, doc_type, 0.0 AS sim FROM rag.chunks "
-                            "WHERE tokens && %s::text[] OR doc_type = ANY(%s)", (any_tokens, types))
+                            f"WHERE (tokens && %(t)s::text[] OR doc_type = ANY(%(d)s)) AND {acl}",
+                            {"t": any_tokens, "d": types, **acl_params})
             else:
-                cur.execute("""
+                # 권한 조건은 의미 검색 상위 N 안쪽에도 — 밖에서 거르면 권한 밖 문서가 후보 자리를 먹음
+                # HNSW 색인 + WHERE 는 후보가 N 개보다 적게 나올 수 있어 끝까지 더 찾게 함 (pgvector 0.8+, 이 트랜잭션만)
+                if acl != "TRUE":
+                    cur.execute("SET LOCAL hnsw.iterative_scan = relaxed_order")
+                cur.execute(f"""
                     SELECT doc_id, chunk_id, masked_text, tokens, doc_type, 1 - (embedding <=> %(v)s) AS sim
-                    FROM rag.chunks WHERE tokens && %(t)s::text[] OR doc_type = ANY(%(d)s)
+                    FROM rag.chunks WHERE (tokens && %(t)s::text[] OR doc_type = ANY(%(d)s)) AND {acl}
                     UNION
                     (SELECT doc_id, chunk_id, masked_text, tokens, doc_type, 1 - (embedding <=> %(v)s) AS sim
-                     FROM rag.chunks ORDER BY embedding <=> %(v)s LIMIT %(n)s)""",
-                            {"v": vec, "t": any_tokens, "d": types, "n": max(SEMANTIC_POOL, k * 3)})
+                     FROM rag.chunks WHERE {acl} ORDER BY embedding <=> %(v)s LIMIT %(n)s)""",
+                            {"v": vec, "t": any_tokens, "d": types, "n": max(SEMANTIC_POOL, k * 3), **acl_params})
             hits = cur.fetchall()
     finally:
         if own:

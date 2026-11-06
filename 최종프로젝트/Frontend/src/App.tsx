@@ -11,7 +11,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           {/* TODO(디자인 후): /auth, /chat, /review, /admin, /profile
-              보호 페이지는 <ProtectedRoute>, 관리자 페이지는 <ProtectedRoute role="ADMIN"> 로 감쌈 */}
+              보호 페이지는 <ProtectedRoute>, 관리자 페이지는 <ProtectedRoute admin> 로 감쌈 */}
           <Route path="*" element={null} />
         </Routes>
       </BrowserRouter>

@@ -33,8 +33,14 @@ CREATE TABLE rag.chunks (
     masked_text  TEXT NOT NULL,                  -- 원문 저장 금지
     tokens       TEXT[] NOT NULL DEFAULT '{}',
     embedding    vector(${EMBED_DIM}) NOT NULL,
+    -- (최종) 문서 권한 (worklog 3-4-1, 10장). 검색 SQL 이 이 값으로 먼저 거름
+    owner_emp_id TEXT,                           -- 담당 직원 (모르면 NULL)
+    team         TEXT,                           -- 담당 팀 (모르면 NULL)
+    visibility   TEXT NOT NULL DEFAULT 'restricted', -- public / team / restricted(감사만)
     created_at   TIMESTAMPTZ DEFAULT now()
 );
+CREATE INDEX chunks_acl            ON rag.chunks (visibility, team);
+CREATE INDEX chunks_owner          ON rag.chunks (owner_emp_id);
 CREATE INDEX chunks_tokens_gin     ON rag.chunks USING GIN (tokens);
 CREATE INDEX chunks_embedding_hnsw ON rag.chunks USING hnsw (embedding vector_cosine_ops);
 CREATE INDEX chunks_doc_id         ON rag.chunks (doc_id);
@@ -61,7 +67,29 @@ CREATE TABLE rag.person_attrs (
 );
 CREATE INDEX person_attrs_token ON rag.person_attrs (token);
 
+-- (최종) 문서 메타데이터 (문서 단위, 청크에도 같은 값을 복사해 둠)
+CREATE TABLE rag.documents (
+    doc_id        TEXT PRIMARY KEY,
+    doc_type      TEXT,
+    owner_emp_id  TEXT,
+    team          TEXT,
+    visibility    TEXT NOT NULL,
+    basis         JSONB NOT NULL DEFAULT '{}',   -- 담당자·팀을 어떻게 정했나 (worklog 10-2)
+    created_at    TIMESTAMPTZ DEFAULT now()
+);
+
+-- (최종) 직원 목록 — 이름 없이 (이름은 vault.employees). 로그인 계정이 emp_id 로 연결됨
+CREATE TABLE rag.employees (
+    emp_id      TEXT PRIMARY KEY,
+    team        TEXT,
+    position    TEXT,
+    role        TEXT NOT NULL,                   -- STAFF / LEAD / AUDITOR
+    n_docs      INT NOT NULL DEFAULT 0
+);
+
 ALTER TABLE rag.chunks OWNER TO rag_user;
+ALTER TABLE rag.documents OWNER TO rag_user;
+ALTER TABLE rag.employees OWNER TO rag_user;
 ALTER TABLE rag.persons OWNER TO rag_user;
 ALTER TABLE rag.person_attrs OWNER TO rag_user;
 
@@ -102,7 +130,21 @@ CREATE TABLE vault.restore_log (
     actor       TEXT NOT NULL,
     purpose     TEXT,
     tokens      TEXT[] NOT NULL,
+    role        TEXT,                            -- (최종) 복원한 사람 역할
+    doc_ids     TEXT[] NOT NULL DEFAULT '{}',    -- (최종) 어느 문서의 토큰을 복원했나
+    denied      TEXT[] NOT NULL DEFAULT '{}',    -- (최종) 권한이 없어 토큰으로 남긴 것
     created_at  TIMESTAMPTZ DEFAULT now()
+);
+
+-- (최종) 직원 목록 — 이름 포함 (문서에서 추론, worklog 10장)
+CREATE TABLE vault.employees (
+    emp_id      TEXT PRIMARY KEY,
+    name        TEXT NOT NULL,
+    team        TEXT,
+    position    TEXT,
+    role        TEXT NOT NULL,
+    n_mentions  INT NOT NULL DEFAULT 0,
+    n_docs      INT NOT NULL DEFAULT 0
 );
 
 -- (최종) 적재: 업로드 1번 = job, 문서 1건 = staging_doc (worklog 3-6, 3-7)
@@ -156,6 +198,7 @@ ALTER TABLE vault.token_map OWNER TO vault_user;
 ALTER TABLE vault.person_mentions OWNER TO vault_user;
 ALTER TABLE vault.person_keys OWNER TO vault_user;
 ALTER TABLE vault.restore_log OWNER TO vault_user;
+ALTER TABLE vault.employees OWNER TO vault_user;
 ALTER TABLE vault.ingest_job OWNER TO vault_user;
 ALTER TABLE vault.staging_doc OWNER TO vault_user;
 ALTER TABLE vault.review_log OWNER TO vault_user;

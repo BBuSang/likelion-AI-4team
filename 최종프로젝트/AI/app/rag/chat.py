@@ -20,7 +20,7 @@ import time
 
 import requests
 
-from app.core import config
+from app.core import access, config
 from app.pii import pii_pipeline
 from .search import search
 
@@ -131,9 +131,11 @@ def _complete(masked_q, context, model, on_delta=None):
     return text
 
 
-def answer(query, k=3, model=None, mode="hybrid", embed_retries=None, rerank=None, on_delta=None):
+def answer(query, k=3, model=None, mode="hybrid", embed_retries=None, rerank=None, on_delta=None, user=access.SYSTEM):
+    """user: 묻는 사람 {emp_id, team, role} — 검색 단계에서 권한 밖 문서를 거름 (worklog 11장).
+    답변은 토큰 상태 그대로. 실명은 화면에 보여 주기 직전 restore.restore_for(답변, user, 근거 문서) 로."""
     t0 = time.perf_counter()
-    masked_q, q_tokens, cands = search(query, k * 2, mode=mode, embed_retries=embed_retries, rerank=rerank)
+    masked_q, q_tokens, cands = search(query, k * 2, mode=mode, embed_retries=embed_retries, rerank=rerank, user=user)
     docs = select_docs(cands, k)
     t_search = time.perf_counter() - t0
     context, g1 = pii_pipeline.guard(_context(docs))  # 적재 때 이미 가렸지만, LLM 로 보내기 직전에 한 번 더

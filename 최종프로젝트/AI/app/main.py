@@ -11,7 +11,7 @@ import logging
 
 from fastapi import APIRouter, Depends, FastAPI
 
-from app.api import ingest
+from app.api import ingest, org
 from app.core import config
 from app.core.security import require_service_key
 
@@ -37,6 +37,7 @@ def ping():
 
 
 internal.include_router(ingest.router)
+internal.include_router(org.router)
 app.include_router(internal)
 
 
