@@ -30,6 +30,7 @@ import requests
 
 from app.core import access, config, db
 from app.pii import pii_pipeline
+from . import status as st
 from .embed import embed
 
 SEMANTIC_POOL = 50   # 의미 검색 후보 청크 수
@@ -312,6 +313,16 @@ def _group_score(g, tokens):
     return best
 
 
+def _status_for(text, q_tokens):
+    """문서의 처리 상태. 질의의 사람·값 토큰이 있는 줄에 상태가 있으면 그 줄 것 (표 한 줄 = 한 사람, VOC 목록 등),
+    없으면 문서 전체의 상태 (worklog 19장)"""
+    if q_tokens:
+        mine = {s for line, s in st.line_statuses(text) if any(t in line for t in q_tokens)}
+        if len(mine) == 1:
+            return mine.pop()
+    return st.doc_status(text)
+
+
 def _reasons(groups, tokens):
     """검색이 이 문서를 고른 근거 (LLM 에 함께 전달). 주소가 통째로 <ADDRESS_…> 로 가려져 있어도
     '질문의 지역과 같은 지역의 주소가 있다'는 걸 알려 주려는 것. 질문에 있던 내용만 쓰므로 새 개인정보는 없음."""
@@ -378,17 +389,22 @@ def search(query, k=10, conn=None, mode="hybrid", embed_retries=None, rerank=Non
     finally:
         if own:
             conn.close()
+    q_status = st.query_status(query) if mode == "hybrid" and config.STATUS_BONUS else None
     best = {}
     for doc_id, chunk_id, text, tokens, doc_type, sim in hits:
         tok = set(tokens)
         t_score = sum(_group_score(g, tok) for g in groups) / len(groups) if groups else 0.0
         type_hit = doc_type in types
-        score = t_score + float(sim) + (DOC_TYPE_BONUS if type_hit else 0.0)
+        d_status = _status_for(text, set(q_tokens) | set(any_tokens)) if q_status else None  # 글에 보이는 토큰 + 이름 토큰
+        status_hit = d_status in q_status if d_status and q_status else False
+        score = t_score + float(sim) + (DOC_TYPE_BONUS if type_hit else 0.0) + (config.STATUS_BONUS if status_hit else 0.0)
         if doc_id not in best or score > best[doc_id]["score"]:  # 문서별 가장 좋은 청크 하나
-            reasons = _reasons(groups, tok) + ([f"질문이 가리키는 문서 종류({doc_type})"] if type_hit else [])
+            reasons = (_reasons(groups, tok) + ([f"질문이 가리키는 문서 종류({doc_type})"] if type_hit else [])
+                       + ([f"질문이 가리키는 처리 상태({d_status})"] if status_hit else []))
             best[doc_id] = {"doc_id": doc_id, "chunk_id": chunk_id, "masked_text": text, "tokens": tokens,
                             "doc_type": doc_type, "score": score, "token_score": t_score, "sim": float(sim),
-                            "type_hit": type_hit, "fallback": vec is None, "reasons": reasons}
+                            "type_hit": type_hit, "status": d_status, "status_hit": status_hit,
+                            "fallback": vec is None, "reasons": reasons}
     ranked = sorted(best.values(), key=lambda d: -d["score"])
     if (config.RERANK if rerank is None else rerank) and mode == "hybrid":
         ranked = _rerank(masked_q, ranked)

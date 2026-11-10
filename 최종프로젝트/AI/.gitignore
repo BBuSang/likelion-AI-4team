@@ -9,3 +9,12 @@ data/*
 !data/.gitkeep
 outputs/*
 !outputs/.gitkeep
+# 측정·평가용 코드와 질문 세트는 올리지 않음 (로컬 실험용)
+eval/
+scripts/audit_detect.py
+scripts/eval_agent.py
+scripts/eval_replan.py
+scripts/eval_search.py
+scripts/agent_report.py
+scripts/compare_embed_vectors.py
+scripts/run_embed_compare.sh

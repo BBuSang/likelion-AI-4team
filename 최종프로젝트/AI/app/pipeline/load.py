@@ -31,6 +31,8 @@ def load(docs, spans_by_doc, reset=False, log=print):
     if n_old and not reset:
         raise NotEmpty(f"rag.chunks 에 {n_old}행이 있음. 새 DB 용 적재라 --reset 이 필요 (직원 번호가 겹치지 않게)")
 
+    text_by = {d["id"]: d["text"] for d in docs}  # 캐시로 받은 탐지 결과도 detect() 와 같은 보완을 거침 (worklog 20장)
+    spans_by_doc = {i: pii_pipeline.complete_spans(text_by[i], s) if i in text_by else s for i, s in spans_by_doc.items()}
     employees, meta, *_ = infer.build(docs, spans_by_doc)
     meta_by = {m["id"]: m for m in meta}
     t_org = time.perf_counter() - t0

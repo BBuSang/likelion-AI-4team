@@ -50,8 +50,176 @@ def _get_detector():
 
 
 def detect(text):
-    return [{"label": e["label"], "start": e["start"], "end": e["end"]}
-            for e in _get_detector().detect(text)]
+    raw = [{"label": e["label"], "start": e["start"], "end": e["end"]} for e in _get_detector().detect(text)]
+    return complete_spans(text, raw)
+
+
+# ---------------------------------------------------------------- 탐지 보완 (worklog 20장)
+# 실전 1 탐지기(app/pii/detector)는 그대로 두고, 그 결과에 최종 프로젝트에서 찾은 두 가지를 더한다.
+# 적재가 2주차 탐지 캐시를 읽을 때도(load.load) 같은 함수를 지나므로 어디서 탐지하든 결과가 같다.
+#  ① 라벨 없는 긴 숫자: guard 가 <MASKED> 로 가리던 9자리 이상 숫자를 번호 토큰으로 → 그 번호로 검색·실명 복원 가능
+#     (synth3 '(464039625067 신규 정보…' 같은 계좌 13개). 라벨은 모양으로 고름 — 틀려도 가려지는 건 같음
+#     사업자번호·접수번호·사건번호처럼 개인정보가 아닌 번호는 빼고 guard 에 맡김 (실전1 정답 기준)
+#  ② 이름 오탐: 법 줄임말('신정법', '금소법' — 에이전트가 사람 기록으로 보냄)과 상태·업무 말('보류', '상태', '이수')
+#     — 뒤에 호칭·직함이 붙으면('이수 님') 이름으로 남김
+_TITLE_AFTER = re.compile(r"\s?(님|씨|고객|대리|과장|차장|부장|팀장|주임|사원|선임|책임|이사|상무|전무|대표|매니저|프로|원장|지점장)")
+_LAW_ABBR = re.compile(r"[가-힣]{2}법")  # 세 글자 + '법' 끝 (신정법·금소법·전금법·여전법·개보법·특금법 …)
+_NOT_NAME_WORDS = {"보류", "상태", "현 상태", "접수", "완료", "처리", "이수", "이미", "서술형"}
+# 개인정보가 아닌 번호 (라벨이 앞에 오거나 모양이 정해진 것) — 이건 guard 가 전처럼 <MASKED> 로만 가림
+_ID_LABEL_BEFORE = re.compile(r"(사업자(?:등록)?\s?번호|(?:접수|주문|사건|민원|송장|운송장|예약|회원|계약|문서|관리|승인|거래|신청|"
+                              r"요청|티켓|등록|증권|고객|사원|직원)\s?(?:번호|건)|운송장|송장|대표\s?번호|경찰청|내선|사번|REQ|VOC)"
+                              r"[^\d\n]{0,8}$")
+_ID_LABEL_AFTER = re.compile(r"^\s?(?:\((?:대표|운송장|송장|접수|주문|사업자)|\([^)]{0,8}아님|번\s?참고)")
+_ID_PREFIX = re.compile(r"[A-Za-z]{1,5}-$")  # SD-20240715-88, CAN-20240610-22 같은 영문 머리 번호
+_ID_SHAPE = re.compile(r"\d{3}-\d{2}-\d{5}|(?:19|20)\d{2}(?:\d{2}){0,2}-\d{3,8}")  # 사업자번호 3-2-5, 날짜로 시작하는 접수번호
+
+
+# ③ 성 없는 두 글자 이름 + 호칭·직함 ('보람대리님', '다운고객님', '하늘 고객이') — worklog 21장
+#    실전 1 규칙은 '우수고객님'·'신규 고객' 같은 일반 말 때문에 두 글자 + 고객·직함을 일부러 안 잡음.
+#    그 일반 말을 '고객·직원 앞에 오는 꾸밈말' 목록으로 빼고 잡는다. 목록은 데이터에서 뽑지 않고 국어 쓰임으로 만듦
+_GIVEN_TITLE = re.compile(
+    r"(?:(?<![가-힣])|(?<=회원)|(?<=창구)|(?<=담당))([가-힣]{2})( ?)"
+    r"(?=(고객|대리|과장|차장|부장|팀장|주임|선임|책임)(?:님)?"
+    r"(?:께서|에게|한테|이랑|이나|께|이|가|은|는|의|과|와|도|을|를|만|나|이고|이며|까지|부터)?(?![가-힣]))")
+_TITLE_MODIFIERS = {
+    # 범위·지시
+    "해당", "기존", "신규", "전체", "모든", "일부", "다수", "소수", "각각", "상기", "위의", "다른", "같은", "이번", "지난",
+    "다음", "본인", "우리", "저희", "상대", "대상", "관련", "주요", "핵심", "일반", "특정", "개별", "여러", "어느", "모두",
+    # 고객 종류
+    "우수", "우량", "우대", "단골", "장기", "휴면", "연체", "고령", "청년", "노인", "성인", "해외", "국내", "외국", "개인",
+    "법인", "기업", "가입", "탈퇴", "이탈", "잠재", "불만", "민원", "악성", "거래", "카드", "대출", "예금", "보험", "회원",
+    "골드", "실버", "가족", "부모", "자녀", "남성", "여성", "남자", "여자", "직장", "학생", "주부", "사업", "상인", "미납",
+    "신청", "피해", "분실", "명의", "실제", "최초", "최근", "과거", "현재", "당일", "익일", "예비", "임시", "정식", "내부",
+    # 직원 쪽
+    "담당", "직원", "부서", "선배", "후배", "동기", "신입", "경력", "전임", "후임", "현임", "책임", "선임", "본사", "지점",
+    "영업", "인사", "총무", "재무", "감사", "심사", "상담", "창구", "콜센", "센터", "본부", "팀의", "부의",
+}
+_DEPT_END = re.compile(r"[팀부과실국청원]$")
+
+
+_kiwi = None
+
+
+def _word_tags(w):
+    global _kiwi
+    if _kiwi is None:
+        from kiwipiepy import Kiwi
+        _kiwi = Kiwi()
+    return [t.tag for t in _kiwi.analyze(w, top_n=1)[0][0]]
+
+
+def _given_title_spans(text, taken):
+    """붙여 쓴 꼴('다운고객님')은 꾸밈말만 빼고 잡음. 띄어 쓴 '○○ 고객'은 꾸밈말('거주 고객', '방문 고객')이 많아
+    형태소 분석이 고유명사(NNP)로 볼 때만. 동사·형용사 꼴('따라 고객님')은 모두 뺌"""
+    out = []
+    for m in _GIVEN_TITLE.finditer(text):
+        w, spaced, title = m.group(1), m.group(2), m.group(3)
+        if w in _TITLE_MODIFIERS or _DEPT_END.search(w) or w in _NOT_NAME_WORDS:
+            continue
+        tags = _word_tags(w)
+        if any(t.startswith(("V", "E", "J", "X")) for t in tags):
+            continue
+        if spaced and title == "고객" and tags != ["NNP"]:
+            continue
+        if any(s["start"] < m.end(1) and m.start(1) < s["end"] for s in taken):
+            continue
+        out.append({"label": "person", "start": m.start(1), "end": m.end(1)})
+    return out
+
+
+# ④ 문서 안 퍼뜨리기 ('김하늘' 이 탐지된 문서의 '하늘은', '하늘이랑') — worklog 22장
+#    실전 1 규칙도 같은 문서의 이름만 쓴 표기를 퍼뜨리지만 '하늘'·'보람'처럼 일반 단어면 건너뜀.
+#    같은 문서에 성 포함 이름이 실제로 있고, 사람 자리(뒤에 사람에게 붙는 조사)일 때만 일반 단어도 잡는다
+_SURNAME_FULL = re.compile(r"[가-힣]{3}")  # 성 1 + 이름 2 (복성·외자 이름은 실전 1 규칙이 따로 다룸)
+_PERSON_FOLLOW = re.compile(r"(?:께서|에게서|에게|한테|이랑|하고|님|씨|께|이가|이는|이를|이도|이의|이와|이한테|이에게|"
+                            r"이나|이만|이|가|은|는|의|와|과|도|랑|를|을|나|만|까지|부터)(?![가-힣])")
+
+
+def _given_in_doc_spans(text, taken):
+    givens = {}
+    for s in taken:
+        w = text[s["start"]:s["end"]]
+        if s["label"] == "person" and _SURNAME_FULL.fullmatch(w):
+            givens[w[1:]] = True
+    out = []
+    for g in givens:
+        if g in _TITLE_MODIFIERS or g in _NOT_NAME_WORDS:
+            continue
+        for m in re.finditer(rf"(?:(?<![가-힣])|(?<=[팀부실])){re.escape(g)}", text):
+            if not _PERSON_FOLLOW.match(text, m.end()):
+                continue
+            if any(s["start"] < m.end() and m.start() < s["end"] for s in taken + out):
+                continue
+            out.append({"label": "person", "start": m.start(), "end": m.end()})
+    return out
+
+
+# ⑤ 한 글자 이름·성 ('린님', '최씨', '장께서', '진이한테') — worklog 23장
+#    실전 1 규칙은 한 글자를 이름으로 안 봄. 한 글자 + 님·씨·높임 조사, 또는 외자 이름 부르는 꼴('진이한테')만 잡음.
+#    '박 대리'처럼 성 + 직함은 팀 라벨 기준에서 대부분 개인정보로 안 봐서(성만으로는 사람을 못 특정) 안 잡음.
+#    빼는 말은 국어 쓰임으로: 한 글자 + 님 일반 말(손님·형님…), 대명사(그에게·나한테), 높임 명사·낱말(님께·함께)
+_ONE_NAME = re.compile(
+    r"(?<![가-힣A-Za-z0-9])([가-힣])(?:"
+    r"(?P<hon>님|\s?씨)"
+    r"|(?P<prt>께서|께|에게|한테)"
+    r"|(?P<call>이(?:한테|에게|랑|하고|께서))"
+    r")(?:께서|에게|한테|이랑|이나|께|이|가|은|는|의|과|와|도|을|를|만|나|랑|하고|이고)?(?![가-힣])")
+_ONE_NOT_HON = set("아손형누따해달별주임")        # 아님·손님·형님·누님·따님·해님·달님·별님·주님·임님
+_ONE_PRONOUN = set("그이나너저제내네걔쟤얘누")    # 그에게·이한테·나한테·누구
+_ONE_NOT_PRT = set("함님씨분")                    # 함께(낱말)·님께·씨께서·분께 (높임 명사 뒤 조사)
+_ONE_NOT_CALL = set("아누오고어사나많깊높같")      # 아이한테·누이에게·오이랑 …
+
+
+def _one_char_spans(text, taken):
+    out = []
+    for m in _ONE_NAME.finditer(text):
+        c = m.group(1)
+        if m.group("hon") and c in _ONE_NOT_HON:
+            continue
+        if m.group("prt") and c in _ONE_PRONOUN | _ONE_NOT_PRT:
+            continue
+        if m.group("call") and c in _ONE_NOT_CALL | _ONE_PRONOUN:
+            continue
+        if any(s["start"] < m.end(1) and m.start(1) < s["end"] for s in taken):
+            continue
+        out.append({"label": "person", "start": m.start(1), "end": m.end(1)})
+    return out
+
+
+def _num_label(digits):
+    if len(digits) == 13 and digits[2:4] <= "12" and digits[2:4] != "00" and "01" <= digits[4:6] <= "31" and digits[6] in "1234":
+        return "resident_registration_number"
+    if digits.startswith("0") and 9 <= len(digits) <= 11:
+        return "phone_number"
+    if 14 <= len(digits) <= 16:
+        return "card_number"
+    return "account_number"
+
+
+def complete_spans(text, spans):
+    """탐지 결과 보완: 이름 오탐 빼기 + 성 없는 이름 + 호칭 + 라벨 없는 긴 숫자. 여러 번 불러도 결과가 같음"""
+    out = []
+    for s in spans:
+        if s["label"] == "person" and not _TITLE_AFTER.match(text[s["end"]:s["end"] + 6]):
+            w = text[s["start"]:s["end"]]
+            if _LAW_ABBR.fullmatch(w) or (text[s["end"]:s["end"] + 1] == "법" and len(w) == 2) or w in _NOT_NAME_WORDS:
+                continue
+        out.append(s)
+    out += _given_title_spans(text, out)
+    out += _given_in_doc_spans(text, out)
+    out += _one_char_spans(text, out)
+    for m in _GUARD_NUM.finditer(text):
+        v, digits = m.group(), re.sub(r"\D", "", m.group())
+        if len(digits) < 9 or _GUARD_DATE.fullmatch(v):
+            continue
+        if any(s["start"] < m.end() and m.start() < s["end"] for s in out):
+            continue
+        before, after = text[max(0, m.start() - 16):m.start()], text[m.end():m.end() + 12]
+        if (_ID_SHAPE.fullmatch(v) or _ID_LABEL_BEFORE.search(before) or _ID_LABEL_AFTER.match(after)
+                or _ID_PREFIX.search(before)):
+            continue
+        out.append({"label": _num_label(digits), "start": m.start(), "end": m.end()})
+    return sorted(out, key=lambda s: (s["start"], s["end"]))
 
 
 def detect_output(text):

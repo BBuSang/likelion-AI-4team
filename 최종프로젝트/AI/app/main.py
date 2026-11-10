@@ -8,12 +8,14 @@
 - /health 말고는 모두 X-Service-Key 필요. 기능 라우터는 app/api 에 만들어 아래 internal 에 붙임
 """
 import logging
+import threading
 
 from fastapi import APIRouter, Depends, FastAPI
 
 from app.api import chat, docs, ingest, org, stats
 from app.core import config
 from app.core.security import require_service_key
+from app.rag import embed
 
 logging.basicConfig(level=logging.INFO, format="[%(asctime)s][%(levelname)s] %(name)s: %(message)s")
 logger = logging.getLogger("ai")
@@ -25,6 +27,18 @@ if not config.HMAC_KEY:
 
 # 외부에 열 서버가 아니라서 문서 화면(/docs)은 끔
 app = FastAPI(title="Saebom AI", docs_url=None, redoc_url=None, openapi_url=None)
+
+
+@app.on_event("startup")
+def _warm_embedder():
+    """로컬 임베딩 모델(EMBED_PROVIDER=hf)을 백그라운드에서 미리 읽음. 서버는 바로 뜨고, 읽는 동안 온 질문은 기다림"""
+    def run():
+        try:
+            embed.warmup()
+            logger.info("임베딩 모델 준비 완료 (%s/%s)", config.EMBED_PROVIDER, config.EMBED_MODEL)
+        except Exception:
+            logger.exception("임베딩 모델 미리 읽기 실패 — 첫 질문 때 다시 시도")
+    threading.Thread(target=run, daemon=True).start()
 
 # 브라우저가 직접 부르지 않으므로 CORS 미들웨어는 넣지 않음 (스프링이 중계)
 internal = APIRouter(prefix="/internal", dependencies=[Depends(require_service_key)])
