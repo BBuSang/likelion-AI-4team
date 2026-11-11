@@ -56,3 +56,24 @@ def test_one_char_names():
     assert person("필요시 진이한테 연락") == ["진"]
     for t in ["손님께 안내", "형님께서", "함께 처리", "그에게 전달", "아이한테 설명", "고객님께 안내", "박 대리와 연결", "주차장 이용"]:
         assert person(t) == [], t
+
+
+def test_verb_form_not_name():
+    """'반송된 고객' — 탐지 모델이 '반송된'을 이름으로 잡던 것 (worklog 25장)"""
+    text = "반송된 고객 건 있어?"
+    assert p.complete_spans(text, [{"label": "person", "start": 0, "end": 3}]) == []
+    text = "김민준 고객 건"
+    assert len(p.complete_spans(text, [{"label": "person", "start": 0, "end": 3}])) == 1
+
+
+def test_not_found_text():
+    from app.core import access
+    from app.rag.chat import is_not_found
+    assert is_not_found("관련 문서에서 찾을 수 없습니다.")
+    assert not is_not_found("[H0071] 한도상향 안내문 — 승인. 다른 건은 찾을 수 없습니다.")
+    assert not is_not_found("[H0071] 한도상향 안내문 — 승인")
+    staff = access.not_found_text({"emp_id": "E022", "team": "여신심사팀", "role": "STAFF"})
+    assert "여신심사팀" in staff and "담당자가 정해진" in staff
+    lead = access.not_found_text({"emp_id": "E074", "team": "여신심사팀", "role": "LEAD"})
+    assert "여신심사팀 문서" in lead and "담당자가 정해진" not in lead
+    assert "전체 문서" in access.not_found_text({"emp_id": None, "team": None, "role": "AUDITOR"})

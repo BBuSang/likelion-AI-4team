@@ -13,7 +13,7 @@ from concurrent.futures import ThreadPoolExecutor
 from app.pii import pii_pipeline
 
 from . import planner, router
-from .tools import SEARCHERS
+from .tools import SEARCHERS, SOURCES
 
 
 def protect(question, use_db=True):
@@ -84,6 +84,57 @@ def run_plan(masked_q, plan, searchers=None, k=5, model=None, provider=None):
                    "round2": round(time.perf_counter() - t1, 3), "steps": times},
         "cost_usd": meta["cost_usd"] if meta else 0.0,
     }
+
+
+_SOURCE_KO = {"internal": "사내 기록", "law": "법령", "product": "금융상품", "noaction": "비조치의견서"}
+OUT_OF_SCOPE_MSG = "사내 업무·금융 관련 질문에만 답할 수 있습니다. 찾으시는 고객·처리 건이나 업무 내용을 적어 주세요."
+CLARIFY_MSG = "어떤 건을 말씀하시는지 알 수 없습니다. 고객 이름, 처리 건 종류(예: 보이스피싱 접수, 우편 반송), 날짜 등을 함께 적어 주세요."
+
+
+def ask(question, user, k=3):
+    """화면 질문 1건: ① 보호 → ② 분류 → 사내 RAG 답변. (worklog 25장)
+    지금 등록된 RAG 는 사내(개인정보) 하나뿐이라 계획·다시 계획은 건너뜀 — 계획이 고를 도구가 사내 검색 하나라
+    단계가 늘 [search_internal(질문)] 이기 때문. 공개 RAG 가 등록되면 run_plan + 종합으로 바꾼다.
+    공개 자료가 필요하다고 분류됐는데 아직 없는 RAG 는 pending 으로 알려 주고, 사내 기록이 필요하면 그 부분만 답한다.
+    사내 검색은 원문 질문으로 부른다 (이름 → 토큰·동명이인 구분이 원문 이름을 써야 해서. 원문은 이 서버 밖으로 안 나감).
+    반환은 chat.answer 와 같은 꼴 + agent 정보."""
+    from app.rag import chat as chat_mod
+
+    t0 = time.perf_counter()
+    masked, _ = protect(question)
+    t_protect = time.perf_counter() - t0
+    role = user.get("role", "STAFF")
+    try:
+        route, meta = router.classify(masked, role)
+    except Exception as e:  # 분류 LLM 이 죽으면 예전 챗봇처럼 사내 검색 (router.validate 의 실패 처리와 같음)
+        route = {"sources": ["internal"], "route": "internal", "reason": f"분류 실패({type(e).__name__}) → 기본(사내)",
+                 "fallback": True}
+        meta = {"model": None, "latency": 0.0, "cost_usd": 0.0}
+    pending = [s for s in route["sources"] if SOURCES[s] not in SEARCHERS and s != "internal"]
+    info = {"route": route["route"], "sources": route["sources"], "reason": route["reason"],
+            "fallback": route.get("fallback", False), "pending": pending,
+            "model": meta.get("model"), "cost_usd": round(meta.get("cost_usd") or 0.0, 6)}
+    timing = {"protect": round(t_protect, 3), "classify": round(meta.get("latency") or 0.0, 3)}
+
+    if "internal" in route["sources"]:
+        note = None
+        if pending:  # 혼합 질문: 공개 자료 부분까지 답하려다 '찾을 수 없습니다'로 끝나던 것 방지 (25장)
+            names = ", ".join(_SOURCE_KO.get(s, s) for s in pending)
+            note = (f"질문 중 {names} 자료가 필요한 부분은 아직 검색할 수 없어 [문서]에 없습니다. "
+                    "그 부분은 빼고 사내 기록 부분만 답하세요.")
+        r = chat_mod.answer(question, k=k, user=user, note=note)
+        r["timing"] = {**timing, **r["timing"]}
+        r["agent"] = info
+        return r
+    if route["route"] == "out_of_scope":
+        text = OUT_OF_SCOPE_MSG
+    elif route["route"] == "clarify":
+        text = CLARIFY_MSG
+    else:  # 공개 자료만 필요한데 그 RAG 가 아직 없음
+        names = ", ".join(_SOURCE_KO.get(s, s) for s in pending)
+        text = f"이 질문은 {names} 자료가 필요합니다. 해당 검색은 아직 준비 중이라 지금은 답할 수 없습니다."
+    return {"masked_query": masked, "answer": text, "ask_back": False, "docs": [],
+            "check": {"unverified_tokens": [], "raw_pii": []}, "model": None, "timing": timing, "agent": info}
 
 
 def main():

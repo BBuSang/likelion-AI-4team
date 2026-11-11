@@ -49,12 +49,12 @@ def restore(text, actor="unknown", purpose=None):
 def restore_for(text, user, doc_ids, purpose=None, actor=None):
     """답변 text 의 토큰을 user 가 복원해도 되는 문서(doc_ids 중)에서 나온 것만 실명으로 바꾼다.
     doc_ids: 답변 근거로 쓴 문서. 권한 판단은 app.core.access.can_restore (STAFF=담당 문서만, LEAD=볼 수 있는 문서,
-    AUDITOR=전부·사유 필수). 나머지 토큰은 그대로 두고 denied 로 기록.
+    AUDITOR=전부, LEAD·AUDITOR 는 사유 필수). 나머지 토큰은 그대로 두고 denied 로 기록.
     반환: (텍스트, {"restored": {토큰: 값}, "denied": [토큰], "unknown": [토큰], "docs": [복원 허용 문서]})"""
     from app.core import access
     access.check_user(user)
-    if user["role"] == "AUDITOR" and not (purpose or "").strip():
-        raise access.AccessError("감사 역할의 실명 복원은 사유가 필요")
+    if user["role"] in access.PURPOSE_REQUIRED and not (purpose or "").strip():
+        raise access.AccessError("팀장·감사 역할의 실명 복원은 사유가 필요")
     found = sorted({t for t in pii_pipeline.TOKEN_PATTERN.findall(text or "")
                     if not t[1:].startswith(pii_pipeline.SEARCH_ONLY_PREFIXES)})
     doc_ids = sorted(set(doc_ids or []))

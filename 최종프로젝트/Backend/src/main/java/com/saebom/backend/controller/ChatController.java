@@ -50,8 +50,9 @@ public class ChatController {
     public RestoreResult restore(@AuthenticationPrincipal UD me, @Valid @RequestBody RestoreRequest req) {
         User u = linked(me);
         String purpose = req.purpose() == null ? null : req.purpose().trim();
-        if (u.getRole() == Role.AUDITOR && (purpose == null || purpose.isEmpty())) {
-            throw ApiException.badRequest("감사 역할의 실명 보기는 사유를 입력해야 합니다.");
+        // 팀장·감사는 사유 필수 (worklog 25-9). 사원은 자기 담당 문서만 복원되므로 사유 없이
+        if ((u.getRole() == Role.AUDITOR || u.getRole() == Role.LEAD) && (purpose == null || purpose.isEmpty())) {
+            throw ApiException.badRequest("팀장·감사 역할의 실명 보기는 사유를 입력해야 합니다.");
         }
         return ai.restore(AccessUser.of(u), u.getEmail(), req.text(), req.docIds(), purpose);
     }

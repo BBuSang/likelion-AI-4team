@@ -65,6 +65,9 @@ def detect(text):
 _TITLE_AFTER = re.compile(r"\s?(님|씨|고객|대리|과장|차장|부장|팀장|주임|사원|선임|책임|이사|상무|전무|대표|매니저|프로|원장|지점장)")
 _LAW_ABBR = re.compile(r"[가-힣]{2}법")  # 세 글자 + '법' 끝 (신정법·금소법·전금법·여전법·개보법·특금법 …)
 _NOT_NAME_WORDS = {"보류", "상태", "현 상태", "접수", "완료", "처리", "이수", "이미", "서술형"}
+# 업무 말 + 된/될 (반송된·연체된·누락될). 탐지 모델이 뒤의 '고객'을 보고 이름으로 잡음 (UI 질문에서 발견, 25장)
+# 정답 라벨 19,162개 이름 중 된/될 로 끝나는 것 0개
+_VERB_FORM = re.compile(r"[가-힣]{2}[된될]")
 # 개인정보가 아닌 번호 (라벨이 앞에 오거나 모양이 정해진 것) — 이건 guard 가 전처럼 <MASKED> 로만 가림
 _ID_LABEL_BEFORE = re.compile(r"(사업자(?:등록)?\s?번호|(?:접수|주문|사건|민원|송장|운송장|예약|회원|계약|문서|관리|승인|거래|신청|"
                               r"요청|티켓|등록|증권|고객|사원|직원)\s?(?:번호|건)|운송장|송장|대표\s?번호|경찰청|내선|사번|REQ|VOC)"
@@ -200,6 +203,8 @@ def complete_spans(text, spans):
     """탐지 결과 보완: 이름 오탐 빼기 + 성 없는 이름 + 호칭 + 라벨 없는 긴 숫자. 여러 번 불러도 결과가 같음"""
     out = []
     for s in spans:
+        if s["label"] == "person" and _VERB_FORM.fullmatch(text[s["start"]:s["end"]]):
+            continue  # '반송된 고객', '연체된 고객' — 뒤에 호칭이 있어도 이름 아님 (worklog 25장)
         if s["label"] == "person" and not _TITLE_AFTER.match(text[s["end"]:s["end"] + 6]):
             w = text[s["start"]:s["end"]]
             if _LAW_ABBR.fullmatch(w) or (text[s["end"]:s["end"] + 1] == "법" and len(w) == 2) or w in _NOT_NAME_WORDS:

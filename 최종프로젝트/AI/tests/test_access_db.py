@@ -95,8 +95,10 @@ def test_restore_by_role(corpus):
 
     _, r_owner = restore.restore_for(text, owner, [doc_id])
     _, r_peer = restore.restore_for(text, peer, [doc_id])
-    _, r_lead = restore.restore_for(text, lead, [doc_id])
-    _, r_other = restore.restore_for(text, other_lead, [doc_id])
+    with pytest.raises(access.AccessError):
+        restore.restore_for(text, lead, [doc_id])          # 팀장도 사유 필수 (25-9)
+    _, r_lead = restore.restore_for(text, lead, [doc_id], purpose="팀원 처리 건 확인")
+    _, r_other = restore.restore_for(text, other_lead, [doc_id], purpose="확인")
     assert r_owner["restored"] and not r_owner["denied"]
     assert not r_peer["restored"] and r_peer["denied"]      # 같은 팀이어도 담당자가 아니면 토큰 그대로
     assert r_lead["restored"] == r_owner["restored"]

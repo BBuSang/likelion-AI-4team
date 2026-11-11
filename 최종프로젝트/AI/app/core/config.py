@@ -51,12 +51,12 @@ def _openai_key():
 
 
 OPENAI_API_BASE = env("OPENAI_API_BASE", "https://api.openai.com/v1")
-LLM_PROVIDER = env("LLM_PROVIDER", "clova")
+LLM_PROVIDER = env("LLM_PROVIDER", "openai")  # 2026-11-11: 모든 LLM gpt-6-luna 로 통일 (worklog 24장). clova 는 비교용
 if LLM_PROVIDER == "openai":
     LLM_API_BASE = OPENAI_API_BASE
     LLM_API_KEY = _openai_key()
-    LLM_MODEL = env("OPENAI_LLM_MODEL", "gpt-4.1")
-    RERANK_MODEL = env("OPENAI_RERANK_MODEL", "gpt-4.1-mini")
+    LLM_MODEL = env("OPENAI_LLM_MODEL", "gpt-6-luna")  # worklog 24장
+    RERANK_MODEL = env("OPENAI_RERANK_MODEL", "gpt-6-luna")
 # 검색 개선 단계별 켜고 끄기 (비교 실험용, 기본은 모두 켬)
 SEARCH_DOCTYPE = env("SEARCH_DOCTYPE", "1") == "1"   # 질의가 가리키는 문서 종류 가산점
 STATUS_BONUS = float(env("STATUS_BONUS", "0.2"))      # 질의가 가리키는 처리 상태와 같은 문서 가산점 (worklog 19장, 0 이면 끔)
@@ -70,6 +70,31 @@ SOFT_HOMONYM = env("SOFT_HOMONYM", "0") == "1"  # 다른 사람이라는 증거�
 
 HMAC_KEY = env("HMAC_KEY", "")
 
+# OpenAI 추론 모델(gpt-5·gpt-6·o 계열)은 temperature 를 못 바꾸고(1 고정) 대신 추론 강도를 받음 (worklog 24장)
+OPENAI_REASONING_EFFORT = env("OPENAI_REASONING_EFFORT", "none")  # none | low | medium | high | xhigh
+# 답변 LLM 만 따로. none 은 답이 문서에 있는데도 "찾을 수 없습니다"가 잦음 (실패 5문항×4번: none 13/20, low 19/20,
+# 답변 1.6초 → 3.5초). 2026-11-11 사용자 결정 low (worklog 25-6). 분류·계획·재순위는 위 값(none) 그대로
+ANSWER_REASONING_EFFORT = env("ANSWER_REASONING_EFFORT", "low")
+_REASONING_PREFIXES = ("gpt-5", "gpt-6", "o1", "o3", "o4")
+
+
+def is_reasoning_model(model):
+    return (model or "").startswith(_REASONING_PREFIXES)
+
+
+def sampling_params(model, max_tokens=None, effort=None):
+    """LLM 호출 payload 에 넣을 값. 일반 모델은 temperature 0, 추론 모델은 reasoning_effort (effort 를 주면 그 값)"""
+    if is_reasoning_model(model):
+        out = {"reasoning_effort": effort or OPENAI_REASONING_EFFORT}
+        if max_tokens:
+            out["max_completion_tokens"] = max_tokens
+        return out
+    out = {"temperature": 0}
+    if max_tokens:
+        out["max_tokens"] = max_tokens
+    return out
+
+
 DATA_DIR = ROOT / "data"
 OUT_DIR = ROOT / "outputs"
 
@@ -80,5 +105,6 @@ AI_SERVICE_KEY = env("AI_SERVICE_KEY", "")
 # 에이전트 (worklog 16장): 질문 분류·계획 LLM. 답변 LLM(LLM_PROVIDER)과 따로 고를 수 있게
 # openai = OpenAI API (키는 위 _openai_key), clova = LLM_API_BASE/KEY(.env 의 CLOVA)
 AGENT_PROVIDER = env("AGENT_PROVIDER", "openai")
-AGENT_MODEL = env("AGENT_MODEL", "gpt-4.1-mini" if AGENT_PROVIDER == "openai" else "HCX-005")
+AGENT_MODEL = env("AGENT_MODEL", "gpt-6-luna" if AGENT_PROVIDER == "openai" else "HCX-005")  # 2026-11-11 사용자 결정 (worklog 24장)
 AGENT_PLAN_MODEL = env("AGENT_PLAN_MODEL", AGENT_MODEL)  # 계획만 다른 모델로 (worklog 16-8: 분류 mini + 계획 gpt-4.1 비교)
+AGENT_CHAT = env("AGENT_CHAT", "1") == "1"  # /chat/ask 를 에이전트(분류 → 등록된 RAG)로. 0 이면 예전처럼 사내 RAG 바로 (worklog 25장)

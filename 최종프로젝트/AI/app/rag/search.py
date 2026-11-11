@@ -434,7 +434,7 @@ def _rerank(masked_q, ranked):
         r = requests.post(
             config.LLM_API_BASE.rstrip("/") + "/chat/completions",
             headers={"Authorization": f"Bearer {config.LLM_API_KEY}"},
-            json={"model": config.RERANK_MODEL, "temperature": 0, "max_tokens": 120,
+            json={"model": config.RERANK_MODEL, **config.sampling_params(config.RERANK_MODEL, 120),
                   "messages": [{"role": "system", "content":
                                 "질문에 가장 잘 맞는 문서부터 순서대로 문서 ID 만 쉼표로 나열하세요. 설명은 쓰지 마세요."},
                                {"role": "user", "content": f"[질문]\n{masked_q}\n\n[문서]\n{listing}"}]},
@@ -476,14 +476,15 @@ def _link_people(masked_q, hints, docs):
     LLM 이 '질문한 사람이 문서에 없다'고 답하지 않도록, 검색된 문서에 실제로 나온 같은 이름의 사람 토큰을 알려준다.
     한 사람으로 골랐으면 질의 토큰을 그 사람 토큰으로 바꾸고, 여럿이면 후보와 역할을 덧붙인다 (토큰·역할만, 실명 없음)."""
     in_docs = {t for d in docs for t in d["tokens"]}
+    swap = {}  # 질의 토큰 → 문서 속 사람 토큰. 검색 근거 문장에도 같이 적용 (25장: 근거에 옛 토큰이 남아 LLM 이 '없다'고 답함)
     for h in hints:
         cands = [c for c in h["candidates"] if c[0] in in_docs]
         chosen = [t for t in h["chosen"] if t in in_docs]
         unresolved = [c for c in cands if c[2] != "resolved"]
         if len(chosen) == 1 and not unresolved:
-            masked_q = masked_q.replace(h["query_token"], chosen[0])
+            swap[h["query_token"]] = chosen[0]
         elif len(cands) == 1:
-            masked_q = masked_q.replace(h["query_token"], cands[0][0])
+            swap[h["query_token"]] = cands[0][0]
         elif cands:
             # 고른 사람이 있어도 같은 이름의 미확정 토큰이 문서에 있으면(같은 사람일 수 있음) 바꾸지 않고 후보로 알림
             if chosen:
@@ -492,6 +493,11 @@ def _link_people(masked_q, hints, docs):
                                for t, role, status in cands)
             masked_q += f"\n(참고: 질문 속 {h['query_token']} 와 이름이 같은 사람이 문서에서는 {listed} 로 표기됨. " \
                         f"질문의 단서(고객/직원 등)에 맞는 사람만 골라 답할 것)"
+    for old, new in swap.items():
+        masked_q = masked_q.replace(old, new)
+        for d in docs:
+            if d.get("reasons"):
+                d["reasons"] = [r.replace(old, new) for r in d["reasons"]]
     return masked_q
 
 

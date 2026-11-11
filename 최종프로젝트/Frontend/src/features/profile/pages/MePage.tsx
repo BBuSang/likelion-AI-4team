@@ -8,7 +8,7 @@ import { errMsg, fmtTime } from '@/shared/utils/error';
 
 const ROLE: Record<string, { n: string; d: string }> = {
   STAFF: { n: '직원', d: '공개 문서, 같은 팀의 담당자 있는 문서, 내가 담당한 문서를 볼 수 있어요. 실명은 내가 담당한 문서만 볼 수 있어요.' },
-  LEAD: { n: '팀장', d: '공개 문서와 우리 팀 문서 전부를 볼 수 있고, 그 문서들의 실명도 볼 수 있어요.' },
+  LEAD: { n: '팀장', d: '공개 문서와 우리 팀 문서 전부를 볼 수 있고, 그 문서들의 실명도 볼 수 있어요. 실명을 볼 때는 사유를 남겨야 해요.' },
   AUDITOR: { n: '감사', d: '모든 문서를 볼 수 있어요. 실명을 볼 때는 사유를 남겨야 해요.' },
 };
 interface RestoreRow { id: number; doc_ids: string[]; restored: number; denied: number; purpose: string | null; created_at: string }

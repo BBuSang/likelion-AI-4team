@@ -2,7 +2,7 @@
 // 대화 내역은 이 브라우저 탭(sessionStorage)에만, 가린 글만 저장. 실명은 저장하지 않음. 서버 저장은 다음 단계
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { FormEvent } from 'react';
-import { FileText, MessageSquarePlus, Search, Send, ShieldCheck, Trash2 } from 'lucide-react';
+import { FileText, Files, MessageSquarePlus, Search, Send, ShieldCheck, Trash2 } from 'lucide-react';
 import { useAuth } from '@/shared/contexts/AuthContext';
 import { errMsg } from '@/shared/utils/error';
 import * as chatApi from '../api/chat.api';
@@ -20,6 +20,20 @@ interface Msg {
 interface Conv { id: string; title: string; at: number; msgs: Msg[] }
 
 const ROLE_NAME = { STAFF: '직원', LEAD: '팀장', AUDITOR: '감사' } as const;
+const SOURCE_KO: Record<string, string> = { internal: '사내 기록', law: '법령', product: '금융상품', noaction: '비조치의견서' };
+const ROUTE_KO: Record<string, string> = { internal: '사내', public: '공개 자료', mixed: '사내+공개', out_of_scope: '범위 밖', clarify: '되묻기' };
+
+/** 답변 밑 한 줄: 에이전트 분류 · 모델 · 시간 */
+function footer(r: AskResult) {
+  const t = r.timing;
+  const parts: string[] = [];
+  if (r.agent) parts.push(`분류: ${ROUTE_KO[r.agent.route] ?? r.agent.route}${r.agent.fallback ? '(기본값)' : ''}`);
+  if (r.model) parts.push(r.model);
+  if (t.classify) parts.push(`분류 ${t.classify.toFixed(1)}초`);
+  if (t.search != null) parts.push(`검색 ${t.search.toFixed(1)}초`);
+  if (t.llm) parts.push(`답변 ${t.llm.toFixed(1)}초`);
+  return parts.join(' · ');
+}
 const uid = () => Math.random().toString(36).slice(2, 10);
 
 function load(key: string): Conv[] {
@@ -50,6 +64,7 @@ export default function ChatPage() {
   const [focusDoc, setFocusDoc] = useState<string | null>(null);
   const endRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const sideRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     try { sessionStorage.setItem(key, JSON.stringify(convs.slice(0, 30))); } catch { /* 저장 못 해도 화면은 동작 */ }
@@ -58,11 +73,26 @@ export default function ChatPage() {
   const current = convs.find((c) => c.id === currentId) ?? null;
   useEffect(() => { endRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [current?.msgs.length, busy]);
 
-  // 오른쪽 근거 문서: 고른 답변, 없으면 마지막 답변
+  // 오른쪽 근거 문서: 고른 답변, 없으면 근거 문서가 있는 마지막 답변 (범위 밖·준비 중 답변 뒤에도 앞 답변 근거가 보이게)
   const sourceMsg = useMemo(() => {
     const answers = (current?.msgs ?? []).filter((m) => m.result);
-    return answers.find((m) => m.id === focusMsg) ?? answers[answers.length - 1] ?? null;
+    const withDocs = answers.filter((m) => m.result!.docs.length);
+    return answers.find((m) => m.id === focusMsg) ?? withDocs[withDocs.length - 1] ?? answers[answers.length - 1] ?? null;
   }, [current, focusMsg]);
+  // 그 답변의 질문 (오른쪽 칸 머리에 어느 질문의 근거인지 표시)
+  const sourceQuestion = useMemo(() => {
+    const msgs = current?.msgs ?? [];
+    const i = msgs.findIndex((m) => m.id === sourceMsg?.id);
+    for (let j = i - 1; j >= 0; j--) if (msgs[j].role === 'user') return msgs[j].text;
+    return null;
+  }, [current, sourceMsg]);
+
+  /** 답변의 '근거 문서' 버튼: 오른쪽 칸을 그 답변의 근거로 바꾸고 맨 위로 */
+  const showSources = (id: string) => {
+    setFocusMsg(id);
+    setFocusDoc(null);
+    sideRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const update = (id: string, fn: (c: Conv) => Conv) => setConvs((cs) => cs.map((c) => (c.id === id ? fn(c) : c)));
 
@@ -149,6 +179,11 @@ export default function ChatPage() {
                 <>
                   {m.result.askBack && <p className="small muted" style={{ marginBottom: 6 }}>같은 이름의 사람이 여럿이라 먼저 확인할게요.</p>}
                   <Restorable text={m.result.answer} docIds={m.result.docs.map((d) => d.docId)} onCite={(d) => { setFocusMsg(m.id); setFocusDoc(d); }} />
+                  {!!m.result.agent?.pending.length && m.result.agent.sources.includes('internal') && (
+                    <p className="small" style={{ color: 'var(--warn)', marginTop: 6 }}>
+                      {m.result.agent.pending.map((s) => SOURCE_KO[s] ?? s).join(', ')} 자료는 아직 준비 중이라 사내 기록으로만 답했어요.
+                    </p>
+                  )}
                   {!!m.result.check?.unverifiedTokens.length && (
                     <p className="small" style={{ color: 'var(--warn)', marginTop: 6 }}>확인 안 된 토큰 {m.result.check.unverifiedTokens.length}개를 가렸어요.</p>
                   )}
@@ -157,9 +192,16 @@ export default function ChatPage() {
                 <p className="muted">답변 생성이 꺼져 있어 검색 결과만 보여 드려요. 오른쪽 근거 문서를 확인해 주세요. ({m.result.docs.length}건)</p>
               ))}
               {m.result && (
-                <p className="small muted" style={{ marginTop: 8 }}>
-                  {m.result.model ? `${m.result.model} · ` : ''}검색 {m.result.timing.search?.toFixed(1)}초{m.result.timing.llm ? ` · 답변 ${m.result.timing.llm.toFixed(1)}초` : ''}
-                </p>
+                <div className="answer-foot">
+                  <span className="small muted">{footer(m.result)}</span>
+                  {m.result.docs.length > 0 && (
+                    <button type="button" className={`btn btn-sm${sourceMsg?.id === m.id ? ' btn-outline' : ''}`}
+                            onClick={(e) => { e.stopPropagation(); showSources(m.id); }}
+                            aria-pressed={sourceMsg?.id === m.id}>
+                      <Files size={14} aria-hidden /> {sourceMsg?.id === m.id ? '근거 문서 보는 중' : `근거 문서 ${m.result.docs.length}건`}
+                    </button>
+                  )}
+                </div>
               )}
             </div>
           ))}
@@ -173,9 +215,11 @@ export default function ChatPage() {
         </form>
       </section>
 
-      <aside className="panel side side-wide">
-        <h3 style={{ marginBottom: 10 }}>근거 문서</h3>
+      <aside className="panel side side-wide" ref={sideRef}>
+        <h3 style={{ marginBottom: sourceQuestion ? 4 : 10 }}>근거 문서</h3>
+        {sourceQuestion && <p className="small muted source-q" title={sourceQuestion}>질문: {sourceQuestion}</p>}
         {!sourceMsg && <p className="small muted">답변을 받으면 근거 문서가 여기에 보여요.</p>}
+        {sourceMsg?.result && !sourceMsg.result.docs.length && <p className="small muted">이 답변에는 근거 문서가 없어요.</p>}
         {sourceMsg?.result?.docs.map((d, i) => (
           <div key={d.docId} className={`source${focusDoc === d.docId ? ' focused' : ''}`}>
             <div className="row">

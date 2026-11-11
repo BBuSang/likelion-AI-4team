@@ -1,7 +1,7 @@
 """대화: 질의 가명처리 → 검색 → LLM 답변 (마스킹 텍스트만 전달) → 출력 검사 → 토큰 그대로 표시.
 
     python -m app.rag.chat "윤선영 고객 대출 상담 내역 알려줘"
-    python -m app.rag.chat "보이스피싱 피해 접수 기록" --model HCX-007
+    python -m app.rag.chat "보이스피싱 피해 접수 기록"   # 기본 gpt-6-luna
 
 출력 검사 (보여주기 전에)
   1. 토큰 검사: 답변 속 토큰이 LLM 에 준 문서·질의에 실제로 있던 토큰인지 확인.
@@ -30,7 +30,8 @@ SYSTEM = (
     "1. <PERSON_…>, <PHONE_…> 같은 꺾쇠 토큰은 가명처리된 개인정보입니다. 문서에 나온 그대로 한 글자도 바꾸지 말고 "
     "(대소문자 포함) 복사해 쓰세요. 원래 값을 추측하거나 새 토큰을 만들지 마세요.\n"
     "2. 근거 문서는 대괄호로 문서 ID 를 적으세요. [문서]에 있는 ID 만 쓰세요.\n"
-    "3. 질문이 '내역·기록·건을 찾아줘'처럼 문서를 찾는 것이면, 질문과 관련된 문서마다 한 줄씩 "
+    "3. 질문이 '내역·기록·건을 찾아줘'처럼 문서를 찾거나 '~건 있어?', '~건 있으면'처럼 그런 건이 있는지 묻는 것이면, "
+    "[문서]에 그런 건이 있을 때 질문과 관련된 문서마다 한 줄씩 "
     "'[문서 ID] 문서 종류 — 핵심 내용(무슨 일, 결과·상태, 날짜)' 형식으로 요약하세요. 번호나 ID 만 나열하지 마세요.\n"
     "4. 질문에 토큰(예: <PERSON_…>)이 있으면, 문서에서 그 토큰과 똑같은 토큰이 나오는 줄·문장을 찾아 "
     "그 줄의 내용(문의·업무 종류, 처리 상태, 특이사항)으로 답하세요. 같은 문서의 다른 사람 이야기는 섞지 마세요.\n"
@@ -104,13 +105,22 @@ def ask_back(amb, cands):
 
 
 _CITE_WORD = re.compile(r"\[\s*문서\s*([A-Z]\d{4})\s*\]")  # 추론을 끄면 '[문서 T0139]' 로 씀 → '[T0139]' 로 통일
+_CITE = re.compile(r"\[[A-Z]\d{4}\]")
+_NOT_FOUND = re.compile(r"찾을\s*수\s*없|찾지\s*못했")
 
 
-def _complete(masked_q, context, model, on_delta=None):
-    """LLM 호출. on_delta 를 주면 스트리밍: 글자가 올 때마다 지금까지의 글을 넘긴다 (출력 검사 전 글이므로 화면 표시용으로만)."""
-    payload = {"model": model, "temperature": 0,
+def is_not_found(text):
+    """LLM 이 '관련 문서에서 찾을 수 없습니다'로 답했는지. 근거 문서를 하나라도 인용했으면 일부라도 답한 것으로 봄"""
+    return bool(text) and bool(_NOT_FOUND.search(text)) and not _CITE.search(text)
+
+
+def _complete(masked_q, context, model, on_delta=None, note=None):
+    """LLM 호출. on_delta 를 주면 스트리밍: 글자가 올 때마다 지금까지의 글을 넘긴다 (출력 검사 전 글이므로 화면 표시용으로만).
+    note: 질문 뒤에 붙일 안내 (개인정보 없는 고정 문구만)"""
+    user_msg = f"[문서]\n{context}\n\n[질문]\n{masked_q}" + (f"\n\n[참고]\n{note}" if note else "")
+    payload = {"model": model, **config.sampling_params(model, effort=config.ANSWER_REASONING_EFFORT),
                "messages": [{"role": "system", "content": SYSTEM},
-                            {"role": "user", "content": f"[문서]\n{context}\n\n[질문]\n{masked_q}"}]}
+                            {"role": "user", "content": user_msg}]}
     if config.LLM_REASONING_EFFORT and model == "HCX-007":
         payload["reasoning_effort"] = config.LLM_REASONING_EFFORT
     r = requests.post(config.LLM_API_BASE.rstrip("/") + "/chat/completions",
@@ -131,8 +141,10 @@ def _complete(masked_q, context, model, on_delta=None):
     return text
 
 
-def answer(query, k=3, model=None, mode="hybrid", embed_retries=None, rerank=None, on_delta=None, user=access.SYSTEM):
+def answer(query, k=3, model=None, mode="hybrid", embed_retries=None, rerank=None, on_delta=None, user=access.SYSTEM,
+           note=None):
     """user: 묻는 사람 {emp_id, team, role} — 검색 단계에서 권한 밖 문서를 거름 (worklog 11장).
+    note: 에이전트가 붙이는 안내 (예: 법령 부분은 아직 검색 불가).
     답변은 토큰 상태 그대로. 실명은 화면에 보여 주기 직전 restore.restore_for(답변, user, 근거 문서) 로."""
     t0 = time.perf_counter()
     masked_q, q_tokens, cands = search(query, k * 2, mode=mode, embed_retries=embed_retries, rerank=rerank, user=user)
@@ -151,13 +163,17 @@ def answer(query, k=3, model=None, mode="hybrid", embed_retries=None, rerank=Non
     if not config.LLM_API_KEY:
         return result
     t1 = time.perf_counter()
-    raw = _CITE_WORD.sub(r"[\1]", _complete(masked_q, context, result["model"], on_delta))
+    raw = _CITE_WORD.sub(r"[\1]", _complete(masked_q, context, result["model"], on_delta, note))
     result["timing"]["llm"] = time.perf_counter() - t1
     t2 = time.perf_counter()
     allowed = set(pii_pipeline.TOKEN_PATTERN.findall(context + "\n" + masked_q))
     safe = sorted({d["doc_type"] for d in docs if d.get("doc_type")}, key=len, reverse=True)
     result["answer"], result["check"] = check_output(raw, allowed, safe)
     result["raw_answer"] = raw
+    # 못 찾았으면 권한 범위를 알려 주는 고정 문구로 (권한 밖이라 안 보인 걸 버그로 오해하던 것, worklog 26장)
+    result["not_found"] = is_not_found(result["answer"])
+    if result["not_found"] and not user.get("system"):
+        result["answer"] = access.not_found_text(user)
     result["timing"]["check"] = time.perf_counter() - t2
     return result
 

@@ -22,3 +22,7 @@
 .cite { border: none; background: var(--brand-soft); color: var(--brand); border-radius: 5px; padding: 0 5px; font-size: 12px; cursor: pointer; margin: 0 1px; }
 .source { border-bottom: 1px solid #eef1f6; padding: 10px 2px; }
 .source.focused { background: #f5f8ff; border-radius: var(--radius); padding: 10px 8px; }
+
+/* 답변 밑: 분류·시간 + 근거 문서 버튼 */
+.answer-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+.source-q { margin-bottom: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

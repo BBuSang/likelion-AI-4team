@@ -67,7 +67,7 @@ class ChatRelayTest {
     void askSendsDbAccountNotClientValues() throws Exception {
         String token = account("staff@chat.test", Role.STAFF, "E001", UserStatus.ACTIVE);
         when(ai.ask(any(), anyString(), anyInt())).thenReturn(new AskResult("q", "<PERSON_ab> 고객 상담 [H1]", false,
-                List.of(new AiClient.SourceDoc("H1", "상담", 0.9, "…")), null, "m", Map.of("search", 0.1)));
+                List.of(new AiClient.SourceDoc("H1", "상담", 0.9, "…")), null, "m", Map.of("search", 0.1), null));
         // 화면이 role·emp_id 를 끼워 보내도 무시됨
         post_("/api/chat/ask", Map.of("query", "  대출 상담  ", "role", "AUDITOR", "emp_id", "E999"), token)
                 .andExpect(status().isOk())
@@ -92,10 +92,13 @@ class ChatRelayTest {
         String lead = account("lead@chat.test", Role.LEAD, "E003", UserStatus.ACTIVE);
         when(ai.restore(any(), anyString(), anyString(), anyList(), any()))
                 .thenReturn(new RestoreResult("홍길동 고객", 1, List.of(), List.of(), List.of("H1")));
+        // 팀장: 사유 없으면 400 (25-9), 있으면 그대로 넘김
         post_("/api/chat/restore", Map.of("text", "<PERSON_ab> 고객", "docIds", List.of("H1")), lead)
+                .andExpect(status().isBadRequest());
+        post_("/api/chat/restore", Map.of("text", "<PERSON_ab> 고객", "docIds", List.of("H1"), "purpose", "팀원 건 확인"), lead)
                 .andExpect(status().isOk()).andExpect(jsonPath("$.restored").value(1));
         verify(ai).restore(eq(new AccessUser("E003", "채팅팀", "LEAD")), eq("lead@chat.test"), eq("<PERSON_ab> 고객"),
-                eq(List.of("H1")), isNull());
+                eq(List.of("H1")), eq("팀원 건 확인"));
 
         // 감사: 사유 없으면 AI 부르기 전에 400, 연결 없어도 됨
         String aud = account("aud@chat.test", Role.AUDITOR, null, UserStatus.ACTIVE);

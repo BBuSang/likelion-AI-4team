@@ -52,7 +52,7 @@ export default function Restorable({ text, docIds, onCite, compact }: Props) {
             <button className="btn btn-sm" onClick={() => setResult(null)}><EyeOff size={14} aria-hidden /> 다시 가리기</button>
           ) : (
             <button className="btn btn-sm btn-outline" disabled={busy}
-                    onClick={() => (user?.role === 'AUDITOR' ? setAsking(true) : run())}>
+                    onClick={() => (user?.role === 'AUDITOR' || user?.role === 'LEAD' ? setAsking(true) : run())}>
               <Eye size={14} aria-hidden /> {busy ? '확인 중…' : '실명 보기'}
             </button>
           )}

@@ -18,6 +18,7 @@ PRICE = {
     "gpt-4.1-nano": (0.10, 0.40),
     "gpt-4o": (2.50, 10.00),
     "gpt-4o-mini": (0.15, 0.60),
+    "gpt-6-luna": (0.10, 0.50),  # 2026-11 가격 (제3자 가격표 기준, OpenAI 가격표에서 다시 확인 필요)
 }
 
 _JSON_OBJ = re.compile(r"\{.*\}", re.S)
@@ -48,7 +49,7 @@ def chat_json(system, user, model=None, provider=None, timeout=60):
     base, key = _endpoint(provider)
     if not key:
         raise RuntimeError(f"에이전트 LLM 키가 없습니다 (provider={provider})")
-    payload = {"model": model, "temperature": 0,
+    payload = {"model": model, **config.sampling_params(model),
                "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}]}
     if provider == "openai":
         payload["response_format"] = {"type": "json_object"}

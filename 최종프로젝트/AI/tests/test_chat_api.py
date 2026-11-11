@@ -67,4 +67,6 @@ def test_restore_by_role(meta):
     assert owner["restored"] > 0 and owner["docs"] == [doc_id] and owner["text"] != text
     assert peer["restored"] == 0 and peer["denied"] and peer["text"] == text
     assert call({"emp_id": None, "team": None, "role": "AUDITOR"}).status_code == 403  # 사유 필수
+    assert call({"emp_id": "E_LEAD", "team": m["team"], "role": "LEAD"}).status_code == 403  # 팀장도 사유 필수
+    assert call({"emp_id": "E_LEAD", "team": m["team"], "role": "LEAD"}, "팀원 건 확인").json()["restored"] == owner["restored"]
     assert call({"emp_id": None, "team": None, "role": "AUDITOR"}, "감사 확인").json()["restored"] == owner["restored"]

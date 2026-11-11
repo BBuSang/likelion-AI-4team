@@ -112,7 +112,12 @@ public class AiClient {
     @JsonIgnoreProperties(ignoreUnknown = true)
     public record AskResult(@JsonAlias("masked_query") String maskedQuery, String answer,
                             @JsonAlias("ask_back") boolean askBack, List<SourceDoc> docs, OutputCheck check,
-                            String model, Map<String, Double> timing) {}
+                            String model, Map<String, Double> timing, AgentInfo agent) {}
+
+    /** 에이전트 분류 결과 (worklog 25장). route: internal·public·mixed·out_of_scope·clarify, pending: 필요하지만 아직 없는 RAG */
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public record AgentInfo(String route, List<String> sources, String reason, boolean fallback,
+                            List<String> pending, String model, @JsonAlias("cost_usd") double costUsd) {}
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public record RestoreResult(String text, int restored, List<String> denied, List<String> unknown,

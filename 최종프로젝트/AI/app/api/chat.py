@@ -1,7 +1,7 @@
 """질문·실명 복원 API (/internal/chat/*). 스프링만 부름.
 
 user = {emp_id, team, role} 는 스프링이 요청마다 DB 에서 읽은 계정 값 (worklog 11-4, 12장).
-- ask    : 검색(권한 밖 문서는 검색 단계에서 거름) → LLM 답변(토큰 상태 그대로) → 출력 검사
+- ask    : (AGENT_CHAT) 에이전트 분류 → 검색(권한 밖 문서는 검색 단계에서 거름) → LLM 답변(토큰 상태 그대로) → 출력 검사
 - restore: 답변 속 토큰 중, 이 사람이 복원해도 되는 문서에서 나온 것만 실명으로. 매번 vault.restore_log 에 기록
 """
 import logging
@@ -10,7 +10,8 @@ from typing import List, Literal, Optional
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
 
-from app.core import access
+from app.agents import agent as agent_mod
+from app.core import access, config
 from app.pii import restore as restore_mod
 from app.rag import chat as chat_mod
 
@@ -50,7 +51,8 @@ def ask(req: AskRequest):
     user = req.user.model_dump()
     try:
         access.check_user(user)
-        r = chat_mod.answer(req.query, k=req.k, user=user)
+        r = (agent_mod.ask(req.query, user, k=req.k) if config.AGENT_CHAT
+             else chat_mod.answer(req.query, k=req.k, user=user))
     except access.AccessError as e:
         raise HTTPException(403, str(e))
     except Exception as e:  # 임베딩·LLM API 실패 등 — 내용(질문 원문 포함 가능)은 응답·로그에 안 남김
@@ -60,10 +62,13 @@ def ask(req: AskRequest):
         "masked_query": r["masked_query"],
         "answer": r["answer"],          # 토큰 상태. LLM 키가 없으면 None (검색 결과만)
         "ask_back": r["ask_back"],
-        "docs": [_doc(d) for d in r["docs"]],
+        # 못 찾았다고 답했으면 근거 문서 없음 (검색 후보를 '근거 문서 N건'으로 보이면 오해, worklog 26장)
+        "docs": [] if r.get("not_found") else [_doc(d) for d in r["docs"]],
+        "not_found": bool(r.get("not_found")),
         "check": r["check"],            # 출력 검사: 확인 안 된 토큰·원문 개인정보 (가린 뒤)
         "model": r["model"] if r["answer"] and not r["ask_back"] else None,
         "timing": r["timing"],
+        "agent": r.get("agent"),        # 에이전트 분류 결과 (경로·출처·아직 없는 RAG). AGENT_CHAT=0 이면 None
     }
 
 

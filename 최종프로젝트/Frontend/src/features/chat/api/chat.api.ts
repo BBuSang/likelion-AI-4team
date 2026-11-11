@@ -16,6 +16,17 @@ export interface AskResult {
   check: { unverifiedTokens: string[]; rawPii: unknown[] } | null;
   model: string | null;
   timing: Record<string, number>;
+  agent: AgentInfo | null; // 에이전트 분류 결과. AI 서버 AGENT_CHAT=0 이면 null
+}
+
+export interface AgentInfo {
+  route: 'internal' | 'public' | 'mixed' | 'out_of_scope' | 'clarify';
+  sources: string[];
+  reason: string;
+  fallback: boolean;
+  pending: string[]; // 필요하지만 아직 준비 안 된 RAG (law·product·noaction)
+  model: string | null;
+  costUsd: number;
 }
 
 export interface RestoreResult {
