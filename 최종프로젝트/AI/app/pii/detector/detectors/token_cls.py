@@ -63,13 +63,16 @@ class HFNerDetector:
     pipeline 의 묶는 방식(aggregation) 대신 BIO/BIOES 태그를 직접 글자 구간으로 복원하고, 긴 문서는 창을 나눠 처리한다.
     비교를 공정하게 하려고 우리 후처리(경계 보정·대표번호·장소 주소 제외)를 똑같이 붙인다."""
 
-    def __init__(self, name: str, postprocess: bool = True, line_mode: str = "first"):
+    def __init__(self, name: str, postprocess: bool = True, line_mode: str = "first", model_path: str | None = None):
         """line_mode: 줄바꿈을 넘어 이어진 개체 처리
-        split_all = 줄에서 잘라 모든 조각 유지 / first = 첫 조각만 / per_line = 줄마다 따로 모델에 넣기"""
+        split_all = 줄에서 잘라 모든 조각 유지 / first = 첫 조각만 / per_line = 줄마다 따로 모델에 넣기
+        model_path: 같은 모델 구조의 다른 가중치 (최종 프로젝트 추가 학습, worklog 31장)"""
         from detectors.hf_ner import TokenClassifier
         self.name = name
         self.line_mode = line_mode
         self.model = TokenClassifier(name)
+        if model_path:
+            self.model.model_id = model_path
         self.model.load()
         self.postprocess = postprocess
 

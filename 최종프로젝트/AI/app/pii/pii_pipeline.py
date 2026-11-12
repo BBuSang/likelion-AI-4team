@@ -19,6 +19,7 @@
   3. 토큰은 TOKEN_PATTERN 에 맞아야 합니다. (적재 시 청크별 토큰 목록을 이 패턴으로 뽑습니다)
   4. 비밀키는 config.HMAC_KEY (.env) 에서 읽고 코드에 쓰지 않습니다.
 """
+import os
 import hashlib
 import hmac
 import re
@@ -50,8 +51,59 @@ def _get_detector():
 
 
 def detect(text):
-    raw = [{"label": e["label"], "start": e["start"], "end": e["end"]} for e in _get_detector().detect(text)]
-    return complete_spans(text, raw)
+    return [{k: s[k] for k in ("label", "start", "end")} for s in detect_scored(text)["spans"]]
+
+
+# ---------------------------------------------------------------- 검수 대상 고르기 (worklog 27·29장)
+# 기준 A (개선용 세트로 고름, 확인 세트 synth_hard_eval 에서 같은 경향):
+#   - 모델만 잡은 구간인데 모델 확률(구간 안 토큰 최소) < REVIEW_MODEL_P        → 오류율 59~70% (≥0.99 는 13%)
+#   - 보완 규칙(complete_spans)이 더한 구간                                       → 규칙만의 판단
+#   - 규칙이 이름으로 잡았는데 같은 자리를 모델은 이름으로 볼 확률 < REVIEW_RULE_NAME_P → 오류율 70~83%
+#   이런 구간이 하나라도 있으면 검수, 없으면 자동 승인
+# 힌트(검수 화면 표시용, 검수로 보내는 기준은 아님): 모델이 O 로 냈지만 개인정보 확률 ≥ REVIEW_HINT_P 이고
+#   어느 구간에도 안 들어간 곳 = 놓쳤을 수 있는 곳. 기준에 넣으면 쉬운 문서도 26% 가 검수로 가서 뺌 (27장)
+# 추가 학습한 모델(PII_MODEL_ATONLEE, 31장)은 확률을 높게 내서 0.95~0.99 구간도 24~86% 틀림 → 0.99.
+# 개선용 세트에서 추가 학습 + 0.99 가 원래 모델 + 0.9 보다 검수량은 같고 자동 저장분 오류는 적음
+REVIEW_MODEL_P = float(os.getenv("REVIEW_MODEL_P") or (0.99 if os.getenv("PII_MODEL_ATONLEE") else 0.9))
+REVIEW_RULE_NAME_P = 0.5
+REVIEW_HINT_P = 0.1
+FLAG_KO = {"low_conf": "모델 확신 낮음", "rule_added": "보완 규칙이 추가", "disagree": "규칙·모델 판단이 다름"}
+
+
+def _ov(a, b):
+    return a["start"] < b["end"] and b["start"] < a["end"]
+
+
+def detect_scored(text):
+    """detect() 와 같은 구간 + 검수 판단. 반환 {spans: [{label,start,end,src,p,flag?}], hints: [{label,start,end,p}],
+    needs_review: bool}. src = rule | model | complete, p = 같은 자리를 모델이 그 라벨로 본 확률(토큰 최소, 없으면 None)"""
+    d = _get_detector().detect_detailed(text)
+    raw = [{"label": e["label"], "start": e["start"], "end": e["end"]} for e in d["spans"]]
+    final = complete_spans(text, raw)
+    toks = d["probs"]
+    spans = []
+    for s in final:
+        src = ("rule" if any(_ov(s, r) for r in d["rules"]) else "model" if any(_ov(s, m) for m in d["model"])
+               else "name_model" if any(_ov(s, m) for m in d.get("extra", [])) else "complete")
+        ps = [t[3].get(s["label"], 0.0) for t in toks if t[0] < s["end"] and s["start"] < t[1]]
+        p = round(min(ps), 4) if ps else None
+        flag = ("low_conf" if src in ("model", "name_model") and (p or 0.0) < REVIEW_MODEL_P  # 보태기 = 원래 모델은 놓친 자리
+                else "rule_added" if src == "complete"
+                else "disagree" if src == "rule" and s["label"] == "person" and (p or 0.0) < REVIEW_RULE_NAME_P
+                else None)
+        spans.append({**s, "src": src, "p": p, **({"flag": flag} if flag else {})})
+    hints = []
+    for st, en, is_o, by in toks:
+        if not is_o or not by:
+            continue
+        lab, p = max(by.items(), key=lambda x: x[1])
+        if p < REVIEW_HINT_P or any(s["start"] < en and st < s["end"] for s in final):
+            continue
+        if hints and hints[-1]["label"] == lab and st - hints[-1]["end"] <= 1:  # 이어진 토큰은 한 후보로
+            hints[-1]["end"], hints[-1]["p"] = en, round(max(hints[-1]["p"], p), 4)
+        else:
+            hints.append({"label": lab, "start": st, "end": en, "p": round(p, 4)})
+    return {"spans": spans, "hints": hints, "needs_review": any("flag" in s for s in spans)}
 
 
 # ---------------------------------------------------------------- 탐지 보완 (worklog 20장)
@@ -68,6 +120,8 @@ _NOT_NAME_WORDS = {"보류", "상태", "현 상태", "접수", "완료", "처리
 # 업무 말 + 된/될 (반송된·연체된·누락될). 탐지 모델이 뒤의 '고객'을 보고 이름으로 잡음 (UI 질문에서 발견, 25장)
 # 정답 라벨 19,162개 이름 중 된/될 로 끝나는 것 0개
 _VERB_FORM = re.compile(r"[가-힣]{2}[된될]")
+# 이메일 모양: '@' 또는 'at'·'(at)'·'골뱅이'로 바꿔 쓴 것 ('doyoung at example.com', 'sooha.at.example.com') + 도메인 점
+_EMAIL_SHAPE = re.compile(r"(@|(?<![A-Za-z])at(?![A-Za-z])|골뱅이).*\.", re.S)
 # 개인정보가 아닌 번호 (라벨이 앞에 오거나 모양이 정해진 것) — 이건 guard 가 전처럼 <MASKED> 로만 가림
 _ID_LABEL_BEFORE = re.compile(r"(사업자(?:등록)?\s?번호|(?:접수|주문|사건|민원|송장|운송장|예약|회원|계약|문서|관리|승인|거래|신청|"
                               r"요청|티켓|등록|증권|고객|사원|직원)\s?(?:번호|건)|운송장|송장|대표\s?번호|경찰청|내선|사번|REQ|VOC)"
@@ -203,6 +257,8 @@ def complete_spans(text, spans):
     """탐지 결과 보완: 이름 오탐 빼기 + 성 없는 이름 + 호칭 + 라벨 없는 긴 숫자. 여러 번 불러도 결과가 같음"""
     out = []
     for s in spans:
+        if s["label"] == "email" and not _EMAIL_SHAPE.search(text[s["start"]:s["end"]]):
+            continue  # 모델이 'Su【b】ject' 같은 조각을 이메일로 냄 (worklog 31장). @·at·골뱅이 + 도메인 점이 있어야 이메일
         if s["label"] == "person" and _VERB_FORM.fullmatch(text[s["start"]:s["end"]]):
             continue  # '반송된 고객', '연체된 고객' — 뒤에 호칭이 있어도 이름 아님 (worklog 25장)
         if s["label"] == "person" and not _TITLE_AFTER.match(text[s["end"]:s["end"] + 6]):

@@ -108,3 +108,5 @@ AGENT_PROVIDER = env("AGENT_PROVIDER", "openai")
 AGENT_MODEL = env("AGENT_MODEL", "gpt-6-luna" if AGENT_PROVIDER == "openai" else "HCX-005")  # 2026-11-11 사용자 결정 (worklog 24장)
 AGENT_PLAN_MODEL = env("AGENT_PLAN_MODEL", AGENT_MODEL)  # 계획만 다른 모델로 (worklog 16-8: 분류 mini + 계획 gpt-4.1 비교)
 AGENT_CHAT = env("AGENT_CHAT", "1") == "1"  # /chat/ask 를 에이전트(분류 → 등록된 RAG)로. 0 이면 예전처럼 사내 RAG 바로 (worklog 25장)
+# 업로드 문서 자동 승인: 정답이 없는 문서는 검수 신호(pii_pipeline.detect_scored)가 없으면 사람 검수 없이 저장 (worklog 29장)
+AUTO_APPROVE = env("AUTO_APPROVE", "1") == "1"

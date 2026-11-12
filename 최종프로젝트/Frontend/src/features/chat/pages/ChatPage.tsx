@@ -2,7 +2,7 @@
 // 대화 내역은 이 브라우저 탭(sessionStorage)에만, 가린 글만 저장. 실명은 저장하지 않음. 서버 저장은 다음 단계
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { FormEvent } from 'react';
-import { FileText, Files, MessageSquarePlus, Search, Send, ShieldCheck, Trash2 } from 'lucide-react';
+import { AlertTriangle, FileText, Files, MessageSquarePlus, Search, Send, ShieldCheck, Trash2 } from 'lucide-react';
 import { useAuth } from '@/shared/contexts/AuthContext';
 import { errMsg } from '@/shared/utils/error';
 import * as chatApi from '../api/chat.api';
@@ -182,6 +182,13 @@ export default function ChatPage() {
                   {!!m.result.agent?.pending.length && m.result.agent.sources.includes('internal') && (
                     <p className="small" style={{ color: 'var(--warn)', marginTop: 6 }}>
                       {m.result.agent.pending.map((s) => SOURCE_KO[s] ?? s).join(', ')} 자료는 아직 준비 중이라 사내 기록으로만 답했어요.
+                    </p>
+                  )}
+                  {!m.result.askBack && !!m.result.ambiguousPeople?.length && (
+                    <p className="small homonym-warn">
+                      <AlertTriangle size={13} aria-hidden /> 동명이인 가능: 질문·답변의{' '}
+                      {m.result.ambiguousPeople.map((t) => `이름·${t.slice(8, 12)}`).join(', ')}은(는) 같은 이름의 다른 사람이 있어요.
+                      다른 사람 기록이 섞였을 수 있으니 근거 문서를 확인해 주세요.
                     </p>
                   )}
                   {!!m.result.check?.unverifiedTokens.length && (

@@ -44,6 +44,9 @@ WINDOW, STRIDE = 510, 128
 class TokenClassifier:
     def __init__(self, name):
         self.model_id, self.label_map = MODELS[name]
+        # 추가 학습한 가중치로 바꿔 끼우기 (최종 프로젝트 worklog 31장): PII_MODEL_<이름>=폴더 경로. 없으면 허브 원본
+        import os
+        self.model_id = os.getenv(f"PII_MODEL_{name.upper()}") or self.model_id
         self.tok = self.model = None
 
     def load(self):
@@ -61,18 +64,29 @@ class TokenClassifier:
         enc = self.tok(text, add_special_tokens=False, return_offsets_mapping=True)
         ids, offsets = enc["input_ids"], enc["offset_mapping"]
         id2label = self.model.config.id2label
+        # 태그 → 우리 라벨 (확률을 라벨별로 더할 때 씀). 최종 프로젝트 검수 대상 고르기용 (worklog 27·29장)
+        lab_of = {i: self.label_map.get(l.partition("-")[2]) if l != "O" else None for i, l in id2label.items()}
         preds = [None] * len(ids)
+        probs = [None] * len(ids)
         starts = list(range(0, max(len(ids) - STRIDE, 1), WINDOW - STRIDE))
         for k, s in enumerate(starts):
             e = min(s + WINDOW, len(ids))
             window = [self.tok.cls_token_id] + ids[s:e] + [self.tok.sep_token_id]
             with torch.no_grad():
                 logits = self.model(input_ids=torch.tensor([window])).logits[0, 1:-1]
+            sm = logits.softmax(-1).tolist()
             keep_from = s + (STRIDE // 2 if k > 0 else 0)
             keep_to = e - (STRIDE // 2 if k < len(starts) - 1 else 0)
             for i, p in enumerate(logits.argmax(-1).tolist()):
                 if keep_from <= s + i < keep_to:
                     preds[s + i] = id2label[p]
+                    by = {}
+                    for j, pj in enumerate(sm[i]):
+                        if lab_of[j]:
+                            by[lab_of[j]] = by.get(lab_of[j], 0.0) + pj
+                    probs[s + i] = (offsets[s + i][0], offsets[s + i][1], id2label[p] == "O", by)
+        # 마지막 문서의 토큰별 (시작, 끝, O로 냈는지, {라벨: 확률}) — 태그 결과는 그대로, 확률만 따로 남김
+        self.last_probs = [p for p in probs if p]
         return list(zip(preds, offsets))
 
     def predict(self, text):

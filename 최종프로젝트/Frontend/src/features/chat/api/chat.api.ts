@@ -17,6 +17,7 @@ export interface AskResult {
   model: string | null;
   timing: Record<string, number>;
   agent: AgentInfo | null; // 에이전트 분류 결과. AI 서버 AGENT_CHAT=0 이면 null
+  ambiguousPeople?: string[]; // 답변 속 사람 중 같은 이름의 다른 사람이 있는 토큰 (worklog 37장)
 }
 
 export interface AgentInfo {

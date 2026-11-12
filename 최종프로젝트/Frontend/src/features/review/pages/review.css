@@ -21,3 +21,10 @@
 .count b { margin-left: auto; font-weight: 500; }
 .dot { width: 10px; height: 10px; border-radius: 3px; border: 1.5px solid; padding: 0; }
 .link-row { border: 1px solid var(--line); border-radius: var(--radius); padding: 8px 10px; margin-bottom: 6px; }
+
+/* 검수로 온 이유 (worklog 29장) */
+.hl-flag { outline: 2px dashed #d98a00; outline-offset: 1px; }
+.hint-miss { text-decoration: underline wavy #d98a00; text-underline-offset: 3px; cursor: help; }
+.pii-flag { background: transparent; outline: 1.5px dashed #d98a00; border-radius: 4px; padding: 0 3px; }
+.review-why { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; background: var(--warn-bg); }
+.review-why h3 { display: flex; align-items: center; gap: 6px; }

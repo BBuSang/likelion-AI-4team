@@ -26,3 +26,7 @@
 /* 답변 밑: 분류·시간 + 근거 문서 버튼 */
 .answer-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
 .source-q { margin-bottom: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* 동명이인 가능 경고 (worklog 37장) */
+.homonym-warn { color: var(--warn); background: var(--warn-bg); border-radius: 8px; padding: 6px 10px; margin-top: 8px; line-height: 1.6; }
+.homonym-warn svg { vertical-align: -2px; }

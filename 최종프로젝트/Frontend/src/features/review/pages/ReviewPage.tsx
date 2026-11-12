@@ -2,12 +2,12 @@
 // 위치는 서버와 같은 코드포인트 단위 (브라우저 UTF-16 과 다를 수 있어 변환). 승인하면 가명처리 → 임베딩 → 저장
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ArrowLeft, ChevronLeft, ChevronRight, Trash2 } from 'lucide-react';
+import { AlertTriangle, ArrowLeft, ChevronLeft, ChevronRight, Plus, Trash2 } from 'lucide-react';
 import { errMsg } from '@/shared/utils/error';
 import { LABELS, cpSlice, labelInfo, toCodePoint } from '@/shared/utils/pii';
 import * as api from '../api/ingest.api';
-import type { LinkGroup, Span, StagingDoc, StagingRow } from '../api/ingest.api';
-import { DOC_STATUS } from '../api/ingest.api';
+import type { LinkGroup, ReviewFlag, ReviewHint, Span, StagingDoc, StagingRow } from '../api/ingest.api';
+import { DOC_STATUS, FLAG_KO } from '../api/ingest.api';
 import './review.css';
 
 const BASIS: Record<string, string> = {
@@ -69,17 +69,31 @@ export default function ReviewPage() {
     return () => clearTimeout(t);
   }, [spans, choices, doc, editable]);
 
+  // 검수로 온 이유 (worklog 29장): 위치가 그대로인 구간에만 표시, 힌트는 아직 아무 구간과도 안 겹친 것만
+  const flagAt = useMemo(() => new Map((doc?.review?.flags ?? []).map((f) => [`${f.start}-${f.end}`, f])), [doc]);
+  const hints = useMemo(() => (doc?.review?.hints ?? []).filter((h) => !spans.some((s) => s.start < h.end && h.start < s.end)),
+    [doc, spans]);
+
   const segments = useMemo(() => {
-    const out: { start: number; end: number; i: number | null }[] = [];
+    const out: { start: number; end: number; i: number | null; hint?: ReviewHint }[] = [];
+    const plain = (a: number, b: number) => {  // 표시 안 된 글 — 힌트 자리는 따로 떼어 밑줄
+      let p = a;
+      hints.filter((h) => h.start >= a && h.end <= b).forEach((h) => {
+        if (h.start > p) out.push({ start: p, end: h.start, i: null });
+        out.push({ start: h.start, end: h.end, i: null, hint: h });
+        p = h.end;
+      });
+      if (p < b) out.push({ start: p, end: b, i: null });
+    };
     let pos = 0;
     spans.forEach((s, i) => {
-      if (s.start > pos) out.push({ start: pos, end: s.start, i: null });
+      if (s.start > pos) plain(pos, s.start);
       out.push({ start: s.start, end: s.end, i });
       pos = s.end;
     });
-    if (pos < chars.length) out.push({ start: pos, end: chars.length, i: null });
+    if (pos < chars.length) plain(pos, chars.length);
     return out;
-  }, [spans, chars]);
+  }, [spans, chars, hints]);
 
   const relPos = (rect: DOMRect) => {
     const box = boxRef.current!.getBoundingClientRect();
@@ -198,12 +212,18 @@ export default function ReviewPage() {
         <div className="doc-text" ref={boxRef} onMouseUp={onMouseUp}>
           {segments.map((g) => {
             const t = chars.slice(g.start, g.end).join('');
+            if (g.i === null && g.hint) {
+              return <span key={`h${g.start}`} data-cp={g.start} className="hint-miss"
+                           title={`놓쳤을 수 있는 곳: ${labelInfo(g.hint.label)?.name ?? g.hint.label} (모델 ${Math.round(g.hint.p * 100)}%)`}>{t}</span>;
+            }
             if (g.i === null) return <span key={`t${g.start}`} data-cp={g.start}>{t}</span>;
             const s = spans[g.i];
             const info = labelInfo(s.label);
+            const flag: ReviewFlag | undefined = flagAt.get(`${s.start}-${s.end}`);
             return (
               <mark key={`m${g.start}`} data-cp={g.start} data-name={info?.name ?? s.label}
-                    className={`hl hl-${info?.cls ?? 'other'}`}
+                    className={`hl hl-${info?.cls ?? 'other'}${flag && editable ? ' hl-flag' : ''}`}
+                    title={flag ? FLAG_KO[flag.flag] : undefined}
                     onMouseUp={(e) => e.stopPropagation()}
                     onClick={(e) => editable && setPop({ kind: 'edit', i: g.i!, ...relPos((e.target as HTMLElement).getBoundingClientRect()) })}>
                 {t}
@@ -229,6 +249,33 @@ export default function ReviewPage() {
           </div>
           <p className="small muted" style={{ marginTop: 8 }}>탐지 대비 추가 {changes.added} · 삭제 {changes.removed} · 라벨 변경 {changes.relabeled}</p>
         </div>
+
+        {editable && doc.review?.needs_review && (
+          <div className="review-why">
+            <h3 style={{ marginBottom: 6 }}><AlertTriangle size={15} aria-hidden /> 확인이 필요한 곳</h3>
+            {(doc.review.flags ?? []).map((f) => (
+              <p key={`f${f.start}`} className="small">
+                <span className="pii pii-flag">{cpSlice(doc.text, f.start, f.end)}</span> {labelInfo(f.label)?.name ?? f.label} — {FLAG_KO[f.flag]}
+                {f.p !== null && <span className="muted"> (모델 {Math.round(f.p * 100)}%)</span>}
+              </p>
+            ))}
+            {(doc.review.link_check ?? []).length > 0 && <p className="small">같은 사람 잇기 판단이 약해요. 아래에서 확인해 주세요.</p>}
+            {hints.length > 0 && <>
+              <p className="small muted" style={{ marginTop: 8 }}>놓쳤을 수 있는 곳 (물결 밑줄) — 개인정보면 추가하세요</p>
+              {hints.map((h) => (
+                <div key={`h${h.start}`} className="row small" style={{ marginTop: 4 }}>
+                  <span className="hint-miss">{cpSlice(doc.text, h.start, h.end)}</span>
+                  <span className="muted">{labelInfo(h.label)?.name ?? h.label}? {Math.round(h.p * 100)}%</span>
+                  <div className="spacer" />
+                  <button className="btn btn-sm" onClick={() => setSpans((ss) => [...ss, { label: h.label, start: h.start, end: h.end }].sort((x, y) => x.start - y.start))}>
+                    <Plus size={13} aria-hidden /> 추가
+                  </button>
+                </div>
+              ))}
+            </>}
+            <p className="small muted" style={{ marginTop: 8 }}>점선 테두리 구간을 확인하고, 틀렸으면 눌러서 고치거나 지우세요.</p>
+          </div>
+        )}
 
         <div>
           <h3 style={{ marginBottom: 6 }}>같은 사람 잇기</h3>

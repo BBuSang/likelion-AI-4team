@@ -46,6 +46,14 @@ def _doc(d):
             "snippet": (d.get("masked_text") or "")[:SNIPPET]}
 
 
+def _ambiguous(answer):
+    try:
+        return chat_mod.ambiguous_people(answer)
+    except Exception as e:  # DB 일시 오류 — 경고만 빠짐
+        logger.warning("동명이인 확인 실패: %s", type(e).__name__)
+        return []
+
+
 @router.post("/ask")
 def ask(req: AskRequest):
     user = req.user.model_dump()
@@ -69,6 +77,8 @@ def ask(req: AskRequest):
         "model": r["model"] if r["answer"] and not r["ask_back"] else None,
         "timing": r["timing"],
         "agent": r.get("agent"),        # 에이전트 분류 결과 (경로·출처·아직 없는 RAG). AGENT_CHAT=0 이면 None
+        # 답변 속 사람 중 같은 이름이 여럿인 사람 → 화면이 '동명이인 가능' 경고 (37장). 실패해도 답변은 그대로
+        "ambiguous_people": _ambiguous((r.get("answer") or "") + " " + (r.get("masked_query") or "")),  # 답변·질문 속 사람
     }
 
 

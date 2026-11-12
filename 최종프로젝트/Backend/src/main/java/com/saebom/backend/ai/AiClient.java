@@ -112,7 +112,9 @@ public class AiClient {
     @JsonIgnoreProperties(ignoreUnknown = true)
     public record AskResult(@JsonAlias("masked_query") String maskedQuery, String answer,
                             @JsonAlias("ask_back") boolean askBack, List<SourceDoc> docs, OutputCheck check,
-                            String model, Map<String, Double> timing, AgentInfo agent) {}
+                            String model, Map<String, Double> timing, AgentInfo agent,
+                            // 답변 속 사람 중 같은 이름이 여럿인 사람 토큰 → 화면 '동명이인 가능' 경고 (worklog 37장)
+                            @JsonAlias("ambiguous_people") List<String> ambiguousPeople) {}
 
     /** 에이전트 분류 결과 (worklog 25장). route: internal·public·mixed·out_of_scope·clarify, pending: 필요하지만 아직 없는 RAG */
     @JsonIgnoreProperties(ignoreUnknown = true)

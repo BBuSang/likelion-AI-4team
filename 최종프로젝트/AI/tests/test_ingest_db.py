@@ -27,6 +27,12 @@ NAME = "도하람"
 PHONE = "010-9871-2034"
 
 
+@pytest.fixture(autouse=True)
+def _no_auto(monkeypatch):
+    """기존 흐름 테스트는 검수 대기를 전제로 함 → 자동 승인(29장)은 끄고, test_auto_approve 에서만 켬"""
+    monkeypatch.setattr(config, "AUTO_APPROVE", False)
+
+
 @pytest.fixture(scope="module")
 def created():
     jobs = []
@@ -155,4 +161,19 @@ def test_gold_auto_approve(created):
     job_id, docs = upload(created, "jsonl", content)
     st = {x["ext_id"]: (x["status"], x["approved_by"]) for x in docs}
     assert st["A"] == ("stored", "gold") and st["B"] == ("pending", None)
+    assert client.get(f"/internal/ingest/jobs/{job_id}", headers=H).json()["auto_approved"] == 1
+
+
+def test_auto_approve(created, monkeypatch):
+    """정답 없는 문서: 검수 신호가 없으면 자동 저장(auto), 있으면 검수 대기 + 표시할 구간·힌트 (worklog 29장)"""
+    monkeypatch.setattr(config, "AUTO_APPROVE", True)
+    plain = "지점 업무 안내: 다음 주 월요일부터 창구 운영 시간이 오전 9시로 바뀝니다."
+    one_char = "상담 메모: 린님께서 카드 재발급을 요청하셨습니다."  # 외자 이름 = 보완 규칙이 더한 구간 → 검수
+    content = "\n".join(json.dumps({"id": i, "text": t}, ensure_ascii=False) for i, t in (("P", plain), ("R", one_char)))
+    job_id, docs = upload(created, "jsonl", content)
+    st = {x["ext_id"]: x for x in docs}
+    assert (st["P"]["status"], st["P"]["approved_by"]) == ("stored", "auto")
+    assert st["R"]["status"] == "pending" and st["R"]["n_flags"] >= 1
+    doc = open_doc(st["R"]["id"])
+    assert doc["review"]["needs_review"] and any(f["flag"] == "rule_added" for f in doc["review"]["flags"])
     assert client.get(f"/internal/ingest/jobs/{job_id}", headers=H).json()["auto_approved"] == 1

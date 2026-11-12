@@ -2,6 +2,8 @@
 
 - 원문은 vault.staging_doc 에만 둔다 (vault_user). 외부 API(임베딩)로는 가명처리 + guard 를 거친 청크만 나간다
 - 정답 라벨(gold)이 있는 문서: 탐지 결과 = 정답이면 자동 승인(approved_by='gold'), 다르면 검수 대기
+- 정답이 없는 문서: 검수 신호(확신 낮은 모델 구간·보완 규칙 구간·규칙/모델 엇갈린 이름)가 없으면 자동 승인(approved_by='auto'),
+  있으면 검수 대기 + 그 구간과 '놓쳤을 수 있는 곳' 힌트를 검수 화면에 표시 (worklog 27·29장, config.AUTO_APPROVE)
 - 저장은 한 번에 한 건 (advisory lock). 같은 사람이 동시에 두 번 새로 생기지 않게
 - 검수 기록(review_log)에는 값 없이 라벨·위치·개수만
 """
@@ -132,27 +134,36 @@ def create_job(uploader, source, filename, content, doc_type=None):
 
 
 def process_job(job_id, docs):
-    """문서마다 탐지 → staging 저장. 정답이 있고 탐지 = 정답이면 바로 저장(자동 승인)."""
+    """문서마다 탐지 → staging 저장. 정답이 있고 탐지 = 정답이면, 정답이 없고 검수 신호가 없으면 바로 저장(자동 승인)."""
     try:
         auto = []
         with db.vault_conn() as conn, conn.cursor() as cur:
             for seq, d in enumerate(docs, 1):
                 with _detect_lock:
-                    det = sorted(pii_pipeline.detect(d["text"]), key=lambda s: (s["start"], s["end"]))
-                det = [{"label": s["label"], "start": s["start"], "end": s["end"]} for s in det]
+                    scored = pii_pipeline.detect_scored(d["text"])
+                spans = sorted(scored["spans"], key=lambda s: (s["start"], s["end"]))
+                det = [{"label": s["label"], "start": s["start"], "end": s["end"]} for s in spans]
+                review = {"needs_review": scored["needs_review"],
+                          "flags": [{k: s[k] for k in ("label", "start", "end", "flag", "p")} for s in spans if "flag" in s],
+                          "hints": scored["hints"]}
                 doc_id = f"J{job_id}-{d['ext_id'] or seq}"
                 cur.execute(
-                    """INSERT INTO vault.staging_doc (job_id, seq, ext_id, doc_id, doc_type, text, meta, detected, gold)
-                       VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s) RETURNING id""",
+                    """INSERT INTO vault.staging_doc (job_id, seq, ext_id, doc_id, doc_type, text, meta, detected, gold, review)
+                       VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) RETURNING id""",
                     (job_id, seq, d["ext_id"], doc_id, d["doc_type"], d["text"], Jsonb(d["meta"]), Jsonb(det),
-                     Jsonb(d["gold"]) if d["gold"] is not None else None))
+                     Jsonb(d["gold"]) if d["gold"] is not None else None, Jsonb(review)))
                 sid = cur.fetchone()[0]
-                if d["gold"] is not None and {_key(s) for s in det} == {_key(s) for s in d["gold"]}:
-                    auto.append(sid)
+                if d["gold"] is not None:
+                    if {_key(s) for s in det} == {_key(s) for s in d["gold"]}:
+                        auto.append((sid, "gold"))
+                elif config.AUTO_APPROVE and not review["needs_review"]:
+                    auto.append((sid, "auto"))
             cur.execute("UPDATE vault.ingest_job SET status = 'ready' WHERE id = %s", (job_id,))
-        for sid in auto:  # 업로드 순서대로 한 건씩 저장
+        for sid, by in auto:  # 업로드 순서대로 한 건씩 저장
             try:
-                store(sid, actor="gold", action="auto_approve")
+                if by == "auto" and _weak_links(sid):
+                    continue  # 이름만으로 기존 사람에 이어지거나 누구인지 못 정함 → 사람이 확인 (검수 대기로 남김)
+                store(sid, actor=by, action="auto_approve")
             except Exception:
                 logger.exception("자동 승인 저장 실패: staging %s", sid)
     except Exception as e:
@@ -160,6 +171,22 @@ def process_job(job_id, docs):
         with db.vault_conn() as conn, conn.cursor() as cur:
             cur.execute("UPDATE vault.ingest_job SET status = 'failed', error = %s WHERE id = %s",
                         (type(e).__name__, job_id))
+
+
+def _weak_links(staging_id):
+    """자동 승인 직전 사람 잇기 확인. 약한 판단(linking.WEAK)이 있으면 review.flags 에 'link_check' 를 더하고 True.
+    저장 직전에 보는 이유: 같은 업로드의 앞 문서가 저장된 뒤의 사람 목록으로 판단해야 해서"""
+    with db.vault_conn() as conn, conn.cursor() as cur:
+        d = _load(cur, staging_id)
+    weak = [g for g in preview_links(staging_id, d["detected"], _doc=d) if g["needs_check"]]
+    if not weak:
+        return False
+    review = d["review"] or {}
+    review["needs_review"] = True
+    review["link_check"] = [{"mentions": g["mentions"], "basis": g["basis"]} for g in weak]
+    with db.vault_conn() as conn, conn.cursor() as cur:
+        cur.execute("UPDATE vault.staging_doc SET review = %s WHERE id = %s", (Jsonb(review), staging_id))
+    return True
 
 
 # ---------------------------------------------------------------- 조회
@@ -172,7 +199,8 @@ def job_summary(job_id):
             return None
         cur.execute("SELECT status, count(*) FROM vault.staging_doc WHERE job_id = %s GROUP BY status", (job_id,))
         counts = dict(cur.fetchall())
-        cur.execute("SELECT count(*) FROM vault.staging_doc WHERE job_id = %s AND approved_by = 'gold'", (job_id,))
+        cur.execute("SELECT count(*) FROM vault.staging_doc WHERE job_id = %s AND approved_by IN ('gold', 'auto')",
+                    (job_id,))
         auto = cur.fetchone()[0]
     keys = ("id", "uploader", "source", "filename", "total", "status", "created_at")
     return dict(zip(keys, row)) | {"counts": counts, "auto_approved": auto}
@@ -196,20 +224,24 @@ def list_jobs(limit=50):
 def list_docs(job_id):
     with db.vault_conn() as conn, conn.cursor() as cur:
         cur.execute("""SELECT id, seq, ext_id, doc_id, doc_type, status, approved_by, jsonb_array_length(detected),
-                              gold IS NOT NULL
+                              gold IS NOT NULL,
+                              COALESCE(jsonb_array_length(review->'flags'), 0)
+                              + COALESCE(jsonb_array_length(review->'link_check'), 0),
+                              COALESCE(jsonb_array_length(review->'hints'), 0)
                        FROM vault.staging_doc WHERE job_id = %s ORDER BY seq""", (job_id,))
-        keys = ("id", "seq", "ext_id", "doc_id", "doc_type", "status", "approved_by", "n_detected", "has_gold")
+        keys = ("id", "seq", "ext_id", "doc_id", "doc_type", "status", "approved_by", "n_detected", "has_gold",
+                "n_flags", "n_hints")
         return [dict(zip(keys, r)) for r in cur.fetchall()]
 
 
 def _load(cur, staging_id, for_update=False):
-    cur.execute("SELECT id, job_id, doc_id, doc_type, text, meta, detected, gold, final_spans, status, approved_by "
-                "FROM vault.staging_doc WHERE id = %s" + (" FOR UPDATE" if for_update else ""), (staging_id,))
+    cur.execute("SELECT id, job_id, doc_id, doc_type, text, meta, detected, gold, final_spans, status, approved_by, "
+                "review FROM vault.staging_doc WHERE id = %s" + (" FOR UPDATE" if for_update else ""), (staging_id,))
     row = cur.fetchone()
     if row is None:
         return None
     keys = ("id", "job_id", "doc_id", "doc_type", "text", "meta", "detected", "gold", "final_spans", "status",
-            "approved_by")
+            "approved_by", "review")
     return dict(zip(keys, row))
 
 

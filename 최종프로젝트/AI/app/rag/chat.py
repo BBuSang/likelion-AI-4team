@@ -178,6 +178,25 @@ def answer(query, k=3, model=None, mode="hybrid", embed_retries=None, rerank=Non
     return result
 
 
+_PERSON_TOKEN = re.compile(r"<PERSON_[0-9a-f]{8}>")
+
+
+def ambiguous_people(text):
+    """답변(과 질문)에 나온 사람 토큰 중 '동명이인 가능'인 것 (worklog 37장).
+    같은 이름 토큰(name_token)을 가진 사람이 DB 에 2명 이상이면 — 확정된 다른 사람이 있거나, 근거가 없어 이름 기준으로 묶인
+    '미확정' 토큰이 다른 사람과 같이 있는 경우. 이름이 한 명뿐인 경우는 단서가 없어도 표시하지 않음 (너무 자주 뜨지 않게).
+    토큰만 보고 판단 (실명 안 씀). 반환: [토큰]"""
+    toks = sorted(set(_PERSON_TOKEN.findall(text or "")))
+    if not toks:
+        return []
+    from app.core import db
+    with db.rag_conn() as conn, conn.cursor() as cur:
+        cur.execute("""SELECT p.person_token FROM rag.persons p
+                       WHERE p.person_token = ANY(%s)
+                         AND (SELECT count(*) FROM rag.persons q WHERE q.name_token = p.name_token) > 1""", (toks,))
+        return sorted(r[0] for r in cur.fetchall())
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("query")

@@ -170,9 +170,10 @@ CREATE TABLE vault.staging_doc (
     meta          JSONB NOT NULL DEFAULT '{}',
     detected      JSONB NOT NULL,                -- 탐지기 결과 그대로 [{label,start,end}]
     gold          JSONB,                         -- 파일에 정답 라벨이 있으면 (자동 승인 비교용만)
+    review        JSONB,                         -- 검수 판단 {needs_review, flags, hints} (값 없이 위치·점수만, worklog 29장)
     final_spans   JSONB,                         -- 승인된 구간
     status        TEXT NOT NULL DEFAULT 'pending', -- pending / stored / rejected / failed
-    approved_by   TEXT,                          -- 검수자 이메일 또는 'gold'
+    approved_by   TEXT,                          -- 검수자 이메일 / 'gold'(정답과 같음) / 'auto'(검수 신호 없음)
     reviewed_at   TIMESTAMPTZ,
     reject_reason TEXT,
     error         TEXT,

@@ -67,12 +67,13 @@ class ChatRelayTest {
     void askSendsDbAccountNotClientValues() throws Exception {
         String token = account("staff@chat.test", Role.STAFF, "E001", UserStatus.ACTIVE);
         when(ai.ask(any(), anyString(), anyInt())).thenReturn(new AskResult("q", "<PERSON_ab> 고객 상담 [H1]", false,
-                List.of(new AiClient.SourceDoc("H1", "상담", 0.9, "…")), null, "m", Map.of("search", 0.1), null));
+                List.of(new AiClient.SourceDoc("H1", "상담", 0.9, "…")), null, "m", Map.of("search", 0.1), null, List.of("<PERSON_ab>")));
         // 화면이 role·emp_id 를 끼워 보내도 무시됨
         post_("/api/chat/ask", Map.of("query", "  대출 상담  ", "role", "AUDITOR", "emp_id", "E999"), token)
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.answer").value("<PERSON_ab> 고객 상담 [H1]"))
-                .andExpect(jsonPath("$.docs[0].docId").value("H1"));
+                .andExpect(jsonPath("$.docs[0].docId").value("H1"))
+                .andExpect(jsonPath("$.ambiguousPeople[0]").value("<PERSON_ab>"));
         verify(ai).ask(eq(new AccessUser("E001", "채팅팀", "STAFF")), eq("대출 상담"), eq(3));
     }
 

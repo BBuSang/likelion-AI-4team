@@ -5,7 +5,7 @@ import { FileUp, RefreshCw } from 'lucide-react';
 import { errMsg, fmtTime } from '@/shared/utils/error';
 import * as api from '../api/ingest.api';
 import type { Job, StagingRow } from '../api/ingest.api';
-import { DOC_STATUS } from '../api/ingest.api';
+import { APPROVED_BY_KO, DOC_STATUS } from '../api/ingest.api';
 import './review.css';
 
 const JOB_STATUS: Record<string, { n: string; cls: string }> = {
@@ -75,7 +75,7 @@ export default function IngestPage() {
     <>
       <section className="panel page">
         <div className="page-head">
-          <div><h1>데이터 적재</h1><p>올린 문서에서 개인정보를 찾고, 사람이 확인한 뒤 가명처리해서 저장해요.</p></div>
+          <div><h1>데이터 적재</h1><p>올린 문서에서 개인정보를 찾아요. 애매한 곳이 없는 문서는 바로, 있는 문서는 사람이 확인한 뒤 가명처리해서 저장해요.</p></div>
           <div className="spacer" />
           <button className="btn btn-sm" onClick={reload}><RefreshCw size={14} aria-hidden /> 새로고침</button>
         </div>
@@ -89,7 +89,7 @@ export default function IngestPage() {
             <label className="drop">
               <FileUp size={26} color="var(--brand)" aria-hidden />
               <p>{file ? file.name : '.jsonl 또는 .txt 파일을 고르세요'}</p>
-              <p className="small muted">jsonl: 한 줄에 {'{id, text, doc_type, entities?}'} · 정답 라벨(entities)이 탐지와 같으면 바로 저장돼요</p>
+              <p className="small muted">jsonl: 한 줄에 {'{id, text, doc_type, entities?}'} · 정답 라벨(entities)이 있으면 탐지와 같을 때, 없으면 애매한 곳이 없을 때 바로 저장돼요</p>
               <input ref={fileRef} type="file" accept=".jsonl,.txt" hidden onChange={(e) => setFile(e.target.files?.[0] ?? null)} />
             </label>
           ) : (
@@ -131,7 +131,8 @@ export default function IngestPage() {
           <div className="stack">
             <div>
               <h2>업로드 #{selJob.id}</h2>
-              <p className="small muted">{selJob.filename ?? '붙여 넣은 글'} · {selJob.total}건</p>
+              <p className="small muted">{selJob.filename ?? '붙여 넣은 글'} · {selJob.total}건
+                {docs.length > 0 && ` · 자동 저장 ${docs.filter((d) => d.approved_by === 'auto' || d.approved_by === 'gold').length}건`}</p>
             </div>
             {selJob.status === 'processing' && <div className="alert alert-info small">개인정보를 찾는 중이에요…</div>}
             {firstPending && (
@@ -142,7 +143,12 @@ export default function IngestPage() {
                 <div key={d.id} className="doc-row" onClick={() => nav(`/ingest/docs/${d.id}`)}>
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <p style={{ fontWeight: 500 }}>{d.ext_id ?? `#${d.seq}`} <span className="small muted">{d.doc_type ?? ''}</span></p>
-                    <p className="small muted">탐지 {d.n_detected}개{d.approved_by === 'gold' ? ' · 정답과 같아 자동 저장' : ''}</p>
+                    <p className="small muted">
+                      탐지 {d.n_detected}개
+                      {d.approved_by && APPROVED_BY_KO[d.approved_by] ? ` · ${APPROVED_BY_KO[d.approved_by]}` : ''}
+                      {d.status === 'pending' && d.n_flags ? ` · 확인할 곳 ${d.n_flags}개` : ''}
+                      {d.status === 'pending' && d.n_hints ? ` · 놓쳤을 수 있는 곳 ${d.n_hints}개` : ''}
+                    </p>
                   </div>
                   <span className={`badge ${DOC_STATUS[d.status]?.cls ?? 'badge-gray'}`}>{DOC_STATUS[d.status]?.n ?? d.status}</span>
                 </div>
