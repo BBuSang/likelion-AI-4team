@@ -1,0 +1,25 @@
+# PostgreSQL + pgvector. 계정 값은 파일에 쓰지 않고 pipeline/db_up.py가 .env의 RAG_DSN에서 읽어 넘긴다.
+# 직접 실행하지 말고 python pipeline/db_up.py 로 띄운다.
+services:
+  db:
+    image: pgvector/pgvector:pg17
+    container_name: interp-rag-db
+    restart: unless-stopped
+    shm_size: 1g                # 벡터 색인을 병렬로 만들 때 필요 (Docker 기본값 64MB)
+    environment:
+      POSTGRES_USER: ${RAG_DB_USER:?db_up.py로 실행하세요}
+      POSTGRES_PASSWORD: ${RAG_DB_PASSWORD:?db_up.py로 실행하세요}
+      POSTGRES_DB: ${RAG_DB_NAME:?db_up.py로 실행하세요}
+    ports:
+      - "127.0.0.1:${RAG_DB_PORT:?db_up.py로 실행하세요}:5432"   # 내 컴퓨터에서만 접속
+    volumes:
+      - interp_rag_pgdata:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  interp_rag_pgdata:
