@@ -24,8 +24,8 @@ import java.util.List;
 
 /**
  * 이전 프로젝트 SecurityConfig 에서 가져옴.
- * 바뀐 점: /api/auth/** 전체 허용 → 로그인·회원가입·이메일 확인만 허용 (/me, /refresh 는 로그인 필요),
- * 로그인 안 된 요청은 401, CORS 주소는 설정 파일에서.
+ * 공개: 로그인·회원가입·이메일 확인·가입 선택칸(options). 나머지는 로그인(ACTIVE 계정) 필요,
+ * /api/admin/** 는 관리자만. 로그인 안 됨 401, 권한 없음 403, CORS 주소는 설정 파일에서.
  */
 @Configuration
 @EnableWebSecurity
@@ -44,9 +44,12 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers("/error").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/auth/signup", "/api/auth/login", "/api/auth/check-email").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/auth/options").permitAll()
+                        .requestMatchers("/api/admin/**", "/api/ingest/**").hasRole("ADMIN")
                         .anyRequest().authenticated())
-                .exceptionHandling(e -> e.authenticationEntryPoint(
-                        (req, res, ex) -> res.sendError(HttpServletResponse.SC_UNAUTHORIZED)))
+                .exceptionHandling(e -> e
+                        .authenticationEntryPoint((req, res, ex) -> res.sendError(HttpServletResponse.SC_UNAUTHORIZED))
+                        .accessDeniedHandler((req, res, ex) -> res.sendError(HttpServletResponse.SC_FORBIDDEN)))
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }

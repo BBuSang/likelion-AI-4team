@@ -1,6 +1,14 @@
 package com.saebom.backend.service;
 
+import com.saebom.backend.dto.AuthDtos.Option;
+import com.saebom.backend.dto.AuthDtos.OptionsResponse;
+import com.saebom.backend.entity.Position;
+import com.saebom.backend.entity.Team;
 import com.saebom.backend.entity.User;
+import com.saebom.backend.entity.UserStatus;
+import com.saebom.backend.exception.ApiException;
+import com.saebom.backend.repository.PositionRepository;
+import com.saebom.backend.repository.TeamRepository;
 import com.saebom.backend.repository.UserRepository;
 import com.saebom.backend.security.UD;
 import lombok.RequiredArgsConstructor;
@@ -13,16 +21,23 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Locale;
 
-/** 이전 프로젝트 UserService 의 로그인·회원가입 부분. 프로필 수정·비밀번호 변경은 나중에 가져옴. */
+/** 로그인·회원가입. 가입하면 PENDING → 관리자가 승인해야 로그인 가능 (worklog 11-4) */
 @Service
 @RequiredArgsConstructor
 public class UserService implements UserDetailsService {
 
     private final UserRepository userRepository;
+    private final TeamRepository teamRepository;
+    private final PositionRepository positionRepository;
     private final PasswordEncoder passwordEncoder;
 
     public static String normalizeEmail(String email) {
         return email == null ? null : email.trim().toLowerCase(Locale.ROOT);
+    }
+
+    /** 이름은 띄어쓰기 없이 (AI 서버 직원 이름과 같은 모양) */
+    public static String normalizeName(String name) {
+        return name == null ? null : name.replaceAll("\\s+", "");
     }
 
     @Override
@@ -36,29 +51,48 @@ public class UserService implements UserDetailsService {
         return userRepository.existsByEmail(normalizeEmail(email));
     }
 
+    /** 가입 화면 선택칸: 쓰는 팀 + 직급 */
+    @Transactional(readOnly = true)
+    public OptionsResponse options() {
+        return new OptionsResponse(
+                teamRepository.findByActiveTrueOrderByNameAsc().stream().map(t -> new Option(t.getId(), t.getName())).toList(),
+                positionRepository.findAllByOrderBySortOrderAsc().stream().map(p -> new Option(p.getId(), p.getName())).toList());
+    }
+
     @Transactional
-    public User registerUser(String email, String password, String name) {
+    public User registerUser(String email, String password, String name, Long teamId, Long positionId) {
         String normalized = normalizeEmail(email);
         if (userRepository.existsByEmail(normalized)) {
-            throw new DuplicateEmailException();
+            throw ApiException.conflict("이미 존재하는 이메일입니다.");
         }
+        Team team = teamRepository.findById(teamId).filter(Team::isActive)
+                .orElseThrow(() -> ApiException.badRequest("팀을 목록에서 골라 주세요."));
+        Position position = positionRepository.findById(positionId)
+                .orElseThrow(() -> ApiException.badRequest("직급을 목록에서 골라 주세요."));
+        String cleanName = normalizeName(name);
+        if (cleanName.isEmpty()) throw ApiException.badRequest("이름을 입력해 주세요.");
         User user = User.builder()
                 .email(normalized)
                 .pw(passwordEncoder.encode(password))
-                .name(name.trim())
-                .role("USER") // 가입자는 항상 USER. 직책·권한은 관리자가 부여 (다음 단계)
+                .name(cleanName)
+                .team(team)
+                .position(position)
+                .role(position.getDefaultRole()) // 승인 전엔 로그인이 안 돼서 쓰이지 않음. 승인 때 관리자가 확정
+                .status(UserStatus.PENDING)
                 .build();
         return userRepository.save(user);
+    }
+
+    @Transactional
+    public void changePassword(Long userId, String current, String next) {
+        User u = userRepository.findById(userId).orElseThrow(() -> ApiException.notFound("사용자 없음"));
+        if (!passwordEncoder.matches(current, u.getPw())) throw ApiException.badRequest("현재 비밀번호가 맞지 않아요.");
+        if (current.equals(next)) throw ApiException.badRequest("지금과 다른 비밀번호를 입력해 주세요.");
+        u.setPw(passwordEncoder.encode(next));
     }
 
     public User findByEmail(String email) {
         return userRepository.findByEmail(normalizeEmail(email))
                 .orElseThrow(() -> new UsernameNotFoundException("사용자 없음"));
-    }
-
-    public static class DuplicateEmailException extends RuntimeException {
-        public DuplicateEmailException() {
-            super("이미 존재하는 이메일입니다.");
-        }
     }
 }

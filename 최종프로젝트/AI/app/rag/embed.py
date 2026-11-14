@@ -1,10 +1,14 @@
-"""임베딩. OpenAI 호환 /embeddings API(받은 결과는 outputs/embed_cache_*.jsonl 에 캐시) 또는 테스트용 로컬 해시 임베딩.
+"""임베딩. 세 가지 (config.EMBED_PROVIDER)
+  api    OpenAI 호환 /embeddings API (CLOVA Studio bge-m3). 받은 결과는 outputs/embed_cache_<모델>.jsonl 에 캐시
+  hf     내 컴퓨터·서버에서 직접 돌리는 모델 (sentence-transformers, 예: nlpai-lab/KURE-v1). 외부로 아무것도 안 나감. 같은 캐시 사용
+  local  테스트용 문자 n-gram 해시 (검색 품질 낮음)
 
 주의: 이 함수에는 반드시 가명처리된(마스킹된) 텍스트만 넣어야 합니다.
 """
 import hashlib
 import json
 import re
+import threading
 import time
 
 import numpy as np
@@ -108,6 +112,46 @@ def _post(inp, retries=_RETRIES):
     return r
 
 
+_hf_model = None
+_hf_lock = threading.Lock()  # 서버 시작 때 미리 읽기와 첫 질문이 겹쳐도 모델을 한 번만 읽게
+
+
+def _hf_load():
+    global _hf_model
+    with _hf_lock:
+        if _hf_model is None:
+            from sentence_transformers import SentenceTransformer
+            _hf_model = SentenceTransformer(config.EMBED_MODEL, device=config.EMBED_DEVICE)
+    return _hf_model
+
+
+def warmup():
+    """서버 시작 때 로컬 모델을 미리 읽음 (안 하면 첫 질문이 수십 초). api·local 이면 할 일 없음"""
+    if config.EMBED_PROVIDER == "hf":
+        _hf_load().encode(["준비"], normalize_embeddings=True)
+        _load_cache()
+
+
+def _hf(texts):
+    """로컬 모델 (worklog 17장). 기본 BAAI/bge-m3 — CLOVA 의 bge-m3 와 같은 벡터 (17-2). KURE-v1 도 같은 1024차원.
+    모델은 처음 쓸 때 읽음 (CPU 에서 수십 초, 서버는 시작 때 warmup). 정규화한 벡터 → pgvector 코사인 거리와 맞음"""
+    cache = _load_cache()
+    todo = list(dict.fromkeys(t for t in texts if _cache_key(t) not in cache))
+    if todo:
+        vecs = _hf_load().encode(todo, batch_size=config.EMBED_BATCH, normalize_embeddings=True,
+                                convert_to_numpy=True, show_progress_bar=len(todo) > 50)
+        for t, v in zip(todo, vecs):
+            _save_cache(t, v.astype(np.float32))
+    out = [cache[_cache_key(t)] for t in texts]
+    if out and len(out[0]) != config.EMBED_DIM:
+        raise RuntimeError(f"임베딩 차원 {len(out[0])} 이 EMBED_DIM={config.EMBED_DIM} 과 다릅니다.")
+    return out
+
+
 def embed(texts, retries=_RETRIES):
-    """retries: 대화형(질의 1건)에서는 적게 줘서 오래 멈추지 않게 한다."""
-    return _api(texts, retries) if config.EMBED_PROVIDER == "api" else _local(texts)
+    """retries: 대화형(질의 1건)에서는 적게 줘서 오래 멈추지 않게 한다 (api 만)."""
+    if config.EMBED_PROVIDER == "api":
+        return _api(texts, retries)
+    if config.EMBED_PROVIDER == "hf":
+        return _hf(texts)
+    return _local(texts)

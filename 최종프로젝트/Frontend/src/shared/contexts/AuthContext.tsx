@@ -66,7 +66,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const login = async (body: LoginRequest): Promise<StoredUser> => {
     const res = await authApi.login(body);
     const remember = body.rememberMe ?? false;
-    const u: StoredUser = { email: res.email, name: res.name, role: res.role };
+    const { email, name, team, position, role, admin } = res.user;
+    const u: StoredUser = { email, name, team, position, role, admin };
     setToken(res.token, remember);
     setUserInfo(u, remember);
     setUser(u);

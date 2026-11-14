@@ -19,6 +19,9 @@ kiwipiepy==0.24.1
 transformers==4.57.1
 torch==2.9.0
 
+# 로컬 임베딩 (EMBED_PROVIDER=hf, BAAI/bge-m3)
+sentence-transformers==5.1.2
+
 # 테스트
 pytest==7.4.3
 httpx==0.28.1

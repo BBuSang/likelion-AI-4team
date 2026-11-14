@@ -1,14 +1,15 @@
 // ============================================
 // Axios 인스턴스 (참고 레포 axios.ts 기반)
 // - 만료 5분 전이면 요청 전에 토큰 갱신
-// - 401 이면 토큰 지우고 /auth 로. 단, 로그인 실패(401)는 화면에서 처리하도록 제외
+// - 401 이면 토큰 지우고 /login 으로. 단, 로그인 실패(401)는 화면에서 처리하도록 제외
 // ============================================
 
 import axios, { AxiosError } from 'axios';
 import type { InternalAxiosRequestConfig } from 'axios';
 import { getToken, setToken, getTokenExpiration, isRememberMe, removeToken } from '@/shared/utils/tokenManager';
 
-export const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080';
+// 빈 값 = 같은 주소(/api → Vite 프록시 → 스프링). 배포 때는 백엔드 주소를 넣음
+export const BASE_URL = import.meta.env.VITE_API_BASE_URL ?? '';
 
 const apiClient = axios.create({
   baseURL: BASE_URL,
@@ -60,7 +61,7 @@ apiClient.interceptors.response.use(
     const url = error.config?.url ?? '';
     if (error.response?.status === 401 && !NO_AUTH_REDIRECT.some((p) => url.includes(p))) {
       removeToken();
-      if (window.location.pathname !== '/auth') window.location.href = '/auth';
+      if (window.location.pathname !== '/login') window.location.href = '/login';
     }
     return Promise.reject(error);
   },

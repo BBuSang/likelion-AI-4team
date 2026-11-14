@@ -28,8 +28,9 @@ import re
 
 import requests
 
-from app.core import config, db
+from app.core import access, config, db
 from app.pii import pii_pipeline
+from . import status as st
 from .embed import embed
 
 SEMANTIC_POOL = 50   # 의미 검색 후보 청크 수
@@ -312,6 +313,16 @@ def _group_score(g, tokens):
     return best
 
 
+def _status_for(text, q_tokens):
+    """문서의 처리 상태. 질의의 사람·값 토큰이 있는 줄에 상태가 있으면 그 줄 것 (표 한 줄 = 한 사람, VOC 목록 등),
+    없으면 문서 전체의 상태 (worklog 19장)"""
+    if q_tokens:
+        mine = {s for line, s in st.line_statuses(text) if any(t in line for t in q_tokens)}
+        if len(mine) == 1:
+            return mine.pop()
+    return st.doc_status(text)
+
+
 def _reasons(groups, tokens):
     """검색이 이 문서를 고른 근거 (LLM 에 함께 전달). 주소가 통째로 <ADDRESS_…> 로 가려져 있어도
     '질문의 지역과 같은 지역의 주소가 있다'는 걸 알려 주려는 것. 질문에 있던 내용만 쓰므로 새 개인정보는 없음."""
@@ -330,9 +341,12 @@ def _reasons(groups, tokens):
     return out
 
 
-def search(query, k=10, conn=None, mode="hybrid", embed_retries=None, rerank=None):
-    """embed_retries: 대화형에서 임베딩 API 재시도 횟수를 줄일 때. 임베딩이 끝내 실패하면(속도 제한 등)
+def search(query, k=10, conn=None, mode="hybrid", embed_retries=None, rerank=None, user=access.SYSTEM):
+    """user: 검색하는 사람 {emp_id, team, role}. 권한 밖 문서는 SQL 에서 먼저 거른다 (worklog 11장, 안내문 "검색 전에").
+    기본값 SYSTEM(전부)은 평가 스크립트용 — 서버 API 는 항상 실제 사용자를 넘긴다.
+    embed_retries: 대화형에서 임베딩 API 재시도 횟수를 줄일 때. 임베딩이 끝내 실패하면(속도 제한 등)
     토큰 조건만으로 찾고, 결과 문서마다 "fallback": True 를 붙인다 (의미 유사도 0)."""
+    acl, acl_params = access.sql(user)  # 역할을 모르면 여기서 AccessError (검색 안 함)
     masked_q, records = mask_query(query, conn)
     q_tokens = sorted({r["token"] for r in records})
     try:
@@ -357,30 +371,40 @@ def search(query, k=10, conn=None, mode="hybrid", embed_retries=None, rerank=Non
                                  | set(g.get("parts", []))})
             if vec is None:  # 의미 검색 없이 토큰 조건(+문서 종류)만
                 cur.execute("SELECT doc_id, chunk_id, masked_text, tokens, doc_type, 0.0 AS sim FROM rag.chunks "
-                            "WHERE tokens && %s::text[] OR doc_type = ANY(%s)", (any_tokens, types))
+                            f"WHERE (tokens && %(t)s::text[] OR doc_type = ANY(%(d)s)) AND {acl}",
+                            {"t": any_tokens, "d": types, **acl_params})
             else:
-                cur.execute("""
+                # 권한 조건은 의미 검색 상위 N 안쪽에도 — 밖에서 거르면 권한 밖 문서가 후보 자리를 먹음
+                # HNSW 색인 + WHERE 는 후보가 N 개보다 적게 나올 수 있어 끝까지 더 찾게 함 (pgvector 0.8+, 이 트랜잭션만)
+                if acl != "TRUE":
+                    cur.execute("SET LOCAL hnsw.iterative_scan = relaxed_order")
+                cur.execute(f"""
                     SELECT doc_id, chunk_id, masked_text, tokens, doc_type, 1 - (embedding <=> %(v)s) AS sim
-                    FROM rag.chunks WHERE tokens && %(t)s::text[] OR doc_type = ANY(%(d)s)
+                    FROM rag.chunks WHERE (tokens && %(t)s::text[] OR doc_type = ANY(%(d)s)) AND {acl}
                     UNION
                     (SELECT doc_id, chunk_id, masked_text, tokens, doc_type, 1 - (embedding <=> %(v)s) AS sim
-                     FROM rag.chunks ORDER BY embedding <=> %(v)s LIMIT %(n)s)""",
-                            {"v": vec, "t": any_tokens, "d": types, "n": max(SEMANTIC_POOL, k * 3)})
+                     FROM rag.chunks WHERE {acl} ORDER BY embedding <=> %(v)s LIMIT %(n)s)""",
+                            {"v": vec, "t": any_tokens, "d": types, "n": max(SEMANTIC_POOL, k * 3), **acl_params})
             hits = cur.fetchall()
     finally:
         if own:
             conn.close()
+    q_status = st.query_status(query) if mode == "hybrid" and config.STATUS_BONUS else None
     best = {}
     for doc_id, chunk_id, text, tokens, doc_type, sim in hits:
         tok = set(tokens)
         t_score = sum(_group_score(g, tok) for g in groups) / len(groups) if groups else 0.0
         type_hit = doc_type in types
-        score = t_score + float(sim) + (DOC_TYPE_BONUS if type_hit else 0.0)
+        d_status = _status_for(text, set(q_tokens) | set(any_tokens)) if q_status else None  # 글에 보이는 토큰 + 이름 토큰
+        status_hit = d_status in q_status if d_status and q_status else False
+        score = t_score + float(sim) + (DOC_TYPE_BONUS if type_hit else 0.0) + (config.STATUS_BONUS if status_hit else 0.0)
         if doc_id not in best or score > best[doc_id]["score"]:  # 문서별 가장 좋은 청크 하나
-            reasons = _reasons(groups, tok) + ([f"질문이 가리키는 문서 종류({doc_type})"] if type_hit else [])
+            reasons = (_reasons(groups, tok) + ([f"질문이 가리키는 문서 종류({doc_type})"] if type_hit else [])
+                       + ([f"질문이 가리키는 처리 상태({d_status})"] if status_hit else []))
             best[doc_id] = {"doc_id": doc_id, "chunk_id": chunk_id, "masked_text": text, "tokens": tokens,
                             "doc_type": doc_type, "score": score, "token_score": t_score, "sim": float(sim),
-                            "type_hit": type_hit, "fallback": vec is None, "reasons": reasons}
+                            "type_hit": type_hit, "status": d_status, "status_hit": status_hit,
+                            "fallback": vec is None, "reasons": reasons}
     ranked = sorted(best.values(), key=lambda d: -d["score"])
     if (config.RERANK if rerank is None else rerank) and mode == "hybrid":
         ranked = _rerank(masked_q, ranked)
@@ -410,7 +434,7 @@ def _rerank(masked_q, ranked):
         r = requests.post(
             config.LLM_API_BASE.rstrip("/") + "/chat/completions",
             headers={"Authorization": f"Bearer {config.LLM_API_KEY}"},
-            json={"model": config.RERANK_MODEL, "temperature": 0, "max_tokens": 120,
+            json={"model": config.RERANK_MODEL, **config.sampling_params(config.RERANK_MODEL, 120),
                   "messages": [{"role": "system", "content":
                                 "질문에 가장 잘 맞는 문서부터 순서대로 문서 ID 만 쉼표로 나열하세요. 설명은 쓰지 마세요."},
                                {"role": "user", "content": f"[질문]\n{masked_q}\n\n[문서]\n{listing}"}]},
@@ -452,14 +476,15 @@ def _link_people(masked_q, hints, docs):
     LLM 이 '질문한 사람이 문서에 없다'고 답하지 않도록, 검색된 문서에 실제로 나온 같은 이름의 사람 토큰을 알려준다.
     한 사람으로 골랐으면 질의 토큰을 그 사람 토큰으로 바꾸고, 여럿이면 후보와 역할을 덧붙인다 (토큰·역할만, 실명 없음)."""
     in_docs = {t for d in docs for t in d["tokens"]}
+    swap = {}  # 질의 토큰 → 문서 속 사람 토큰. 검색 근거 문장에도 같이 적용 (25장: 근거에 옛 토큰이 남아 LLM 이 '없다'고 답함)
     for h in hints:
         cands = [c for c in h["candidates"] if c[0] in in_docs]
         chosen = [t for t in h["chosen"] if t in in_docs]
         unresolved = [c for c in cands if c[2] != "resolved"]
         if len(chosen) == 1 and not unresolved:
-            masked_q = masked_q.replace(h["query_token"], chosen[0])
+            swap[h["query_token"]] = chosen[0]
         elif len(cands) == 1:
-            masked_q = masked_q.replace(h["query_token"], cands[0][0])
+            swap[h["query_token"]] = cands[0][0]
         elif cands:
             # 고른 사람이 있어도 같은 이름의 미확정 토큰이 문서에 있으면(같은 사람일 수 있음) 바꾸지 않고 후보로 알림
             if chosen:
@@ -468,6 +493,11 @@ def _link_people(masked_q, hints, docs):
                                for t, role, status in cands)
             masked_q += f"\n(참고: 질문 속 {h['query_token']} 와 이름이 같은 사람이 문서에서는 {listed} 로 표기됨. " \
                         f"질문의 단서(고객/직원 등)에 맞는 사람만 골라 답할 것)"
+    for old, new in swap.items():
+        masked_q = masked_q.replace(old, new)
+        for d in docs:
+            if d.get("reasons"):
+                d["reasons"] = [r.replace(old, new) for r in d["reasons"]]
     return masked_q
 
 

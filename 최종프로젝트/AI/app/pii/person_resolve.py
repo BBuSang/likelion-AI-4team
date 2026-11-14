@@ -13,6 +13,9 @@ pseudonymize() 는 person_key 가 있으면 HMAC("person|이름|key") 로 사람
   2. 이름별로 닻·소속을 공유하는 언급끼리 묶는다 (Union-Find)
   3. 역할이 같고 닻·소속이 서로 어긋나지 않는 묶음은 합친다 (같은 고객이 문서마다 전화/이메일을 따로 남긴 경우)
   4. 단서 없는 언급: 같은 문서의 같은 이름 → 역할이 맞는 묶음이 하나 → 묶음이 하나뿐 → 아니면 미확정
+     · 35장: 붙일 묶음을 고를 때 직급(이름 바로 뒤 '대리'·'과장')이 다른 묶음, 문서의 고객 번호(카드·계좌·주민번호)가
+       묶음의 같은 종류 번호와 모두 다른 묶음은 뺀다. 번호 때문에 빠진 고객은 그 번호를 단서로 새 사람(doc_id_new)
+     · 직급이 다르다고 묶음끼리 합치는 걸 막지는 않음 — 같은 사람을 문서마다 다른 직급으로 부르는 경우가 있음(synth2 20명)
      · 미확정은 이름 기준 토큰(지금까지 방식)으로 둔다. 잘못 합치는 것이 쪼개지는 것보다 위험하므로 억지로 붙이지 않는다.
 한 문서에 같은 이름의 다른 사람이 함께 나올 수 있으므로(예: 내부 점검자 이서연 + 수탁사 담당자 이서연)
 '한 문서 안 같은 이름 = 같은 사람' 가정은 단서 없는 언급에만 쓴다.
@@ -129,12 +132,24 @@ def _aff_kind(after, aff):
     return "suffix" if _ORG_SUFFIX.search(aff) else "prefix"
 
 
+# 직급(35장): 이름 바로 뒤 직급 ('김민준 대리', '김민준대리님'). 같은 이름의 직원끼리 가르는 단서.
+# 상담원·심사역처럼 직무 이름은 직급이 아니라서 뺌. 본부장·센터장·대표·이사는 드물어 같이 둠
+_RANK = ("본부장", "센터장", "팀장", "실장", "부장", "차장", "과장", "대리", "주임", "사원", "매니저", "책임", "선임", "수석", "이사",
+         "대표", "계장")
+_RANK_RE = re.compile(r"\s?(" + "|".join(_RANK) + r")(?![가-힣]{2})")
+
+
+def _rank(after):
+    m = _RANK_RE.match(after)
+    return m.group(1) if m else None
+
+
 def mention_features(text, spans, i):
     s, e = spans[i]["start"], spans[i]["end"]
     ls, le = _line_bounds(text, s, e)
     before, after = text[ls:s], text[e:le]
     aff = _affiliation(before, after)
-    return {"anchors": _anchors(text, e, spans, i), "aff": aff, "role": _role(before, after, aff),
+    return {"anchors": _anchors(text, e, spans, i), "aff": aff, "role": _role(before, after, aff), "rank": _rank(after),
             "_aff_kind": _aff_kind(after, aff) if aff else None, "_ctx": (before, after)}
 
 
@@ -208,7 +223,7 @@ def resolve(docs, spans_by_doc):
 
     def cluster_info():
         info = collections.defaultdict(lambda: {"roles": collections.Counter(), "anchors": collections.defaultdict(set),
-                                                "affs": set(), "name": None})
+                                                "affs": set(), "ranks": set(), "name": None})
         for _, s in mentions:
             if s["_nodes"]:
                 c = info[uf.find(s["_nodes"][0])]
@@ -219,6 +234,8 @@ def resolve(docs, spans_by_doc):
                     c["anchors"][lab].add(v)
                 if s["aff"]:
                     c["affs"].add(s["aff"])
+                if s.get("rank"):
+                    c["ranks"].add(s["rank"])
         for c in info.values():
             c["role"] = c["roles"].most_common(1)[0][0] if c["roles"] else None
         return info
@@ -261,8 +278,34 @@ def resolve(docs, spans_by_doc):
             if s2["label"] in ANCHOR_LABELS:
                 doc_ids[doc_id].add((s2["label"], normalize(s2["label"], texts[doc_id][s2["start"]:s2["end"]])))
 
-    def role_ok(role, root):
-        return not role or info[root]["role"] in (role, None)
+    # 35장: 고객 본인 것인 경우가 대부분인 번호(카드·계좌·주민번호). 문서에 있는 값이 묶음의 같은 종류 값과 모두 다르면 다른 고객
+    OWN_IDS = ("card_number", "account_number", "resident_registration_number")
+
+    def ids_conflict(doc_id, root):
+        for lab in OWN_IDS:
+            mine = {v for l2, v in doc_ids[doc_id] if l2 == lab}
+            theirs = info[root]["anchors"].get(lab, set())
+            if mine and theirs and not mine & theirs:
+                return True
+        return False
+
+    def own_id(doc_id):
+        """문서에 한 값만 있는 고객 번호 → 단서 키 (묶음 키와 같은 모양 'a:종류:값')"""
+        for lab in OWN_IDS:
+            vals = sorted(v for l2, v in doc_ids[doc_id] if l2 == lab)
+            if len(vals) == 1:
+                return f"a:{lab}:{vals[0]}"
+        return None
+
+    def role_ok(role, root, rank=None, doc_id=None):
+        """35장: 단서 없는 언급을 붙일 묶음인가 — 역할, 직급(아는 경우), 고객 번호 충돌"""
+        if role and info[root]["role"] not in (role, None):
+            return False
+        if rank and info[root]["ranks"] and rank not in info[root]["ranks"]:
+            return False  # 직급을 아는 언급은 직급이 다른 묶음에 안 붙임 ('김민준 과장' → '김민준 대리' 묶음 X)
+        if doc_id and role == "customer" and ids_conflict(doc_id, root):
+            return False
+        return True
 
     # 16장에서 '닻 없는 이름을 역할로 나누기'를 시험했으나 역할 판단 오류로 쪼개짐이 더 늘어 넣지 않음 (synth2 +6, test +1)
     for doc_id, s in mentions:
@@ -271,21 +314,30 @@ def resolve(docs, spans_by_doc):
         name, roots = s["normalized"], clusters.get(s["normalized"], [])
         root_of = {r.split("|", 1)[1]: r for r in roots}
         # 같은 문서의 같은 이름이라도 역할이 어긋나면(내부 점검자 ↔ 수탁사 담당자) 같은 사람으로 보지 않음
+        rank = s.get("rank")
         same_doc = {x["person_key"] for d2, x in mentions
                     if d2 == doc_id and x["normalized"] == name and x.get("person_key") in root_of
-                    and role_ok(s["role"], root_of[x["person_key"]])}
-        doc_anchor = [r for r in roots if role_ok(s["role"], r)
+                    and role_ok(s["role"], root_of[x["person_key"]], rank)}
+        doc_anchor = [r for r in roots if role_ok(s["role"], r, rank)
                       and any((lab, v) in doc_ids[doc_id] for lab, vs in info[r]["anchors"].items() for v in vs)]
-        # 역할을 아는 언급은 역할이 같거나 역할을 모르는 묶음과만 맞춤
-        role_match = [r for r in roots if s["role"] and info[r]["role"] in (s["role"], None)]
+        # 역할을 아는 언급은 역할이 같거나 역할을 모르는 묶음과만 맞춤 (직급을 알면 직급도, 35장)
+        role_match = [r for r in roots if s["role"] and role_ok(s["role"], r, rank, doc_id)]
+        loose = [r for r in roots if s["role"] and info[r]["role"] in (s["role"], None)]  # 35장 규칙 전 기준
         if len(same_doc) == 1:
             s["person_key"], s["basis"] = same_doc.pop(), "same_doc"
         elif len(doc_anchor) == 1 and len(roots) > 1:
             s["person_key"], s["basis"] = doc_anchor[0].split("|", 1)[1], "doc_anchor"
         elif len(role_match) == 1:
             s["person_key"], s["basis"] = role_match[0].split("|", 1)[1], "role"
+        elif loose and not role_match and s["role"] == "customer" and own_id(doc_id):
+            # 35장: 번호가 달라 기존 고객이 아님 → 이 문서의 고객 번호를 단서로 (다른 문서의 같은 번호·이름과 이어짐)
+            s["person_key"], s["basis"] = own_id(doc_id), "doc_id_new"
+        elif loose and not role_match and s["role"] == "staff":
+            # 35장: 직급이 다른 같은 이름 직원 → 직급이 있으면 '이름+직급' 한 사람, 없으면 미확정
+            s["person_key"], s["basis"] = (f"r:staff:{rank}", "role_new") if rank else (None, "unresolved")
         elif s["role"] and roots and not role_match:
-            s["person_key"], s["basis"] = f"r:{s['role']}", "role_new"  # 역할이 다른 같은 이름 → 새 사람
+            # 역할(·직급)이 다른 같은 이름 → 새 사람. 직급까지 넣어 '대리 김민준'과 '과장 김민준'을 나눔 (35장)
+            s["person_key"], s["basis"] = f"r:{s['role']}" + (f":{rank}" if rank else ""), "role_new"
         elif len(roots) == 1 and not s["role"]:
             s["person_key"], s["basis"] = roots[0].split("|", 1)[1], "unique"
         else:
