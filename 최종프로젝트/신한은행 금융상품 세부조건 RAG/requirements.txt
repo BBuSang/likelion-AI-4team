@@ -1,0 +1,6 @@
+kiwipiepy
+openai
+pydantic
+numpy
+sentence-transformers
+torch
