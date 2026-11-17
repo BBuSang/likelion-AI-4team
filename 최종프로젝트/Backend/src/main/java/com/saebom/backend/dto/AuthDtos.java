@@ -51,7 +51,17 @@ public final class AuthDtos {
     /** 가입 화면 선택칸 */
     public record Option(Long id, String name) {}
 
-    public record OptionsResponse(List<Option> teams, List<Option> positions) {}
+    /** emailVerification: 가입 전에 이메일 인증이 필요한지 (서버 설정 app.mail.verify-signup) */
+    public record OptionsResponse(List<Option> teams, List<Option> positions, boolean emailVerification) {}
+
+    public record EmailCodeRequest(@NotBlank @Email @Size(max = 100) String email) {}
+
+    public record EmailVerifyRequest(@NotBlank @Email @Size(max = 100) String email,
+                                     @NotBlank @Size(max = 10) String code) {}
+
+    /** 비밀번호 재설정: 이메일 인증을 마친 뒤 새 비밀번호 (worklog 42장) */
+    public record PasswordResetRequest(@NotBlank @Email @Size(max = 100) String email,
+                                       @NotBlank @Size(min = 8, max = 72) String password) {}
 
     public record ApiResponse(boolean success, String message) {}
 }

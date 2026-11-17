@@ -5,7 +5,9 @@ import com.saebom.backend.entity.User;
 import com.saebom.backend.entity.UserStatus;
 import com.saebom.backend.security.JwtUtil;
 import com.saebom.backend.security.UD;
+import com.saebom.backend.service.EmailVerificationService;
 import com.saebom.backend.service.UserService;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -28,6 +30,7 @@ public class AuthController {
     private final AuthenticationManager authenticationManager;
     private final UserService userService;
     private final JwtUtil jwtUtil;
+    private final EmailVerificationService emailVerification;
 
     @PostMapping("/check-email")
     public ResponseEntity<ApiResponse> checkEmail(@Valid @RequestBody EmailCheckRequest req) {
@@ -35,6 +38,38 @@ public class AuthController {
             return ResponseEntity.status(HttpStatus.CONFLICT).body(new ApiResponse(false, "이미 존재하는 이메일입니다."));
         }
         return ResponseEntity.ok(new ApiResponse(true, "사용 가능한 이메일입니다."));
+    }
+
+    /** 가입 이메일 인증 코드 보내기 (worklog 41장) */
+    @PostMapping("/email/send")
+    public ApiResponse sendEmailCode(@Valid @RequestBody EmailCodeRequest req, HttpServletRequest http) {
+        emailVerification.sendSignupCode(req.email(), http.getRemoteAddr());
+        return new ApiResponse(true, "인증 코드를 보냈어요. 메일함(스팸함 포함)을 확인해 주세요.");
+    }
+
+    @PostMapping("/email/verify")
+    public ApiResponse verifyEmailCode(@Valid @RequestBody EmailVerifyRequest req) {
+        emailVerification.verifySignupCode(req.email(), req.code());
+        return new ApiResponse(true, "이메일 인증을 마쳤어요.");
+    }
+
+    /** 비밀번호 재설정 코드 (worklog 42장). 가입되지 않은 주소여도 같은 응답 */
+    @PostMapping("/password/send")
+    public ApiResponse sendResetCode(@Valid @RequestBody EmailCodeRequest req, HttpServletRequest http) {
+        emailVerification.sendResetCode(req.email(), http.getRemoteAddr());
+        return new ApiResponse(true, "가입된 이메일이면 인증 코드를 보냈어요.");
+    }
+
+    @PostMapping("/password/verify")
+    public ApiResponse verifyResetCode(@Valid @RequestBody EmailVerifyRequest req) {
+        emailVerification.verifyResetCode(req.email(), req.code());
+        return new ApiResponse(true, "이메일 인증을 마쳤어요.");
+    }
+
+    @PostMapping("/password/reset")
+    public ApiResponse resetPassword(@Valid @RequestBody PasswordResetRequest req) {
+        userService.resetPassword(req.email(), req.password());
+        return new ApiResponse(true, "비밀번호를 바꿨어요. 새 비밀번호로 로그인해 주세요.");
     }
 
     /** 가입 화면 팀·직급 선택칸 (로그인 없이) */

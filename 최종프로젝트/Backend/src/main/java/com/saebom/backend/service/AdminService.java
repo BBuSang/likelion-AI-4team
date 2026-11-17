@@ -86,8 +86,12 @@ public class AdminService {
         } else {
             role = req.role() != null ? req.role() : defaultRole(u);
             // 안 A: 문서에 없는 사람 → AI 서버에 새 직원 번호. 실패하면 이 승인도 롤백 (AI 쪽엔 빈 직원이 남을 수 있음)
+            // 계정에 이미 쓰인 번호를 같이 보냄: 문서를 다시 적재하면 AI 쪽 U 직원이 지워져 번호가 겹쳤음 (worklog 44장)
             Employee e = ai.createEmployee(u.getName(), u.getTeam() == null ? null : u.getTeam().getName(),
-                    u.getPosition() == null ? null : u.getPosition().getName(), role.name());
+                    u.getPosition() == null ? null : u.getPosition().getName(), role.name(), users.findNewStyleEmpIds());
+            if (users.findByEmpId(e.empId()).filter(o -> !o.getId().equals(u.getId())).isPresent()) {
+                throw ApiException.conflict("새 직원 번호(" + e.empId() + ")가 다른 계정과 겹쳐요. AI 서버를 최신으로 다시 켠 뒤 시도해 주세요.");
+            }
             set(changes, "empId", u.getEmpId(), e.empId());
             changes.put("createdEmployee", new Object[]{null, e.empId()});
             u.setEmpId(e.empId());

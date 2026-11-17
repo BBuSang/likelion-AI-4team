@@ -43,7 +43,9 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers("/error").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/api/auth/signup", "/api/auth/login", "/api/auth/check-email").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/auth/signup", "/api/auth/login", "/api/auth/check-email",
+                                "/api/auth/email/send", "/api/auth/email/verify",
+                                "/api/auth/password/send", "/api/auth/password/verify", "/api/auth/password/reset").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/auth/options").permitAll()
                         .requestMatchers("/api/admin/**", "/api/ingest/**").hasRole("ADMIN")
                         .anyRequest().authenticated())

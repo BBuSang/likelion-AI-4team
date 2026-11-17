@@ -1,6 +1,6 @@
 """직원 목록 API (/internal/org/*). 스프링만 부름.
 이름이 나가는 API(match, employees, employees/{id}, POST employees)는 스프링이 관리자에게만 열어 줌."""
-from typing import Literal, Optional
+from typing import Annotated, Literal, Optional
 
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
@@ -20,6 +20,8 @@ class CreateRequest(BaseModel):
     team: Optional[str] = Field(default=None, max_length=50)
     position: Optional[str] = Field(default=None, max_length=30)
     role: Literal["STAFF", "LEAD", "AUDITOR"]
+    # 스프링 계정에 이미 연결된 직원 번호 — 새 번호가 이것들과 겹치지 않게 (worklog 44장)
+    taken: list[Annotated[str, Field(max_length=20)]] = Field(default_factory=list, max_length=5000)
 
 
 @router.get("/teams")
@@ -51,6 +53,6 @@ def employee(emp_id: str):
 @router.post("/employees", status_code=201)
 def create(req: CreateRequest):
     try:
-        return directory.create(req.name, req.team, req.position, req.role)
+        return directory.create(req.name, req.team, req.position, req.role, req.taken)
     except directory.OrgError as e:
         raise HTTPException(400, str(e))

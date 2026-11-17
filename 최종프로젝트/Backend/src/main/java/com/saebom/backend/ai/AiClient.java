@@ -88,12 +88,14 @@ public class AiClient {
         }
     }
 
-    public Employee createEmployee(String name, String team, String position, String role) {
+    /** taken: 계정에 이미 연결된 직원 번호 — AI 가 새 번호를 이것들과 겹치지 않게 고름 (worklog 44장) */
+    public Employee createEmployee(String name, String team, String position, String role, List<String> taken) {
         var body = new java.util.HashMap<String, Object>();
         body.put("name", name);
         body.put("team", team);
         body.put("position", position);
         body.put("role", role);
+        body.put("taken", taken == null ? List.of() : taken);
         return call(() -> http.post().uri("/internal/org/employees").contentType(MediaType.APPLICATION_JSON)
                 .body(body).retrieve().body(Employee.class));
     }
@@ -190,7 +192,7 @@ public class AiClient {
 
     private static class NotFound extends RuntimeException {}
 
-    private String detail(HttpClientErrorException e, String fallback) {
+    private String detail(org.springframework.web.client.HttpStatusCodeException e, String fallback) {
         try {
             var d = om.readTree(e.getResponseBodyAsString()).get("detail");
             if (d != null && d.isTextual()) return d.asText();
@@ -212,6 +214,9 @@ public class AiClient {
             if (e.getStatusCode() == HttpStatus.CONFLICT) throw ApiException.conflict(detail(e, "이미 처리되었습니다."));
             if (e.getStatusCode().value() == 422) throw ApiException.badRequest("요청 형식이 맞지 않습니다.");
             throw new ApiException(HttpStatus.BAD_GATEWAY, "AI 서버가 요청을 거절했습니다 (" + e.getStatusCode().value() + ")");
+        } catch (org.springframework.web.client.HttpServerErrorException e) {
+            // AI 서버까지는 닿았지만 처리 실패 (예: 502 "검색 또는 답변 생성에 실패했습니다") — 연결 문제로 보이지 않게 그 이유를 보여 줌
+            throw ApiException.badGateway(detail(e, "AI 서버가 요청을 처리하지 못했습니다") + " 잠시 후 다시 시도해 주세요.");
         } catch (RestClientException e) {
             throw ApiException.badGateway("AI 서버에 연결할 수 없습니다");
         }

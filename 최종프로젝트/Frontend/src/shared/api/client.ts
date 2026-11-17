@@ -17,7 +17,7 @@ const apiClient = axios.create({
   headers: { 'Content-Type': 'application/json' },
 });
 
-const NO_AUTH_REDIRECT = ['/api/auth/login', '/api/auth/signup', '/api/auth/check-email'];
+const NO_AUTH_REDIRECT = ['/api/auth/login', '/api/auth/signup', '/api/auth/check-email', '/api/auth/email/', '/api/auth/password/'];
 
 let refreshPromise: Promise<void> | null = null;
 

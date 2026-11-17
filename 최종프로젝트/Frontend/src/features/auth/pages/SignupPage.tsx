@@ -1,9 +1,11 @@
-// 가입 신청 3단계: ① 이메일·비밀번호 → ② 이름·팀·직급(선택칸) → ③ 승인 대기 안내
+// 가입 신청 3단계: ① 이메일(인증 코드)·비밀번호 → ② 이름·팀·직급(선택칸) → ③ 승인 대기 안내
 import { useEffect, useState } from 'react';
 import type { FormEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { CheckCircle2 } from 'lucide-react';
 import * as authApi from '../api/auth.api';
+import EmailCodeField from '../components/EmailCodeField';
+import AuthHero from '../components/AuthHero';
 import type { OptionsResponse } from '../types/auth.types';
 import { errMsg } from '@/shared/utils/error';
 import '@/shared/components/layout.css';
@@ -12,9 +14,11 @@ export default function SignupPage() {
   const [step, setStep] = useState(1);
   const [opts, setOpts] = useState<OptionsResponse>({ teams: [], positions: [] });
   const [f, setF] = useState({ email: '', password: '', password2: '', name: '', teamId: '', positionId: '' });
+  const [verified, setVerified] = useState(false);
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
   const set = (k: keyof typeof f) => (e: { target: { value: string } }) => { setF({ ...f, [k]: e.target.value }); setError(''); };
+  const needVerify = opts.emailVerification === true;
 
   useEffect(() => {
     authApi.getOptions().then(setOpts).catch((e) => setError(errMsg(e, '팀·직급 목록을 불러오지 못했어요.')));
@@ -23,11 +27,12 @@ export default function SignupPage() {
   const next = async (e: FormEvent) => {
     e.preventDefault();
     if (!/^\S+@\S+\.\S+$/.test(f.email)) return setError('이메일 형식을 확인해 주세요.');
+    if (needVerify && !verified) return setError('이메일 인증을 먼저 마쳐 주세요.');
     if (f.password.length < 8) return setError('비밀번호는 8자 이상이에요.');
     if (f.password !== f.password2) return setError('비밀번호가 서로 달라요.');
     setBusy(true);
     try {
-      if (!(await authApi.checkEmail(f.email))) return setError('이미 가입된 이메일이에요.');
+      if (!needVerify && !(await authApi.checkEmail(f.email))) return setError('이미 가입된 이메일이에요.');
       setStep(2);
     } catch (err) {
       setError(errMsg(err));
@@ -54,15 +59,21 @@ export default function SignupPage() {
 
   return (
     <div className="auth">
-      <div className="panel auth-single">
+      <div className="auth-split">
+        <AuthHero />
+        <div className="panel auth-card">
         <div className="steps">{[1, 2, 3].map((i) => <i key={i} className={i <= step ? 'on' : ''} />)}</div>
         {step === 1 && (
           <form onSubmit={next}>
             <h1>가입 신청</h1>
-            <p className="muted small" style={{ margin: '4px 0 18px' }}>로그인에 쓸 이메일과 비밀번호</p>
-            <label className="field"><span>이메일</span><input className="input" type="email" value={f.email} onChange={set('email')} placeholder="name@company.com" /></label>
+            <p className="muted small" style={{ margin: '4px 0 18px' }}>이메일과 비밀번호를 입력하세요.  {needVerify && ' (이메일 인증 필요)'}</p>
+            {needVerify
+              ? <EmailCodeField email={f.email} onEmailChange={(v) => setF({ ...f, email: v })}
+                                verified={verified} onVerified={setVerified} onError={setError}
+                                send={authApi.sendEmailCode} verify={authApi.verifyEmailCode} />
+              : <label className="field"><span>이메일</span><input className="input" type="email" value={f.email} onChange={set('email')} placeholder="이메일을 입력하세요" /></label>}
             <label className="field"><span>비밀번호</span><input className="input" type="password" value={f.password} onChange={set('password')} placeholder="8자 이상" autoComplete="new-password" /></label>
-            <label className="field"><span>비밀번호 확인</span><input className="input" type="password" value={f.password2} onChange={set('password2')} autoComplete="new-password" /></label>
+            <label className="field"><span>비밀번호 확인</span><input className="input" type="password" value={f.password2} onChange={set('password2')} autoComplete="new-password" placeholder="비밀번호를 다시 입력하세요"/></label>
             <button className="btn btn-primary btn-block" disabled={busy}>다음</button>
           </form>
         )}
@@ -100,6 +111,7 @@ export default function SignupPage() {
         )}
         {error && <div className="alert alert-bad" style={{ marginTop: 12 }}>{error}</div>}
         {step < 3 && <p className="small muted" style={{ marginTop: 16, textAlign: 'center' }}>이미 계정이 있나요? <Link to="/login">로그인</Link></p>}
+        </div>
       </div>
     </div>
   );

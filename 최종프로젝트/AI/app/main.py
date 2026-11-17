@@ -38,6 +38,12 @@ def _warm_embedder():
             logger.info("임베딩 모델 준비 완료 (%s/%s)", config.EMBED_PROVIDER, config.EMBED_MODEL)
         except Exception:
             logger.exception("임베딩 모델 미리 읽기 실패 — 첫 질문 때 다시 시도")
+        try:  # 탐지 모델도 미리 (첫 질문이 기다리지 않게). 모델 읽기는 한 번에 하나씩 (core/loading.py)
+            from app.pii import pii_pipeline
+            pii_pipeline.detect("준비")
+            logger.info("탐지 모델 준비 완료")
+        except Exception:
+            logger.exception("탐지 모델 미리 읽기 실패 — 첫 질문 때 다시 시도")
     threading.Thread(target=run, daemon=True).start()
 
 # 브라우저가 직접 부르지 않으므로 CORS 미들웨어는 넣지 않음 (스프링이 중계)

@@ -2,7 +2,8 @@
 // 대화 내역은 이 브라우저 탭(sessionStorage)에만, 가린 글만 저장. 실명은 저장하지 않음. 서버 저장은 다음 단계
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { FormEvent } from 'react';
-import { AlertTriangle, FileText, Files, MessageSquarePlus, Search, Send, ShieldCheck, Trash2 } from 'lucide-react';
+import { AlertTriangle, FileText, Files, MessageSquarePlus, PanelLeft, Search, Send, Trash2 } from 'lucide-react';
+import { LogoLarge } from '@/shared/components/Logo';
 import { useAuth } from '@/shared/contexts/AuthContext';
 import { errMsg } from '@/shared/utils/error';
 import * as chatApi from '../api/chat.api';
@@ -62,6 +63,18 @@ export default function ChatPage() {
   const [busy, setBusy] = useState(false);
   const [focusMsg, setFocusMsg] = useState<string | null>(null);
   const [focusDoc, setFocusDoc] = useState<string | null>(null);
+  // 대화 목록 접기·펼치기 (worklog 45장): 처음엔 넓은 창이면 펼침, 이후엔 마지막 선택을 기억
+  const [listOpen, setListOpen] = useState<boolean>(() => {
+    try {
+      const v = localStorage.getItem('saebom.chatListOpen');
+      if (v !== null) return v === '1';
+    } catch { /* 저장소를 못 쓰면 기본값 */ }
+    return window.innerWidth > 1100;
+  });
+  const toggleList = () => setListOpen((v) => {
+    try { localStorage.setItem('saebom.chatListOpen', v ? '0' : '1'); } catch { /* 무시 */ }
+    return !v;
+  });
   const endRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const sideRef = useRef<HTMLElement>(null);
@@ -130,7 +143,7 @@ export default function ChatPage() {
 
   return (
     <>
-      <aside className="panel side chat-list">
+      <aside className={`panel side chat-list${listOpen ? '' : ' collapsed'}`} aria-hidden={!listOpen}>
         <button className="btn btn-primary btn-block" onClick={newChat}><MessageSquarePlus size={16} aria-hidden /> 새 채팅</button>
         <label className="search">
           <Search size={14} aria-hidden />
@@ -152,6 +165,10 @@ export default function ChatPage() {
 
       <section className="panel chat-main">
         <header className="chat-head">
+          <button type="button" className="btn btn-sm list-toggle" onClick={toggleList} aria-expanded={listOpen}
+                  title={listOpen ? '대화 목록 접기' : '대화 목록 펼치기'}>
+            <PanelLeft size={15} aria-hidden /> 대화 목록
+          </button>
           <h2>{current?.title ?? '새 채팅'}</h2>
           <div className="spacer" />
           {user && <span className="badge badge-brand">{ROLE_NAME[user.role]} · {user.team ?? '팀 없음'}</span>}
@@ -160,7 +177,7 @@ export default function ChatPage() {
         <div className="chat-body">
           {!current?.msgs.length && (
             <div className="empty">
-              <ShieldCheck size={36} color="var(--brand)" aria-hidden />
+              <LogoLarge tone="blue" width={64} className="empty-logo" />
               <h2>무엇을 찾아 드릴까요?</h2>
               <p className="muted">답변 속 개인정보는 가려진 채로 보여요. 권한이 있는 문서만 실명으로 볼 수 있어요.</p>
               <div className="examples">

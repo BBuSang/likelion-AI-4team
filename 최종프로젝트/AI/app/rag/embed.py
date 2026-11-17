@@ -113,12 +113,15 @@ def _post(inp, retries=_RETRIES):
 
 
 _hf_model = None
-_hf_lock = threading.Lock()  # 서버 시작 때 미리 읽기와 첫 질문이 겹쳐도 모델을 한 번만 읽게
 
 
 def _hf_load():
+    """서버 시작 때 미리 읽기와 첫 질문이 겹쳐도 모델을 한 번만 읽게. 탐지 모델과 같은 잠금 (core/loading.py)"""
     global _hf_model
-    with _hf_lock:
+    if _hf_model is not None:
+        return _hf_model
+    from app.core.loading import MODEL_LOAD_LOCK
+    with MODEL_LOAD_LOCK:
         if _hf_model is None:
             from sentence_transformers import SentenceTransformer
             _hf_model = SentenceTransformer(config.EMBED_MODEL, device=config.EMBED_DEVICE)
