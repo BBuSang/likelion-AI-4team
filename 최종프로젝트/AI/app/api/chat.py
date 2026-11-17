@@ -90,4 +90,5 @@ def restore(req: RestoreRequest):
     except access.AccessError as e:
         raise HTTPException(403, str(e))
     return {"text": text, "restored": len(info["restored"]), "denied": info["denied"],
-            "unknown": info["unknown"], "docs": info["docs"]}
+            "unknown": info["unknown"], "docs": info["docs"],
+            "warnings": info.get("warnings", [])}  # 이 실명 보기가 걸린 이상 접근 규칙 (본인에게 알림, 39장)

@@ -123,11 +123,31 @@ public class AiClient {
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public record RestoreResult(String text, int restored, List<String> denied, List<String> unknown,
-                                List<String> docs) {}
+                                List<String> docs, List<AccessWarning> warnings) {}
+
+    /** 실명 보기 직후 본인에게 보여 줄 이상 접근 경고 (worklog 39장) */
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public record AccessWarning(String rule, @JsonAlias("rule_ko") String ruleKo, String severity, String detail) {}
 
     public AskResult ask(AccessUser user, String query, int k) {
         return call(() -> chatHttp.post().uri("/internal/chat/ask").contentType(MediaType.APPLICATION_JSON)
                 .body(Map.of("user", user, "query", query, "k", k)).retrieve().body(AskResult.class));
+    }
+
+    /** 백엔드에서 거절한 실명 보기 시도(사유 없음 등)를 AI 쪽 복원 기록에 남김 — 이상 접근 탐지용 (worklog 39장).
+     *  기록 실패는 무시 (거절 응답은 그대로) */
+    public void logRefused(AccessUser user, String actor, List<String> docIds, String reason) {
+        try {
+            var body = new java.util.HashMap<String, Object>();
+            body.put("user", user);
+            body.put("actor", actor);
+            body.put("doc_ids", docIds == null ? List.of() : docIds);
+            body.put("reason", reason);
+            http.post().uri("/internal/audit/refused").contentType(MediaType.APPLICATION_JSON)
+                    .body(body).retrieve().toBodilessEntity();
+        } catch (Exception ignored) {
+            // 기록만 실패
+        }
     }
 
     public RestoreResult restore(AccessUser user, String actor, String text, List<String> docIds, String purpose) {

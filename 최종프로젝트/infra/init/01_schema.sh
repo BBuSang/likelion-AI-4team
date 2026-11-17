@@ -133,8 +133,12 @@ CREATE TABLE vault.restore_log (
     role        TEXT,                            -- (최종) 복원한 사람 역할
     doc_ids     TEXT[] NOT NULL DEFAULT '{}',    -- (최종) 어느 문서의 토큰을 복원했나
     denied      TEXT[] NOT NULL DEFAULT '{}',    -- (최종) 권한이 없어 토큰으로 남긴 것
+    emp_id      TEXT,                            -- (최종 38장) 복원한 사람의 직원 번호·팀 (이상 접근 탐지용)
+    team        TEXT,
+    refused     TEXT,                            -- (최종 38장) 아예 거절된 시도의 이유 (예: no_purpose)
     created_at  TIMESTAMPTZ DEFAULT now()
 );
+CREATE INDEX restore_log_actor_time ON vault.restore_log (actor, created_at);
 
 -- (최종) 직원 목록 — 이름 포함 (문서에서 추론, worklog 10장)
 CREATE TABLE vault.employees (

@@ -49,4 +49,10 @@ public class MeController {
     public JsonNode restoreLog(@RequestParam(defaultValue = "100") int limit) {
         return ai.getJson("/restore-log", Map.of("limit", limit));
     }
+
+    /** 이상 접근 탐지 결과 (관리자만, worklog 38장) — 실명 보기 기록 기반 규칙 경고 */
+    @GetMapping("/api/admin/anomalies")
+    public JsonNode anomalies(@RequestParam(defaultValue = "14") int days) {
+        return ai.getJson("/audit/anomalies", Map.of("days", days));
+    }
 }
