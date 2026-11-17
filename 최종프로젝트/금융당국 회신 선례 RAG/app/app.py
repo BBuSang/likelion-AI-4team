@@ -22,6 +22,7 @@
 import html
 import re
 import sys
+from datetime import date
 from pathlib import Path
 
 import pandas as pd
@@ -36,11 +37,12 @@ from articles_lookup import Lookup  # noqa: E402
 
 st.set_page_config(page_title="금융당국 회신 선례 검색", page_icon="📑", layout="wide")
 
+# 예시 질문 (111번): 시험 세트(test7·test10)에서 정답 회신과 일치·충실로 판정된 문항. 순서대로 TEST7-033(L3563), TEST10-008(L2326), TEST10-032(O1619), TEST7-094(L2244)
 EXAMPLES = [
-    ("특별이익", "적금 가입 고객에게 제휴 카드사 캐시백을 주는 이벤트를 하려는데, 특별이익 제공으로 문제된 회신이 있나요?"),
-    ("비대면 실명확인", "비대면으로 법인 고객 계좌를 열어줄 때 실명확인을 어떻게 해야 하는지 당국 의견이 있나요?"),
-    ("방카슈랑스", "보험회사가 방카슈랑스 판매 비중 규제를 받는지 알려주세요"),
-    ("대주주 신용공여", "저축은행 대주주에 대한 신용공여 한도 관련 회신 알려주세요"),
+    ("대출모집인 업무위탁", "대출모집인이 고객 서류의 기본 정보를 전산에 입력하고 확인·심사는 은행이 맡으면 업무의 핵심을 외주 준 걸로 보나요?"),
+    ("법인카드 한도", "지주 자회사에 법인카드 한도를 크게 주려는데, 구매전용이나 자금융통이 아닌 카드채권도 이사회 사전 승인이 필요한 건가요?"),
+    ("해외 지점 클라우드", "국내 금융사 해외 지점에서 현지인 정보만 다루는 뱅킹 전산을 해외 서버실·복구센터에 두고 현지 클라우드로 돌려도 되나요?"),
+    ("전화 모집", "보험대리점이 계약 맺으려고 고객한테 전화로 상품 설명하고 청약까지 받아 체결하면, 이거 광고인지 통신수단 모집인지?"),
 ]
 ARTICLE_EXAMPLES = ["은행법 제27조의2", "금소법 시행령 제15조 제2항", "전자금융감독규정 제4-20조"]
 MARK_COLOR = {"⚠️": "orange", "✅": "green", "🔶": "orange", "🕒": "blue", "❔": "gray"}
@@ -65,22 +67,9 @@ h3 {font-size: 1.05rem !important; letter-spacing: -0.01em;}
 .q-echo {font-size: 1.12rem; font-weight: 600; line-height: 1.55; letter-spacing: -0.01em; margin: 0.2rem 0 0.1rem;}
 .case-title {font-weight: 600; line-height: 1.5;}
 .muted {opacity: 0.65; font-size: 0.86rem;}
-.ans {padding: 0.2rem 0.1rem 0.4rem;}
-.ans-label {font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; opacity: 0.55; margin: 0.9rem 0 0.35rem;}
-.ans-label:first-child {margin-top: 0;}
-.ans-row {display: flex; gap: 1rem; align-items: flex-start; justify-content: space-between;}
-.ans-text {flex: 1 1 auto; min-width: 0; line-height: 1.75; word-break: keep-all;}
-.ans-cites {flex: 0 0 auto; display: flex; flex-wrap: wrap; gap: 0.3rem; justify-content: flex-end; max-width: 11rem; padding-top: 0.22rem;}
-.ans-lead .ans-text {font-size: 1.08rem; font-weight: 600; line-height: 1.65; letter-spacing: -0.01em;}
-.ans-lead .ans-row + .ans-row {margin-top: 0.4rem;}
-.ans-points .ans-row {padding: 0.7rem 0; border-top: 1px solid rgba(128, 128, 128, 0.22);}
-.ans-points .ans-row:last-child {padding-bottom: 0.2rem;}
-.ans-notes {margin-top: 0.6rem; padding-top: 0.7rem; border-top: 1px solid rgba(128, 128, 128, 0.22);}
-.cite {display: inline-block; font-size: 0.78rem; font-weight: 600; line-height: 1.5; padding: 0 0.45rem; border-radius: 0.4rem; white-space: nowrap;
-       color: #3b82f6; background: rgba(59, 130, 246, 0.14); cursor: default;}
-.ans-text .cite {margin: 0 0.15rem; vertical-align: 0.08em;}
-.cite.flag {color: #d97706; background: rgba(245, 158, 11, 0.16);}
-@media (max-width: 640px) {.ans-row {flex-direction: column; gap: 0.3rem;} .ans-cites {justify-content: flex-start; max-width: none; padding-top: 0;}}
+[class*="st-key-answer_"] h3 {font-size: 0.82rem !important; font-weight: 600; letter-spacing: 0.04em; opacity: 0.6; padding: 0.9rem 0 0.2rem;}
+[class*="st-key-answer_"] h3:first-child {padding-top: 0;}
+[class*="st-key-answer_"] li {margin: 0.35rem 0; line-height: 1.75;}
 </style>"""
 
 
@@ -183,46 +172,72 @@ def summary_badges(res):
     return " ".join(out)
 
 
-BULLET = re.compile(r"^[-•*]\s+")
-TAIL_CITES = re.compile(r"(?:\s*\[[LOF]\d+\])+\s*[.]?\s*$")          # 줄 끝에 몰려 있는 근거 번호
-
-
-def answer_html(res):
-    """답변 글을 화면용 HTML로 (글 내용은 바꾸지 않고 배치만 바꾼다, 106번).
-    - 목록 앞의 줄은 '핵심 답변'으로 크게, "- " 항목은 '세부 내용'으로 한 줄씩 나눠 보여 준다
-    - 근거 번호가 줄 끝에만 있으면 글 오른쪽으로 빼고, 문장 중간에도 있으면 어느 문장의 근거인지 보이도록 제자리에 둔다
-    - 검증 단계가 표시한 줄에는 주황 표시를 붙인다 (줄은 지우지 않는다)"""
+def answer_markdown(res):
+    """모델이 마크다운으로 쓴 답변(`APP_SYSTEM_V3`: ### 제목, - 목록, **굵게**)을 그대로 렌더링할 글로 만든다 (110번).
+    근거 번호는 배지로 바꾸고, 검증 단계가 표시한 줄에는 주황 배지를 붙인다 (줄은 지우지 않는다)."""
     flagged = set((res.get("verify") or {}).get("flagged") or [])
-
-    def chip(k):
-        title = excerpt((res["cards"].get(k) or {}).get("title", ""), 80)
-        return f"<span class='cite' title='{html.escape(title, quote=True)}'>{k}</span>"
-
-    lead, points, notes = [], [], []
+    lines = []
     for line in res["raw"].replace(rag.CLOSING, "").strip().split("\n"):
-        t = sv.answer_text(line).strip()
-        if not t:
+        t = sv.CITE.sub(lambda m: f" :blue-badge[{m.group(1)}]", sv.answer_text(line, keep_md=True))
+        lines.append(t + (" :orange-badge[사례에서 확인되지 않음]" if line.strip() in flagged else ""))
+    return re.sub(r"[ ]{2,}", " ", "\n".join(lines))
+
+
+@st.cache_data(show_spinner=False, ttl=3600)
+def data_basis():
+    """데이터 기준(112번): 검색 대상 건수, 마지막 회신일, 시점 판정 기준일을 DB에서 읽는다. 읽지 못하면 None."""
+    try:
+        with rag.connect() as conn:
+            c = conn.execute("select count(*) filter (where indexable) n, max(reply_date) last from interp.cases").fetchone()
+            f = conn.execute("select count(*) n, max(reply_date) last from interp.exmnt_cases").fetchone()
+            t = conn.execute("select max(checked_on) d from interp.case_article_status").fetchone()
+        return {"n": c["n"], "last": str(c["last"]), "f_n": f["n"], "f_last": str(f["last"]), "checked": str(t["d"])}
+    except Exception:
+        return None
+
+
+def memo_markdown(res):
+    """검토 메모 초안(마크다운, 112번). 새 판단을 쓰지 않는다: 이미 나온 답변 글과 사례 카드의 값(구분·회신일·시점 판정)만 다시 배열한다."""
+    cited = [res["cards"][k] for k in res["cited"]]
+    basis = data_basis()
+    body = re.sub(r"(?m)^#{1,6}\s+", "#### ", sv.answer_text(res["raw"], keep_md=True)).strip()
+    out = ["# 선례 검토 메모 (초안)", "",
+           f"- 작성일: {date.today().isoformat()} (금융당국 회신 선례 검색으로 생성)",
+           f"- 질문: {res['question'].strip()}",
+           "- 성격: 중간 검토 자료이며 확정 판단이 아닙니다. 인용 전 포털 원문을 확인하세요.", "",
+           "## 1. 검토 요지", "", body, "",
+           "## 2. 관련 선례", "",
+           "| 사례 | 구분 | 회신일 | 답변유형 | 시점 | 제목 | 원문 |", "|---|---|---|---|---|---|---|"]
+    for c in cited:
+        mark = "-" if c["doc_class"] == "field_proposal" else MARK_TERM.get(c["time_mark"], "확인 불가") if c["time_mark"] else "인용 조문 없음"
+        title = excerpt(c["title"], 70).replace("|", "/")
+        out.append(f"| {c['case_key']} | {c['gubun']} | {c['reply_date']} | {c['answer_type'] or '-'} | {mark} | {title} | {c['url'] or '-'} |")
+    notes = []
+    if sv.partly_not_found(res):
+        notes.append("- 답변이 \"직접 일치하는 회신은 찾지 못했다\"고 밝혔습니다. 아래 사례는 관련성이 낮을 수 있습니다.")
+    for c in cited:
+        k = c["case_key"]
+        if c["doc_class"] == "field_proposal":
+            notes.append(f"- {k}: 현장건의(검토결과 {c['answer_type']})입니다. 업계 건의에 대한 당국 검토 결과이며 개별 행위에 대한 법령해석·비조치의견이 아닙니다."
+                         + (" 이후 제도가 실제로 바뀌었는지 확인이 필요합니다." if c.get("changed_after") else ""))
             continue
-        is_point = bool(BULLET.match(t))
-        t = BULLET.sub("", t)
-        side = ""
-        if sv.CITE.search(TAIL_CITES.sub("", t)):          # 문장 중간에도 근거 번호가 있다 → 제자리에
-            text = sv.CITE.sub(lambda m: chip(m.group(1)), html.escape(t))
-        else:
-            text = html.escape(re.sub(r"\s+([.,])", r"\1", re.sub(r"\s{2,}", " ", sv.CITE.sub("", t))).strip())
-            side = "".join(chip(k) for k in dict.fromkeys(sv.CITE.findall(t)))
-        if line.strip() in flagged:
-            side += "<span class='cite flag'>사례에서 확인되지 않음</span>"
-        row = f"<div class='ans-row'><div class='ans-text'>{text}</div>" + (f"<div class='ans-cites'>{side}</div>" if side else "") + "</div>"
-        (points if is_point else notes if points else lead).append(row)
-    out = "<div class='ans'>"
-    if lead:
-        out += "<div class='ans-label'>핵심 답변</div><div class='ans-lead'>" + "".join(lead) + "</div>"
-    if points:
-        out += "<div class='ans-label'>세부 내용</div><div class='ans-points'>" + "".join(points) + "</div>"
-    if notes:
-        out += "<div class='ans-notes'>" + "".join(notes) + "</div>"
-    return out + "</div>"
+        if c["answer_type"] == "비조치(무효)":
+            notes.append(f"- {k}: 현재 효력이 없는 비조치의견서입니다.")
+        if c["doc_class"] == "extension":
+            notes.append(f"- {k}: 기한 연장 건입니다. 효력 기간을 확인하세요.")
+        for ct in c["citations"]:
+            if ct["icon"] != "✅":
+                d = f" [{', '.join(ct['dates'])}]" if ct["dates"] else ""
+                notes.append(f"- {k}: {ct['law'] or '법령 미확인'} {ct['raw']} — {MARK_TERM.get(ct['icon'], '확인 불가')}: {ct['label']}{d}")
+    for line in (res.get("verify") or {}).get("flagged") or []:
+        notes.append(f"- 답변 검증에서 인용 사례로 확인되지 않은 문장: {sv.answer_text(line).lstrip('- ').strip()}")
+    out += ["", "## 3. 확인 필요 사항", ""] + (notes or ["- 시점 판정에서 따로 확인이 필요한 조문은 없었습니다(인용 조문 모두 회신일 이후 개정 없음, 또는 인용 조문 없음)."])
+    out += ["", "## 4. 유의", "",
+            f"- {rag.CLOSING}",
+            "- 검토 요지는 검색된 회신을 LLM이 요약한 것입니다. 문장 끝의 [사례번호]로 원문과 대조하세요.",
+            "- 시점 표시는 회신일 이후 인용 조문의 개정 여부이며, 회신이 무효라는 뜻이 아닙니다."
+            + (f" 시점 판정 기준일 {basis['checked']}, 수록된 마지막 회신일 {basis['last']}." if basis else "")]
+    return "\n".join(out) + "\n"
 
 
 def render_result(res, uid, debug, open_first=True):
@@ -239,7 +254,8 @@ def render_result(res, uid, debug, open_first=True):
         else:
             if sv.partly_not_found(res):
                 st.warning("답변이 \"직접 일치하는 회신은 찾지 못했다\"고 밝혔습니다. 아래 사례는 관련성이 낮을 수 있으니 답변 내용과 함께 확인하세요.")
-            st.markdown(answer_html(res), unsafe_allow_html=True)
+            with st.container(key=f"answer_{uid}"):
+                st.markdown(answer_markdown(res))
             if (res.get("verify") or {}).get("flagged"):
                 st.caption(":orange-badge[사례에서 확인되지 않음] 표시는 검증 단계가 인용 사례에서 찾지 못한 문장입니다. 표시가 틀릴 수 있고, 표시가 없는 문장도 원문 확인이 필요합니다.")
         st.caption(rag.CLOSING)
@@ -251,6 +267,11 @@ def render_result(res, uid, debug, open_first=True):
             trail += " · 키워드로 넓혀 찾은 사례에는 주황 배지를 붙였습니다."
         st.caption(trail)
     if res["cited"] and not chk["not_found"]:
+        memo = memo_markdown(res)
+        with st.expander("검토 메모 초안 (복사·내려받기)"):
+            st.caption("답변과 근거 사례를 검토 의견서·품의서에 옮겨 적기 쉽게 묶은 초안입니다. 새 판단을 더하지 않고 위 답변과 사례 카드의 내용만 정리합니다. 아래 상자 오른쪽 위 버튼으로 복사할 수 있습니다.")
+            st.download_button("내려받기 (.md)", memo, file_name=f"선례검토메모_{date.today():%Y%m%d}_{res['cited'][0]}.md", mime="text/markdown", key=f"memo_dl_{uid}", on_click="ignore")
+            st.code(memo, language="markdown", wrap_lines=True)
         st.subheader(f"답변이 근거로 쓴 사례 {len(res['cited'])}건")
         for n, k in enumerate(res["cited"]):
             render_card(res["cards"][k], f"{uid}_{k}", open_body=open_first and n == 0)
@@ -359,7 +380,8 @@ def guide_tab():
                     "- 답변의 모든 문장에 근거 사례번호를 붙이고, 사례 카드에서 포털 원문으로 이동할 수 있습니다.\n"
                     "- 회신 이후 인용 조문이 바뀌었는지 **시점 표시**로 알려 줍니다.\n"
                     "- 관련도가 높을 때만 **현장건의**(업계 건의에 대한 당국 검토)를 함께 보여 줍니다.\n"
-                    "- 조문으로 그 조문을 인용한 회신을 조회합니다.")
+                    "- 조문으로 그 조문을 인용한 회신을 조회합니다.\n"
+                    "- 답변과 근거 사례를 **검토 메모 초안**(.md)으로 복사하거나 내려받을 수 있습니다.")
     with b.container(border=True):
         st.markdown("##### 하지 않는 일")
         st.markdown("- **확정 판단을 하지 않습니다.** 회신은 개별 사안에 대한 당국 의견이며, 최종 판단은 준법감시부서 확인이 필요합니다.\n"
@@ -379,7 +401,7 @@ def guide_tab():
         {"항목": "└ 현장건의 질문 15문항", "개발용 50문항": "93.3%", "시험용 50문항": "80%"},
         {"항목": "답변 내용이 인용 사례에 충실", "개발용 50문항": "78%", "시험용 50문항": "88%"},
     ]), hide_index=True, width="stretch")
-    st.caption("회신 35 + 현장건의 15문항 세트 2개로 2026-11-12에 잰 값입니다(현재 화면 기본 설정, 답변 검증 끔). 질문은 정답 회신을 보고 LLM이 만든 합성 질문이고 채점도 LLM이 했으므로, 실제 업무 질문에서는 다를 수 있습니다.")
+    st.caption("회신 35 + 현장건의 15문항 세트 2개로 2026-11-12에 잰 값입니다(답변 검증 끔). 이후 답변 형식만 마크다운으로 바꿨고(규칙 1~8은 같음), 바꾼 뒤의 수치는 아직 재지 않았습니다.질문은 정답 회신을 보고 LLM이 만든 합성 질문이고 채점도 LLM이 했으므로, 실제 업무 질문에서는 다를 수 있습니다.")
 
 
 # ---------- 앱
@@ -401,6 +423,9 @@ with st.sidebar:
         st.session_state.messages = []
         st.rerun()
     st.caption("대상: 금융위·금감원 법령해석·비조치의견서 회신(2014년 이후)과 현장건의 과제. 확정 판단은 하지 않습니다.")
+    _b = data_basis()
+    if _b:
+        st.caption(f"데이터 기준: 회신 {_b['n']:,}건(마지막 회신일 {_b['last']}), 현장건의 {_b['f_n']:,}건(마지막 {_b['f_last']}). 시점 판정 기준일 {_b['checked']}. 이후 나온 회신·개정은 반영되지 않았습니다.")
 
 st.title("금융당국 회신 선례 검색")
 st.caption("법령해석·비조치의견서 회신에서 유사 선례를 찾아 근거와 함께 보여 줍니다. 확정 판단은 하지 않으며, 최종 판단은 준법감시부서 확인이 필요합니다.")

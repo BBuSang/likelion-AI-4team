@@ -4,7 +4,7 @@
 1. 질문의 개인정보를 가린다
 2. 기존 회신: 벡터 후보 20 → LLM 리랭킹 5 (`rerank.py`, 실패하면 벡터 상위 5)
 3. 현장건의: 별도 후보군에서 점수 ≥ 0.65 이면서 회신 1위 벡터 점수보다 높은 묶음만 최대 2건 (`exmnt_search.py`)
-4. 답변: `APP_SYSTEM_V2`(현장건의가 붙은 질문에만 현장건의 규칙 추가) → 출력 검사
+4. 답변: `APP_SYSTEM_V3`(110번: V2와 규칙은 같고 형식만 마크다운, 현장건의가 붙은 질문에만 현장건의 규칙 추가) → 출력 검사
 5. 첫 답변이 "찾지 못했습니다"(또는 인용 없음)일 때만 키워드 순차 완화로 최대 3건을 더해 한 번 더 답한다 (`keyword_relax.py`)
 6. (선택, 기본 끔) 답변 검증(`verify.check`, 99번): 인용 사례가 질문의 대상·조건을 직접 다루지 않으면 "찾지 못했습니다"로 바꾸고, 인용 사례에 없다고 본 줄은 지우지 않고 표시만 한다
 `rag.py`는 평가 지문에 들어 있어 고치지 않는다.
@@ -21,10 +21,11 @@ import exmnt_search as es  # noqa: E402
 import keyword_relax as kr  # noqa: E402
 import rerank as rr  # noqa: E402
 import verify as vf  # noqa: E402
-from prompts import APP_SYSTEM_V2 as APP_SYSTEM, REPLY_DATE  # noqa: E402
+from prompts import APP_SYSTEM_V3 as APP_SYSTEM, REPLY_DATE  # noqa: E402
 
 CITE = re.compile(r"\[([LOF]\d+)\]")          # F = 현장건의
 ASIDE = re.compile(r"\[(\d{4}-\d{2}-\d{2} 회신에서[^\[\]]*?)\]")          # 문장 전체를 대괄호로 감싼 경우
+HEADING = re.compile(r"^\s*#{1,6}\s.*$\n?", re.M)          # 마크다운 제목 줄 (V3). 검증 단계에는 넘기지 않는다
 
 
 def warm():
@@ -86,7 +87,7 @@ def ask(question, relax=True, use_rerank=True, use_exmnt=True, use_verify=False)
             used_ctx = context2
     verify_info = None
     if use_verify:                                 # 답변 검증: 직접 다루지 않으면 거절, 없는 줄은 표시만 (답변 글은 거절할 때만 바뀐다)
-        new_raw, verify_info = vf.check(masked, raw, used_ctx)
+        new_raw, verify_info = vf.check(masked, HEADING.sub("", raw), used_ctx)          # 제목 줄은 판정 대상이 아니다
         usage = {**usage, "input": usage["input"] + verify_info["usage"]["input"], "output": usage["output"] + verify_info["usage"]["output"]}
         if verify_info["abstained"]:
             raw, cited = new_raw, []
@@ -128,13 +129,14 @@ def trail_text(info):
     return f"상위 5건에서 찾지 못해 키워드로 넓혀 다시 찾았습니다. 키워드 검색({names}): " + " → ".join(steps)
 
 
-def answer_text(raw):
-    """고정 안내 문구·회신 날짜 머리말·굵은 글씨를 떼어 낸 답변 글. 근거 번호 `[L123]`는 그대로 둔다(화면이 배지로 바꾼다)."""
+def answer_text(raw, keep_md=False):
+    """고정 안내 문구·회신 날짜 머리말·굵은 글씨를 떼어 낸 답변 글. 근거 번호 `[L123]`는 그대로 둔다(화면이 배지로 바꾼다).
+    keep_md=True면 굵은 글씨 표시(`**`)를 남긴다(마크다운으로 렌더링할 때)."""
     t = raw.replace(rag.CLOSING, "").strip()
     t = ASIDE.sub(r"\1", t)
     for rx in REPLY_DATE:
         t = rx.sub("", t)
-    return re.sub(r"[ \t]{2,}", " ", t.replace("**", ""))
+    return re.sub(r"[ \t]{2,}", " ", t if keep_md else t.replace("**", ""))
 
 
 def partly_not_found(res):
