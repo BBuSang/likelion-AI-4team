@@ -81,8 +81,21 @@ def get(emp_id):
     return _row(r, with_name=True) if r else None
 
 
-def create(name, team, position, role):
-    """안 A: 문서에 없는 사람에게 새 직원 번호. rag(이름 없이)·vault(이름) 둘 다 넣음"""
+_U_ID = re.compile(r"^U(\d+)$")
+
+
+def _next_u(*id_lists):
+    """U 번호들 중 가장 큰 것 + 1"""
+    nums = [int(m.group(1)) for ids in id_lists for x in ids if x and (m := _U_ID.match(x))]
+    return f"U{max(nums, default=0) + 1:04d}"
+
+
+def create(name, team, position, role, taken=()):
+    """안 A: 문서에 없는 사람에게 새 직원 번호. rag(이름 없이)·vault(이름) 둘 다 넣음.
+
+    taken: 스프링 계정에 이미 연결된 직원 번호. 문서를 다시 적재하면 vault·rag 의 U 직원이 지워져
+    번호가 U0001 부터 다시 시작해 계정과 겹쳤음 (worklog 44장) → 세 곳(vault·rag·taken) 중 가장 큰 번호 다음.
+    """
     name, team = _name(name), _team(team)
     if not name:
         raise OrgError("이름이 비었습니다")
@@ -91,9 +104,9 @@ def create(name, team, position, role):
     position = (position or "").strip() or None
     with db.vault_conn() as v, db.rag_conn() as r:
         v.execute("SELECT pg_advisory_xact_lock(hashtext('org.create'))")
-        last = v.execute("SELECT max(substring(emp_id from 2)::int) FROM vault.employees "
-                         "WHERE emp_id ~ '^U[0-9]+$'").fetchone()[0]
-        emp_id = f"U{(last or 0) + 1:04d}"
+        in_vault = [x for (x,) in v.execute("SELECT emp_id FROM vault.employees WHERE emp_id ~ '^U[0-9]+$'")]
+        in_rag = [x for (x,) in r.execute("SELECT emp_id FROM rag.employees WHERE emp_id ~ '^U[0-9]+$'")]
+        emp_id = _next_u(in_vault, in_rag, taken or ())
         # rag 먼저 (실패하면 vault 도 롤백) — 두 DB 계정이라 한 트랜잭션은 아님
         r.execute("INSERT INTO rag.employees (emp_id, team, position, role, n_docs) VALUES (%s,%s,%s,%s,0)",
                   (emp_id, team, position, role))

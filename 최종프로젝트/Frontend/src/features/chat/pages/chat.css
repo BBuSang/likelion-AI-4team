@@ -30,3 +30,19 @@
 /* 동명이인 가능 경고 (worklog 37장) */
 .homonym-warn { color: var(--warn); background: var(--warn-bg); border-radius: 8px; padding: 6px 10px; margin-top: 8px; line-height: 1.6; }
 .homonym-warn svg { vertical-align: -2px; }
+
+/* 실명 보기 직후 본인에게 보이는 이상 접근 경고 (worklog 39장) */
+.access-warn { margin-top: 8px; padding: 8px 12px; border-radius: 8px; background: var(--bad-bg); color: var(--bad); font-size: 13px; line-height: 1.6; }
+.access-warn svg { vertical-align: -2px; }
+.access-warn ul { margin: 2px 0 2px 18px; }
+
+/* 대화 목록 접기·펼치기 (worklog 45장): [대화 목록] 버튼으로 옆에서 접힘 → 채팅 칸이 그만큼 넓어짐. 겹쳐 뜨는 서랍 아님 */
+.list-toggle { display: inline-flex; flex: none; }
+.chat-head h2 { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.chat-list { animation: list-in .16s ease-out; }
+.chat-list.collapsed { display: none; }
+@keyframes list-in { from { opacity: 0; transform: translateX(-8px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .chat-list { animation: none; } }
+
+/* 채팅 첫 화면 파란 로고 (worklog 49장) */
+.empty-logo { margin-bottom: 6px; }

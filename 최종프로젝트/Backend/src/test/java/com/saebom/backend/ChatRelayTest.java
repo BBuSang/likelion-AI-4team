@@ -92,12 +92,15 @@ class ChatRelayTest {
     void restore() throws Exception {
         String lead = account("lead@chat.test", Role.LEAD, "E003", UserStatus.ACTIVE);
         when(ai.restore(any(), anyString(), anyString(), anyList(), any()))
-                .thenReturn(new RestoreResult("홍길동 고객", 1, List.of(), List.of(), List.of("H1")));
+                .thenReturn(new RestoreResult("홍길동 고객", 1, List.of(), List.of(), List.of("H1"),
+                        List.of(new AiClient.AccessWarning("burst", "대량 복원", "high", "10분 안에 10번 실명 보기"))));
         // 팀장: 사유 없으면 400 (25-9), 있으면 그대로 넘김
         post_("/api/chat/restore", Map.of("text", "<PERSON_ab> 고객", "docIds", List.of("H1")), lead)
                 .andExpect(status().isBadRequest());
+        verify(ai).logRefused(eq(new AccessUser("E003", "채팅팀", "LEAD")), eq("lead@chat.test"), eq(List.of("H1")), eq("no_purpose"));
         post_("/api/chat/restore", Map.of("text", "<PERSON_ab> 고객", "docIds", List.of("H1"), "purpose", "팀원 건 확인"), lead)
-                .andExpect(status().isOk()).andExpect(jsonPath("$.restored").value(1));
+                .andExpect(status().isOk()).andExpect(jsonPath("$.restored").value(1))
+                .andExpect(jsonPath("$.warnings[0].ruleKo").value("대량 복원"));
         verify(ai).restore(eq(new AccessUser("E003", "채팅팀", "LEAD")), eq("lead@chat.test"), eq("<PERSON_ab> 고객"),
                 eq(List.of("H1")), eq("팀원 건 확인"));
 

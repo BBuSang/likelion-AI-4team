@@ -194,7 +194,7 @@ class AuthFlowTest {
         signup("park@saebom.test", "박신입", teamId, leadPos);
         String admin = login(ADMIN, ADMIN_PW);
         long id = userId(admin, "park@saebom.test");
-        when(ai.createEmployee(eq("박신입"), eq("고객센터"), eq("팀장"), eq("LEAD")))
+        when(ai.createEmployee(eq("박신입"), eq("고객센터"), eq("팀장"), eq("LEAD"), any()))
                 .thenReturn(emp("U0001", "박신입", "고객센터", "LEAD", null));
         // 직급 기본 역할 (팀장 → LEAD)
         post_("/api/admin/users/" + id + "/approve", Map.of("createEmployee", true), admin)
@@ -206,6 +206,16 @@ class AuthFlowTest {
         long id2 = userId(admin, "choi@saebom.test");
         post_("/api/admin/users/" + id2 + "/approve", Map.of("createEmployee", true, "empId", "E1"), admin)
                 .andExpect(status().isBadRequest());
+
+        // 새 번호가 이미 다른 계정 것이면 409 + 한국어 안내 (SQL 이 화면에 안 나감), 계정은 승인 대기 그대로 (worklog 44장)
+        var taken = org.mockito.ArgumentCaptor.forClass(List.class);
+        when(ai.createEmployee(eq("최둘"), any(), any(), any(), taken.capture()))
+                .thenReturn(emp("U0001", "최둘", "고객센터", "STAFF", null));
+        post_("/api/admin/users/" + id2 + "/approve", Map.of("createEmployee", true), admin)
+                .andExpect(status().isConflict())
+                .andExpect(jsonPath("$.message").value(org.hamcrest.Matchers.containsString("겹쳐요")));
+        assertThat(taken.getValue()).contains("U0001");
+        get_("/api/admin/users", admin).andExpect(jsonPath("$[?(@.email=='choi@saebom.test')].status").value("PENDING"));
     }
 
     @Test

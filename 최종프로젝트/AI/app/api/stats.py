@@ -23,7 +23,7 @@ def stats(days: int = 14):
         employees = dict(_rows(r, "SELECT role, count(*) FROM rag.employees GROUP BY role"))
     with db.vault_conn() as vc, vc.cursor() as v:
         staging = dict(_rows(v, "SELECT status, count(*) FROM vault.staging_doc GROUP BY status"))
-        auto = _rows(v, "SELECT count(*) FROM vault.staging_doc WHERE approved_by = 'gold'")[0][0]
+        auto = _rows(v, "SELECT count(*) FROM vault.staging_doc WHERE approved_by IN ('gold', 'auto')")[0][0]
         review = _rows(v, """SELECT coalesce(sum(added),0), coalesce(sum(removed),0), coalesce(sum(relabeled),0),
                                     count(*) FILTER (WHERE action = 'approve'), count(*) FILTER (WHERE action = 'reject')
                              FROM vault.review_log""")[0]

@@ -27,6 +27,23 @@ export const checkEmail = async (email: string): Promise<boolean> => {
   }
 };
 
+/** 가입 이메일 인증 코드 보내기 (worklog 41장) */
+export const sendEmailCode = async (email: string): Promise<ApiResponse> =>
+  (await apiClient.post<ApiResponse>(`${AUTH_BASE}/email/send`, { email })).data;
+
+export const verifyEmailCode = async (email: string, code: string): Promise<ApiResponse> =>
+  (await apiClient.post<ApiResponse>(`${AUTH_BASE}/email/verify`, { email, code })).data;
+
+/** 비밀번호 재설정 (worklog 42장). 가입되지 않은 주소여도 같은 응답 */
+export const sendResetCode = async (email: string): Promise<ApiResponse> =>
+  (await apiClient.post<ApiResponse>(`${AUTH_BASE}/password/send`, { email })).data;
+
+export const verifyResetCode = async (email: string, code: string): Promise<ApiResponse> =>
+  (await apiClient.post<ApiResponse>(`${AUTH_BASE}/password/verify`, { email, code })).data;
+
+export const resetPassword = async (email: string, password: string): Promise<ApiResponse> =>
+  (await apiClient.post<ApiResponse>(`${AUTH_BASE}/password/reset`, { email, password })).data;
+
 /** 가입 화면 팀·직급 선택칸 (로그인 없이) */
 export const getOptions = async (): Promise<OptionsResponse> =>
   (await apiClient.get<OptionsResponse>(`${AUTH_BASE}/options`)).data;

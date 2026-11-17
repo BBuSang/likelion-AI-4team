@@ -88,12 +88,14 @@ public class AiClient {
         }
     }
 
-    public Employee createEmployee(String name, String team, String position, String role) {
+    /** taken: 계정에 이미 연결된 직원 번호 — AI 가 새 번호를 이것들과 겹치지 않게 고름 (worklog 44장) */
+    public Employee createEmployee(String name, String team, String position, String role, List<String> taken) {
         var body = new java.util.HashMap<String, Object>();
         body.put("name", name);
         body.put("team", team);
         body.put("position", position);
         body.put("role", role);
+        body.put("taken", taken == null ? List.of() : taken);
         return call(() -> http.post().uri("/internal/org/employees").contentType(MediaType.APPLICATION_JSON)
                 .body(body).retrieve().body(Employee.class));
     }
@@ -123,11 +125,31 @@ public class AiClient {
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public record RestoreResult(String text, int restored, List<String> denied, List<String> unknown,
-                                List<String> docs) {}
+                                List<String> docs, List<AccessWarning> warnings) {}
+
+    /** 실명 보기 직후 본인에게 보여 줄 이상 접근 경고 (worklog 39장) */
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public record AccessWarning(String rule, @JsonAlias("rule_ko") String ruleKo, String severity, String detail) {}
 
     public AskResult ask(AccessUser user, String query, int k) {
         return call(() -> chatHttp.post().uri("/internal/chat/ask").contentType(MediaType.APPLICATION_JSON)
                 .body(Map.of("user", user, "query", query, "k", k)).retrieve().body(AskResult.class));
+    }
+
+    /** 백엔드에서 거절한 실명 보기 시도(사유 없음 등)를 AI 쪽 복원 기록에 남김 — 이상 접근 탐지용 (worklog 39장).
+     *  기록 실패는 무시 (거절 응답은 그대로) */
+    public void logRefused(AccessUser user, String actor, List<String> docIds, String reason) {
+        try {
+            var body = new java.util.HashMap<String, Object>();
+            body.put("user", user);
+            body.put("actor", actor);
+            body.put("doc_ids", docIds == null ? List.of() : docIds);
+            body.put("reason", reason);
+            http.post().uri("/internal/audit/refused").contentType(MediaType.APPLICATION_JSON)
+                    .body(body).retrieve().toBodilessEntity();
+        } catch (Exception ignored) {
+            // 기록만 실패
+        }
     }
 
     public RestoreResult restore(AccessUser user, String actor, String text, List<String> docIds, String purpose) {
@@ -170,7 +192,7 @@ public class AiClient {
 
     private static class NotFound extends RuntimeException {}
 
-    private String detail(HttpClientErrorException e, String fallback) {
+    private String detail(org.springframework.web.client.HttpStatusCodeException e, String fallback) {
         try {
             var d = om.readTree(e.getResponseBodyAsString()).get("detail");
             if (d != null && d.isTextual()) return d.asText();
@@ -192,6 +214,9 @@ public class AiClient {
             if (e.getStatusCode() == HttpStatus.CONFLICT) throw ApiException.conflict(detail(e, "이미 처리되었습니다."));
             if (e.getStatusCode().value() == 422) throw ApiException.badRequest("요청 형식이 맞지 않습니다.");
             throw new ApiException(HttpStatus.BAD_GATEWAY, "AI 서버가 요청을 거절했습니다 (" + e.getStatusCode().value() + ")");
+        } catch (org.springframework.web.client.HttpServerErrorException e) {
+            // AI 서버까지는 닿았지만 처리 실패 (예: 502 "검색 또는 답변 생성에 실패했습니다") — 연결 문제로 보이지 않게 그 이유를 보여 줌
+            throw ApiException.badGateway(detail(e, "AI 서버가 요청을 처리하지 못했습니다") + " 잠시 후 다시 시도해 주세요.");
         } catch (RestClientException e) {
             throw ApiException.badGateway("AI 서버에 연결할 수 없습니다");
         }

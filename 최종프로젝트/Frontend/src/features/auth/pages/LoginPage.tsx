@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import type { FormEvent } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { ShieldCheck } from 'lucide-react';
 import axios from 'axios';
 import { useAuth } from '@/shared/contexts/AuthContext';
 import { errMsg } from '@/shared/utils/error';
+import AuthHero from '../components/AuthHero';
 import '@/shared/components/layout.css';
 
 export default function LoginPage() {
@@ -40,21 +40,11 @@ export default function LoginPage() {
   return (
     <div className="auth">
       <div className="auth-split">
-        <div className="auth-hero">
-          <div className="row" style={{ fontWeight: 600 }}>
-            <span className="brand-mark" style={{ background: '#fff', color: 'var(--brand)' }}>S</span> 새봄
-          </div>
-          <div className="spacer" />
-          <h1>개인정보는 가리고<br />업무 답은 정확하게</h1>
-          <p style={{ color: '#cfdcff', marginTop: 10 }}>사내 문서 검색 도우미. 답변 속 개인정보는 가려진 채로 보이고, 권한이 있는 문서만 실명으로 볼 수 있어요.</p>
-          <div className="row small" style={{ marginTop: 22, color: '#cfdcff' }}>
-            <ShieldCheck size={16} aria-hidden /> 모든 실명 보기는 기록돼요
-          </div>
-        </div>
+        <AuthHero />
         <form className="panel auth-card" onSubmit={submit}>
           <h1 style={{ marginBottom: 20 }}>로그인</h1>
           <label className="field"><span>이메일</span>
-            <input className="input" type="email" autoComplete="username" placeholder="name@company.com"
+            <input className="input" type="email" autoComplete="username" placeholder="이메일을 입력하세요"
                    value={email} onChange={(e) => { setEmail(e.target.value); setError(null); }} />
           </label>
           <label className="field"><span>비밀번호</span>
@@ -70,7 +60,7 @@ export default function LoginPage() {
             계정이 없나요? <Link to="/signup">가입 신청</Link>
           </p>
           <p className="small muted" style={{ marginTop: 6, textAlign: 'center' }}>
-            비밀번호를 잊었다면 관리자에게 문의해 주세요.
+            비밀번호를 잊었나요? <Link to="/reset-password">비밀번호 재설정</Link>
           </p>
         </form>
       </div>

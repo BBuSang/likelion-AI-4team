@@ -3,6 +3,7 @@
 import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { BarChart3, LogOut, MessageCircle, Settings2, Upload, UserRound, Users } from 'lucide-react';
 import { useAuth } from '@/shared/contexts/AuthContext';
+import { LogoMark, LogoRow } from './Logo';
 import './layout.css';
 
 const ROLE_NAME = { STAFF: '직원', LEAD: '팀장', AUDITOR: '감사' } as const;
@@ -21,29 +22,30 @@ export default function AppLayout() {
     <div className="app">
       <aside className="nav panel">
         <div className="brand">
-          <span className="brand-mark">S</span>
-          <span>새봄</span>
+          {/* 넓은 메뉴: 가로 로고 / 아이콘만 남는 좁은 메뉴: 자물쇠 마크 (worklog 50장) */}
+          <span className="nav-label" title="사공삼(403)"><LogoRow height={26} /></span>
+          <span className="nav-mark" title="사공삼(403)"><LogoMark /></span>
         </div>
         <nav className="nav-items">
           {items.filter((i) => i.show).map(({ to, icon: Icon, label }) => (
-            <NavLink key={to} to={to} className={({ isActive }) => `nav-item${isActive ? ' active' : ''}`}>
-              <Icon size={17} aria-hidden /> {label}
+            <NavLink key={to} to={to} title={label} className={({ isActive }) => `nav-item${isActive ? ' active' : ''}`}>
+              <Icon size={17} aria-hidden /> <span className="nav-label">{label}</span>
             </NavLink>
           ))}
         </nav>
         <div className="spacer" />
         {user && (
-          <div className="me-box">
+          <div className="me-box" title={`${user.name} · ${user.team ?? '팀 없음'} · ${ROLE_NAME[user.role]}`}>
             <div className="avatar">{user.name.slice(0, 1)}</div>
-            <div style={{ minWidth: 0 }}>
+            <div className="nav-label" style={{ minWidth: 0 }}>
               <p className="me-name">{user.name}</p>
               <p className="small muted">{user.team ?? '팀 없음'} · {ROLE_NAME[user.role]}{user.admin ? ' · 관리자' : ''}</p>
             </div>
           </div>
         )}
-        <Link to="/me" className="nav-item"><Settings2 size={17} aria-hidden /> 설정</Link>
-        <button className="nav-item" onClick={() => { logout(); nav('/login'); }}>
-          <LogOut size={17} aria-hidden /> 로그아웃
+        <Link to="/me" className="nav-item" title="설정"><Settings2 size={17} aria-hidden /> <span className="nav-label">설정</span></Link>
+        <button className="nav-item" title="로그아웃" onClick={() => { logout(); nav('/login'); }}>
+          <LogOut size={17} aria-hidden /> <span className="nav-label">로그아웃</span>
         </button>
       </aside>
       <main className="main">

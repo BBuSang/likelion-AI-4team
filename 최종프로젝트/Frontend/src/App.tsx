@@ -5,6 +5,7 @@ import ProtectedRoute from '@/shared/components/ProtectedRoute';
 import AppLayout from '@/shared/components/AppLayout';
 import LoginPage from '@/features/auth/pages/LoginPage';
 import SignupPage from '@/features/auth/pages/SignupPage';
+import ResetPasswordPage from '@/features/auth/pages/ResetPasswordPage';
 import ChatPage from '@/features/chat/pages/ChatPage';
 import AdminPage from '@/features/admin/pages/AdminPage';
 import IngestPage from '@/features/review/pages/IngestPage';
@@ -19,6 +20,7 @@ function App() {
         <Routes>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
+          <Route path="/reset-password" element={<ResetPasswordPage />} />
           <Route element={<ProtectedRoute><AppLayout /></ProtectedRoute>}>
             <Route path="/chat" element={<ChatPage />} />
             <Route path="/me" element={<MePage />} />

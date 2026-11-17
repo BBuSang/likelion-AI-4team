@@ -1,6 +1,6 @@
 // 가린 글 + "실명 보기" 버튼. 실명은 이 컴포넌트 상태에만 두고 저장하지 않음 (다시 가리면 버림)
 import { useState } from 'react';
-import { Eye, EyeOff } from 'lucide-react';
+import { AlertTriangle, Eye, EyeOff } from 'lucide-react';
 import { useAuth } from '@/shared/contexts/AuthContext';
 import { errMsg } from '@/shared/utils/error';
 import * as chatApi from '../api/chat.api';
@@ -56,6 +56,13 @@ export default function Restorable({ text, docIds, onCite, compact }: Props) {
               <Eye size={14} aria-hidden /> {busy ? '확인 중…' : '실명 보기'}
             </button>
           )}
+        </div>
+      )}
+      {!!result?.warnings?.length && (
+        <div className="access-warn" role="alert">
+          <p><AlertTriangle size={14} aria-hidden /> <b>이 실명 보기는 이상 접근 기준에 걸렸어요.</b> 관리자 화면에 기록되어 표시됩니다.</p>
+          <ul>{result.warnings.map((w) => <li key={w.rule}>{w.ruleKo}: {w.detail}</li>)}</ul>
+          <p className="small">업무상 필요한 조회라면 사유를 구체적으로 남겨 주세요.</p>
         </div>
       )}
       {error && <div className="alert alert-bad" style={{ marginTop: 8 }}>{error}</div>}

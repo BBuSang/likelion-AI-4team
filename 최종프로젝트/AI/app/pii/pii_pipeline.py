@@ -43,10 +43,13 @@ def _get_detector():
     """모델 로딩이 오래 걸리므로(첫 실행 1~2분) 처음 부를 때 한 번만 만든다."""
     global _detector
     if _detector is None:
-        if str(DETECTOR_DIR) not in sys.path:
-            sys.path.insert(0, str(DETECTOR_DIR))
-        from pii_detector import PIIDetector
-        _detector = PIIDetector()
+        from app.core.loading import MODEL_LOAD_LOCK  # 임베딩 모델과 동시에 읽지 않게 (동시 import → ImportError)
+        with MODEL_LOAD_LOCK:
+            if _detector is None:
+                if str(DETECTOR_DIR) not in sys.path:
+                    sys.path.insert(0, str(DETECTOR_DIR))
+                from pii_detector import PIIDetector
+                _detector = PIIDetector()
     return _detector
 
 

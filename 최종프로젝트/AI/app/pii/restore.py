@@ -46,6 +46,21 @@ def restore(text, actor="unknown", purpose=None):
 
 
 # ---------------------------------------------------------------- (최종) 역할별 복원 (worklog 3-4-1, 11장)
+def _log(actor, user, purpose, tokens, doc_ids, denied, refused=None, conn=None):
+    """복원 기록 한 줄. 직원 번호·팀도 남김 (이상 접근 탐지가 '누가 어느 팀 문서를' 볼 수 있게, 38장).
+    refused: 아예 거절된 시도의 이유 (예: no_purpose) — 이때 tokens 는 비어 있음"""
+    sql = """INSERT INTO vault.restore_log (actor, purpose, tokens, role, doc_ids, denied, emp_id, team, refused)
+             VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"""
+    vals = (actor or user.get("emp_id") or "system", purpose, tokens, user.get("role"), doc_ids, denied,
+            user.get("emp_id"), user.get("team"), refused)
+    if conn is not None:
+        conn.execute(sql, vals)
+        return
+    with db.vault_conn() as c:
+        c.execute(sql, vals)
+
+
+
 def restore_for(text, user, doc_ids, purpose=None, actor=None):
     """답변 text 의 토큰을 user 가 복원해도 되는 문서(doc_ids 중)에서 나온 것만 실명으로 바꾼다.
     doc_ids: 답변 근거로 쓴 문서. 권한 판단은 app.core.access.can_restore (STAFF=담당 문서만, LEAD=볼 수 있는 문서,
@@ -54,6 +69,7 @@ def restore_for(text, user, doc_ids, purpose=None, actor=None):
     from app.core import access
     access.check_user(user)
     if user["role"] in access.PURPOSE_REQUIRED and not (purpose or "").strip():
+        _log(actor, user, None, [], sorted(set(doc_ids or [])), [], refused="no_purpose")  # 거절된 시도도 기록 (이상 접근 탐지, 38장)
         raise access.AccessError("팀장·감사 역할의 실명 복원은 사유가 필요")
     found = sorted({t for t in pii_pipeline.TOKEN_PATTERN.findall(text or "")
                     if not t[1:].startswith(pii_pipeline.SEARCH_ONLY_PREFIXES)})
@@ -69,12 +85,19 @@ def restore_for(text, user, doc_ids, purpose=None, actor=None):
     denied = [t for t in found if t not in allowed]
     with db.vault_conn() as conn:
         m = lookup(want, conn)
-        conn.execute("""INSERT INTO vault.restore_log (actor, purpose, tokens, role, doc_ids, denied)
-                        VALUES (%s, %s, %s, %s, %s, %s)""",
-                     (actor or user.get("emp_id") or "system", purpose, sorted(m), user["role"], ok_docs, denied))
+        _log(actor, user, purpose, sorted(m), ok_docs, denied, conn=conn)
     out = text
     for t, v in m.items():
         out = out.replace(t, v["display"])
     unknown = [t for t in want if t not in m]
     return out, {"restored": {t: v["display"] for t, v in m.items()}, "denied": denied, "unknown": unknown,
-                 "docs": ok_docs}
+                 "docs": ok_docs, "warnings": _warnings(actor or user.get("emp_id") or "system")}
+
+
+def _warnings(actor):
+    """방금 실명 보기가 이상 접근 규칙에 걸렸으면 본인에게 알릴 경고 (39장). 확인이 실패해도 복원은 그대로"""
+    try:
+        from app.audit import anomaly
+        return anomaly.check_latest(actor)
+    except Exception:
+        return []

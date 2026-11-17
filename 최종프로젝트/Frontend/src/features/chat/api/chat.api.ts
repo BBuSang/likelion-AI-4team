@@ -36,7 +36,10 @@ export interface RestoreResult {
   denied: string[];
   unknown: string[];
   docs: string[];
+  warnings?: AccessWarning[]; // 이번 실명 보기가 걸린 이상 접근 규칙 (본인에게 알림, worklog 39장)
 }
+
+export interface AccessWarning { rule: string; ruleKo: string; severity: 'high' | 'medium' | 'low'; detail: string }
 
 export const ask = async (query: string, k = 3): Promise<AskResult> =>
   (await apiClient.post<AskResult>('/api/chat/ask', { query, k })).data;

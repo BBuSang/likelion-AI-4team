@@ -42,6 +42,8 @@ export interface Option {
 export interface OptionsResponse {
   teams: Option[];
   positions: Option[];
+  /** 가입 전에 이메일 인증이 필요한지 (서버 설정) */
+  emailVerification?: boolean;
 }
 
 export interface ApiResponse {
