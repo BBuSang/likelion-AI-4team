@@ -6,7 +6,7 @@
 ## 이 폴더에 있는 것과 없는 것
 
 | 구분 | 파일 |
-|---|---|
+|------|---|
 | 있음 — 코드 | `analysis/s12_retrieval.py` (상품명 찾기·판매 상태·검색·재순위), `analysis/s15_answer_eval.py` (근거 고르기·답변 원칙·대상 상품 줄·근거 문서), `analysis/s10_chunks.py` (형태소 분석·임베딩), `analysis/s8_extract.py` (`.env` 읽기), `analysis/s16_rerank_variants.py` (재순위 지시문), `models/models.py` |
 | 있음 — 목록 | `data/meta/` 상품 391 · 문서 247 · 상품↔문서 연결 1,056 · 문서↔공통 조항 연결 · 판매 중지 목록 1,338 |
 | 있음 — 설명 | `docs/답변원칙.md` (답변 규칙), `docs/답변_예시.txt` (질문 유형별 실제 답변 28개) |
