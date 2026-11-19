@@ -64,12 +64,14 @@ docker compose up -d
 
 **4. 데이터 넣기 (DB 덤프 복원)**
 
-데이터는 용량(약 790MB) 때문에 저장소에 없습니다. 따로 전달받은 `law_rag.dump`(193MB)를 이 폴더에 두고 복원합니다. 색인을 다시 만드느라 몇 분 걸립니다.
+DB 덤프 `share/law_rag.dump`(193MB, 법령 380개 · 조각 35,321개 · 벡터 · 색인)가 Git LFS로 함께 올라가 있습니다. 브랜치를 받으면 같이 내려옵니다. 파일 크기가 1KB 정도로 작으면 LFS 파일이 아직 안 받아진 것이니 `git lfs pull`을 한 번 실행하세요. 복원은 색인을 다시 만드느라 몇 분 걸립니다.
 
 ```bash
-docker cp law_rag.dump team4-lawrag2-db:/tmp/law_rag.dump
+docker cp share/law_rag.dump team4-lawrag2-db:/tmp/law_rag.dump
 docker exec team4-lawrag2-db pg_restore -U admin -d law_rag --clean --if-exists --no-owner /tmp/law_rag.dump
 ```
+
+원본 법령·청크·벡터 파일(약 790MB)은 저장소에 없습니다. 덤프만 있으면 실행에는 충분합니다.
 
 (`admin`, `law_rag`는 `.env`의 `POSTGRES_USER`, `POSTGRES_DB`와 같게)
 
@@ -95,6 +97,7 @@ python -m streamlit run demo/app.py --server.port 8504
 ├─ eval/                평가 질문·정답·측정 결과
 ├─ reports/             단계별 점검 보고서, 최종 평가 보고서
 ├─ colab/               조각 임베딩용 코랩 노트북 (GPU)
+├─ share/law_rag.dump   DB 덤프 (Git LFS, 193MB)
 ├─ db/                  DB 초기화 스크립트
 └─ docker-compose.yml   DB 컨테이너
 ```
