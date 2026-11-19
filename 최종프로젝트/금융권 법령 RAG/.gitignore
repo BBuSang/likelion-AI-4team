@@ -1,0 +1,13 @@
+# 비밀값 (API 키, DB 비밀번호) — .env.example 을 복사해 쓴다
+.env
+
+# 원본 법령·청크·벡터·DB 덤프 (용량이 커서 저장소 밖으로 전달, README 참고)
+data/
+*.npz
+*.dump
+
+# 실행 결과물·캐시
+outputs/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/

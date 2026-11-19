@@ -1,0 +1,27 @@
+# 최종프로젝트2 법령 RAG DB (기획안 5-5). 값은 .env 에서 읽는다.
+# 예전 법령RAG 컨테이너(team4-lawrag-db, 5434)와 이름·포트·볼륨을 따로 쓴다.
+name: team4-lawrag2
+
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    container_name: team4-lawrag2-db
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      LAW_PASSWORD: ${LAW_PASSWORD}
+    ports:
+      - "127.0.0.1:${DB_PORT}:5432"   # 이 컴퓨터에서만 접속
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+
+volumes:
+  pgdata:

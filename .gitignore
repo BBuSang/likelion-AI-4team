@@ -21,3 +21,6 @@ __pycache__/
 /RAG_교육
 최종프로젝트/worklog.md
 /.vscode
+
+# 금융권 법령 RAG 데이터·벡터·DB 덤프 (용량이 커서 저장소 밖으로 전달)
+최종프로젝트/금융권 법령 RAG/data/

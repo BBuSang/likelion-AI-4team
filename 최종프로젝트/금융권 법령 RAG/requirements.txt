@@ -1,0 +1,14 @@
+# 금융권 법령 RAG — 파이썬 3.12에서 확인한 버전
+# torch 는 CPU 판이면 충분 (GPU 불필요):
+#   pip install torch==2.9.0 --index-url https://download.pytorch.org/whl/cpu
+torch==2.9.0
+transformers==4.57.1
+psycopg[binary]==3.1.18
+numpy==2.5.4
+python-dotenv==1.0.1
+requests==2.31.0
+streamlit==1.39.0
+
+# 데이터를 처음부터 다시 만들 때만 (pipeline/ 의 수집·평가 질문 만들기)
+pandas==2.3.3
+pypdf==6.21.2
