@@ -1,0 +1,34 @@
+# 비밀값 (API 키, DB 비밀번호) — .env.example 을 복사해 쓴다
+.env
+
+# 파이프라인이 만드는 데이터는 안 올림. 수집 입력(data/source/: 법령 목록 + 원본 API 파일 444개)만 올림
+data/*
+!data/source/
+data/source/*
+!data/source/target_laws.json
+!data/source/api/
+*.npz
+*.dump
+# 예외: 바로 복원해 쓸 DB 덤프 하나는 Git LFS 로 올림 (README 4단계)
+!share/law_rag.dump
+
+# 실행 결과물·캐시
+outputs/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# 내 컴퓨터에만 두는 과정 자료 (평가·점검·작업 기록). 데모를 만드는 데는 필요 없음
+WORKLOG.md
+eval/
+reports/*
+!reports/5-6_평가_최종.md
+demo/check_demo.py
+pipeline/audit_*.py
+pipeline/report_01.py
+pipeline/embed_check_04.py
+pipeline/make_colab_04.py
+pipeline/gold_06.py
+pipeline/evaluate_06.py
+pipeline/eval_*.py
+pipeline/time_search_06.py
