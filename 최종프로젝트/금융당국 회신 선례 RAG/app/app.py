@@ -104,6 +104,10 @@ def badges(c):
             out.append(f":green-badge[같은 건의 {c['n_same']}건]")
         return " ".join(out)
     out = [f":gray-badge[{c['gubun']}]", f":gray-badge[{c['reply_date']}]"]
+    if c.get("in_period") is False:          # 질문의 기간 조건 밖 회신 (117번)
+        out.append(":red-badge[기간 조건 밖]")
+    elif c.get("in_period"):
+        out.append(":green-badge[기간 조건 안]")
     if c.get("relaxed"):
         r = c["relaxed"]
         out.insert(0, f":orange-badge[키워드로 넓혀 찾음 {r['matched']}/{r['of']}" + (f" · 없는 개념: {', '.join(r['missing'])}]" if r["missing"] else "]"))
@@ -172,13 +176,30 @@ def summary_badges(res):
     return " ".join(out)
 
 
+def period_note(res):
+    """질문의 기간 조건을 어떻게 처리했는지 한두 문장 (117번). 조건이 없으면 None. 반환 (글, 기간을 풀었는지)."""
+    p = res.get("period")
+    if not p:
+        return None
+    cited = [res["cards"][k] for k in res["cited"]] if not res["check"]["not_found"] else []
+    n_in = sum(1 for c in cited if c.get("in_period"))
+    basis = " 시행일 기준 조건은 '그 날짜 이후에 나온 회신'으로 바꿔 적용했습니다. 조문이 그 뒤에 바뀌었는지는 사례 카드의 시점 표시로 확인하세요." if p["kind"] == "basis" else ""
+    if not p["fallback"]:
+        return f"질문의 기간 조건(회신일 {p['label']})에 맞는 회신만으로 찾았습니다.{basis}", False
+    if not cited:
+        return f"질문의 기간 조건(회신일 {p['label']})에 맞는 회신에서 답을 찾지 못했고, 기간을 풀어 다시 찾아도 없었습니다.{basis}", True
+    return (f"질문의 기간 조건(회신일 {p['label']})에 맞는 회신에서는 답을 찾지 못해, 기간을 풀어 다시 찾았습니다. "
+            f"아래 근거 사례 {len(cited)}건 중 기간 안 {n_in}건, 기간 밖 {len(cited) - n_in}건입니다. 사례 카드의 회신일을 확인하세요.{basis}"), True
+
+
 def answer_markdown(res):
     """모델이 마크다운으로 쓴 답변(`APP_SYSTEM_V3`: ### 제목, - 목록, **굵게**)을 그대로 렌더링할 글로 만든다 (110번).
     근거 번호는 배지로 바꾸고, 검증 단계가 표시한 줄에는 주황 배지를 붙인다 (줄은 지우지 않는다)."""
     flagged = set((res.get("verify") or {}).get("flagged") or [])
+    valid = set(res["cards"])          # 검색해서 모델에 준 사례만 근거 배지로 그린다 (114번). 그 밖의 번호는 빨간 배지
     lines = []
     for line in res["raw"].replace(rag.CLOSING, "").strip().split("\n"):
-        t = sv.CITE.sub(lambda m: f" :blue-badge[{m.group(1)}]", sv.answer_text(line, keep_md=True))
+        t = sv.CITE.sub(lambda m: f" :blue-badge[{m.group(1)}]" if m.group(1) in valid else f" :red-badge[{m.group(1)} 검색된 사례 아님]", sv.answer_text(line, keep_md=True))
         lines.append(t + (" :orange-badge[사례에서 확인되지 않음]" if line.strip() in flagged else ""))
     return re.sub(r"[ ]{2,}", " ", "\n".join(lines))
 
@@ -213,6 +234,8 @@ def memo_markdown(res):
         title = excerpt(c["title"], 70).replace("|", "/")
         out.append(f"| {c['case_key']} | {c['gubun']} | {c['reply_date']} | {c['answer_type'] or '-'} | {mark} | {title} | {c['url'] or '-'} |")
     notes = []
+    if period_note(res):
+        notes.append(f"- {period_note(res)[0]}")
     if sv.partly_not_found(res):
         notes.append("- 답변이 \"직접 일치하는 회신은 찾지 못했다\"고 밝혔습니다. 아래 사례는 관련성이 낮을 수 있습니다.")
     for c in cited:
@@ -229,6 +252,8 @@ def memo_markdown(res):
             if ct["icon"] != "✅":
                 d = f" [{', '.join(ct['dates'])}]" if ct["dates"] else ""
                 notes.append(f"- {k}: {ct['law'] or '법령 미확인'} {ct['raw']} — {MARK_TERM.get(ct['icon'], '확인 불가')}: {ct['label']}{d}")
+    if res.get("invalid"):
+        notes.append(f"- 검토 요지에 검색된 사례가 아닌 번호({', '.join(res['invalid'])})가 있습니다. 이 번호가 붙은 문장은 근거를 확인할 수 없습니다.")
     for line in (res.get("verify") or {}).get("flagged") or []:
         notes.append(f"- 답변 검증에서 인용 사례로 확인되지 않은 문장: {sv.answer_text(line).lstrip('- ').strip()}")
     out += ["", "## 3. 확인 필요 사항", ""] + (notes or ["- 시점 판정에서 따로 확인이 필요한 조문은 없었습니다(인용 조문 모두 회신일 이후 개정 없음, 또는 인용 조문 없음)."])
@@ -244,16 +269,24 @@ def render_result(res, uid, debug, open_first=True):
     chk = res["check"]
     st.markdown(f"<div class='muted'>질문</div><div class='q-echo'>{html.escape(res['question'])}</div>", unsafe_allow_html=True)
     st.markdown(summary_badges(res))
+    note = period_note(res)
+    if note:
+        (st.warning if note[1] else st.info)(note[0])
+        st.caption(f"검색과 답변에는 기간 조건을 뺀 질문을 썼습니다: “{res['period']['topic']}”")
     with st.container(border=True):
         if chk["not_found"]:
             st.markdown("**관련 회신을 찾지 못했습니다.**")
             if (res.get("verify") or {}).get("abstained"):
                 st.caption("검색된 사례가 질문의 대상·조건을 직접 다루지 않는다고 판단해 답변을 내지 않았습니다. 아래 검색 결과는 참고용입니다.")
+            elif (res.get("gate") or {}).get("verdicts"):
+                st.caption("비슷한 사례는 검색됐지만, 질문과 대상·행위·쟁점이 모두 같은 회신은 없었습니다. 비슷한 사례로 답하지 않았습니다. 아래 검색 결과는 참고용이며 질문에 대한 답이 아닙니다.")
             else:
                 st.caption("질문에 직접 맞는 법령해석·비조치의견서 회신이 검색되지 않았습니다. 대상 회사·상품·행위를 더 구체적으로 적어 다시 물어보세요.")
         else:
             if sv.partly_not_found(res):
                 st.warning("답변이 \"직접 일치하는 회신은 찾지 못했다\"고 밝혔습니다. 아래 사례는 관련성이 낮을 수 있으니 답변 내용과 함께 확인하세요.")
+            if res.get("invalid"):
+                st.warning(f"답변에 검색된 사례가 아닌 번호({', '.join(res['invalid'])})가 있습니다. 이 번호가 붙은 문장은 근거를 확인할 수 없으니 쓰지 마세요.")
             with st.container(key=f"answer_{uid}"):
                 st.markdown(answer_markdown(res))
             if (res.get("verify") or {}).get("flagged"):
@@ -284,7 +317,7 @@ def render_result(res, uid, debug, open_first=True):
                 st.markdown(f":gray-badge[{k}] {excerpt(c['title'], 90)}  \n{badges(c)}" + (f" {mark_badge(c['time_mark'])}" if c["time_mark"] else ""))
     if debug:
         with st.expander("검색 점수·검사 결과"):
-            st.write({"마스킹된 질문": res["masked"], "처리 시간(초)": res["seconds"], "리랭킹으로 순서 바뀜": res.get("reranked"), "현장건의": res.get("exmnt"), "답변 검증": res.get("verify"), "토큰": res["usage"], "출력 검사": chk})
+            st.write({"마스킹된 질문": res["masked"], "처리 시간(초)": res["seconds"], "리랭킹으로 순서 바뀜": res.get("reranked"), "현장건의": res.get("exmnt"), "답변 검증": res.get("verify"), "토큰": res["usage"], "출력 검사": chk, "검색된 사례가 아닌 번호": res.get("invalid"), "기간 조건": res.get("period"), "직접성 판정": res.get("gate")})
             st.dataframe(pd.DataFrame([{"사례": k, "점수": round(res["cards"][k]["score"], 3), "청크 유형": res["cards"][k]["chunk_type"], "제목": res["cards"][k]["title"][:60], "인용됨": k in res["cited"]} for k in res["order"]]),
                          hide_index=True)
 
@@ -306,7 +339,7 @@ def search_tab(opts):
     if prompt:
         try:
             with st.spinner("유사 사례를 찾고 답변을 만드는 중입니다 (보통 5~10초)"):
-                st.session_state.messages.append(sv.ask(prompt, opts["relax"], opts["rerank"], opts["exmnt"], opts["verify"]))
+                st.session_state.messages.append(sv.ask(prompt, opts["relax"], opts["rerank"], opts["exmnt"], opts["verify"], opts["period"], opts["gate"]))
         except Exception as e:          # 키·주소가 들어 있을 수 있어 오류 메시지는 보여 주지 않는다
             st.error(f"답변을 만들지 못했습니다 ({type(e).__name__}). 잠시 후 다시 시도해 주세요.")
     msgs = st.session_state.messages
@@ -317,7 +350,7 @@ def search_tab(opts):
             with cols[n % 2].container(border=True):
                 st.markdown(f":blue-badge[{tag}]  \n{ex}")
                 st.button("이 질문으로 찾기", key=f"ex_{n}", on_click=use_example, args=(ex,))
-        st.caption("대상 회사·상품·행위·조건을 구체적으로 적을수록 맞는 선례를 찾기 쉽습니다. 질문은 한 번에 하나씩 처리하며, 이전 질문을 이어 받는 후속 질문과 구분·기간·분야 필터는 아직 지원하지 않습니다.")
+        st.caption("대상 회사·상품·행위·조건을 구체적으로 적을수록 맞는 선례를 찾기 쉽습니다. 질문은 한 번에 하나씩 처리하며, 이전 질문을 이어 받는 후속 질문과 구분·분야 필터는 아직 지원하지 않습니다. 회신 시기는 \"2023년 이후에 나온 회신\"처럼 질문에 적으면 회신일 조건으로 적용합니다.")
         return
     render_result(msgs[-1], len(msgs) - 1, opts["debug"])
     if len(msgs) > 1:
@@ -387,7 +420,7 @@ def guide_tab():
         st.markdown("- **확정 판단을 하지 않습니다.** 회신은 개별 사안에 대한 당국 의견이며, 최종 판단은 준법감시부서 확인이 필요합니다.\n"
                     "- 맞는 회신이 없으면 추측하지 않고 \"찾지 못했습니다\"라고 답합니다.\n"
                     "- 이전 질문을 이어 받는 후속 질문은 아직 지원하지 않습니다(질문을 하나씩 처리).\n"
-                    "- 구분·기간·분야 필터는 아직 없습니다.\n"
+                    "- 구분·분야 필터는 아직 없습니다. 기간은 질문에 적은 회신 시기(\"2023년 이후에 나온 회신\" 등)만 회신일 조건으로 적용합니다.\n"
                     "- 현장건의에는 시점 표시가 없습니다.")
     st.markdown("##### 시점 표시")
     st.markdown(LEGEND)
@@ -415,7 +448,9 @@ with st.sidebar:
         "rerank": st.toggle("검색 결과 다시 정렬(리랭킹)", value=True, help="의미 검색 상위 20건을 LLM이 다시 읽고 질문의 쟁점·조건에 직접 맞는 순서로 5건을 고릅니다. 질문마다 LLM 호출이 한 번 더 듭니다."),
         "exmnt": st.toggle("현장건의도 함께 찾기", value=True, help=f"업계 건의에 대한 당국 검토 결과(현장건의 과제)를 회신과 따로 찾아, 관련도가 높고(점수 {es.THRESH} 이상) 가장 비슷한 회신보다 더 질문에 가까울 때만 최대 {es.MAX_N}건을 회신 뒤에 붙입니다."),
         "relax": st.toggle("못 찾으면 키워드로 넓혀 찾기", value=True, help="의미 검색 상위 5건으로 답을 찾지 못했을 때만, 질문의 핵심 키워드를 모두 포함한 회신부터 하나씩 조건을 풀어 가며 최대 3건을 더 찾아 다시 답합니다."),
-        "verify": st.toggle("답변 검증", value=False, help="필요할 때만 켭니다(기본 끔). 답변을 만든 뒤 한 번 더 읽어, 검색된 사례가 질문의 대상·조건을 직접 다루지 않으면 답변을 내지 않고, 인용 사례에서 확인되지 않은 문장에 표시를 붙입니다. 질문마다 LLM 호출이 한 번 더 듭니다(약 2~3초)."),
+        "gate": st.toggle("직접 맞는 사례만으로 답하기", value=True, help="검색된 사례마다 질문과 대상·행위·쟁점이 같은지 먼저 판정해, 같은 사례만으로 답합니다. 직접 맞는 사례가 없으면 비슷한 사례로 답하지 않고 \"찾지 못했습니다\"라고 답합니다. 질문마다 LLM 호출이 한 번 더 들고 시간이 약 2배가 됩니다(개발셋 중앙값 5초 → 10초)."),
+        "period": st.toggle("질문의 기간 조건 적용", value=True, help="질문에 회신 시기를 가리키는 말(예: '2024년 이후에 나온 회신', '최근 3년간 회신', '2024-01-15 시행된 개정 기준으로')이 있으면 떼어 내 회신일 조건으로 씁니다. 그 기간의 회신만으로 먼저 찾고, 답이 없으면 기간을 풀어 다시 찾은 뒤 기간 밖 사례임을 표시합니다."),
+        "verify": st.toggle("답변 검증", value=False, help="기본 끔(응답이 약 3~4초 빨라짐). 켜면 직접 맞는 사례가 없을 때 틀린 답이 더 줄어듭니다(개발셋 정답 제외 시험 불일치 20 → 8). 답변을 만든 뒤 한 번 더 읽어, 검색된 사례가 질문의 대상·조건을 직접 다루지 않으면 답변을 내지 않고, 인용 사례에서 확인되지 않은 문장에 표시를 붙입니다. 질문마다 LLM 호출이 한 번 더 듭니다(약 2~3초)."),
         "debug": st.toggle("검색 점수·검사 결과 보기", value=False),
     }
     st.divider()

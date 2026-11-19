@@ -4,7 +4,16 @@
     {
       "name": "rag-demo",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "streamlit", "run", "최종프로젝트/금융당국 회신 선례 RAG/app/app.py", "--server.port", "8502", "--server.headless", "true"],
+      "runtimeArgs": [
+        "-m",
+        "streamlit",
+        "run",
+        "최종프로젝트/금융당국 회신 선례 RAG/app/app.py",
+        "--server.port",
+        "8502",
+        "--server.headless",
+        "true"
+      ],
       "port": 8502
     }
   ]
