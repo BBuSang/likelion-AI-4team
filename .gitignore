@@ -1,26 +1,9 @@
-# 비밀값 (API 키, HMAC 키)
+# 비밀값 (API 키, DB 비밀번호)
 .env
 
-# 실행 결과물
-outputs/
+# 금융권 법령 RAG 데이터·벡터·DB 덤프 (용량이 커서 저장소 밖으로 전달)
+최종프로젝트/금융권 법령 RAG/data/
 
 # Python
 __pycache__/
 *.pyc
-.venv/
-
-# 엑셀이 파일을 열 때 만드는 잠금 파일
-~$*
-
-실전프로젝트1/worklog.md
-실전프로젝트2/worklog.md
-실전프로젝트1/docs/
-
-# 개인 도구 설정
-.claude/
-/RAG_교육
-최종프로젝트/worklog.md
-/.vscode
-
-# 금융권 법령 RAG 데이터·벡터·DB 덤프 (용량이 커서 저장소 밖으로 전달)
-최종프로젝트/금융권 법령 RAG/data/
