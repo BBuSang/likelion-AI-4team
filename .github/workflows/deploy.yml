@@ -1,0 +1,56 @@
+# 사공삼(403) EC2 배포 (최종프로젝트/worklog 65장)
+# main 에 최종프로젝트 코드가 올라오면 자동으로, 또는 Actions 탭 → "Deploy" → Run workflow 로 손으로.
+# 하는 일: SSH 로 서버에 들어가 최종프로젝트/deploy/deploy.sh 실행 (git pull → docker compose 빌드·재시작 → 응답 확인)
+#
+# 저장소 Settings → Secrets and variables → Actions 에 넣을 것
+#   EC2_HOST     서버 주소 (고정 IP)
+#   EC2_USER     ubuntu
+#   EC2_SSH_KEY  서버 접속 키(.pem) 내용 전체
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "최종프로젝트/AI/**"
+      - "최종프로젝트/Backend/**"
+      - "최종프로젝트/Frontend/**"
+      - "최종프로젝트/infra/**"
+      - "최종프로젝트/deploy/**"
+      - ".github/workflows/deploy.yml"
+  workflow_dispatch:
+
+# 배포가 겹치지 않게 (앞 배포가 끝난 뒤 다음 것)
+concurrency:
+  group: deploy-ec2
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40   # 첫 배포는 이미지 빌드·모델 받기로 오래 걸림
+    steps:
+      - name: SSH 키 준비
+        env:
+          EC2_SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$EC2_SSH_KEY" > ~/.ssh/ec2.pem
+          chmod 600 ~/.ssh/ec2.pem
+          ssh-keyscan -T 15 -H "$EC2_HOST" >> ~/.ssh/known_hosts
+
+      - name: 서버에서 배포
+        env:
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+          EC2_USER: ${{ secrets.EC2_USER }}
+        run: |
+          ssh -i ~/.ssh/ec2.pem -o ServerAliveInterval=30 "$EC2_USER@$EC2_HOST" \
+            'DEPLOY_BRANCH=main bash "$HOME/likelion-AI-4team/최종프로젝트/deploy/deploy.sh"'
+
+      - name: 키 지우기
+        if: always()
+        run: rm -f ~/.ssh/ec2.pem

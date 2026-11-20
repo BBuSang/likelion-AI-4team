@@ -1,0 +1,8 @@
+.env
+target
+.idea
+.vscode
+.settings
+.project
+.classpath
+Dockerfile

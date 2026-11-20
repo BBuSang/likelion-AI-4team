@@ -507,6 +507,10 @@ cd 최종프로젝트/Frontend && npm install && npm run dev
 VS Code 에서는 `Ctrl+Shift+P` → **Tasks: Run Task** → **사공삼: 전체 실행** 으로 세 서버를 한 번에 켤 수 있습니다 (`.vscode/tasks.json`).
 브라우저에서 `http://localhost:5173` 을 엽니다. AI 서버는 처음 켤 때 임베딩·탐지 모델을 읽느라 첫 질문까지 1분쯤 걸립니다.
 
+### 14-3-1. 서버 배포 (EC2 + GitHub Actions)
+
+main 에 올라오면 GitHub Actions 가 SSH 로 서버의 `deploy/deploy.sh` 를 실행해 Docker 로 다시 빌드·실행합니다. 처음 준비와 구성은 [deploy/README.md](deploy/README.md) (worklog 65장).
+
 ### 14-4. 무인 파이프라인 (채점 DB, 포트 5435)
 
 ```bash

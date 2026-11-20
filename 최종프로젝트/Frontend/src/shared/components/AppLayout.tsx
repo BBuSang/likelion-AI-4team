@@ -1,7 +1,7 @@
 // 로그인 뒤 공통 틀: 왼쪽 메뉴 + 가운데 화면 (worklog 14장)
 // 메뉴는 권한별로 보임: 데이터 적재·통계·관리자는 관리자만 (실제 차단은 백엔드)
-import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom';
-import { BarChart3, LogOut, MessageCircle, Settings2, Upload, UserRound, Users } from 'lucide-react';
+import { NavLink, Outlet, useNavigate } from 'react-router-dom';
+import { BarChart3, LogOut, MessageCircle, Upload, UserRound, Users } from 'lucide-react';
 import { useAuth } from '@/shared/contexts/AuthContext';
 import { LogoMark, LogoRow } from './Logo';
 import './layout.css';

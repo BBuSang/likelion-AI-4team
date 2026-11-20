@@ -10,7 +10,7 @@ psycopg[binary]==3.2.13
 pgvector==0.2.5
 
 # 임베딩·LLM 호출, 설정
-numpy==1.26.4
+numpy==2.2.6
 requests==2.31.0
 python-dotenv==1.0.1
 
