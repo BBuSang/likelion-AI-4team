@@ -1,22 +1,23 @@
 # 배포 (EC2 + GitHub Actions)
 
-서버 한 대(m7i.xlarge, Ubuntu, 미국 오하이오 us-east-2)에 Docker 로 4개를 띄웁니다. 설계·확인 기록은 `worklog.md` 65장.
+서버 한 대(m7i.xlarge, Ubuntu, 미국 오하이오 us-east-2, 고정 IP 3.19.81.108)에 Docker 로 4개를 띄웁니다. 주소 **https://403.p-e.kr** (내도메인.한국 무료 도메인, A 레코드). 설계·확인 기록은 `worklog.md` 65·66장.
 
 ```
-브라우저 ──80──▶ web (Nginx: 화면 파일, /api → backend)
+브라우저 ──443──▶ web (Nginx: 화면 파일, /api → backend, 80 은 https 로 넘김)
                   └▶ backend (Spring :8080) ──▶ ai (FastAPI :8000) ──▶ db (PostgreSQL 16 + pgvector)
 ```
 
-- 밖에 여는 포트는 **80** 하나. DB 는 서버 안 `127.0.0.1:5434` 에서만 (노트북에서 볼 땐 SSH 터널)
+- 밖에 여는 포트는 **80·443**. DB 는 서버 안 `127.0.0.1:5434` 에서만 (노트북에서 볼 땐 SSH 터널)
 - 비밀값·데이터는 저장소 밖 `/srv/saebom` 에 두고 git 에 올리지 않습니다
 
 | 파일 | 내용 |
 |---|---|
 | `docker-compose.yml` | 운영 구성 (db·ai·backend·web, 재시작 자동, 로그 20MB×5) |
+| `certbot.sh` | HTTPS 인증서: `issue`(처음 발급) · `renew`(갱신, 매일 03:17 cron) · `cron`(등록) |
 | `deploy.sh` | 서버에서: `git reset --hard origin/main` → `docker compose up -d --build` → 화면·API 응답 확인 |
 | `env.example/*.env` | 서버 설정 파일 틀 (값은 비어 있음) |
 | `../.github/workflows/deploy.yml` (저장소 맨 위) | main 에 올라오면 SSH 로 `deploy.sh` 실행. Actions 탭에서 손으로도 |
-| `../AI/Dockerfile`, `../Backend/Dockerfile`, `../Frontend/Dockerfile`, `../Frontend/nginx.conf` | 이미지 |
+| `../AI/Dockerfile`, `../Backend/Dockerfile`, `../Frontend/Dockerfile`, `../Frontend/nginx/` (app·http·https 설정 + 시작 때 인증서 유무로 고르는 스크립트) | 이미지 |
 
 ## 처음 한 번 (서버 준비)
 
@@ -35,7 +36,8 @@
    - 서버: `docker compose up -d db` → 계정 → `pg_restore --clean --if-exists` → 계정 비밀번호를 `db.env` 값으로 `ALTER ROLE`
 5. **GitHub 비밀값** — 저장소 Settings → Secrets and variables → Actions
    - `EC2_HOST` = 고정 IP, `EC2_USER` = `ubuntu`, `EC2_SSH_KEY` = `.pem` 내용 전체
-6. 첫 배포: `bash ~/likelion-AI-4team/최종프로젝트/deploy/deploy.sh` (또는 Actions → Deploy → Run workflow)
+6. **HTTPS** — 도메인 A 레코드를 서버 IP 로 넣은 뒤 `bash deploy/certbot.sh issue` → `bash deploy/certbot.sh cron`
+7. 첫 배포: `bash ~/likelion-AI-4team/최종프로젝트/deploy/deploy.sh` (또는 Actions → Deploy → Run workflow)
    - 첫 실행은 이미지 빌드(AI 2.2GB)·모델 내려받기로 10분 남짓
 
 ## 그다음부터
