@@ -6,6 +6,8 @@ import type { Role, UserStatus } from '@/shared/types/user.types';
 import * as api from '../api/admin.api';
 import type { AdminUser, AuditLog, Candidate, Employee, Position, Team } from '../api/admin.api';
 import { DocDetailPanel, DocsTab, EmployeesTab } from './DataTabs';
+import UserChats from './UserChats';
+import MaskedText from '@/features/chat/components/MaskedText';
 
 const ROLES: { v: Role; n: string }[] = [{ v: 'STAFF', n: '직원' }, { v: 'LEAD', n: '팀장' }, { v: 'AUDITOR', n: '감사' }];
 const roleName = (r: Role) => ROLES.find((x) => x.v === r)?.n ?? r;
@@ -13,7 +15,7 @@ const STATUS: Record<UserStatus, { n: string; cls: string }> = {
   PENDING: { n: '승인 대기', cls: 'badge-warn' }, ACTIVE: { n: '사용 중', cls: 'badge-brand' }, SUSPENDED: { n: '정지', cls: 'badge-bad' },
 };
 const ACTION: Record<string, string> = {
-  approve: '승인', update: '정보 변경', delete_doc: '문서 삭제', update_doc: '문서 공개 범위', create_team: '팀 추가', update_team: '팀 변경', sync_teams: '팀 가져오기', bootstrap: '첫 관리자',
+  approve: '승인', update: '정보 변경', delete_doc: '문서 삭제', update_doc: '문서 공개 범위', create_team: '팀 추가', update_team: '팀 변경', sync_teams: '팀 가져오기', bootstrap: '첫 관리자', view_chat: '채팅 열람',
 };
 
 type Tab = 'pending' | 'users' | 'docs' | 'emps' | 'teams' | 'log';
@@ -107,7 +109,7 @@ export default function AdminPage() {
         <aside className="panel side side-wide">
           {!selected && <p className="small muted">표에서 사람을 고르면 여기에 자세한 정보가 보여요.</p>}
           {selected?.status === 'PENDING' && <ApprovePanel key={selected.id} u={selected} teams={teams} positions={positions} onDone={reload} />}
-          {selected && selected.status !== 'PENDING' && <EditPanel key={selected.id} u={selected} teams={teams} positions={positions} onDone={reload} />}
+          {selected && selected.status !== 'PENDING' && <EditPanel key={selected.id} u={selected} users={list} teams={teams} positions={positions} onDone={reload} />}
         </aside>
       )}
     </>
@@ -229,14 +231,16 @@ function ApprovePanel({ u, teams, positions, onDone }: { u: AdminUser; teams: Te
 
 // ---------------------------------------------------------------- 사용자 정보 바꾸기
 
-function EditPanel({ u, teams, positions, onDone }: { u: AdminUser; teams: Team[]; positions: Position[]; onDone: () => void }) {
+function EditPanel({ u, users, teams, positions, onDone }: { u: AdminUser; users: AdminUser[]; teams: Team[]; positions: Position[]; onDone: () => void }) {
+  const who = (id: number | null) => (id === null ? '-' : id === 0 ? '서버' : users.find((x) => x.id === id)?.name ?? `id ${id}`);
   const [f, setF] = useState({ teamId: String(u.teamId ?? ''), positionId: String(u.positionId ?? ''), role: u.role, admin: u.admin });
   const [empId, setEmpId] = useState('');
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
   const [log, setLog] = useState<AuditLog[]>([]);
 
-  useEffect(() => { api.auditLog(u.id).then(setLog).catch(() => {}); }, [u.id]);
+  const loadLog = useCallback(() => { api.auditLog(u.id).then(setLog).catch(() => {}); }, [u.id]);
+  useEffect(loadLog, [loadLog]);
 
   const run = async (body: api.UpdateBody, ok: string) => {
     setBusy(true);
@@ -303,18 +307,42 @@ function EditPanel({ u, teams, positions, onDone }: { u: AdminUser; teams: Team[
       </div>
       {msg && <div className={`alert ${msg.ok ? 'alert-ok' : 'alert-bad'}`}>{msg.text}</div>}
 
+      <div style={{ borderTop: '1px solid var(--line)', paddingTop: 12 }}>
+        <UserChats userId={u.id} name={u.name} onViewed={loadLog} />
+      </div>
+
       <div>
         <h3 style={{ marginBottom: 6 }}>이 계정의 변경 기록</h3>
         {log.length === 0 && <p className="small muted">기록이 없어요.</p>}
         {log.slice(0, 8).map((l) => (
           <div key={l.id} className="small" style={{ padding: '6px 0', borderBottom: '1px solid #eef1f6' }}>
             <span className="badge badge-gray">{ACTION[l.action] ?? l.action}</span> <span className="muted">{fmtTime(l.createdAt)}</span>
-            <p className="muted" style={{ wordBreak: 'break-all', marginTop: 2 }}>{describe(l.changes)}</p>
+            <p className="muted" style={{ wordBreak: 'break-all', marginTop: 2 }}><LogDetail l={l} who={who} /></p>
           </div>
         ))}
       </div>
     </div>
   );
+}
+
+/** 기록 한 줄의 내용. 채팅 열람은 "누가 누구의 어느 대화를 열람"으로 (worklog 61장) */
+function LogDetail({ l, who }: { l: AuditLog; who: (id: number | null) => string }) {
+  if (l.action === 'view_chat') {
+    let id: unknown = null;
+    let title: unknown = null;
+    try {
+      const c = JSON.parse(l.changes) as Record<string, [unknown, unknown]>;
+      id = c.conversation?.[1];
+      title = c.title?.[1];
+    } catch { /* 옛 형식 */ }
+    return (
+      <>
+        <b>{who(l.adminId)}</b> 님이 <b>{who(l.targetUserId)}</b> 님의{' '}
+        {typeof title === 'string' && title ? <>「<MaskedText text={title} />」</> : id != null ? `#${id}` : ''} 대화를 열람했어요
+      </>
+    );
+  }
+  return <>{describe(l.changes)}</>;
 }
 
 function describe(changes: string) {
@@ -374,7 +402,7 @@ function LogTab({ users }: { users: AdminUser[] }) {
     <>
       {error && <div className="alert alert-bad">{error}</div>}
       <table className="table">
-        <thead><tr><th>시각</th><th>한 사람</th><th>작업</th><th>대상</th><th>바뀐 값</th></tr></thead>
+        <thead><tr><th>시각</th><th>한 사람</th><th>작업</th><th>대상</th><th>내용</th></tr></thead>
         <tbody>
           {log.map((l) => (
             <tr key={l.id}>
@@ -382,7 +410,7 @@ function LogTab({ users }: { users: AdminUser[] }) {
               <td>{who(l.adminId)}</td>
               <td><span className="badge badge-gray">{ACTION[l.action] ?? l.action}</span></td>
               <td>{who(l.targetUserId)}</td>
-              <td className="small" style={{ wordBreak: 'break-all' }}>{describe(l.changes)}</td>
+              <td className="small" style={{ wordBreak: 'break-all' }}><LogDetail l={l} who={who} /></td>
             </tr>
           ))}
           {log.length === 0 && <tr><td colSpan={5} className="muted" style={{ textAlign: 'center', padding: 30 }}>기록이 없어요.</td></tr>}

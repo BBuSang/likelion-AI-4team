@@ -160,12 +160,21 @@ _DEPT_END = re.compile(r"[팀부과실국청원]$")
 _kiwi = None
 
 
-def _word_tags(w):
+def _get_kiwi():
     global _kiwi
     if _kiwi is None:
         from kiwipiepy import Kiwi
         _kiwi = Kiwi()
-    return [t.tag for t in _kiwi.analyze(w, top_n=1)[0][0]]
+    return _kiwi
+
+
+def _word_tags(w):
+    return [t.tag for t in _get_kiwi().analyze(w, top_n=1)[0][0]]
+
+
+def kiwi_tokens(text):
+    """문장 형태소 [(글자, 품사, 시작, 끝)] — 질문 속 이름 오탐 거르기에 씀 (rag.search, worklog 64장)"""
+    return [(t.form, t.tag, t.start, t.start + t.len) for t in _get_kiwi().tokenize(text)]
 
 
 def _given_title_spans(text, taken):

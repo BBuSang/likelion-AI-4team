@@ -21,3 +21,6 @@ __pycache__/
 /RAG_교육
 최종프로젝트/worklog.md
 /.vscode
+
+# 서버 접속 키 (절대 커밋 금지)
+*.pem

@@ -8,6 +8,10 @@ import com.saebom.backend.entity.Role;
 import com.saebom.backend.entity.User;
 import com.saebom.backend.exception.ApiException;
 import com.saebom.backend.security.UD;
+import com.saebom.backend.service.ChatHistoryService;
+import com.saebom.backend.service.ChatHistoryService.ConversationDetail;
+import com.saebom.backend.service.ChatHistoryService.ConversationSummary;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -18,6 +22,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -28,12 +33,16 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/chat")
 @RequiredArgsConstructor
+@lombok.extern.slf4j.Slf4j
 public class ChatController {
 
     private final AiClient ai;
+    private final ChatHistoryService history;
 
+    /** conversationId: 이 대화에 질문·답변을 저장 (없으면 저장 안 함). 내 대화가 아니면 AI 를 부르기 전에 404 */
     public record AskRequest(@NotBlank @Size(max = 1000) String query,
-                             @Min(1) @Max(10) Integer k) {}
+                             @Min(1) @Max(10) Integer k,
+                             Long conversationId) {}
 
     /** text = 질문 응답의 answer (토큰 상태), docIds = 그 응답의 docs 의 docId */
     public record RestoreRequest(@NotBlank @Size(max = 20_000) String text,
@@ -43,7 +52,57 @@ public class ChatController {
     @PostMapping("/ask")
     public AskResult ask(@AuthenticationPrincipal UD me, @Valid @RequestBody AskRequest req) {
         User u = linked(me);
-        return ai.ask(AccessUser.of(u), req.query().trim(), req.k() == null ? 3 : req.k());
+        if (req.conversationId() != null) history.checkOwner(u.getId(), req.conversationId());
+        AskResult r = ai.ask(AccessUser.of(u), req.query().trim(), req.k() == null ? 3 : req.k());
+        history.append(u.getId(), req.conversationId(), req.query().trim(), r);
+        return r;
+    }
+
+    /**
+     * 답변 스트리밍 (worklog 59장). SSE: stage · delta(출력 검사를 거친 답변 조각) · done(ask 와 같은 결과) · error.
+     * 비동기(SseEmitter) 대신 이 요청 스레드에서 바로 써서 흘려보냄 — 비동기 재전달 때 JWT 인증이 다시 안 붙는 문제를 피함.
+     * AI 가 흐름을 열기 전에 거절하면 보통 오류 응답(JSON)으로.
+     */
+    @PostMapping("/ask/stream")
+    public void askStream(@AuthenticationPrincipal UD me, @Valid @RequestBody AskRequest req, HttpServletResponse res)
+            throws IOException {
+        User u = linked(me);
+        if (req.conversationId() != null) history.checkOwner(u.getId(), req.conversationId());
+        ai.askStream(AccessUser.of(u), req.query().trim(), req.k() == null ? 3 : req.k(), () -> {
+            res.setStatus(HttpServletResponse.SC_OK);
+            res.setContentType("text/event-stream");
+            res.setCharacterEncoding("UTF-8");
+            res.setHeader("Cache-Control", "no-cache");
+            res.setHeader("X-Accel-Buffering", "no");
+        }, res.getOutputStream(), r -> {
+            try {
+                history.append(u.getId(), req.conversationId(), req.query().trim(), r);
+            } catch (RuntimeException e) {  // 답은 이미 화면에 감 — 저장 실패로 흐름을 깨지 않음
+                log.warn("채팅 내역 저장 실패 (대화 {}): {}", req.conversationId(), e.toString());
+            }
+        });
+    }
+
+    // ------------------------------------------------------------------ 채팅 내역 (worklog 61장, 본인 것만)
+
+    @GetMapping("/conversations")
+    public List<ConversationSummary> conversations(@AuthenticationPrincipal UD me) {
+        return history.list(me.getUser().getId());
+    }
+
+    @PostMapping("/conversations")
+    public ConversationSummary newConversation(@AuthenticationPrincipal UD me) {
+        return history.create(me.getUser().getId());
+    }
+
+    @GetMapping("/conversations/{id}")
+    public ConversationDetail conversation(@AuthenticationPrincipal UD me, @PathVariable Long id) {
+        return history.detail(me.getUser().getId(), id);
+    }
+
+    @DeleteMapping("/conversations/{id}")
+    public void deleteConversation(@AuthenticationPrincipal UD me, @PathVariable Long id) {
+        history.delete(me.getUser().getId(), id);
     }
 
     @PostMapping("/restore")

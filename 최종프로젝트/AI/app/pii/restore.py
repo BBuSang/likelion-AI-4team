@@ -82,14 +82,18 @@ def restore_for(text, user, doc_ids, purpose=None, actor=None):
         rows = rc.execute("SELECT DISTINCT unnest(tokens) FROM rag.chunks WHERE doc_id = ANY(%s)", (ok_docs,)).fetchall()
     allowed = {r[0] for r in rows}
     want = [t for t in found if t in allowed]
-    denied = [t for t in found if t not in allowed]
     with db.vault_conn() as conn:
         m = lookup(want, conn)
+        # 원래 값이 금고에 아예 없는 토큰 = 출력 재검사가 답변 속 말을 가린 것 (예: '조문'을 이름으로 오탐). 권한 문제가 아니라
+        # 되돌릴 값이 없음 → denied 가 아니라 unknown 으로 (화면이 "권한이 없어 가림"이라고 잘못 말하던 것, worklog 57장)
+        rest = [t for t in found if t not in allowed]
+        in_vault = set(lookup(rest, conn)) if rest else set()
+        denied = [t for t in rest if t in in_vault]
         _log(actor, user, purpose, sorted(m), ok_docs, denied, conn=conn)
     out = text
     for t, v in m.items():
         out = out.replace(t, v["display"])
-    unknown = [t for t in want if t not in m]
+    unknown = [t for t in want if t not in m] + [t for t in rest if t not in in_vault]
     return out, {"restored": {t: v["display"] for t, v in m.items()}, "denied": denied, "unknown": unknown,
                  "docs": ok_docs, "warnings": _warnings(actor or user.get("emp_id") or "system")}
 

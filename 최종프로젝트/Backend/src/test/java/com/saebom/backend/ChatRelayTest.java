@@ -64,6 +64,29 @@ class ChatRelayTest {
     }
 
     @Test
+    void askStreamRelaysEventsWithDbAccount() throws Exception {
+        String token = account("stream@chat.test", Role.STAFF, "E951", UserStatus.ACTIVE);
+        String sse = "event: stage\ndata: {\"stage\": \"classify\"}\n\nevent: delta\ndata: {\"text\": \"답 \"}\n\n";
+        doAnswer(inv -> {
+            ((Runnable) inv.getArgument(3)).run();
+            ((java.io.OutputStream) inv.getArgument(4)).write(sse.getBytes(java.nio.charset.StandardCharsets.UTF_8));
+            return null;
+        }).when(ai).askStream(any(), anyString(), anyInt(), any(), any(), any());
+        var res = post_("/api/chat/ask/stream", Map.of("query", " 대출 상담 ", "role", "AUDITOR"), token)
+                .andExpect(status().isOk()).andReturn().getResponse();
+        org.assertj.core.api.Assertions.assertThat(res.getContentType()).startsWith("text/event-stream");
+        org.assertj.core.api.Assertions.assertThat(res.getContentAsString(java.nio.charset.StandardCharsets.UTF_8)).isEqualTo(sse);
+        verify(ai).askStream(eq(new AccessUser("E951", "채팅팀", "STAFF")), eq("대출 상담"), eq(3), any(), any(), any());
+    }
+
+    @Test
+    void askStreamPassesAiRefusalAsError() throws Exception {
+        String token = account("stream2@chat.test", Role.STAFF, "E952", UserStatus.ACTIVE);
+        doThrow(ApiException.forbidden("권한 밖 요청")).when(ai).askStream(any(), anyString(), anyInt(), any(), any(), any());
+        post_("/api/chat/ask/stream", Map.of("query", "대출"), token).andExpect(status().isForbidden());
+    }
+
+    @Test
     void askSendsDbAccountNotClientValues() throws Exception {
         String token = account("staff@chat.test", Role.STAFF, "E001", UserStatus.ACTIVE);
         when(ai.ask(any(), anyString(), anyInt())).thenReturn(new AskResult("q", "<PERSON_ab> 고객 상담 [H1]", false,

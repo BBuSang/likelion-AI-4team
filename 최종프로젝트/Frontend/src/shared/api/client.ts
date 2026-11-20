@@ -13,7 +13,7 @@ export const BASE_URL = import.meta.env.VITE_API_BASE_URL ?? '';
 
 const apiClient = axios.create({
   baseURL: BASE_URL,
-  timeout: 120000, // LLM 답변이 길어질 수 있어 2분. 스트리밍(SSE)은 fetch 로 따로 처리 예정
+  timeout: 120000, // LLM 답변이 길어질 수 있어 2분. 답변 스트리밍(SSE)은 chat.api askStream 이 fetch 로
   headers: { 'Content-Type': 'application/json' },
 });
 
@@ -21,7 +21,8 @@ const NO_AUTH_REDIRECT = ['/api/auth/login', '/api/auth/signup', '/api/auth/chec
 
 let refreshPromise: Promise<void> | null = null;
 
-async function refreshTokenIfNeeded(): Promise<void> {
+/** 만료 5분 전이면 토큰 갱신 (axios 요청 전 + fetch 스트리밍 전, worklog 59장) */
+export async function refreshTokenIfNeeded(): Promise<void> {
   const token = getToken();
   if (!token) return;
   const exp = getTokenExpiration(token);

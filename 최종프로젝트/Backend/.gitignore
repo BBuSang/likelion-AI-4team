@@ -6,3 +6,8 @@ target/
 application-local.properties
 *.log
 bin/
+
+# IDE 설정
+.project
+.classpath
+.settings/

@@ -25,6 +25,7 @@
 import argparse
 import collections
 import re
+import sys
 
 import requests
 
@@ -188,10 +189,36 @@ def _extra_query_spans(query, spans, cur):
     return extra
 
 
+def _weak_query_name(query, s):
+    """질문에서 규칙만 이름으로 본 구간(모델은 이름 아님 < 0.5, flag=disagree) 중 **보통 말로 풀리는 것**만 True.
+    '크게 주려면'(주/VV + 려면/EC)·'골드리슈 금적립'(금/NNG + 적립/NNG)처럼 성씨 글자로 시작하는 보통 말 (worklog 64장).
+    조건 셋 다: ① 뒤에 호칭·직함 없음 ② 형태소 분석에서 그 구간이 둘 이상으로 쪼개짐 ③ 고유명사(NNP) 조각 없음.
+    낯선 이름('육가은'·'표한결')은 형태소 분석기가 한 덩어리 미등록어로 두므로 ②에서 걸러져 계속 가려짐.
+    DB 에 있는 사람 이름이면 뒤의 _extra_query_spans 가 다시 가리므로 고객·직원 이름은 그대로 보호됨"""
+    if s["label"] != "person" or s.get("src") != "rule" or s.get("flag") != "disagree":
+        return False
+    toks = [t for t in pii_pipeline.kiwi_tokens(query) if t[2] < s["end"] and t[3] > s["start"]]
+    if len(toks) < 2 or any(t[1] == "NNP" for t in toks):
+        return False
+    if str(pii_pipeline.DETECTOR_DIR) not in sys.path:  # 보통은 앞의 detect 가 넣어 둠 (단독 호출·테스트 대비)
+        sys.path.insert(0, str(pii_pipeline.DETECTOR_DIR))
+    from detectors.rule_based import TITLES
+    after = query[s["end"]:].lstrip()
+    for t in TITLES | {"고객", "님", "씨"}:
+        # 호칭이 한 낱말일 때만 ('이사님'·'대리가'는 호칭, '이사회'는 아님)
+        if after.startswith(t) and _TITLE_END.match(after[len(t):]):
+            return False
+    return True
+
+
+_TITLE_END = re.compile(r"(?:$|[^가-힣]|님|께서|에게|한테|이|가|은|는|의|과|와|도|을|를|으로|로|건)")
+
+
 def mask_query(query, conn=None):
     query = _ATTACHED_TITLE.sub(lambda m: m.group() if m.group(1) in _NOT_NAME else f"{m.group(1)} {m.group(2)}", query)
-    spans = [s for s in pii_pipeline.detect(query)
-             if not (config.QUERY_REGION_FILTER and s["label"] == "person" and _region_like(query, s))]
+    spans = [{k: s[k] for k in ("label", "start", "end")} for s in pii_pipeline.detect_scored(query)["spans"]
+             if not (config.QUERY_REGION_FILTER and s["label"] == "person" and _region_like(query, s))
+             and not _weak_query_name(query, s)]
     own = conn is None
     conn = conn or db.rag_conn()
     try:
