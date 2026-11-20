@@ -12,6 +12,8 @@ pgvector==0.2.5
 # 임베딩·LLM 호출, 설정
 numpy==2.2.6
 requests==2.31.0
+# 공개 RAG (비조치의견서 재순위·판정, 금융상품 상품명 확인)이 OpenAI SDK 를 씀 (worklog 65장: 빠져 있어 서버에서 import 실패)
+openai==2.8.1
 python-dotenv==1.0.1
 
 # 개인정보 탐지기 (실전 1 운영 탐지기: 규칙 + atonlee 토큰 분류)
