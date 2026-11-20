@@ -1,6 +1,7 @@
 # 운영(EC2) 실행 구성 (worklog 65장) — 서버 4개를 한 대에서
 #   web(Nginx :80) → backend(Spring :8080) → ai(FastAPI :8000) → db(PostgreSQL+pgvector :5432)
-# 밖에 여는 건 web 의 80 번뿐. DB 는 서버 안(127.0.0.1:5434)에서만 — 노트북에서 볼 땐 SSH 터널
+# 밖에 여는 건 web 의 80·443 번뿐 (80 은 https 로 넘김). DB 는 서버 안(127.0.0.1:5434)에서만 — 노트북에서 볼 땐 SSH 터널
+#   ${SAEBOM_HOME:-/srv/saebom}/certs, certbot-www          ← Let's Encrypt 인증서 (deploy/certbot.sh)
 #
 # 비밀값·데이터는 저장소 밖 서버 폴더에 (git 에 안 올라감)
 #   ${SAEBOM_HOME:-/srv/saebom}/env/{db,ai,backend}.env   ← deploy/env.example/ 를 복사해 채움
@@ -70,8 +71,15 @@ services:
   web:
     <<: *restart
     build: ../Frontend
+    environment:
+      # 이 도메인의 인증서가 /srv/saebom/certs 에 있으면 https, 없으면 http 만 (worklog 66장, deploy/certbot.sh)
+      SITE_DOMAIN: ${SITE_DOMAIN:-403.p-e.kr}
     ports:
       - "80:80"
+      - "443:443"
+    volumes:
+      - ${SAEBOM_HOME:-/srv/saebom}/certs:/etc/letsencrypt:ro
+      - ${SAEBOM_HOME:-/srv/saebom}/certbot-www:/var/www/certbot:ro
     depends_on:
       - backend
 

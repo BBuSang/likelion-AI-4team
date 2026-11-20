@@ -25,7 +25,10 @@ echo "== 빌드·실행"
 
 echo "== 상태 확인"
 for i in $(seq 1 60); do
-  if curl -fsS -o /dev/null http://localhost/ && curl -s -o /dev/null -w '%{http_code}' http://localhost/api/auth/options | grep -q 200; then
+  # https 를 켰으면 http 는 301 로 넘기므로 https(localhost, 인증서 이름 확인 생략)로 확인
+  code=$(curl -s -o /dev/null -w '%{http_code}' http://localhost/api/auth/options || true)
+  [ "$code" = 301 ] && code=$(curl -sk -o /dev/null -w '%{http_code}' https://localhost/api/auth/options || true)
+  if [ "$code" = 200 ]; then
     echo "   화면·API 응답 OK"
     break
   fi
