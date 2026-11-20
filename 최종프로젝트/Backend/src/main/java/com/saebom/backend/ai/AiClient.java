@@ -15,6 +15,15 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.client.RestClientException;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -29,11 +38,22 @@ public class AiClient {
     private final RestClient http;
     private final RestClient chatHttp; // 질문은 검색 + LLM 이라 오래 걸림
     private final ObjectMapper om = new ObjectMapper();
+    // 답변 스트리밍용 (worklog 59장): RestClient 는 응답을 다 받은 뒤에 넘겨서 SSE 를 그대로 흘려보낼 수 없음
+    // HTTP/1.1 고정: 기본값(HTTP/2)은 http:// 에 'h2c 업그레이드' 머리를 붙여 보내는데, uvicorn 이 본문 있는 POST 의
+    // 업그레이드 요청을 처리하지 못해 본문이 빠짐 → AI 가 422 ("요청 형식이 맞지 않습니다")
+    private final HttpClient streamHttp = HttpClient.newBuilder().version(HttpClient.Version.HTTP_1_1)
+            .connectTimeout(Duration.ofSeconds(3)).build();
+    private final String baseUrl;
+    private final String serviceKey;
+    private final int chatTimeoutMs;
 
     public AiClient(@Value("${ai.base-url}") String baseUrl, @Value("${ai.service-key}") String serviceKey,
                     @Value("${ai.chat-timeout-ms:120000}") int chatTimeoutMs) {
         this.http = client(baseUrl, serviceKey, 30_000);
         this.chatHttp = client(baseUrl, serviceKey, chatTimeoutMs);
+        this.baseUrl = baseUrl.replaceAll("/+$", "");
+        this.serviceKey = serviceKey;
+        this.chatTimeoutMs = chatTimeoutMs;
     }
 
     private static RestClient client(String baseUrl, String serviceKey, int readTimeoutMs) {
@@ -134,6 +154,96 @@ public class AiClient {
     public AskResult ask(AccessUser user, String query, int k) {
         return call(() -> chatHttp.post().uri("/internal/chat/ask").contentType(MediaType.APPLICATION_JSON)
                 .body(Map.of("user", user, "query", query, "k", k)).retrieve().body(AskResult.class));
+    }
+
+    /**
+     * 답변 스트리밍 (worklog 59장): AI 서버 /internal/chat/ask/stream 의 SSE(단계 · 출력 검사를 거친 답변 조각 · 마지막 결과)를
+     * 받는 대로 out 에 그대로 넘김. AI 가 흐름을 열기 전에 거절하면(403·502 등) ask 와 같은 오류로 던지고,
+     * onStart(응답 머리 설정)는 흐름이 열린 뒤에만 부름 — 그 전에 실패하면 화면은 보통 오류 응답(JSON)을 받음.
+     */
+    public void askStream(AccessUser user, String query, int k, Runnable onStart, OutputStream out) throws IOException {
+        askStream(user, query, k, onStart, out, r -> { });
+    }
+
+    /** onDone: 마지막 결과(done)를 화면에 보낸 뒤 부름 — 채팅 내역 저장 (worklog 61장) */
+    public void askStream(AccessUser user, String query, int k, Runnable onStart, OutputStream out,
+                          java.util.function.Consumer<AskResult> onDone) throws IOException {
+        byte[] body = om.writeValueAsBytes(Map.of("user", user, "query", query, "k", k));
+        HttpRequest req = HttpRequest.newBuilder(URI.create(baseUrl + "/internal/chat/ask/stream"))
+                .timeout(Duration.ofMillis(chatTimeoutMs))  // 응답 머리까지 (AI 는 흐름을 바로 엶)
+                .header("Content-Type", "application/json")
+                .header("Accept", "text/event-stream")
+                .header("X-Service-Key", serviceKey)
+                .POST(HttpRequest.BodyPublishers.ofByteArray(body))
+                .build();
+        HttpResponse<InputStream> res;
+        try {
+            res = streamHttp.send(req, HttpResponse.BodyHandlers.ofInputStream());
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            throw ApiException.badGateway("AI 서버에 연결할 수 없습니다");
+        } catch (IOException e) {
+            throw ApiException.badGateway("AI 서버에 연결할 수 없습니다");
+        }
+        try (InputStream in = res.body()) {
+            if (res.statusCode() != 200) {
+                throw error(res.statusCode(), detailOf(new String(in.readAllBytes(), StandardCharsets.UTF_8)));
+            }
+            onStart.run();
+            relay(in, out, onDone);
+        }
+    }
+
+    /**
+     * SSE 를 줄 단위로 넘김. 이벤트 하나가 끝날 때마다(빈 줄) 바로 내보냄 (모아 두지 않음).
+     * done 의 result 는 AskResult 로 읽어 다시 써서 /ask 응답과 같은 모양(camelCase)으로 — 나머지 이벤트는 그대로.
+     */
+    void relay(InputStream in, OutputStream out) throws IOException {
+        relay(in, out, r -> { });
+    }
+
+    void relay(InputStream in, OutputStream out, java.util.function.Consumer<AskResult> onDone) throws IOException {
+        var reader = new java.io.BufferedReader(new java.io.InputStreamReader(in, StandardCharsets.UTF_8));
+        String event = null;
+        AskResult done = null;
+        String line;
+        while ((line = reader.readLine()) != null) {
+            if (line.startsWith("event:")) {
+                event = line.substring(6).trim();
+            } else if (line.startsWith("data:") && "done".equals(event)) {
+                JsonNode result = om.readTree(line.substring(5)).get("result");
+                done = om.treeToValue(result, AskResult.class);
+                line = "data: " + om.writeValueAsString(Map.of("result", done));
+            }
+            out.write((line + "\n").getBytes(StandardCharsets.UTF_8));
+            if (line.isEmpty()) {
+                out.flush();
+                event = null;
+            }
+        }
+        out.flush();
+        if (done != null) onDone.accept(done);  // 화면에 다 보낸 뒤 (저장이 늦어도 답은 먼저 감)
+    }
+
+    /** AI 오류 응답 → 다른 호출(call)과 같은 오류 */
+    private ApiException error(int status, String detail) {
+        if (status == 403) return ApiException.forbidden(detail != null ? detail : "권한이 없습니다.");
+        if (status == 400) return ApiException.badRequest(detail != null ? detail : "요청이 올바르지 않습니다.");
+        if (status == 422) return ApiException.badRequest("요청 형식이 맞지 않습니다.");
+        if (status >= 500) {
+            return ApiException.badGateway((detail != null ? detail : "AI 서버가 요청을 처리하지 못했습니다") + " 잠시 후 다시 시도해 주세요.");
+        }
+        return new ApiException(HttpStatus.BAD_GATEWAY, "AI 서버가 요청을 거절했습니다 (" + status + ")");
+    }
+
+    private String detailOf(String body) {
+        try {
+            var d = om.readTree(body).get("detail");
+            if (d != null && d.isTextual()) return d.asText();
+        } catch (Exception ignored) {
+            // 기본 문구
+        }
+        return null;
     }
 
     /** 백엔드에서 거절한 실명 보기 시도(사유 없음 등)를 AI 쪽 복원 기록에 남김 — 이상 접근 탐지용 (worklog 39장).

@@ -2,12 +2,17 @@
 
 user = {emp_id, team, role} 는 스프링이 요청마다 DB 에서 읽은 계정 값 (worklog 11-4, 12장).
 - ask    : (AGENT_CHAT) 에이전트 분류 → 검색(권한 밖 문서는 검색 단계에서 거름) → LLM 답변(토큰 상태 그대로) → 출력 검사
+- ask/stream: 같은 흐름을 SSE 로 — 단계(stage) · 출력 검사를 거친 답변 조각(delta) · 마지막 결과(done, ask 와 같은 모양) (worklog 59장)
 - restore: 답변 속 토큰 중, 이 사람이 복원해도 되는 문서에서 나온 것만 실명으로. 매번 vault.restore_log 에 기록
 """
+import json
 import logging
+import queue
+import threading
 from typing import List, Literal, Optional
 
 from fastapi import APIRouter, HTTPException
+from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
 
 from app.agents import agent as agent_mod
@@ -18,7 +23,7 @@ from app.rag import chat as chat_mod
 router = APIRouter(prefix="/chat", tags=["chat"])
 logger = logging.getLogger("ai.chat")
 
-SNIPPET = 300  # 화면 근거 문서 미리보기 글자 수 (가명처리된 글)
+SNIPPET = 16000  # 화면 근거 문서 글 (가명처리된 글). 전에는 300자라 글이 중간에 잘림 → 원문 전체 (가장 긴 법령 조문 15,930자), 화면이 접어서 보여 줌 (worklog 57·58장)
 
 
 class User(BaseModel):
@@ -54,18 +59,66 @@ def _ambiguous(answer):
         return []
 
 
+FAILED = "검색 또는 답변 생성에 실패했습니다"
+
+
+def _run(req, user, on_event=None):
+    """질문 하나 실행 (ask·ask/stream 공통). on_event: 스트리밍 단계·검사한 답변 조각"""
+    if config.AGENT_CHAT:
+        return agent_mod.ask(req.query, user, k=req.k, on_event=on_event)
+    on_delta = (lambda t: on_event("delta", text=t)) if on_event else None
+    return chat_mod.answer(req.query, k=req.k, user=user, on_delta=on_delta)
+
+
 @router.post("/ask")
 def ask(req: AskRequest):
     user = req.user.model_dump()
     try:
         access.check_user(user)
-        r = (agent_mod.ask(req.query, user, k=req.k) if config.AGENT_CHAT
-             else chat_mod.answer(req.query, k=req.k, user=user))
+        r = _run(req, user)
     except access.AccessError as e:
         raise HTTPException(403, str(e))
     except Exception as e:  # 임베딩·LLM API 실패 등 — 내용(질문 원문 포함 가능)은 응답·로그에 안 남김
         logger.warning("ask 실패: %s", type(e).__name__)
-        raise HTTPException(502, "검색 또는 답변 생성에 실패했습니다")
+        raise HTTPException(502, FAILED)
+    return _response(r)
+
+
+@router.post("/ask/stream")
+def ask_stream(req: AskRequest):
+    """SSE (worklog 59장). event: stage {stage, sources?} / delta {text: 출력 검사를 거친 조각} / done {result: ask 와 같은 모양}
+    / error {status, message}. 권한 문제는 흐름을 열기 전에 403 으로. 화면은 done 의 answer 로 마지막에 바꿈 (전체 글 기준 검사)"""
+    user = req.user.model_dump()
+    try:
+        access.check_user(user)
+    except access.AccessError as e:
+        raise HTTPException(403, str(e))
+    q = queue.Queue()
+
+    def work():
+        try:
+            q.put(("done", {"result": _response(_run(req, user, on_event=lambda kind, **d: q.put((kind, d))))}))
+        except access.AccessError as e:
+            q.put(("error", {"status": 403, "message": str(e)}))
+        except Exception as e:  # 내용은 남기지 않음 (ask 와 같음)
+            logger.warning("ask/stream 실패: %s", type(e).__name__)
+            q.put(("error", {"status": 502, "message": FAILED}))
+        finally:
+            q.put(None)
+
+    threading.Thread(target=work, daemon=True).start()
+
+    def events():
+        while (item := q.get()) is not None:
+            kind, data = item
+            yield f"event: {kind}\ndata: {json.dumps(data, ensure_ascii=False)}\n\n"
+
+    return StreamingResponse(events(), media_type="text/event-stream",
+                             headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"})
+
+
+def _response(r):
+    """화면으로 가는 답 (ask 응답 · ask/stream 의 done)"""
     return {
         "masked_query": r["masked_query"],
         "answer": r["answer"],          # 토큰 상태. LLM 키가 없으면 None (검색 결과만)

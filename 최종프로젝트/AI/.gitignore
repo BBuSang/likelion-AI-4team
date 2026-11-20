@@ -7,6 +7,11 @@ venv/
 # 원문·가명처리 데이터, 캐시, 평가 결과는 올리지 않음
 data/*
 !data/.gitkeep
+# 공개 자료 RAG (worklog 53장): 상품 목록·법령 덤프(LFS)·스키마는 올리고, 은행 문서 원문·계산한 벡터는 올리지 않음
+!data/public_rag/
+data/public_rag/product/chunks/
+data/public_rag/product/vectors.npz
+data/public_rag/noaction/processed/
 outputs/*
 !outputs/.gitkeep
 # 측정·평가용 코드와 질문 세트는 올리지 않음 (로컬 실험용)

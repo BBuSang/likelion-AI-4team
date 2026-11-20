@@ -5,6 +5,7 @@ import com.saebom.backend.dto.AdminDtos.*;
 import com.saebom.backend.entity.UserStatus;
 import com.saebom.backend.security.UD;
 import com.saebom.backend.service.AdminService;
+import com.saebom.backend.service.ChatHistoryService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -20,6 +21,7 @@ import java.util.List;
 public class AdminController {
 
     private final AdminService admin;
+    private final ChatHistoryService chats;
 
     @GetMapping("/users")
     public List<AdminUserResponse> users(@RequestParam(required = false) UserStatus status) {
@@ -29,6 +31,19 @@ public class AdminController {
     @GetMapping("/users/{id}")
     public AdminUserResponse user(@PathVariable Long id) {
         return admin.getUser(id);
+    }
+
+    /** 사용자의 채팅 대화 목록 (제목·개수만, worklog 61장) */
+    @GetMapping("/users/{id}/conversations")
+    public List<ChatHistoryService.ConversationSummary> userConversations(@PathVariable Long id) {
+        return chats.listFor(id);
+    }
+
+    /** 사용자의 대화 내용 (가명처리된 글). 열 때마다 admin_audit_log 에 view_chat 으로 남김 */
+    @GetMapping("/users/{id}/conversations/{convId}")
+    public ChatHistoryService.ConversationDetail userConversation(@AuthenticationPrincipal UD me, @PathVariable Long id,
+                                                                  @PathVariable Long convId) {
+        return chats.detailFor(me.getUser().getId(), id, convId);
     }
 
     /** 승인 화면: 가입 정보로 찾은 직원 후보 */

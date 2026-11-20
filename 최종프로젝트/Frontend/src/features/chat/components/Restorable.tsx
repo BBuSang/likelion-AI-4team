@@ -5,6 +5,7 @@ import { useAuth } from '@/shared/contexts/AuthContext';
 import { errMsg } from '@/shared/utils/error';
 import * as chatApi from '../api/chat.api';
 import type { RestoreResult } from '../api/chat.api';
+import AnswerMarkdown from './AnswerMarkdown';
 import MaskedText from './MaskedText';
 import RestoreModal from './RestoreModal';
 
@@ -13,9 +14,10 @@ interface Props {
   docIds: string[];
   onCite?: (docId: string) => void;
   compact?: boolean;
+  markdown?: boolean; // 답변: 마크다운으로 꾸며 보여 줌 (문서 조각은 원문 그대로)
 }
 
-export default function Restorable({ text, docIds, onCite, compact }: Props) {
+export default function Restorable({ text, docIds, onCite, compact, markdown }: Props) {
   const { user } = useAuth();
   const [result, setResult] = useState<RestoreResult | null>(null);
   const [asking, setAsking] = useState(false);
@@ -38,14 +40,19 @@ export default function Restorable({ text, docIds, onCite, compact }: Props) {
 
   return (
     <div>
-      <div style={{ whiteSpace: 'pre-wrap', fontSize: compact ? 12 : 14, lineHeight: 1.8 }}>
-        <MaskedText text={result ? result.text : text} onCite={onCite} denied={result?.denied} />
-      </div>
+      {markdown ? (
+        <AnswerMarkdown text={result ? result.text : text} onCite={onCite} denied={result?.denied} />
+      ) : (
+        <div style={{ whiteSpace: 'pre-wrap', fontSize: compact ? 12 : 14, lineHeight: 1.8 }}>
+          <MaskedText text={result ? result.text : text} onCite={onCite} denied={result?.denied} />
+        </div>
+      )}
       {hasToken && (
         <div className="row" style={{ marginTop: 8, justifyContent: 'flex-end', gap: 8 }}>
           {result && (
             <span className="small muted">
               {result.restored}개 복원{result.denied.length ? ` · ${result.denied.length}개는 권한이 없어 가린 채로` : ''}
+              {result.unknown?.length ? ` · ${result.unknown.length}개는 답변 검사에서 가린 말이라 되돌릴 값이 없어요` : ''}
             </span>
           )}
           {result ? (

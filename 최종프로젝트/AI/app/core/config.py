@@ -16,6 +16,8 @@ DB_HOST = env("DB_HOST", "localhost")
 DB_PORT = int(env("DB_PORT", "5432"))
 DB_NAME = env("POSTGRES_DB", "pii_rag")
 RAG_DSN = f"host={DB_HOST} port={DB_PORT} dbname={DB_NAME} user=rag_user password={env('RAG_PASSWORD', '')}"
+LAW_PASSWORD = env("LAW_PASSWORD", "")
+NOACTION_PASSWORD = env("NOACTION_PASSWORD", "")  # 공개 RAG(비조치의견서) 읽기 전용 계정 interp_reader  # 공개 RAG(법령) 읽기 전용 계정 law_reader (worklog 53장)
 VAULT_DSN = f"host={DB_HOST} port={DB_PORT} dbname={DB_NAME} user=vault_user password={env('VAULT_PASSWORD', '')}"
 
 EMBED_PROVIDER = env("EMBED_PROVIDER", "local")  # api | hf (로컬 모델, 예: nlpai-lab/KURE-v1) | local (테스트용 해시)

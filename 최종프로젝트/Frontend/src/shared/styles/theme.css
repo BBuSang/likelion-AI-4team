@@ -119,6 +119,17 @@ button, input, select, textarea { font: inherit; color: inherit; }
 /* ---------- 모달 ---------- */
 .modal-back { position: fixed; inset: 0; background: rgba(17, 24, 39, .35); display: flex; align-items: center; justify-content: center; z-index: 50; }
 .modal { width: min(460px, calc(100vw - 32px)); max-height: calc(100vh - 64px); overflow: auto; }
+.modal.modal-wide { width: min(820px, calc(100vw - 32px)); }
+/* 관리자: 사용자 채팅 내역 (worklog 61장) */
+.chat-row { display: flex; align-items: center; gap: 6px; width: 100%; border: none; background: none; padding: 7px 4px; border-bottom: 1px solid #eef1f6; text-align: left; cursor: pointer; font: inherit; color: inherit; }
+.chat-row:hover { background: var(--panel-2); }
+.chat-row-title { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; }
+.chat-view-title { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.chat-view-turn { border-top: 1px solid var(--line); padding-top: 12px; display: grid; gap: 8px; }
+.chat-view-q { justify-self: end; max-width: 80%; background: var(--brand-soft); color: var(--brand-ink); padding: 7px 12px; border-radius: 12px 12px 4px 12px; overflow-wrap: anywhere; }
+.chat-view-a { display: grid; gap: 4px; min-width: 0; }
+.chat-view-docs { overflow-wrap: anywhere; }
+.chat-view-docs svg { vertical-align: -2px; }
 
 /* ---------- 개인정보 칩 / 형광펜 ---------- */
 .pii { border-radius: 5px; padding: 0 5px; font-size: 12px; white-space: nowrap; }

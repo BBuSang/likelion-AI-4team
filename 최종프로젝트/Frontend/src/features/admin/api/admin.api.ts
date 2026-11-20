@@ -1,6 +1,7 @@
 // 백엔드 AdminController·MeController(/api/admin/*) 와 맞춘 타입
 import apiClient from '@/shared/api/client';
 import type { Role, UserStatus } from '@/shared/types/user.types';
+import type { ConversationDetail, ConversationSummary } from '@/features/chat/api/chat.api';
 
 export interface AdminUser {
   id: number; email: string; name: string;
@@ -29,4 +30,9 @@ export const createTeam = async (name: string) => (await apiClient.post<Team>(`$
 export const setTeamActive = async (id: number, active: boolean) => (await apiClient.put<Team>(`${A}/teams/${id}`, { active })).data;
 export const syncTeams = async () => (await apiClient.post<{ added: number; total: number }>(`${A}/teams/sync`)).data;
 export const auditLog = async (userId?: number) => (await apiClient.get<AuditLog[]>(`${A}/audit-log`, { params: { userId, limit: 200 } })).data;
+// 사용자의 채팅 내역 (worklog 61장). 내용을 열면 서버가 변경 기록에 view_chat 으로 남김
+export const userConversations = async (id: number) =>
+  (await apiClient.get<ConversationSummary[]>(`${A}/users/${id}/conversations`)).data;
+export const userConversation = async (id: number, convId: number) =>
+  (await apiClient.get<ConversationDetail>(`${A}/users/${id}/conversations/${convId}`)).data;
 export const positions = async () => (await apiClient.get<{ teams: Position[]; positions: Position[] }>('/api/auth/options')).data.positions;

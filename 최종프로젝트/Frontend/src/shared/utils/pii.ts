@@ -28,7 +28,8 @@ export type Piece =
 /** 글 → 일반 글 / 토큰 / [문서 ID] 조각 */
 export function splitAnswer(text: string): Piece[] {
   const out: Piece[] = [];
-  const re = /<([A-Z_]+)_([0-9A-Za-z]+)>|\[([A-Z]\d{3,}[A-Za-z0-9-]*)\]/g;
+  // [문서 ID]: 사내 H0071 · 공개 RAG LAW-1/PRD-1/CASE-1 · 비조치의견서 L3563/O45/F7 (worklog 56장)
+  const re = /<([A-Z_]+)_([0-9A-Za-z]+)>|\[((?:LAW|PRD|CASE)-\d+|[A-Z]\d+[A-Za-z0-9-]*)\]/g;
   let last = 0;
   for (const m of text.matchAll(re)) {
     const i = m.index ?? 0;

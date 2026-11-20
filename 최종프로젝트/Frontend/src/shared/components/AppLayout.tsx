@@ -35,15 +35,17 @@ export default function AppLayout() {
         </nav>
         <div className="spacer" />
         {user && (
-          <div className="me-box" title={`${user.name} · ${user.team ?? '팀 없음'} · ${ROLE_NAME[user.role]}`}>
+          <div className="me-box" title={`${user.name}${user.admin ? ' (관리자)' : ''} · ${user.team ?? '팀 없음'} · ${ROLE_NAME[user.role]}`}>
             <div className="avatar">{user.name.slice(0, 1)}</div>
             <div className="nav-label" style={{ minWidth: 0 }}>
-              <p className="me-name">{user.name}</p>
-              <p className="small muted">{user.team ?? '팀 없음'} · {ROLE_NAME[user.role]}{user.admin ? ' · 관리자' : ''}</p>
+              {/* 이름(+관리자) / 팀 / 역할을 한 줄씩 — 길어도 다음 줄로 밀리지 않고 말줄임 */}
+              <p className="me-name"><span className="me-line">{user.name}</span>{user.admin && <span className="me-admin">관리자</span>}</p>
+              <p className="small muted me-line">{user.team ?? '팀 없음'}</p>
+              <p className="small muted me-line">{ROLE_NAME[user.role]}</p>
             </div>
           </div>
         )}
-        <Link to="/me" className="nav-item" title="설정"><Settings2 size={17} aria-hidden /> <span className="nav-label">설정</span></Link>
+        {/* <Link to="/me" className="nav-item" title="설정"><Settings2 size={17} aria-hidden /> <span className="nav-label">설정</span></Link> */}
         <button className="nav-item" title="로그아웃" onClick={() => { logout(); nav('/login'); }}>
           <LogOut size={17} aria-hidden /> <span className="nav-label">로그아웃</span>
         </button>

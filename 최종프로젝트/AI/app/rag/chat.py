@@ -55,9 +55,11 @@ _ANY_TOKEN = re.compile(r"<[A-Za-z_]+_[0-9A-Za-z]+>")
 _MARKDOWN = re.compile(r"[*#`>|]")
 
 
-def check_output(answer_text, allowed_tokens, safe_words=()):
+def check_output(answer_text, allowed_tokens, safe_words=(), skip_labels=()):
     """보여주기 전 출력 검사. (고친 답변, 검사 결과) 반환.
-    safe_words: 개인정보가 아닌 걸 아는 말 (문서 종류 이름). '한도하향통지'를 모델이 이름으로 잡아 가리던 오탐 방지 (19장)"""
+    safe_words: 개인정보가 아닌 걸 아는 말 (문서 종류 이름). '한도하향통지'를 모델이 이름으로 잡아 가리던 오탐 방지 (19장)
+    skip_labels: 이 라벨은 가리지 않음. 공개 자료만 쓴 답은 이름을 안 가림 — 질문의 이름은 공개 RAG 로 가기 전에 지우고
+    공개 자료엔 고객 이름이 없어서, 잡히는 건 '후보 조문'의 '조문' 같은 오탐뿐 (worklog 57장). 번호·이메일 모양은 그대로 검사"""
     bad = sorted({t for t in _ANY_TOKEN.findall(answer_text) if t not in allowed_tokens})
     fixed = answer_text
     for t in bad:
@@ -68,11 +70,49 @@ def check_output(answer_text, allowed_tokens, safe_words=()):
     for w in safe_words:
         probe = probe.replace(w, " " * len(w))
     # 적재용 detect() 대신 출력용 detect_output() (이름은 모델만 → '위임인'·'인사팀' 같은 오탐 방지)
-    spans = [s for s in pii_pipeline.detect_output(probe) if probe[s["start"]:s["end"]].strip()]
+    spans = [s for s in pii_pipeline.detect_output(probe) if probe[s["start"]:s["end"]].strip() and s["label"] not in skip_labels]
     raw = [{"label": s["label"], "text": probe[s["start"]:s["end"]]} for s in spans]
     if spans:
         fixed, _ = pii_pipeline.pseudonymize(fixed, spans)
     return fixed, {"unverified_tokens": bad, "raw_pii": raw}
+
+
+_BOUNDARY = re.compile(r"\n|(?<=[.?!。])\s")  # 줄 끝, 문장 끝(마침표·물음표 뒤 공백)
+
+
+class CheckedStream:
+    """답변 스트리밍 (worklog 59장): LLM 이 보내는 글을 문장·줄 단위로 모았다가 출력 검사(check_output)를 거친 조각만 내보냄.
+    검사 전 글은 화면으로 나가지 않음 — 토큰(<PERSON_…>)엔 공백·줄바꿈이 없어 조각 경계에서 잘리지 않음.
+    마지막 답(done)은 전처럼 전체 글로 다시 검사하고 화면은 그것으로 바꿈 (조각 검사는 먼저 보여 주기용).
+    feed(지금까지 받은 원문 전체) · finish(최종 원문)"""
+
+    def __init__(self, emit, allowed, safe=(), skip_labels=(), fix=None):
+        self.emit, self.allowed, self.safe, self.skip, self.fix = emit, allowed, safe, skip_labels, fix
+        self.raw, self.sent = "", 0
+
+    def feed(self, text):
+        self.raw = text
+        last = None
+        for m in _BOUNDARY.finditer(text, self.sent):
+            last = m.end()
+        if last:
+            self._out(last)
+
+    def finish(self, text=None):
+        if text is not None:
+            self.raw = text
+        if self.sent < len(self.raw):
+            self._out(len(self.raw))
+
+    def _out(self, end):
+        seg = self.raw[self.sent:end]
+        self.sent = end
+        if self.fix:
+            seg = self.fix(seg)
+        if seg.strip():
+            seg, _ = check_output(seg, self.allowed, self.safe, self.skip)
+        if seg:
+            self.emit(seg)
 
 
 KEEP_MIN = 0.7  # 이 토큰 점수 이상은 남김 = 조건을 다 맞췄거나, 같은 이름의 '누구인지 미확정'(search.UNRESOLVED)
@@ -115,7 +155,7 @@ def is_not_found(text):
 
 
 def _complete(masked_q, context, model, on_delta=None, note=None):
-    """LLM 호출. on_delta 를 주면 스트리밍: 글자가 올 때마다 지금까지의 글을 넘긴다 (출력 검사 전 글이므로 화면 표시용으로만).
+    """LLM 호출. on_delta 를 주면 스트리밍: 글자가 올 때마다 지금까지의 글(검사 전)을 넘긴다 → 화면으로는 CheckedStream 을 거쳐서만.
     note: 질문 뒤에 붙일 안내 (개인정보 없는 고정 문구만)"""
     user_msg = f"[문서]\n{context}\n\n[질문]\n{masked_q}" + (f"\n\n[참고]\n{note}" if note else "")
     payload = {"model": model, **config.sampling_params(model, effort=config.ANSWER_REASONING_EFFORT),
@@ -145,10 +185,14 @@ def answer(query, k=3, model=None, mode="hybrid", embed_retries=None, rerank=Non
            note=None):
     """user: 묻는 사람 {emp_id, team, role} — 검색 단계에서 권한 밖 문서를 거름 (worklog 11장).
     note: 에이전트가 붙이는 안내 (예: 법령 부분은 아직 검색 불가).
+    on_delta: 답변 스트리밍 — 출력 검사를 거친 조각(글)을 차례로 받음 (worklog 59장).
     답변은 토큰 상태 그대로. 실명은 화면에 보여 주기 직전 restore.restore_for(답변, user, 근거 문서) 로."""
+    from app.agents import progress  # 스트리밍 단계 알림 (스트리밍이 아니면 아무 일 없음, worklog 60장)
     t0 = time.perf_counter()
+    progress.step("search", sources=["internal"])
     masked_q, q_tokens, cands = search(query, k * 2, mode=mode, embed_retries=embed_retries, rerank=rerank, user=user)
     docs = select_docs(cands, k)
+    progress.done("search", counts={"internal": len(docs)})
     t_search = time.perf_counter() - t0
     context, g1 = pii_pipeline.guard(_context(docs))  # 적재 때 이미 가렸지만, LLM 로 보내기 직전에 한 번 더
     masked_q, g2 = pii_pipeline.guard(masked_q)
@@ -162,12 +206,19 @@ def answer(query, k=3, model=None, mode="hybrid", embed_retries=None, rerank=Non
         return result
     if not config.LLM_API_KEY:
         return result
-    t1 = time.perf_counter()
-    raw = _CITE_WORD.sub(r"[\1]", _complete(masked_q, context, result["model"], on_delta, note))
-    result["timing"]["llm"] = time.perf_counter() - t1
-    t2 = time.perf_counter()
     allowed = set(pii_pipeline.TOKEN_PATTERN.findall(context + "\n" + masked_q))
     safe = sorted({d["doc_type"] for d in docs if d.get("doc_type")}, key=len, reverse=True)
+    # on_delta: 화면 스트리밍 — 검사한 조각만 받음 (worklog 59장)
+    stream = CheckedStream(on_delta, allowed, safe, fix=lambda s: _CITE_WORD.sub(r"[\1]", s)) if on_delta else None
+    t1 = time.perf_counter()
+    progress.step("answer")
+    raw_llm = _complete(masked_q, context, result["model"], stream.feed if stream else None, note)
+    if stream:
+        stream.finish(raw_llm)
+    raw = _CITE_WORD.sub(r"[\1]", raw_llm)
+    result["timing"]["llm"] = time.perf_counter() - t1
+    progress.step("check")
+    t2 = time.perf_counter()
     result["answer"], result["check"] = check_output(raw, allowed, safe)
     result["raw_answer"] = raw
     # 못 찾았으면 권한 범위를 알려 주는 고정 문구로 (권한 밖이라 안 보인 걸 버그로 오해하던 것, worklog 26장)

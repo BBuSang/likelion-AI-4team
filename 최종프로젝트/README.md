@@ -65,10 +65,14 @@ PostgreSQL 16 + pgvector 하나에 스키마 4개를 두고, **스키마마다 �
 
 | 스키마 | 계정 | 주요 테이블 | 내용 |
 |---|---|---|---|
-| `app` | app_user | `users`, `teams`, `positions`, `admin_audit_log`, `email_verifications` | 계정·역할·선택칸·관리자 변경 기록·이메일 인증 (Spring JPA 가 만듦) |
+| `app` | app_user | `users`, `teams`, `positions`, `admin_audit_log`, `email_verifications`, `chat_conversations`, `chat_messages` | 계정·역할·선택칸·관리자 변경 기록·이메일 인증·**채팅 내역(가명처리된 글 + 질문 원문 암호문)** (Spring JPA 가 만듦) |
 | `rag` | rag_user | `chunks`, `documents`, `persons`, `person_attrs`, `employees` | **가명처리된** 청크·벡터·토큰 목록, 문서 권한 메타데이터, 추정 인물, 직원(이름 없음) |
 | `vault` | vault_user | `token_map`, `person_mentions`, `person_keys`, `employees`, `restore_log`, `ingest_job`, `staging_doc`, `review_log`, `deletion_log` | 토큰↔원문 매핑, 이름 포함 직원 목록, 실명 복원 기록, 업로드·검수 대기 원문 |
-| `docs` | docs_user | (비어 있음) | 공개 자료 RAG 자리 |
+| `docs` | docs_user | (비어 있음) | 예전 공개 자료 자리 |
+| `lawrag` | law_reader (읽기만) | `laws`, `articles`, `chunks`, `article_links` 등 | 법령 RAG — 덤프로 넣음 |
+| `interp` | interp_reader (읽기만) | `cases`, `case_groups`, `chunks`, `exmnt_*`, 인용 조문·개정 이력 | 비조치의견서 RAG — `scripts/load_noaction.py` |
+
+전체 ERD(우리 스키마 + 공개 RAG 3개)는 [ERD.md](ERD.md) 에 있습니다.
 
 - `rag.chunks`: `masked_text`, `tokens text[]`(GIN 색인), `embedding vector(1024)`(HNSW), `owner_emp_id`·`team`·`visibility`(public/team/restricted, 기본 restricted)
 - 직원 이름은 개인정보라 `vault.employees` 에만 있고, `rag.employees` 에는 `emp_id`·팀·직급·역할만 있습니다.
@@ -251,11 +255,13 @@ flowchart TD
     Q[질문] --> P["① 보호<br/>가명처리 mask_query"]
     P --> C{"② 분류 (gpt-6-luna)<br/>필요한 자료"}
     C -->|사내| S[사내 RAG 검색]
-    C -->|사내 + 공개| S2["사내 RAG 검색<br/>+ 공개 자료 준비 중 안내"]
-    C -->|공개만| PUB[준비 중 안내]
+    C -->|사내 + 공개| PL["③ 계획 → 실행<br/>사내·공개 병렬, 필요하면 다시 계획"]
+    C -->|법령만| LAWA["법령 RAG 답변<br/>(팀원 코드 그대로)"]
     C -->|범위 밖 / 되묻기| FIX[고정 안내문]
     S --> SEL[문서 고르기]
-    S2 --> SEL
+    PL --> SYN["⑤ 종합 LLM<br/>[H0071]·[LAW-1] 인용"]
+    SYN --> CHK
+    LAWA --> CHK
     SEL --> AMB{동명이인을<br/>못 고름?}
     AMB -->|예| ASK[되묻기]
     AMB -->|아니오| G["guard → 답변 LLM<br/>토큰 상태"]
@@ -272,8 +278,23 @@ flowchart TD
   - `~건 있으면`·`있었어?` 는 사내 기록을 확인하라는 신호입니다.
   - 대상을 알 수 없는 지시어(`그 건`)는 되묻습니다.
   - 질문이 사람 토큰뿐이면 LLM 없이 사내 검색으로 보냅니다.
-- **계획·다시 계획** (`planner.py`): 공개 자료 RAG 가 등록되면 쓸 2라운드 계획(지금 할 검색은 병렬 → 사내 결과를 보고 공개 검색어 결정)을 만들어 평가까지 마쳤습니다. **지금은 등록된 도구가 사내 검색 하나라 실행에서는 건너뜁니다.** 공개 검색어에 토큰·이름이 들어가지 않도록 코드가 한 번 더 지웁니다.
+- **③ 계획·실행** (`planner.py`, `agent.run_plan`): 사내 + 공개 자료가 필요한 질문은 2라운드로 돕니다. 지금 할 수 있는 검색(사내·공개)은 병렬로 하고, 사내 기록을 봐야 정할 공개 검색은 사내 결과를 본 뒤 다시 계획합니다. 사내 기록이 없으면 LLM 을 부르지 않고 공개 검색도 생략합니다. **공개 검색어의 토큰·이름·번호는 코드가 한 번 더 지웁니다** (`planner.strip_public`).
+- **법령만 필요한 질문**은 팀원 법령 RAG 의 답변 함수를 그대로 씁니다 (지시문·임계값·근거 조문·원문 링크).
+- **⑤ 종합** (`agent._with_public`): 사내 기록(`[H0071]`)과 공개 자료(`[LAW-1]`)를 한 번에 넘겨 답하게 합니다. 사내 검색이 질문 속 이름을 문서 속 사람 토큰으로 이어 준 질문을 같이 넘깁니다. 동명이인을 고르지 못하면 사내만일 때처럼 되묻습니다.
+- **출처를 구분한 출력 재검사**: 공개 자료 본문에서 개인정보 모양으로 잡히는 말(법 조문 속 예시 이름 등)은 고객 개인정보가 아니므로 답변 재검사에서 막지 않습니다 (`_public_safe_words`).
 - 분류 LLM 이 실패하면 사내 검색으로 넘어갑니다. `AGENT_CHAT=0` 이면 에이전트 없이 사내 RAG 를 바로 씁니다.
+
+### 8-1-1. 공개 자료 RAG `AI/app/rag_public/` (worklog 53장)
+팀원 RAG 3개를 브랜치 merge 없이 코드를 읽어 `AI/` 아래 한 패키지로 옮겼습니다. 실험용 분기(버전별 지시문, 환경변수 토글)는 빼고 **채택된 설정만** 남겼고, 설정·DB 연결·임베딩·LLM 은 서버 공통(`app.core.config`, `app.rag.embed`)을 씁니다. 질문 임베딩은 사내 RAG 와 같은 KURE-v1 하나로 같이 씁니다 (벡터 일치 확인).
+
+| 패키지 | 자료 | 저장 | 검색·답변 |
+|---|---|---|---|
+| `law/` | 금융 법령 380개 · 조각 35,321 | DB `lawrag`, 읽기 전용 `law_reader` | 벡터 → 조문 단위 → 1~10위 + 위임·준용 연결 조문 → LLM 1회 (1위 점수 0.5338 미만이면 "찾지 못함") |
+| `product/` | 신한은행 판매 중 상품 391 · 문서 247 · 청크 2,218 | 파일 색인 (`data/public_rag/product/`) | 상품명 찾기(별칭·LLM 확인) → 상품으로 좁힌 벡터+BM25 → LLM 점수형 재순위 → 판매 상태·대상 상품 줄 |
+| `noaction/` | 법령해석·비조치의견서 회신 4,366 · 현장건의 | DB `interp`, 읽기 전용 `interp_reader` | 회신 시기 조건 분리 → 벡터 20 → LLM 재순위 5 + 현장건의 → 직접성 판정 → 답, 못 찾으면 키워드 완화 |
+
+공개 자료 하나만 필요한 질문은 그 RAG 의 답변 흐름을 그대로, 사내와 섞이면 근거만 받아 에이전트가 종합합니다.
+데이터가 없는 RAG 는 도구로 등록하지 않아, 에이전트가 "준비 중"으로 안내합니다. 전체 데이터 구조는 [ERD.md](ERD.md).
 
 ### 8-2. 검색 `AI/app/rag/search.py`
 **점수 = 토큰 점수(질문 조건을 얼마나 맞췄나, 0~1) + 의미 유사도(코사인) + 문서 종류 가산점 + 처리 상태 가산점**
@@ -377,12 +398,12 @@ flowchart LR
 | 화면 | 경로 | 내용 | 권한 |
 |---|---|---|---|
 | 로그인 / 가입 / 비밀번호 재설정 | `/login`, `/signup`, `/reset-password` | 왼쪽 로고 카드, 이메일 인증 칸 | 누구나 |
-| 채팅 | `/chat` | 질문·답변(토큰 상태), 근거 문서 패널, **실명 보기**(사유 입력·이상 접근 경고), 동명이인 경고, 분류·시간 표시, 대화 목록(접기·펼치기, 브라우저 세션에 30개 저장) | 로그인 |
+| 채팅 | `/chat` | 질문·답변(토큰 상태), 근거 문서 패널, **실명 보기**(사유 입력·이상 접근 경고), 동명이인 경고, 분류·시간 표시, 대화 목록(접기·펼치기, **계정별 서버 저장** — 다른 기기에서도 이어서) | 로그인 |
 | 마이페이지 | `/me` | 내 정보·역할 설명, 비밀번호 변경, 내 실명 보기 기록 | 로그인 |
 | 데이터 적재 | `/ingest` | 업로드, 업로드별 상태·자동 저장 수, 문서 목록(확인할 곳 N개) | 관리자 |
 | 검수 | `/ingest/docs/:id` | 구간 드래그로 추가·삭제·라벨 변경, 확인할 구간(점선)·놓쳤을 수 있는 곳(물결 밑줄), 사람 잇기 고르기 | 관리자 |
 | 통계 | `/stats` | 적재·질문·실명 보기 수, 복원 기록, **이상 접근** 표 | 관리자 |
-| 관리 | `/admin` | 가입 승인, 사용자·팀 관리, 저장된 문서·직원, 문서 공개 범위·담당자 변경, 문서 삭제, 변경 기록 | 관리자 |
+| 관리 | `/admin` | 가입 승인, 사용자·팀 관리, **사용자별 채팅 내역 열람(열 때마다 기록)**, 저장된 문서·직원, 문서 공개 범위·담당자 변경, 문서 삭제, 변경 기록 | 관리자 |
 
 - 창 폭이 1280px 이하이면 왼쪽 메뉴가 아이콘만 남습니다. 데스크톱 기준이고, 휴대폰은 고려하지 않았습니다.
 - 글꼴은 Pretendard(프로젝트에 포함)이고, 로고는 `Frontend/public/brand/` 에 있습니다.
@@ -463,6 +484,13 @@ docker compose up -d
 ```
 
 ```bash
+# 1-1) 공개 자료 RAG 넣기 (법령 덤프 193MB·비조치의견서 적재·금융상품 벡터 — 처음 한 번, CPU 노트북에서 약 1~2시간)
+cd 최종프로젝트
+bash infra/load_public_rag.sh
+```
+`LAW_PASSWORD`·`NOACTION_PASSWORD` 를 `infra/.env`·`AI/.env` 에 같은 값으로 넣어 둡니다 (읽기 전용 계정 `law_reader`·`interp_reader`). 금융상품 원문 청크(`product/chunks/*.jsonl`)와 비조치의견서 원 자료(`noaction/processed/`)는 git 에 없어 담당자에게 받아 `AI/data/public_rag/` 아래에 넣습니다. 비조치의견서는 담당자의 DB 덤프(`rag_db.dump`)도 있지만 PostgreSQL 17 형식이라 우리 16 에 바로 안 들어가서, 원 자료에서 적재합니다 (결과 16개 표 건수·약칭 184개가 덤프와 같음).
+
+```bash
 # 2) 문서 적재 (예: 현재 Holdout, 개발 DB)
 cd 최종프로젝트/AI
 pip install -r requirements.txt
@@ -519,10 +547,10 @@ cd 최종프로젝트/Frontend && npx tsc -p tsconfig.app.json --noEmit && npx e
 | 영역 | 경로 |
 |---|---|
 | 인증 | `POST /auth/check-email`, `/auth/email/send`, `/auth/email/verify`, `/auth/signup`, `/auth/login`, `/auth/refresh`, `/auth/password/send`·`verify`·`reset`, `GET /auth/options`, `GET /auth/me` |
-| 채팅 | `POST /chat/ask`, `POST /chat/restore` |
+| 채팅 | `POST /chat/ask`, `POST /chat/ask/stream`, `POST /chat/restore`, `GET·POST /chat/conversations`, `GET·DELETE /chat/conversations/{id}` |
 | 내 정보 | `PUT /me/password`, `GET /me/restore-log` |
 | 적재 (관리자) | `POST·GET /ingest/jobs`, `GET /ingest/jobs/{id}`, `/ingest/jobs/{id}/docs`, `GET /ingest/docs/{id}`, `POST /ingest/docs/{id}/preview-links`, `/ingest/docs/{id}/review` |
-| 관리 (관리자) | `GET /admin/users`, `/admin/users/{id}`, `/admin/users/{id}/candidates`, `POST /admin/users/{id}/approve`, `PUT /admin/users/{id}`, `GET /admin/employees`, `GET·POST /admin/teams`, `PUT /admin/teams/{id}`, `POST /admin/teams/sync`, `GET /admin/audit-log` |
+| 관리 (관리자) | `GET /admin/users`, `/admin/users/{id}`, `/admin/users/{id}/conversations`, `/admin/users/{id}/conversations/{convId}`, `/admin/users/{id}/candidates`, `POST /admin/users/{id}/approve`, `PUT /admin/users/{id}`, `GET /admin/employees`, `GET·POST /admin/teams`, `PUT /admin/teams/{id}`, `POST /admin/teams/sync`, `GET /admin/audit-log` |
 | 문서 (관리자) | `GET /admin/docs`, `/admin/docs/deletion-log`, `/admin/docs/{docId}`, `POST /admin/docs/{docId}/meta`, `/admin/docs/{docId}/delete` |
 | 통계 (관리자) | `GET /admin/stats`, `/admin/restore-log`, `/admin/anomalies` |
 
@@ -563,9 +591,11 @@ cd 최종프로젝트/Frontend && npx tsc -p tsconfig.app.json --noEmit && npx e
 │   │   ├── rag/              search(검색), chat(답변·출력 재검사), embed(임베딩), status(처리 상태)
 │   │   ├── agents/           router(분류), planner(계획), agent(질문 처리), tools, llm
 │   │   ├── audit/anomaly.py  이상 접근 규칙 7개
+│   │   ├── rag_public/       공개 자료 RAG: law(법령), product(금융상품), noaction(비조치의견서) — 에이전트 도구
 │   │   └── api/              chat, ingest, org, docs, stats, audit 라우터
-│   ├── scripts/              run_pipeline(무인), load_corpus, build_org, eval_search, eval_agent, ft_make_data·ft_train(추가 학습), gen_synth4·5(동명이인 세트), sim_access(이상 접근 모의)
+│   ├── scripts/              run_pipeline(무인), load_corpus, build_org, eval_search, eval_agent, ft_make_data·ft_train(추가 학습), gen_synth4·5(동명이인 세트), sim_access(이상 접근 모의), load_noaction·build_product_vectors(공개 RAG 준비)
 │   ├── eval/                 에이전트 평가 질문·보고서
+│   ├── data/public_rag/      공개 RAG 자료: 법령 덤프(LFS)·상품 목록·스키마 (원문·벡터는 git 제외)
 │   ├── tests/                단위·DB 통합 테스트
 │   └── outputs/              결과·캐시·모델 (git 제외)
 ├── Backend/src/main/java/com/saebom/backend/
@@ -586,12 +616,12 @@ cd 최종프로젝트/Frontend && npx tsc -p tsconfig.app.json --noEmit && npx e
 
 | 구분 | 내용 |
 |---|---|
-| 공개 자료 RAG | 법령·금융상품·비조치의견서 RAG 는 팀원 담당이고 아직 연결 전입니다. 분류·계획은 평가까지 마쳤고, 지금은 "준비 중" 안내만 합니다 |
+| 공개 자료 RAG | 법령·금융상품·비조치의견서 3개 모두 연결했습니다. 종합 답변의 품질(사내+공개 대조)은 아직 세트로 재지 않았고, 금융상품 첫 질문은 색인을 올리느라 약 40초 걸립니다 |
 | 탐지 | 호칭·조사 단서가 없는 성 없는 이름(`[하늘]은 담당`)은 아직 놓칩니다. 미탐은 모델 점수에 신호가 거의 없어 자동 승인 검수로도 잘 걸러지지 않습니다 |
 | 동명이인 | 같은 역할끼리, 이름 옆에 단서가 없는 동명이인은 규칙으로 가를 수 없습니다 (synth4 혼동 인용 0.14). 화면에 "동명이인 가능" 경고로 보완합니다 |
 | 출력 재검사 기록 | 재검사 결과는 응답으로만 전달되고 DB 에는 아직 기록하지 않습니다 |
 | LLM 흔들림 | `gpt-6-luna` 는 temperature 0 을 못 써서, 같은 입력에도 재순위·답변이 조금씩 달라집니다 (±0.01~0.03). 비교는 2~3번 평균으로 봅니다 |
-| 대화 기록 | 브라우저 세션에만 저장합니다 (서버 저장 없음) |
+| 대화 기록 | 계정별로 DB 에 저장합니다 (가명처리된 질문·토큰 상태 답변, 질문 원문은 AES-GCM 암호문으로만 두고 본인에게만 풀어 줌, worklog 61·64장). 사용자가 지우면 완전히 지워집니다 |
 | 다시 적재 | `--reset` 으로 다시 적재하면 직원 번호가 새로 매겨질 수 있습니다. 지금 데이터에서는 같은 번호가 나오는 것을 확인했습니다 |
 | 일반화 | holdout·synth2·synth3 는 개선 과정에서 본 세트입니다. 공정한 최종 점수는 Holdout2 를 받아 **수정 없이 처음 돌린 결과**로 냅니다 |
 

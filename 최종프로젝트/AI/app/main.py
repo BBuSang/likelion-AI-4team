@@ -44,6 +44,19 @@ def _warm_embedder():
             logger.info("탐지 모델 준비 완료")
         except Exception:
             logger.exception("탐지 모델 미리 읽기 실패 — 첫 질문 때 다시 시도")
+        try:  # 공개 RAG 도 미리 (worklog 55장): 도구 등록(DB 연결) · 금융상품 색인(약 5초 + 형태소 분석기) · 법령 위임·준용 표
+            from app.rag_public import ensure_registered, product
+            from app.rag_public.law.search import neighbors as law_links
+            from app.rag_public.product.index import kiwi
+            ready = ensure_registered()
+            if "search_product" in ready:
+                product.index()
+                kiwi().tokenize("준비")
+            if "search_law" in ready:
+                law_links()
+            logger.info("공개 RAG 준비 완료 (%s)", ", ".join(sorted(ready)))
+        except Exception:
+            logger.exception("공개 RAG 미리 읽기 실패 — 첫 질문 때 다시 시도")
     threading.Thread(target=run, daemon=True).start()
 
 # 브라우저가 직접 부르지 않으므로 CORS 미들웨어는 넣지 않음 (스프링이 중계)

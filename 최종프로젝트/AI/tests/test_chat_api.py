@@ -15,6 +15,7 @@ os.environ["RERANK"] = "0"
 
 from fastapi.testclient import TestClient  # noqa: E402
 
+from app.api import chat as chat_api  # noqa: E402
 from app.core import access, config, db  # noqa: E402
 from app.main import app  # noqa: E402
 
@@ -42,7 +43,7 @@ def test_ask_only_returns_visible_docs(meta):
         assert body["answer"] is None and body["model"] is None  # LLM 키 없음
         for d in body["docs"]:
             assert access.can_view(user, meta[d["doc_id"]])
-            assert len(d["snippet"]) <= 300
+            assert len(d["snippet"]) <= chat_api.SNIPPET
 
 
 def test_ask_rejects_unlinked_user():
