@@ -32,7 +32,7 @@
 |---|---|---|---|---|
 | **실전 1** | 2026-10 | 개인정보 탐지 방식 비교 (규칙 · 토큰 분류 모델 · LLM) | 운영 탐지기 = **규칙(정규식 + Kiwi) + KoELECTRA(atonlee) 합집합**. test 가리기 재현율 **1.000**, 처음 보는 문서 0.988, CPU 문서당 0.06~0.11초 | [`실전프로젝트1/`](실전프로젝트1/) |
 | **실전 2** | 2026-10 ~ 11 | 가명처리 기반 검색 챗봇 (기본형) | 정규화 + HMAC 토큰, **토큰 조건 + 의미 검색** 결합. holdout 검색 Hit@1 **0.943** (의미 검색만 0.261), 원문 유출 **0건** | [`실전프로젝트2/`](실전프로젝트2/) |
-| **최종** | 2026-11 | 권한·실명 복원·무인 파이프라인을 갖춘 서비스 | React + Spring Boot + FastAPI. 역할 3개 문서 권한, 실명 복원 기록, 이상 접근 탐지. 새 DB 무인 실행 holdout 검색 Hit@1 **0.977**, 답변 인용 적중 **0.989**, 유출 **0건** | [`최종프로젝트/`](최종프로젝트/) |
+| **최종** | 2026-11 | 권한·실명 복원·무인 파이프라인을 갖춘 서비스 | React + Spring Boot + FastAPI. 역할 3개 문서 권한, 실명 복원 기록, 이상 접근 탐지, **공개 자료 RAG 3개(법령·금융상품·비조치의견서)를 묶는 에이전트**, 멀티턴. 새 DB 무인 실행 holdout 검색 Hit@1 **0.977**, 답변 인용 적중 **0.989**, 유출 **0건**. 배포 **https://403.p-e.kr** | [`최종프로젝트/`](최종프로젝트/) |
 
 ---
 
@@ -53,7 +53,8 @@ flowchart LR
     end
     subgraph P3["최종 · 서비스"]
         L --> R[로그인 · 역할 3개<br/>문서 권한]
-        R --> V[실명 복원<br/>권한 문서만 · 기록]
+        R --> AG[에이전트<br/>사내 + 법령·금융상품·비조치의견서<br/>멀티턴]
+        AG --> V[실명 복원<br/>권한 문서만 · 기록]
         V --> X[이상 접근 탐지]
     end
 ```
@@ -84,9 +85,13 @@ flowchart LR
   - 로그인 + **역할 3개**(직원·팀장·감사)와 **문서 단위 권한**: 권한 밖 문서는 검색 단계에서 아예 제외
   - **실명 복원**은 권한 있는 문서의 토큰만, 매번 기록. 팀장·감사는 사유 필수
   - 문서에서 **직원 목록과 문서 담당자·팀을 추론**
-  - LLM 답변을 보여 주기 전 **출력 재검사**
+  - LLM 답변을 보여 주기 전 **출력 재검사** (스트리밍 중에도 문장 단위로)
   - 문서 파일만 바꾸면 새 DB 에서 끝까지 도는 **무인 파이프라인**
   - 3주차 선택 과제: **사람 검수 대상 고르기(자동 승인)**, **이상 접근 탐지**
+  - **에이전트**: 질문에 필요한 자료(사내·법령·금융상품·비조치의견서)를 고르고 계획·검색·종합. 팀원 RAG 3개를 한 서버로 통합
+  - **멀티턴**: 분류가 "앞 대화가 필요한 질문인가"도 같이 판단해, 필요할 때만 최근 2턴으로 질문을 다시 씀 (보통 질문은 추가 비용 0)
+  - **채팅 내역** 계정별 저장 (질문 원문은 암호문, 관리자 열람은 기록), 답변 스트리밍과 진행 단계 표시
+  - **배포**: EC2 + Docker + GitHub Actions, https://403.p-e.kr
 - 자세한 로직: [`최종프로젝트/README.md`](최종프로젝트/README.md)
 
 ---
@@ -95,16 +100,17 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    U[사용자 브라우저] -->|JWT| FE[Frontend<br/>React + Vite :5173]
+    U[사용자 브라우저] -->|"https · JWT"| FE[Frontend<br/>React · Nginx]
     FE -->|/api| BE[Backend<br/>Spring Boot :8080]
     BE -->|/internal · 서비스 키| AI[AI 서버<br/>FastAPI :8000]
-    BE --> APP[(app 스키마<br/>계정·팀·감사 기록)]
+    BE --> APP[(app 스키마<br/>계정·팀·감사 기록·채팅 내역)]
     AI --> RAG[(rag 스키마<br/>가명처리 청크·벡터)]
     AI --> VAULT[(vault 스키마<br/>토큰↔원문·복원 기록)]
+    AI --> PUB[(lawrag · interp<br/>법령 · 비조치의견서)]
     AI -->|가명처리된 글만| LLM[OpenAI gpt-6-luna]
 ```
 
-- PostgreSQL 16 + pgvector 하나에 스키마 4개(`app`·`rag`·`vault`·`docs`), **스키마마다 다른 DB 계정**이라 서로 읽을 수 없음
+- PostgreSQL 16 + pgvector 하나에 우리 스키마 4개(`app`·`rag`·`vault`·`docs`) + 공개 자료 스키마 2개(`lawrag`·`interp`, 읽기 전용 계정), **스키마마다 다른 DB 계정**이라 서로 읽을 수 없음
 - 스프링은 `rag`·`vault` 를 못 읽음 → 직원·문서 정보는 AI 서버 API 로만
 - 임베딩(KURE-v1)은 서버 안에서 돌려 외부로 나가지 않음. 외부로 나가는 건 LLM 호출뿐이고, 그것도 가명처리된 글만
 
@@ -117,11 +123,11 @@ flowchart LR
 | 탐지 | 정규식 + Kiwi 형태소 분석, KoELECTRA-small(`atonlee`) + 추가 학습 이름 모델 |
 | 가명처리 | 라벨별 정규화, HMAC-SHA256 토큰, 추정 인물 단위 토큰(동명이인 구분) |
 | 검색 | PostgreSQL 16 + pgvector (HNSW), GIN 토큰 색인, KURE-v1 임베딩(로컬), LLM 재순위 |
-| LLM | OpenAI `gpt-6-luna` (질문 분류·재순위·답변) — 가명처리된 글만 전송 |
+| LLM | OpenAI `gpt-6-luna` (질문 분류·계획·멀티턴 다시 쓰기·재순위·답변) — 가명처리된 글만 전송 |
 | AI 서버 | Python 3.13, FastAPI, sentence-transformers, transformers |
 | 백엔드 | Java 21, Spring Boot 3.4, Spring Security(JWT), JPA, Spring Mail(Gmail) |
 | 프론트 | React, TypeScript, Vite, Pretendard |
-| 인프라 | Docker Compose (개발 DB 5434, 채점 DB 5435) |
+| 인프라 | Docker Compose (개발 DB 5434, 채점 DB 5435), 배포: AWS EC2 + Docker + Nginx(Let's Encrypt) + GitHub Actions |
 
 ---
 
@@ -130,19 +136,22 @@ flowchart LR
 ```
 likelion-AI-4team/
 ├── README.md                 ← 지금 이 문서 (전체 개요)
+├── .github/workflows/        main → EC2 자동 배포
 ├── 실전1_연구계획서.md
 ├── 실전2_연구계획서.md
 ├── 실전프로젝트1/             개인정보 탐지 방식 비교 (탐지기·채점·보고서·발표)
 ├── 실전프로젝트2/             가명처리 검색 챗봇 기본형 (적재·검색·평가·Streamlit 데모)
 └── 최종프로젝트/              사공삼(403) 서비스
-    ├── AI/                   FastAPI: 탐지·가명처리·적재·검색·에이전트·복원·이상 접근 탐지
-    ├── Backend/              Spring Boot: 계정·권한·이메일 인증·중계
-    ├── Frontend/             React: 채팅·적재·검수·통계·관리 화면
+    ├── AI/                   FastAPI: 탐지·가명처리·적재·검색·에이전트(멀티턴)·공개 자료 RAG 3개·복원·이상 접근 탐지
+    ├── Backend/              Spring Boot: 계정·권한·이메일 인증·채팅 내역·중계
+    ├── Frontend/             React: 채팅·적재·검수·통계·관리 화면 (+ 배포용 Nginx)
     ├── infra/                Docker Compose + DB 스키마
-    └── worklog.md            작업 기록 (모든 결정·수치의 근거)
+    ├── deploy/               운영(EC2) 구성·배포·인증서 스크립트
+    ├── ERD.md                전체 ERD
+    └── worklog.md            작업 기록 (모든 결정·수치의 근거, git 제외)
 ```
 
-각 폴더의 `worklog.md` 에 작업 과정·실험 수치·결정 이유가 장별로 남아 있습니다.
+실전 1·2 폴더의 `worklog.md` 에 작업 과정·실험 수치·결정 이유가 장별로 남아 있습니다. 최종프로젝트 worklog 는 로컬에만 두고, 내용은 [`최종프로젝트/README.md`](최종프로젝트/README.md) 에 정리했습니다.
 
 ---
 

@@ -7,7 +7,7 @@
 가명처리된 사내 문서로 답하고, **권한이 있는 사람에게만 실명을 보여 주는** 금융 사내 문서 RAG 챗봇입니다.
 이 문서는 최종 프로젝트에서 돌아가는 **모든 로직**을 순서대로 설명합니다. 프로젝트 전체 소개는 [저장소 맨 위 README](../README.md)를 보세요.
 
-> 각 절의 `(worklog N장)` 은 [`worklog.md`](worklog.md) 의 장 번호입니다. 결정 이유·실험 수치·실패한 시도까지 모두 그곳에 있습니다.
+> 각 절의 `(worklog N장)` 은 `worklog.md` 의 장 번호입니다. 결정 이유·실험 수치·실패한 시도까지 모두 그곳에 있습니다 (작업 기록이라 git 에는 올리지 않고 팀 로컬에 둠).
 
 ---
 
@@ -37,7 +37,7 @@
 
 ```mermaid
 flowchart LR
-    U[브라우저] -->|JWT| FE["Frontend<br/>React + Vite<br/>:5173"]
+    U[브라우저] -->|"JWT (배포: https)"| FE["Frontend<br/>React<br/>(개발 Vite :5173 / 배포 Nginx :443)"]
     FE -->|/api/*| BE["Backend<br/>Spring Boot<br/>:8080"]
     BE -->|"/internal/*<br/>X-Service-Key"| AI["AI 서버<br/>FastAPI<br/>:8000"]
     BE --> APP[("app<br/>app_user")]
@@ -50,12 +50,13 @@ flowchart LR
 | 서버 | 맡은 일 | 쓰는 DB 계정 |
 |---|---|---|
 | **Frontend** (React) | 채팅·실명 보기·적재·검수·통계·관리 화면 | — |
-| **Backend** (Spring Boot) | 로그인·JWT, 가입·이메일 인증·승인, 계정·팀·직급, 관리자 기능, AI 서버 중계 | `app_user` (`app` 스키마만) |
-| **AI 서버** (FastAPI) | 탐지·가명처리·적재·검색·에이전트·답변·출력 재검사·실명 복원·이상 접근 탐지 | `rag_user`, `vault_user` |
+| **Backend** (Spring Boot) | 로그인·JWT, 가입·이메일 인증·승인, 계정·팀·직급, 관리자 기능, **채팅 내역 저장**(질문 원문은 암호문), AI 서버 중계(답변 스트리밍 포함) | `app_user` (`app` 스키마만) |
+| **AI 서버** (FastAPI) | 탐지·가명처리·적재·검색·에이전트(멀티턴 포함)·공개 자료 RAG 3개·답변·출력 재검사·실명 복원·이상 접근 탐지 | `rag_user`, `vault_user`, 공개 RAG 읽기 전용 `law_reader`·`interp_reader` |
 
 - 사용자 확인(로그인·역할·직원 연결)은 **스프링이 요청마다 DB 에서 읽어** `{emp_id, team, role}` 을 만들고, AI 서버는 그 값으로 권한을 판단합니다. 화면이 역할을 끼워 보내도 무시합니다 (worklog 13장).
 - AI 서버의 `/internal/*` 는 스프링만 부를 수 있습니다 (`X-Service-Key` 헤더).
 - 임베딩 모델(KURE-v1)은 AI 서버 안에서 돌기 때문에 **외부로 나가는 건 LLM 호출뿐**이고, 그것도 가명처리된 글만 보냅니다.
+- **배포**: EC2 한 대(m7i.xlarge)에 Docker 로 4개(Nginx·Spring·AI·DB), 주소 **https://403.p-e.kr**. main 에 올라오면 GitHub Actions 가 자동 배포합니다 ([14-3-1](#14-3-1-서버-배포-ec2--github-actions), worklog 65·66장).
 
 ---
 
@@ -123,7 +124,7 @@ flowchart LR
 | **원래 + 이름 보태기 (기본값)** | **0.9858** | **0.9743** | **84** |
 
 ### 3-4. 구간마다 검수 신호 (worklog 27·29장)
-`detect_scored()` 가 구간마다 출처(rule/model/name_model/complete)와 모델 확률을 남기고 아래 신호를 붙입니다. 화면 업로드의 자동 승인 판단에 씁니다 ([6-1](#6-1-화면-업로드-검수-자동-승인)).
+`detect_scored()` 가 구간마다 출처(rule/model/name_model/complete)와 모델 확률을 남기고 아래 신호를 붙입니다. 화면 업로드의 자동 승인 판단에 씁니다 ([6-1](#6-1-화면-업로드-검수자동-승인)).
 
 | 신호 | 조건 | 근거 (개선용 세트) |
 |---|---|---|
@@ -253,10 +254,12 @@ flowchart LR
 ```mermaid
 flowchart TD
     Q[질문] --> P["① 보호<br/>가명처리 mask_query"]
-    P --> C{"② 분류 (gpt-6-luna)<br/>필요한 자료"}
+    P --> C{"② 분류 (gpt-6-luna)<br/>필요한 자료 + 이어지는 질문?"}
+    C -->|이어지는 질문 + 앞 대화 있음| FU["다시 쓰기 (최근 2턴)<br/>→ 다시 분류"]
+    FU --> C
     C -->|사내| S[사내 RAG 검색]
     C -->|사내 + 공개| PL["③ 계획 → 실행<br/>사내·공개 병렬, 필요하면 다시 계획"]
-    C -->|법령만| LAWA["법령 RAG 답변<br/>(팀원 코드 그대로)"]
+    C -->|공개 자료 하나만| LAWA["그 RAG 답변 흐름<br/>법령 / 금융상품 / 비조치의견서"]
     C -->|범위 밖 / 되묻기| FIX[고정 안내문]
     S --> SEL[문서 고르기]
     PL --> SYN["⑤ 종합 LLM<br/>[H0071]·[LAW-1] 인용"]
@@ -273,13 +276,14 @@ flowchart TD
 
 ### 8-1. 에이전트 `AI/app/agents/` (worklog 16·25장)
 - **① 보호**: 외부 LLM 보다 먼저 질문을 가명처리합니다. 분류 LLM 에는 가명처리된 질문만 보냅니다.
+  - 질문에서 규칙만 이름으로 본 말 중 형태소로 보통 말로 풀리는 것(`크게 주려면`, `금적립`, `신청한`)은 가리지 않습니다. 처음 보는 이름은 한 덩어리로 남아 계속 가립니다 (worklog 64장).
 - **② 분류** (`router.py`): 필요한 출처(사내 / 법령 / 금융상품 / 비조치의견서)를 고르고, 경로(internal·public·mixed·out_of_scope·clarify)는 코드가 정합니다.
   - 이름이 있어도 법·상품 일반 내용만 묻는 질문이면 사내가 아닙니다.
   - `~건 있으면`·`있었어?` 는 사내 기록을 확인하라는 신호입니다.
   - 대상을 알 수 없는 지시어(`그 건`)는 되묻습니다.
   - 질문이 사람 토큰뿐이면 LLM 없이 사내 검색으로 보냅니다.
 - **③ 계획·실행** (`planner.py`, `agent.run_plan`): 사내 + 공개 자료가 필요한 질문은 2라운드로 돕니다. 지금 할 수 있는 검색(사내·공개)은 병렬로 하고, 사내 기록을 봐야 정할 공개 검색은 사내 결과를 본 뒤 다시 계획합니다. 사내 기록이 없으면 LLM 을 부르지 않고 공개 검색도 생략합니다. **공개 검색어의 토큰·이름·번호는 코드가 한 번 더 지웁니다** (`planner.strip_public`).
-- **법령만 필요한 질문**은 팀원 법령 RAG 의 답변 함수를 그대로 씁니다 (지시문·임계값·근거 조문·원문 링크).
+- **공개 자료 하나만 필요한 질문**은 그 RAG 의 답변 흐름을 그대로 씁니다 (지시문·임계값·근거·원문 링크).
 - **⑤ 종합** (`agent._with_public`): 사내 기록(`[H0071]`)과 공개 자료(`[LAW-1]`)를 한 번에 넘겨 답하게 합니다. 사내 검색이 질문 속 이름을 문서 속 사람 토큰으로 이어 준 질문을 같이 넘깁니다. 동명이인을 고르지 못하면 사내만일 때처럼 되묻습니다.
 - **출처를 구분한 출력 재검사**: 공개 자료 본문에서 개인정보 모양으로 잡히는 말(법 조문 속 예시 이름 등)은 고객 개인정보가 아니므로 답변 재검사에서 막지 않습니다 (`_public_safe_words`).
 - 분류 LLM 이 실패하면 사내 검색으로 넘어갑니다. `AGENT_CHAT=0` 이면 에이전트 없이 사내 RAG 를 바로 씁니다.
@@ -289,18 +293,22 @@ flowchart TD
 
 | 패키지 | 자료 | 저장 | 검색·답변 |
 |---|---|---|---|
-| `law/` | 금융 법령 380개 · 조각 35,321 | DB `lawrag`, 읽기 전용 `law_reader` | 벡터 → 조문 단위 → 1~10위 + 위임·준용 연결 조문 → LLM 1회 (1위 점수 0.5338 미만이면 "찾지 못함") |
+| `law/` | 금융 법령 380개 · 조각 35,321 | DB `lawrag`, 읽기 전용 `law_reader` | 벡터 → 조문 단위 → 1~10위 + 위임·준용 연결 조문 → LLM 1회 (1위 점수 0.5338 미만이면 "찾지 못함"). 검색어에 조문 용어를 덧붙임: 보이스피싱·스미싱 → 전기통신금융사기, 대포통장 → 사기이용계좌 (worklog 67장) |
 | `product/` | 신한은행 판매 중 상품 391 · 문서 247 · 청크 2,218 | 파일 색인 (`data/public_rag/product/`) | 상품명 찾기(별칭·LLM 확인) → 상품으로 좁힌 벡터+BM25 → LLM 점수형 재순위 → 판매 상태·대상 상품 줄 |
 | `noaction/` | 법령해석·비조치의견서 회신 4,366 · 현장건의 | DB `interp`, 읽기 전용 `interp_reader` | 회신 시기 조건 분리 → 벡터 20 → LLM 재순위 5 + 현장건의 → 직접성 판정 → 답, 못 찾으면 키워드 완화 |
 
 공개 자료 하나만 필요한 질문은 그 RAG 의 답변 흐름을 그대로, 사내와 섞이면 근거만 받아 에이전트가 종합합니다.
-데이터가 없는 RAG 는 도구로 등록하지 않아, 에이전트가 "준비 중"으로 안내합니다. 전체 데이터 구조는 [ERD.md](ERD.md).
+데이터가 없는 RAG 는 도구로 등록하지 않아, 에이전트가 "준비 중"으로 안내합니다. 아직 없는 RAG 는 60초마다 다시 확인해서, DB 가 AI 서버보다 늦게 켜져도 저절로 붙습니다 (worklog 63장). 서버를 켤 때 공개 RAG 색인도 미리 읽어 첫 질문이 빠릅니다 (worklog 55장). 전체 데이터 구조는 [ERD.md](ERD.md).
 
 ### 8-1-2. 멀티턴 (worklog 67장)
 - 질문 분류가 같은 LLM 호출에서 **이전 대화가 필요한 질문인지(followup)**도 판단합니다. 대부분의 질문은 추가 비용이 없습니다
 - 필요하고 같은 대화에 앞 턴이 있으면, 최근 2턴의 가명처리된 질문·답변 앞부분만 보고 **혼자 읽어도 되는 질문으로 다시 쓴 뒤** 평소 흐름을 탑니다 (근거 문서 본문은 넘기지 않아 대화가 길어져도 비용이 늘지 않음)
-- 앞 대화는 Spring 이 DB 에서 꺼내 넘기고, 다시 쓴 질문의 토큰은 AI 서버 안에서만 원문 이름으로 되돌려 사내 검색에 씁니다
-- 멀티턴 세트(개선용 20개) 20/20, 기존 분류 세트 점수 유지
+- 앞 대화는 Spring 이 DB 에서 꺼내 넘기고(남의 대화면 AI 를 부르기 전에 404), 다시 쓴 질문의 토큰은 AI 서버 안에서만 원문 이름으로 되돌려 사내 검색에 씁니다
+- 사람을 가리키는 말은 역할을 맞춥니다: "그 고객" = 앞 질문의 고객, "그 직원·담당자" = 앞 답변에서 처리·담당한 사람
+- 앞 답변에서 이미 확정된 사람은 검색에서 **그 사람으로 고정**합니다. 이름만 넘기면 같은 이름의 다른 사람 문서가 섞이기 때문입니다
+- 앞 대화가 없는데 지시어("그 건")만 있으면 지금처럼 되묻습니다
+- 화면 답변 위에 "앞 대화를 이어서: (다시 쓴 질문)"을 보여 줍니다
+- 평가: [13-6](#13-6-멀티턴-worklog-67장-개선용-세트-20개)
 
 ### 8-2. 검색 `AI/app/rag/search.py`
 **점수 = 토큰 점수(질문 조건을 얼마나 맞췄나, 0~1) + 의미 유사도(코사인) + 문서 종류 가산점 + 처리 상태 가산점**
@@ -309,12 +317,13 @@ flowchart TD
 |---|---|
 | 전화·이메일·주민번호·계좌·카드 | 같은 값 토큰이 있으면 1 |
 | 주소 | 전체 토큰 1, 아니면 주소 조각(시군구·도로명·동·호)이 겹친 비율 × 0.8 |
+| 지역만 있는 질문 | `구로구에 사는 고객` → 주소 조각으로. `충청남도에 사는 고객`처럼 **시·도만** 있으면 vault 에서 그 시·도 주소 토큰을 모아 조건으로 (worklog 68장) |
 | 이름 | 그 사람 토큰 1 / 이름만 쓴 표기 0.6 / 같은 이름의 **미확정** 토큰 0.7 / 같은 이름의 **다른 확정 인물** 0.3 |
 | 문서 종류 | 질문 단어 → 문서 종류 사전 + 종류별 평균 임베딩, 같으면 +0.3 |
 | 처리 상태 (worklog 19장) | 질문의 상태 집합(접수·처리 중·처리 완료·보류)에 문서 상태가 들면 +0.2. 표 한 줄 = 한 사람이면 줄 단위 상태 |
 
 - 후보는 토큰이 하나라도 겹치는 청크(GIN 색인)와 의미 검색 상위 50개입니다. 둘 다 권한 조건 안에서 찾습니다.
-- 질문의 이름은 질문 속 다른 단서(번호·역할·소속)로 사람을 고르고, 근거 문장의 토큰도 같이 바꿉니다.
+- 질문의 이름은 질문 속 다른 단서(번호·역할·소속)로 사람을 고르고, 근거 문장의 토큰도 같이 바꿉니다. 멀티턴에서 앞 답변이 가리킨 사람은 단서로 고르지 않고 고정합니다.
 - 재순위(`RERANK=1`): 상위 8개를 LLM 으로 다시 정렬합니다.
 - 임베딩: **KURE-v1**(로컬, 1024차원). bge-m3 와 비교해 390개 중 2개 차이로 사실상 같고, 외부 전송이 없습니다 (worklog 17장).
 
@@ -328,13 +337,22 @@ LLM 답변을 화면에 보여 주기 전에 두 가지를 검사합니다.
 1. **문서에 없는 토큰**: 근거 문서·질문에 없는 토큰은 `[확인 안 된 토큰]` 으로 바꿉니다. 실명 복원으로 엉뚱한 사람 이름이 나오는 걸 막습니다.
 2. **원문 개인정보**: 답변을 탐지기로 다시 보고, 걸리면 토큰으로 가립니다. 문서 종류 이름(`한도하향통지`)과 마크다운 기호는 오탐을 막으려고 빼고 봅니다.
 
-검사 결과는 응답의 `check` 필드로 화면까지 갑니다.
+검사 결과는 응답의 `check` 필드로 화면까지 갑니다. 공개 자료만으로 답한 경우에는 법 조문 속 말이 이름으로 잡히는 오탐을 막으려고 이름 검사를 빼고, 사내 문서가 섞이면 그대로 검사합니다 (worklog 57장).
 
 ### 8-5. 못 찾았을 때와 동명이인 경고 (worklog 26·37장)
 - LLM 이 "찾을 수 없습니다"라고 답하고 인용도 없으면, 답을 **역할별 볼 수 있는 범위 안내**로 바꿉니다. 권한 밖이라 안 보인 걸 고장으로 오해하지 않게 하려는 것입니다.
   - 예: "볼 수 있는 범위(전사 공개 문서, ○○팀 문서 중 담당자가 정해진 것, 본인 담당 문서)에서 찾지 못했습니다."
   - 권한 밖에 문서가 **있는지는 말하지 않습니다**. 있다는 사실 자체가 정보이기 때문입니다.
 - 질문·답변의 사람 토큰 중 **같은 이름의 사람이 DB 에 2명 이상**이면 "동명이인 가능" 경고를 붙여 근거 문서를 확인하게 합니다.
+
+### 8-6. 답변 스트리밍과 진행 단계 (worklog 59·60장)
+- 화면 → Spring → AI 가 **SSE** 로 이어집니다 (`POST /api/chat/ask/stream`). Spring 은 받은 이벤트를 바로 흘려보내고, 마지막 결과를 받으면 채팅 내역에 저장합니다.
+- 답변 글은 **문장·줄 단위로 출력 재검사를 통과한 조각만** 화면에 보냅니다 (`CheckedStream`). 끝나면 전체 글을 한 번 더 검사한 최종본으로 바꿉니다.
+- 진행 단계를 보여 줍니다: 개인정보 가리기 → 질문 분류(출처) → 앞 대화 보고 다시 쓰기 → 검색 계획(개수) → 검색(출처별 건수) → 사례 직접 해당 판단 → 답변 생성 → 재검사. 단계마다 걸린 시간과 결과가 나오고, 답 글이 오기 시작하면 한 줄로 줄입니다.
+
+### 8-7. 답변 모양과 근거 문서 (worklog 56~58장)
+- 답변은 **마크다운**(제목·목록·표·굵게)으로 보여 주고, 인용(`[H0071]`·`[LAW-1]`·`[PRD-1]`)은 누르면 근거 문서로 가는 칩입니다. 원본 HTML·링크는 그리지 않습니다.
+- 근거 문서는 검색 조각이 아니라 **전체 단위**로 보여 줍니다: 법령은 조문 전체, 금융상품은 나뉜 절을 이어 붙이고, 비조치의견서는 회신 이유까지. 긴 글은 접기·전체 보기.
 
 ---
 
@@ -348,6 +366,7 @@ LLM 답변을 화면에 보여 주기 전에 두 가지를 검사합니다.
 4. 방금 요청을 넣어 [이상 접근 규칙](#10-이상-접근-탐지)을 바로 적용하고, 걸리면 응답의 `warnings` 로 본인 화면에 경고합니다. 막지는 않고 알리기만 합니다.
 
 실명은 저장하지 않고 화면에 보여 주기만 합니다. 마이페이지에서 내 복원 기록을, 관리자 화면에서 전체 복원 기록을 볼 수 있습니다.
+출력 재검사가 가린 말(원래 값이 없는 토큰)은 "권한 없음"이 아니라 "답변 검사에서 가린 말"로 따로 안내합니다 (`unknown`).
 
 ---
 
@@ -395,6 +414,8 @@ flowchart LR
 - **로그인**: 비밀번호가 틀리면 401, 맞지만 승인 대기·정지면 403 입니다. JWT 에는 이메일만 넣고, 역할·팀·직원 연결은 **요청마다 DB 에서 읽습니다**. 그래서 관리자가 역할을 바꾸거나 정지하면 이미 받은 토큰에도 바로 반영됩니다.
 - **관리자**: 사용자 팀·직급·역할·관리자 여부·정지·직원 연결 변경, 팀 목록 관리(AI 서버의 문서 팀 이름 동기화). 모든 변경은 `app.admin_audit_log` 에 전후 값 JSON 으로 남습니다.
   - 자기 관리자 권한 빼기, 자기 정지는 막아 둡니다.
+  - **계정 정지는 사유 필수**(500자까지)이고, 사유를 변경 기록에 같이 남깁니다.
+  - 관리자가 사용자의 채팅 대화를 열면 `view_chat` 으로 기록되고, 변경 기록에 "○○ 님이 △△ 님의 「제목」 대화를 열람했어요"로 보입니다 (worklog 61장).
 - 첫 관리자는 서버 시작 때 `ADMIN_EMAIL`·`ADMIN_PASSWORD`(12자 이상)로 만듭니다.
 
 ---
@@ -404,14 +425,15 @@ flowchart LR
 | 화면 | 경로 | 내용 | 권한 |
 |---|---|---|---|
 | 로그인 / 가입 / 비밀번호 재설정 | `/login`, `/signup`, `/reset-password` | 왼쪽 로고 카드, 이메일 인증 칸 | 누구나 |
-| 채팅 | `/chat` | 질문·답변(토큰 상태), 근거 문서 패널, **실명 보기**(사유 입력·이상 접근 경고), 동명이인 경고, 분류·시간 표시, 대화 목록(접기·펼치기, **계정별 서버 저장** — 다른 기기에서도 이어서) | 로그인 |
+| 채팅 | `/chat` | 질문·답변(토큰 상태, 마크다운, **스트리밍 + 진행 단계**), **멀티턴**("앞 대화를 이어서"), 근거 문서 패널(전체 글·접기), **실명 보기**(사유 입력·이상 접근 경고), 동명이인 경고, 분류·시간 표시, 대화 목록(**계정별 서버 저장** — 다른 기기에서도 이어서, 지우기) | 로그인 |
 | 마이페이지 | `/me` | 내 정보·역할 설명, 비밀번호 변경, 내 실명 보기 기록 | 로그인 |
 | 데이터 적재 | `/ingest` | 업로드, 업로드별 상태·자동 저장 수, 문서 목록(확인할 곳 N개) | 관리자 |
-| 검수 | `/ingest/docs/:id` | 구간 드래그로 추가·삭제·라벨 변경, 확인할 구간(점선)·놓쳤을 수 있는 곳(물결 밑줄), 사람 잇기 고르기 | 관리자 |
-| 통계 | `/stats` | 적재·질문·실명 보기 수, 복원 기록, **이상 접근** 표 | 관리자 |
-| 관리 | `/admin` | 가입 승인, 사용자·팀 관리, **사용자별 채팅 내역 열람(열 때마다 기록)**, 저장된 문서·직원, 문서 공개 범위·담당자 변경, 문서 삭제, 변경 기록 | 관리자 |
+| 검수 | `/ingest/docs/:id` | 구간 드래그로 추가·삭제·라벨 변경, 확인할 구간(점선)·놓쳤을 수 있는 곳(물결 밑줄), 사람 잇기 고르기, 저장 안 한 수정이 있으면 나가기 전에 확인 | 관리자 |
+| 통계 | `/stats` | 적재·질문·실명 보기 수, 복원 기록, **이상 접근** 표, **최근 대화 기록**(전체 사용자, 계정·가명처리된 제목·질문 수만, 쪽 나눔) | 관리자 |
+| 관리 | `/admin` | 가입 승인, 사용자·팀 관리(정지는 사유 필수), **사용자별 채팅 내역 열람(열 때마다 기록)**, 저장된 문서·**공개 자료 보기**(법령·금융상품·금융당국 회신, 읽기만)·직원, 문서 공개 범위·담당자 변경, 문서 삭제, 변경 기록 | 관리자 |
 
-- 창 폭이 1280px 이하이면 왼쪽 메뉴가 아이콘만 남습니다. 데스크톱 기준이고, 휴대폰은 고려하지 않았습니다.
+- 창 폭이 1280px 이하이면 왼쪽 메뉴가 아이콘만 남습니다. 900px 이하에서는 대화 목록·근거 문서가 겹쳐 뜨는 서랍이 되고, 760px 이하에서는 여백을 줄입니다.
+- 되돌리기 어려운 동작(문서 정보 바꾸기·삭제, 정지 등) 앞에는 확인 대화상자를 띄웁니다. 처음 포커스는 취소 버튼입니다.
 - 글꼴은 Pretendard(프로젝트에 포함)이고, 로고는 `Frontend/public/brand/` 에 있습니다.
 
 ---
@@ -447,12 +469,14 @@ flowchart LR
 
 잘못 합치는 경우는 20% 줄었지만 답변 품질로는 효과가 보이지 않았습니다. 단서가 이름 옆에 없는 같은 역할 동명이인은 규칙으로 가를 수 없는 한계입니다.
 
-### 13-4. 에이전트 분류·계획 (worklog 16·24장)
+### 13-4. 에이전트 분류·계획 (worklog 16·24·57·67장, gpt-6-luna)
 
-| 세트 | 분류 + 계획 모두 맞음 | 공개 검색어에 이름·토큰 |
+| 세트 | 분류 맞음 | 공개 검색어에 이름·토큰 |
 |---|---|---|
-| 기본 50문항 | 50/50 (gpt-4.1-mini) | 0 |
-| 처음 보는 애매한 질문 43문항 | **41/43** (gpt-6-luna) — gpt-4.1 과 같고 비용 약 1/19 | 0 |
+| 기본 (dev 34문항) | **34/34** | 0 |
+| 어려운 질문 50문항 | **49/50** | 0 |
+| 처음 보는 애매한 질문 43문항 | **41/43** — gpt-4.1 과 같고 비용 약 1/19 | 0 |
+| 최종 확인 세트 (16문항, 한 번만) | 16/16 | 0 |
 
 ### 13-5. 답변 LLM 비교 — holdout 88 (worklog 24장)
 
@@ -462,6 +486,18 @@ flowchart LR
 | 혼동 문서 인용 | **0.07** | 0.23 |
 | LLM 평균 시간 | **2.2초** | 2.8초 |
 | 유출 | 0 | 0 |
+
+### 13-6. 멀티턴 (worklog 67장, 개선용 세트 20개)
+
+앞 질문에 실제로 답한 뒤 이어지는 질문을 넣어 잽니다: 이어지는 질문 14개(사람 8·사건/주제 6) + 이어지지 않는 질문 4개 + 앞 대화 없는 지시어 2개.
+
+| 지표 | 값 |
+|---|---|
+| 전체 / 이어지는 질문인지 판단 | **20/20** / 20/20 |
+| 다시 쓰기 성공 / 대상 이름 / 사건 말 | 14/14 / 8/8 / 6/6 |
+| 이어지는 질문의 추가 시간 · 20개 추가 비용 | 평균 4.2초 · $0.008 (보통 질문은 추가 0) |
+
+고치면서 본 세트라 낙관적인 숫자입니다. 처음 보는 확인 세트로는 아직 재지 않았습니다.
 
 ---
 
@@ -477,7 +513,7 @@ flowchart LR
 |---|---|
 | `infra/.env` | DB 비밀번호(관리자·app·rag·docs·vault), `DB_PORT` |
 | `AI/.env` | DB 비밀번호, `EMBED_PROVIDER=hf`, `EMBED_MODEL=nlpai-lab/KURE-v1`, `OPENAI_API_KEY`, `HMAC_KEY`, `AI_SERVICE_KEY`, `PII_NAME_MODEL`, `RERANK` |
-| `Backend/.env` | `DB_PASSWORD`, `JWT_SECRET`(32바이트 이상), `AI_SERVICE_KEY`(AI 와 같은 값), `ADMIN_EMAIL`·`ADMIN_PASSWORD`, `MAIL_USERNAME`·`MAIL_PASSWORD`(Gmail 앱 비밀번호) |
+| `Backend/.env` | `DB_PASSWORD`, `JWT_SECRET`(32바이트 이상), `AI_SERVICE_KEY`(AI 와 같은 값), `ADMIN_EMAIL`·`ADMIN_PASSWORD`, `MAIL_USERNAME`·`MAIL_PASSWORD`(Gmail 앱 비밀번호), `CHAT_QUERY_KEY`(선택: 채팅 질문 원문 암호화 키, 비우면 JWT 비밀키에서 만듦) |
 
 메일 계정이 없는 로컬 개발에서는 `Backend/.env` 에 `EMAIL_VERIFY_SIGNUP=false` 를 넣으면 인증 없이 가입할 수 있습니다.
 
@@ -515,7 +551,11 @@ VS Code 에서는 `Ctrl+Shift+P` → **Tasks: Run Task** → **사공삼: 전체
 
 ### 14-3-1. 서버 배포 (EC2 + GitHub Actions)
 
-main 에 올라오면 GitHub Actions 가 SSH 로 서버의 `deploy/deploy.sh` 를 실행해 Docker 로 다시 빌드·실행합니다. 처음 준비와 구성은 [deploy/README.md](deploy/README.md) (worklog 65장).
+- 주소 **https://403.p-e.kr** (무료 도메인 A 레코드 → 고정 IP, Let's Encrypt 인증서, 매일 자동 갱신)
+- main 에 `최종프로젝트/AI|Backend|Frontend|infra|deploy` 가 바뀌어 올라오면 GitHub Actions 가 SSH 로 서버의 `deploy/deploy.sh` 를 실행해 Docker 로 다시 빌드·실행합니다. Actions 탭에서 손으로도 돌릴 수 있습니다
+- 서버 한 대(m7i.xlarge, 미국 오하이오)에 web(Nginx :80·:443)·backend·ai·db 4개. 밖에 여는 포트는 80·443 뿐이고 DB 는 서버 안에서만
+- 비밀값·데이터(금융상품 색인·이름 보태기 모델)는 저장소 밖 `/srv/saebom` 에 둡니다
+- 처음 준비(설정 파일·데이터·DB 옮기기·인증서)와 구성은 [deploy/README.md](deploy/README.md) (worklog 65·66장)
 
 ### 14-4. 무인 파이프라인 (채점 DB, 포트 5435)
 
@@ -562,13 +602,15 @@ cd 최종프로젝트/Frontend && npx tsc -p tsconfig.app.json --noEmit && npx e
 | 적재 (관리자) | `POST·GET /ingest/jobs`, `GET /ingest/jobs/{id}`, `/ingest/jobs/{id}/docs`, `GET /ingest/docs/{id}`, `POST /ingest/docs/{id}/preview-links`, `/ingest/docs/{id}/review` |
 | 관리 (관리자) | `GET /admin/users`, `/admin/users/{id}`, `/admin/users/{id}/conversations`, `/admin/users/{id}/conversations/{convId}`, `/admin/users/{id}/candidates`, `POST /admin/users/{id}/approve`, `PUT /admin/users/{id}`, `GET /admin/employees`, `GET·POST /admin/teams`, `PUT /admin/teams/{id}`, `POST /admin/teams/sync`, `GET /admin/audit-log` |
 | 문서 (관리자) | `GET /admin/docs`, `/admin/docs/deletion-log`, `/admin/docs/{docId}`, `POST /admin/docs/{docId}/meta`, `/admin/docs/{docId}/delete` |
-| 통계 (관리자) | `GET /admin/stats`, `/admin/restore-log`, `/admin/anomalies` |
+| 통계 (관리자) | `GET /admin/stats`, `/admin/restore-log`, `/admin/anomalies`, `/admin/recent-conversations` |
+| 공개 자료 (관리자, 읽기만) | `GET /admin/public-docs/{source}`, `/admin/public-docs/{source}/{id}` (source = law·product·noaction) |
 
 ### 15-2. AI 서버 (`/internal`, 스프링만 부름, `X-Service-Key`)
 
 | 영역 | 경로 |
 |---|---|
-| 채팅 | `POST /chat/ask`, `POST /chat/restore` |
+| 채팅 | `POST /chat/ask`, `POST /chat/ask/stream` (SSE), `POST /chat/restore` — 질문에 같은 대화의 최근 턴(`history`)을 같이 받음 |
+| 공개 자료 | `GET /public-docs/{source}`, `/public-docs/{source}/{doc_id}` |
 | 적재 | `POST·GET /ingest/jobs`, `GET /ingest/jobs/{id}`, `/ingest/jobs/{id}/docs`, `GET /ingest/docs/{id}`, `POST /ingest/docs/{id}/preview-links`, `/ingest/docs/{id}/review` |
 | 직원 | `GET /org/teams`, `POST /org/match`, `GET /org/employees`, `/org/employees/{id}`, `POST /org/employees` |
 | 문서 | `GET /docs`, `/docs/deletion-log`, `/docs/{id}`, `POST /docs/{id}/meta`, `/docs/{id}/delete` |
@@ -582,10 +624,13 @@ cd 최종프로젝트/Frontend && npx tsc -p tsconfig.app.json --noEmit && npx e
 ```
 최종프로젝트/
 ├── README.md                 ← 지금 이 문서
-├── worklog.md                작업 기록 (장별 결정·수치·실패 기록)
+├── ERD.md                    전체 ERD (우리 스키마 + 공개 RAG 3개)
+├── worklog.md                작업 기록 (장별 결정·수치·실패 기록, git 제외)
 ├── infra/
 │   ├── docker-compose.yml    PostgreSQL 16 + pgvector (CONTAINER_NAME·DB_PORT 로 개발/채점 DB)
-│   └── init/01_schema.sh     스키마·계정·권한·테이블
+│   ├── init/                 01_schema.sh(스키마·계정·권한·테이블), 02_public_rag.sh(공개 RAG 읽기 계정)
+│   └── load_public_rag.sh    법령 덤프·비조치의견서·금융상품 벡터 넣기
+├── deploy/                   운영(EC2) compose·deploy.sh·certbot.sh·설정 틀 (deploy/README.md)
 ├── AI/
 │   ├── app/
 │   │   ├── main.py           FastAPI, 시작 때 모델 미리 읽기
@@ -599,26 +644,30 @@ cd 최종프로젝트/Frontend && npx tsc -p tsconfig.app.json --noEmit && npx e
 │   │   ├── ingest/           service(업로드·검수·자동 승인·저장), linking(1건씩 사람 잇기), manage(문서 삭제·메타 변경)
 │   │   ├── pipeline/load.py  파일 → 새 DB 한 번에 적재
 │   │   ├── rag/              search(검색), chat(답변·출력 재검사), embed(임베딩), status(처리 상태)
-│   │   ├── agents/           router(분류), planner(계획), agent(질문 처리), tools, llm
+│   │   ├── agents/           router(분류), planner(계획), followup(멀티턴 다시 쓰기), agent(질문 처리), progress(진행 단계), tools, llm
 │   │   ├── audit/anomaly.py  이상 접근 규칙 7개
 │   │   ├── rag_public/       공개 자료 RAG: law(법령), product(금융상품), noaction(비조치의견서) — 에이전트 도구
-│   │   └── api/              chat, ingest, org, docs, stats, audit 라우터
-│   ├── scripts/              run_pipeline(무인), load_corpus, build_org, eval_search, eval_agent, ft_make_data·ft_train(추가 학습), gen_synth4·5(동명이인 세트), sim_access(이상 접근 모의), load_noaction·build_product_vectors(공개 RAG 준비)
+│   │   └── api/              chat, ingest, org, docs, stats, audit, public_docs 라우터
+│   ├── scripts/              run_pipeline(무인), load_corpus, build_org, eval_*(평가, git 제외), ft_make_data·ft_train(추가 학습), gen_synth4·5(동명이인 세트), sim_access(이상 접근 모의), load_noaction·build_product_vectors(공개 RAG 준비)
 │   ├── eval/                 에이전트 평가 질문·보고서
 │   ├── data/public_rag/      공개 RAG 자료: 법령 덤프(LFS)·상품 목록·스키마 (원문·벡터는 git 제외)
 │   ├── tests/                단위·DB 통합 테스트
-│   └── outputs/              결과·캐시·모델 (git 제외)
+│   ├── outputs/              결과·캐시·모델 (git 제외)
+│   └── Dockerfile            배포 이미지 (torch CPU)
 ├── Backend/src/main/java/com/saebom/backend/
-│   ├── controller/           Auth, Chat, Ingest, Admin, AdminDocs, Me
-│   ├── service/              UserService, AdminService, EmailVerificationService
+│   ├── controller/           Auth, Chat, Ingest, Admin, AdminDocs, AdminPublicDocs, Me
+│   ├── service/              UserService, AdminService, EmailVerificationService, ChatHistoryService(채팅 내역), ChatCipher(질문 원문 암호화)
 │   ├── ai/                   AiClient (AI 서버 호출), AccessUser
 │   ├── security/             JWT 필터·유틸, SecurityConfig
 │   └── entity/ · repository/ · dto/ · exception/
-└── Frontend/src/
-    ├── features/             auth, chat, review(적재·검수), stats, admin, profile
-    ├── shared/               api 클라이언트, AuthContext, AppLayout, Logo, 스타일
-    └── public/brand/         로고 (흰색·파란색·가로형), favicon
+└── Frontend/
+    ├── src/features/         auth, chat(스트리밍·마크다운·멀티턴), review(적재·검수), stats, admin(채팅 열람·공개 자료), profile
+    ├── src/shared/           api 클라이언트, AuthContext, AppLayout, Logo, ConfirmDialog, Pager, 스타일
+    ├── public/brand/         로고 (흰색·파란색·가로형), favicon
+    └── nginx/ · Dockerfile   배포용 Nginx (인증서가 있으면 https, 없으면 http)
 ```
+
+저장소 맨 위 `.github/workflows/deploy.yml` 이 main 에 올라온 변경을 EC2 에 배포합니다.
 
 ---
 
@@ -626,7 +675,10 @@ cd 최종프로젝트/Frontend && npx tsc -p tsconfig.app.json --noEmit && npx e
 
 | 구분 | 내용 |
 |---|---|
-| 공개 자료 RAG | 법령·금융상품·비조치의견서 3개 모두 연결했습니다. 종합 답변의 품질(사내+공개 대조)은 아직 세트로 재지 않았고, 금융상품 첫 질문은 색인을 올리느라 약 40초 걸립니다 |
+| 공개 자료 RAG | 법령·금융상품·비조치의견서 3개 모두 연결했습니다. 종합 답변의 품질(사내+공개 대조)은 아직 세트로 재지 않았습니다. 법령은 조문 용어 사전에 없는 흔한 말이면 조문을 못 찾을 수 있습니다 |
+| 멀티턴 | 최근 2턴만 봐서 3~4턴 전 대상은 잊습니다. 처음 보는 확인 세트로는 아직 재지 않았고, "다른 건"이라고 물어도 앞에서 본 문서가 다시 섞일 수 있습니다 |
+| 근거 개수 | 답변은 근거 3건까지라 "부산에 사는 고객 다 보여줘"여도 3건만 보입니다 |
+| 서버 위치 | 서버가 미국 오하이오라 한국에서 요청마다 0.2초쯤 더 걸립니다 (답변 시간은 대부분 LLM) |
 | 탐지 | 호칭·조사 단서가 없는 성 없는 이름(`[하늘]은 담당`)은 아직 놓칩니다. 미탐은 모델 점수에 신호가 거의 없어 자동 승인 검수로도 잘 걸러지지 않습니다 |
 | 동명이인 | 같은 역할끼리, 이름 옆에 단서가 없는 동명이인은 규칙으로 가를 수 없습니다 (synth4 혼동 인용 0.14). 화면에 "동명이인 가능" 경고로 보완합니다 |
 | 출력 재검사 기록 | 재검사 결과는 응답으로만 전달되고 DB 에는 아직 기록하지 않습니다 |
