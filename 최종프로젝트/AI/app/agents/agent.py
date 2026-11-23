@@ -7,14 +7,17 @@
 """
 import argparse
 import json
+import logging
 import re
 import time
 from concurrent.futures import ThreadPoolExecutor
 
 from app.pii import pii_pipeline
 
-from . import planner, progress, router
+from . import followup, planner, progress, router
 from .tools import SEARCHERS, SOURCES
+
+logger = logging.getLogger(__name__)
 
 
 def protect(question, use_db=True):
@@ -213,7 +216,7 @@ def _single_public(source, masked, info, timing):
             "not_found": not r["found"], "check": check, "model": f"gpt-6-luna ({_SOURCE_KO[source]} RAG)", "timing": timing, "agent": info}
 
 
-def _with_public(question, masked, user, route, info, timing, k, on_event=None):
+def _with_public(question, masked, user, route, info, timing, k, on_event=None, pinned=None):
     """공개 자료가 필요한 질문 (사내+공개, 또는 공개 여러 개): 계획 → 실행(1라운드 병렬, 사내 결과 보고 다시 계획) → 종합 → 출력 재검사.
     사내 검색은 원문 질문 + 이 사람의 권한으로 (검색 전 권한 밖 문서 제외). 공개 검색어는 planner 가 토큰·번호를 지운 것.
     on_event: 스트리밍 — 검사한 답변 조각 (단계 알림은 progress, worklog 59·60장)"""
@@ -226,7 +229,7 @@ def _with_public(question, masked, user, route, info, timing, k, on_event=None):
     def search_internal(_q, _k):
         # 사내 검색이 질문 속 이름을 문서 속 사람 토큰으로 이어 준 질문(mq)을 종합에도 씀 — 안 그러면 LLM 이
         # 질문 토큰과 기록 토큰이 달라 '같은 사람인지 모름'이라고 답함 (chat.answer 와 같은 처리)
-        mq, _qt, cands = internal_search(question, k * 2, user=user)
+        mq, _qt, cands = internal_search(question, k * 2, user=user, pinned=pinned)
         internal["mq"] = mq
         internal["cands"] = cands
         internal["docs"] = chat_mod.select_docs(cands, k)
@@ -290,19 +293,28 @@ OUT_OF_SCOPE_MSG = "사내 업무·금융 관련 질문에만 답할 수 있습�
 CLARIFY_MSG = "어떤 건을 말씀하시는지 알 수 없습니다. 고객 이름, 처리 건 종류(예: 보이스피싱 접수, 우편 반송), 날짜 등을 함께 적어 주세요."
 
 
-def ask(question, user, k=3, on_event=None):
+def ask(question, user, k=3, on_event=None, history=None):
     """화면 질문 1건 (_ask). on_event(kind, **data): 답변 스트리밍 (worklog 59·60장) —
     ("stage", stage=…) 단계 시작 · ("step_done", stage=…, 건수 등) 단계 결과 · ("delta", text=출력 검사를 거친 답변 조각).
-    단계 알림은 progress 모듈이 이 요청 동안 on_event 로 보냄"""
+    단계 알림은 progress 모듈이 이 요청 동안 on_event 로 보냄.
+    history: 같은 대화의 앞 턴 [{query(원문), masked_query, answer(토큰 상태)}] — 이어지는 질문일 때만 씀 (worklog 67장)"""
     token = progress.use(on_event) if on_event else None
     try:
-        return _ask(question, user, k, on_event)
+        return _ask(question, user, k, on_event, history)
     finally:
         if token is not None:
             progress.reset(token)
 
 
-def _ask(question, user, k=3, on_event=None):
+def _classify(masked, role):
+    try:
+        return router.classify(masked, role)
+    except Exception as e:  # 분류 LLM 이 죽으면 예전 챗봇처럼 사내 검색 (router.validate 의 실패 처리와 같음)
+        return ({"sources": ["internal"], "route": "internal", "reason": f"분류 실패({type(e).__name__}) → 기본(사내)",
+                 "fallback": True, "followup": False}, {"model": None, "latency": 0.0, "cost_usd": 0.0})
+
+
+def _ask(question, user, k=3, on_event=None, history=None):
     """화면 질문 1건: ① 보호 → ② 분류 → 경로별 답변 (worklog 25·53·54장)
     법령·금융상품·비조치의견서 하나만 쓰는 답은 그 RAG 흐름이 끝난 뒤 한 번에 (답변 조각 없음, 단계 알림만)
     - 공개 자료 하나만 (법령·금융상품·비조치의견서) → _single_public: 그 RAG 의 답변 흐름 그대로
@@ -321,24 +333,50 @@ def _ask(question, user, k=3, on_event=None):
     t_protect = time.perf_counter() - t0
     role = user.get("role", "STAFF")
     progress.step("classify")
-    try:
-        route, meta = router.classify(masked, role)
-    except Exception as e:  # 분류 LLM 이 죽으면 예전 챗봇처럼 사내 검색 (router.validate 의 실패 처리와 같음)
-        route = {"sources": ["internal"], "route": "internal", "reason": f"분류 실패({type(e).__name__}) → 기본(사내)",
-                 "fallback": True}
-        meta = {"model": None, "latency": 0.0, "cost_usd": 0.0}
+    route, meta = _classify(masked, role)
+    cost, t_classify = meta.get("cost_usd") or 0.0, meta.get("latency") or 0.0
+
+    # 멀티턴 (worklog 67장): 분류가 '앞 대화를 봐야 함'이라 했고 앞 대화가 있을 때만 다시 쓰기 → 다시 분류
+    rewritten, t_followup, pinned = None, 0.0, None
+    if route.get("followup") and followup.recent(history):
+        progress.done("classify", route=route["route"], sources=route["sources"])
+        progress.step("followup")
+        t1 = time.perf_counter()
+        try:
+            new_masked, m_fu = followup.rewrite(masked, history)
+        except Exception as e:  # 다시 쓰기 실패 → 원래 질문·분류 그대로
+            logger.warning("이어지는 질문 다시 쓰기 실패: %s", type(e).__name__)
+            new_masked, m_fu = None, None
+        cost += (m_fu or {}).get("cost_usd") or 0.0
+        if new_masked:
+            question, pinned = followup.to_raw(new_masked, question, history)
+            masked, _ = protect(question)
+            rewritten = new_masked  # 화면엔 다시 쓴 그대로 (앞 답변과 같은 사람 토큰 — 질문용 이름 토큰과 달라 보이지 않게)
+            t_followup = time.perf_counter() - t1
+            progress.done("followup", rewritten=True)
+            progress.step("classify")
+            route, meta = _classify(masked, role)
+            cost += meta.get("cost_usd") or 0.0
+            t_classify += meta.get("latency") or 0.0
+        else:
+            t_followup = time.perf_counter() - t1
+            progress.done("followup", rewritten=False)
+
     pending = [s for s in route["sources"] if SOURCES[s] not in SEARCHERS and s != "internal"]
     info = {"route": route["route"], "sources": route["sources"], "reason": route["reason"],
             "fallback": route.get("fallback", False), "pending": pending,
-            "model": meta.get("model"), "cost_usd": round(meta.get("cost_usd") or 0.0, 6)}
-    timing = {"protect": round(t_protect, 3), "classify": round(meta.get("latency") or 0.0, 3)}
+            "model": meta.get("model"), "cost_usd": round(cost, 6),
+            "followup": rewritten}  # 앞 대화를 이어 다시 쓴 질문 (토큰 상태). 아니면 None
+    timing = {"protect": round(t_protect, 3), "classify": round(t_classify, 3)}
+    if t_followup:
+        timing["followup"] = round(t_followup, 3)
     progress.done("classify", route=route["route"], sources=route["sources"])
 
     ready = [s for s in route["sources"] if s != "internal" and SOURCES[s] in SEARCHERS]
     if ready:  # 쓸 수 있는 공개 RAG 가 필요한 질문 (worklog 53장)
         if len(route["sources"]) == 1:  # 공개 자료 하나만
             return _single_public(route["sources"][0], masked, info, timing)
-        return _with_public(question, masked, user, route, info, timing, k, on_event)
+        return _with_public(question, masked, user, route, info, timing, k, on_event, pinned)
 
     if "internal" in route["sources"]:
         note = None
@@ -346,7 +384,7 @@ def _ask(question, user, k=3, on_event=None):
             names = ", ".join(_SOURCE_KO.get(s, s) for s in pending)
             note = (f"질문 중 {names} 자료가 필요한 부분은 아직 검색할 수 없어 [문서]에 없습니다. "
                     "그 부분은 빼고 사내 기록 부분만 답하세요.")
-        r = chat_mod.answer(question, k=k, user=user, note=note,
+        r = chat_mod.answer(question, k=k, user=user, note=note, pinned=pinned,
                             on_delta=(lambda t: on_event("delta", text=t)) if on_event else None)
         r["timing"] = {**timing, **r["timing"]}
         r["agent"] = info

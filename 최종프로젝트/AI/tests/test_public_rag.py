@@ -137,3 +137,25 @@ def test_weak_query_name_only_drops_ordinary_words():
     assert not _weak_query_name(q4, span(q4, "금적립"))        # 뒤에 호칭 → 이름으로 둠
     assert not _weak_query_name(q1, span(q1, "주려면", flag=None))  # 모델도 이름으로 본 건 그대로
     assert not _weak_query_name(q1, span(q1, "주려면", src="model"))
+
+
+def test_law_legal_query_adds_statute_terms():
+    """흔한 말 → 조문 용어 덧붙이기 (worklog 67장)"""
+    from importlib import import_module
+    S = import_module("app.rag_public.law.search")
+    assert S.legal_query("보이스피싱 관련 법") == "보이스피싱 관련 법 전기통신금융사기"
+    assert S.legal_query("스미싱·보이스피싱 피해") == "스미싱·보이스피싱 피해 전기통신금융사기"   # 중복 없이
+    assert S.legal_query("전기통신금융사기 보이스피싱") == "전기통신금융사기 보이스피싱"            # 이미 있으면 그대로
+    assert S.legal_query("예금자보호 한도") == "예금자보호 한도"
+
+
+def test_query_sido_only_when_region_meant():
+    """시·도만 있는 지역 질문 (worklog 68장): 긴 이름은 그대로, 줄임말은 '사는·거주·쪽·지역' 이 붙을 때만"""
+    from app.rag.search import query_sido
+    assert query_sido("충청남도에 사는 고객 찾아줘") == ["충남"]
+    assert query_sido("부산에 사는 고객 문서 있어?") == ["부산"]
+    assert query_sido("충남 지역 고객") == ["충남"]
+    assert query_sido("서울 쪽 거주 고객") == ["서울"]
+    assert query_sido("부산 지점 공지 있어?") == []          # 사는 곳이 아님
+    assert query_sido("서울보증 관련 문서") == []
+    assert query_sido("대출 상담 기록") == []

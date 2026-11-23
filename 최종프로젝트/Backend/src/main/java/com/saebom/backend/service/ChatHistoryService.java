@@ -2,6 +2,7 @@ package com.saebom.backend.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.saebom.backend.ai.AiClient;
 import com.saebom.backend.ai.AiClient.AskResult;
 import com.saebom.backend.entity.ChatConversation;
 import com.saebom.backend.entity.ChatMessage;
@@ -31,6 +32,8 @@ public class ChatHistoryService {
 
     static final int LIST_LIMIT = 100;
     static final int TITLE_LEN = 60;
+    static final int HISTORY_TURNS = 2;     // 멀티턴: AI 에 넘길 앞 턴 수 (worklog 67장)
+    static final int ANSWER_CHARS = 1000;   // 앞 답변은 이만큼만 (AI 는 다시 쓰기에 300자만 씀)
 
     private final ChatConversationRepository convs;
     private final ChatMessageRepository msgs;
@@ -83,6 +86,22 @@ public class ChatHistoryService {
     @Transactional(readOnly = true)
     public void checkOwner(Long userId, Long convId) {
         owned(userId, convId);
+    }
+
+    /**
+     * 멀티턴 (worklog 67장): 이 대화의 최근 HISTORY_TURNS 턴을 AI 에 넘길 모양으로. 남의 대화면 404 (AI 부르기 전).
+     * 원문 질문은 암호문을 풀어 AI 서버로만 (토큰 되돌리기용, 외부 LLM 엔 안 감). 답변은 토큰 상태, 앞 ANSWER_CHARS 자만
+     */
+    @Transactional(readOnly = true)
+    public List<AiClient.Turn> recentTurns(Long userId, Long convId) {
+        if (convId == null) return List.of();
+        List<ChatMessage> all = msgs.findByConversationIdOrderByIdAsc(owned(userId, convId).getId());
+        return all.subList(Math.max(0, all.size() - HISTORY_TURNS), all.size()).stream().map(m -> {
+            AskResult r = parse(m.getResult());
+            String a = r == null || r.answer() == null ? null
+                    : r.answer().length() > ANSWER_CHARS ? r.answer().substring(0, ANSWER_CHARS) : r.answer();
+            return new AiClient.Turn(cipher.decrypt(m.getQueryEnc()), m.getMaskedQuery(), a);
+        }).toList();
     }
 
     @Transactional

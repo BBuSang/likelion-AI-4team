@@ -36,9 +36,17 @@ ROUTER_PROMPT = """너는 금융사 사내 챗봇의 질문 분류기다. 질문
 5. 무엇을 가리키는지 알 수 없는 질문("그 건", "이거", "저번 거")은 clarify=true, sources=[] (되물어야 함).
    토큰(<PERSON_…> 등)이나 사건 종류가 있으면 clarify 가 아니다 (사내 기록에서 찾으면 됨).
 6. 금융 업무와 관계없는 질문(잡담, 인사, 날씨, 코딩, 투자 종목 추천 등)은 out_of_scope=true, sources=[].
+7. followup 은 1~6번과 따로 매기는 표시다. sources·clarify·out_of_scope 는 followup 과 상관없이 1~6번 기준 그대로 정한다.
+   followup=true 는 앞 대화를 가리키거나 앞 질문에 이어 붙이는 질문: 지시어("그 고객", "그 사람", "그 건", "아까 그거", "이거"),
+   "그럼 ~는?", "그것도", "다른 건?", "~도 돼?", "~은?" 처럼 **누구·어느 상품·어느 건인지가 빠진 채** 이어 묻는 말
+   (예: "만기 후 이율은?", "예금자보호도 돼?", "송금액이 신고 대상이야?", "처리 기한은?").
+   누구·어느 상품·어느 건인지가 질문에 있으면(토큰, 상품 이름, 사건 종류 + 묻는 것) false. 한 낱말 주제("체크카드", "리볼빙")도 false.
+   애매하면 true (앞 대화가 없으면 아무 일도 안 일어나므로).
+   예: "그 고객 다른 민원도 있어?" → followup true, clarify true / "그럼 관련 법도 알려줘" → followup true, sources [law]
+   예: "<PERSON_ab12cd34> 고객 반송 건 처리됐어?", "<PERSON_ab12cd34> 고객 건 법적으로 괜찮아?" → followup false
 
 JSON 으로만 답한다:
-{{"sources": ["internal" | "law" | "product" | "noaction", ...], "out_of_scope": true | false, "clarify": true | false, "reason": "한 문장"}}"""
+{{"sources": ["internal" | "law" | "product" | "noaction", ...], "out_of_scope": true | false, "clarify": true | false, "followup": true | false, "reason": "한 문장"}}"""
 
 ROUTES = ("internal", "public", "mixed", "out_of_scope", "clarify")
 _TOKEN = re.compile(r"<[A-Za-z_]+_[0-9A-Za-z]+>")
@@ -60,7 +68,14 @@ def route_of(sources):
 
 
 def validate(raw, role):
-    """LLM 출력 검사. 허용되지 않은 출처는 버리고, 못 읽었으면 사내 검색 하나로 (기존 챗봇과 같은 동작)"""
+    """LLM 출력 검사. 허용되지 않은 출처는 버리고, 못 읽었으면 사내 검색 하나로 (기존 챗봇과 같은 동작).
+    followup(앞 대화를 봐야 하는 질문, worklog 67장)은 경로와 따로 돌려줌 — 앞 대화가 있을 때만 agent 가 씀"""
+    r = _validate(raw, role)
+    r["followup"] = bool(raw and raw.get("followup") is True)
+    return r
+
+
+def _validate(raw, role):
     if raw is None:
         return {"sources": ["internal"], "route": "internal", "reason": "분류 실패 → 기본(사내)", "fallback": True}
     allowed = allowed_sources(role)
@@ -82,7 +97,8 @@ def name_only(masked_q):
 def classify(masked_q, role="STAFF", model=None, provider=None):
     if name_only(masked_q) and "internal" in allowed_sources(role):
         meta = {"model": "rule", "latency": 0.0, "in_tokens": 0, "out_tokens": 0, "cost_usd": 0.0, "raw": None}
-        return {"sources": ["internal"], "route": "internal", "reason": "이름만 있음 → 그 사람 사내 기록 (규칙)", "fallback": False}, meta
+        return {"sources": ["internal"], "route": "internal", "reason": "이름만 있음 → 그 사람 사내 기록 (규칙)", "fallback": False,
+                "followup": False}, meta
     raw, meta = llm.chat_json(ROUTER_PROMPT.format(sources=_listing(role)), masked_q, model, provider)
     r = validate(raw, role)
     if r["route"] == "clarify" and _TOKEN.search(masked_q) and "internal" in allowed_sources(role):
