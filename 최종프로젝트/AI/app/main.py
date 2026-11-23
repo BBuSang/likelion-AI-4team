@@ -12,7 +12,7 @@ import threading
 
 from fastapi import APIRouter, Depends, FastAPI
 
-from app.api import audit, chat, docs, ingest, org, stats
+from app.api import audit, chat, docs, ingest, org, public_docs, stats
 from app.core import config
 from app.core.security import require_service_key
 from app.rag import embed
@@ -74,6 +74,7 @@ internal.include_router(org.router)
 internal.include_router(chat.router)
 internal.include_router(stats.router)
 internal.include_router(docs.router)
+internal.include_router(public_docs.router)
 internal.include_router(audit.router)
 app.include_router(internal)
 

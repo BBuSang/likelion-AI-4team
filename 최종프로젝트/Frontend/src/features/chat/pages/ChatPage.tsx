@@ -3,7 +3,7 @@
 // 본인에게만 풀어 줌 (64장). 실명 보기 결과는 저장하지 않음
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { FormEvent, ReactNode } from 'react';
-import { AlertTriangle, ChevronDown, CornerDownRight, ChevronUp, FileText, Files, MessageSquarePlus, PanelLeft, Search, Send, Trash2 } from 'lucide-react';
+import { AlertTriangle, ChevronDown, ChevronUp, CornerDownRight, FileText, Files, MessageSquarePlus, PanelLeft, Search, Send, Trash2, X } from 'lucide-react';
 import { LogoLarge } from '@/shared/components/Logo';
 import { useAuth } from '@/shared/contexts/AuthContext';
 import { errMsg } from '@/shared/utils/error';
@@ -14,6 +14,7 @@ import MaskedText from '../components/MaskedText';
 import Restorable from '../components/Restorable';
 import StreamProgress from '../components/StreamProgress';
 import type { Step } from '../components/StreamProgress';
+import ConfirmDialog from '@/shared/components/ConfirmDialog';
 import './chat.css';
 
 interface Msg {
@@ -37,6 +38,25 @@ const ROUTE_KO: Record<string, string> = { internal: '사내', public: '공개 �
 // 이 글자 수나 줄 수보다 긴 근거 문서는 접어서 보여 줌 (상품 설명서는 짧아도 줄바꿈이 많음, worklog 57장)
 const SOURCE_PREVIEW = 360;
 const SOURCE_LINES = 6;
+
+// 좁은 창: 대화 목록·근거 문서가 옆 칸 대신 겹쳐 뜨는 서랍이 됨 (chat.css 의 같은 폭과 맞출 것)
+const NARROW = '(max-width: 900px)';
+const isNarrow = () => window.matchMedia(NARROW).matches;
+/** 칸 펼침 상태 읽기·저장: 넓은 창에서 고른 것만 기억 (좁은 창의 서랍은 매번 닫힌 채로 시작) */
+function loadOpen(key: string, wideDefault: boolean) {
+  if (isNarrow()) return false;
+  try {
+    const v = localStorage.getItem(key);
+    if (v !== null) return v === '1';
+  } catch { /* 저장소를 못 쓰면 기본값 */ }
+  return wideDefault;
+}
+function saveOpen(key: string, v: boolean) {
+  if (isNarrow()) return;
+  try { localStorage.setItem(key, v ? '1' : '0'); } catch { /* 무시 */ }
+}
+const LIST_KEY = 'saebom.chatListOpen';
+const SIDE_KEY = 'saebom.chatSideOpen';
 
 /** 근거 문서 본문: 길면 몇 줄만 보이게 접고 "전체 보기". 글은 자르지 않고 가리기만 (실명 보기가 전체 글에 그대로 동작) */
 function SourceBody({ long, children }: { long: boolean; children: ReactNode }) {
@@ -102,17 +122,35 @@ export default function ChatPage() {
   const [focusMsg, setFocusMsg] = useState<string | null>(null);
   const [focusDoc, setFocusDoc] = useState<string | null>(null);
   // 대화 목록 접기·펼치기 (worklog 45장): 처음엔 넓은 창이면 펼침, 이후엔 마지막 선택을 기억
-  const [listOpen, setListOpen] = useState<boolean>(() => {
-    try {
-      const v = localStorage.getItem('saebom.chatListOpen');
-      if (v !== null) return v === '1';
-    } catch { /* 저장소를 못 쓰면 기본값 */ }
-    return window.innerWidth > 1100;
-  });
-  const toggleList = () => setListOpen((v) => {
-    try { localStorage.setItem('saebom.chatListOpen', v ? '0' : '1'); } catch { /* 무시 */ }
-    return !v;
-  });
+  const [listOpen, setListOpen] = useState<boolean>(() => loadOpen(LIST_KEY, window.innerWidth > 1100));
+  // 근거 문서 접기·펼치기: 답변 밑 [근거 문서 N건]·인용 번호로 열고, 패널의 X 로 닫음 (헤더 버튼 없음).
+  // 닫아 두면 새 답변이 와도 저절로 열지 않음
+  const [sideOpen, setSideOpen] = useState<boolean>(() => loadOpen(SIDE_KEY, true));
+  const setList = (v: boolean) => {
+    saveOpen(LIST_KEY, v);
+    setListOpen(v);
+    if (v && isNarrow()) setSideOpen(false); // 좁은 창에선 서랍 하나만
+  };
+  const setSide = (v: boolean) => {
+    saveOpen(SIDE_KEY, v);
+    setSideOpen(v);
+    if (v && isNarrow()) setListOpen(false);
+  };
+  const toggleList = () => setList(!listOpen);
+  const closeDrawers = () => { setListOpen(false); setSideOpen(false); };
+  // 창이 좁아지는 순간 열린 칸을 닫음 (그대로 두면 서랍이 채팅을 덮음), 다시 넓어지면 넓은 창에서 고른 상태로. Esc 로도 서랍 닫기
+  useEffect(() => {
+    const mq = window.matchMedia(NARROW);
+    const onChange = (e: MediaQueryListEvent) => {
+      if (e.matches) { closeDrawers(); return; }
+      setListOpen(loadOpen(LIST_KEY, window.innerWidth > 1100));
+      setSideOpen(loadOpen(SIDE_KEY, true));
+    };
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape' && mq.matches) closeDrawers(); };
+    mq.addEventListener('change', onChange);
+    window.addEventListener('keydown', onKey);
+    return () => { mq.removeEventListener('change', onChange); window.removeEventListener('keydown', onKey); };
+  }, []);
   const endRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const sideRef = useRef<HTMLElement>(null);
@@ -165,11 +203,15 @@ export default function ChatPage() {
     for (let j = i - 1; j >= 0; j--) if (msgs[j].role === 'user') return msgs[j];
     return null;
   }, [current, sourceMsg]);
+  // 근거 문서 패널은 근거 문서가 있는 답변이 있을 때만 (새 채팅 첫 화면에 빈 칸이 자리 차지하지 않게)
+  const hasDocs = !!sourceMsg?.result?.docs.length;
+  const showSide = sideOpen && hasDocs;
 
   /** 답변의 '근거 문서' 버튼: 오른쪽 칸을 그 답변의 근거로 바꾸고 맨 위로 */
   const showSources = (id: string) => {
     setFocusMsg(id);
     setFocusDoc(null);
+    setSide(true); // 접혀 있으면 펼침
     sideRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -233,8 +275,9 @@ export default function ChatPage() {
   };
 
   const newChat = () => { setCurrentId(null); setFocusMsg(null); setFocusDoc(null); setOpenErr(''); };
+  // 대화 지우기: 확인 대화상자를 거침 (되돌릴 수 없음)
+  const [toDelete, setToDelete] = useState<Conv | null>(null);
   const remove = async (id: number) => {
-    if (!window.confirm('이 대화를 지울까요? 계정에 저장된 내역에서도 지워지고 되돌릴 수 없어요.')) return;
     try {
       await chatApi.deleteConversation(id);
       setConvs((cs) => cs.filter((c) => c.id !== id));
@@ -257,9 +300,10 @@ export default function ChatPage() {
           <div key={g.name}>
             <p className="list-head">{g.name}</p>
             {g.items.map((c) => (
-              <div key={c.id} className={`conv${c.id === currentId ? ' active' : ''}`} onClick={() => open(c.id)} title={c.title}>
+              <div key={c.id} className={`conv${c.id === currentId ? ' active' : ''}`}
+                   onClick={() => { open(c.id); if (isNarrow()) setListOpen(false); }} title={c.title}>
                 <span className="conv-title"><MaskedText text={c.title} /></span>
-                <button className="icon-btn" aria-label="대화 지우기" onClick={(e) => { e.stopPropagation(); remove(c.id); }}><Trash2 size={13} /></button>
+                <button className="icon-btn" aria-label="대화 지우기" onClick={(e) => { e.stopPropagation(); setToDelete(c); }}><Trash2 size={13} /></button>
               </div>
             ))}
           </div>
@@ -317,7 +361,7 @@ export default function ChatPage() {
                     </p>
                   )}
                   {m.result.askBack && <p className="small muted" style={{ marginBottom: 6 }}>같은 이름의 사람이 여럿이라 먼저 확인할게요.</p>}
-                  <Restorable markdown text={m.result.answer} docIds={m.result.docs.map((d) => d.docId)} onCite={(d) => { setFocusMsg(m.id); setFocusDoc(d); }} />
+                  <Restorable markdown text={m.result.answer} docIds={m.result.docs.map((d) => d.docId)} onCite={(d) => { setFocusMsg(m.id); setFocusDoc(d); setSide(true); }} />
                   {!!m.result.agent?.pending.length && m.result.agent.sources.includes('internal') && (
                     <p className="small" style={{ color: 'var(--warn)', marginTop: 6 }}>
                       {m.result.agent.pending.map((s) => SOURCE_KO[s] ?? s).join(', ')} 자료는 아직 준비 중이라 사내 기록으로만 답했어요.
@@ -326,7 +370,7 @@ export default function ChatPage() {
                   {!m.result.askBack && !!m.result.ambiguousPeople?.length && (
                     <p className="small homonym-warn">
                       <AlertTriangle size={13} aria-hidden /> 동명이인 가능: 질문·답변의{' '}
-                      {m.result.ambiguousPeople.map((t) => `이름·${t.slice(8, 12)}`).join(', ')}은(는) 같은 이름의 다른 사람이 있어요.
+                      {m.result.ambiguousPeople.map((t) => `이름 · ${t.slice(8, 12)}`).join(', ')}은(는) 같은 이름의 다른 사람이 있어요.
                       다른 사람 기록이 섞였을 수 있으니 근거 문서를 확인해 주세요.
                     </p>
                   )}
@@ -341,10 +385,10 @@ export default function ChatPage() {
                 <div className="answer-foot">
                   <span className="small muted">{footer(m.result)}</span>
                   {m.result.docs.length > 0 && (
-                    <button type="button" className={`btn btn-sm${sourceMsg?.id === m.id ? ' btn-outline' : ''}`}
+                    <button type="button" className={`btn btn-sm${showSide && sourceMsg?.id === m.id ? ' btn-outline' : ''}`}
                             onClick={(e) => { e.stopPropagation(); showSources(m.id); }}
-                            aria-pressed={sourceMsg?.id === m.id}>
-                      <Files size={14} aria-hidden /> {sourceMsg?.id === m.id ? '근거 문서 보는 중' : `근거 문서 ${m.result.docs.length}건`}
+                            aria-pressed={showSide && sourceMsg?.id === m.id}>
+                      <Files size={14} aria-hidden /> {showSide && sourceMsg?.id === m.id ? '근거 문서 보는 중' : `근거 문서 ${m.result.docs.length}건`}
                     </button>
                   )}
                 </div>
@@ -360,15 +404,28 @@ export default function ChatPage() {
         </form>
       </section>
 
-      <aside className="panel side side-wide" ref={sideRef}>
-        <h3 style={{ marginBottom: sourceQuestion ? 4 : 10 }}>근거 문서</h3>
+      {toDelete && (
+        <ConfirmDialog title="대화 지우기" confirmLabel="지우기" danger
+                       message={<>「<MaskedText text={toDelete.title} />」 대화를 지울까요? 내 계정에 저장된 질문과 답변이 모두 지워지고 되돌릴 수 없어요.</>}
+                       onCancel={() => setToDelete(null)}
+                       onConfirm={() => { const id = toDelete.id; setToDelete(null); remove(id); }} />
+      )}
+
+      {/* 좁은 창에서 서랍이 열렸을 때만 보이는 뒤 배경 (누르면 닫힘) */}
+      {(listOpen || showSide) && <div className="drawer-back" onClick={closeDrawers} aria-hidden />}
+
+      <aside className={`panel side side-wide sources${showSide ? '' : ' collapsed'}`} ref={sideRef} aria-hidden={!showSide}>
+        <div className="side-head" style={{ marginBottom: sourceQuestion ? 4 : 10 }}>
+          <h3>근거 문서</h3>
+          <button type="button" className="side-close" onClick={() => setSide(false)} aria-label="근거 문서 접기" title="근거 문서 접기">
+            <X size={15} aria-hidden />
+          </button>
+        </div>
         {sourceQuestion && (
           <p className="small muted source-q" title={sourceQuestion.text}>
             질문: {sourceQuestion.masked ? <MaskedText text={sourceQuestion.text} /> : sourceQuestion.text}
           </p>
         )}
-        {!sourceMsg && <p className="small muted"></p>}
-        {sourceMsg?.result && !sourceMsg.result.docs.length && <p className="small muted">이 답변에는 근거 문서가 없어요.</p>}
         {sourceMsg?.result?.docs.map((d, i) => (
           <div key={d.docId} className={`source${focusDoc === d.docId ? ' focused' : ''}`}>
             <div className="source-head">
