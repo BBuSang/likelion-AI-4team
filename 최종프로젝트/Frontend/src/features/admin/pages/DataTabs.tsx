@@ -255,12 +255,15 @@ function MetaEditor({ d, onSaved }: { d: DocDetail; onSaved: () => void }) {
   };
 
   return (
-    <div className="stack" style={{ border: '1px solid var(--line)', borderRadius: 8, padding: 12, gap: 8 }}>
+    <div className="stack" style={{ border: '1px solid var(--line)', borderRadius: 8, padding: 12, gap: 12 }}>
       <h3>열람 권한</h3>
-      <select className="select" value={vis} onChange={(e) => setVis(e.target.value)}>
-        <option value="public">공개</option><option value="team">팀</option><option value="restricted">제한 (감사만)</option>
-      </select>
-      <p className="small muted">{VIS_HELP[vis]}</p>
+      {/* 세 칸 모두 같은 모양: 이름 → 드롭다운·입력칸 (공개 범위 설명은 그 칸 바로 밑) */}
+      <label className="field" style={{ margin: 0 }}><span>공개 범위</span>
+        <select className="select" value={vis} onChange={(e) => setVis(e.target.value)}>
+          <option value="public">공개</option><option value="team">팀</option><option value="restricted">제한 (감사만)</option>
+        </select>
+        <p className="small muted">{VIS_HELP[vis]}</p>
+      </label>
       <label className="field" style={{ margin: 0 }}><span>팀</span>
         <select className="select" value={team} onChange={(e) => setTeam(e.target.value)}>
           <option value="">팀 없음</option>
@@ -280,10 +283,10 @@ function MetaEditor({ d, onSaved }: { d: DocDetail; onSaved: () => void }) {
           </div>
         )}
       </label>
-      <button className="btn btn-primary btn-sm" disabled={!changed || busy} onClick={askSave}>{busy ? '저장 중…' : '저장'}</button>
+      <button className="btn btn-primary" disabled={!changed || busy} onClick={askSave}>{busy ? '저장 중…' : '저장'}</button>
       {msg && <div className={`alert ${msg.ok ? 'alert-ok' : 'alert-bad'} small`}>{msg.text}</div>}
       {confirming && (
-        <ConfirmDialog title={`${d.doc_id} 문서 정보 바꾸기`} confirmLabel="저장" danger={widens}
+        <ConfirmDialog title={`${d.doc_id} 열람 권한 바꾸기`} confirmLabel="저장" danger={widens}
                        message={<>
                          {diffs.map((t) => <span key={t} style={{ display: 'block' }}>{t}</span>)}
                          {diffs.length === 0 && <span style={{ display: 'block' }}>바뀌는 항목이 없어요.</span>}
