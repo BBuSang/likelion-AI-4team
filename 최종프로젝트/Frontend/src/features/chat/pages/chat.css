@@ -99,3 +99,36 @@
 
 /* 채팅 첫 화면 파란 로고 (worklog 49장) */
 .empty-logo { margin-bottom: 6px; }
+
+/* 근거 문서 접기·펼치기: 대화 목록과 같은 방식 (접으면 채팅 칸이 그만큼 넓어짐) */
+.side-toggle { flex: none; }
+.side-head { display: flex; align-items: center; gap: 6px; }
+.side-head h3 { flex: 1; }
+.side-close { flex: none; display: inline-flex; border: none; background: none; color: var(--text-3); cursor: pointer; padding: 4px; border-radius: 6px; }
+.side-close:hover { background: var(--panel-2); color: var(--text); }
+.sources { animation: side-in .16s ease-out; }
+.sources.collapsed { display: none; }
+@keyframes side-in { from { opacity: 0; transform: translateX(8px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .sources { animation: none; } }
+
+/* 좁은 창 (900px 이하, ChatPage 의 NARROW 와 같은 값): 대화 목록·근거 문서는 겹쳐 뜨는 서랍 */
+.drawer-back { display: none; }
+@media (max-width: 900px) {
+  /* .main > .side (layout.css) 보다 앞서도록 .side 를 붙여 구체성을 높임 */
+  .side.chat-list:not(.collapsed), .side.sources:not(.collapsed) {
+    position: fixed; top: 12px; bottom: 12px; z-index: 40; overflow: auto; box-shadow: 0 12px 32px rgba(17, 24, 39, .18);
+  }
+  .side.chat-list:not(.collapsed) { left: 12px; width: min(280px, calc(100vw - 24px)); }
+  .side.sources:not(.collapsed) { right: 12px; width: min(400px, calc(100vw - 24px)); }
+  .drawer-back { display: block; position: fixed; inset: 0; z-index: 30; background: rgba(17, 24, 39, .25); }
+}
+
+/* 아주 좁은 창 (760px 이하): 여백을 줄이고 답변을 칸 폭에 맞춤 */
+@media (max-width: 760px) {
+  .chat-head { padding: 10px 12px; }
+  .chat-head > .badge { display: none; }
+  .chat-body { padding: 14px 12px; }
+  .composer { margin: 0 12px 12px; }
+  .answer { max-width: 100%; }
+  .bubble-user { max-width: 85%; }
+}

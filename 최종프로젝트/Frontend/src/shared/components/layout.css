@@ -16,7 +16,7 @@
 .page-head { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
 .page-head p { font-size: 13px; color: var(--text-2); }
 .side { width: 240px; flex: none; overflow: auto; padding: 14px; }
-.side-wide { width: 320px; }
+.side-wide { width: clamp(260px, 26vw, 320px); } /* 창 폭에 맞춰 늘고 줄어듦 */
 
 /* 창 폭에 맞추기 (데스크톱 기준): 1280px 이하는 메뉴를 아이콘 막대로 (이름은 마우스를 올리면 보임) */
 @media (max-width: 1280px) {
@@ -25,7 +25,26 @@
   .brand { justify-content: center; padding: 2px 0 16px; }
   .nav-item { justify-content: center; padding: 9px 0; }
   .me-box { justify-content: center; padding: 10px 0; }
-  .side-wide { width: 300px; }
+}
+
+/* 좁은 창 (900px 이하): 오른쪽 칸(데이터 적재·관리자 등)을 본문 아래로 내림. 채팅의 칸들은 chat.css 에서 서랍으로 */
+@media (max-width: 900px) {
+  .main { flex-direction: column; overflow: auto; }
+  .main > .page { flex: none; overflow: visible; }
+  .main > .side { width: auto; overflow: visible; }
+  .chat-main { flex: 1; min-height: 0; }
+}
+
+/* 아주 좁은 창 (760px 이하): 왼쪽 메뉴를 화면 아래 탭 막대로 */
+@media (max-width: 760px) {
+  .app { flex-direction: column; padding: 8px; gap: 8px; height: 100dvh; }
+  .main { flex: 1; min-height: 0; gap: 8px; }
+  .nav { order: 2; width: auto; flex-direction: row; align-items: center; padding: 4px 6px; }
+  .nav .brand, .nav .me-box, .nav .spacer { display: none; }
+  .nav-items { flex: 1; flex-direction: row; justify-content: space-around; }
+  .nav-item { flex: 1; padding: 9px 0; }
+  .nav > .nav-item { flex: none; width: 44px; }
+  .page { padding: 16px; }
 }
 
 /* 로그인 쪽 */
