@@ -1,5 +1,6 @@
 // 데이터 적재: 파일 올리기(jsonl / 줄글) + 업로드 목록 + 고른 업로드의 문서 목록
 import { useCallback, useEffect, useRef, useState } from 'react';
+import type { DragEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FileUp, RefreshCw } from 'lucide-react';
 import { errMsg, fmtTime } from '@/shared/utils/error';
@@ -7,6 +8,10 @@ import * as api from '../api/ingest.api';
 import type { Job, StagingRow } from '../api/ingest.api';
 import { APPROVED_BY_KO, DOC_STATUS } from '../api/ingest.api';
 import './review.css';
+
+// 끌어다 놓기로 받는 파일 (파일 고르기의 accept 와 같음)
+const DROP_EXT = ['.jsonl', '.txt'];
+const hasFiles = (e: { dataTransfer: DataTransfer | null }) => !!e.dataTransfer && Array.from(e.dataTransfer.types).includes('Files');
 
 const JOB_STATUS: Record<string, { n: string; cls: string }> = {
   processing: { n: '탐지 중', cls: 'badge-brand' }, ready: { n: '탐지 끝', cls: 'badge-ok' }, failed: { n: '실패', cls: 'badge-bad' },
@@ -23,6 +28,40 @@ export default function IngestPage() {
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
+  const [dragOver, setDragOver] = useState(false); // 파일을 끌고 점선 상자 위에 있는 동안
+
+  // 상자 밖에 잘못 놓은 파일을 브라우저가 열어 버리지 않게 (이 화면에 있는 동안만)
+  useEffect(() => {
+    const block = (e: globalThis.DragEvent) => { if (hasFiles(e)) e.preventDefault(); };
+    window.addEventListener('dragover', block);
+    window.addEventListener('drop', block);
+    return () => { window.removeEventListener('dragover', block); window.removeEventListener('drop', block); };
+  }, []);
+
+  const onDragOver = (e: DragEvent<HTMLLabelElement>) => {
+    if (!hasFiles(e)) return;
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'copy';
+    setDragOver(true);
+  };
+  const onDragLeave = (e: DragEvent<HTMLLabelElement>) => {
+    // 상자 안의 글자·아이콘으로 옮겨 갈 때는 그대로 (상자를 완전히 벗어났을 때만 끔)
+    if (e.relatedTarget instanceof Node && e.currentTarget.contains(e.relatedTarget)) return;
+    setDragOver(false);
+  };
+  const onDrop = (e: DragEvent<HTMLLabelElement>) => {
+    e.preventDefault();
+    setDragOver(false);
+    const files = Array.from(e.dataTransfer.files);
+    if (files.length === 0) return;
+    if (files.length > 1) return setMsg({ ok: false, text: `파일은 한 번에 하나만 올릴 수 있어요. (${files.length}개를 놓았어요)` });
+    const f = files[0];
+    if (!DROP_EXT.some((x) => f.name.toLowerCase().endsWith(x))) {
+      return setMsg({ ok: false, text: `${f.name} 은(는) 올릴 수 없어요. .jsonl 또는 .txt 파일만 받아요.` });
+    }
+    setMsg(null);
+    setFile(f);
+  };
 
   const reload = useCallback(async () => {
     try { setJobs(await api.jobs()); } catch (e) { setMsg({ ok: false, text: errMsg(e) }); }
@@ -86,9 +125,9 @@ export default function IngestPage() {
             <button className={`tab${mode === 'text' ? ' active' : ''}`} onClick={() => setMode('text')}>글 붙여 넣기</button>
           </div>
           {mode === 'file' ? (
-            <label className="drop">
+            <label className={`drop${dragOver ? ' drop-over' : ''}`} onDragOver={onDragOver} onDragLeave={onDragLeave} onDrop={onDrop}>
               <FileUp size={26} color="var(--brand)" aria-hidden />
-              <p>{file ? file.name : '.jsonl 또는 .txt 파일을 고르세요'}</p>
+              <p>{file ? file.name : '파일을 끌어다 놓거나 눌러서 고르세요'}</p>
               <p className="small muted">jsonl: 한 줄에 {'{id, text, doc_type, entities?}'} · 정답 라벨(entities)이 있으면 탐지와 같을 때, 없으면 애매한 곳이 없을 때 바로 저장돼요</p>
               <input ref={fileRef} type="file" accept=".jsonl,.txt" hidden onChange={(e) => setFile(e.target.files?.[0] ?? null)} />
             </label>

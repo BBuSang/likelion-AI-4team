@@ -5,6 +5,7 @@ import { Search, Trash2 } from 'lucide-react';
 import apiClient from '@/shared/api/client';
 import { errMsg, fmtTime } from '@/shared/utils/error';
 import MaskedText from '@/features/chat/components/MaskedText';
+import ConfirmDialog from '@/shared/components/ConfirmDialog';
 import Pager from '@/shared/components/Pager';
 import * as api from '../api/admin.api';
 import type { AdminUser, Employee, Team } from '../api/admin.api';
@@ -204,6 +205,9 @@ const VIS_HELP: Record<string, string> = {
   restricted: '감사와 담당자만 봐요.',
 };
 
+// 볼 수 있는 사람의 넓이: 제한 < 팀 < 공개 (뒤로 갈수록 더 많은 직원이 봄)
+const VIS_RANK: Record<string, number> = { restricted: 0, team: 1, public: 2 };
+
 function MetaEditor({ d, onSaved }: { d: DocDetail; onSaved: () => void }) {
   const [vis, setVis] = useState(d.visibility);
   const [team, setTeam] = useState(d.team ?? '');
@@ -212,6 +216,7 @@ function MetaEditor({ d, onSaved }: { d: DocDetail; onSaved: () => void }) {
   const [found, setFound] = useState<Employee[]>([]);
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
   const [busy, setBusy] = useState(false);
+  const [confirming, setConfirming] = useState(false); // 저장 전 확인 대화상자
   useEffect(() => { api.teams().then(setTeams).catch(() => {}); }, []);
 
   const changed = vis !== d.visibility || team !== (d.team ?? '') || owner !== (d.owner_emp_id ?? '');
@@ -219,6 +224,20 @@ function MetaEditor({ d, onSaved }: { d: DocDetail; onSaved: () => void }) {
     setOwner(q);
     if (q.trim().length < 1) return setFound([]);
     try { setFound((await api.employees(q.trim())).slice(0, 6)); } catch { setFound([]); }
+  };
+  // 확인 창에 보일 "전 → 후" (바뀐 항목만)
+  const visName = (v: string) => VIS[v]?.n ?? v;
+  const diffs = [
+    vis !== d.visibility && `공개 범위: ${visName(d.visibility)} → ${visName(vis)}`,
+    team !== (d.team ?? '') && `팀: ${d.team || '없음'} → ${team || '없음'}`,
+    owner.trim() !== (d.owner_emp_id ?? '') && `담당 직원: ${d.owner_emp_id || '없음'} → ${owner.trim() || '없음'}`,
+  ].filter((x): x is string => !!x);
+  const widens = (VIS_RANK[vis] ?? 0) > (VIS_RANK[d.visibility] ?? 0);
+  // "저장": 입력 검사는 지금처럼 먼저, 통과하면 바로 저장하지 않고 확인부터
+  const askSave = () => {
+    if (vis === 'team' && !team) return setMsg({ ok: false, text: '팀 공개로 하려면 팀을 골라 주세요.' });
+    setMsg(null);
+    setConfirming(true);
   };
   const save = async () => {
     if (vis === 'team' && !team) return setMsg({ ok: false, text: '팀 공개로 하려면 팀을 골라 주세요.' });
@@ -237,7 +256,7 @@ function MetaEditor({ d, onSaved }: { d: DocDetail; onSaved: () => void }) {
 
   return (
     <div className="stack" style={{ border: '1px solid var(--line)', borderRadius: 8, padding: 12, gap: 8 }}>
-      <h3>누가 볼 수 있나</h3>
+      <h3>열람 권한</h3>
       <select className="select" value={vis} onChange={(e) => setVis(e.target.value)}>
         <option value="public">공개</option><option value="team">팀</option><option value="restricted">제한 (감사만)</option>
       </select>
@@ -261,8 +280,18 @@ function MetaEditor({ d, onSaved }: { d: DocDetail; onSaved: () => void }) {
           </div>
         )}
       </label>
-      <button className="btn btn-primary btn-sm" disabled={!changed || busy} onClick={save}>{busy ? '저장 중…' : '저장'}</button>
+      <button className="btn btn-primary btn-sm" disabled={!changed || busy} onClick={askSave}>{busy ? '저장 중…' : '저장'}</button>
       {msg && <div className={`alert ${msg.ok ? 'alert-ok' : 'alert-bad'} small`}>{msg.text}</div>}
+      {confirming && (
+        <ConfirmDialog title={`${d.doc_id} 문서 정보 바꾸기`} confirmLabel="저장" danger={widens}
+                       message={<>
+                         {diffs.map((t) => <span key={t} style={{ display: 'block' }}>{t}</span>)}
+                         {diffs.length === 0 && <span style={{ display: 'block' }}>바뀌는 항목이 없어요.</span>}
+                         {widens && <b style={{ display: 'block', marginTop: 6, color: 'var(--bad)' }}>더 많은 직원이 이 문서를 보게 돼요.</b>}
+                       </>}
+                       onCancel={() => setConfirming(false)}
+                       onConfirm={() => { setConfirming(false); save(); }} />
+      )}
     </div>
   );
 }
