@@ -2705,3 +2705,7 @@ worklog 1~80번, 체크리스트, 기획안 7~13장, `rag.py`, `app/demo.py`·`p
 - `rag_db.dump`(111MB)를 Git LFS로 추적(`.gitattributes`)하고 `.gitignore`에 `최종프로젝트/금융당국 회신 선례 RAG/*.dump`를 추가했다. 커밋·push는 사용자가 직접 실행했다(`dd4dcaa`, `origin/kloid_rag` 반영과 LFS 업로드 확인).
 - [README.md](README.md)에 복원 방법 작성: `git lfs pull` → `python pipeline/db_up.py` → `docker cp` + 컨테이너 안 `pg_restore --no-owner --clean --if-exists` → `\dt interp.*` 확인.
 - 덤프 내용 확인(컨테이너 안 `pg_restore -l`): custom 형식, PostgreSQL 17.11, 확장 vector·pg_trgm, `interp` 테이블 16개(소유자 `rag_user`). 실제 복원은 해 보지 않았다(지금 DB를 덮어쓰게 되므로). README는 커밋하지 않음.
+
+### 131. README 프로젝트 소개 (사용자: "readme에 적을 프로젝트 소개를 간단하게 작성해줘", 2026-11-23)
+- [README.md](README.md) 맨 위에 소개를 추가했다: 한 줄 요약·하지 않는 것, 사용자, 데이터 출처, 주요 기능 표(사례 검색·조문 조회·시점 표시, 앱 탭과 같음), 구성(PG17 + pgvector, KURE-v1, 리랭킹 → 직접성 판정 → 답변, Streamlit), 저작권 안내. 근거는 기획안 1~3장, worklog 현재 상태, `app/app.py` 탭 이름.
+- 덤프에 원문이 들어 있어서 "data/는 저장소에 올리지 않는다"는 문장 대신 저작권 안내만 적었다. 커밋하지 않음.
