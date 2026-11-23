@@ -2700,3 +2700,8 @@ worklog 1~80번, 체크리스트, 기획안 7~13장, `rag.py`, `app/demo.py`·`p
 - 채팅에 표로만 답함(파일 없음). 새로 실행한 평가 없음. 출처: 합성·dev1~4·test1~4·final_test는 f4(65번), dev5·test5 f8 A, dev6·test6 f11 A(리랭킹 Hit, MRR 없음), dev7~9·test7~9 f13·f16·f17 A 주 심사, dev10·test10 f18, dev11·test11 f22 base.
 - dev7~9·test8~9의 Hit·MRR은 회신 문항(리랭킹 순위)과 현장건의 문항(현장건의 후보군 순위)을 문항 수로 가중해 합쳤다. dev10·11·test10·11의 Hit·MRR은 결과 JSON에 없어 저장된 답변 캐시의 `order`(리랭킹 5 + 붙은 현장건의)에서 계산했다(Hit@5가 각 평가의 "정답이 문맥에" 값과 일치함을 확인). 계산 스크립트는 세션 임시 폴더 `hits_10_11.py`.
 - 평균(문항 가중, 합성 포함 1,560문항): Hit@1 0.898 / Hit@5 0.980 / MRR 0.931(dev6·test6 제외) / 일치 0.929 / 일치+부분 0.980 / 충실 0.835. 세트마다 시스템 설정·심사 방식이 달라 같은 조건 비교가 아니다.
+
+### 130. DB 덤프 LFS 업로드·README 복원 방법 (사용자: "dump 파일을 직접 푸시해봐", "readme에 복원방법 적어줘", 2026-11-23)
+- `rag_db.dump`(111MB)를 Git LFS로 추적(`.gitattributes`)하고 `.gitignore`에 `최종프로젝트/금융당국 회신 선례 RAG/*.dump`를 추가했다. 커밋·push는 사용자가 직접 실행했다(`dd4dcaa`, `origin/kloid_rag` 반영과 LFS 업로드 확인).
+- [README.md](README.md)에 복원 방법 작성: `git lfs pull` → `python pipeline/db_up.py` → `docker cp` + 컨테이너 안 `pg_restore --no-owner --clean --if-exists` → `\dt interp.*` 확인.
+- 덤프 내용 확인(컨테이너 안 `pg_restore -l`): custom 형식, PostgreSQL 17.11, 확장 vector·pg_trgm, `interp` 테이블 16개(소유자 `rag_user`). 실제 복원은 해 보지 않았다(지금 DB를 덮어쓰게 되므로). README는 커밋하지 않음.
