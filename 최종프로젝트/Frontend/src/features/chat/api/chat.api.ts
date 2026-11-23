@@ -30,6 +30,7 @@ export interface AgentInfo {
   pending: string[]; // 필요하지만 아직 준비 안 된 RAG (law·product·noaction)
   model: string | null;
   costUsd: number;
+  followup?: string | null; // 앞 대화를 이어 다시 쓴 질문 (토큰 상태, worklog 67장). 이어지는 질문이 아니면 null
 }
 
 export interface RestoreResult {
@@ -47,7 +48,7 @@ export const ask = async (query: string, k = 3): Promise<AskResult> =>
   (await apiClient.post<AskResult>('/api/chat/ask', { query, k })).data;
 
 /** 진행 단계 (AI app/agents/progress.py) */
-export type StreamStage = 'protect' | 'classify' | 'plan' | 'search' | 'replan' | 'search2' | 'judge' | 'relax' | 'answer' | 'check';
+export type StreamStage = 'protect' | 'classify' | 'followup' | 'plan' | 'search' | 'replan' | 'search2' | 'judge' | 'relax' | 'answer' | 'check';
 
 /** 단계에 딸린 값: sources·tools (시작) / route·sources·steps·counts·direct·total (결과) */
 export interface StageData {
@@ -59,6 +60,7 @@ export interface StageData {
   direct?: number;
   total?: number;
   n?: number;
+  rewritten?: boolean; // followup 단계 결과: 앞 대화로 질문을 다시 썼는지
 }
 
 export interface StreamHandlers {

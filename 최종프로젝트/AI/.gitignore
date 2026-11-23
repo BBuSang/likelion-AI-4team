@@ -19,6 +19,7 @@ eval/
 scripts/audit_detect.py
 scripts/eval_agent.py
 scripts/eval_replan.py
+scripts/eval_followup.py
 scripts/eval_search.py
 scripts/agent_report.py
 scripts/compare_embed_vectors.py

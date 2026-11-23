@@ -3,7 +3,7 @@
 // 본인에게만 풀어 줌 (64장). 실명 보기 결과는 저장하지 않음
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { FormEvent, ReactNode } from 'react';
-import { AlertTriangle, ChevronDown, ChevronUp, FileText, Files, MessageSquarePlus, PanelLeft, Search, Send, Trash2, X } from 'lucide-react';
+import { AlertTriangle, ChevronDown, ChevronUp, CornerDownRight, FileText, Files, MessageSquarePlus, PanelLeft, Search, Send, Trash2, X } from 'lucide-react';
 import { LogoLarge } from '@/shared/components/Logo';
 import { useAuth } from '@/shared/contexts/AuthContext';
 import { errMsg } from '@/shared/utils/error';
@@ -355,6 +355,11 @@ export default function ChatPage() {
               )}
               {m.result && (m.result.answer ? (
                 <>
+                  {m.result.agent?.followup && (
+                    <p className="small muted followup-line" title="앞 대화를 보고 혼자 읽어도 되는 질문으로 바꿔서 찾았어요">
+                      <CornerDownRight size={13} aria-hidden /> 앞 대화를 이어서: <MaskedText text={m.result.agent.followup} />
+                    </p>
+                  )}
                   {m.result.askBack && <p className="small muted" style={{ marginBottom: 6 }}>같은 이름의 사람이 여럿이라 먼저 확인할게요.</p>}
                   <Restorable markdown text={m.result.answer} docIds={m.result.docs.map((d) => d.docId)} onCite={(d) => { setFocusMsg(m.id); setFocusDoc(d); setSide(true); }} />
                   {!!m.result.agent?.pending.length && m.result.agent.sources.includes('internal') && (

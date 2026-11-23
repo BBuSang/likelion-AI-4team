@@ -68,28 +68,28 @@ class ChatRelayTest {
         String token = account("stream@chat.test", Role.STAFF, "E951", UserStatus.ACTIVE);
         String sse = "event: stage\ndata: {\"stage\": \"classify\"}\n\nevent: delta\ndata: {\"text\": \"답 \"}\n\n";
         doAnswer(inv -> {
-            ((Runnable) inv.getArgument(3)).run();
-            ((java.io.OutputStream) inv.getArgument(4)).write(sse.getBytes(java.nio.charset.StandardCharsets.UTF_8));
+            ((Runnable) inv.getArgument(4)).run();
+            ((java.io.OutputStream) inv.getArgument(5)).write(sse.getBytes(java.nio.charset.StandardCharsets.UTF_8));
             return null;
-        }).when(ai).askStream(any(), anyString(), anyInt(), any(), any(), any());
+        }).when(ai).askStream(any(), anyString(), anyInt(), anyList(), any(), any(), any());
         var res = post_("/api/chat/ask/stream", Map.of("query", " 대출 상담 ", "role", "AUDITOR"), token)
                 .andExpect(status().isOk()).andReturn().getResponse();
         org.assertj.core.api.Assertions.assertThat(res.getContentType()).startsWith("text/event-stream");
         org.assertj.core.api.Assertions.assertThat(res.getContentAsString(java.nio.charset.StandardCharsets.UTF_8)).isEqualTo(sse);
-        verify(ai).askStream(eq(new AccessUser("E951", "채팅팀", "STAFF")), eq("대출 상담"), eq(3), any(), any(), any());
+        verify(ai).askStream(eq(new AccessUser("E951", "채팅팀", "STAFF")), eq("대출 상담"), eq(3), eq(List.of()), any(), any(), any());
     }
 
     @Test
     void askStreamPassesAiRefusalAsError() throws Exception {
         String token = account("stream2@chat.test", Role.STAFF, "E952", UserStatus.ACTIVE);
-        doThrow(ApiException.forbidden("권한 밖 요청")).when(ai).askStream(any(), anyString(), anyInt(), any(), any(), any());
+        doThrow(ApiException.forbidden("권한 밖 요청")).when(ai).askStream(any(), anyString(), anyInt(), anyList(), any(), any(), any());
         post_("/api/chat/ask/stream", Map.of("query", "대출"), token).andExpect(status().isForbidden());
     }
 
     @Test
     void askSendsDbAccountNotClientValues() throws Exception {
         String token = account("staff@chat.test", Role.STAFF, "E001", UserStatus.ACTIVE);
-        when(ai.ask(any(), anyString(), anyInt())).thenReturn(new AskResult("q", "<PERSON_ab> 고객 상담 [H1]", false,
+        when(ai.ask(any(), anyString(), anyInt(), anyList())).thenReturn(new AskResult("q", "<PERSON_ab> 고객 상담 [H1]", false,
                 List.of(new AiClient.SourceDoc("H1", "상담", 0.9, "…")), null, "m", Map.of("search", 0.1), null, List.of("<PERSON_ab>")));
         // 화면이 role·emp_id 를 끼워 보내도 무시됨
         post_("/api/chat/ask", Map.of("query", "  대출 상담  ", "role", "AUDITOR", "emp_id", "E999"), token)
@@ -97,7 +97,7 @@ class ChatRelayTest {
                 .andExpect(jsonPath("$.answer").value("<PERSON_ab> 고객 상담 [H1]"))
                 .andExpect(jsonPath("$.docs[0].docId").value("H1"))
                 .andExpect(jsonPath("$.ambiguousPeople[0]").value("<PERSON_ab>"));
-        verify(ai).ask(eq(new AccessUser("E001", "채팅팀", "STAFF")), eq("대출 상담"), eq(3));
+        verify(ai).ask(eq(new AccessUser("E001", "채팅팀", "STAFF")), eq("대출 상담"), eq(3), eq(List.of()));
     }
 
     @Test
@@ -108,7 +108,7 @@ class ChatRelayTest {
         post_("/api/chat/ask", Map.of("query", "x"), suspended).andExpect(status().isUnauthorized());
         post_("/api/chat/ask", Map.of("query", "x"), null).andExpect(status().isUnauthorized());
         post_("/api/chat/ask", Map.of("query", ""), unlinked).andExpect(status().isBadRequest());
-        verify(ai, never()).ask(any(), anyString(), anyInt());
+        verify(ai, never()).ask(any(), anyString(), anyInt(), anyList());
     }
 
     @Test
@@ -135,7 +135,7 @@ class ChatRelayTest {
                 .andExpect(status().isOk());
 
         // AI 가 권한으로 거절하면 403 + 그 메시지
-        when(ai.ask(any(), anyString(), anyInt())).thenThrow(ApiException.forbidden("역할을 모르는 사용자"));
+        when(ai.ask(any(), anyString(), anyInt(), anyList())).thenThrow(ApiException.forbidden("역할을 모르는 사용자"));
         post_("/api/chat/ask", Map.of("query", "x"), lead)
                 .andExpect(status().isForbidden()).andExpect(jsonPath("$.message").value("역할을 모르는 사용자"));
     }

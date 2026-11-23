@@ -141,7 +141,29 @@ public class AiClient {
     /** 에이전트 분류 결과 (worklog 25장). route: internal·public·mixed·out_of_scope·clarify, pending: 필요하지만 아직 없는 RAG */
     @JsonIgnoreProperties(ignoreUnknown = true)
     public record AgentInfo(String route, List<String> sources, String reason, boolean fallback,
-                            List<String> pending, String model, @JsonAlias("cost_usd") double costUsd) {}
+                            List<String> pending, String model, @JsonAlias("cost_usd") double costUsd,
+                            // 앞 대화를 이어 다시 쓴 질문 (토큰 상태, worklog 67장). 이어지는 질문이 아니면 null
+                            String followup) {}
+
+    /** 같은 대화의 앞 턴 (worklog 67장) — AI 가 이어지는 질문일 때만 씀. query = 원문(AI 서버 안에서만), 나머지는 토큰 상태 */
+    public record Turn(String query, String maskedQuery, String answer) {
+        Map<String, Object> body() {
+            Map<String, Object> m = new java.util.LinkedHashMap<>();
+            m.put("query", query);
+            m.put("masked_query", maskedQuery);
+            m.put("answer", answer);
+            return m;
+        }
+    }
+
+    private static Map<String, Object> askBody(AccessUser user, String query, int k, List<Turn> history) {
+        Map<String, Object> m = new java.util.LinkedHashMap<>();
+        m.put("user", user);
+        m.put("query", query);
+        m.put("k", k);
+        m.put("history", history == null ? List.of() : history.stream().map(Turn::body).toList());
+        return m;
+    }
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public record RestoreResult(String text, int restored, List<String> denied, List<String> unknown,
@@ -152,8 +174,12 @@ public class AiClient {
     public record AccessWarning(String rule, @JsonAlias("rule_ko") String ruleKo, String severity, String detail) {}
 
     public AskResult ask(AccessUser user, String query, int k) {
+        return ask(user, query, k, List.of());
+    }
+
+    public AskResult ask(AccessUser user, String query, int k, List<Turn> history) {
         return call(() -> chatHttp.post().uri("/internal/chat/ask").contentType(MediaType.APPLICATION_JSON)
-                .body(Map.of("user", user, "query", query, "k", k)).retrieve().body(AskResult.class));
+                .body(askBody(user, query, k, history)).retrieve().body(AskResult.class));
     }
 
     /**
@@ -162,13 +188,13 @@ public class AiClient {
      * onStart(응답 머리 설정)는 흐름이 열린 뒤에만 부름 — 그 전에 실패하면 화면은 보통 오류 응답(JSON)을 받음.
      */
     public void askStream(AccessUser user, String query, int k, Runnable onStart, OutputStream out) throws IOException {
-        askStream(user, query, k, onStart, out, r -> { });
+        askStream(user, query, k, List.of(), onStart, out, r -> { });
     }
 
     /** onDone: 마지막 결과(done)를 화면에 보낸 뒤 부름 — 채팅 내역 저장 (worklog 61장) */
-    public void askStream(AccessUser user, String query, int k, Runnable onStart, OutputStream out,
+    public void askStream(AccessUser user, String query, int k, List<Turn> history, Runnable onStart, OutputStream out,
                           java.util.function.Consumer<AskResult> onDone) throws IOException {
-        byte[] body = om.writeValueAsBytes(Map.of("user", user, "query", query, "k", k));
+        byte[] body = om.writeValueAsBytes(askBody(user, query, k, history));
         HttpRequest req = HttpRequest.newBuilder(URI.create(baseUrl + "/internal/chat/ask/stream"))
                 .timeout(Duration.ofMillis(chatTimeoutMs))  // 응답 머리까지 (AI 는 흐름을 바로 엶)
                 .header("Content-Type", "application/json")

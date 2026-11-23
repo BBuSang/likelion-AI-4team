@@ -182,7 +182,7 @@ def _complete(masked_q, context, model, on_delta=None, note=None):
 
 
 def answer(query, k=3, model=None, mode="hybrid", embed_retries=None, rerank=None, on_delta=None, user=access.SYSTEM,
-           note=None):
+           note=None, pinned=None):
     """user: 묻는 사람 {emp_id, team, role} — 검색 단계에서 권한 밖 문서를 거름 (worklog 11장).
     note: 에이전트가 붙이는 안내 (예: 법령 부분은 아직 검색 불가).
     on_delta: 답변 스트리밍 — 출력 검사를 거친 조각(글)을 차례로 받음 (worklog 59장).
@@ -190,7 +190,8 @@ def answer(query, k=3, model=None, mode="hybrid", embed_retries=None, rerank=Non
     from app.agents import progress  # 스트리밍 단계 알림 (스트리밍이 아니면 아무 일 없음, worklog 60장)
     t0 = time.perf_counter()
     progress.step("search", sources=["internal"])
-    masked_q, q_tokens, cands = search(query, k * 2, mode=mode, embed_retries=embed_retries, rerank=rerank, user=user)
+    masked_q, q_tokens, cands = search(query, k * 2, mode=mode, embed_retries=embed_retries, rerank=rerank, user=user,
+                                       pinned=pinned)  # 멀티턴: 앞 답변이 가리킨 사람 고정 (worklog 67장)
     docs = select_docs(cands, k)
     progress.done("search", counts={"internal": len(docs)})
     t_search = time.perf_counter() - t0

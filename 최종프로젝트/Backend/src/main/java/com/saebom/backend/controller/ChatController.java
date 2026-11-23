@@ -52,8 +52,8 @@ public class ChatController {
     @PostMapping("/ask")
     public AskResult ask(@AuthenticationPrincipal UD me, @Valid @RequestBody AskRequest req) {
         User u = linked(me);
-        if (req.conversationId() != null) history.checkOwner(u.getId(), req.conversationId());
-        AskResult r = ai.ask(AccessUser.of(u), req.query().trim(), req.k() == null ? 3 : req.k());
+        var turns = history.recentTurns(u.getId(), req.conversationId());  // 남의 대화면 여기서 404 (worklog 67장)
+        AskResult r = ai.ask(AccessUser.of(u), req.query().trim(), req.k() == null ? 3 : req.k(), turns);
         history.append(u.getId(), req.conversationId(), req.query().trim(), r);
         return r;
     }
@@ -67,8 +67,8 @@ public class ChatController {
     public void askStream(@AuthenticationPrincipal UD me, @Valid @RequestBody AskRequest req, HttpServletResponse res)
             throws IOException {
         User u = linked(me);
-        if (req.conversationId() != null) history.checkOwner(u.getId(), req.conversationId());
-        ai.askStream(AccessUser.of(u), req.query().trim(), req.k() == null ? 3 : req.k(), () -> {
+        var turns = history.recentTurns(u.getId(), req.conversationId());  // 남의 대화면 여기서 404 (worklog 67장)
+        ai.askStream(AccessUser.of(u), req.query().trim(), req.k() == null ? 3 : req.k(), turns, () -> {
             res.setStatus(HttpServletResponse.SC_OK);
             res.setContentType("text/event-stream");
             res.setCharacterEncoding("UTF-8");

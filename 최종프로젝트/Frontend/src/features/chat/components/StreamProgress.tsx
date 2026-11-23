@@ -23,6 +23,7 @@ function label(s: Step) {
   switch (s.stage) {
     case 'protect': return '질문 속 개인정보 가리기';
     case 'classify': return '질문 분류';
+    case 'followup': return '앞 대화 보고 질문 다시 쓰기';
     case 'plan': return '검색 계획 세우기';
     case 'search': return `${names(s.data.sources) || '자료'} 검색`;
     case 'replan': return '사내 결과 보고 계획 다시 세우기';
@@ -44,6 +45,7 @@ function detail(s: Step) {
   if (s.stage === 'search' && r.counts) {
     return Object.entries(r.counts).map(([k, n]) => `${SOURCE_KO[k] ?? k} ${n}건`).join(' · ');
   }
+  if (s.stage === 'followup' && r.rewritten != null) return r.rewritten ? '이어서 물음' : '대상을 못 정함';
   if (s.stage === 'judge' && r.total != null) return `직접 해당 ${r.direct ?? 0}/${r.total}건`;
   return '';
 }

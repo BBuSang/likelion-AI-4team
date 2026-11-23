@@ -32,10 +32,18 @@ class User(BaseModel):
     role: Literal["STAFF", "LEAD", "AUDITOR"]
 
 
+class Turn(BaseModel):
+    """같은 대화의 앞 턴 (worklog 67장). Spring 이 DB 에서 꺼내 넘김 — 화면이 보낸 값이 아님"""
+    query: Optional[str] = Field(default=None, max_length=1000)   # 원문 질문 (이 서버 안에서 토큰 되돌리기에만)
+    masked_query: str = Field(max_length=2000)
+    answer: Optional[str] = Field(default=None, max_length=20_000)  # 토큰 상태 답변 (다시 쓰기엔 앞 300자만)
+
+
 class AskRequest(BaseModel):
     user: User
     query: str = Field(min_length=1, max_length=1000)
     k: int = Field(default=3, ge=1, le=10)
+    history: List[Turn] = Field(default_factory=list, max_length=5)
 
 
 class RestoreRequest(BaseModel):
@@ -65,7 +73,8 @@ FAILED = "검색 또는 답변 생성에 실패했습니다"
 def _run(req, user, on_event=None):
     """질문 하나 실행 (ask·ask/stream 공통). on_event: 스트리밍 단계·검사한 답변 조각"""
     if config.AGENT_CHAT:
-        return agent_mod.ask(req.query, user, k=req.k, on_event=on_event)
+        return agent_mod.ask(req.query, user, k=req.k, on_event=on_event,
+                             history=[t.model_dump() for t in req.history])
     on_delta = (lambda t: on_event("delta", text=t)) if on_event else None
     return chat_mod.answer(req.query, k=req.k, user=user, on_delta=on_delta)
 

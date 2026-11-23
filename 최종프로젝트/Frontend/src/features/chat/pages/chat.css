@@ -100,6 +100,9 @@
 /* 채팅 첫 화면 파란 로고 (worklog 49장) */
 .empty-logo { margin-bottom: 6px; }
 
+/* 멀티턴: 앞 대화를 이어 다시 쓴 질문 (worklog 67장) */
+.followup-line { margin-bottom: 6px; display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.followup-line svg { flex: none; }
 /* 근거 문서 접기·펼치기: 대화 목록과 같은 방식 (접으면 채팅 칸이 그만큼 넓어짐) */
 .side-head { display: flex; align-items: center; gap: 6px; }
 .side-head h3 { flex: 1; }

@@ -238,10 +238,11 @@ def _query_role(query):
     return None
 
 
-def build_groups(query, records, cur, hints=None):
+def build_groups(query, records, cur, hints=None, pinned=None):
     """질의 개인정보 → 조건 목록. 각 조건: {"full": 토큰들, "partial": {토큰: 점수}, "weak": {토큰: 점수}}
     hints(list)를 주면 사람마다 {"query_token", "chosen", "candidates": [(사람 토큰, 역할, 상태)]} 를 채운다
-    — 동명이인 구분을 켜면 문서 속 사람 토큰이 질의의 이름 토큰과 달라서 LLM 에 연결을 알려줘야 함"""
+    — 동명이인 구분을 켜면 문서 속 사람 토큰이 질의의 이름 토큰과 달라서 LLM 에 연결을 알려줘야 함
+    pinned {이름: 사람 토큰}: 멀티턴에서 앞 답변이 이미 가리킨 사람 (worklog 67장) — 단서로 고르지 않고 그 사람으로 고정"""
     value_tokens = {r["token"] for r in records if r["label"] not in ("person", "address")}
     groups = []
     for r in records:
@@ -252,7 +253,10 @@ def build_groups(query, records, cur, hints=None):
                  {pii_pipeline.given_token(name), pii_pipeline.name_token(name)},
                  "partial": {pii_pipeline.given_token(given): GIVEN_ONLY} if surname else {}, "weak": {},
                  "desc": f"질문의 사람({r['token']})"}
-            chosen = _choose_person(query, name if surname else None, value_tokens, cur)
+            if pinned and name in pinned:  # 앞 대화가 정확히 가리킨 사람: 같은 이름의 다른 사람·미확정은 조건 밖
+                chosen = ({pinned[name]}, set(), set())
+            else:
+                chosen = _choose_person(query, name if surname else None, value_tokens, cur)
             if chosen is not None:  # 동명이인 중 특정 사람을 골랐으면 이름 토큰 대신 그 사람 토큰으로
                 chosen_tokens, unresolved, others = chosen
                 g["weak"] = {t: CONFUSABLE for t in others} | {t: UNRESOLVED for t in unresolved}
@@ -279,7 +283,37 @@ def build_groups(query, records, cur, hints=None):
         if parts:
             groups.append({"full": set(), "parts": [pii_pipeline.addr_part_token(p) for p in parts],
                            "partial": {}, "weak": {}, "desc": f"질문의 지역({', '.join(parts)})"})
+        else:
+            # '충청남도에 사는 고객'처럼 시·도만 있는 질의 (worklog 68장): 주소 조각 토큰은 시·군·구부터라 맞출 게 없음
+            # → 그 시·도로 시작하는 주소 토큰을 vault 에서 모아 조건으로 (문서를 다시 적재하지 않아도 됨, 권한 필터는 그대로)
+            sidos = query_sido(query)
+            toks = sido_address_tokens(sidos) if sidos else set()
+            if toks:
+                groups.append({"full": toks, "partial": {}, "weak": {}, "desc": f"질문의 지역({', '.join(sidos)})"})
     return groups
+
+
+_SIDO_SHORT = sorted({s for _, s in pii_pipeline._SIDO}, key=len, reverse=True)
+# 줄임말('부산', '충남')은 뒤에 사는 곳을 뜻하는 말이 올 때만 지역으로 ('부산 지점 공지'·'서울보증' 같은 말과 구분)
+_SIDO_AFTER = re.compile(r"\s*(?:에\s*(?:사는|살|거주|주소)|쪽|일대|지역|거주|주소|사는|에서\s*(?:사는|거주|온))")
+
+
+def query_sido(query):
+    """질의의 시·도 (줄임말로). 긴 이름('충청남도')은 그대로, 줄임말은 뒤에 거주를 뜻하는 말이 있을 때만"""
+    found = {short for long, short in pii_pipeline._SIDO if long in query}
+    for short in _SIDO_SHORT:
+        for m in re.finditer(short, query):
+            if not re.match(r"[가-힣]", query[m.start() - 1:m.start()]) and _SIDO_AFTER.match(query, m.end()):
+                found.add(short)
+    return sorted(found)
+
+
+def sido_address_tokens(sidos):
+    """그 시·도 주소의 토큰 (vault 의 정규화 주소는 시·도 줄임말로 시작: '충남 천안시 …')"""
+    with db.vault_conn() as vc:
+        rows = vc.execute("SELECT token FROM vault.token_map WHERE label = 'address' AND split_part(normalized, ' ', 1) = ANY(%s)",
+                          (list(sidos),)).fetchall()
+    return {t for (t,) in rows}
 
 
 def _choose_person(query, name, value_tokens, cur):
@@ -368,7 +402,7 @@ def _reasons(groups, tokens):
     return out
 
 
-def search(query, k=10, conn=None, mode="hybrid", embed_retries=None, rerank=None, user=access.SYSTEM):
+def search(query, k=10, conn=None, mode="hybrid", embed_retries=None, rerank=None, user=access.SYSTEM, pinned=None):
     """user: 검색하는 사람 {emp_id, team, role}. 권한 밖 문서는 SQL 에서 먼저 거른다 (worklog 11장, 안내문 "검색 전에").
     기본값 SYSTEM(전부)은 평가 스크립트용 — 서버 API 는 항상 실제 사용자를 넘긴다.
     embed_retries: 대화형에서 임베딩 API 재시도 횟수를 줄일 때. 임베딩이 끝내 실패하면(속도 제한 등)
@@ -387,7 +421,7 @@ def search(query, k=10, conn=None, mode="hybrid", embed_retries=None, rerank=Non
     try:
         with conn.cursor() as cur:
             hints = []
-            groups = build_groups(query, records, cur, hints) if mode == "hybrid" else []
+            groups = build_groups(query, records, cur, hints, pinned) if mode == "hybrid" else []
             types = []
             if mode == "hybrid" and config.SEARCH_DOCTYPE:
                 if config.DOC_TYPE_MODE in ("dict", "both"):
