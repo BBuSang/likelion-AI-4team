@@ -18,3 +18,15 @@
 .hbar i { display: block; height: 100%; background: var(--brand); border-radius: 4px; }
 .hbar b { font-weight: 500; text-align: right; }
 @media (max-width: 1100px) { .grid2 { grid-template-columns: 1fr; } }
+
+/* 최근 대화·실명 보기 기록: 표가 좁은 화면에서 옆으로 넘치면 표 안에서만 가로 스크롤, 아래 쪽 번호 */
+.table-wrap { overflow-x: auto; }
+.conv-cell { max-width: 320px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pager { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 2px; margin-top: 6px; }
+.pager-item { display: inline-flex; align-items: center; gap: 2px; }
+.pager-btn { display: inline-flex; align-items: center; justify-content: center; min-width: 24px; height: 24px; padding: 0 6px;
+             border: none; border-radius: 6px; background: none; color: var(--text-3); font-size: 12px; cursor: pointer; font-variant-numeric: tabular-nums; }
+.pager-btn:hover:not(:disabled) { background: var(--panel-2); color: var(--text); }
+.pager-btn.on { background: var(--brand-soft); color: var(--brand-ink); font-weight: 600; }
+.pager-btn:disabled { opacity: .35; cursor: default; }
+.pager-gap { color: var(--text-3); font-size: 12px; padding: 0 2px; }

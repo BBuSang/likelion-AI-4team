@@ -1,7 +1,9 @@
 // 통계 (관리자): 문서·직원 수, 적재·검수 결과, 실명 보기 기록. 개인정보 값 없이 개수만
 import { useEffect, useState } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import apiClient from '@/shared/api/client';
 import { errMsg } from '@/shared/utils/error';
+import MaskedText from '@/features/chat/components/MaskedText';
 import './stats.css';
 
 interface Stats {
@@ -24,6 +26,36 @@ function sortAlerts(alerts: Alert[], by: 'time' | 'severity' | 'rule') {
     by === 'severity' ? [SEV_RANK[a.severity] ?? 9, t(a)] : by === 'rule' ? [RULE_ORDER.indexOf(a.rule), t(a)] : [t(a), 0];
   return [...alerts].sort((x, y) => { const a = key(x), b = key(y); return a[0] - b[0] || a[1] - b[1]; });
 }
+// 최근 대화 (전체 사용자): 계정·제목(가명처리된 첫 질문)·질문 수만. 서버가 페이지 단위로 줌
+interface RecentConv { id: number; userId: number; email: string | null; role: string | null; team: string | null; title: string; messages: number; updatedAt: string }
+interface RecentPage { items: RecentConv[]; total: number; page: number; size: number }
+const PAGE = 10; // 표 한 페이지 줄 수
+
+/** 이전·다음 + 쪽 번호. pages 가 1 이하면 안 보임 */
+function Pager({ page, pages, onChange }: { page: number; pages: number; onChange: (p: number) => void }) {
+  if (pages <= 1) return null;
+  // 현재 쪽 앞뒤 2개까지만 번호로 (많으면 처음·끝은 … 로)
+  const nums = Array.from({ length: pages }, (_, i) => i).filter((i) => i === 0 || i === pages - 1 || Math.abs(i - page) <= 2);
+  // 표 밑에 작게: 테두리 없는 글자 버튼, 지금 쪽만 옅은 배경
+  return (
+    <nav className="pager" aria-label="페이지">
+      <button className="pager-btn" disabled={page === 0} onClick={() => onChange(page - 1)} aria-label="이전 페이지">
+        <ChevronLeft size={14} aria-hidden />
+      </button>
+      {nums.map((i, k) => (
+        <span key={i} className="pager-item">
+          {k > 0 && i - nums[k - 1] > 1 && <span className="pager-gap">…</span>}
+          <button className={`pager-btn${i === page ? ' on' : ''}`} aria-current={i === page ? 'page' : undefined}
+                  onClick={() => onChange(i)}>{i + 1}</button>
+        </span>
+      ))}
+      <button className="pager-btn" disabled={page >= pages - 1} onClick={() => onChange(page + 1)} aria-label="다음 페이지">
+        <ChevronRight size={14} aria-hidden />
+      </button>
+    </nav>
+  );
+}
+
 interface RestoreRow { id: number; actor: string; role: string; purpose: string | null; doc_ids: string[]; restored: number; denied: number; created_at: string }
 
 const VIS: Record<string, string> = { public: '공개', team: '팀', restricted: '제한' };
@@ -51,12 +83,24 @@ export default function StatsPage() {
   const [showAll, setShowAll] = useState(false);
   const [sortBy, setSortBy] = useState<'time' | 'severity' | 'rule'>('time');
   const [error, setError] = useState('');
+  const [logPage, setLogPage] = useState(0);
+  const [convs, setConvs] = useState<RecentPage | null>(null);
+  const [convPage, setConvPage] = useState(0);
+  const [convErr, setConvErr] = useState('');
 
   useEffect(() => {
     apiClient.get<Stats>('/api/admin/stats', { params: { days: 14 } }).then((r) => setS(r.data)).catch((e) => setError(errMsg(e)));
-    apiClient.get<RestoreRow[]>('/api/admin/restore-log', { params: { limit: 20 } }).then((r) => setLog(r.data)).catch(() => {});
+    // 실명 보기 기록은 최근 100건을 받아 화면에서 10건씩 나눠 보여 줌
+    apiClient.get<RestoreRow[]>('/api/admin/restore-log', { params: { limit: 100 } }).then((r) => setLog(r.data)).catch(() => {});
     apiClient.get<Anomalies>('/api/admin/anomalies', { params: { days: 14 } }).then((r) => setAnom(r.data)).catch(() => {});
   }, []);
+
+  // 최근 대화: 쪽을 바꿀 때마다 그 쪽만 서버에서
+  useEffect(() => {
+    apiClient.get<RecentPage>('/api/admin/recent-conversations', { params: { page: convPage, size: PAGE } })
+      .then((r) => { setConvs(r.data); setConvErr(''); })
+      .catch((e) => setConvErr(errMsg(e)));
+  }, [convPage]);
 
   if (!s) return <section className="panel page">{error ? <div className="alert alert-bad">{error}</div> : <p className="muted">불러오는 중…</p>}</section>;
 
@@ -153,11 +197,44 @@ export default function StatsPage() {
           <thead><tr><th>역할</th><th>횟수</th><th>복원된 토큰</th><th>권한 없어 거부</th></tr></thead>
           <tbody>{s.restore.map((r) => <tr key={r.role}><td>{ROLE[r.role] ?? r.role}</td><td>{r.count}</td><td>{r.tokens}</td><td>{r.denied}</td></tr>)}</tbody>
         </table>
-        <h2 style={{ margin: '18px 0 10px' }}>최근 실명 보기 기록</h2>
+        <div className="row" style={{ margin: '18px 0 10px' }}>
+          <h2>최근 대화 기록</h2>
+          <div className="spacer" />
+          {convs && <span className="small muted">전체 {convs.total.toLocaleString()}건</span>}
+        </div>
+        {convErr && <p className="small" style={{ color: 'var(--bad)' }}>대화 기록을 불러오지 못했어요. {convErr}</p>}
+        {!convs && !convErr && <p className="small muted">불러오는 중…</p>}
+        {convs && convs.items.length === 0 && <p className="small muted">아직 대화가 없어요.</p>}
+        {convs && convs.items.length > 0 && (
+          <div className="table-wrap">
+            <table className="table">
+              <thead><tr><th>시각</th><th>계정</th><th>역할·팀</th><th>대화 제목 (가명처리)</th><th>질문</th></tr></thead>
+              <tbody>
+                {convs.items.map((c) => (
+                  <tr key={c.id}>
+                    <td className="small muted nowrap">{new Date(c.updatedAt).toLocaleString('ko-KR')}</td>
+                    <td className="small">{c.email ?? '-'}</td>
+                    <td className="small">{ROLE[c.role ?? ''] ?? c.role ?? '-'}{c.team ? ` · ${c.team}` : ''}</td>
+                    <td className="small conv-cell" title={c.title}><MaskedText text={c.title} /></td>
+                    <td>{c.messages}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+        {convs && <Pager page={convPage} pages={Math.ceil(convs.total / PAGE)} onChange={setConvPage} />}
+
+        <div className="row" style={{ margin: '18px 0 10px' }}>
+          <h2>최근 실명 보기 기록</h2>
+          <div className="spacer" />
+          {log.length > 0 && <span className="small muted">최근 {log.length}건</span>}
+        </div>
+        <div className="table-wrap">
         <table className="table">
           <thead><tr><th>시각</th><th>계정</th><th>역할</th><th>문서</th><th>복원</th><th>거부</th><th>사유</th></tr></thead>
           <tbody>
-            {log.map((r) => (
+            {log.slice(logPage * PAGE, (logPage + 1) * PAGE).map((r) => (
               <tr key={r.id}>
                 <td className="small muted nowrap">{new Date(r.created_at).toLocaleString('ko-KR')}</td>
                 <td className="small">{r.actor}</td><td>{ROLE[r.role] ?? r.role}</td>
@@ -167,6 +244,8 @@ export default function StatsPage() {
             ))}
           </tbody>
         </table>
+        </div>
+        <Pager page={logPage} pages={Math.ceil(log.length / PAGE)} onChange={setLogPage} />
       </div>
     </section>
   );

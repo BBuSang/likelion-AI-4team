@@ -10,6 +10,8 @@ import com.saebom.backend.repository.ChatConversationRepository;
 import com.saebom.backend.repository.ChatMessageRepository;
 import com.saebom.backend.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import com.saebom.backend.entity.User;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -48,6 +50,12 @@ public class ChatHistoryService {
 
     public record ConversationDetail(Long id, String title, LocalDateTime createdAt, LocalDateTime updatedAt,
                                      List<MessageView> messages) {}
+
+    /** 통계 화면의 최근 대화 한 줄: 계정·역할·팀 + 가명처리된 제목·질문 수 (내용·원문 질문은 없음) */
+    public record RecentConversation(Long id, Long userId, String email, String role, String team,
+                                     String title, int messages, LocalDateTime updatedAt) {}
+
+    public record RecentPage(List<RecentConversation> items, long total, int page, int size) {}
 
     // ------------------------------------------------------------------ 본인
 
@@ -130,6 +138,33 @@ public class ChatHistoryService {
         what.put("title", new Object[]{null, c.getTitle()});  // 가명처리된 첫 질문 — 화면에 "어느 대화"로 보여 줌
         admin.log(adminId, targetUserId, "view_chat", what);
         return detailOf(c, false);  // 관리자에겐 원문 질문을 풀지 않음
+    }
+
+    /** 통계: 전체 사용자의 최근 대화 (페이지 단위). 제목은 가명처리된 첫 질문만 — 내용을 여는 게 아니라 기록은 남기지 않음 */
+    @Transactional(readOnly = true)
+    public RecentPage recent(int page, int size) {
+        int p = Math.max(0, page);
+        int n = Math.min(Math.max(1, size), 50);
+        Page<ChatConversation> res = convs.findByTitleIsNotNullOrderByUpdatedAtDesc(PageRequest.of(p, n));
+        List<ChatConversation> list = res.getContent();
+        Map<Long, Integer> counts = new HashMap<>();
+        Map<Long, User> owners = new HashMap<>();
+        if (!list.isEmpty()) {
+            for (Object[] row : msgs.countByConversation(list.stream().map(ChatConversation::getId).toList())) {
+                counts.put((Long) row[0], ((Number) row[1]).intValue());
+            }
+            users.findAllById(list.stream().map(ChatConversation::getUserId).distinct().toList())
+                    .forEach(u -> owners.put(u.getId(), u));
+        }
+        List<RecentConversation> items = list.stream().map(c -> {
+            User u = owners.get(c.getUserId());
+            return new RecentConversation(c.getId(), c.getUserId(),
+                    u == null ? null : u.getEmail(),
+                    u == null || u.getRole() == null ? null : u.getRole().name(),
+                    u == null || u.getTeam() == null ? null : u.getTeam().getName(),
+                    c.getTitle(), counts.getOrDefault(c.getId(), 0), c.getUpdatedAt());
+        }).toList();
+        return new RecentPage(items, res.getTotalElements(), p, n);
     }
 
     // ------------------------------------------------------------------
