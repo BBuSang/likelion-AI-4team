@@ -3,7 +3,7 @@
 // 본인에게만 풀어 줌 (64장). 실명 보기 결과는 저장하지 않음
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { FormEvent, ReactNode } from 'react';
-import { AlertTriangle, ChevronDown, ChevronUp, FileText, Files, MessageSquarePlus, PanelLeft, PanelRight, Search, Send, Trash2, X } from 'lucide-react';
+import { AlertTriangle, ChevronDown, ChevronUp, FileText, Files, MessageSquarePlus, PanelLeft, Search, Send, Trash2, X } from 'lucide-react';
 import { LogoLarge } from '@/shared/components/Logo';
 import { useAuth } from '@/shared/contexts/AuthContext';
 import { errMsg } from '@/shared/utils/error';
@@ -122,7 +122,8 @@ export default function ChatPage() {
   const [focusDoc, setFocusDoc] = useState<string | null>(null);
   // 대화 목록 접기·펼치기 (worklog 45장): 처음엔 넓은 창이면 펼침, 이후엔 마지막 선택을 기억
   const [listOpen, setListOpen] = useState<boolean>(() => loadOpen(LIST_KEY, window.innerWidth > 1100));
-  // 근거 문서 접기·펼치기: 대화 목록과 같은 방식
+  // 근거 문서 접기·펼치기: 답변 밑 [근거 문서 N건]·인용 번호로 열고, 패널의 X 로 닫음 (헤더 버튼 없음).
+  // 닫아 두면 새 답변이 와도 저절로 열지 않음
   const [sideOpen, setSideOpen] = useState<boolean>(() => loadOpen(SIDE_KEY, true));
   const setList = (v: boolean) => {
     saveOpen(LIST_KEY, v);
@@ -135,7 +136,6 @@ export default function ChatPage() {
     if (v && isNarrow()) setListOpen(false);
   };
   const toggleList = () => setList(!listOpen);
-  const toggleSide = () => setSide(!sideOpen);
   const closeDrawers = () => { setListOpen(false); setSideOpen(false); };
   // 창이 좁아지는 순간 열린 칸을 닫음 (그대로 두면 서랍이 채팅을 덮음), 다시 넓어지면 넓은 창에서 고른 상태로. Esc 로도 서랍 닫기
   useEffect(() => {
@@ -202,6 +202,9 @@ export default function ChatPage() {
     for (let j = i - 1; j >= 0; j--) if (msgs[j].role === 'user') return msgs[j];
     return null;
   }, [current, sourceMsg]);
+  // 근거 문서 패널은 근거 문서가 있는 답변이 있을 때만 (새 채팅 첫 화면에 빈 칸이 자리 차지하지 않게)
+  const hasDocs = !!sourceMsg?.result?.docs.length;
+  const showSide = sideOpen && hasDocs;
 
   /** 답변의 '근거 문서' 버튼: 오른쪽 칸을 그 답변의 근거로 바꾸고 맨 위로 */
   const showSources = (id: string) => {
@@ -319,10 +322,6 @@ export default function ChatPage() {
           <h2 title={current?.title}>{current ? <MaskedText text={current.title} /> : '새 채팅'}</h2>
           <div className="spacer" />
           {user && <span className="badge badge-brand">{ROLE_NAME[user.role]} · {user.team ?? '팀 없음'}</span>}
-          <button type="button" className="btn btn-sm side-toggle" onClick={toggleSide} aria-expanded={sideOpen}
-                  title={sideOpen ? '근거 문서 접기' : '근거 문서 펼치기'} aria-label={sideOpen ? '근거 문서 접기' : '근거 문서 펼치기'}>
-            <PanelRight size={15} aria-hidden />
-          </button>
         </header>
 
         <div className="chat-body">
@@ -379,10 +378,10 @@ export default function ChatPage() {
                 <div className="answer-foot">
                   <span className="small muted">{footer(m.result)}</span>
                   {m.result.docs.length > 0 && (
-                    <button type="button" className={`btn btn-sm${sourceMsg?.id === m.id ? ' btn-outline' : ''}`}
+                    <button type="button" className={`btn btn-sm${showSide && sourceMsg?.id === m.id ? ' btn-outline' : ''}`}
                             onClick={(e) => { e.stopPropagation(); showSources(m.id); }}
-                            aria-pressed={sourceMsg?.id === m.id}>
-                      <Files size={14} aria-hidden /> {sourceMsg?.id === m.id ? '근거 문서 보는 중' : `근거 문서 ${m.result.docs.length}건`}
+                            aria-pressed={showSide && sourceMsg?.id === m.id}>
+                      <Files size={14} aria-hidden /> {showSide && sourceMsg?.id === m.id ? '근거 문서 보는 중' : `근거 문서 ${m.result.docs.length}건`}
                     </button>
                   )}
                 </div>
@@ -399,9 +398,9 @@ export default function ChatPage() {
       </section>
 
       {/* 좁은 창에서 서랍이 열렸을 때만 보이는 뒤 배경 (누르면 닫힘) */}
-      {(listOpen || sideOpen) && <div className="drawer-back" onClick={closeDrawers} aria-hidden />}
+      {(listOpen || showSide) && <div className="drawer-back" onClick={closeDrawers} aria-hidden />}
 
-      <aside className={`panel side side-wide sources${sideOpen ? '' : ' collapsed'}`} ref={sideRef} aria-hidden={!sideOpen}>
+      <aside className={`panel side side-wide sources${showSide ? '' : ' collapsed'}`} ref={sideRef} aria-hidden={!showSide}>
         <div className="side-head" style={{ marginBottom: sourceQuestion ? 4 : 10 }}>
           <h3>근거 문서</h3>
           <button type="button" className="side-close" onClick={() => setSide(false)} aria-label="근거 문서 접기" title="근거 문서 접기">
@@ -413,8 +412,6 @@ export default function ChatPage() {
             질문: {sourceQuestion.masked ? <MaskedText text={sourceQuestion.text} /> : sourceQuestion.text}
           </p>
         )}
-        {!sourceMsg && <p className="small muted"></p>}
-        {sourceMsg?.result && !sourceMsg.result.docs.length && <p className="small muted">이 답변에는 근거 문서가 없어요.</p>}
         {sourceMsg?.result?.docs.map((d, i) => (
           <div key={d.docId} className={`source${focusDoc === d.docId ? ' focused' : ''}`}>
             <div className="source-head">

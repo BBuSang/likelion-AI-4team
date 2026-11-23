@@ -35,15 +35,11 @@
   .chat-main { flex: 1; min-height: 0; }
 }
 
-/* 아주 좁은 창 (760px 이하): 왼쪽 메뉴를 화면 아래 탭 막대로 */
+/* 아주 좁은 창 (760px 이하): 왼쪽 아이콘 메뉴는 그대로 두고 폭·여백만 줄여 채팅 칸을 넓힘 */
 @media (max-width: 760px) {
-  .app { flex-direction: column; padding: 8px; gap: 8px; height: 100dvh; }
-  .main { flex: 1; min-height: 0; gap: 8px; }
-  .nav { order: 2; width: auto; flex-direction: row; align-items: center; padding: 4px 6px; }
-  .nav .brand, .nav .me-box, .nav .spacer { display: none; }
-  .nav-items { flex: 1; flex-direction: row; justify-content: space-around; }
-  .nav-item { flex: 1; padding: 9px 0; }
-  .nav > .nav-item { flex: none; width: 44px; }
+  .app { padding: 8px; gap: 8px; height: 100dvh; }
+  .main { gap: 8px; }
+  .nav { width: 52px; padding: 12px 6px; }
   .page { padding: 16px; }
 }
 

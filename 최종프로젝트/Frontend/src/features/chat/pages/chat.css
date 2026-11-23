@@ -101,7 +101,6 @@
 .empty-logo { margin-bottom: 6px; }
 
 /* 근거 문서 접기·펼치기: 대화 목록과 같은 방식 (접으면 채팅 칸이 그만큼 넓어짐) */
-.side-toggle { flex: none; }
 .side-head { display: flex; align-items: center; gap: 6px; }
 .side-head h3 { flex: 1; }
 .side-close { flex: none; display: inline-flex; border: none; background: none; color: var(--text-3); cursor: pointer; padding: 4px; border-radius: 6px; }
