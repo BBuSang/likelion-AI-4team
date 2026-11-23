@@ -6,8 +6,11 @@ import type { Role, UserStatus } from '@/shared/types/user.types';
 import * as api from '../api/admin.api';
 import type { AdminUser, AuditLog, Candidate, Employee, Position, Team } from '../api/admin.api';
 import { DocDetailPanel, DocsTab, EmployeesTab } from './DataTabs';
+import { PublicDocHint, PublicDocPanel, PublicDocsTab } from './PublicDocs';
+import type { PublicSource } from './PublicDocs';
 import UserChats from './UserChats';
 import MaskedText from '@/features/chat/components/MaskedText';
+import ConfirmDialog from '@/shared/components/ConfirmDialog';
 
 const ROLES: { v: Role; n: string }[] = [{ v: 'STAFF', n: '직원' }, { v: 'LEAD', n: '팀장' }, { v: 'AUDITOR', n: '감사' }];
 const roleName = (r: Role) => ROLES.find((x) => x.v === r)?.n ?? r;
@@ -19,6 +22,7 @@ const ACTION: Record<string, string> = {
 };
 
 type Tab = 'pending' | 'users' | 'docs' | 'emps' | 'teams' | 'log';
+const DOC_SOURCES: ['pii' | PublicSource, string][] = [['pii', '개인정보 문서'], ['product', '금융상품'], ['law', '법령'], ['noaction', '금융당국 회신']];
 
 export default function AdminPage() {
   const [tab, setTab] = useState<Tab>('pending');
@@ -30,6 +34,9 @@ export default function AdminPage() {
   const [error, setError] = useState('');
   const [docId, setDocId] = useState<string | null>(null);
   const [docsKey, setDocsKey] = useState(0);
+  // 문서 탭 안의 출처: 개인정보 문서(사내) · 금융상품 · 법령 · 금융당국 회신(공개 자료, 읽기만)
+  const [docSrc, setDocSrc] = useState<'pii' | PublicSource>('pii');
+  const [pubId, setPubId] = useState<string | null>(null);
 
   const reload = useCallback(async () => {
     setError('');
@@ -54,7 +61,7 @@ export default function AdminPage() {
         <div className="page-head">
           <div>
             <h1>관리자</h1>
-            <p>가입 승인, 사용자 정보, 저장된 문서, 직원 목록, 팀, 변경 기록</p>
+            <p>가입 승인 · 사용자 정보 · 저장된 문서 · 직원 목록 · 팀 · 변경 기록</p>
           </div>
           <div className="spacer" />
           <button className="btn btn-sm" onClick={reload}><RefreshCw size={14} aria-hidden /> 새로고침</button>
@@ -93,13 +100,29 @@ export default function AdminPage() {
             </table>
           </>
         )}
-        {tab === 'docs' && <DocsTab selected={docId} onSelect={setDocId} reloadKey={docsKey} />}
+        {tab === 'docs' && (
+          <>
+            <div className="subtabs" role="tablist" aria-label="문서 출처">
+              {DOC_SOURCES.map(([k, n]) => (
+                <button key={k} role="tab" aria-selected={docSrc === k} className={`subtab${docSrc === k ? ' on' : ''}`}
+                        onClick={() => { setDocSrc(k); setPubId(null); }}>{n}</button>
+              ))}
+            </div>
+            {docSrc === 'pii' ? <DocsTab selected={docId} onSelect={setDocId} reloadKey={docsKey} />
+                              : <PublicDocsTab source={docSrc} selected={pubId} onSelect={setPubId} />}
+          </>
+        )}
         {tab === 'emps' && <EmployeesTab users={list} />}
         {tab === 'teams' && <TeamsTab teams={teams} onChange={reload} />}
         {tab === 'log' && <LogTab users={list} />}
       </section>
 
-      {tab === 'docs' && (
+      {tab === 'docs' && docSrc !== 'pii' && (
+        <aside className="panel side side-wide">
+          {pubId ? <PublicDocPanel key={`${docSrc}:${pubId}`} source={docSrc} id={pubId} /> : <PublicDocHint source={docSrc} />}
+        </aside>
+      )}
+      {tab === 'docs' && docSrc === 'pii' && (
         <aside className="panel side side-wide">
           {docId ? <DocDetailPanel key={docId} docId={docId} onDeleted={() => { setDocId(null); setDocsKey((k) => k + 1); }} onChanged={() => setDocsKey((k) => k + 1)} />
                  : <p className="small muted">표에서 문서를 고르면 가명처리된 글과 지우기 버튼이 보여요.</p>}
@@ -210,7 +233,7 @@ function ApprovePanel({ u, teams, positions, onDone }: { u: AdminUser; teams: Te
           </label>
         </div>
         <div className="row" style={{ marginTop: 8 }}>
-          <input className="input" style={{ height: 32 }} placeholder="이름·팀·직원 번호로 찾기" value={search}
+          <input className="input" style={{ height: 32 }} placeholder="이름 · 팀 · 직원 번호로 찾기" value={search}
                  onChange={(e) => setSearch(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && doSearch()} />
           <button className="btn btn-sm" onClick={doSearch}>찾기</button>
         </div>
@@ -238,6 +261,8 @@ function EditPanel({ u, users, teams, positions, onDone }: { u: AdminUser; users
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
   const [log, setLog] = useState<AuditLog[]>([]);
+  // 되돌리기 어려운 동작은 확인 대화상자를 거침 (정지·연결 풀기·연결 바꾸기)
+  const [ask, setAsk] = useState<'suspend' | 'unlink' | 'relink' | null>(null);
 
   const loadLog = useCallback(() => { api.auditLog(u.id).then(setLog).catch(() => {}); }, [u.id]);
   useEffect(loadLog, [loadLog]);
@@ -295,17 +320,37 @@ function EditPanel({ u, users, teams, positions, onDone }: { u: AdminUser; users
         <h3>직원 연결</h3>
         <div className="row">
           <input className="input" style={{ height: 32 }} placeholder="새 직원 번호 (예: E012)" value={empId} onChange={(e) => setEmpId(e.target.value)} />
-          <button className="btn btn-sm" disabled={!empId.trim() || busy} onClick={() => run({ empId: empId.trim() }, '직원 연결을 바꿨어요.')}>바꾸기</button>
+          <button className="btn btn-sm" disabled={!empId.trim() || busy} onClick={() => setAsk('relink')}>바꾸기</button>
         </div>
-        {u.empId && <button className="btn btn-sm btn-ghost" style={{ alignSelf: 'flex-start' }} disabled={busy} onClick={() => run({ unlinkEmployee: true }, '직원 연결을 풀었어요.')}>연결 풀기</button>}
+        {u.empId && <button className="btn btn-sm btn-ghost" style={{ alignSelf: 'flex-start' }} disabled={busy} onClick={() => setAsk('unlink')}>연결 풀기</button>}
       </div>
 
       <div className="row" style={{ borderTop: '1px solid var(--line)', paddingTop: 12 }}>
         {u.status === 'ACTIVE'
-          ? <button className="btn btn-danger btn-sm" disabled={busy} onClick={() => run({ status: 'SUSPENDED' }, '정지했어요. 이미 로그인한 화면도 바로 막혀요.')}>계정 정지</button>
+          ? <button className="btn btn-danger btn-sm" disabled={busy} onClick={() => setAsk('suspend')}>계정 정지</button>
           : <button className="btn btn-sm" disabled={busy} onClick={() => run({ status: 'ACTIVE' }, '정지를 풀었어요.')}>정지 풀기</button>}
       </div>
       {msg && <div className={`alert ${msg.ok ? 'alert-ok' : 'alert-bad'}`}>{msg.text}</div>}
+
+      {ask === 'suspend' && (
+        <ConfirmDialog title="계정 정지" confirmLabel="정지" danger busy={busy}
+                       message={<><b>{u.name}</b>({u.email}) 계정을 정지할까요? 로그인한 화면도 바로 막히고, 정지를 풀기 전까지 다시 로그인할 수 없어요.</>}
+                       reason={{ label: '정지 사유 (변경 기록에 남아요)', placeholder: '예: 퇴사 처리, 비정상 접근 확인 중', max: 500 }}
+                       onCancel={() => setAsk(null)}
+                       onConfirm={(reason) => { setAsk(null); run({ status: 'SUSPENDED', reason }, '정지했어요. 이미 로그인한 화면도 바로 막혀요.'); }} />
+      )}
+      {ask === 'unlink' && (
+        <ConfirmDialog title="직원 연결 풀기" confirmLabel="연결 풀기" danger busy={busy}
+                       message={<><b>{u.name}</b> 계정과 문서 속 직원 <b>{u.empId}</b>의 연결을 풀까요? 이 계정은 더 이상 그 직원으로 인정되지 않아요. 다시 연결하려면 직원 번호를 넣고 바꾸기를 해야 해요.</>}
+                       onCancel={() => setAsk(null)}
+                       onConfirm={() => { setAsk(null); run({ unlinkEmployee: true }, '직원 연결을 풀었어요.'); }} />
+      )}
+      {ask === 'relink' && (
+        <ConfirmDialog title="직원 연결 바꾸기" confirmLabel="바꾸기" busy={busy}
+                       message={<><b>{u.name}</b> 계정의 직원 연결을 <b>{u.empId ?? '없음'}</b>에서 <b>{empId.trim()}</b>(으)로 바꿀까요? 이 계정은 앞으로 문서 속 직원 {empId.trim()}(으)로 인정돼요.</>}
+                       onCancel={() => setAsk(null)}
+                       onConfirm={() => { setAsk(null); run({ empId: empId.trim() }, '직원 연결을 바꿨어요.'); }} />
+      )}
 
       <div style={{ borderTop: '1px solid var(--line)', paddingTop: 12 }}>
         <UserChats userId={u.id} name={u.name} onViewed={loadLog} />
@@ -342,13 +387,52 @@ function LogDetail({ l, who }: { l: AuditLog; who: (id: number | null) => string
       </>
     );
   }
-  return <>{describe(l.changes)}</>;
+  return <>{describe(l.action, l.changes)}</>;
 }
 
-function describe(changes: string) {
+// 변경 기록 한 줄을 읽기 쉬운 말로 (worklog: 변경 기록 가독성)
+//   status ACTIVE→SUSPENDED → "계정 정지", SUSPENDED→ACTIVE → "정지 해제", 역할·팀·직급은 "역할: 직원 → 팀장" …
+//   모르는 항목은 예전처럼 "항목: 전 → 후" 로
+const VIS_KO: Record<string, string> = { public: '공개', team: '팀', restricted: '제한' };
+const v = (x: unknown) => (x === null || x === undefined || x === '' ? '없음' : Array.isArray(x) ? x.join(', ') : String(x));
+const statusName = (x: unknown) => STATUS[x as UserStatus]?.n ?? v(x);
+const roleKo = (x: unknown) => (x ? roleName(x as Role) : '없음');
+
+function describePart(action: string, k: string, a: unknown, b: unknown): string | null {
+  switch (k) {
+    case 'status':
+      if (b === 'SUSPENDED') return '계정 정지';
+      if (a === 'SUSPENDED' && b === 'ACTIVE') return '정지 해제';
+      if (a === 'PENDING' && b === 'ACTIVE') return '가입 승인';
+      return `계정 상태: ${statusName(a)} → ${statusName(b)}`;
+    case 'reason': return `사유: ${v(b)}`;
+    case 'role': return `역할: ${roleKo(a)} → ${roleKo(b)}`;
+    case 'admin': return b ? '관리자 권한 부여' : '관리자 권한 해제';
+    case 'empId':
+      if (a == null) return `직원 연결: ${v(b)}`;
+      if (b == null) return `직원 연결 해제 (${v(a)})`;
+      return `직원 연결 변경: ${v(a)} → ${v(b)}`;
+    case 'createdEmployee': return `새 직원 번호 만듦: ${v(b)}`;
+    case 'position': return `직급: ${v(a)} → ${v(b)}`;
+    case 'team':
+      if (action === 'create_team') return `팀 추가: ${v(b)}`;
+      if (action === 'update_team') return `${v(b)} 팀`;
+      if (action === 'update_doc') return `문서 팀: ${v(a)} → ${v(b)}`;
+      return `팀: ${v(a)} → ${v(b)}`;
+    case 'active': return b ? '가입 선택칸에 다시 보이기' : '가입 선택칸에서 숨기기';
+    case 'added': return `문서에서 가져온 팀: ${v(b)}`;
+    case 'doc': return action === 'delete_doc' ? `문서 ${v(a)} 삭제` : `문서 ${v(a)}`;
+    case 'chunks': return `청크 ${v(a)}개 지움`;
+    case 'visibility': return `공개 범위: ${VIS_KO[String(a)] ?? v(a)} → ${VIS_KO[String(b)] ?? v(b)}`;
+    case 'owner_emp_id': return `담당 직원: ${v(a)} → ${v(b)}`;
+    default: return `${k}: ${v(a)} → ${v(b)}`;
+  }
+}
+
+function describe(action: string, changes: string) {
   try {
     const c = JSON.parse(changes) as Record<string, [unknown, unknown]>;
-    return Object.entries(c).map(([k, [a, b]]) => `${k}: ${a ?? '없음'} → ${Array.isArray(b) ? b.join(', ') : b ?? '없음'}`).join(' · ');
+    return Object.entries(c).map(([k, [a, b]]) => describePart(action, k, a, b)).filter(Boolean).join(' · ');
   } catch {
     return changes;
   }
@@ -359,6 +443,7 @@ function describe(changes: string) {
 function TeamsTab({ teams, onChange }: { teams: Team[]; onChange: () => void }) {
   const [name, setName] = useState('');
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
+  const [hide, setHide] = useState<Team | null>(null); // 숨기기 확인 대화상자 (보이기는 바로)
   const act = async (fn: () => Promise<unknown>, ok: string) => {
     setMsg(null);
     try { await fn(); setMsg({ ok: true, text: ok }); onChange(); } catch (e) { setMsg({ ok: false, text: errMsg(e) }); }
@@ -381,12 +466,18 @@ function TeamsTab({ teams, onChange }: { teams: Team[]; onChange: () => void }) 
               <td><span className="badge badge-gray">{t.source === 'ai' ? '문서 추론' : '관리자 추가'}</span></td>
               <td>{t.active ? <span className="badge badge-brand">보임</span> : <span className="badge badge-gray">숨김</span>}</td>
               <td style={{ textAlign: 'right' }}>
-                <button className="btn btn-sm" onClick={() => act(() => api.setTeamActive(t.id, !t.active), t.active ? '숨겼어요.' : '다시 보이게 했어요.')}>{t.active ? '숨기기' : '보이기'}</button>
+                <button className="btn btn-sm" onClick={() => (t.active ? setHide(t) : act(() => api.setTeamActive(t.id, true), '다시 보이게 했어요.'))}>{t.active ? '숨기기' : '보이기'}</button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+      {hide && (
+        <ConfirmDialog title="팀 숨기기" confirmLabel="숨기기" danger
+                       message={<><b>{hide.name}</b> 팀을 숨길까요? 가입 화면의 팀 선택칸에서 사라져서 새로 가입하는 사람은 이 팀을 고를 수 없어요. 이미 이 팀인 사용자와 문서는 그대로예요.</>}
+                       onCancel={() => setHide(null)}
+                       onConfirm={() => { const t = hide; setHide(null); act(() => api.setTeamActive(t.id, false), '숨겼어요.'); }} />
+      )}
     </div>
   );
 }

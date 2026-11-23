@@ -1,9 +1,9 @@
 // 통계 (관리자): 문서·직원 수, 적재·검수 결과, 실명 보기 기록. 개인정보 값 없이 개수만
 import { useEffect, useState } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 import apiClient from '@/shared/api/client';
 import { errMsg } from '@/shared/utils/error';
 import MaskedText from '@/features/chat/components/MaskedText';
+import Pager from '@/shared/components/Pager';
 import './stats.css';
 
 interface Stats {
@@ -31,30 +31,6 @@ interface RecentConv { id: number; userId: number; email: string | null; role: s
 interface RecentPage { items: RecentConv[]; total: number; page: number; size: number }
 const PAGE = 10; // 표 한 페이지 줄 수
 
-/** 이전·다음 + 쪽 번호. pages 가 1 이하면 안 보임 */
-function Pager({ page, pages, onChange }: { page: number; pages: number; onChange: (p: number) => void }) {
-  if (pages <= 1) return null;
-  // 현재 쪽 앞뒤 2개까지만 번호로 (많으면 처음·끝은 … 로)
-  const nums = Array.from({ length: pages }, (_, i) => i).filter((i) => i === 0 || i === pages - 1 || Math.abs(i - page) <= 2);
-  // 표 밑에 작게: 테두리 없는 글자 버튼, 지금 쪽만 옅은 배경
-  return (
-    <nav className="pager" aria-label="페이지">
-      <button className="pager-btn" disabled={page === 0} onClick={() => onChange(page - 1)} aria-label="이전 페이지">
-        <ChevronLeft size={14} aria-hidden />
-      </button>
-      {nums.map((i, k) => (
-        <span key={i} className="pager-item">
-          {k > 0 && i - nums[k - 1] > 1 && <span className="pager-gap">…</span>}
-          <button className={`pager-btn${i === page ? ' on' : ''}`} aria-current={i === page ? 'page' : undefined}
-                  onClick={() => onChange(i)}>{i + 1}</button>
-        </span>
-      ))}
-      <button className="pager-btn" disabled={page >= pages - 1} onClick={() => onChange(page + 1)} aria-label="다음 페이지">
-        <ChevronRight size={14} aria-hidden />
-      </button>
-    </nav>
-  );
-}
 
 interface RestoreRow { id: number; actor: string; role: string; purpose: string | null; doc_ids: string[]; restored: number; denied: number; created_at: string }
 
@@ -80,7 +56,7 @@ export default function StatsPage() {
   const [s, setS] = useState<Stats | null>(null);
   const [log, setLog] = useState<RestoreRow[]>([]);
   const [anom, setAnom] = useState<Anomalies | null>(null);
-  const [showAll, setShowAll] = useState(false);
+  const [alertPage, setAlertPage] = useState(0);
   const [sortBy, setSortBy] = useState<'time' | 'severity' | 'rule'>('time');
   const [error, setError] = useState('');
   const [logPage, setLogPage] = useState(0);
@@ -112,7 +88,7 @@ export default function StatsPage() {
 
   return (
     <section className="panel page">
-      <div className="page-head"><div><h1>통계</h1><p>문서·검수·실명 보기 현황 (값 없이 개수만)</p></div></div>
+      <div className="page-head"><div><h1>통계</h1><p>문서·검수·실명 보기 현황</p></div></div>
       <div className="metrics">
         <div className="metric"><p>저장된 문서</p><b>{s.documents.total.toLocaleString()}</b><span>청크 {s.documents.chunks.toLocaleString()}</span></div>
         <div className="metric"><p>문서 속 직원</p><b>{s.employees.total}</b><span>팀장 {s.employees.by_role.LEAD ?? 0} · 감사 {s.employees.by_role.AUDITOR ?? 0}</span></div>
@@ -153,7 +129,7 @@ export default function StatsPage() {
           {anom && <span className="small muted">높음 {anom.summary.by_severity.high ?? 0} · 중간 {anom.summary.by_severity.medium ?? 0} · 낮음 {anom.summary.by_severity.low ?? 0}</span>}
           {anom && anom.alerts.length > 0 && (
             <select className="select" style={{ height: 30, width: 110, marginLeft: 10 }} value={sortBy} aria-label="정렬"
-                    onChange={(e) => setSortBy(e.target.value as 'time' | 'severity' | 'rule')}>
+                    onChange={(e) => { setSortBy(e.target.value as 'time' | 'severity' | 'rule'); setAlertPage(0); }}>
               <option value="time">시간순</option>
               <option value="severity">위험도순</option>
               <option value="rule">규칙순</option>
@@ -167,7 +143,7 @@ export default function StatsPage() {
             <table className="table">
               <thead><tr><th>위험</th><th>규칙</th><th>계정</th><th>역할·팀</th><th>시각</th><th>내용</th></tr></thead>
               <tbody>
-                {(showAll ? sortAlerts(anom.alerts, sortBy) : sortAlerts(anom.alerts, sortBy).slice(0, 10)).map((a) => (
+                {sortAlerts(anom.alerts, sortBy).slice(alertPage * PAGE, (alertPage + 1) * PAGE).map((a) => (
                   <tr key={a.id}>
                     <td><span className={`badge ${SEV[a.severity].cls}`}>{SEV[a.severity].n}</span></td>
                     <td className="nowrap">{a.rule_ko}</td>
@@ -179,11 +155,7 @@ export default function StatsPage() {
                 ))}
               </tbody>
             </table>
-            {anom.alerts.length > 10 && (
-              <button className="btn btn-sm" style={{ marginTop: 8 }} onClick={() => setShowAll((v) => !v)}>
-                {showAll ? '접기' : `전체 ${anom.alerts.length}건 보기`}
-              </button>
-            )}
+            <Pager page={alertPage} pages={Math.ceil(anom.alerts.length / PAGE)} onChange={setAlertPage} />
           </>
         )}
         <p className="small muted" style={{ marginTop: 8 }}>

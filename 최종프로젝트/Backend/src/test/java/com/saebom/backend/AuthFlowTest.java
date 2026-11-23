@@ -174,8 +174,15 @@ class AuthFlowTest {
         put_("/api/admin/users/" + id, Map.of("role", "STAFF"), admin).andExpect(status().isOk());
         get_("/api/auth/me", token).andExpect(jsonPath("$.role").value("STAFF"));
 
+        // 정지: 사유 없이 하면 400 (상태 그대로), 사유를 적어야 정지
+        put_("/api/admin/users/" + id, Map.of("status", "SUSPENDED"), admin)
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.message").value("정지 사유를 입력하세요."));
+        put_("/api/admin/users/" + id, Map.of("status", "SUSPENDED", "reason", "   "), admin).andExpect(status().isBadRequest());
+        get_("/api/auth/me", token).andExpect(status().isOk());
+
         // 정지 → 기존 토큰 401, 로그인 403
-        put_("/api/admin/users/" + id, Map.of("status", "SUSPENDED"), admin).andExpect(status().isOk());
+        put_("/api/admin/users/" + id, Map.of("status", "SUSPENDED", "reason", "퇴사 처리"), admin).andExpect(status().isOk());
         get_("/api/auth/me", token).andExpect(status().isUnauthorized());
         post_("/api/auth/refresh", Map.of(), token).andExpect(status().isUnauthorized());
         post_("/api/auth/login", Map.of("email", "kim@saebom.test", "password", "password123"), null)
@@ -187,6 +194,8 @@ class AuthFlowTest {
         var actions = om.readTree(log).findValuesAsText("action");
         assertThat(actions).containsExactly("update", "update", "approve");
         assertThat(om.readTree(log).get(2).get("changes").asText()).contains("\"empId\":[null,\"E010\"]");
+        // 정지 사유가 변경 기록에 같이 남음
+        assertThat(om.readTree(log).get(0).get("changes").asText()).contains("\"reason\":[null,\"퇴사 처리\"]");
     }
 
     @Test
@@ -219,11 +228,41 @@ class AuthFlowTest {
     }
 
     @Test
+    void suspendWithoutReasonIs400() throws Exception {
+        signup("stop@saebom.test", "정지대상", teamId, staffPos);
+        String admin = login(ADMIN, ADMIN_PW);
+        long id = userId(admin, "stop@saebom.test");
+        when(ai.createEmployee(eq("정지대상"), eq("고객센터"), eq("대리"), eq("STAFF"), any()))
+                .thenReturn(emp("U0101", "정지대상", "고객센터", "STAFF", null));
+        post_("/api/admin/users/" + id + "/approve", Map.of("createEmployee", true), admin).andExpect(status().isOk());
+
+        // 사유 없음·빈칸·500자 넘음 → 400, 계정은 그대로 사용 중
+        put_("/api/admin/users/" + id, Map.of("status", "SUSPENDED"), admin)
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.message").value("정지 사유를 입력하세요."));
+        put_("/api/admin/users/" + id, Map.of("status", "SUSPENDED", "reason", " "), admin).andExpect(status().isBadRequest());
+        put_("/api/admin/users/" + id, Map.of("status", "SUSPENDED", "reason", "가".repeat(501)), admin).andExpect(status().isBadRequest());
+        get_("/api/admin/users/" + id, admin).andExpect(jsonPath("$.status").value("ACTIVE"));
+
+        // 사유를 적으면 정지되고, 변경 기록 changes 에 사유가 남음
+        put_("/api/admin/users/" + id, Map.of("status", "SUSPENDED", "reason", "비정상 접근 확인 중"), admin)
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.status").value("SUSPENDED"));
+        String log = get_("/api/admin/audit-log?userId=" + id, admin).andReturn().getResponse().getContentAsString();
+        assertThat(om.readTree(log).get(0).get("changes").asText())
+                .contains("\"status\":[\"ACTIVE\",\"SUSPENDED\"]")
+                .contains("\"reason\":[null,\"비정상 접근 확인 중\"]");
+
+        // 정지 풀기는 사유 없이 그대로 됨
+        put_("/api/admin/users/" + id, Map.of("status", "ACTIVE"), admin).andExpect(status().isOk());
+    }
+
+    @Test
     void adminGuards() throws Exception {
         String admin = login(ADMIN, ADMIN_PW);
         long me = userId(admin, ADMIN);
         put_("/api/admin/users/" + me, Map.of("admin", false), admin).andExpect(status().isBadRequest());
-        put_("/api/admin/users/" + me, Map.of("status", "SUSPENDED"), admin).andExpect(status().isBadRequest());
+        put_("/api/admin/users/" + me, Map.of("status", "SUSPENDED", "reason", "자기 정지 시도"), admin).andExpect(status().isBadRequest());
 
         signup("wait@saebom.test", "대기자", teamId, staffPos);
         long id = userId(admin, "wait@saebom.test");

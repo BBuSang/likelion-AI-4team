@@ -15,7 +15,8 @@ const SOURCE_KO: Record<string, string> = { internal: '사내 기록', law: '법
 const TOOL_KO: Record<string, string> = { search_internal: '사내 기록', search_law: '법령', search_product: '금융상품', search_noaction: '비조치의견서' };
 const ROUTE_KO: Record<string, string> = { out_of_scope: '업무 범위 밖', clarify: '무엇을 묻는지 확인 필요' };
 
-const names = (xs?: string[], map = SOURCE_KO) => (xs ?? []).map((x) => map[x] ?? x).join('·');
+// 뒤에 말이 붙으면('… 검색') 붙여 쓰고, 혼자 쓰는 목록은 ' · ' (항목에 띄어쓰기가 있어 경계가 보이게)
+const names = (xs?: string[], map = SOURCE_KO, sep = '·') => (xs ?? []).map((x) => map[x] ?? x).join(sep);
 
 /** 단계 이름 (명사형: 끝난 단계엔 그대로, 지금 단계엔 '… 중') */
 function label(s: Step) {
@@ -38,7 +39,7 @@ function label(s: Step) {
 function detail(s: Step) {
   const r = s.result;
   if (!r) return '';
-  if (s.stage === 'classify') return ROUTE_KO[r.route ?? ''] ?? names(r.sources);
+  if (s.stage === 'classify') return ROUTE_KO[r.route ?? ''] ?? names(r.sources, SOURCE_KO, ' · ');
   if (s.stage === 'plan' && r.steps) return `검색 ${r.steps}개`;
   if (s.stage === 'search' && r.counts) {
     return Object.entries(r.counts).map(([k, n]) => `${SOURCE_KO[k] ?? k} ${n}건`).join(' · ');

@@ -5,6 +5,7 @@ import { Search, Trash2 } from 'lucide-react';
 import apiClient from '@/shared/api/client';
 import { errMsg, fmtTime } from '@/shared/utils/error';
 import MaskedText from '@/features/chat/components/MaskedText';
+import Pager from '@/shared/components/Pager';
 import * as api from '../api/admin.api';
 import type { AdminUser, Employee, Team } from '../api/admin.api';
 
@@ -41,7 +42,7 @@ export function DocsTab({ selected, onSelect, reloadKey }: { selected: string | 
     <>
       <div className="row" style={{ marginBottom: 10, flexWrap: 'wrap' }}>
         <label className="search" style={{ width: 260, margin: 0 }}>
-          <Search size={14} aria-hidden /><input placeholder="문서 ID·종류·팀·담당 직원" value={q} onChange={(e) => { setQ(e.target.value); setPage(0); }} />
+          <Search size={14} aria-hidden /><input placeholder="문서 ID · 종류 · 팀 · 담당 직원" value={q} onChange={(e) => { setQ(e.target.value); setPage(0); }} />
         </label>
         <select className="select" style={{ width: 150, height: 34 }} value={vis} onChange={(e) => { setVis(e.target.value); setPage(0); }}>
           <option value="">공개 범위 전체</option><option value="public">공개</option><option value="team">팀</option><option value="restricted">제한</option>
@@ -67,11 +68,7 @@ export function DocsTab({ selected, onSelect, reloadKey }: { selected: string | 
           {data.items.length === 0 && <tr><td colSpan={8} className="muted" style={{ textAlign: 'center', padding: 30 }}>문서가 없어요.</td></tr>}
         </tbody>
       </table>
-      <div className="row" style={{ justifyContent: 'center', marginTop: 10 }}>
-        <button className="btn btn-sm" disabled={page === 0} onClick={() => setPage(page - 1)}>이전</button>
-        <span className="small muted">{page + 1} / {pages}</span>
-        <button className="btn btn-sm" disabled={page + 1 >= pages} onClick={() => setPage(page + 1)}>다음</button>
-      </div>
+      <Pager page={page} pages={pages} onChange={setPage} />
       <h3 style={{ margin: '20px 0 8px' }}>지운 기록</h3>
       <table className="table">
         <thead><tr><th>시각</th><th>문서</th><th>지운 사람</th><th>사유</th><th>지운 것</th></tr></thead>
@@ -144,7 +141,7 @@ export function DocDetailPanel({ docId, onDeleted, onChanged }: { docId: string;
       ) : (
         <div className="stack" style={{ border: '1px solid #f09595', borderRadius: 8, padding: 12, background: '#fffafa' }}>
           <p className="small" style={{ color: 'var(--bad)' }}>
-            검색에서 바로 빠지고 되돌릴 수 없어요. 이 문서의 청크·사람 언급·검수 원문을 지우고, 다른 문서에 안 나오는 토큰·사람도 지워요. 지운 기록은 남아요.
+            검색에서 바로 빠지고 되돌릴 수 없어요. 이 문서의 청크 · 사람 언급 · 검수 원문을 지우고, 다른 문서에 안 나오는 토큰·사람도 지워요. 지운 기록은 남아요.
           </p>
           <textarea className="textarea" placeholder="지우는 사유 (예: 잘못 올린 파일, 본인 삭제 요청)" value={reason} onChange={(e) => setReason(e.target.value)} maxLength={500} />
           <input className="input" placeholder={`확인: ${docId} 입력`} value={typed} onChange={(e) => setTyped(e.target.value)} />
@@ -174,7 +171,7 @@ export function EmployeesTab({ users }: { users: AdminUser[] }) {
     <>
       <div className="row" style={{ marginBottom: 10 }}>
         <label className="search" style={{ width: 260, margin: 0 }}>
-          <Search size={14} aria-hidden /><input placeholder="이름·팀·직원 번호" value={q} onChange={(e) => setQ(e.target.value)} />
+          <Search size={14} aria-hidden /><input placeholder="이름 · 팀 · 직원 번호" value={q} onChange={(e) => setQ(e.target.value)} />
         </label>
         <div className="spacer" />
         <span className="small muted">문서에서 추론한 직원 + 관리자가 만든 직원(U…) · {list.length}명</span>
@@ -252,7 +249,7 @@ function MetaEditor({ d, onSaved }: { d: DocDetail; onSaved: () => void }) {
         </select>
       </label>
       <label className="field" style={{ margin: 0, position: 'relative' }}><span>담당 직원</span>
-        <input className="input" placeholder="이름·팀·직원 번호로 찾기 (비우면 없음)" value={owner} onChange={(e) => search(e.target.value)} />
+        <input className="input" placeholder="이름 · 팀 · 직원 번호로 찾기 (비우면 없음)" value={owner} onChange={(e) => search(e.target.value)} />
         {found.length > 0 && (
           <div className="stack" style={{ gap: 0, border: '1px solid var(--line)', borderRadius: 8, marginTop: 4, background: '#fff' }}>
             {found.map((e) => (

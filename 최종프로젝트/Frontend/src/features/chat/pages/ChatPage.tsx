@@ -14,6 +14,7 @@ import MaskedText from '../components/MaskedText';
 import Restorable from '../components/Restorable';
 import StreamProgress from '../components/StreamProgress';
 import type { Step } from '../components/StreamProgress';
+import ConfirmDialog from '@/shared/components/ConfirmDialog';
 import './chat.css';
 
 interface Msg {
@@ -274,8 +275,9 @@ export default function ChatPage() {
   };
 
   const newChat = () => { setCurrentId(null); setFocusMsg(null); setFocusDoc(null); setOpenErr(''); };
+  // 대화 지우기: 확인 대화상자를 거침 (되돌릴 수 없음)
+  const [toDelete, setToDelete] = useState<Conv | null>(null);
   const remove = async (id: number) => {
-    if (!window.confirm('이 대화를 지울까요? 계정에 저장된 내역에서도 지워지고 되돌릴 수 없어요.')) return;
     try {
       await chatApi.deleteConversation(id);
       setConvs((cs) => cs.filter((c) => c.id !== id));
@@ -301,7 +303,7 @@ export default function ChatPage() {
               <div key={c.id} className={`conv${c.id === currentId ? ' active' : ''}`}
                    onClick={() => { open(c.id); if (isNarrow()) setListOpen(false); }} title={c.title}>
                 <span className="conv-title"><MaskedText text={c.title} /></span>
-                <button className="icon-btn" aria-label="대화 지우기" onClick={(e) => { e.stopPropagation(); remove(c.id); }}><Trash2 size={13} /></button>
+                <button className="icon-btn" aria-label="대화 지우기" onClick={(e) => { e.stopPropagation(); setToDelete(c); }}><Trash2 size={13} /></button>
               </div>
             ))}
           </div>
@@ -363,7 +365,7 @@ export default function ChatPage() {
                   {!m.result.askBack && !!m.result.ambiguousPeople?.length && (
                     <p className="small homonym-warn">
                       <AlertTriangle size={13} aria-hidden /> 동명이인 가능: 질문·답변의{' '}
-                      {m.result.ambiguousPeople.map((t) => `이름·${t.slice(8, 12)}`).join(', ')}은(는) 같은 이름의 다른 사람이 있어요.
+                      {m.result.ambiguousPeople.map((t) => `이름 · ${t.slice(8, 12)}`).join(', ')}은(는) 같은 이름의 다른 사람이 있어요.
                       다른 사람 기록이 섞였을 수 있으니 근거 문서를 확인해 주세요.
                     </p>
                   )}
@@ -396,6 +398,13 @@ export default function ChatPage() {
           <button className="btn btn-primary btn-sm" disabled={busy || !q.trim()} aria-label="보내기"><Send size={15} /></button>
         </form>
       </section>
+
+      {toDelete && (
+        <ConfirmDialog title="대화 지우기" confirmLabel="지우기" danger
+                       message={<>「<MaskedText text={toDelete.title} />」 대화를 지울까요? 내 계정에 저장된 질문과 답변이 모두 지워지고 되돌릴 수 없어요.</>}
+                       onCancel={() => setToDelete(null)}
+                       onConfirm={() => { const id = toDelete.id; setToDelete(null); remove(id); }} />
+      )}
 
       {/* 좁은 창에서 서랍이 열렸을 때만 보이는 뒤 배경 (누르면 닫힘) */}
       {(listOpen || showSide) && <div className="drawer-back" onClick={closeDrawers} aria-hidden />}

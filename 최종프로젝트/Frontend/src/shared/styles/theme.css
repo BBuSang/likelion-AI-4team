@@ -148,3 +148,26 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .pick.on { border-color: var(--brand); background: #f7f9ff; }
 .pick.off { opacity: .55; cursor: default; }
 .pick input { margin-top: 4px; }
+
+/* ---------- 작은 탭 (관리자 문서 탭 안의 출처 고르기) ---------- */
+.subtabs { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 12px; }
+.subtab { border: 1px solid var(--line); background: var(--panel); color: var(--text-2); border-radius: 999px; padding: 3px 12px; font-size: 13px; cursor: pointer; }
+.subtab:hover { background: var(--panel-2); }
+.subtab.on { border-color: var(--brand); background: var(--brand-soft); color: var(--brand-ink); font-weight: 500; }
+
+/* ---------- 공개 자료 보기 (관리자 문서 탭) ---------- */
+.table-scroll { overflow-x: auto; }
+.pub-products { display: flex; flex-wrap: wrap; gap: 4px; max-height: 140px; overflow: auto; }
+.pub-section { border-top: 1px solid #eef1f6; padding: 8px 0; }
+.pub-section-label { font-size: 13px; font-weight: 500; color: var(--brand-ink); }
+.pub-section-text { font-size: 12.5px; line-height: 1.65; color: var(--text); white-space: pre-wrap; overflow-wrap: anywhere; margin-top: 2px; }
+
+/* ---------- 쪽 버튼 (shared/components/Pager) ---------- */
+.pager { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 2px; margin-top: 6px; }
+.pager-item { display: inline-flex; align-items: center; gap: 2px; }
+.pager-btn { display: inline-flex; align-items: center; justify-content: center; min-width: 24px; height: 24px; padding: 0 6px;
+             border: none; border-radius: 6px; background: none; color: var(--text-3); font-size: 12px; cursor: pointer; font-variant-numeric: tabular-nums; }
+.pager-btn:hover:not(:disabled) { background: var(--panel-2); color: var(--text); }
+.pager-btn.on { background: var(--brand-soft); color: var(--brand-ink); font-weight: 600; }
+.pager-btn:disabled { opacity: .35; cursor: default; }
+.pager-gap { color: var(--text-3); font-size: 12px; padding: 0 2px; }
