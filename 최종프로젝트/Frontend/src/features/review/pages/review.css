@@ -1,5 +1,7 @@
 .drop { display: flex; flex-direction: column; align-items: center; gap: 4px; border: 1.5px dashed var(--line-strong); border-radius: var(--radius-lg); padding: 22px; cursor: pointer; background: #fbfcff; text-align: center; }
 .drop:hover { border-color: var(--brand); }
+/* 파일을 끌고 상자 위에 있는 동안: 놓아도 된다는 표시 */
+.drop.drop-over { border-color: var(--brand); border-style: solid; }
 .doc-row { display: flex; align-items: center; gap: 8px; padding: 9px 6px; border-bottom: 1px solid #eef1f6; cursor: pointer; border-radius: 6px; }
 .doc-row:hover { background: var(--panel-2); }
 .legend { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 12px; }

@@ -2,6 +2,8 @@
 import { useEffect, useState } from 'react';
 import apiClient from '@/shared/api/client';
 import { errMsg } from '@/shared/utils/error';
+import MaskedText from '@/features/chat/components/MaskedText';
+import Pager from '@/shared/components/Pager';
 import './stats.css';
 
 interface Stats {
@@ -24,6 +26,12 @@ function sortAlerts(alerts: Alert[], by: 'time' | 'severity' | 'rule') {
     by === 'severity' ? [SEV_RANK[a.severity] ?? 9, t(a)] : by === 'rule' ? [RULE_ORDER.indexOf(a.rule), t(a)] : [t(a), 0];
   return [...alerts].sort((x, y) => { const a = key(x), b = key(y); return a[0] - b[0] || a[1] - b[1]; });
 }
+// 최근 대화 (전체 사용자): 계정·제목(가명처리된 첫 질문)·질문 수만. 서버가 페이지 단위로 줌
+interface RecentConv { id: number; userId: number; email: string | null; role: string | null; team: string | null; title: string; messages: number; updatedAt: string }
+interface RecentPage { items: RecentConv[]; total: number; page: number; size: number }
+const PAGE = 10; // 표 한 페이지 줄 수
+
+
 interface RestoreRow { id: number; actor: string; role: string; purpose: string | null; doc_ids: string[]; restored: number; denied: number; created_at: string }
 
 const VIS: Record<string, string> = { public: '공개', team: '팀', restricted: '제한' };
@@ -48,15 +56,27 @@ export default function StatsPage() {
   const [s, setS] = useState<Stats | null>(null);
   const [log, setLog] = useState<RestoreRow[]>([]);
   const [anom, setAnom] = useState<Anomalies | null>(null);
-  const [showAll, setShowAll] = useState(false);
+  const [alertPage, setAlertPage] = useState(0);
   const [sortBy, setSortBy] = useState<'time' | 'severity' | 'rule'>('time');
   const [error, setError] = useState('');
+  const [logPage, setLogPage] = useState(0);
+  const [convs, setConvs] = useState<RecentPage | null>(null);
+  const [convPage, setConvPage] = useState(0);
+  const [convErr, setConvErr] = useState('');
 
   useEffect(() => {
     apiClient.get<Stats>('/api/admin/stats', { params: { days: 14 } }).then((r) => setS(r.data)).catch((e) => setError(errMsg(e)));
-    apiClient.get<RestoreRow[]>('/api/admin/restore-log', { params: { limit: 20 } }).then((r) => setLog(r.data)).catch(() => {});
+    // 실명 보기 기록은 최근 100건을 받아 화면에서 10건씩 나눠 보여 줌
+    apiClient.get<RestoreRow[]>('/api/admin/restore-log', { params: { limit: 100 } }).then((r) => setLog(r.data)).catch(() => {});
     apiClient.get<Anomalies>('/api/admin/anomalies', { params: { days: 14 } }).then((r) => setAnom(r.data)).catch(() => {});
   }, []);
+
+  // 최근 대화: 쪽을 바꿀 때마다 그 쪽만 서버에서
+  useEffect(() => {
+    apiClient.get<RecentPage>('/api/admin/recent-conversations', { params: { page: convPage, size: PAGE } })
+      .then((r) => { setConvs(r.data); setConvErr(''); })
+      .catch((e) => setConvErr(errMsg(e)));
+  }, [convPage]);
 
   if (!s) return <section className="panel page">{error ? <div className="alert alert-bad">{error}</div> : <p className="muted">불러오는 중…</p>}</section>;
 
@@ -68,7 +88,7 @@ export default function StatsPage() {
 
   return (
     <section className="panel page">
-      <div className="page-head"><div><h1>통계</h1><p>문서·검수·실명 보기 현황 (값 없이 개수만)</p></div></div>
+      <div className="page-head"><div><h1>통계</h1><p>문서·검수·실명 보기 현황</p></div></div>
       <div className="metrics">
         <div className="metric"><p>저장된 문서</p><b>{s.documents.total.toLocaleString()}</b><span>청크 {s.documents.chunks.toLocaleString()}</span></div>
         <div className="metric"><p>문서 속 직원</p><b>{s.employees.total}</b><span>팀장 {s.employees.by_role.LEAD ?? 0} · 감사 {s.employees.by_role.AUDITOR ?? 0}</span></div>
@@ -109,7 +129,7 @@ export default function StatsPage() {
           {anom && <span className="small muted">높음 {anom.summary.by_severity.high ?? 0} · 중간 {anom.summary.by_severity.medium ?? 0} · 낮음 {anom.summary.by_severity.low ?? 0}</span>}
           {anom && anom.alerts.length > 0 && (
             <select className="select" style={{ height: 30, width: 110, marginLeft: 10 }} value={sortBy} aria-label="정렬"
-                    onChange={(e) => setSortBy(e.target.value as 'time' | 'severity' | 'rule')}>
+                    onChange={(e) => { setSortBy(e.target.value as 'time' | 'severity' | 'rule'); setAlertPage(0); }}>
               <option value="time">시간순</option>
               <option value="severity">위험도순</option>
               <option value="rule">규칙순</option>
@@ -123,7 +143,7 @@ export default function StatsPage() {
             <table className="table">
               <thead><tr><th>위험</th><th>규칙</th><th>계정</th><th>역할·팀</th><th>시각</th><th>내용</th></tr></thead>
               <tbody>
-                {(showAll ? sortAlerts(anom.alerts, sortBy) : sortAlerts(anom.alerts, sortBy).slice(0, 10)).map((a) => (
+                {sortAlerts(anom.alerts, sortBy).slice(alertPage * PAGE, (alertPage + 1) * PAGE).map((a) => (
                   <tr key={a.id}>
                     <td><span className={`badge ${SEV[a.severity].cls}`}>{SEV[a.severity].n}</span></td>
                     <td className="nowrap">{a.rule_ko}</td>
@@ -135,11 +155,7 @@ export default function StatsPage() {
                 ))}
               </tbody>
             </table>
-            {anom.alerts.length > 10 && (
-              <button className="btn btn-sm" style={{ marginTop: 8 }} onClick={() => setShowAll((v) => !v)}>
-                {showAll ? '접기' : `전체 ${anom.alerts.length}건 보기`}
-              </button>
-            )}
+            <Pager page={alertPage} pages={Math.ceil(anom.alerts.length / PAGE)} onChange={setAlertPage} />
           </>
         )}
         <p className="small muted" style={{ marginTop: 8 }}>
@@ -153,11 +169,44 @@ export default function StatsPage() {
           <thead><tr><th>역할</th><th>횟수</th><th>복원된 토큰</th><th>권한 없어 거부</th></tr></thead>
           <tbody>{s.restore.map((r) => <tr key={r.role}><td>{ROLE[r.role] ?? r.role}</td><td>{r.count}</td><td>{r.tokens}</td><td>{r.denied}</td></tr>)}</tbody>
         </table>
-        <h2 style={{ margin: '18px 0 10px' }}>최근 실명 보기 기록</h2>
+        <div className="row" style={{ margin: '18px 0 10px' }}>
+          <h2>최근 대화 기록</h2>
+          <div className="spacer" />
+          {convs && <span className="small muted">전체 {convs.total.toLocaleString()}건</span>}
+        </div>
+        {convErr && <p className="small" style={{ color: 'var(--bad)' }}>대화 기록을 불러오지 못했어요. {convErr}</p>}
+        {!convs && !convErr && <p className="small muted">불러오는 중…</p>}
+        {convs && convs.items.length === 0 && <p className="small muted">아직 대화가 없어요.</p>}
+        {convs && convs.items.length > 0 && (
+          <div className="table-wrap">
+            <table className="table">
+              <thead><tr><th>시각</th><th>계정</th><th>역할·팀</th><th>대화 제목 (가명처리)</th><th>질문</th></tr></thead>
+              <tbody>
+                {convs.items.map((c) => (
+                  <tr key={c.id}>
+                    <td className="small muted nowrap">{new Date(c.updatedAt).toLocaleString('ko-KR')}</td>
+                    <td className="small">{c.email ?? '-'}</td>
+                    <td className="small">{ROLE[c.role ?? ''] ?? c.role ?? '-'}{c.team ? ` · ${c.team}` : ''}</td>
+                    <td className="small conv-cell" title={c.title}><MaskedText text={c.title} /></td>
+                    <td>{c.messages}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+        {convs && <Pager page={convPage} pages={Math.ceil(convs.total / PAGE)} onChange={setConvPage} />}
+
+        <div className="row" style={{ margin: '18px 0 10px' }}>
+          <h2>최근 실명 보기 기록</h2>
+          <div className="spacer" />
+          {log.length > 0 && <span className="small muted">최근 {log.length}건</span>}
+        </div>
+        <div className="table-wrap">
         <table className="table">
           <thead><tr><th>시각</th><th>계정</th><th>역할</th><th>문서</th><th>복원</th><th>거부</th><th>사유</th></tr></thead>
           <tbody>
-            {log.map((r) => (
+            {log.slice(logPage * PAGE, (logPage + 1) * PAGE).map((r) => (
               <tr key={r.id}>
                 <td className="small muted nowrap">{new Date(r.created_at).toLocaleString('ko-KR')}</td>
                 <td className="small">{r.actor}</td><td>{ROLE[r.role] ?? r.role}</td>
@@ -167,6 +216,8 @@ export default function StatsPage() {
             ))}
           </tbody>
         </table>
+        </div>
+        <Pager page={logPage} pages={Math.ceil(log.length / PAGE)} onChange={setLogPage} />
       </div>
     </section>
   );

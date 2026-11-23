@@ -106,8 +106,14 @@ public class AdminService {
         return AdminUserResponse.of(u);
     }
 
+    static final int SUSPEND_REASON_MAX = 500;
+
     @Transactional
     public AdminUserResponse update(Long adminId, Long id, UpdateUserRequest req) {
+        // 정지는 사유가 있어야 (변경 기록에 남겨 나중에 왜 막았는지 알 수 있게)
+        String reason = req.reason() == null ? "" : req.reason().strip();
+        if (req.status() == UserStatus.SUSPENDED && reason.isEmpty()) throw ApiException.badRequest("정지 사유를 입력하세요.");
+        if (reason.length() > SUSPEND_REASON_MAX) throw ApiException.badRequest("정지 사유는 " + SUSPEND_REASON_MAX + "자까지 쓸 수 있습니다.");
         User u = user(id);
         Map<String, Object[]> changes = new LinkedHashMap<>();
         applyTeamPosition(u, req.teamId(), req.positionId(), changes);
@@ -127,6 +133,7 @@ public class AdminService {
                 throw ApiException.badRequest("자기 계정은 정지할 수 없습니다.");
             }
             set(changes, "status", u.getStatus(), req.status());
+            if (req.status() == UserStatus.SUSPENDED) changes.put("reason", new Object[]{null, reason});
             u.setStatus(req.status());
         }
         if (Boolean.TRUE.equals(req.unlinkEmployee())) {

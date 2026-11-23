@@ -46,9 +46,10 @@ public final class AdminDtos {
      */
     public record ApproveRequest(String empId, boolean createEmployee, Long teamId, Long positionId, Role role) {}
 
-    /** 비어 있는(null) 값은 안 바꿈. unlinkEmployee=true 면 직원 연결 해제 */
+    /** 비어 있는(null) 값은 안 바꿈. unlinkEmployee=true 면 직원 연결 해제.
+     *  reason = 정지 사유 (status 가 SUSPENDED 면 필수, 최대 500자) — 변경 기록에 같이 남김 */
     public record UpdateUserRequest(Long teamId, Long positionId, Role role, Boolean admin,
-                                    UserStatus status, String empId, Boolean unlinkEmployee) {}
+                                    UserStatus status, String empId, Boolean unlinkEmployee, String reason) {}
 
     public record TeamRequest(@NotBlank @Size(max = 50) String name) {}
 
