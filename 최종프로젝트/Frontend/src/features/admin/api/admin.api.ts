@@ -16,7 +16,8 @@ export interface AuditLog { id: number; adminId: number; targetUserId: number | 
 export interface Position { id: number; name: string }
 
 export interface ApproveBody { empId?: string; createEmployee?: boolean; teamId?: number; positionId?: number; role?: Role }
-export interface UpdateBody { teamId?: number; positionId?: number; role?: Role; admin?: boolean; status?: UserStatus; empId?: string; unlinkEmployee?: boolean }
+/** reason = 정지 사유 (status 가 SUSPENDED 면 필수, 최대 500자 — 변경 기록에 남음) */
+export interface UpdateBody { teamId?: number; positionId?: number; role?: Role; admin?: boolean; status?: UserStatus; empId?: string; unlinkEmployee?: boolean; reason?: string }
 
 const A = '/api/admin';
 export const users = async (status?: UserStatus) => (await apiClient.get<AdminUser[]>(`${A}/users`, { params: { status } })).data;

@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AlertTriangle, ArrowLeft, ChevronLeft, ChevronRight, Plus, Trash2 } from 'lucide-react';
+import ConfirmDialog from '@/shared/components/ConfirmDialog';
 import { errMsg } from '@/shared/utils/error';
 import { LABELS, cpSlice, labelInfo, toCodePoint } from '@/shared/utils/pii';
 import * as api from '../api/ingest.api';
@@ -161,8 +162,33 @@ export default function ReviewPage() {
     return { added, removed, relabeled };
   }, [doc, spans]);
 
+  // 저장하지 않은 수정 수: 처음 불러온 doc.spans 와 다른 곳(더함·뺌·라벨 바꿈) + 사람 잇기 선택(choices)
+  const unsaved = useMemo(() => {
+    if (!doc) return 0;
+    const key = (s: Span) => `${s.start}-${s.end}`;
+    const init = new Map(doc.spans.map((s) => [key(s), s.label]));
+    const cur = new Map(spans.map((s) => [key(s), s.label]));
+    let n = 0;
+    cur.forEach((l, k) => { if (init.get(k) !== l) n++; });
+    init.forEach((_, k) => { if (!cur.has(k)) n++; });
+    return n + Object.keys(choices).length;
+  }, [doc, spans, choices]);
+
+  // 수정이 있으면 새로고침·탭 닫기 전에 브라우저가 물어봄 (문구는 브라우저가 정함)
+  useEffect(() => {
+    if (!unsaved) return;
+    const onUnload = (e: BeforeUnloadEvent) => { e.preventDefault(); e.returnValue = ''; };
+    window.addEventListener('beforeunload', onUnload);
+    return () => window.removeEventListener('beforeunload', onUnload);
+  }, [unsaved]);
+
+  // 이전·다음·목록: 수정이 있으면 확인 대화상자를 거쳐 이동 (승인·반려 뒤 자동 이동은 묻지 않음)
+  const [leaveTo, setLeaveTo] = useState<string | null>(null);
+  const leave = (path: string) => (unsaved ? setLeaveTo(path) : nav(path));
+
   const idx = siblings.findIndex((s) => s.id === docId);
   const go = (d?: StagingRow) => d && nav(`/ingest/docs/${d.id}`);
+  const goAsk = (d?: StagingRow) => d && leave(`/ingest/docs/${d.id}`);
   const nextPending = () => siblings.find((s, i) => i > idx && (s.status === 'pending' || s.status === 'failed'))
     ?? siblings.find((s) => s.id !== docId && (s.status === 'pending' || s.status === 'failed'));
 
@@ -193,16 +219,16 @@ export default function ReviewPage() {
     <>
       <section className="panel page" style={{ display: 'flex', flexDirection: 'column' }}>
         <div className="page-head">
-          <button className="btn btn-sm btn-ghost" onClick={() => nav('/ingest')}><ArrowLeft size={15} aria-hidden /> 목록</button>
+          <button className="btn btn-sm btn-ghost" onClick={() => leave('/ingest')}><ArrowLeft size={15} aria-hidden /> 목록</button>
           <div>
             <h1>{doc.doc_id}</h1>
             <p>{doc.doc_type ?? '문서'} · 업로드 #{doc.job_id}</p>
           </div>
           <span className={`badge ${DOC_STATUS[doc.status]?.cls ?? 'badge-gray'}`}>{DOC_STATUS[doc.status]?.n ?? doc.status}</span>
           <div className="spacer" />
-          <button className="btn btn-sm" disabled={idx <= 0} onClick={() => go(siblings[idx - 1])} aria-label="이전 문서"><ChevronLeft size={15} /></button>
+          <button className="btn btn-sm" disabled={idx <= 0} onClick={() => goAsk(siblings[idx - 1])} aria-label="이전 문서"><ChevronLeft size={15} /></button>
           <span className="small muted">{idx + 1} / {siblings.length || 1}</span>
-          <button className="btn btn-sm" disabled={idx < 0 || idx >= siblings.length - 1} onClick={() => go(siblings[idx + 1])} aria-label="다음 문서"><ChevronRight size={15} /></button>
+          <button className="btn btn-sm" disabled={idx < 0 || idx >= siblings.length - 1} onClick={() => goAsk(siblings[idx + 1])} aria-label="다음 문서"><ChevronRight size={15} /></button>
         </div>
         <div className="legend">
           {LABELS.map((l) => <span key={l.label} className={`pii pii-${l.cls}`}>{l.key} {l.name}</span>)}
@@ -326,6 +352,13 @@ export default function ReviewPage() {
           </div>
         )}
       </aside>
+
+      {leaveTo && (
+        <ConfirmDialog title="저장하지 않은 수정" confirmLabel="이동" danger
+                       message={`저장하지 않은 수정 ${unsaved}건이 사라져요. 이동할까요?`}
+                       onCancel={() => setLeaveTo(null)}
+                       onConfirm={() => { const to = leaveTo; setLeaveTo(null); nav(to); }} />
+      )}
     </>
   );
 }

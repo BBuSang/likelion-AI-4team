@@ -18,3 +18,7 @@
 .hbar i { display: block; height: 100%; background: var(--brand); border-radius: 4px; }
 .hbar b { font-weight: 500; text-align: right; }
 @media (max-width: 1100px) { .grid2 { grid-template-columns: 1fr; } }
+
+/* 최근 대화·실명 보기 기록: 표가 좁은 화면에서 옆으로 넘치면 표 안에서만 가로 스크롤, 아래 쪽 번호 */
+.table-wrap { overflow-x: auto; }
+.conv-cell { max-width: 320px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
