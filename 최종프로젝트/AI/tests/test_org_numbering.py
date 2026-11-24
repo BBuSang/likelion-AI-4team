@@ -1,4 +1,4 @@
-"""새 직원 번호 (안 A) — 문서 재적재로 vault·rag 의 U 직원이 지워져도 스프링 계정 번호와 안 겹침 (worklog 44장)"""
+"""새 직원 번호 (안 A) — 문서 재적재로 vault·rag 의 U 직원이 지워져도 스프링 계정 번호와 안 겹침"""
 from app.api.org import CreateRequest
 from app.org.directory import _next_u
 

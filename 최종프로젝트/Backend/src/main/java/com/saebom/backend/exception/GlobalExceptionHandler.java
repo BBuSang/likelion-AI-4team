@@ -13,7 +13,7 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(e.getStatus()).body(new ApiResponse(false, e.getMessage()));
     }
 
-    /** DB 제약 위반: SQL·제약 이름이 화면에 그대로 나가던 것 막음 (worklog 44장). 자세한 건 서버 로그에만 */
+    /** DB 제약 위반: SQL·제약 이름이 화면에 그대로 나가던 것 막음. 자세한 건 서버 로그에만 */
     @ExceptionHandler(org.springframework.dao.DataIntegrityViolationException.class)
     public ResponseEntity<ApiResponse> integrity(org.springframework.dao.DataIntegrityViolationException e) {
         org.slf4j.LoggerFactory.getLogger(GlobalExceptionHandler.class).warn("DB 제약 위반: {}", e.getMostSpecificCause().getMessage());

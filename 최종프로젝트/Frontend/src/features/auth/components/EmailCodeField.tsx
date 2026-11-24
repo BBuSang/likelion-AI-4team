@@ -1,4 +1,4 @@
-// 이메일 인증 칸 (가입·비밀번호 재설정 공통, worklog 41·42장)
+// 이메일 인증 칸 (가입·비밀번호 재설정 공통)
 // 이메일 + [코드 받기] → 코드 6자리 + [확인] → 안내 한 줄 + [다시 받기] → "인증을 마쳤어요"
 import { useEffect, useState } from 'react';
 import { MailCheck } from 'lucide-react';

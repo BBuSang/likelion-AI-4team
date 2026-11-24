@@ -1,4 +1,4 @@
--- 현장건의 과제: 기존 회신(interp.cases/case_groups/chunks)과 분리한 별도 테이블 (2026-11-11 사용자 결정, worklog 85번)
+-- 현장건의 과제: 기존 회신(interp.cases/case_groups/chunks)과 분리한 별도 테이블 (2026-11-11 사용자 결정번)
 -- 기존 rag.search()와 설정 지문은 interp.chunks만 보므로 이 테이블을 추가해도 바뀌지 않는다.
 
 CREATE TABLE interp.exmnt_groups (

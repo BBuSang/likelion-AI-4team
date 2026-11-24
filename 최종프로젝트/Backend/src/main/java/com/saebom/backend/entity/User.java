@@ -8,7 +8,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.time.LocalDateTime;
 
 /**
- * 직원 계정 (app.users, worklog 11-4 확정안).
+ * 직원 계정 (app.users확정안).
  * - role: 데이터 접근 역할 (STAFF/LEAD/AUDITOR). 관리자 페이지 권한은 admin(is_admin) 으로 따로
  * - empId: 문서에서 추론한 직원(AI 서버 직원 목록)과 연결. 승인 때 관리자가 정함
  * - 가입 때 고른 팀·직급은 본인 주장이라 그대로 믿지 않고, 관리자가 승인하면서 확인

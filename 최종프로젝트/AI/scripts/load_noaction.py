@@ -1,4 +1,4 @@
-"""금융당국 회신 선례 RAG 를 사공삼 DB 에 넣기 (worklog 53장) — interp 스키마 + 읽기 전용 계정 interp_reader.
+"""금융당국 회신 선례 RAG 를 사공삼 DB 에 넣기 — interp 스키마 + 읽기 전용 계정 interp_reader.
 
     python scripts/load_noaction.py            # 이미 있으면 멈춤
     python scripts/load_noaction.py --rebuild  # interp 스키마를 지우고 다시

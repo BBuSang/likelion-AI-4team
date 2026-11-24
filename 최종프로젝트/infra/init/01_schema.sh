@@ -1,6 +1,6 @@
 #!/bin/bash
 # 컨테이너 최초 실행 시 한 번만 실행됩니다. (다시 만들려면: docker compose down -v 후 up)
-# 실전 2 init/01_schema.sh 를 바탕으로, 최종프로젝트 스키마를 더했습니다 (worklog 6-1, 3-7).
+# 실전 2 init/01_schema.sh 를 바탕으로, 최종프로젝트 스키마를 더했습니다.
 # app   : 회원·직책·권한 (Spring, app_user)
 # rag   : 가명처리된 청크 + 토큰 + 임베딩, 추정 인물(토큰만)  (AI 서버, rag_user)
 # docs  : 일반 문서 RAG 3개 (공개 자료, 개인정보 없음)          (docs_user, 테이블은 6-5-3 정한 뒤)
@@ -33,7 +33,7 @@ CREATE TABLE rag.chunks (
     masked_text  TEXT NOT NULL,                  -- 원문 저장 금지
     tokens       TEXT[] NOT NULL DEFAULT '{}',
     embedding    vector(${EMBED_DIM}) NOT NULL,
-    -- (최종) 문서 권한 (worklog 3-4-1, 10장). 검색 SQL 이 이 값으로 먼저 거름
+    -- (최종) 문서 권한. 검색 SQL 이 이 값으로 먼저 거름
     owner_emp_id TEXT,                           -- 담당 직원 (모르면 NULL)
     team         TEXT,                           -- 담당 팀 (모르면 NULL)
     visibility   TEXT NOT NULL DEFAULT 'restricted', -- public / team / restricted(감사만)
@@ -74,7 +74,7 @@ CREATE TABLE rag.documents (
     owner_emp_id  TEXT,
     team          TEXT,
     visibility    TEXT NOT NULL,
-    basis         JSONB NOT NULL DEFAULT '{}',   -- 담당자·팀을 어떻게 정했나 (worklog 10-2)
+    basis         JSONB NOT NULL DEFAULT '{}',   -- 담당자·팀을 어떻게 정했나
     created_at    TIMESTAMPTZ DEFAULT now()
 );
 
@@ -140,7 +140,7 @@ CREATE TABLE vault.restore_log (
 );
 CREATE INDEX restore_log_actor_time ON vault.restore_log (actor, created_at);
 
--- (최종) 직원 목록 — 이름 포함 (문서에서 추론, worklog 10장)
+-- (최종) 직원 목록 — 이름 포함 (문서에서 추론)
 CREATE TABLE vault.employees (
     emp_id      TEXT PRIMARY KEY,
     name        TEXT NOT NULL,
@@ -151,7 +151,7 @@ CREATE TABLE vault.employees (
     n_docs      INT NOT NULL DEFAULT 0
 );
 
--- (최종) 적재: 업로드 1번 = job, 문서 1건 = staging_doc (worklog 3-6, 3-7)
+-- (최종) 적재: 업로드 1번 = job, 문서 1건 = staging_doc
 CREATE TABLE vault.ingest_job (
     id          BIGSERIAL PRIMARY KEY,
     uploader    TEXT NOT NULL,                   -- 올린 사람 (Spring 이 넘긴 이메일)
@@ -174,7 +174,7 @@ CREATE TABLE vault.staging_doc (
     meta          JSONB NOT NULL DEFAULT '{}',
     detected      JSONB NOT NULL,                -- 탐지기 결과 그대로 [{label,start,end}]
     gold          JSONB,                         -- 파일에 정답 라벨이 있으면 (자동 승인 비교용만)
-    review        JSONB,                         -- 검수 판단 {needs_review, flags, hints} (값 없이 위치·점수만, worklog 29장)
+    review        JSONB,                         -- 검수 판단 {needs_review, flags, hints} (값 없이 위치·점수만)
     final_spans   JSONB,                         -- 승인된 구간
     status        TEXT NOT NULL DEFAULT 'pending', -- pending / stored / rejected / failed
     approved_by   TEXT,                          -- 검수자 이메일 / 'gold'(정답과 같음) / 'auto'(검수 신호 없음)
@@ -199,7 +199,7 @@ CREATE TABLE vault.review_log (
     created_at      TIMESTAMPTZ DEFAULT now()
 );
 
--- (최종) 저장된 문서를 관리자가 지운 기록 (worklog 15장). 값 없이 개수만
+-- (최종) 저장된 문서를 관리자가 지운 기록. 값 없이 개수만
 CREATE TABLE vault.deletion_log (
     id          BIGSERIAL PRIMARY KEY,
     doc_id      TEXT NOT NULL,

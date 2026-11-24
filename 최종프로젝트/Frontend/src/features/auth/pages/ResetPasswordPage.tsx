@@ -1,4 +1,4 @@
-// 비밀번호 재설정 (worklog 42장): 이메일 인증 → 새 비밀번호 → 완료
+// 비밀번호 재설정: 이메일 인증 → 새 비밀번호 → 완료
 import { useState } from 'react';
 import type { FormEvent } from 'react';
 import { Link } from 'react-router-dom';

@@ -1,4 +1,4 @@
-"""금융상품 RAG 벡터 만들기 (worklog 53장) — 처음 한 번, 데이터가 바뀌면 다시.
+"""금융상품 RAG 벡터 만들기 — 처음 한 번, 데이터가 바뀌면 다시.
 
     python scripts/build_product_vectors.py
 

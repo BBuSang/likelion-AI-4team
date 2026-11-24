@@ -70,7 +70,7 @@ export default function ReviewPage() {
     return () => clearTimeout(t);
   }, [spans, choices, doc, editable]);
 
-  // 검수로 온 이유 (worklog 29장): 위치가 그대로인 구간에만 표시, 힌트는 아직 아무 구간과도 안 겹친 것만
+  // 검수로 온 이유: 위치가 그대로인 구간에만 표시, 힌트는 아직 아무 구간과도 안 겹친 것만
   const flagAt = useMemo(() => new Map((doc?.review?.flags ?? []).map((f) => [`${f.start}-${f.end}`, f])), [doc]);
   const hints = useMemo(() => (doc?.review?.hints ?? []).filter((h) => !spans.some((s) => s.start < h.end && h.start < s.end)),
     [doc, spans]);

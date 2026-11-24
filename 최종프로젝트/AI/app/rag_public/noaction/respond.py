@@ -1,4 +1,4 @@
-"""금융당국 회신 선례 RAG 답변 (worklog 53장).
+"""금융당국 회신 선례 RAG 답변.
 
 1. 질문의 회신 시기 조건("2023년에 나온", "최근 3년간")을 규칙으로 떼어 회신일 조건으로 (검색·답변에는 조건을 뺀 질문)
 2. 검색 (search.rank) + 현장건의
@@ -12,6 +12,8 @@ import time
 from datetime import date
 
 from app.agents import progress
+
+from app.core import answer_format
 
 from . import search as S
 
@@ -31,10 +33,10 @@ SYSTEM = f"""당신은 은행 직원을 돕는 금융당국 회신 선례 검색
 7. 질문이 금융 규제 회신과 무관하면 "{NOT_FOUND}"라고만 답합니다.
 8. 사례에 적힌 조건·적용 대상·범위를 그대로 옮깁니다. 요약하더라도 조건을 빼거나 더 넓은 대상으로 일반화하지 않습니다. 규칙 4의 안내 말고는 사례에 없는 권고·주의·추론을 덧붙이지 않습니다.
 형식 규칙 (답변은 마크다운으로 쓰며 화면에 그대로 렌더링됩니다)
-- 아래 제목을 이 순서, 이 이름 그대로 씁니다. 제목은 "### "로 시작합니다.
-- "### 핵심 답변": 질문에 대한 핵심 답을 한 문장으로 씁니다.
-- "### 근거": 근거를 "- "로 시작하는 목록으로 2~4개, 항목마다 한두 문장으로 짧게 씁니다. 항목마다 결론을 가르는 조건·대상·수치 한 곳을 **굵게** 표시합니다. 사례번호는 굵게 하지 않습니다.
-- "### 유의사항": 규칙 4의 안내가 있을 때만 "- " 목록으로 씁니다. 없으면 이 제목을 쓰지 않습니다.
+- 맨 앞에는 제목 없이 질문에 대한 핵심 답을 한 문장으로 씁니다 ("핵심 답변" 같은 제목은 쓰지 않습니다).
+- 그다음 아래 제목을 이 순서, 이 이름 그대로 씁니다. 제목은 "### "로 시작합니다.
+- "### 상세 설명": 근거를 "- "로 시작하는 목록으로 2~4개, 항목마다 한두 문장으로 짧게 씁니다. 항목마다 결론을 가르는 조건·대상·수치 한 곳을 **굵게** 표시합니다. 사례번호는 굵게 하지 않습니다.
+- "### 유의사항": 규칙 4의 안내가 있을 때만 "- " 목록으로 씁니다. 없으면 이 제목을 쓰지 않습니다 (최종 판단 안내는 코드가 붙임).
 - 회신 날짜(연·월·일)와 "○○ 회신에서" 같은 머리말은 쓰지 않습니다. 회신 날짜는 화면의 사례 카드에 따로 표시됩니다. 사례 내용에 나오는 기한·시행일은 필요할 때만 씁니다.
 - 표, 번호 매기기, 다른 제목은 쓰지 않습니다.
 - 규칙 1·7에 따라 찾지 못했다고 답할 때는 제목 없이 그 문장만 씁니다.
@@ -147,7 +149,7 @@ def judge(question, context):
 
 def _answer(question, context, ids):
     system = SYSTEM + EXMNT_RULES if any(i.startswith("F") for i in ids) else SYSTEM
-    progress.step("answer")  # 스트리밍 단계 알림 (worklog 60장)
+    progress.step("answer")  # 스트리밍 단계 알림
     r = S.client().chat.completions.create(model=S.config.LLM_MODEL, reasoning_effort="low",
                                            messages=[{"role": "system", "content": system},
                                                      {"role": "user", "content": f"[질문]\n{question}\n\n[사례]\n{context}"}])
@@ -209,7 +211,7 @@ def _ask(question, rng=None, pre=None, relax=True):
         c = cases[i]
         cards[i] = {"case_key": i, "title": (c["title"] or "").strip(), "gubun": c["gubun"], "reply_date": str(c["reply_date"] or "미상"),
                     "answer_type": c["answer_type"], "question": (c["question"] or "").strip(), "answer": (c["answer"] or "").strip(),
-                    "reason": (c["reason"] or "").strip(),  # 화면 근거 문서에 이유까지 (worklog 59장)
+                    "reason": (c["reason"] or "").strip(),  # 화면 근거 문서에 이유까지
                     "url": c["url"], "time_mark": c["time_mark"], "time_label": c["time_label"]}
     for f in fields:
         cards[f["case_key"]] = {"case_key": f["case_key"], "title": (f["title"] or "").strip(), "gubun": "현장건의",
@@ -237,7 +239,7 @@ def answer(question):
         res = _ask(question)
     if res is None:
         return {"answer": NOT_FOUND, "found": False, "sources": [], "period": period, "timing": {"total": round(time.perf_counter() - t0, 3)}}
-    text = res["raw"] if NOT_FOUND in res["raw"] else f"{res['raw']}\n\n{CLOSING}"
+    text = res["raw"] if NOT_FOUND in res["raw"] else answer_format.add_note(res["raw"], CLOSING)  # 유의사항에 (69장)
     sources = [dict(res["cards"][k], cited=True) for k in res["cited"] if k in res["cards"]]
     if period:
         period = {**period, "from": str(period["from"] or ""), "to": str(period["to"] or ""), "fallback": fallback}

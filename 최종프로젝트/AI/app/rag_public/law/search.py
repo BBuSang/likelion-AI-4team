@@ -1,4 +1,4 @@
-"""법령 RAG 검색 (worklog 53장).
+"""법령 RAG 검색.
 
 흐름: 질문 → KURE-v1 임베딩 → pgvector 조각 상위 50 (HNSW ef_search 100) → 조문 단위로 합침 (조문 점수 = 조각 최고점)
       → 답변 후보 = 1~10위 + 1~5위에 위임·준용으로 연결된 조문 → 조문 글 (여러 조각이면 2,000자까지 전체)
@@ -145,7 +145,7 @@ def with_full_text(arts, limit=FULL_LIMIT):
 
 
 def article_texts(uids):
-    """조문 → 조문 전체 글 (조각을 순서대로 이음). 화면 근거 문서용 (worklog 58장) — LLM 에 넘기는 글은 with_full_text 그대로"""
+    """조문 → 조문 전체 글 (조각을 순서대로 이음). 화면 근거 문서용 — LLM 에 넘기는 글은 with_full_text 그대로"""
     if not uids:
         return {}
     with _lock:
@@ -157,7 +157,7 @@ def article_texts(uids):
     return {uid: "\n".join(ts) for uid, ts in by.items()}
 
 
-# 업무에서 흔히 쓰는 말 → 조문에 실제로 적힌 말 (worklog 67장). 조문엔 '보이스피싱'이 없고 '전기통신금융사기'라
+# 업무에서 흔히 쓰는 말 → 조문에 실제로 적힌 말. 조문엔 '보이스피싱'이 없고 '전기통신금융사기'라
 # "보이스피싱 관련 법"이 1위 점수 0.50 으로 기준(MIN_SCORE 0.5338)에 못 미쳐 "찾지 못함"이 됨.
 # 검색어에 법률 용어를 덧붙이기만 함 (원래 말은 그대로 둠)
 LEGAL_TERMS = {

@@ -1,4 +1,4 @@
-# AI 서버 (FastAPI) — 배포용 (worklog 65장)
+# AI 서버 (FastAPI) — 배포용
 # 데이터·모델은 이미지에 넣지 않고 서버 폴더를 붙임: /app/data (공개 RAG 금융상품 색인), /app/outputs (이름 보태기 모델)
 # 허깅페이스 모델(KURE-v1, atonlee)은 첫 실행 때 받아 /hf-cache 볼륨에 둠
 FROM python:3.13-slim

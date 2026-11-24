@@ -36,13 +36,13 @@ class PIIDetector:
         return self.detect_detailed(text)["spans"]
 
     def detect_detailed(self, text: str) -> dict:
-        """detect() 와 같은 결과 + 규칙·모델 각각의 결과와 모델의 토큰별 확률 (최종 프로젝트 검수 대상 고르기, worklog 29장)"""
+        """detect() 와 같은 결과 + 규칙·모델 각각의 결과와 모델의 토큰별 확률 (최종 프로젝트 검수 대상 고르기)"""
         rules = dedupe(text, self.rules.detect(text))
         token = dedupe(text, self.token.detect(text))
         probs = getattr(self.token.model, "last_probs", [])  # 보태기 모델을 돌리기 전에 원래 모델 확률을 챙김
         extra = [e for e in dedupe(text, self.extra.detect(text)) if e["label"] == "person"] if self.extra else []
         merged = dedupe(text, union_entities([rules, token, extra]))  # 겹치면 앞쪽(규칙 → 모델 → 보태기) 우선, 주소는 긴 쪽
-        # v11: 모델의 항목 이름·호칭 오탐. 일반 단어 거르기(is_common_word)는 이름 재현율을 떨어뜨려 쓰지 않음 (worklog 35장)
+        # v11: 모델의 항목 이름·호칭 오탐. 일반 단어 거르기(is_common_word)는 이름 재현율을 떨어뜨려 쓰지 않음
         return {"spans": drop_field_like_names(text, merged), "rules": rules, "model": token, "extra": extra,
                 "probs": probs}
 

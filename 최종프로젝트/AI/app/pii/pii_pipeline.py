@@ -57,7 +57,7 @@ def detect(text):
     return [{k: s[k] for k in ("label", "start", "end")} for s in detect_scored(text)["spans"]]
 
 
-# ---------------------------------------------------------------- 검수 대상 고르기 (worklog 27·29장)
+# ---------------------------------------------------------------- 검수 대상 고르기
 # 기준 A (개선용 세트로 고름, 확인 세트 synth_hard_eval 에서 같은 경향):
 #   - 모델만 잡은 구간인데 모델 확률(구간 안 토큰 최소) < REVIEW_MODEL_P        → 오류율 59~70% (≥0.99 는 13%)
 #   - 보완 규칙(complete_spans)이 더한 구간                                       → 규칙만의 판단
@@ -109,7 +109,7 @@ def detect_scored(text):
     return {"spans": spans, "hints": hints, "needs_review": any("flag" in s for s in spans)}
 
 
-# ---------------------------------------------------------------- 탐지 보완 (worklog 20장)
+# ---------------------------------------------------------------- 탐지 보완
 # 실전 1 탐지기(app/pii/detector)는 그대로 두고, 그 결과에 최종 프로젝트에서 찾은 두 가지를 더한다.
 # 적재가 2주차 탐지 캐시를 읽을 때도(load.load) 같은 함수를 지나므로 어디서 탐지하든 결과가 같다.
 #  ① 라벨 없는 긴 숫자: guard 가 <MASKED> 로 가리던 9자리 이상 숫자를 번호 토큰으로 → 그 번호로 검색·실명 복원 가능
@@ -134,7 +134,7 @@ _ID_PREFIX = re.compile(r"[A-Za-z]{1,5}-$")  # SD-20240715-88, CAN-20240610-22 �
 _ID_SHAPE = re.compile(r"\d{3}-\d{2}-\d{5}|(?:19|20)\d{2}(?:\d{2}){0,2}-\d{3,8}")  # 사업자번호 3-2-5, 날짜로 시작하는 접수번호
 
 
-# ③ 성 없는 두 글자 이름 + 호칭·직함 ('보람대리님', '다운고객님', '하늘 고객이') — worklog 21장
+# ③ 성 없는 두 글자 이름 + 호칭·직함 ('보람대리님', '다운고객님', '하늘 고객이')
 #    실전 1 규칙은 '우수고객님'·'신규 고객' 같은 일반 말 때문에 두 글자 + 고객·직함을 일부러 안 잡음.
 #    그 일반 말을 '고객·직원 앞에 오는 꾸밈말' 목록으로 빼고 잡는다. 목록은 데이터에서 뽑지 않고 국어 쓰임으로 만듦
 _GIVEN_TITLE = re.compile(
@@ -173,7 +173,7 @@ def _word_tags(w):
 
 
 def kiwi_tokens(text):
-    """문장 형태소 [(글자, 품사, 시작, 끝)] — 질문 속 이름 오탐 거르기에 씀 (rag.search, worklog 64장)"""
+    """문장 형태소 [(글자, 품사, 시작, 끝)] — 질문 속 이름 오탐 거르기에 씀 (rag.search)"""
     return [(t.form, t.tag, t.start, t.start + t.len) for t in _get_kiwi().tokenize(text)]
 
 
@@ -196,7 +196,7 @@ def _given_title_spans(text, taken):
     return out
 
 
-# ④ 문서 안 퍼뜨리기 ('김하늘' 이 탐지된 문서의 '하늘은', '하늘이랑') — worklog 22장
+# ④ 문서 안 퍼뜨리기 ('김하늘' 이 탐지된 문서의 '하늘은', '하늘이랑')
 #    실전 1 규칙도 같은 문서의 이름만 쓴 표기를 퍼뜨리지만 '하늘'·'보람'처럼 일반 단어면 건너뜀.
 #    같은 문서에 성 포함 이름이 실제로 있고, 사람 자리(뒤에 사람에게 붙는 조사)일 때만 일반 단어도 잡는다
 _SURNAME_FULL = re.compile(r"[가-힣]{3}")  # 성 1 + 이름 2 (복성·외자 이름은 실전 1 규칙이 따로 다룸)
@@ -223,7 +223,7 @@ def _given_in_doc_spans(text, taken):
     return out
 
 
-# ⑤ 한 글자 이름·성 ('린님', '최씨', '장께서', '진이한테') — worklog 23장
+# ⑤ 한 글자 이름·성 ('린님', '최씨', '장께서', '진이한테')
 #    실전 1 규칙은 한 글자를 이름으로 안 봄. 한 글자 + 님·씨·높임 조사, 또는 외자 이름 부르는 꼴('진이한테')만 잡음.
 #    '박 대리'처럼 성 + 직함은 팀 라벨 기준에서 대부분 개인정보로 안 봐서(성만으로는 사람을 못 특정) 안 잡음.
 #    빼는 말은 국어 쓰임으로: 한 글자 + 님 일반 말(손님·형님…), 대명사(그에게·나한테), 높임 명사·낱말(님께·함께)
@@ -270,9 +270,9 @@ def complete_spans(text, spans):
     out = []
     for s in spans:
         if s["label"] == "email" and not _EMAIL_SHAPE.search(text[s["start"]:s["end"]]):
-            continue  # 모델이 'Su【b】ject' 같은 조각을 이메일로 냄 (worklog 31장). @·at·골뱅이 + 도메인 점이 있어야 이메일
+            continue  # 모델이 'Su【b】ject' 같은 조각을 이메일로 냄. @·at·골뱅이 + 도메인 점이 있어야 이메일
         if s["label"] == "person" and _VERB_FORM.fullmatch(text[s["start"]:s["end"]]):
-            continue  # '반송된 고객', '연체된 고객' — 뒤에 호칭이 있어도 이름 아님 (worklog 25장)
+            continue  # '반송된 고객', '연체된 고객' — 뒤에 호칭이 있어도 이름 아님
         if s["label"] == "person" and not _TITLE_AFTER.match(text[s["end"]:s["end"] + 6]):
             w = text[s["start"]:s["end"]]
             if _LAW_ABBR.fullmatch(w) or (text[s["end"]:s["end"] + 1] == "법" and len(w) == 2) or w in _NOT_NAME_WORDS:
@@ -299,7 +299,7 @@ def detect_output(text):
     """출력 재검사용 탐지 (LLM 답변). 적재용 detect() 와 다르게 정상 답변을 가리지 않는 쪽을 우선한다.
       - 이름: 토큰 분류 모델만. 규칙 기반은 LLM 답변의 '위임인'·'송금인'·'인사팀' 같은 항목 이름을 이름으로 잡음
       - 번호·이메일·주소: 모델 + 규칙(정규식) — 형식 변형에 강하고 오탐이 거의 없음
-    holdout 질의 88개 답변 기준: 적재용 탐지기 오탐 9건 → 0건, 일부러 섞은 원문 개인정보 12/12 잡음 (worklog 10장)."""
+    holdout 질의 88개 답변 기준: 적재용 탐지기 오탐 9건 → 0건, 일부러 섞은 원문 개인정보 12/12 잡음."""
     det = _get_detector()  # detector 폴더를 sys.path 에 넣으므로 아래 import 보다 먼저
     from common import dedupe
     from make_union import union_entities
@@ -309,7 +309,7 @@ def detect_output(text):
             for e in dedupe(text, union_entities([rules, model]))]
 
 
-# ---------------------------------------------------------------- API 로 보내기 직전 마지막 차단 (worklog 16장)
+# ---------------------------------------------------------------- API 로 보내기 직전 마지막 차단
 # 탐지기가 놓친 값이 임베딩·LLM API 로 가지 않게, 토큰 밖에 남은 개인정보 '모양'을 탐지기와 상관없이 가린다.
 #   숫자 9자리 이상(하이픈·점·공백 하나로 나뉜 것 포함) = 전화·계좌·카드·주민번호 모양. 날짜(8자리)·금액(쉼표)·접수번호는 남음
 #   이메일 모양

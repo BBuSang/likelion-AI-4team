@@ -1,4 +1,4 @@
-/* 밝은 테마 하나 (worklog 14장). 메인색 = Shinhan Blue #0046FF (신한금융그룹 CI 의 색 값만 빌림, 로고·이름은 안 씀) */
+/* 밝은 테마 하나. 메인색 = Shinhan Blue #0046FF (신한금융그룹 CI 의 색 값만 빌림, 로고·이름은 안 씀) */
 :root {
   --brand: #0046ff;
   --brand-hover: #2878f5;
@@ -127,7 +127,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .modal-back { position: fixed; inset: 0; background: rgba(17, 24, 39, .35); display: flex; align-items: center; justify-content: center; z-index: 50; }
 .modal { width: min(460px, calc(100vw - 32px)); max-height: calc(100vh - 64px); overflow: auto; }
 .modal.modal-wide { width: min(820px, calc(100vw - 32px)); }
-/* 관리자: 사용자 채팅 내역 (worklog 61장) */
+/* 관리자: 사용자 채팅 내역 */
 .chat-row { display: flex; align-items: center; gap: 6px; width: 100%; border: none; background: none; padding: 7px 4px; border-bottom: 1px solid #eef1f6; text-align: left; cursor: pointer; font: inherit; color: inherit; }
 .chat-row:hover { background: var(--panel-2); }
 .chat-row-title { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; }

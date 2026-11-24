@@ -1,4 +1,4 @@
-"""금융당국 회신 선례 RAG 검색 (worklog 53장).
+"""금융당국 회신 선례 RAG 검색.
 
 자료: 금융위원회·금융감독원 법령해석(L…)·비조치의견서(O…) 회신, 현장건의 과제(F…) — DB interp 스키마, 읽기 전용 interp_reader
   - 같은 질문·같은 본문 회신은 묶음(case_groups)으로, 화면·LLM 에는 대표 사례만
@@ -228,7 +228,7 @@ def exmnt_search(conn, question, ref_score=None):
 
 
 def exmnt_block(r, full=False):
-    """LLM 에 넘기는 현장건의 글 (건의내용 900자까지). full=True 는 화면 근거 문서용 — 건의내용 전체 (worklog 59장)"""
+    """LLM 에 넘기는 현장건의 글 (건의내용 900자까지). full=True 는 화면 근거 문서용 — 건의내용 전체"""
     meaning = EXMNT_MEANING.get(r["answer_type"] or "", "")
     q = r["question"] or ""
     return (f"[사례 {r['case_key']}] 구분: 현장건의(업계 건의에 대한 당국 검토) | 회신일: {r['reply_date'] or '미상'} | 검토결과: {r['answer_type']}"

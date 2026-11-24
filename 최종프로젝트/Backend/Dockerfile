@@ -1,4 +1,4 @@
-# Spring Boot 백엔드 — 배포용 (worklog 65장). 설정·비밀값은 env_file 로 (이미지에 .env 없음)
+# Spring Boot 백엔드 — 배포용. 설정·비밀값은 env_file 로 (이미지에 .env 없음)
 FROM maven:3.9-eclipse-temurin-21 AS build
 WORKDIR /src
 COPY pom.xml .

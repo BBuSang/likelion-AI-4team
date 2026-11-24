@@ -1,4 +1,4 @@
-"""법령 RAG 답변 (worklog 53장).
+"""법령 RAG 답변.
 
 answer_candidates → 1위 점수가 MIN_SCORE 미만이면 LLM 없이 "관련 조문을 찾지 못했습니다"
 → LLM 한 번 (추론 low, JSON {"근거": [번호], "답변": "...", "핵심": [...]}) → 고른 번호 순서대로 근거 조문(출처·시행일·본문·원문 링크)
@@ -12,7 +12,7 @@ from urllib.parse import quote
 import requests
 
 from app.agents import progress
-from app.core import config
+from app.core import answer_format, config
 
 from . import search as S
 
@@ -29,8 +29,9 @@ SYSTEM = """너는 한국 금융 법령 질문에 답하는 도우미다. 아래
 3. 후보에 답이 없으면 근거를 비우고 답변에 그렇게 쓴다.
 4. 답변은 길이 제한 없이 질문이 물은 것에 빠짐없이 답한다.
    - 정확성: 숫자·기간·금액·비율과 '이상/초과/이하/미만', 주체·대상·조건·예외는 조문 표현을 그대로 쓴다. 조문에 목록이 있고 질문이 그 목록을 물으면 항목을 빠뜨리지 않는다. 후보 조문에 없는 내용은 쓰지 않는다.
-   - 가독성: 결론을 첫 문장에 쓴다. 항목이 셋 이상이면 줄을 바꿔 "- "로 나열한다. 문장 끝에 근거 조문을 (법령명 제N조) 형태로 밝힌다.
-출력은 JSON 하나만: {"근거": [후보 번호, ...], "답변": "위 4번에 맞춘 답변", "핵심": ["답변에 쓴 글 그대로의 핵심 단어·구절 1~3개"]}
+   - 가독성: 아래 형식 규칙을 따른다. 문장 끝에 근거 조문을 (법령명 제N조) 형태로 밝힌다.
+""" + answer_format.rules("(법령명 제N조)", NOT_FOUND) + """
+출력은 JSON 하나만 ("답변" 값 안에 위 형식의 마크다운을 넣는다): {"근거": [후보 번호, ...], "답변": "위 4번에 맞춘 답변", "핵심": ["답변에 쓴 글 그대로의 핵심 단어·구절 1~3개"]}
 핵심은 질문이 물은 값(금액, 기간, 비율, 대상, 기관, 해야 할 일 등)을 답변 글에서 그대로 옮긴 짧은 구절이다. 근거가 없으면 핵심도 비운다."""
 
 
@@ -43,7 +44,7 @@ def build(question, cands):
 
 def call_llm(user):
     """→ (응답 글, usage). 429·5xx 만 두 번까지 다시 보냄"""
-    # JSON 모드: 지시문만으로는 가끔 마크다운으로 답해 parse 가 'JSON 없음'으로 실패 → "답변을 만들지 못했습니다" (3번 중 2번, worklog 58장)
+    # JSON 모드: 지시문만으로는 가끔 마크다운으로 답해 parse 가 'JSON 없음'으로 실패 → "답변을 만들지 못했습니다" (3번 중 2번)
     payload = {"model": config.LLM_MODEL, "messages": [{"role": "system", "content": SYSTEM}, {"role": "user", "content": user}],
                "response_format": {"type": "json_object"}, **config.sampling_params(config.LLM_MODEL, effort=EFFORT)}
     url = config.LLM_API_BASE.rstrip("/") + "/chat/completions"
@@ -107,7 +108,7 @@ def answer(question):
     out["timing"]["search"] = round(t1 - t0, 3)
     if not cands or max(a["score"] for a in cands) < MIN_SCORE:  # 범위 밖으로 보고 LLM 을 부르지 않음
         return out
-    progress.done("search", counts={"law": len(cands)})  # 스트리밍 단계 알림 (worklog 60장)
+    progress.done("search", counts={"law": len(cands)})  # 스트리밍 단계 알림
     progress.step("answer")
     try:
         txt, _usage = call_llm(build(question, cands))

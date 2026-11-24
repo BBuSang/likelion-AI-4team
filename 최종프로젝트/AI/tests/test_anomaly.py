@@ -1,4 +1,4 @@
-"""이상 접근 탐지 규칙 (worklog 38장). DB 없이 기록을 직접 만들어 detect() 에 넣음."""
+"""이상 접근 탐지 규칙. DB 없이 기록을 직접 만들어 detect() 에 넣음."""
 import datetime as dt
 
 from app.audit.anomaly import KST, detect

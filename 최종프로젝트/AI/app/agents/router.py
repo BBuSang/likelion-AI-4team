@@ -69,7 +69,7 @@ def route_of(sources):
 
 def validate(raw, role):
     """LLM 출력 검사. 허용되지 않은 출처는 버리고, 못 읽었으면 사내 검색 하나로 (기존 챗봇과 같은 동작).
-    followup(앞 대화를 봐야 하는 질문, worklog 67장)은 경로와 따로 돌려줌 — 앞 대화가 있을 때만 agent 가 씀"""
+    followup(앞 대화를 봐야 하는 질문)은 경로와 따로 돌려줌 — 앞 대화가 있을 때만 agent 가 씀"""
     r = _validate(raw, role)
     r["followup"] = bool(raw and raw.get("followup") is True)
     return r

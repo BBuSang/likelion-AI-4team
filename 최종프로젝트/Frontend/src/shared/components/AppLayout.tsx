@@ -1,4 +1,4 @@
-// 로그인 뒤 공통 틀: 왼쪽 메뉴 + 가운데 화면 (worklog 14장)
+// 로그인 뒤 공통 틀: 왼쪽 메뉴 + 가운데 화면
 // 메뉴는 권한별로 보임: 데이터 적재·통계·관리자는 관리자만 (실제 차단은 백엔드)
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { BarChart3, LogOut, MessageCircle, Upload, UserRound, Users } from 'lucide-react';
@@ -22,7 +22,7 @@ export default function AppLayout() {
     <div className="app">
       <aside className="nav panel">
         <div className="brand">
-          {/* 넓은 메뉴: 가로 로고 / 아이콘만 남는 좁은 메뉴: 자물쇠 마크 (worklog 50장) */}
+          {/* 넓은 메뉴: 가로 로고 / 아이콘만 남는 좁은 메뉴: 자물쇠 마크 */}
           <span className="nav-label" title="사공삼(403)"><LogoRow height={26} /></span>
           <span className="nav-mark" title="사공삼(403)"><LogoMark /></span>
         </div>

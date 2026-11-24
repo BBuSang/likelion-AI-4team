@@ -31,7 +31,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-/** 채팅 내역 서버 저장 (worklog 61장): 서버가 가명처리된 질문·답만 저장, 본인만, 관리자 조회는 기록 */
+/** 채팅 내역 서버 저장: 서버가 가명처리된 질문·답만 저장, 본인만, 관리자 조회는 기록 */
 @SpringBootTest
 @AutoConfigureMockMvc
 class ChatHistoryTest {
@@ -114,7 +114,7 @@ class ChatHistoryTest {
 
     @Test
     void sendsRecentTurnsWithRawQuestionToAi() throws Exception {
-        // 멀티턴 (worklog 67장): 같은 대화의 앞 턴을 AI 에 넘김 — 원문 질문(풀어서)·가명처리된 질문·토큰 상태 답변, 최근 2턴만
+        // 멀티턴: 같은 대화의 앞 턴을 AI 에 넘김 — 원문 질문(풀어서)·가명처리된 질문·토큰 상태 답변, 최근 2턴만
         String me = login("h6@history.test", "E966");
         long conv = newConv(me);
         when(ai.ask(any(), anyString(), anyInt(), anyList())).thenReturn(answer("<PERSON_ab12cd34> 고객 우편물 반송"));

@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 적재·검수 중계 (worklog 9장, 14장). /api/ingest/** 는 SecurityConfig 에서 관리자만.
+ * 적재·검수 중계 (14장). /api/ingest/** 는 SecurityConfig 에서 관리자만.
  * 누가 했는지(uploader·actor)는 화면 값이 아니라 로그인 계정 이메일로 채움.
  * 검수 화면은 원문(개인정보)을 보여 주므로 AI 쪽이 조회할 때마다 review_log 에 남김.
  */

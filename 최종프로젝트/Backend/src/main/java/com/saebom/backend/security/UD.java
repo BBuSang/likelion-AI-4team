@@ -13,7 +13,7 @@ import java.util.List;
 
 /**
  * Spring Security 가 쓰는 로그인 사용자 정보 (이메일 = username).
- * 요청마다 DB 에서 새로 읽은 User 로 만들어서, 관리자가 역할·상태를 바꾸면 다음 요청부터 바로 반영 (worklog 11-4).
+ * 요청마다 DB 에서 새로 읽은 User 로 만들어서, 관리자가 역할·상태를 바꾸면 다음 요청부터 바로 반영.
  * 권한: ROLE_USER(모두) + ROLE_ADMIN(관리자) + DATA_STAFF / DATA_LEAD / DATA_AUDITOR (데이터 접근 역할)
  */
 @Getter

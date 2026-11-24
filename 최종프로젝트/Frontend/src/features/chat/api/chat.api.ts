@@ -19,7 +19,7 @@ export interface AskResult {
   model: string | null;
   timing: Record<string, number>;
   agent: AgentInfo | null; // 에이전트 분류 결과. AI 서버 AGENT_CHAT=0 이면 null
-  ambiguousPeople?: string[]; // 답변 속 사람 중 같은 이름의 다른 사람이 있는 토큰 (worklog 37장)
+  ambiguousPeople?: string[]; // 답변 속 사람 중 같은 이름의 다른 사람이 있는 토큰
 }
 
 export interface AgentInfo {
@@ -30,7 +30,7 @@ export interface AgentInfo {
   pending: string[]; // 필요하지만 아직 준비 안 된 RAG (law·product·noaction)
   model: string | null;
   costUsd: number;
-  followup?: string | null; // 앞 대화를 이어 다시 쓴 질문 (토큰 상태, worklog 67장). 이어지는 질문이 아니면 null
+  followup?: string | null; // 앞 대화를 이어 다시 쓴 질문 (토큰 상태). 이어지는 질문이 아니면 null
 }
 
 export interface RestoreResult {
@@ -39,7 +39,7 @@ export interface RestoreResult {
   denied: string[];
   unknown: string[];
   docs: string[];
-  warnings?: AccessWarning[]; // 이번 실명 보기가 걸린 이상 접근 규칙 (본인에게 알림, worklog 39장)
+  warnings?: AccessWarning[]; // 이번 실명 보기가 걸린 이상 접근 규칙 (본인에게 알림)
 }
 
 export interface AccessWarning { rule: string; ruleKo: string; severity: 'high' | 'medium' | 'low'; detail: string }
@@ -73,7 +73,7 @@ export interface StreamHandlers {
 }
 
 /**
- * 답변 스트리밍 (worklog 59장): POST /api/chat/ask/stream 의 SSE 를 읽어 단계·조각을 알려 주고, 마지막 결과(ask 와 같은 모양)를 돌려줌.
+ * 답변 스트리밍: POST /api/chat/ask/stream 의 SSE 를 읽어 단계·조각을 알려 주고, 마지막 결과(ask 와 같은 모양)를 돌려줌.
  * axios 는 응답을 다 받은 뒤에야 넘겨서 fetch 로. 토큰 갱신·401 처리는 axios 쪽과 같게.
  */
 export async function askStream(query: string, handlers: StreamHandlers = {},
@@ -85,7 +85,7 @@ export async function askStream(query: string, handlers: StreamHandlers = {},
     res = await fetch(`${BASE_URL}/api/chat/ask/stream`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'text/event-stream', ...(token ? { Authorization: `Bearer ${token}` } : {}) },
-      // conversationId 가 있으면 서버가 끝난 답을 그 대화에 저장 (worklog 61장)
+      // conversationId 가 있으면 서버가 끝난 답을 그 대화에 저장
       body: JSON.stringify({ query, k, conversationId }),
       signal,
     });
@@ -136,7 +136,7 @@ export async function askStream(query: string, handlers: StreamHandlers = {},
 export const restore = async (text: string, docIds: string[], purpose?: string): Promise<RestoreResult> =>
   (await apiClient.post<RestoreResult>('/api/chat/restore', { text, docIds, purpose })).data;
 
-// ---------------------------------------------------------------- 채팅 내역 (worklog 61장, 계정별 서버 저장)
+// ---------------------------------------------------------------- 채팅 내역 (계정별 서버 저장)
 
 /** title: 첫 질문의 가명처리된 글 (첫 답 전엔 null) */
 export interface ConversationSummary { id: number; title: string | null; messages: number; createdAt: string; updatedAt: string }

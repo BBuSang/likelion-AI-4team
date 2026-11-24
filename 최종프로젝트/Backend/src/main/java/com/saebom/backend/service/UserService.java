@@ -21,7 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Locale;
 
-/** 로그인·회원가입. 가입하면 PENDING → 관리자가 승인해야 로그인 가능 (worklog 11-4) */
+/** 로그인·회원가입. 가입하면 PENDING → 관리자가 승인해야 로그인 가능 */
 @Service
 @RequiredArgsConstructor
 public class UserService implements UserDetailsService {
@@ -73,7 +73,7 @@ public class UserService implements UserDetailsService {
                 .orElseThrow(() -> ApiException.badRequest("직급을 목록에서 골라 주세요."));
         String cleanName = normalizeName(name);
         if (cleanName.isEmpty()) throw ApiException.badRequest("이름을 입력해 주세요.");
-        // 이메일 인증 확인·소진 (같은 트랜잭션: 저장이 실패하면 인증도 그대로 남음, worklog 41장)
+        // 이메일 인증 확인·소진 (같은 트랜잭션: 저장이 실패하면 인증도 그대로 남음)
         emailVerification.consumeSignup(normalized);
         User user = User.builder()
                 .email(normalized)
@@ -95,7 +95,7 @@ public class UserService implements UserDetailsService {
         u.setPw(passwordEncoder.encode(next));
     }
 
-    /** 이메일 인증(RESET)을 마친 뒤 새 비밀번호. 인증 소진과 저장은 같은 트랜잭션 (worklog 42장) */
+    /** 이메일 인증(RESET)을 마친 뒤 새 비밀번호. 인증 소진과 저장은 같은 트랜잭션 */
     @Transactional
     public void resetPassword(String email, String next) {
         String normalized = normalizeEmail(email);
