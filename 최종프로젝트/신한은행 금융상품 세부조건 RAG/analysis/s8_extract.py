@@ -56,6 +56,13 @@ def build_input(doc_id, docs=None, cats=None) -> str:
     return head + "\n\n" + "\n\n".join(body)
 
 
+def lines_present(src: str, sec: str) -> bool:
+    """표 재추출(s40) 뒤: 표가 md 로 바뀌어 줄 순서가 달라진 근거 — md 기호(|, <br>)를 빼고 줄마다 섹션 안에 있으면 허용"""
+    md = lambda t: ns(t.replace("<br>", "")).replace("|", "")  # noqa: E731
+    s = md(sec)
+    return all(md(l) in s for l in src.split("\n") if md(l))
+
+
 def lines_in_order(src: str, sec: str) -> bool:
     """source_text의 각 줄(공백 무시)이 섹션 안에 원문 순서대로 있는지 — 표에서 줄 단위로 발췌한 근거도 허용"""
     pos = 0
@@ -100,7 +107,7 @@ def verify(doc_id, ext: DocumentExtraction):
             sec = secs.get(it.section_seq)
             if sec is None:
                 problems.append((kind, i, f"없는 섹션 S{it.section_seq}"))
-            elif not lines_in_order(it.source_text, sec):
+            elif not lines_in_order(it.source_text, sec) and not lines_present(it.source_text, sec):
                 problems.append((kind, i, f"source_text가 S{it.section_seq}에 없음"))
             for f in nums:
                 v = getattr(it, f)

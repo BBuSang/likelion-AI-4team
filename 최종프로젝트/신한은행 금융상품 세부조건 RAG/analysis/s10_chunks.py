@@ -61,13 +61,26 @@ def l1(path: str) -> str:
     return path.split(" > ")[0]
 
 
+TABLE_SEP = re.compile(r"^\|(\s*:?-{3,}:?\s*\|)+\s*$")
+
+
 def split_long(text: str):
-    """줄 경계에서 TARGET_CHARS 안팎으로 나누고, 다음 조각 앞에 앞 조각 마지막 줄을 겹친다"""
+    """줄 경계에서 TARGET_CHARS 안팎으로 나누고, 다음 조각 앞에 앞 조각 마지막 줄을 겹친다
+    md 표 한가운데서 나뉘면 다음 조각 앞에 그 표의 머리글 두 줄(머리글·구분선)을 다시 붙인다 (잘린 조각만 봐도 칸 이름을 알게)"""
     lines, pieces, cur = text.split("\n"), [], []
-    for ln in lines:
+    head = None   # 지금 지나는 md 표의 [머리글, 구분선]
+    for i, ln in enumerate(lines):
+        if TABLE_SEP.match(ln.strip()) and i > 0 and lines[i - 1].lstrip().startswith("|"):
+            head = [lines[i - 1], ln]
+        elif not ln.lstrip().startswith("|"):
+            head = None
         if cur and sum(len(x) + 1 for x in cur) + len(ln) > TARGET_CHARS:
             pieces.append(cur)
             cur = [cur[-1]] if len(cur[-1]) < TARGET_CHARS // 3 else []
+            if head and ln.lstrip().startswith("|") and ln not in head:
+                cur = head + [x for x in cur if x not in head]
+            elif head and ln == head[1]:
+                cur = [head[0]]   # 머리글과 구분선 사이에서 나뉘면 머리글을 끌고 감
         cur.append(ln)
     if cur:
         pieces.append(cur)

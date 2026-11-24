@@ -678,6 +678,8 @@ class Index:
         for a in q.get("gold_alt", []):
             if "section_seqs" in a and it["kind"] == "chunk" and it["doc_id"] == a["doc_id"] and sorted(it["seqs"]) == a["section_seqs"]:
                 return True
+            if "section_any" in a and it["kind"] == "chunk" and it["doc_id"] == a["doc_id"] and set(a["section_any"]) & it["seqs"]:
+                return True   # s43 번호 이전: 옛 청크(섹션 묶음) → 그 글을 담은 새 섹션 중 하나라도 든 청크
             if "clause_id" in a and it["kind"] == "clause" and it["clause_id"] == a["clause_id"]:
                 return True
             if "term" in a and it["kind"] == "term" and it["term"] == a["term"]:
@@ -688,9 +690,11 @@ class Index:
         it = self.items[i]
         if "section_seq" in gold:
             return it["kind"] == "chunk" and it["doc_id"] == gold["doc_id"] and gold["section_seq"] in it["seqs"]
+        if "section_any" in gold:   # 표 재추출 번호 이전(s43): 옛 섹션 하나가 새 섹션 여러 개에 나뉜 경우
+            return it["kind"] == "chunk" and it["doc_id"] == gold["doc_id"] and bool(set(gold["section_any"]) & it["seqs"])
         if "clause_id" in gold:
             return it["kind"] == "clause" and it["clause_id"] == gold["clause_id"]
-        return it["kind"] == "term" and it["term"] == gold["term"]
+        return it["kind"] == "term" and it["term"] == gold.get("term")   # 표 질문(s42)처럼 문서만 있는 정답은 term 없음
 
 
 def embed_questions(qs, idx):

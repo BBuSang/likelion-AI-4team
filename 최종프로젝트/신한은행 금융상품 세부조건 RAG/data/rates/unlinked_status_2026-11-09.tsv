@@ -1,0 +1,22 @@
+# 금리 페이지에만 있던 18개 상품의 상품공시 확인 결과 (2026-11-09, shinhan.com 상품공시 > 대출상품/저축상품 > '판매 중지된 상품' 목록)
+# status: discontinued = 판매 중지 목록에 있음 / not_found = 판매 중·판매 중지 목록 어디에도 없음
+# 판매중지 날짜는 쓰지 않음 (2026-11-09 결정)
+page_product	status
+퇴직연금 근로자우대대출	discontinued
+신한 교직원 우대대출	discontinued
+119 소방행복대출	discontinued
+신속한 금융인 대출	discontinued
+신한 PAYCO 소액대출	discontinued
+신한 주거래 생활비대출	discontinued
+신한 급여선지급 대출	discontinued
+신한 누리N나눔대출	discontinued
+쏠편한 씨티은행 대환전용대출	discontinued
+씨티은행 대환전용대출	discontinued
+신한 역전세 보증대출	discontinued
+신한 서울특별시 계약갱신요구권 만료자 한시 특별대출(주택금융공사)	discontinued
+소상공인 2차 금융지원대출 (수탁보증)	discontinued
+집합제한업종·경영위기업종 임차 소상공인 전용대출	discontinued
+쏠편한 생각대로 라이더 대출	discontinued
+신한 햇살론뱅크	discontinued
+신한 SOL메이트 정기예금	not_found
+슈퍼SOL 웰컴 정기예금	not_found
