@@ -1,4 +1,4 @@
-"""멀티턴 (worklog 67장): 분류의 followup 판단, 다시 쓰기 검사, 토큰 → 원문 되돌리기, 앞 대화 있을 때만 다시 쓰기"""
+"""멀티턴: 분류의 followup 판단, 다시 쓰기 검사, 토큰 → 원문 되돌리기, 앞 대화 있을 때만 다시 쓰기"""
 from app.agents import followup, router
 
 H1 = {"query": "황시온 고객 우편물 반송 처리 어디까지 됐어?",

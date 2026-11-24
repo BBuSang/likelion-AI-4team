@@ -1,4 +1,4 @@
-"""이상 접근 탐지 API (/internal/audit/anomalies, worklog 38장). 스프링(관리자)만 부름. 실명 없이 토큰·문서 ID·개수만."""
+"""이상 접근 탐지 API (/internal/audit/anomalies). 스프링(관리자)만 부름. 실명 없이 토큰·문서 ID·개수만."""
 from typing import List
 
 from fastapi import APIRouter, HTTPException

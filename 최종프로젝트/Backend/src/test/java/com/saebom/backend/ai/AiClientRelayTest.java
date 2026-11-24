@@ -9,7 +9,7 @@ import java.nio.charset.StandardCharsets;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-/** 답변 스트리밍 중계 (worklog 59장): 단계·조각은 그대로, done 결과는 /ask 와 같은 camelCase 로 */
+/** 답변 스트리밍 중계: 단계·조각은 그대로, done 결과는 /ask 와 같은 camelCase 로 */
 class AiClientRelayTest {
 
     @Test

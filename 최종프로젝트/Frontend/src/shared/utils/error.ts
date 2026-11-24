@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-/** axios 밖(fetch 스트리밍 등)에서 받은 서버 오류 문구 — 화면에 그대로 보여 줌 (worklog 59장) */
+/** axios 밖(fetch 스트리밍 등)에서 받은 서버 오류 문구 — 화면에 그대로 보여 줌 */
 export class ApiMessageError extends Error {
   readonly status: number;
   constructor(message: string, status = 0) {

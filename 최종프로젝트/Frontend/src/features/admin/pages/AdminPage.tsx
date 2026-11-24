@@ -1,4 +1,4 @@
-// 관리자: 탭(승인 대기 / 사용자 / 팀 / 변경 기록) + 표 + 오른쪽 상세 (worklog 12장 API)
+// 관리자: 탭(승인 대기 / 사용자 / 팀 / 변경 기록) + 표 + 오른쪽 상세
 import { useCallback, useEffect, useState } from 'react';
 import { RefreshCw, Search, UserPlus } from 'lucide-react';
 import { errMsg, fmtTime } from '@/shared/utils/error';
@@ -370,7 +370,7 @@ function EditPanel({ u, users, teams, positions, onDone }: { u: AdminUser; users
   );
 }
 
-/** 기록 한 줄의 내용. 채팅 열람은 "누가 누구의 어느 대화를 열람"으로 (worklog 61장) */
+/** 기록 한 줄의 내용. 채팅 열람은 "누가 누구의 어느 대화를 열람"으로 */
 function LogDetail({ l, who }: { l: AuditLog; who: (id: number | null) => string }) {
   if (l.action === 'view_chat') {
     let id: unknown = null;
@@ -390,7 +390,7 @@ function LogDetail({ l, who }: { l: AuditLog; who: (id: number | null) => string
   return <>{describe(l.action, l.changes)}</>;
 }
 
-// 변경 기록 한 줄을 읽기 쉬운 말로 (worklog: 변경 기록 가독성)
+// 변경 기록 한 줄을 읽기 쉬운 말로
 //   status ACTIVE→SUSPENDED → "계정 정지", SUSPENDED→ACTIVE → "정지 해제", 역할·팀·직급은 "역할: 직원 → 팀장" …
 //   모르는 항목은 예전처럼 "항목: 전 → 후" 로
 const VIS_KO: Record<string, string> = { public: '공개', team: '팀', restricted: '제한' };

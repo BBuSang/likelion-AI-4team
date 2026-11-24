@@ -19,7 +19,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * 저장된 문서 보기·지우기 (worklog 15장). /api/admin/** 라 관리자만.
+ * 저장된 문서 보기·지우기. /api/admin/** 라 관리자만.
  * 글은 가명처리된 토큰 상태만 (원문 없음). 지우면 AI 쪽 deletion_log + 스프링 admin_audit_log 둘 다 남김.
  */
 @RestController

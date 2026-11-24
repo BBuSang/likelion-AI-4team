@@ -1,4 +1,4 @@
-"""문서 파일 한 번에 적재 (새 DB 용, worklog 11장). 사람 검수 없이 끝까지 — 안내문 "수작업 없이".
+"""문서 파일 한 번에 적재 (새 DB 용). 사람 검수 없이 끝까지 — 안내문 "수작업 없이".
 
 순서: 직원 목록·문서 메타데이터(org.infer) → 동명이인 구분(2주차 resolve, 파일 전체를 한꺼번에) → 가명처리 → guard
       → 청크(600자) → 임베딩(가명처리된 청크만) → rag·vault 저장
@@ -31,7 +31,7 @@ def load(docs, spans_by_doc, reset=False, log=print):
     if n_old and not reset:
         raise NotEmpty(f"rag.chunks 에 {n_old}행이 있음. 새 DB 용 적재라 --reset 이 필요 (직원 번호가 겹치지 않게)")
 
-    text_by = {d["id"]: d["text"] for d in docs}  # 캐시로 받은 탐지 결과도 detect() 와 같은 보완을 거침 (worklog 20장)
+    text_by = {d["id"]: d["text"] for d in docs}  # 캐시로 받은 탐지 결과도 detect() 와 같은 보완을 거침
     spans_by_doc = {i: pii_pipeline.complete_spans(text_by[i], s) if i in text_by else s for i, s in spans_by_doc.items()}
     employees, meta, *_ = infer.build(docs, spans_by_doc)
     meta_by = {m["id"]: m for m in meta}

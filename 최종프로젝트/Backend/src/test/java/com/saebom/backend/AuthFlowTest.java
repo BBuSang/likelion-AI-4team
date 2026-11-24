@@ -216,7 +216,7 @@ class AuthFlowTest {
         post_("/api/admin/users/" + id2 + "/approve", Map.of("createEmployee", true, "empId", "E1"), admin)
                 .andExpect(status().isBadRequest());
 
-        // 새 번호가 이미 다른 계정 것이면 409 + 한국어 안내 (SQL 이 화면에 안 나감), 계정은 승인 대기 그대로 (worklog 44장)
+        // 새 번호가 이미 다른 계정 것이면 409 + 한국어 안내 (SQL 이 화면에 안 나감), 계정은 승인 대기 그대로
         var taken = org.mockito.ArgumentCaptor.forClass(List.class);
         when(ai.createEmployee(eq("최둘"), any(), any(), any(), taken.capture()))
                 .thenReturn(emp("U0001", "최둘", "고객센터", "STAFF", null));

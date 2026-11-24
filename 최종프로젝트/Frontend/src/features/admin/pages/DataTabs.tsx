@@ -1,4 +1,4 @@
-// 관리자: 저장된 문서(보기·지우기) + 문서 속 직원 목록 (worklog 15장)
+// 관리자: 저장된 문서(보기·지우기) + 문서 속 직원 목록
 // 문서 글은 가명처리된 토큰 상태만 보여 줌. 지우기는 사유 필수 + 문서 ID 다시 입력해서 확인
 import { useEffect, useState } from 'react';
 import { Search, Trash2 } from 'lucide-react';

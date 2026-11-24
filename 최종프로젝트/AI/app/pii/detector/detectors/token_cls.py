@@ -66,7 +66,7 @@ class HFNerDetector:
     def __init__(self, name: str, postprocess: bool = True, line_mode: str = "first", model_path: str | None = None):
         """line_mode: 줄바꿈을 넘어 이어진 개체 처리
         split_all = 줄에서 잘라 모든 조각 유지 / first = 첫 조각만 / per_line = 줄마다 따로 모델에 넣기
-        model_path: 같은 모델 구조의 다른 가중치 (최종 프로젝트 추가 학습, worklog 31장)"""
+        model_path: 같은 모델 구조의 다른 가중치 (최종 프로젝트 추가 학습)"""
         from detectors.hf_ner import TokenClassifier
         self.name = name
         self.line_mode = line_mode

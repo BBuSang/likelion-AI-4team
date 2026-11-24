@@ -1,4 +1,4 @@
-// 로그인·가입·비밀번호 재설정 화면 왼쪽 파란 카드 (worklog 43·49장)
+// 로그인·가입·비밀번호 재설정 화면 왼쪽 파란 카드
 // 큰 흰 로고(403, 0 이 자물쇠)를 위에 크게, 이름·설명은 아래
 import { ShieldCheck } from 'lucide-react';
 import { LogoLarge } from '@/shared/components/Logo';

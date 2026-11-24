@@ -17,7 +17,7 @@ DB_PORT = int(env("DB_PORT", "5432"))
 DB_NAME = env("POSTGRES_DB", "pii_rag")
 RAG_DSN = f"host={DB_HOST} port={DB_PORT} dbname={DB_NAME} user=rag_user password={env('RAG_PASSWORD', '')}"
 LAW_PASSWORD = env("LAW_PASSWORD", "")
-NOACTION_PASSWORD = env("NOACTION_PASSWORD", "")  # 공개 RAG(비조치의견서) 읽기 전용 계정 interp_reader  # 공개 RAG(법령) 읽기 전용 계정 law_reader (worklog 53장)
+NOACTION_PASSWORD = env("NOACTION_PASSWORD", "")  # 공개 RAG(비조치의견서) 읽기 전용 계정 interp_reader  # 공개 RAG(법령) 읽기 전용 계정 law_reader
 VAULT_DSN = f"host={DB_HOST} port={DB_PORT} dbname={DB_NAME} user=vault_user password={env('VAULT_PASSWORD', '')}"
 
 EMBED_PROVIDER = env("EMBED_PROVIDER", "local")  # api | hf (로컬 모델, 예: nlpai-lab/KURE-v1) | local (테스트용 해시)
@@ -36,10 +36,10 @@ CLOVA_API_BASE, CLOVA_API_KEY = LLM_API_BASE, LLM_API_KEY
 RERANK = env("RERANK", "0") == "1"           # 검색 상위 결과를 LLM 으로 다시 정렬할지 (search.py)
 RERANK_MODEL = env("RERANK_MODEL", "HCX-005")  # 재순위용 (빠른 모델)
 
-# HCX-007 추론 단계 (worklog 19장). none = 끔, 빈 값 = 모델 기본(추론함, 약 5~7초 더 걸림)
+# HCX-007 추론 단계. none = 끔, 빈 값 = 모델 기본(추론함, 약 5~7초 더 걸림)
 LLM_REASONING_EFFORT = env("LLM_REASONING_EFFORT", "")
 
-# LLM 제공자 (worklog 17장). clova = 위 LLM_API_BASE/KEY(.env), openai = OpenAI API.
+# LLM 제공자. clova = 위 LLM_API_BASE/KEY(.env), openai = OpenAI API.
 # OpenAI 키는 OPENAI_API_KEY 또는 상위 폴더 .env 의 openai-api-key. 임베딩(bge-m3)은 제공자와 상관없이 그대로
 def _openai_key():
     key = env("OPENAI_API_KEY", "")
@@ -53,15 +53,15 @@ def _openai_key():
 
 
 OPENAI_API_BASE = env("OPENAI_API_BASE", "https://api.openai.com/v1")
-LLM_PROVIDER = env("LLM_PROVIDER", "openai")  # 2026-11-11: 모든 LLM gpt-6-luna 로 통일 (worklog 24장). clova 는 비교용
+LLM_PROVIDER = env("LLM_PROVIDER", "openai")  # 2026-11-11: 모든 LLM gpt-6-luna 로 통일. clova 는 비교용
 if LLM_PROVIDER == "openai":
     LLM_API_BASE = OPENAI_API_BASE
     LLM_API_KEY = _openai_key()
-    LLM_MODEL = env("OPENAI_LLM_MODEL", "gpt-6-luna")  # worklog 24장
+    LLM_MODEL = env("OPENAI_LLM_MODEL", "gpt-6-luna")
     RERANK_MODEL = env("OPENAI_RERANK_MODEL", "gpt-6-luna")
 # 검색 개선 단계별 켜고 끄기 (비교 실험용, 기본은 모두 켬)
 SEARCH_DOCTYPE = env("SEARCH_DOCTYPE", "1") == "1"   # 질의가 가리키는 문서 종류 가산점
-STATUS_BONUS = float(env("STATUS_BONUS", "0.2"))      # 질의가 가리키는 처리 상태와 같은 문서 가산점 (worklog 19장, 0 이면 끔)
+STATUS_BONUS = float(env("STATUS_BONUS", "0.2"))      # 질의가 가리키는 처리 상태와 같은 문서 가산점 (0 이면 끔)
 DOC_TYPE_MODE = env("DOC_TYPE_MODE", "both")  # dict = 손으로 만든 단어 사전, centroid = 종류별 평균 임베딩, both = 둘 다 (search.centroid_doc_types)
 DOC_TYPE_MARGIN = float(env("DOC_TYPE_MARGIN", "0"))  # centroid: 1위 종류가 2위보다 이만큼 가까울 때만
 QUERY_REGION_FILTER = env("QUERY_REGION_FILTER", "1") == "1"  # 질의에서 지역명을 이름으로 잡은 것 거르기
@@ -72,10 +72,10 @@ SOFT_HOMONYM = env("SOFT_HOMONYM", "0") == "1"  # 다른 사람이라는 증거�
 
 HMAC_KEY = env("HMAC_KEY", "")
 
-# OpenAI 추론 모델(gpt-5·gpt-6·o 계열)은 temperature 를 못 바꾸고(1 고정) 대신 추론 강도를 받음 (worklog 24장)
+# OpenAI 추론 모델(gpt-5·gpt-6·o 계열)은 temperature 를 못 바꾸고(1 고정) 대신 추론 강도를 받음
 OPENAI_REASONING_EFFORT = env("OPENAI_REASONING_EFFORT", "none")  # none | low | medium | high | xhigh
 # 답변 LLM 만 따로. none 은 답이 문서에 있는데도 "찾을 수 없습니다"가 잦음 (실패 5문항×4번: none 13/20, low 19/20,
-# 답변 1.6초 → 3.5초). 2026-11-11 사용자 결정 low (worklog 25-6). 분류·계획·재순위는 위 값(none) 그대로
+# 답변 1.6초 → 3.5초). 2026-11-11 사용자 결정 low. 분류·계획·재순위는 위 값(none) 그대로
 ANSWER_REASONING_EFFORT = env("ANSWER_REASONING_EFFORT", "low")
 _REASONING_PREFIXES = ("gpt-5", "gpt-6", "o1", "o3", "o4")
 
@@ -101,14 +101,14 @@ DATA_DIR = ROOT / "data"
 OUT_DIR = ROOT / "outputs"
 
 # ---------------------------------------------------------------- 최종프로젝트 추가
-# 스프링 → AI 서버 호출 때 헤더 X-Service-Key 로 같이 보내는 내부 키 (worklog 4-1-1). 빈 값이면 서버가 시작을 거부
+# 스프링 → AI 서버 호출 때 헤더 X-Service-Key 로 같이 보내는 내부 키. 빈 값이면 서버가 시작을 거부
 AI_SERVICE_KEY = env("AI_SERVICE_KEY", "")
 
-# 에이전트 (worklog 16장): 질문 분류·계획 LLM. 답변 LLM(LLM_PROVIDER)과 따로 고를 수 있게
+# 에이전트: 질문 분류·계획 LLM. 답변 LLM(LLM_PROVIDER)과 따로 고를 수 있게
 # openai = OpenAI API (키는 위 _openai_key), clova = LLM_API_BASE/KEY(.env 의 CLOVA)
 AGENT_PROVIDER = env("AGENT_PROVIDER", "openai")
-AGENT_MODEL = env("AGENT_MODEL", "gpt-6-luna" if AGENT_PROVIDER == "openai" else "HCX-005")  # 2026-11-11 사용자 결정 (worklog 24장)
-AGENT_PLAN_MODEL = env("AGENT_PLAN_MODEL", AGENT_MODEL)  # 계획만 다른 모델로 (worklog 16-8: 분류 mini + 계획 gpt-4.1 비교)
-AGENT_CHAT = env("AGENT_CHAT", "1") == "1"  # /chat/ask 를 에이전트(분류 → 등록된 RAG)로. 0 이면 예전처럼 사내 RAG 바로 (worklog 25장)
-# 업로드 문서 자동 승인: 정답이 없는 문서는 검수 신호(pii_pipeline.detect_scored)가 없으면 사람 검수 없이 저장 (worklog 29장)
+AGENT_MODEL = env("AGENT_MODEL", "gpt-6-luna" if AGENT_PROVIDER == "openai" else "HCX-005")  # 2026-11-11 사용자 결정
+AGENT_PLAN_MODEL = env("AGENT_PLAN_MODEL", AGENT_MODEL)  # 계획만 다른 모델로 (분류 mini + 계획 gpt-4.1 비교)
+AGENT_CHAT = env("AGENT_CHAT", "1") == "1"  # /chat/ask 를 에이전트(분류 → 등록된 RAG)로. 0 이면 예전처럼 사내 RAG 바로
+# 업로드 문서 자동 승인: 정답이 없는 문서는 검수 신호(pii_pipeline.detect_scored)가 없으면 사람 검수 없이 저장
 AUTO_APPROVE = env("AUTO_APPROVE", "1") == "1"

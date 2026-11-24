@@ -1,4 +1,4 @@
-// 답변 스트리밍 중 진행 단계 (worklog 60장): 끝난 단계는 ✓ + 걸린 시간 + 결과(출처·건수), 지금 단계는 깜빡이는 점.
+// 답변 스트리밍 중 진행 단계: 끝난 단계는 ✓ + 걸린 시간 + 결과(출처·건수), 지금 단계는 깜빡이는 점.
 // 답 글이 오기 시작하면 한 줄 요약으로 줄여 글을 밀어내지 않음.
 import { Check } from 'lucide-react';
 import type { StageData, StreamStage } from '../api/chat.api';

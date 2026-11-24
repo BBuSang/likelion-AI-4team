@@ -13,7 +13,7 @@ interface Stats {
   restore: { role: string; count: number; tokens: number; denied: number }[];
   daily: { day: string; restores: number; reviews: number }[];
 }
-// 이상 접근 탐지 (worklog 38장): 실명 보기 기록 기반 규칙 경고. 실명 없이 계정·토큰·개수만
+// 이상 접근 탐지: 실명 보기 기록 기반 규칙 경고. 실명 없이 계정·토큰·개수만
 interface Alert { id: string; rule: string; rule_ko: string; severity: 'high' | 'medium' | 'low'; actor: string; role: string | null; team: string | null; start: string; end: string; count: number; detail: string }
 interface Anomalies { days: number; summary: { total: number; by_rule: Record<string, number>; by_severity: Record<string, number> }; alerts: Alert[] }
 const SEV: Record<string, { n: string; cls: string }> = { high: { n: '높음', cls: 'badge-bad' }, medium: { n: '중간', cls: 'badge-warn' }, low: { n: '낮음', cls: 'badge-gray' } };

@@ -1,5 +1,5 @@
 // 채팅: 대화 내역(두 번째 칸) + 질문·답변(가운데) + 근거 문서(오른쪽)
-// 대화 내역은 계정별로 서버(DB)에 저장 (worklog 61장). 답은 토큰 상태, 친 질문 원문은 서버가 암호문으로만 저장해
+// 대화 내역은 계정별로 서버(DB)에 저장. 답은 토큰 상태, 친 질문 원문은 서버가 암호문으로만 저장해
 // 본인에게만 풀어 줌 (64장). 실명 보기 결과는 저장하지 않음
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { FormEvent, ReactNode } from 'react';
@@ -23,9 +23,9 @@ interface Msg {
   text: string;
   result?: AskResult;
   error?: string;
-  // 답변 스트리밍 중 (worklog 59장): text = 지금까지 받은 조각(서버 출력 검사를 거친 것), 끝나면 result 로 바꿈
+  // 답변 스트리밍 중: text = 지금까지 받은 조각(서버 출력 검사를 거친 것), 끝나면 result 로 바꿈
   streaming?: boolean;
-  steps?: Step[]; // 진행 단계 (worklog 60장)
+  steps?: Step[]; // 진행 단계
   masked?: boolean; // 서버에서 불러온 질문 (가명처리된 글 → 토큰 칩으로)
 }
 /** id = 서버 대화 번호. loaded: 내용을 서버에서 불러왔는지 (목록만 받은 대화는 열 때 불러옴) */
@@ -35,7 +35,7 @@ const ROLE_NAME = { STAFF: '직원', LEAD: '팀장', AUDITOR: '감사' } as cons
 const SOURCE_KO: Record<string, string> = { internal: '사내 기록', law: '법령', product: '금융상품', noaction: '비조치의견서' };
 const ROUTE_KO: Record<string, string> = { internal: '사내', public: '공개 자료', mixed: '사내+공개', out_of_scope: '범위 밖', clarify: '되묻기' };
 
-// 이 글자 수나 줄 수보다 긴 근거 문서는 접어서 보여 줌 (상품 설명서는 짧아도 줄바꿈이 많음, worklog 57장)
+// 이 글자 수나 줄 수보다 긴 근거 문서는 접어서 보여 줌 (상품 설명서는 짧아도 줄바꿈이 많음)
 const SOURCE_PREVIEW = 360;
 const SOURCE_LINES = 6;
 
@@ -121,7 +121,7 @@ export default function ChatPage() {
   const [busy, setBusy] = useState(false);
   const [focusMsg, setFocusMsg] = useState<string | null>(null);
   const [focusDoc, setFocusDoc] = useState<string | null>(null);
-  // 대화 목록 접기·펼치기 (worklog 45장): 처음엔 넓은 창이면 펼침, 이후엔 마지막 선택을 기억
+  // 대화 목록 접기·펼치기: 처음엔 넓은 창이면 펼침, 이후엔 마지막 선택을 기억
   const [listOpen, setListOpen] = useState<boolean>(() => loadOpen(LIST_KEY, window.innerWidth > 1100));
   // 근거 문서 접기·펼치기: 답변 밑 [근거 문서 N건]·인용 번호로 열고, 패널의 X 로 닫음 (헤더 버튼 없음).
   // 닫아 두면 새 답변이 와도 저절로 열지 않음
@@ -242,7 +242,7 @@ export default function ChatPage() {
     const userMsg: Msg = { id: uid(), role: 'user', text: query };
     update(convId!, (c) => ({ ...c, at: Date.now(), msgs: [...c.msgs, userMsg] }));
     setQ('');
-    // 답변 스트리밍 (worklog 59장): 자리를 먼저 만들고 단계·조각이 올 때마다 채움. 끝나면 결과(전체 글 기준 출력 검사)로 바꿈
+    // 답변 스트리밍: 자리를 먼저 만들고 단계·조각이 올 때마다 채움. 끝나면 결과(전체 글 기준 출력 검사)로 바꿈
     const id = uid();
     const patch = (fn: (m: Msg) => Msg) =>
       update(convId!, (c) => ({ ...c, msgs: c.msgs.map((m) => (m.id === id ? fn(m) : m)) }));

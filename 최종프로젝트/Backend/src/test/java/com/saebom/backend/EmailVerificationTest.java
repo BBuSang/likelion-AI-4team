@@ -32,7 +32,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-/** 가입 이메일 인증 (worklog 41장). 메일은 가짜 발송기로 받아 본문에서 코드를 꺼냄 */
+/** 가입 이메일 인증. 메일은 가짜 발송기로 받아 본문에서 코드를 꺼냄 */
 @SpringBootTest(properties = "app.mail.verify-signup=true")
 @AutoConfigureMockMvc
 class EmailVerificationTest {

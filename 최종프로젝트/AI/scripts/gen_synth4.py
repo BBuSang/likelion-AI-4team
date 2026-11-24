@@ -1,4 +1,4 @@
-"""동명이인 확인용 synth4 (worklog 34장): 2주차 생성기(실전프로젝트2/tools/gen_synth2.py)를 설정만 바꿔 씀 (synth3 와 같은 방식).
+"""동명이인 확인용 synth4: 2주차 생성기(실전프로젝트2/tools/gen_synth2.py)를 설정만 바꿔 씀 (synth3 와 같은 방식).
 확인 전용 — 이 세트를 보고 규칙·모델을 고치지 않음.
 
     python scripts/gen_synth4.py all        (personas / templates / fill / queries)

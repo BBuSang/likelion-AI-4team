@@ -1,4 +1,4 @@
-// 백엔드 IngestController (/api/ingest/*) → AI /internal/ingest/* (worklog 9장)
+// 백엔드 IngestController (/api/ingest/*) → AI /internal/ingest/*
 import apiClient from '@/shared/api/client';
 
 export interface Span { label: string; start: number; end: number; text?: string }
@@ -9,7 +9,7 @@ export interface Job {
 export interface JobSummary { id: number; status: string; total: number; counts: Record<string, number>; auto_approved: number; filename: string | null }
 export interface StagingRow { id: number; seq: number; ext_id: string | null; doc_id: string; doc_type: string | null; status: string; approved_by: string | null; n_detected: number; has_gold: boolean; n_flags: number; n_hints: number }
 export interface LinkGroup { id: string; mentions: [number, number][]; basis: string; pid: string | null; candidates: string[]; evidence: string[]; needs_check: boolean }
-// 검수 판단 (worklog 29장): 이 구간들 때문에 검수로 왔음 / 놓쳤을 수 있는 곳 / 약한 사람 잇기
+// 검수 판단: 이 구간들 때문에 검수로 왔음 / 놓쳤을 수 있는 곳 / 약한 사람 잇기
 export interface ReviewFlag extends Span { flag: 'low_conf' | 'rule_added' | 'disagree'; p: number | null }
 export interface ReviewHint extends Span { p: number }
 export interface ReviewInfo {

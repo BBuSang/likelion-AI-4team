@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# 서버(EC2)에서 실행: 최신 코드 받기 → 이미지 빌드 → 바뀐 서비스만 다시 켜기 → 상태 확인 (worklog 65장)
+# 서버(EC2)에서 실행: 최신 코드 받기 → 이미지 빌드 → 바뀐 서비스만 다시 켜기 → 상태 확인
 # GitHub Actions(.github/workflows/deploy.yml)가 SSH 로 부름. 손으로: bash ~/likelion-AI-4team/최종프로젝트/deploy/deploy.sh
 set -euo pipefail
 

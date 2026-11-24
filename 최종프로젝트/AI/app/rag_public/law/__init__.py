@@ -1,4 +1,4 @@
-"""법령 RAG — 에이전트 도구 search_law (worklog 53장)"""
+"""법령 RAG — 에이전트 도구 search_law"""
 from .respond import MIN_SCORE, answer, law_url
 from .search import answer_candidates, article_texts, available
 
@@ -7,7 +7,7 @@ SOURCE = "law"
 
 def search(query, k=5):
     """에이전트 도구: 답변용 후보 조문을 Evidence 로. 1위 점수가 MIN_SCORE 미만이면 관련 조문 없음 → []
-    text = LLM 에 넘기는 글 (긴 조문은 걸린 조각만), display = 화면 근거 문서에 보여 줄 조문 전체 (worklog 58장)"""
+    text = LLM 에 넘기는 글 (긴 조문은 걸린 조각만), display = 화면 근거 문서에 보여 줄 조문 전체"""
     cands = answer_candidates(query)
     if not cands or max(a["score"] for a in cands) < MIN_SCORE:
         return []

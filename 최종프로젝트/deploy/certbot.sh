@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# HTTPS 인증서 (Let's Encrypt, worklog 66장) — 서버에서 실행
+# HTTPS 인증서 (Let's Encrypt) — 서버에서 실행
 #   bash certbot.sh issue    처음 발급 (도메인이 이 서버를 가리키고 web 이 80 번에 떠 있어야 함) → web 다시 켜서 https 로
 #   bash certbot.sh renew    갱신 (만료 30일 전부터만 실제로 바꿈) → 바뀌었으면 Nginx 설정 다시 읽기
 #   bash certbot.sh cron     매일 03:17 갱신을 crontab 에 등록

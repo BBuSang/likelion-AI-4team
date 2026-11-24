@@ -44,7 +44,7 @@ ADDR_PART = 0.8      # 주소 조각만 겹칠 때 최대 점수
 DOC_TYPE_BONUS = 0.3  # 질의가 가리키는 문서 종류와 같은 문서에 더하는 점수 (조건 하나보다 작게)
 
 # 질의 단어 → 문서 종류(doc_type). 금융 사내 문서의 일반 용어로 만든 사전 (실전 1·holdout 종류 모두 포함).
-# ⚠ holdout 질의·문서 종류 목록을 본 뒤에 만든 것이라 처음 보는 질의에서의 효과는 과대평가될 수 있음 (worklog 13장)
+# ⚠ holdout 질의·문서 종류 목록을 본 뒤에 만든 것이라 처음 보는 질의에서의 효과는 과대평가될 수 있음
 DOC_TYPE_KEYWORDS = {
     "법인카드소명": ["법인카드", "소명", "해명", "회사 카드"],
     "대리인위임확인": ["위임", "대리인"],
@@ -87,7 +87,7 @@ def query_doc_types(query):
 
 
 def centroid_doc_types(vec, cur, margin=None):
-    """사전 대신 임베딩으로 문서 종류 고르기 (worklog 16장). 손으로 만든 DOC_TYPE_KEYWORDS 는 holdout 에 맞춰져
+    """사전 대신 임베딩으로 문서 종류 고르기. 손으로 만든 DOC_TYPE_KEYWORDS 는 holdout 에 맞춰져
     새 종류에 효과가 없었음 (synth2 +0.005). 문서 종류별 평균 임베딩 중 질의와 가장 가까운 것 하나를,
     2위보다 margin 이상 가까울 때만 고른다 (애매하면 가산점 없음)."""
     margin = config.DOC_TYPE_MARGIN if margin is None else margin
@@ -143,7 +143,7 @@ def _region_like(query, s):
             and (_REGION_BEFORE.search(query[:s["start"]]) is not None or _REGION_AFTER.match(query, s["end"]) is not None))
 
 
-# 질의 탐지 보강 (worklog 15장). 질의는 짧고 문맥이 적어 실전 1 탐지기가 놓친 값이 그대로 LLM·임베딩 API 로 감
+# 질의 탐지 보강. 질의는 짧고 문맥이 적어 실전 1 탐지기가 놓친 값이 그대로 LLM·임베딩 API 로 감
 #   1) 같은 값이 두 번 나오면 하나만 잡힘 ('연은서라는 고객 … 연은서 이름이') → 나머지도 가림 (2글자 이름은 일반 낱말과 겹쳐 제외)
 #   2) 문맥 없이 숫자만 쓴 질의 ('124507108584 이 포함된 자료') → 계좌번호로 봄. 전화·카드·주민번호 모양은 탐지기가 먼저 잡음
 #   3) 호칭 없이 쓴 이름 ('공채원 결제 일부만…') → 성씨로 시작하는 낱말 앞 3글자(복성 4글자) 중
@@ -191,7 +191,7 @@ def _extra_query_spans(query, spans, cur):
 
 def _weak_query_name(query, s):
     """질문에서 규칙만 이름으로 본 구간(모델은 이름 아님 < 0.5, flag=disagree) 중 **보통 말로 풀리는 것**만 True.
-    '크게 주려면'(주/VV + 려면/EC)·'골드리슈 금적립'(금/NNG + 적립/NNG)처럼 성씨 글자로 시작하는 보통 말 (worklog 64장).
+    '크게 주려면'(주/VV + 려면/EC)·'골드리슈 금적립'(금/NNG + 적립/NNG)처럼 성씨 글자로 시작하는 보통 말.
     조건 셋 다: ① 뒤에 호칭·직함 없음 ② 형태소 분석에서 그 구간이 둘 이상으로 쪼개짐 ③ 고유명사(NNP) 조각 없음.
     낯선 이름('육가은'·'표한결')은 형태소 분석기가 한 덩어리 미등록어로 두므로 ②에서 걸러져 계속 가려짐.
     DB 에 있는 사람 이름이면 뒤의 _extra_query_spans 가 다시 가리므로 고객·직원 이름은 그대로 보호됨"""
@@ -242,7 +242,7 @@ def build_groups(query, records, cur, hints=None, pinned=None):
     """질의 개인정보 → 조건 목록. 각 조건: {"full": 토큰들, "partial": {토큰: 점수}, "weak": {토큰: 점수}}
     hints(list)를 주면 사람마다 {"query_token", "chosen", "candidates": [(사람 토큰, 역할, 상태)]} 를 채운다
     — 동명이인 구분을 켜면 문서 속 사람 토큰이 질의의 이름 토큰과 달라서 LLM 에 연결을 알려줘야 함
-    pinned {이름: 사람 토큰}: 멀티턴에서 앞 답변이 이미 가리킨 사람 (worklog 67장) — 단서로 고르지 않고 그 사람으로 고정"""
+    pinned {이름: 사람 토큰}: 멀티턴에서 앞 답변이 이미 가리킨 사람 — 단서로 고르지 않고 그 사람으로 고정"""
     value_tokens = {r["token"] for r in records if r["label"] not in ("person", "address")}
     groups = []
     for r in records:
@@ -284,7 +284,7 @@ def build_groups(query, records, cur, hints=None, pinned=None):
             groups.append({"full": set(), "parts": [pii_pipeline.addr_part_token(p) for p in parts],
                            "partial": {}, "weak": {}, "desc": f"질문의 지역({', '.join(parts)})"})
         else:
-            # '충청남도에 사는 고객'처럼 시·도만 있는 질의 (worklog 68장): 주소 조각 토큰은 시·군·구부터라 맞출 게 없음
+            # '충청남도에 사는 고객'처럼 시·도만 있는 질의: 주소 조각 토큰은 시·군·구부터라 맞출 게 없음
             # → 그 시·도로 시작하는 주소 토큰을 vault 에서 모아 조건으로 (문서를 다시 적재하지 않아도 됨, 권한 필터는 그대로)
             sidos = query_sido(query)
             toks = sido_address_tokens(sidos) if sidos else set()
@@ -376,7 +376,7 @@ def _group_score(g, tokens):
 
 def _status_for(text, q_tokens):
     """문서의 처리 상태. 질의의 사람·값 토큰이 있는 줄에 상태가 있으면 그 줄 것 (표 한 줄 = 한 사람, VOC 목록 등),
-    없으면 문서 전체의 상태 (worklog 19장)"""
+    없으면 문서 전체의 상태"""
     if q_tokens:
         mine = {s for line, s in st.line_statuses(text) if any(t in line for t in q_tokens)}
         if len(mine) == 1:
@@ -403,7 +403,7 @@ def _reasons(groups, tokens):
 
 
 def search(query, k=10, conn=None, mode="hybrid", embed_retries=None, rerank=None, user=access.SYSTEM, pinned=None):
-    """user: 검색하는 사람 {emp_id, team, role}. 권한 밖 문서는 SQL 에서 먼저 거른다 (worklog 11장, 안내문 "검색 전에").
+    """user: 검색하는 사람 {emp_id, team, role}. 권한 밖 문서는 SQL 에서 먼저 거른다 (안내문 "검색 전에").
     기본값 SYSTEM(전부)은 평가 스크립트용 — 서버 API 는 항상 실제 사용자를 넘긴다.
     embed_retries: 대화형에서 임베딩 API 재시도 횟수를 줄일 때. 임베딩이 끝내 실패하면(속도 제한 등)
     토큰 조건만으로 찾고, 결과 문서마다 "fallback": True 를 붙인다 (의미 유사도 0)."""
@@ -519,7 +519,7 @@ _ROLE_KO = {"customer": "고객", "staff": "직원", "external": "외부", None:
 
 def _ambiguous_people(hints, docs):
     """동명이인 중 질의 단서(역할·소속·값)로 사람을 고르지 못했는데, 검색된 문서에 같은 이름의 확정 인물이 2명 이상
-    → 그대로 답하면 다른 사람 문서가 섞임 (synth2 혼동 인용 0.35, worklog 14-4). chat.py 가 LLM 대신 되묻는다.
+    → 그대로 답하면 다른 사람 문서가 섞임 (synth2 혼동 인용 0.35). chat.py 가 LLM 대신 되묻는다.
     미확정 토큰은 같은 사람일 수 있어 세지 않음. 결과: [{"query_token", "candidates": [(사람 토큰, 역할)]}]"""
     in_docs = {t for d in docs for t in d["tokens"]}
     out = []

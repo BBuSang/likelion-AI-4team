@@ -1,4 +1,4 @@
-"""탐지 모델(atonlee KoELECTRA-small) 추가 학습 (worklog 31장). GPU 가 있으면 GPU, 없으면 CPU.
+"""탐지 모델(atonlee KoELECTRA-small) 추가 학습. GPU 가 있으면 GPU, 없으면 CPU.
 
     python scripts/ft_train.py --out outputs/models/atonlee-ft-v1            # 기본: 3에폭, lr 3e-5, 길이 160
     PII_MODEL_ATONLEE=outputs/models/atonlee-ft-v1 python ...                 # 학습한 모델로 탐지 (hf_ner.py)

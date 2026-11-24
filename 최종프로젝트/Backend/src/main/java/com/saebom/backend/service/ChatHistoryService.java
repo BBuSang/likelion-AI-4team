@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 채팅 내역 서버 저장 (worklog 61장). 브라우저 탭에만 두던 대화를 계정별로 DB(app 스키마)에 저장.
+ * 채팅 내역 서버 저장. 브라우저 탭에만 두던 대화를 계정별로 DB(app 스키마)에 저장.
  * - 저장은 화면이 아니라 서버가: 질문 응답(AskResult)을 받은 그 자리에서 저장 → 화면이 꾸민 답을 끼워 넣을 수 없음
  * - 질문은 가명처리된 글(maskedQuery) + 원문은 암호문으로만(ChatCipher, 64장, 주인에게만 풀어 줌). 답은 토큰 상태, 실명 보기 결과는 저장 안 함
  * - 본인 대화만 보고 지움. 관리자는 사용자 화면에서 볼 수 있고, 대화 내용을 열 때마다 admin_audit_log 에 남김
@@ -34,7 +34,7 @@ public class ChatHistoryService {
 
     static final int LIST_LIMIT = 100;
     static final int TITLE_LEN = 60;
-    static final int HISTORY_TURNS = 2;     // 멀티턴: AI 에 넘길 앞 턴 수 (worklog 67장)
+    static final int HISTORY_TURNS = 2;     // 멀티턴: AI 에 넘길 앞 턴 수
     static final int ANSWER_CHARS = 1000;   // 앞 답변은 이만큼만 (AI 는 다시 쓰기에 300자만 씀)
 
     private final ChatConversationRepository convs;
@@ -97,7 +97,7 @@ public class ChatHistoryService {
     }
 
     /**
-     * 멀티턴 (worklog 67장): 이 대화의 최근 HISTORY_TURNS 턴을 AI 에 넘길 모양으로. 남의 대화면 404 (AI 부르기 전).
+     * 멀티턴: 이 대화의 최근 HISTORY_TURNS 턴을 AI 에 넘길 모양으로. 남의 대화면 404 (AI 부르기 전).
      * 원문 질문은 암호문을 풀어 AI 서버로만 (토큰 되돌리기용, 외부 LLM 엔 안 감). 답변은 토큰 상태, 앞 ANSWER_CHARS 자만
      */
     @Transactional(readOnly = true)

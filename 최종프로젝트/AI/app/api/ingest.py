@@ -1,5 +1,5 @@
 """적재·검수 API (/internal/ingest/*). 스프링만 부름 — 로그인·review_ingest 권한 확인은 스프링이 하고
-누가 했는지(actor·uploader)를 본문에 담아 넘긴다 (worklog 4-1-1, 3-7)."""
+누가 했는지(actor·uploader)를 본문에 담아 넘긴다."""
 from typing import Dict, List, Literal, Optional
 
 from fastapi import APIRouter, BackgroundTasks, HTTPException

@@ -29,7 +29,7 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
- * AI 서버 (FastAPI /internal/*) 호출. 서비스 키는 X-Service-Key 헤더로 (worklog 4-1-1).
+ * AI 서버 (FastAPI /internal/*) 호출. 서비스 키는 X-Service-Key 헤더로.
  * 스프링 DB 계정(app_user)은 rag·vault 를 못 읽어서, 직원 목록은 여기로만 봄.
  */
 @Component
@@ -38,7 +38,7 @@ public class AiClient {
     private final RestClient http;
     private final RestClient chatHttp; // 질문은 검색 + LLM 이라 오래 걸림
     private final ObjectMapper om = new ObjectMapper();
-    // 답변 스트리밍용 (worklog 59장): RestClient 는 응답을 다 받은 뒤에 넘겨서 SSE 를 그대로 흘려보낼 수 없음
+    // 답변 스트리밍용: RestClient 는 응답을 다 받은 뒤에 넘겨서 SSE 를 그대로 흘려보낼 수 없음
     // HTTP/1.1 고정: 기본값(HTTP/2)은 http:// 에 'h2c 업그레이드' 머리를 붙여 보내는데, uvicorn 이 본문 있는 POST 의
     // 업그레이드 요청을 처리하지 못해 본문이 빠짐 → AI 가 422 ("요청 형식이 맞지 않습니다")
     private final HttpClient streamHttp = HttpClient.newBuilder().version(HttpClient.Version.HTTP_1_1)
@@ -108,7 +108,7 @@ public class AiClient {
         }
     }
 
-    /** taken: 계정에 이미 연결된 직원 번호 — AI 가 새 번호를 이것들과 겹치지 않게 고름 (worklog 44장) */
+    /** taken: 계정에 이미 연결된 직원 번호 — AI 가 새 번호를 이것들과 겹치지 않게 고름 */
     public Employee createEmployee(String name, String team, String position, String role, List<String> taken) {
         var body = new java.util.HashMap<String, Object>();
         body.put("name", name);
@@ -135,17 +135,17 @@ public class AiClient {
     public record AskResult(@JsonAlias("masked_query") String maskedQuery, String answer,
                             @JsonAlias("ask_back") boolean askBack, List<SourceDoc> docs, OutputCheck check,
                             String model, Map<String, Double> timing, AgentInfo agent,
-                            // 답변 속 사람 중 같은 이름이 여럿인 사람 토큰 → 화면 '동명이인 가능' 경고 (worklog 37장)
+                            // 답변 속 사람 중 같은 이름이 여럿인 사람 토큰 → 화면 '동명이인 가능' 경고
                             @JsonAlias("ambiguous_people") List<String> ambiguousPeople) {}
 
-    /** 에이전트 분류 결과 (worklog 25장). route: internal·public·mixed·out_of_scope·clarify, pending: 필요하지만 아직 없는 RAG */
+    /** 에이전트 분류 결과. route: internal·public·mixed·out_of_scope·clarify, pending: 필요하지만 아직 없는 RAG */
     @JsonIgnoreProperties(ignoreUnknown = true)
     public record AgentInfo(String route, List<String> sources, String reason, boolean fallback,
                             List<String> pending, String model, @JsonAlias("cost_usd") double costUsd,
-                            // 앞 대화를 이어 다시 쓴 질문 (토큰 상태, worklog 67장). 이어지는 질문이 아니면 null
+                            // 앞 대화를 이어 다시 쓴 질문 (토큰 상태). 이어지는 질문이 아니면 null
                             String followup) {}
 
-    /** 같은 대화의 앞 턴 (worklog 67장) — AI 가 이어지는 질문일 때만 씀. query = 원문(AI 서버 안에서만), 나머지는 토큰 상태 */
+    /** 같은 대화의 앞 턴 — AI 가 이어지는 질문일 때만 씀. query = 원문(AI 서버 안에서만), 나머지는 토큰 상태 */
     public record Turn(String query, String maskedQuery, String answer) {
         Map<String, Object> body() {
             Map<String, Object> m = new java.util.LinkedHashMap<>();
@@ -169,7 +169,7 @@ public class AiClient {
     public record RestoreResult(String text, int restored, List<String> denied, List<String> unknown,
                                 List<String> docs, List<AccessWarning> warnings) {}
 
-    /** 실명 보기 직후 본인에게 보여 줄 이상 접근 경고 (worklog 39장) */
+    /** 실명 보기 직후 본인에게 보여 줄 이상 접근 경고 */
     @JsonIgnoreProperties(ignoreUnknown = true)
     public record AccessWarning(String rule, @JsonAlias("rule_ko") String ruleKo, String severity, String detail) {}
 
@@ -183,7 +183,7 @@ public class AiClient {
     }
 
     /**
-     * 답변 스트리밍 (worklog 59장): AI 서버 /internal/chat/ask/stream 의 SSE(단계 · 출력 검사를 거친 답변 조각 · 마지막 결과)를
+     * 답변 스트리밍: AI 서버 /internal/chat/ask/stream 의 SSE(단계 · 출력 검사를 거친 답변 조각 · 마지막 결과)를
      * 받는 대로 out 에 그대로 넘김. AI 가 흐름을 열기 전에 거절하면(403·502 등) ask 와 같은 오류로 던지고,
      * onStart(응답 머리 설정)는 흐름이 열린 뒤에만 부름 — 그 전에 실패하면 화면은 보통 오류 응답(JSON)을 받음.
      */
@@ -191,7 +191,7 @@ public class AiClient {
         askStream(user, query, k, List.of(), onStart, out, r -> { });
     }
 
-    /** onDone: 마지막 결과(done)를 화면에 보낸 뒤 부름 — 채팅 내역 저장 (worklog 61장) */
+    /** onDone: 마지막 결과(done)를 화면에 보낸 뒤 부름 — 채팅 내역 저장 */
     public void askStream(AccessUser user, String query, int k, List<Turn> history, Runnable onStart, OutputStream out,
                           java.util.function.Consumer<AskResult> onDone) throws IOException {
         byte[] body = om.writeValueAsBytes(askBody(user, query, k, history));
@@ -272,7 +272,7 @@ public class AiClient {
         return null;
     }
 
-    /** 백엔드에서 거절한 실명 보기 시도(사유 없음 등)를 AI 쪽 복원 기록에 남김 — 이상 접근 탐지용 (worklog 39장).
+    /** 백엔드에서 거절한 실명 보기 시도(사유 없음 등)를 AI 쪽 복원 기록에 남김 — 이상 접근 탐지용.
      *  기록 실패는 무시 (거절 응답은 그대로) */
     public void logRefused(AccessUser user, String actor, List<String> docIds, String reason) {
         try {

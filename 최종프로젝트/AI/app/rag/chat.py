@@ -20,7 +20,7 @@ import time
 
 import requests
 
-from app.core import access, config
+from app.core import access, answer_format, config
 from app.pii import pii_pipeline
 from .search import search
 
@@ -31,14 +31,15 @@ SYSTEM = (
     "(대소문자 포함) 복사해 쓰세요. 원래 값을 추측하거나 새 토큰을 만들지 마세요.\n"
     "2. 근거 문서는 대괄호로 문서 ID 를 적으세요. [문서]에 있는 ID 만 쓰세요.\n"
     "3. 질문이 '내역·기록·건을 찾아줘'처럼 문서를 찾거나 '~건 있어?', '~건 있으면'처럼 그런 건이 있는지 묻는 것이면, "
-    "[문서]에 그런 건이 있을 때 질문과 관련된 문서마다 한 줄씩 "
+    "[문서]에 그런 건이 있을 때 맨 앞 결론에 몇 건이 있고 무슨 일인지 한 문장으로 쓰고, 상세 설명에 관련 문서마다 한 줄씩 "
     "'[문서 ID] 문서 종류 — 핵심 내용(무슨 일, 결과·상태, 날짜)' 형식으로 요약하세요. 번호나 ID 만 나열하지 마세요.\n"
     "4. 질문에 토큰(예: <PERSON_…>)이 있으면, 문서에서 그 토큰과 똑같은 토큰이 나오는 줄·문장을 찾아 "
     "그 줄의 내용(문의·업무 종류, 처리 상태, 특이사항)으로 답하세요. 같은 문서의 다른 사람 이야기는 섞지 마세요.\n"
     "5. 질문과 관련 없는 문서는 빼고, 뺀 문서의 ID 나 뺀 이유는 답변에 아예 쓰지 마세요. "
     "관련 문서가 하나도 없으면 '관련 문서에서 찾을 수 없습니다'라고 답하세요.\n"
     "6. 문서 머리의 (검색 근거: …)는 검색 시스템이 가명처리 전 값으로 확인한 사실입니다. 예를 들어 주소가 "
-    "<ADDRESS_…> 로 가려져 있어도 '질문의 지역과 같은 지역의 주소가 있음'이면 그 지역 문서로 보고 답하세요."
+    "<ADDRESS_…> 로 가려져 있어도 '질문의 지역과 같은 지역의 주소가 있음'이면 그 지역 문서로 보고 답하세요.\n"
+    + answer_format.rules("[H0071]처럼 문서 ID", "관련 문서에서 찾을 수 없습니다")
 )
 
 
@@ -59,7 +60,7 @@ def check_output(answer_text, allowed_tokens, safe_words=(), skip_labels=()):
     """보여주기 전 출력 검사. (고친 답변, 검사 결과) 반환.
     safe_words: 개인정보가 아닌 걸 아는 말 (문서 종류 이름). '한도하향통지'를 모델이 이름으로 잡아 가리던 오탐 방지 (19장)
     skip_labels: 이 라벨은 가리지 않음. 공개 자료만 쓴 답은 이름을 안 가림 — 질문의 이름은 공개 RAG 로 가기 전에 지우고
-    공개 자료엔 고객 이름이 없어서, 잡히는 건 '후보 조문'의 '조문' 같은 오탐뿐 (worklog 57장). 번호·이메일 모양은 그대로 검사"""
+    공개 자료엔 고객 이름이 없어서, 잡히는 건 '후보 조문'의 '조문' 같은 오탐뿐. 번호·이메일 모양은 그대로 검사"""
     bad = sorted({t for t in _ANY_TOKEN.findall(answer_text) if t not in allowed_tokens})
     fixed = answer_text
     for t in bad:
@@ -81,7 +82,7 @@ _BOUNDARY = re.compile(r"\n|(?<=[.?!。])\s")  # 줄 끝, 문장 끝(마침표·
 
 
 class CheckedStream:
-    """답변 스트리밍 (worklog 59장): LLM 이 보내는 글을 문장·줄 단위로 모았다가 출력 검사(check_output)를 거친 조각만 내보냄.
+    """답변 스트리밍: LLM 이 보내는 글을 문장·줄 단위로 모았다가 출력 검사(check_output)를 거친 조각만 내보냄.
     검사 전 글은 화면으로 나가지 않음 — 토큰(<PERSON_…>)엔 공백·줄바꿈이 없어 조각 경계에서 잘리지 않음.
     마지막 답(done)은 전처럼 전체 글로 다시 검사하고 화면은 그것으로 바꿈 (조각 검사는 먼저 보여 주기용).
     feed(지금까지 받은 원문 전체) · finish(최종 원문)"""
@@ -122,7 +123,7 @@ def select_docs(cands, k):
     """LLM 에 넘길 문서 고르기. 상위 k개를 무조건 넘기면 조건과 상관없는 문서(다른 사람 문서)까지 LLM 이 인용함 (인용 정밀도 0.80).
     - 검색 1위는 항상 넘김 (문서 종류·의미 점수로 1위가 된 문서를 토큰 점수만 보고 빼지 않게)
     - 질의 조건을 어느 정도 맞춘 문서가 있으면, 토큰 점수 KEEP_MIN 미만(다른 사람이 확실 0.3, 조건 무관 0)은 뺌
-      미확정(0.7)은 같은 사람일 수 있으므로 남김 — 처음 규칙(1점만 남김)은 미확정 쪽 정답 문서를 버렸음 (worklog 13-4)"""
+      미확정(0.7)은 같은 사람일 수 있으므로 남김 — 처음 규칙(1점만 남김)은 미확정 쪽 정답 문서를 버렸음"""
     if not cands or not config.SELECT_FULL_MATCH or max(d.get("token_score", 0) for d in cands) < KEEP_MIN:
         return cands[:k]
     return ([cands[0]] + [d for d in cands[1:] if d.get("token_score", 0) >= KEEP_MIN])[:k]
@@ -183,15 +184,15 @@ def _complete(masked_q, context, model, on_delta=None, note=None):
 
 def answer(query, k=3, model=None, mode="hybrid", embed_retries=None, rerank=None, on_delta=None, user=access.SYSTEM,
            note=None, pinned=None):
-    """user: 묻는 사람 {emp_id, team, role} — 검색 단계에서 권한 밖 문서를 거름 (worklog 11장).
+    """user: 묻는 사람 {emp_id, team, role} — 검색 단계에서 권한 밖 문서를 거름.
     note: 에이전트가 붙이는 안내 (예: 법령 부분은 아직 검색 불가).
-    on_delta: 답변 스트리밍 — 출력 검사를 거친 조각(글)을 차례로 받음 (worklog 59장).
+    on_delta: 답변 스트리밍 — 출력 검사를 거친 조각(글)을 차례로 받음.
     답변은 토큰 상태 그대로. 실명은 화면에 보여 주기 직전 restore.restore_for(답변, user, 근거 문서) 로."""
-    from app.agents import progress  # 스트리밍 단계 알림 (스트리밍이 아니면 아무 일 없음, worklog 60장)
+    from app.agents import progress  # 스트리밍 단계 알림 (스트리밍이 아니면 아무 일 없음)
     t0 = time.perf_counter()
     progress.step("search", sources=["internal"])
     masked_q, q_tokens, cands = search(query, k * 2, mode=mode, embed_retries=embed_retries, rerank=rerank, user=user,
-                                       pinned=pinned)  # 멀티턴: 앞 답변이 가리킨 사람 고정 (worklog 67장)
+                                       pinned=pinned)  # 멀티턴: 앞 답변이 가리킨 사람 고정
     docs = select_docs(cands, k)
     progress.done("search", counts={"internal": len(docs)})
     t_search = time.perf_counter() - t0
@@ -209,7 +210,7 @@ def answer(query, k=3, model=None, mode="hybrid", embed_retries=None, rerank=Non
         return result
     allowed = set(pii_pipeline.TOKEN_PATTERN.findall(context + "\n" + masked_q))
     safe = sorted({d["doc_type"] for d in docs if d.get("doc_type")}, key=len, reverse=True)
-    # on_delta: 화면 스트리밍 — 검사한 조각만 받음 (worklog 59장)
+    # on_delta: 화면 스트리밍 — 검사한 조각만 받음
     stream = CheckedStream(on_delta, allowed, safe, fix=lambda s: _CITE_WORD.sub(r"[\1]", s)) if on_delta else None
     t1 = time.perf_counter()
     progress.step("answer")
@@ -222,7 +223,7 @@ def answer(query, k=3, model=None, mode="hybrid", embed_retries=None, rerank=Non
     t2 = time.perf_counter()
     result["answer"], result["check"] = check_output(raw, allowed, safe)
     result["raw_answer"] = raw
-    # 못 찾았으면 권한 범위를 알려 주는 고정 문구로 (권한 밖이라 안 보인 걸 버그로 오해하던 것, worklog 26장)
+    # 못 찾았으면 권한 범위를 알려 주는 고정 문구로 (권한 밖이라 안 보인 걸 버그로 오해하던 것)
     result["not_found"] = is_not_found(result["answer"])
     if result["not_found"] and not user.get("system"):
         result["answer"] = access.not_found_text(user)
@@ -234,7 +235,7 @@ _PERSON_TOKEN = re.compile(r"<PERSON_[0-9a-f]{8}>")
 
 
 def ambiguous_people(text):
-    """답변(과 질문)에 나온 사람 토큰 중 '동명이인 가능'인 것 (worklog 37장).
+    """답변(과 질문)에 나온 사람 토큰 중 '동명이인 가능'인 것.
     같은 이름 토큰(name_token)을 가진 사람이 DB 에 2명 이상이면 — 확정된 다른 사람이 있거나, 근거가 없어 이름 기준으로 묶인
     '미확정' 토큰이 다른 사람과 같이 있는 경우. 이름이 한 명뿐인 경우는 단서가 없어도 표시하지 않음 (너무 자주 뜨지 않게).
     토큰만 보고 판단 (실명 안 씀). 반환: [토큰]"""

@@ -7,7 +7,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDateTime;
 
 /**
- * 채팅 대화 (app.chat_conversations, worklog 61장). 계정마다 따로, 본인과 관리자(조회 기록 남김)만 봄.
+ * 채팅 대화 (app.chat_conversations). 계정마다 따로, 본인과 관리자(조회 기록 남김)만 봄.
  * 제목은 첫 질문의 가명처리된 글 — 실명은 어디에도 저장하지 않음.
  */
 @Entity
@@ -30,7 +30,7 @@ public class ChatConversation {
     @Column(length = 200)
     private String title;
 
-    /** 첫 질문 원문 앞부분의 암호문 (ChatCipher, worklog 64장) — 대화 주인 목록에만 풀어서 제목으로 */
+    /** 첫 질문 원문 앞부분의 암호문 (ChatCipher) — 대화 주인 목록에만 풀어서 제목으로 */
     @Column(name = "title_enc", columnDefinition = "text")
     private String titleEnc;
 

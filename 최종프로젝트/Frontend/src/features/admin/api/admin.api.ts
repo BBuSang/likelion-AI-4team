@@ -31,7 +31,7 @@ export const createTeam = async (name: string) => (await apiClient.post<Team>(`$
 export const setTeamActive = async (id: number, active: boolean) => (await apiClient.put<Team>(`${A}/teams/${id}`, { active })).data;
 export const syncTeams = async () => (await apiClient.post<{ added: number; total: number }>(`${A}/teams/sync`)).data;
 export const auditLog = async (userId?: number) => (await apiClient.get<AuditLog[]>(`${A}/audit-log`, { params: { userId, limit: 200 } })).data;
-// 사용자의 채팅 내역 (worklog 61장). 내용을 열면 서버가 변경 기록에 view_chat 으로 남김
+// 사용자의 채팅 내역. 내용을 열면 서버가 변경 기록에 view_chat 으로 남김
 export const userConversations = async (id: number) =>
   (await apiClient.get<ConversationSummary[]>(`${A}/users/${id}/conversations`)).data;
 export const userConversation = async (id: number, convId: number) =>

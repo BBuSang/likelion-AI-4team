@@ -33,7 +33,7 @@ public class AdminController {
         return admin.getUser(id);
     }
 
-    /** 사용자의 채팅 대화 목록 (제목·개수만, worklog 61장) */
+    /** 사용자의 채팅 대화 목록 (제목·개수만) */
     @GetMapping("/users/{id}/conversations")
     public List<ChatHistoryService.ConversationSummary> userConversations(@PathVariable Long id) {
         return chats.listFor(id);

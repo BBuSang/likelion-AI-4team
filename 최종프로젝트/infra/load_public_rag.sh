@@ -1,5 +1,5 @@
 #!/bin/bash
-# 공개 자료 RAG 를 사공삼 DB 에 넣기 (worklog 53장). 처음 한 번, 데이터가 바뀌면 다시.
+# 공개 자료 RAG 를 사공삼 DB 에 넣기. 처음 한 번, 데이터가 바뀌면 다시.
 #   bash infra/load_public_rag.sh            # 개발 DB (컨테이너 saebom_db)
 #   CONTAINER=saebom_eval_db DB_PORT=5435 bash infra/load_public_rag.sh
 # 법령: AI/data/public_rag/law/law_rag.dump (Git LFS, 193MB) → lawrag 스키마, 읽기 전용 law_reader (02_public_rag.sh 가 만듦)

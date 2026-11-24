@@ -1,4 +1,4 @@
-// 팀장·감사 역할의 실명 보기: 사유 입력 (백엔드·AI 도 사유 없으면 거절, worklog 25-9)
+// 팀장·감사 역할의 실명 보기: 사유 입력 (백엔드·AI 도 사유 없으면 거절)
 import { useState } from 'react';
 
 interface Props {
