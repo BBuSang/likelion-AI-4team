@@ -16,7 +16,7 @@
 3. [개인정보 탐지](#3-개인정보-탐지)
 4. [가명처리와 사람 잇기(동명이인)](#4-가명처리와-사람-잇기동명이인)
 5. [직원 목록·문서 메타데이터 추론](#5-직원-목록문서-메타데이터-추론)
-6. [문서 적재: 화면 업로드와 무인 파이프라인](#6-문서-적재-화면-업로드와-무인-파이프라인)
+6. [문서 적재: 화면 업로드와 무인 파이프라인](#6-문서-적재-화면-업로드와-무인-파이프라인) (녹음 받아쓰기 [6-3](#6-3-녹음-적재-받아쓰기stt화자-나누기))
 7. [문서 권한](#7-문서-권한)
 8. [질문 처리: 에이전트 → 검색 → 답변 → 출력 재검사](#8-질문-처리-에이전트--검색--답변--출력-재검사)
 9. [실명 복원과 기록](#9-실명-복원과-기록)
@@ -49,11 +49,11 @@ flowchart LR
 |---|---|---|
 | **Frontend** (React) | 채팅·실명 보기·적재·검수·통계·관리 화면 | — |
 | **Backend** (Spring Boot) | 로그인·JWT, 가입·이메일 인증·승인, 계정·팀·직급, 관리자 기능, **채팅 내역 저장**(질문 원문은 암호문), AI 서버 중계(답변 스트리밍 포함) | `app_user` (`app` 스키마만) |
-| **AI 서버** (FastAPI) | 탐지·가명처리·적재·검색·에이전트(멀티턴 포함)·공개 자료 RAG 3개·답변·출력 재검사·실명 복원·이상 접근 탐지 | `rag_user`, `vault_user`, 공개 RAG 읽기 전용 `law_reader`·`interp_reader` |
+| **AI 서버** (FastAPI) | 탐지·가명처리·적재(**녹음 받아쓰기·화자 나누기**, 문서 종류 자동 판단 포함)·검색·에이전트(멀티턴 포함)·공개 자료 RAG 3개·답변·출력 재검사·실명 복원·이상 접근 탐지 | `rag_user`, `vault_user`, 공개 RAG 읽기 전용 `law_reader`·`interp_reader` |
 
 - 사용자 확인(로그인·역할·직원 연결)은 **스프링이 요청마다 DB 에서 읽어** `{emp_id, team, role}` 을 만들고, AI 서버는 그 값으로 권한을 판단합니다. 화면이 역할을 끼워 보내도 무시합니다.
 - AI 서버의 `/internal/*` 는 스프링만 부를 수 있습니다 (`X-Service-Key` 헤더).
-- 임베딩 모델(KURE-v1)은 AI 서버 안에서 돌기 때문에 **외부로 나가는 건 LLM 호출뿐**이고, 그것도 가명처리된 글만 보냅니다.
+- 임베딩 모델(KURE-v1)·받아쓰기 모델(Whisper)·화자 목소리 모델(WavLM)은 AI 서버 안에서 돌기 때문에 **외부로 나가는 건 LLM 호출뿐**이고, 그것도 가명처리된 글만 보냅니다. 녹음 파일은 받아쓴 뒤 버리고 어디에도 저장하지 않습니다.
 - **배포**: EC2 한 대(m7i.xlarge)에 Docker 로 4개(Nginx·Spring·AI·DB), 주소 **https://403.p-e.kr**. main 에 올라오면 GitHub Actions 가 자동 배포합니다 ([14-3-1](#14-3-1-서버-배포-ec2--github-actions)).
 
 ---
@@ -196,9 +196,11 @@ holdout(187건): 직원 74명, 담당자 있음 109건, 팀 있음 136건, 공�
 ```mermaid
 flowchart LR
     UP[jsonl / 줄글 업로드] --> D[탐지 + 검수 신호<br/>백그라운드]
-    D -->|신호 없음 + 사람 잇기 확실| AUTO[자동 저장<br/>approved_by=auto]
-    D -->|신호 있음 또는<br/>사람 잇기 애매| REV[검수 대기]
-    REV --> H[검수 화면<br/>구간 고치기·사람 고르기]
+    AU[녹음 업로드] --> STT[받아쓰기 + 화자 나누기<br/>6-3] --> D
+    D --> T[문서 종류<br/>자동 판단]
+    T -->|신호 없음 + 사람 잇기 확실<br/>+ 종류 분명| AUTO[자동 저장<br/>approved_by=auto]
+    T -->|신호 있음 또는<br/>사람 잇기·종류 애매| REV[검수 대기]
+    REV --> H[검수 화면<br/>구간 고치기·사람 고르기<br/>종류·본문·화자 고치기]
     H -->|승인| SAVE[저장]
     H -->|반려| REJ[사유만 기록]
 ```
@@ -206,6 +208,16 @@ flowchart LR
 - 정답이 있는 문서는 탐지 결과가 정답과 같을 때만 자동 저장(`approved_by=gold`)하고, 다르면 검수로 보냅니다.
 - 자동 저장 직전에 사람 잇기도 확인합니다. 이름만으로 기존 사람과 이은 경우(`unique_link`)나 후보가 여럿인 경우(`ambiguous`)는 검수로 돌립니다.
 - 검수 기록(`vault.review_log`)에는 **값 없이** 추가·삭제·라벨 변경 개수와 위치만 남깁니다.
+
+**문서 종류** — 올릴 때 드롭다운에서 고릅니다: **자동 판단**(기본) · DB 에 있는 종류(문서 많은 순) · 직접 입력. jsonl 줄에 `doc_type` 이 있으면 그 값이 먼저입니다.
+- 자동 판단(`service.guess_doc_type`): 탐지 직후, 찾은 개인정보를 `[라벨]` 로 바꾸고 `guard` 로 번호·이메일 모양을 한 번 더 가린 글(앞 3청크)을 임베딩해, 저장된 문서의 **종류별 평균 임베딩**과 비교합니다. 원문은 임베딩에 쓰지 않습니다.
+- 1위와 2위의 차이가 0.01 미만이면 "애매"로 검수에 보냅니다(`review.doc_type_check`). 결과와 점수는 `meta.doc_type_auto` 에 남고 검수 화면에 보입니다. 저장된 문서가 하나도 없으면 종류를 비워 둡니다.
+- 정확도는 [13-8](#13-8-문서-종류-자동-판단-저장된-문서-191개).
+
+**검수 때 본문 고치기** (`service.edit_text`) — 받아쓰기 오류나 화자 이름을 검수 화면에서 고칩니다. 구간·표시·힌트가 모두 본문 위치에 묶여 있어서 아래처럼 맞춥니다.
+- 옛 글과 새 글을 글자 단위로 비교(`difflib`)해 **안 바뀐 부분에 있는 구간은 새 위치로 옮기고**, 바뀐 곳에 걸친 구간은 버립니다.
+- 다시 탐지는 **바뀐 곳에서만** 씁니다. 안 바뀐 곳은 탐지·표시·힌트를 예전 것 그대로 옮깁니다. (통째로 다시 탐지하면 화자 이름만 바꿔도 주변 글이 달라져 고치지 않은 문장에서 오탐이 새로 생겼습니다.)
+- 고친 결과의 구간은 승인 전이라도 임시 저장(`final_spans`)되어 다시 열면 그대로입니다. 처음 원문은 `meta.text_original` 에 한 번만 남고, `review_log` 에 `edit_text`(옮김·더함·버림 수와 글자 수, 내용 없음)를 남깁니다. 정답 라벨은 위치가 안 맞게 되어 지웁니다.
 
 | 자동 저장 비율 | holdout | synth2 | 어려운 문서(synth_hard_eval) |
 |---|---|---|---|
@@ -226,6 +238,32 @@ flowchart LR
 - 안전장치: 개발 DB(5434)는 `--allow-dev-db` 없이는 거부하고, 비어 있지 않은 DB 는 `--reset` 없이는 거부합니다.
 - 결과 폴더: `detect`, `employees`, `doc_meta`, `load_summary`, `search_run`, `answers`, `scores.json`, `report.md`, `person_cases.csv`, `run.log`
 - 같은 Holdout 을 새 DB 에서 다시 돌리면 직원 목록·메타데이터·적재 요약·검색 순위 10위까지가 **개발 DB 와 완전히 같게** 나옵니다.
+
+### 6-3. 녹음 적재: 받아쓰기(STT)·화자 나누기
+상담·회의 녹음을 올리면 서버 안에서 글로 받아쓴 뒤, 글 1건으로 [6-1](#6-1-화면-업로드-검수자동-승인) 과 같은 탐지 → 검수 → 저장을 탑니다. 녹음은 **늘 검수로** 갑니다.
+
+```mermaid
+flowchart LR
+    F["녹음 파일<br/>wav·mp3·m4a·aac·flac·ogg·opus·webm"] --> DEC[av 로 풀기<br/>16kHz]
+    DEC -->|"상담 + 스테레오"| CH["채널로 화자<br/>왼쪽 상담원 · 오른쪽 고객"]
+    DEC -->|"상담 모노 · 회의"| W[Whisper 받아쓰기<br/>문장 단위]
+    CH --> W2[채널마다 받아쓰기] --> TXT
+    W --> SPK["화자 나누기<br/>문장별 목소리 특징 → 묶기"] --> TXT["[분:초] 화자: 말"]
+    TXT --> CALL[통화 탐지 규칙<br/>질문 다음 답 등] --> REV[검수 대기]
+```
+
+| 단계 | 내용 |
+|---|---|
+| 파일 | wav·mp3·m4a·aac·flac·ogg·opus·webm, 40MB·30분까지, 1초 미만 거절. `av`(PyAV)로 직접 풉니다 (faster-whisper 1.2.1 의 디코더는 av 19 와 맞지 않음). 풀면서 30분을 넘으면 바로 멈춥니다 |
+| 받아쓰기 | `faster-whisper` **medium** (int8, CPU 4스레드). 문장 단위로 자름(마침표·물음표 또는 0.6초 넘는 쉼). 업무 말 힌트(`STT_HOTWORDS`: 은행 이름·업무 용어)를 문장으로 줌. 한 번에 한 건씩(큐) |
+| 화자 — 상담 | 스테레오면 **채널로**(콜센터 녹음 방식, 정확). 모노면 목소리로 둘을 나누고 **상담원 말투**(새봄은행·고객님·도와드릴…)가 많은 쪽을 상담원으로 (같으면 먼저 말한 쪽) |
+| 화자 — 회의 | 목소리로 나눠 **화자1·화자2…**(먼저 말한 순서). 참석자 수를 넣으면 그 수로, 모르면 거리 기준으로. 이름은 검수 화면에서 바꾸고, 같은 이름을 넣으면 합쳐짐 |
+| 화자 나누기 방법 | 문장마다 목소리 특징(`microsoft/wavlm-base-plus-sv` x-vector) → 수를 알면 k-means, 모르면 응집 군집(코사인 0.25). 1초 미만 문장('네')은 묶은 뒤 가까운 쪽에 붙임 |
+| 탐지 | 통화 규칙(`stt/call_pii.py`): 상담원 질문("성함·생년월일·카드 끝 네 자리…") 바로 다음 답을 그 종류로 가림, 말로 한 이메일("골뱅이·닷컴"), 은행·부서 이름과 일반 명사를 이름으로 잡는 오탐 빼기 |
+| 모델 준비 | Whisper medium(약 1.5GB)·WavLM(약 380MB)은 처음 쓸 때 허깅페이스에서 받아 `HF_HOME`(배포: `hfcache` 볼륨)에 둡니다. **서버가 켜질 때 백그라운드에서 미리 받고 읽습니다**(`STT_PRELOAD`, 서버는 바로 뜸) |
+| 녹음 보관 | 녹음 파일은 받아쓰고 버립니다. 받아쓴 글만 vault 에 들어가고, meta 에 길이·채널·화자 목록·화자를 나눈 방법(`channel`/`voice`)·모델 이름을 남깁니다 |
+
+결과는 [13-7](#13-7-녹음-받아쓰기화자-나누기-합성-음성).
 
 ---
 
@@ -423,10 +461,10 @@ flowchart LR
 | 화면 | 경로 | 내용 | 권한 |
 |---|---|---|---|
 | 로그인 / 가입 / 비밀번호 재설정 | `/login`, `/signup`, `/reset-password` | 왼쪽 로고 카드, 이메일 인증 칸 | 누구나 |
-| 채팅 | `/chat` | 질문·답변(토큰 상태, 마크다운, **스트리밍 + 진행 단계**), **멀티턴**("앞 대화를 이어서"), 근거 문서 패널(전체 글·접기), **실명 보기**(사유 입력·이상 접근 경고), 동명이인 경고, 분류·시간 표시, 대화 목록(**계정별 서버 저장** — 다른 기기에서도 이어서, 지우기) | 로그인 |
+| 채팅 | `/chat` | 질문·답변(토큰 상태, 마크다운, **스트리밍 + 진행 단계**), **멀티턴**("앞 대화를 이어서"), 근거 문서 패널(전체 글·접기, **채팅과의 경계를 끌어 너비 조절** — 근거 280px·채팅 380px 이상, 너비 기억, 두 번 누르면 기본), **실명 보기**(사유 입력·이상 접근 경고), 동명이인 경고, 분류·시간 표시, 대화 목록(**계정별 서버 저장** — 다른 기기에서도 이어서, 지우기) | 로그인 |
 | 마이페이지 | `/me` | 내 정보·역할 설명, 비밀번호 변경, 내 실명 보기 기록 | 로그인 |
-| 데이터 적재 | `/ingest` | 업로드, 업로드별 상태·자동 저장 수, 문서 목록(확인할 곳 N개) | 관리자 |
-| 검수 | `/ingest/docs/:id` | 구간 드래그로 추가·삭제·라벨 변경, 확인할 구간(점선)·놓쳤을 수 있는 곳(물결 밑줄), 사람 잇기 고르기, 저장 안 한 수정이 있으면 나가기 전에 확인 | 관리자 |
+| 데이터 적재 | `/ingest` | 파일(jsonl·txt)·글 붙여 넣기·**녹음**(상담 1:1 / 회의 여러 명 + 참석자 수, 끌어다 놓기) 업로드, **문서 종류 드롭다운**(자동 판단·DB 종류·직접 입력), 업로드별 상태(받아쓰는 중·탐지 중)·자동 저장 수, 문서 목록(확인할 곳 N개) | 관리자 |
+| 검수 | `/ingest/docs/:id` | 구간 드래그로 추가·삭제·라벨 변경, 확인할 구간(점선)·놓쳤을 수 있는 곳(물결 밑줄), 사람 잇기 고르기, **문서 종류 바꾸기**(자동 판단 점수·다음 후보), **본문 고치기**, 녹음이면 **화자 이름 바꾸기·합치기**, 저장 안 한 수정이 있으면 나가기 전에 확인 | 관리자 |
 | 통계 | `/stats` | 적재·질문·실명 보기 수, 복원 기록, **이상 접근** 표, **최근 대화 기록**(전체 사용자, 계정·가명처리된 제목·질문 수만, 쪽 나눔) | 관리자 |
 | 관리 | `/admin` | 가입 승인, 사용자·팀 관리(정지는 사유 필수), **사용자별 채팅 내역 열람(열 때마다 기록)**, 저장된 문서·**공개 자료 보기**(법령·금융상품·금융당국 회신, 읽기만)·직원, 문서 공개 범위·담당자 변경, 문서 삭제, 변경 기록 | 관리자 |
 
@@ -497,6 +535,51 @@ flowchart LR
 
 고치면서 본 세트라 낙관적인 숫자입니다. 처음 보는 확인 세트로는 아직 재지 않았습니다.
 
+### 13-7. 녹음 받아쓰기·화자 나누기 (합성 음성)
+
+> 모두 **합성 음성**(윈도 한국어 음성으로 읽힌 가짜 대본)입니다. 사람 녹음으로는 아직 재지 않았습니다.
+
+**받아쓰기 모델** — 가짜 상담 6건(305초, 개인정보 30개), 8kHz, CPU
+
+| 모델 / 조건 | 10분 통화 처리 | 글자 오류율(CER) | 개인정보 정확히 받아씀 |
+|---|---|---|---|
+| small / 깨끗함 | 1.9분 | 0.120 | 18/30 |
+| **medium / 깨끗함** | 4.6분 | **0.097** | **22/30** |
+| medium / 잡음 | 4.6분 | 0.223 | 9/30 |
+
+**받아쓴 글에서 개인정보 가리기** (medium, 통화 규칙)
+
+| 세트 | 기존 탐지기만 | 통화 규칙 더함 |
+|---|---|---|
+| 개선용 dev (30개, 깨끗함·잡음·모노) | 23 · 23 · 22 | **30 · 29 · 30** |
+| 확인용 test (26개, 처음 한 번) | 22 · 23 · 22 | **24 · 25 · 25** |
+
+새는 건 대화 맥락에서만 개인정보인 값(질문에 대한 맨숫자 답, 이름만 단독 답 등)이라 질문 다음 답 규칙을 더했습니다. 업무 말 힌트를 주면 은행 이름을 바로 받아쓰는 경우가 1~2 → 8~10개로 늘고 CER 이 조금 낮아집니다.
+
+**화자 나누기** — 한 목소리의 높낮이를 사람마다 바꿔 만든 모노 회의 녹음 4개(약 140초, 문장 25개). 문장별 정답 화자와 가장 잘 맞는 1:1 대응으로 잰 정확도(길이 가중)
+
+| 방법 | 2명 | 3명 | 4명 | 4명 b |
+|---|---|---|---|---|
+| **k-means (참석자 수 앎)** | **100%** | **98.5%** | **98.1%** | 81.5% |
+| 응집 군집 (참석자 수 앎) | 61.3% | 83.5% | 78.4% | 81.5% |
+| **응집 군집 기준 0.25 (모름)** | 98.2% (4명으로) | 82.6% (4명으로) | 78.4% (4명으로) | 81.5% (4명으로) |
+| 실루엣으로 수 추정 (모름) | 100% (2명으로) | 83.5% (2명으로) | 55.5% (2명으로) | 82.3% (3명으로) |
+
+- **참석자 수를 넣으면 훨씬 잘 맞습니다.** 모를 때는 사람을 적게 세는 방법이 더 많이 틀려서, 조금 잘게 나누는 응집 군집을 골랐습니다 (검수 때 "화자4 = 화자2" 로 합치기가 섞인 걸 떼기보다 쉬움).
+- 시간: 139초 녹음에 123초 (받아쓰기 약 80%, 목소리 특징 약 10%) — 30분 회의면 25~30분.
+
+### 13-8. 문서 종류 자동 판단 (저장된 문서 191개)
+
+저장된 문서마다 **자기 문서를 뺀** 종류별 평균 임베딩과 비교했습니다 (21종).
+
+| 지표 | 값 |
+|---|---|
+| 1위 종류 맞음 | **189/191 (99.0%)** |
+| 애매(1·2위 차이 0.01 미만)로 검수행 | 0건 |
+| 틀린 것 | 대출상담 1건(그 종류 문서가 1개뿐이라 빼면 비교할 대상 없음) · 공지 → 감사지적 1건 |
+
+같은 방식으로 만든 합성 문서라 실제 문서보다 쉬운 숫자입니다. DB 에 없는 종류(예: 회의록)의 첫 문서는 비슷한 다른 종류로 애매하게 나와 검수로 갑니다.
+
 ---
 
 ## 14. 실행 방법
@@ -504,13 +587,14 @@ flowchart LR
 ### 14-1. 준비물
 - Docker Desktop, Python 3.13, Java 21, Maven, Node.js 18+
 - 이름 보태기 모델 폴더 `AI/outputs/models/atonlee-ft-v6` (55MB, git 에 없음 → 팀 공유 드라이브). 없으면 경고만 하고 원래 탐지기로 동작합니다.
+- 받아쓰기·화자 모델(Whisper medium 약 1.5GB, WavLM 약 380MB)은 따로 준비하지 않아도 됩니다. AI 서버가 처음 켜질 때 허깅페이스에서 받습니다 (인터넷 필요, 이후엔 캐시).
 
 ### 14-2. 설정 파일 (모두 git 제외, `.env.example` 을 복사해서 채움)
 
 | 파일 | 주요 값 |
 |---|---|
 | `infra/.env` | DB 비밀번호(관리자·app·rag·docs·vault), `DB_PORT` |
-| `AI/.env` | DB 비밀번호, `EMBED_PROVIDER=hf`, `EMBED_MODEL=nlpai-lab/KURE-v1`, `OPENAI_API_KEY`, `HMAC_KEY`, `AI_SERVICE_KEY`, `PII_NAME_MODEL`, `RERANK` |
+| `AI/.env` | DB 비밀번호, `EMBED_PROVIDER=hf`, `EMBED_MODEL=nlpai-lab/KURE-v1`, `OPENAI_API_KEY`, `HMAC_KEY`, `AI_SERVICE_KEY`, `PII_NAME_MODEL`, `RERANK`. 녹음(선택, 기본값 있음): `STT_MODEL`(medium)·`STT_THREADS`(4)·`STT_HOTWORDS`(업무 말 힌트, 회사에 맞게)·`STT_PRELOAD`(1, 0 이면 첫 녹음 때 모델 읽기)·`STT_DIARIZE`(1)·`STT_SPK_MODEL`·`STT_SPK_THRESHOLD`(0.25) |
 | `Backend/.env` | `DB_PASSWORD`, `JWT_SECRET`(32바이트 이상), `AI_SERVICE_KEY`(AI 와 같은 값), `ADMIN_EMAIL`·`ADMIN_PASSWORD`, `MAIL_USERNAME`·`MAIL_PASSWORD`(Gmail 앱 비밀번호), `CHAT_QUERY_KEY`(선택: 채팅 질문 원문 암호화 키, 비우면 JWT 비밀키에서 만듦) |
 
 메일 계정이 없는 로컬 개발에서는 `Backend/.env` 에 `EMAIL_VERIFY_SIGNUP=false` 를 넣으면 인증 없이 가입할 수 있습니다.
@@ -545,7 +629,7 @@ cd 최종프로젝트/Frontend && npm install && npm run dev
 ```
 
 VS Code 에서는 `Ctrl+Shift+P` → **Tasks: Run Task** → **사공삼: 전체 실행** 으로 세 서버를 한 번에 켤 수 있습니다 (`.vscode/tasks.json`).
-브라우저에서 `http://localhost:5173` 을 엽니다. AI 서버는 처음 켤 때 임베딩·탐지 모델을 읽느라 첫 질문까지 1분쯤 걸립니다.
+브라우저에서 `http://localhost:5173` 을 엽니다. AI 서버는 처음 켤 때 임베딩·탐지 모델을 읽느라 첫 질문까지 1분쯤 걸립니다. 받아쓰기·화자 모델은 그 뒤 백그라운드에서 읽습니다 (아주 처음엔 약 1.9GB 받기). 서버를 자주 껐다 켜는 개발 중에는 `AI/.env` 에 `STT_PRELOAD=0` 을 넣으면 첫 녹음 때 읽습니다.
 
 ### 14-3-1. 서버 배포 (EC2 + GitHub Actions)
 
@@ -553,6 +637,7 @@ VS Code 에서는 `Ctrl+Shift+P` → **Tasks: Run Task** → **사공삼: 전체
 - main 에 `최종프로젝트/AI|Backend|Frontend|infra|deploy` 가 바뀌어 올라오면 GitHub Actions 가 SSH 로 서버의 `deploy/deploy.sh` 를 실행해 Docker 로 다시 빌드·실행합니다. Actions 탭에서 손으로도 돌릴 수 있습니다
 - 서버 한 대(m7i.xlarge, 미국 오하이오)에 web(Nginx :80·:443)·backend·ai·db 4개. 밖에 여는 포트는 80·443 뿐이고 DB 는 서버 안에서만
 - 비밀값·데이터(금융상품 색인·이름 보태기 모델)는 저장소 밖 `/srv/saebom` 에 둡니다
+- 허깅페이스 모델(KURE-v1·탐지 모델·Whisper medium·WavLM)은 `hfcache` 볼륨에 둬서 다시 배포해도 다시 받지 않습니다. 받아쓰기·화자 모델이 메모리를 2~3GB 더 씁니다
 - 처음 준비(설정 파일·데이터·DB 옮기기·인증서)와 구성은 [deploy/README.md](deploy/README.md)
 
 ### 14-4. 무인 파이프라인 (채점 DB, 포트 5435)
@@ -597,7 +682,7 @@ cd 최종프로젝트/Frontend && npx tsc -p tsconfig.app.json --noEmit && npx e
 | 인증 | `POST /auth/check-email`, `/auth/email/send`, `/auth/email/verify`, `/auth/signup`, `/auth/login`, `/auth/refresh`, `/auth/password/send`·`verify`·`reset`, `GET /auth/options`, `GET /auth/me` |
 | 채팅 | `POST /chat/ask`, `POST /chat/ask/stream`, `POST /chat/restore`, `GET·POST /chat/conversations`, `GET·DELETE /chat/conversations/{id}` |
 | 내 정보 | `PUT /me/password`, `GET /me/restore-log` |
-| 적재 (관리자) | `POST·GET /ingest/jobs`, `GET /ingest/jobs/{id}`, `/ingest/jobs/{id}/docs`, `GET /ingest/docs/{id}`, `POST /ingest/docs/{id}/preview-links`, `/ingest/docs/{id}/review` |
+| 적재 (관리자) | `POST·GET /ingest/jobs`, `POST /ingest/audio-jobs`(녹음 multipart, `kind`=call·meeting, `speakers`), `GET /ingest/doc-types`, `GET /ingest/jobs/{id}`, `/ingest/jobs/{id}/docs`, `GET /ingest/docs/{id}`, `POST /ingest/docs/{id}/preview-links`, `/ingest/docs/{id}/text`(본문 고치기), `/ingest/docs/{id}/review`(`docType` 으로 종류 바꾸기) |
 | 관리 (관리자) | `GET /admin/users`, `/admin/users/{id}`, `/admin/users/{id}/conversations`, `/admin/users/{id}/conversations/{convId}`, `/admin/users/{id}/candidates`, `POST /admin/users/{id}/approve`, `PUT /admin/users/{id}`, `GET /admin/employees`, `GET·POST /admin/teams`, `PUT /admin/teams/{id}`, `POST /admin/teams/sync`, `GET /admin/audit-log` |
 | 문서 (관리자) | `GET /admin/docs`, `/admin/docs/deletion-log`, `/admin/docs/{docId}`, `POST /admin/docs/{docId}/meta`, `/admin/docs/{docId}/delete` |
 | 통계 (관리자) | `GET /admin/stats`, `/admin/restore-log`, `/admin/anomalies`, `/admin/recent-conversations` |
@@ -609,7 +694,7 @@ cd 최종프로젝트/Frontend && npx tsc -p tsconfig.app.json --noEmit && npx e
 |---|---|
 | 채팅 | `POST /chat/ask`, `POST /chat/ask/stream` (SSE), `POST /chat/restore` — 질문에 같은 대화의 최근 턴(`history`)을 같이 받음 |
 | 공개 자료 | `GET /public-docs/{source}`, `/public-docs/{source}/{doc_id}` |
-| 적재 | `POST·GET /ingest/jobs`, `GET /ingest/jobs/{id}`, `/ingest/jobs/{id}/docs`, `GET /ingest/docs/{id}`, `POST /ingest/docs/{id}/preview-links`, `/ingest/docs/{id}/review` |
+| 적재 | `POST·GET /ingest/jobs`, `POST /ingest/audio-jobs`(본문 = 녹음 바이트), `GET /ingest/doc-types`, `GET /ingest/jobs/{id}`, `/ingest/jobs/{id}/docs`, `GET /ingest/docs/{id}`, `POST /ingest/docs/{id}/preview-links`, `/ingest/docs/{id}/text`, `/ingest/docs/{id}/review` |
 | 직원 | `GET /org/teams`, `POST /org/match`, `GET /org/employees`, `/org/employees/{id}`, `POST /org/employees` |
 | 문서 | `GET /docs`, `/docs/deletion-log`, `/docs/{id}`, `POST /docs/{id}/meta`, `/docs/{id}/delete` |
 | 통계·감사 | `GET /stats`, `/restore-log`, `/audit/anomalies`, `POST /audit/refused` |
@@ -638,7 +723,8 @@ cd 최종프로젝트/Frontend && npx tsc -p tsconfig.app.json --noEmit && npx e
 │   │   │   ├── person_resolve.py 사람 잇기 (동명이인)
 │   │   │   └── restore.py    실명 복원 + 기록 + 이상 접근 경고
 │   │   ├── org/              infer(직원·문서 메타데이터 추론), directory(직원 조회·새 번호)
-│   │   ├── ingest/           service(업로드·검수·자동 승인·저장), linking(1건씩 사람 잇기), manage(문서 삭제·메타 변경)
+│   │   ├── ingest/           service(업로드·녹음·문서 종류 자동 판단·검수·본문 고치기·자동 승인·저장), linking(1건씩 사람 잇기), manage(문서 삭제·메타 변경)
+│   │   ├── stt/              transcribe(녹음 풀기·Whisper 받아쓰기), diarize(목소리로 화자 나누기), call_pii(통화 탐지 규칙)
 │   │   ├── pipeline/load.py  파일 → 새 DB 한 번에 적재
 │   │   ├── rag/              search(검색), chat(답변·출력 재검사), embed(임베딩), status(처리 상태)
 │   │   ├── agents/           router(분류), planner(계획), followup(멀티턴 다시 쓰기), agent(질문 처리), progress(진행 단계), tools, llm
@@ -658,7 +744,7 @@ cd 최종프로젝트/Frontend && npx tsc -p tsconfig.app.json --noEmit && npx e
 │   ├── security/             JWT 필터·유틸, SecurityConfig
 │   └── entity/ · repository/ · dto/ · exception/
 └── Frontend/
-    ├── src/features/         auth, chat(스트리밍·마크다운·멀티턴), review(적재·검수), stats, admin(채팅 열람·공개 자료), profile
+    ├── src/features/         auth, chat(스트리밍·마크다운·멀티턴·근거 칸 너비 조절), review(적재·녹음·문서 종류·검수·본문 고치기), stats, admin(채팅 열람·공개 자료), profile
     ├── src/shared/           api 클라이언트, AuthContext, AppLayout, Logo, ConfirmDialog, Pager, 스타일
     ├── public/brand/         로고 (흰색·파란색·가로형), favicon
     └── nginx/ · Dockerfile   배포용 Nginx (인증서가 있으면 https, 없으면 http)
@@ -682,6 +768,10 @@ cd 최종프로젝트/Frontend && npx tsc -p tsconfig.app.json --noEmit && npx e
 | LLM 흔들림 | `gpt-6-luna` 는 temperature 0 을 못 써서, 같은 입력에도 재순위·답변이 조금씩 달라집니다 (±0.01~0.03). 비교는 2~3번 평균으로 봅니다 |
 | 대화 기록 | 계정별로 DB 에 저장합니다 (가명처리된 질문·토큰 상태 답변, 질문 원문은 AES-GCM 암호문으로만 두고 본인에게만 풀어 줌). 사용자가 지우면 완전히 지워집니다 |
 | 다시 적재 | `--reset` 으로 다시 적재하면 직원 번호가 새로 매겨질 수 있습니다. 지금 데이터에서는 같은 번호가 나오는 것을 확인했습니다 |
+| 녹음 받아쓰기 | 모든 수치가 합성 음성입니다. **사람 녹음으로 다시 재야 합니다.** 숫자열(반복 숫자·자릿수)을 자주 틀리고, 잡음에서 많이 나빠집니다. 30분 녹음은 25~30분 걸리고 한 번에 한 건씩 처리합니다 |
+| 화자 나누기 | 겹쳐 말하는 곳, 쉼 없이 이어 말하다 사람이 바뀌는 곳은 못 나눕니다. 참석자 수를 모르면 목소리가 비슷한 사람이 섞이거나 짧은 맞장구가 따로 한 사람으로 잡힐 수 있어, 검수 때 화자 이름 바꾸기·합치기로 고칩니다 |
+| 문서 종류 자동 판단 | 저장된 문서의 종류 안에서만 고릅니다. 새 종류의 첫 문서는 검수 때 직접 입력해야 하고, 몇 건 저장된 뒤부터 자동으로 잡힙니다 |
+| 본문 고치기 | 고친 곳에 걸친 사람이 고친 라벨은 버려지고 다시 탐지로 채워지므로 그 부분은 다시 봐야 합니다 |
 | 일반화 | holdout·synth2·synth3 는 개선 과정에서 본 세트입니다. 공정한 최종 점수는 Holdout2 를 받아 **수정 없이 처음 돌린 결과**로 냅니다 |
 
 **보안 규칙**: `.env`·`HMAC_KEY`·API 키·메일 앱 비밀번호는 커밋하지 않습니다. 외부 LLM 에는 가명처리된 글만 보냅니다. 평가 결과·모델·테스트 계정 정보는 `AI/outputs/`(git 제외)에 둡니다.
