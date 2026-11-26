@@ -1,0 +1,19 @@
+﻿item,n,pipeline
+josa_attached (person),712,1.0
+spaced_name (person),523,1.0
+given_only (person),1034,0.995164410058027
+phone_format_variant (phone_number),670,1.0
+homonym (person),1053,0.9952516619183286
+card_format_variant (card_number),331,1.0
+id_format_variant (resident_registration_number),91,1.0
+account_format_variant (account_number),266,1.0
+address_format_variant (address),246,1.0
+single_char_given_name (person),283,0.9964664310954063
+compound_surname (person),109,1.0
+[추가] person form=full,2790,0.9989247311827957
+[추가] person form=spaced,100,1.0
+[추가] person form=given,286,0.986013986013986
+[추가] decoy_company_phone 오탐수,90,0
+[추가] decoy_words 오탐수,15,7
+[추가] decoy_numbers 오탐수,185,0
+[추가] no_pii 오탐수,17,0
