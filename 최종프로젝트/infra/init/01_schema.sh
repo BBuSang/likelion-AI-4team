@@ -155,10 +155,10 @@ CREATE TABLE vault.employees (
 CREATE TABLE vault.ingest_job (
     id          BIGSERIAL PRIMARY KEY,
     uploader    TEXT NOT NULL,                   -- 올린 사람 (Spring 이 넘긴 이메일)
-    source      TEXT NOT NULL,                   -- jsonl / text
+    source      TEXT NOT NULL,                   -- jsonl / text / audio(상담 녹음, 받아쓴 글 1건)
     filename    TEXT,
     total       INT  NOT NULL DEFAULT 0,
-    status      TEXT NOT NULL DEFAULT 'processing', -- processing(탐지 중) / ready / failed
+    status      TEXT NOT NULL DEFAULT 'processing', -- transcribing(녹음 받아쓰는 중) / processing(탐지 중) / ready / failed
     error       TEXT,
     created_at  TIMESTAMPTZ DEFAULT now()
 );
@@ -191,7 +191,7 @@ CREATE TABLE vault.review_log (
     id              BIGSERIAL PRIMARY KEY,
     staging_doc_id  BIGINT NOT NULL REFERENCES vault.staging_doc(id) ON DELETE CASCADE,
     actor           TEXT NOT NULL,
-    action          TEXT NOT NULL,               -- view / approve / auto_approve / reject / store_failed
+    action          TEXT NOT NULL,               -- view / approve / auto_approve / reject / store_failed / edit_text(검수 때 본문 고침) / delete
     added           INT NOT NULL DEFAULT 0,      -- 검수자가 추가한 구간 수 (= 탐지기가 놓친 수)
     removed         INT NOT NULL DEFAULT 0,      -- 지운 구간 수 (= 오탐)
     relabeled       INT NOT NULL DEFAULT 0,

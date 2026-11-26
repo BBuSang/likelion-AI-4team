@@ -8,7 +8,9 @@
 - 검수 기록(review_log)에는 값 없이 라벨·위치·개수만
 """
 import collections
+import difflib
 import json
+import re
 import logging
 import threading
 
@@ -19,6 +21,7 @@ from app.ingest import linking
 from app.ingest.ingest import _display, chunk
 from app.pii import pii_pipeline
 from app.rag.embed import embed
+from app.stt import call_pii
 
 logger = logging.getLogger("ingest")
 
@@ -133,6 +136,45 @@ def create_job(uploader, source, filename, content, doc_type=None):
     return job_id, docs
 
 
+# ---------------------------------------------------------------- 문서 종류 자동 판단
+AUTO_TYPE_MARGIN = 0.01   # 1위 종류가 2위보다 이만큼도 안 가까우면 '애매' → 사람이 확인
+
+
+def guess_doc_type(text, spans):
+    """올릴 때 종류를 안 정한(자동) 문서의 종류 고르기 → {doc_type, score, second, second_score, uncertain} 또는 None.
+    이미 저장된 문서들의 종류별 평균 임베딩 중 가장 가까운 것. 원문은 쓰지 않음 — 탐지한 개인정보는 [라벨] 로 바꾸고
+    guard 로 번호·이메일 모양을 한 번 더 가린 글만 임베딩 (임베딩이 외부 API 여도 원문이 안 나감)"""
+    masked = text
+    for sp in sorted(spans, key=lambda x: x["start"], reverse=True):
+        masked = masked[:sp["start"]] + f"[{sp['label']}]" + masked[sp["end"]:]
+    masked, _ = pii_pipeline.guard(masked)
+    parts = [c for c in chunk(masked, MAX_CHARS) if c.strip()][:3]   # 앞쪽 세 청크 (긴 문서도 빠르게)
+    if not parts:
+        return None
+    import numpy as np
+    vecs = np.asarray(embed(parts), dtype=np.float32)
+    v = vecs.mean(0)
+    v = v / max(float(np.linalg.norm(v)), 1e-9)
+    with db.rag_conn() as conn, conn.cursor() as cur:
+        cur.execute("SELECT doc_type, 1 - (avg(embedding) <=> %s) AS s FROM rag.chunks WHERE doc_type IS NOT NULL "
+                    "GROUP BY doc_type ORDER BY s DESC LIMIT 2", (v,))
+        rows = cur.fetchall()
+    if not rows:
+        return None   # 저장된 문서가 아직 없음 → 종류 없이
+    (t1, s1), (t2, s2) = rows[0], rows[1] if len(rows) > 1 else (None, None)
+    return {"doc_type": t1, "score": round(float(s1), 4), "second": t2,
+            "second_score": round(float(s2), 4) if s2 is not None else None,
+            "uncertain": s2 is not None and float(s1) - float(s2) < AUTO_TYPE_MARGIN}
+
+
+def doc_types():
+    """올리기 화면 드롭다운용: 저장된 문서 종류와 문서 수 (많은 순)"""
+    with db.rag_conn() as conn, conn.cursor() as cur:
+        cur.execute("SELECT doc_type, count(*) FROM rag.documents WHERE doc_type IS NOT NULL AND doc_type <> '' "
+                    "GROUP BY doc_type ORDER BY count(*) DESC, doc_type")
+        return [{"doc_type": t, "docs": n} for t, n in cur.fetchall()]
+
+
 def process_job(job_id, docs):
     """문서마다 탐지 → staging 저장. 정답이 있고 탐지 = 정답이면, 정답이 없고 검수 신호가 없으면 바로 저장(자동 승인)."""
     try:
@@ -140,12 +182,25 @@ def process_job(job_id, docs):
         with db.vault_conn() as conn, conn.cursor() as cur:
             for seq, d in enumerate(docs, 1):
                 with _detect_lock:
-                    scored = pii_pipeline.detect_scored(d["text"])
+                    # 상담 녹음을 받아쓴 글은 통화 규칙(질문 다음 답 등)까지 — 늘 검수로 감
+                    scored = (call_pii.detect_scored if d.get("call") else pii_pipeline.detect_scored)(d["text"])
                 spans = sorted(scored["spans"], key=lambda s: (s["start"], s["end"]))
                 det = [{"label": s["label"], "start": s["start"], "end": s["end"]} for s in spans]
                 review = {"needs_review": scored["needs_review"],
                           "flags": [{k: s[k] for k in ("label", "start", "end", "flag", "p")} for s in spans if "flag" in s],
                           "hints": scored["hints"]}
+                if not d["doc_type"]:   # 종류 자동: 저장된 문서와 비교해 고름. 애매하면 사람이 확인
+                    try:
+                        g = guess_doc_type(d["text"], det)
+                    except Exception:
+                        logger.exception("문서 종류 자동 판단 실패 (job %s #%s)", job_id, seq)
+                        g = None
+                    d["doc_type"] = (g and g["doc_type"]) or d.get("type_fallback")
+                    if g:
+                        d["meta"] = {**d["meta"], "doc_type_auto": g}
+                        if g["uncertain"]:
+                            review["needs_review"] = True
+                            review["doc_type_check"] = {"pick": g["doc_type"], "second": g["second"]}
                 doc_id = f"J{job_id}-{d['ext_id'] or seq}"
                 cur.execute(
                     """INSERT INTO vault.staging_doc (job_id, seq, ext_id, doc_id, doc_type, text, meta, detected, gold, review)
@@ -189,6 +244,73 @@ def _weak_links(staging_id):
     return True
 
 
+# ---------------------------------------------------------------- 상담 녹음
+MAX_AUDIO_BYTES = 40 * 1024 * 1024   # 8kHz 스테레오 16비트로 약 20분
+MAX_AUDIO_SEC = 30 * 60
+AUDIO_FORMATS = "wav·mp3·m4a·aac·flac·ogg·opus·webm"
+AUDIO_KINDS = {"call": "상담 녹음", "meeting": "회의 녹음"}
+
+
+def create_audio_job(uploader, filename, data, doc_type=None):
+    """녹음 확인(풀리는지, 길이) → job 만 만들고 id. 받아쓰기·탐지는 process_audio_job() 이 (백그라운드).
+    녹음 파일은 어디에도 저장하지 않음 — 받아쓴 글만 staging(vault)에 들어감"""
+    from app.stt.transcribe import read_audio
+    if not data:
+        raise IngestError("빈 파일")
+    if len(data) > MAX_AUDIO_BYTES:
+        raise IngestError(f"녹음 파일은 {MAX_AUDIO_BYTES // 1024 // 1024}MB 까지")
+    try:
+        chans, rate = read_audio(data, max_sec=MAX_AUDIO_SEC + 1)
+    except ValueError as e:
+        if str(e) == "too long":
+            raise IngestError(f"녹음은 {MAX_AUDIO_SEC // 60}분까지")
+        raise IngestError(f"녹음 파일을 읽지 못했습니다 ({AUDIO_FORMATS})")
+    except Exception:
+        raise IngestError(f"녹음 파일을 읽지 못했습니다 ({AUDIO_FORMATS})")
+    sec = len(chans[0]) / rate if rate else 0
+    if sec < 1:
+        raise IngestError("녹음이 너무 짧음")
+    if sec > MAX_AUDIO_SEC:
+        raise IngestError(f"녹음은 {MAX_AUDIO_SEC // 60}분까지")
+    with db.vault_conn() as conn, conn.cursor() as cur:
+        cur.execute("INSERT INTO vault.ingest_job (uploader, source, filename, total, status) "
+                    "VALUES (%s, 'audio', %s, 1, 'transcribing') RETURNING id", (uploader, filename))
+        job_id = cur.fetchone()[0]
+    return job_id, {"sec": round(sec, 1), "channels": len(chans)}
+
+
+def process_audio_job(job_id, data, doc_type=None, kind="call", speakers=None):
+    """받아쓰기 (모델 하나를 한 건씩 씀 = 큐) → 글 1건으로 process_job
+    kind: 'call' 상담 (스테레오 = 채널로, 모노 = 목소리로 상담원/고객) · 'meeting' 회의 (목소리로 화자1·화자2…)
+    speakers: 회의 참석자 수 (모르면 None)"""
+    from app.stt import transcribe as T
+    try:
+        chans, rate = T.read_audio(data)
+        turns = T.transcribe((chans, rate), kind=kind, speakers=speakers)
+        text = T.to_text(turns)
+        if not text.strip():
+            raise IngestError("받아쓴 말이 없음")
+        if len(text) > MAX_DOC_CHARS:
+            raise IngestError("받아쓴 글이 너무 김")
+    except Exception as e:
+        logger.exception("job %s 받아쓰기 실패", job_id)
+        with db.vault_conn() as conn, conn.cursor() as cur:
+            cur.execute("UPDATE vault.ingest_job SET status = 'failed', error = %s WHERE id = %s",
+                        (str(e) if isinstance(e, IngestError) else type(e).__name__, job_id))
+        return
+    spk = sorted({t["speaker"] for t in turns if t["speaker"]})
+    by_channel = kind == "call" and len(chans) == 2
+    meta = {"source": "audio", "kind": kind, "sec": round(len(chans[0]) / rate, 1), "channels": len(chans),
+            "speakers": spk, "speaker_by": "channel" if by_channel else ("voice" if spk else None),
+            "stt_model": config.STT_MODEL, "turns": len(turns)}
+    if not by_channel and spk:
+        meta["spk_model"] = config.STT_SPK_MODEL
+    with db.vault_conn() as conn, conn.cursor() as cur:
+        cur.execute("UPDATE vault.ingest_job SET status = 'processing' WHERE id = %s", (job_id,))
+    process_job(job_id, [{"ext_id": None, "text": text, "doc_type": doc_type, "type_fallback": AUDIO_KINDS.get(kind, "상담 녹음"), "meta": meta,
+                          "gold": None, "call": True}])
+
+
 # ---------------------------------------------------------------- 조회
 def job_summary(job_id):
     with db.vault_conn() as conn, conn.cursor() as cur:
@@ -209,14 +331,14 @@ def job_summary(job_id):
 def list_jobs(limit=50):
     """업로드 목록 (최근 순) + 상태별 문서 수"""
     with db.vault_conn() as conn, conn.cursor() as cur:
-        cur.execute("""SELECT j.id, j.uploader, j.source, j.filename, j.total, j.status, j.created_at,
+        cur.execute("""SELECT j.id, j.uploader, j.source, j.filename, j.total, j.status, j.created_at, j.error,
                               count(d.id) FILTER (WHERE d.status = 'pending'),
                               count(d.id) FILTER (WHERE d.status = 'stored'),
                               count(d.id) FILTER (WHERE d.status = 'rejected'),
                               count(d.id) FILTER (WHERE d.status = 'failed')
                        FROM vault.ingest_job j LEFT JOIN vault.staging_doc d ON d.job_id = j.id
                        GROUP BY j.id ORDER BY j.id DESC LIMIT %s""", (max(1, min(int(limit), 200)),))
-        keys = ("id", "uploader", "source", "filename", "total", "status", "created_at",
+        keys = ("id", "uploader", "source", "filename", "total", "status", "created_at", "error",
                 "pending", "stored", "rejected", "failed")
         return [dict(zip(keys, r)) for r in cur.fetchall()]
 
@@ -259,6 +381,93 @@ def get_doc(staging_id, actor):
     return d
 
 
+# ---------------------------------------------------------------- 검수 때 본문 고치기 (받아쓰기 오류·화자 이름 등)
+SPEAKER_LINE = re.compile(r"^\[\d{2,}:\d{2}\] ([^:\n]{1,30}): ", re.M)   # 녹음 글 한 줄 '[분:초] 화자: 말'
+
+
+def speakers_in(text):
+    """녹음 글에 나오는 화자 이름 (처음 나온 순서)"""
+    return list(dict.fromkeys(m.group(1) for m in SPEAKER_LINE.finditer(text)))
+
+
+def remap_spans(old, new, spans):
+    """본문이 old → new 로 바뀌었을 때 구간 옮기기 → (옮긴 구간, 못 옮긴 수, new 에서 바뀐 곳 [(시작, 끝)])
+    바뀌지 않은 부분 안에 통째로 있는 구간만 새 위치로 옮김. 바뀐 곳에 걸친 구간은 버림 (다시 탐지로 채움)"""
+    sm = difflib.SequenceMatcher(None, old, new, autojunk=False)
+    blocks = sm.get_matching_blocks()
+    kept, dropped = [], 0
+    for sp in spans:
+        for a, b, n in blocks:
+            if n and a <= sp["start"] and sp["end"] <= a + n:
+                kept.append({**sp, "start": sp["start"] - a + b, "end": sp["end"] - a + b})
+                break
+        else:
+            dropped += 1
+    changed = [(j1, j2) for tag, _, _, j1, j2 in sm.get_opcodes() if tag != "equal"]
+    return kept, dropped, changed
+
+
+def edit_text(staging_id, actor, text, spans):
+    """검수하는 사람이 본문을 고침 (검수 대기·실패 문서만).
+    spans: 화면의 지금 구간 (옛 본문 위치) → 안 바뀐 곳은 옮기고, 바뀐 곳은 다시 탐지한 구간으로 채움.
+    결과 구간은 final_spans 에 '임시 저장' (승인 전이라도 다시 열면 그대로). 정답 라벨(gold)은 위치가 안 맞게 되어 지움.
+    처음 원문은 meta.text_original 에 한 번만 남김 (vault 안, 감사용)"""
+    if not isinstance(text, str) or not text.strip():
+        raise IngestError("본문이 비었습니다")
+    if len(text) > MAX_DOC_CHARS:
+        raise IngestError(f"본문은 {MAX_DOC_CHARS:,}자까지")
+    with db.vault_conn() as conn, conn.cursor() as cur:
+        d = _load(cur, staging_id, for_update=True)
+        if d is None:
+            return None
+        if d["status"] not in ("pending", "failed"):
+            raise Conflict(f"이미 처리됨: {d['status']}")
+        old = d["text"]
+        cur_spans = validate_spans(old, spans if spans is not None else (d["final_spans"] or d["detected"]))
+        if text == old:
+            return {"changed": False, "kept": len(cur_spans), "dropped": 0, "added": 0}
+        kept, dropped, changed = remap_spans(old, text, cur_spans)
+        meta = dict(d["meta"] or {})
+        is_audio = meta.get("source") == "audio"
+        with _detect_lock:
+            scored = (call_pii.detect_scored if is_audio else pii_pipeline.detect_scored)(text)
+        # 다시 탐지는 바뀐 곳에서만 씀. 안 바뀐 곳은 탐지·표시·힌트를 예전 것 그대로 옮김
+        # (주변 글이 바뀌면 모델이 안 바뀐 문장에서도 다르게 잡아서, 통째로 다시 쓰면 고치지 않은 곳에 오탐이 새로 생김)
+        touches = lambda x: any(x["start"] < j2 and j1 < x["end"] or (j1 == j2 and x["start"] <= j1 <= x["end"]) for j1, j2 in changed)
+        overlaps = lambda x, ys: any(x["start"] < y["end"] and y["start"] < x["end"] for y in ys)
+        by_pos = lambda xs: sorted(xs, key=lambda x: (x["start"], x["end"]))
+        fresh = [x for x in scored["spans"] if touches(x)]
+        old_review = d["review"] or {}
+        det_kept = remap_spans(old, text, d["detected"] or [])[0]
+        det = by_pos(det_kept + [{"label": x["label"], "start": x["start"], "end": x["end"]}
+                                 for x in fresh if not overlaps(x, det_kept)])
+        added = []
+        for x in fresh:
+            if not overlaps(x, kept + added):
+                added.append({"label": x["label"], "start": x["start"], "end": x["end"]})
+        final = by_pos(kept + added)
+        flags = remap_spans(old, text, old_review.get("flags") or [])[0] + \
+            [{k: x[k] for k in ("label", "start", "end", "flag", "p")} for x in fresh if "flag" in x]
+        hints = remap_spans(old, text, old_review.get("hints") or [])[0] + [h for h in scored["hints"] if touches(h)]
+        review = {"needs_review": True, "flags": by_pos(flags), "hints": by_pos(hints), "edited": True}
+        if old_review.get("doc_type_check"):
+            review["doc_type_check"] = old_review["doc_type_check"]
+        meta.setdefault("text_original", old)
+        meta["text_edits"] = int(meta.get("text_edits", 0)) + 1
+        if is_audio:
+            meta["speakers"] = speakers_in(text)
+        if d["gold"] is not None:
+            meta["gold_dropped"] = True
+        cur.execute("""UPDATE vault.staging_doc SET text = %s, detected = %s, final_spans = %s, review = %s, meta = %s,
+                       gold = NULL WHERE id = %s""",
+                    (text, Jsonb(det), Jsonb(final), Jsonb(review), Jsonb(meta), staging_id))
+        detail = {"chars_before": len(old), "chars_after": len(text), "kept": len(kept), "dropped": dropped,
+                  "added": len(added)}
+        cur.execute("INSERT INTO vault.review_log (staging_doc_id, actor, action, detail) VALUES (%s, %s, 'edit_text', %s)",
+                    (staging_id, actor, Jsonb(detail)))
+    return {"changed": True, **{k: detail[k] for k in ("kept", "dropped", "added")}}
+
+
 def preview_links(staging_id, spans, choices=None, _doc=None):
     """지금 구간으로 저장하면 사람이 어떻게 이어지는지 (저장 안 함)."""
     if _doc is None:
@@ -273,7 +482,7 @@ def preview_links(staging_id, spans, choices=None, _doc=None):
 
 
 # ---------------------------------------------------------------- 검수
-def review(staging_id, actor, action, spans=None, reason=None, choices=None):
+def review(staging_id, actor, action, spans=None, reason=None, choices=None, doc_type=None):
     if action == "reject":
         with db.vault_conn() as conn, conn.cursor() as cur:
             d = _load(cur, staging_id, for_update=True)
@@ -290,6 +499,10 @@ def review(staging_id, actor, action, spans=None, reason=None, choices=None):
         raise IngestError("action 은 approve / reject")
     if spans is None:
         raise IngestError("승인하려면 spans 필요")
+    if doc_type is not None and doc_type.strip():   # 검수하는 사람이 종류를 고쳤으면 저장 전에 반영
+        with db.vault_conn() as conn, conn.cursor() as cur:
+            cur.execute("UPDATE vault.staging_doc SET doc_type = %s WHERE id = %s AND status IN ('pending', 'failed')",
+                        (doc_type.strip()[:50], staging_id))
     return store(staging_id, actor=actor, action="approve", spans=spans, choices=choices)
 
 

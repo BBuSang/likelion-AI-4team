@@ -21,6 +21,9 @@ kiwipiepy==0.24.1
 transformers==4.57.1
 torch==2.9.0
 
+# 상담 녹음 받아쓰기 (CPU, int8). 모델(medium ~1.5GB)은 처음 받아쓸 때 내려받음, 메모리 ~2GB
+faster-whisper==1.2.1
+
 # 로컬 임베딩 (EMBED_PROVIDER=hf, BAAI/bge-m3)
 sentence-transformers==5.1.2
 

@@ -324,6 +324,19 @@ public class AiClient {
         }
     }
 
+    /** POST /internal{path}?query (body = 바이트 그대로, 상담 녹음 wav). AI 는 받자마자 job 만 만들고 202 */
+    public JsonNode postBytes(String path, Map<String, ?> query, byte[] body) {
+        try {
+            return call(() -> http.post().uri(b -> {
+                b.path("/internal" + path);
+                query.forEach((k, v) -> { if (v != null) b.queryParam(k, v); });
+                return b.build();
+            }).contentType(MediaType.APPLICATION_OCTET_STREAM).body(body).retrieve().body(JsonNode.class));
+        } catch (NotFound e) {
+            throw ApiException.notFound("찾을 수 없습니다.");
+        }
+    }
+
     // ------------------------------------------------------------------
 
     private static class NotFound extends RuntimeException {}

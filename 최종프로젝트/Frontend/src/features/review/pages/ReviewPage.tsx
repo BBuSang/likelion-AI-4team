@@ -2,10 +2,11 @@
 // 위치는 서버와 같은 코드포인트 단위 (브라우저 UTF-16 과 다를 수 있어 변환). 승인하면 가명처리 → 임베딩 → 저장
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { AlertTriangle, ArrowLeft, ChevronLeft, ChevronRight, Plus, Trash2 } from 'lucide-react';
+import { AlertTriangle, ArrowLeft, ChevronLeft, ChevronRight, Pencil, Plus, Trash2, Users } from 'lucide-react';
 import ConfirmDialog from '@/shared/components/ConfirmDialog';
 import { errMsg } from '@/shared/utils/error';
 import { LABELS, cpSlice, labelInfo, toCodePoint } from '@/shared/utils/pii';
+import DocTypeSelect from '../components/DocTypeSelect';
 import * as api from '../api/ingest.api';
 import type { LinkGroup, ReviewFlag, ReviewHint, Span, StagingDoc, StagingRow } from '../api/ingest.api';
 import { DOC_STATUS, FLAG_KO } from '../api/ingest.api';
@@ -46,12 +47,19 @@ export default function ReviewPage() {
   const [busy, setBusy] = useState(false);
   const [rejecting, setRejecting] = useState(false);
   const [reason, setReason] = useState('');
+  const [docType, setDocType] = useState(''); // 승인할 때 저장할 문서 종류 (처음엔 지금 값)
+  const [editing, setEditing] = useState(false); // 본문 고치기 중
+  const [draft, setDraft] = useState('');
+  const [names, setNames] = useState<Record<string, string>>({}); // 화자 이름 바꾸기 {지금 이름: 새 이름}
+  const [note, setNote] = useState(''); // 본문을 고친 뒤 안내
   const boxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setDoc(null); setPop(null); setError(''); setChoices({}); setRejecting(false); setReason('');
+    setDoc(null); setPop(null); setError(''); setChoices({}); setRejecting(false); setReason(''); setDocType('');
+    setEditing(false); setDraft(''); setNames({}); setNote('');
     api.doc(docId).then((d) => {
       setDoc(d);
+      setDocType(d.doc_type ?? '');
       setSpans([...d.spans].sort((a, b) => a.start - b.start));
       setLinks(d.links);
       api.jobDocs(d.job_id).then(setSiblings).catch(() => {});
@@ -171,8 +179,9 @@ export default function ReviewPage() {
     let n = 0;
     cur.forEach((l, k) => { if (init.get(k) !== l) n++; });
     init.forEach((_, k) => { if (!cur.has(k)) n++; });
-    return n + Object.keys(choices).length;
-  }, [doc, spans, choices]);
+    return n + Object.keys(choices).length + (docType.trim() !== (doc.doc_type ?? '') ? 1 : 0)
+      + (editing && draft !== doc.text ? 1 : 0) + Object.entries(names).filter(([k, v]) => v.trim() && v.trim() !== k).length;
+  }, [doc, spans, choices, docType, editing, draft, names]);
 
   // 수정이 있으면 새로고침·탭 닫기 전에 브라우저가 물어봄 (문구는 브라우저가 정함)
   useEffect(() => {
@@ -192,6 +201,31 @@ export default function ReviewPage() {
   const nextPending = () => siblings.find((s, i) => i > idx && (s.status === 'pending' || s.status === 'failed'))
     ?? siblings.find((s) => s.id !== docId && (s.status === 'pending' || s.status === 'failed'));
 
+  // 본문 저장 (직접 고치기·화자 이름 바꾸기 둘 다) → 서버가 구간을 옮기고 바뀐 곳을 다시 탐지 → 다시 불러옴
+  const saveText = async (text: string) => {
+    if (!doc) return;
+    if (!text.trim()) return setError('본문이 비었어요.');
+    setBusy(true);
+    setError('');
+    try {
+      const r = await api.editText(doc.id, { text, spans: spans.map((s) => ({ ...s, text: cpSlice(doc.text, s.start, s.end) })) });
+      const d = await api.doc(doc.id);
+      setDoc(d);
+      setSpans([...d.spans].sort((a, b) => a.start - b.start));
+      setLinks(d.links);
+      setEditing(false);
+      setNames({});
+      setPop(null);
+      setNote(r.changed
+        ? `본문을 고쳤어요. 개인정보 표시는 그대로 ${r.kept}곳, 고친 곳에서 다시 찾은 곳 ${r.added}곳${r.dropped ? `, 고친 곳에 걸려 지운 곳 ${r.dropped}곳` : ''}. 고친 부분을 한 번 더 봐 주세요.`
+        : '바뀐 곳이 없어요.');
+    } catch (e) {
+      setError(errMsg(e));
+    } finally {
+      setBusy(false);
+    }
+  };
+
   const act = async (action: 'approve' | 'reject') => {
     if (!doc) return;
     if (action === 'reject' && !reason.trim()) return setError('반려 사유를 적어 주세요.');
@@ -199,7 +233,8 @@ export default function ReviewPage() {
     setError('');
     try {
       await api.review(doc.id, action === 'approve'
-        ? { action, spans: spans.map((s) => ({ ...s, text: cpSlice(doc.text, s.start, s.end) })), choices }
+        ? { action, spans: spans.map((s) => ({ ...s, text: cpSlice(doc.text, s.start, s.end) })), choices,
+            docType: docType.trim() && docType.trim() !== (doc.doc_type ?? '') ? docType.trim() : undefined }
         : { action, reason: reason.trim() });
       const n = nextPending();
       if (n) go(n); else nav('/ingest');
@@ -212,6 +247,8 @@ export default function ReviewPage() {
 
   if (!doc) return <section className="panel page">{error ? <div className="alert alert-bad">{error}</div> : <p className="muted">불러오는 중…</p>}</section>;
 
+  const autoType = doc.meta?.doc_type_auto as { doc_type: string; score: number; second: string | null; second_score: number | null } | undefined;
+  const speakers = api.speakersIn(doc.text);
   const counts = LABELS.map((l) => ({ ...l, n: spans.filter((s) => s.label === l.label).length }));
   const persons = links.filter((g) => g.mentions.length);
 
@@ -232,9 +269,31 @@ export default function ReviewPage() {
         </div>
         <div className="legend">
           {LABELS.map((l) => <span key={l.label} className={`pii pii-${l.cls}`}>{l.key} {l.name}</span>)}
-          <span className="small muted">{editable ? '글자를 드래그하고 숫자 키나 버튼으로 라벨을 고르세요. 형광펜을 누르면 바꾸거나 지울 수 있어요.' : '처리된 문서라 읽기만 할 수 있어요.'}</span>
+          <span className="small muted">{!editable ? '처리된 문서라 읽기만 할 수 있어요.'
+            : editing ? '본문을 고친 뒤 저장하세요. 안 고친 곳의 개인정보 표시는 그대로 두고, 고친 곳은 다시 찾아요.'
+            : '글자를 드래그하고 숫자 키나 버튼으로 라벨을 고르세요. 형광펜을 누르면 바꾸거나 지울 수 있어요.'}</span>
+          {editable && !editing && (
+            <button className="btn btn-sm" style={{ marginLeft: 'auto' }} disabled={busy}
+                    onClick={() => { setDraft(doc.text); setEditing(true); setPop(null); setNote(''); }}>
+              <Pencil size={13} aria-hidden /> 본문 고치기
+            </button>
+          )}
         </div>
+        {note && !editing && <div className="alert alert-ok" style={{ marginBottom: 10 }}>{note}</div>}
         {error && <div className="alert alert-bad" style={{ marginBottom: 10 }}>{error}</div>}
+        {editing ? (
+          <div className="stack" style={{ flex: 1, minHeight: 0 }}>
+            <textarea className="textarea doc-edit" value={draft} onChange={(e) => setDraft(e.target.value)} aria-label="본문 고치기" autoFocus />
+            <div className="row" style={{ gap: 8 }}>
+              <span className="small muted">{Array.from(draft).length.toLocaleString()}자</span>
+              <div className="spacer" />
+              <button className="btn btn-sm" disabled={busy} onClick={() => { setEditing(false); setDraft(''); }}>취소</button>
+              <button className="btn btn-sm btn-primary" disabled={busy || draft === doc.text} onClick={() => saveText(draft)}>
+                {busy ? '저장하는 중…' : '본문 저장'}
+              </button>
+            </div>
+          </div>
+        ) : (
         <div className="doc-text" ref={boxRef} onMouseUp={onMouseUp}>
           {segments.map((g) => {
             const t = chars.slice(g.start, g.end).join('');
@@ -265,9 +324,47 @@ export default function ReviewPage() {
             </div>
           )}
         </div>
+        )}
       </section>
 
       <aside className="panel side side-wide stack">
+        <div>
+          <h3 style={{ marginBottom: 6 }}>문서 종류</h3>
+          {editable
+            ? <DocTypeSelect value={docType} onChange={setDocType} allowAuto={false} disabled={busy} />
+            : <p className="small">{doc.doc_type ?? '-'}</p>}
+          {autoType && (
+            <p className="small muted" style={{ marginTop: 6 }}>
+              자동 판단: {autoType.doc_type} ({Math.round(autoType.score * 100)}%)
+              {autoType.second && <> · 다음 후보 {autoType.second} ({Math.round((autoType.second_score ?? 0) * 100)}%)</>}
+            </p>
+          )}
+        </div>
+
+        {speakers.length > 0 && (
+          <div>
+            <h3 style={{ marginBottom: 6 }}><Users size={15} aria-hidden /> 화자 {speakers.length}명</h3>
+            {editable && !editing ? <>
+              {speakers.map((sp) => (
+                <div key={sp.name} className="row small" style={{ gap: 6, marginTop: 4 }}>
+                  <span style={{ minWidth: 56 }}>{sp.name}</span>
+                  <span className="muted" style={{ minWidth: 34 }}>{sp.lines}줄</span>
+                  <input className="input" style={{ height: 28, flex: 1 }} maxLength={30} placeholder="새 이름"
+                         list="speaker-names" value={names[sp.name] ?? ''} disabled={busy} aria-label={`${sp.name} 새 이름`}
+                         onChange={(e) => setNames((n) => ({ ...n, [sp.name]: e.target.value.replace(/[:\n]/g, '') }))} />
+                </div>
+              ))}
+              <datalist id="speaker-names">{speakers.map((sp) => <option key={sp.name} value={sp.name} />)}</datalist>
+              <div className="row" style={{ marginTop: 6 }}>
+                <span className="small muted">다른 화자 이름을 넣으면 한 사람으로 합쳐져요</span>
+                <div className="spacer" />
+                <button className="btn btn-sm" disabled={busy || !Object.entries(names).some(([k, v]) => v.trim() && v.trim() !== k)}
+                        onClick={() => saveText(api.renameSpeakers(doc.text, names))}>이름 바꾸기</button>
+              </div>
+            </> : <p className="small muted">{speakers.map((sp) => `${sp.name} ${sp.lines}줄`).join(' · ')}</p>}
+          </div>
+        )}
+
         <div>
           <h3 style={{ marginBottom: 8 }}>찾은 개인정보 {spans.length}개</h3>
           <div className="count-grid">
@@ -286,6 +383,7 @@ export default function ReviewPage() {
               </p>
             ))}
             {(doc.review.link_check ?? []).length > 0 && <p className="small">같은 사람 잇기 판단이 약해요. 아래에서 확인해 주세요.</p>}
+            {doc.review.doc_type_check && <p className="small">문서 종류가 애매해요 ({doc.review.doc_type_check.pick}{doc.review.doc_type_check.second ? ` / ${doc.review.doc_type_check.second}` : ''}). 위에서 확인해 주세요.</p>}
             {hints.length > 0 && <>
               <p className="small muted" style={{ marginTop: 8 }}>놓쳤을 수 있는 곳 (물결 밑줄) — 개인정보면 추가하세요</p>
               {hints.map((h) => (

@@ -30,3 +30,6 @@
 .pii-flag { background: transparent; outline: 1.5px dashed #d98a00; border-radius: 4px; padding: 0 3px; }
 .review-why { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; background: var(--warn-bg); }
 .review-why h3 { display: flex; align-items: center; gap: 6px; }
+
+/* 검수 때 본문 고치기 */
+.doc-edit { flex: 1; min-height: 320px; resize: vertical; font-size: 14px; line-height: 1.9; white-space: pre-wrap; }

@@ -24,3 +24,6 @@ scripts/eval_search.py
 scripts/agent_report.py
 scripts/compare_embed_vectors.py
 scripts/run_embed_compare.sh
+scripts/eval_stt.py
+scripts/make_stt_audio.py
+scripts/stt_calls.py
