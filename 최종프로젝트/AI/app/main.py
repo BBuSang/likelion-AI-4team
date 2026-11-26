@@ -57,7 +57,22 @@ def _warm_embedder():
             logger.info("공개 RAG 준비 완료 (%s)", ", ".join(sorted(ready)))
         except Exception:
             logger.exception("공개 RAG 미리 읽기 실패 — 첫 질문 때 다시 시도")
+    def run_stt():
+        """받아쓰기 모델 (처음엔 약 1.5GB 받기). 따로 돌려 DB 연결이 늦어도(공개 RAG) 기다리지 않음.
+        모델 읽기 자체는 MODEL_LOAD_LOCK 으로 다른 모델과 한 번에 하나씩"""
+        try:
+            from app.stt import transcribe
+            transcribe.warmup()
+            logger.info("받아쓰기 모델 준비 완료 (%s)", config.STT_MODEL)
+            if config.STT_DIARIZE:  # 모노 녹음 화자 나누기용 목소리 모델 (약 380MB)
+                from app.stt import diarize
+                diarize.warmup()
+                logger.info("화자 나누기 모델 준비 완료 (%s)", config.STT_SPK_MODEL)
+        except Exception:
+            logger.exception("받아쓰기 모델 미리 읽기 실패 — 첫 받아쓰기 때 다시 시도")
     threading.Thread(target=run, daemon=True).start()
+    if config.STT_PRELOAD:
+        threading.Thread(target=run_stt, daemon=True).start()
 
 # 브라우저가 직접 부르지 않으므로 CORS 미들웨어는 넣지 않음 (스프링이 중계)
 internal = APIRouter(prefix="/internal", dependencies=[Depends(require_service_key)])

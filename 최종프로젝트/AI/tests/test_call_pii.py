@@ -19,7 +19,7 @@ def _wav(sec, ch=2, rate=8000, width=2):
 
 
 def test_audio_upload_checks():
-    for data in (b"", b"not a wav", _wav(0.5), _wav(2, width=1), _wav(31 * 60, ch=1)):
+    for data in (b"", b"not a wav", _wav(0.5), _wav(31 * 60, ch=1)):
         with pytest.raises(service.IngestError):
             service.create_audio_job("a@b.c", "x.wav", data)
 

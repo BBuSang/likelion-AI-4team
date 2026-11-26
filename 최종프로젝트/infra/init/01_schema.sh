@@ -191,7 +191,7 @@ CREATE TABLE vault.review_log (
     id              BIGSERIAL PRIMARY KEY,
     staging_doc_id  BIGINT NOT NULL REFERENCES vault.staging_doc(id) ON DELETE CASCADE,
     actor           TEXT NOT NULL,
-    action          TEXT NOT NULL,               -- view / approve / auto_approve / reject / store_failed
+    action          TEXT NOT NULL,               -- view / approve / auto_approve / reject / store_failed / edit_text(검수 때 본문 고침) / delete
     added           INT NOT NULL DEFAULT 0,      -- 검수자가 추가한 구간 수 (= 탐지기가 놓친 수)
     removed         INT NOT NULL DEFAULT 0,      -- 지운 구간 수 (= 오탐)
     relabeled       INT NOT NULL DEFAULT 0,

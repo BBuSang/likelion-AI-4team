@@ -103,6 +103,12 @@ OUT_DIR = ROOT / "outputs"
 # 상담 녹음 받아쓰기 (로컬 Whisper, CPU)
 STT_MODEL = env("STT_MODEL", "medium")
 STT_THREADS = int(env("STT_THREADS", "4"))
+# 서버 시작 때 받아쓰기 모델을 미리 받아 읽음 (백그라운드, 처음엔 약 1.5GB 받기). 0 이면 첫 요청 때 읽음 (로컬 개발용)
+STT_PRELOAD = env("STT_PRELOAD", "1") == "1"
+# 모노 녹음(모노 상담·회의)에서 목소리로 사람 나누기. 문장마다 목소리 특징을 뽑아 비슷한 것끼리 묶음
+STT_DIARIZE = env("STT_DIARIZE", "1") == "1"
+STT_SPK_MODEL = env("STT_SPK_MODEL", "microsoft/wavlm-base-plus-sv")
+STT_SPK_THRESHOLD = float(env("STT_SPK_THRESHOLD", "0.25"))   # 사람 수를 모를 때: 무리 사이 코사인 거리가 이보다 크면 다른 사람
 # 받아쓰기 힌트 단어 (쉼표 구분). 회사 이름·상품·자주 쓰는 업무 말을 넣으면 소리 나는 대로 틀리게 받아쓰는 일이 줄어듦
 # ('새봄은행' → '세보문행'). 실제 회사에 맞게 바꿔 씀. 빈 값이면 힌트 없음
 STT_HOTWORDS = env("STT_HOTWORDS", "새봄은행,고객님,접수,재발급,분실 신고,보이스피싱,지급정지,착오송금,반환 청구,중도해지,이율,골뱅이,닷컴")

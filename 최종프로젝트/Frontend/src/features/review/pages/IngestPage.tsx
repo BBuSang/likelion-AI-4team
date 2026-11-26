@@ -1,16 +1,17 @@
-// 데이터 적재: 파일 올리기(jsonl / 줄글) · 상담 녹음(wav) + 업로드 목록 + 고른 업로드의 문서 목록
+// 데이터 적재: 파일 올리기(jsonl / 줄글) · 녹음(상담·회의, wav·mp3·m4a 등) + 업로드 목록 + 고른 업로드의 문서 목록
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { DragEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FileAudio, FileUp, RefreshCw } from 'lucide-react';
 import { errMsg, fmtTime } from '@/shared/utils/error';
+import DocTypeSelect from '../components/DocTypeSelect';
 import * as api from '../api/ingest.api';
-import type { Job, StagingRow } from '../api/ingest.api';
+import type { AudioKind, Job, StagingRow } from '../api/ingest.api';
 import { APPROVED_BY_KO, DOC_STATUS } from '../api/ingest.api';
 import './review.css';
 
 // 끌어다 놓기로 받는 파일 (파일 고르기의 accept 와 같음)
-const DROP_EXT = { file: ['.jsonl', '.txt'], audio: ['.wav'] } as const;
+const DROP_EXT = { file: ['.jsonl', '.txt'], audio: ['.wav', '.mp3', '.m4a', '.aac', '.flac', '.ogg', '.opus', '.webm'] } as const;
 const MAX_AUDIO_MB = 40;
 const hasFiles = (e: { dataTransfer: DataTransfer | null }) => !!e.dataTransfer && Array.from(e.dataTransfer.types).includes('Files');
 
@@ -27,6 +28,9 @@ export default function IngestPage() {
   const [mode, setMode] = useState<'file' | 'text' | 'audio'>('file');
   const [file, setFile] = useState<File | null>(null);
   const [text, setText] = useState('');
+  const [docType, setDocType] = useState(''); // '' = 자동 판단
+  const [kind, setKind] = useState<AudioKind>('call');
+  const [speakers, setSpeakers] = useState(''); // 회의 참석자 수 (비우면 목소리 차이로 추정)
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
@@ -95,9 +99,11 @@ export default function IngestPage() {
     if (file.size > MAX_AUDIO_MB * 1024 * 1024) return setMsg({ ok: false, text: `녹음은 ${MAX_AUDIO_MB}MB(약 20분)까지 올릴 수 있어요.` });
     setBusy(true);
     try {
-      const r = await api.uploadAudio(file);
+      const n = Number(speakers);
+      if (kind === 'meeting' && speakers && !(Number.isInteger(n) && n >= 1 && n <= 10)) return setMsg({ ok: false, text: '참석자 수는 1~10명으로 넣어 주세요.' });
+      const r = await api.uploadAudio(file, { kind, speakers: kind === 'meeting' && speakers ? n : undefined, docType: docType.trim() || undefined });
       const min = Math.max(1, Math.round(r.sec / 60));
-      setMsg({ ok: true, text: `${min}분짜리 녹음을 올렸어요. 받아쓰는 중이에요 (10분 통화에 5~7분, 앞에 다른 녹음이 있으면 차례를 기다려요).` });
+      setMsg({ ok: true, text: `${min}분짜리 녹음을 올렸어요. 받아쓰는 중이에요 (10분 녹음에 5~7분${kind === 'meeting' ? ', 화자 나누기에 1분쯤 더' : ''}, 앞에 다른 녹음이 있으면 차례를 기다려요).` });
       setFile(null);
       if (fileRef.current) fileRef.current.value = '';
       await reload();
@@ -116,10 +122,10 @@ export default function IngestPage() {
     if (mode === 'file') {
       if (!file) return setMsg({ ok: false, text: '파일을 골라 주세요.' });
       const content = await file.text();
-      body = { source: file.name.endsWith('.jsonl') ? 'jsonl' : 'text', content, filename: file.name };
+      body = { source: file.name.endsWith('.jsonl') ? 'jsonl' : 'text', content, filename: file.name, docType: docType.trim() || undefined };
     } else {
       if (!text.trim()) return setMsg({ ok: false, text: '글을 붙여 넣어 주세요.' });
-      body = { source: 'text', content: text };
+      body = { source: 'text', content: text, docType: docType.trim() || undefined };
     }
     setBusy(true);
     try {
@@ -153,15 +159,33 @@ export default function IngestPage() {
           <div className="tabs" style={{ marginBottom: 12 }}>
             <button className={`tab${mode === 'file' ? ' active' : ''}`} onClick={() => switchMode('file')}>파일 올리기</button>
             <button className={`tab${mode === 'text' ? ' active' : ''}`} onClick={() => switchMode('text')}>글 붙여 넣기</button>
-            <button className={`tab${mode === 'audio' ? ' active' : ''}`} onClick={() => switchMode('audio')}>상담 녹음</button>
+            <button className={`tab${mode === 'audio' ? ' active' : ''}`} onClick={() => switchMode('audio')}>녹음</button>
           </div>
           {mode === 'audio' ? (
-            <label className={`drop${dragOver ? ' drop-over' : ''}`} onDragOver={onDragOver} onDragLeave={onDragLeave} onDrop={onDrop}>
-              <FileAudio size={26} color="var(--brand)" aria-hidden />
-              <p>{file ? file.name : '녹음 파일(wav)을 끌어다 놓거나 눌러서 고르세요'}</p>
-              <p className="small muted">16비트 wav · {MAX_AUDIO_MB}MB·30분까지 · 스테레오(왼쪽 상담원, 오른쪽 고객)면 화자가 붙어요. 받아쓴 글은 늘 사람이 확인한 뒤 저장돼요</p>
-              <input ref={fileRef} type="file" accept=".wav,audio/wav" hidden onChange={(e) => setFile(e.target.files?.[0] ?? null)} />
-            </label>
+            <>
+              <div className="row" style={{ marginBottom: 10, gap: 8, flexWrap: 'wrap' }}>
+                <div className="tabs" role="radiogroup" aria-label="녹음 종류">
+                  <button className={`tab${kind === 'call' ? ' active' : ''}`} role="radio" aria-checked={kind === 'call'} onClick={() => setKind('call')}>상담 (1:1)</button>
+                  <button className={`tab${kind === 'meeting' ? ' active' : ''}`} role="radio" aria-checked={kind === 'meeting'} onClick={() => setKind('meeting')}>회의 (여러 명)</button>
+                </div>
+                {kind === 'meeting' && (
+                  <label className="small row" style={{ gap: 6 }}>
+                    참석자 수
+                    <input className="input" style={{ width: 70, height: 30 }} type="number" min={1} max={10} placeholder="모름"
+                      value={speakers} onChange={(e) => setSpeakers(e.target.value)} />
+                    <span className="muted">명 (알면 넣어 주세요. 화자가 더 잘 나뉘어요)</span>
+                  </label>
+                )}
+              </div>
+              <label className={`drop${dragOver ? ' drop-over' : ''}`} onDragOver={onDragOver} onDragLeave={onDragLeave} onDrop={onDrop}>
+                <FileAudio size={26} color="var(--brand)" aria-hidden />
+                <p>{file ? file.name : '녹음 파일을 끌어다 놓거나 눌러서 고르세요'}</p>
+                <p className="small muted">wav·mp3·m4a·aac·flac·ogg·opus·webm · {MAX_AUDIO_MB}MB·30분까지 · {kind === 'call'
+                  ? '스테레오(왼쪽 상담원, 오른쪽 고객)면 채널로, 모노면 목소리로 상담원·고객을 나눠요'
+                  : '목소리로 사람을 나눠 화자1·화자2…로 붙여요 (이름은 검수 때 바꿔 주세요)'}. 받아쓴 글은 늘 사람이 확인한 뒤 저장돼요</p>
+                <input ref={fileRef} type="file" accept={DROP_EXT.audio.join(',') + ',audio/*'} hidden onChange={(e) => setFile(e.target.files?.[0] ?? null)} />
+              </label>
+            </>
           ) : mode === 'file' ? (
             <label className={`drop${dragOver ? ' drop-over' : ''}`} onDragOver={onDragOver} onDragLeave={onDragLeave} onDrop={onDrop}>
               <FileUp size={26} color="var(--brand)" aria-hidden />
@@ -172,7 +196,14 @@ export default function IngestPage() {
           ) : (
             <textarea className="textarea" style={{ minHeight: 120 }} placeholder="문서 1건의 본문" value={text} onChange={(e) => setText(e.target.value)} />
           )}
-          <div className="row" style={{ marginTop: 12 }}>
+          <div className="row" style={{ marginTop: 12, gap: 8, flexWrap: 'wrap' }}>
+            <label className="small" htmlFor="ingest-doc-type" style={{ fontWeight: 500 }}>문서 종류</label>
+            <DocTypeSelect id="ingest-doc-type" value={docType} onChange={setDocType} disabled={busy} />
+            <span className="small muted">{docType.trim()
+              ? (mode === 'file' ? 'jsonl 에 doc_type 이 있는 줄은 그 값을 써요' : '')
+              : '저장된 문서와 비교해 가장 비슷한 종류로 정해요. 애매하면 검수 때 확인해요'}</span>
+          </div>
+          <div className="row" style={{ marginTop: 10 }}>
             <p className="small muted">{mode === 'audio'
               ? '녹음은 이 서버에서 받아쓰고 버려요 (외부로 안 나가고 저장도 안 해요). 받아쓴 글은 별도 보관소(vault)에만 있어요.'
               : '원문은 검수가 끝날 때까지 별도 보관소(vault)에만 있어요.'}</p>
