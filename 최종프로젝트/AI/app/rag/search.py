@@ -501,11 +501,19 @@ def _rerank(masked_q, ranked):
                                {"role": "user", "content": f"[질문]\n{masked_q}\n\n[문서]\n{listing}"}]},
             timeout=30)
         r.raise_for_status()
-        order = re.findall(r"[A-Z]\d{4}", r.json()["choices"][0]["message"]["content"])
+        content = r.json()["choices"][0]["message"]["content"]
     except Exception:
         return ranked
+    # 답에서 후보 ID 가 처음 나온 자리 순서로. ID 모양(자릿수)을 가정하지 않음 — H20139 를 4자리로 읽어
+    # H2013 이 되면서 재순위가 조용히 효과 없던 문제 (Holdout2 첫 실행). 긴 ID 가 짧은 ID 안에 걸리지 않게 경계 확인
+    pos = {}
+    for d in tier:
+        m = re.search(r"(?<![A-Za-z0-9-])" + re.escape(d["doc_id"]) + r"(?![A-Za-z0-9-])", content)
+        if m:
+            pos[d["doc_id"]] = m.start()
+    order = sorted(pos, key=pos.get)
     by_id = {d["doc_id"]: d for d in tier}
-    new_tier = [by_id[i] for i in dict.fromkeys(order) if i in by_id]
+    new_tier = [by_id[i] for i in order]
     new_tier += [d for d in tier if d not in new_tier]
     tier_ids = {d["doc_id"] for d in tier}
     it = iter(new_tier)

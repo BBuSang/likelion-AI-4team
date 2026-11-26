@@ -145,8 +145,10 @@ def ask_back(amb, cands):
     return "\n".join(lines)
 
 
-_CITE_WORD = re.compile(r"\[\s*문서\s*([A-Z]\d{4})\s*\]")  # 추론을 끄면 '[문서 T0139]' 로 씀 → '[T0139]' 로 통일
-_CITE = re.compile(r"\[[A-Z]\d{4}\]")
+# 문서 ID: 1·2주차 H0071 · Holdout2 H20139 · 화면 업로드 J35-H20001 (자릿수를 정해 두지 않음 — 화면 pii.ts 와 같은 모양)
+DOC_ID = r"[A-Z]\d+[A-Za-z0-9-]*"
+_CITE_WORD = re.compile(r"\[\s*문서\s*(" + DOC_ID + r")\s*\]")  # 추론을 끄면 '[문서 T0139]' 로 씀 → '[T0139]' 로 통일
+_CITE = re.compile(r"\[" + DOC_ID + r"\]")
 _NOT_FOUND = re.compile(r"찾을\s*수\s*없|찾지\s*못했")
 
 

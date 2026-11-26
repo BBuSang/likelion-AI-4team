@@ -1,0 +1,29 @@
+[14:45:14] 시작: 문서 756 · 질의 155 · 정답 있음 · DB 포트 5435
+[14:45:14] 탐지 756건 (모델 첫 로딩 포함)...
+2026-11-26 14:45:24.420979: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-11-26 14:45:29.589903: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Token indices sequence length is longer than the specified maximum sequence length for this model (937 > 512). Running this sequence through the model will result in indexing errors
+Token indices sequence length is longer than the specified maximum sequence length for this model (937 > 512). Running this sequence through the model will result in indexing errors
+WARNING:tensorflow:From C:\Users\31799\AppData\Local\Programs\Python\Python313\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+Batches:   0%|          | 0/58 [00:00<?, ?it/s]Batches:   2%|▏         | 1/58 [00:09<08:42,  9.17s/it]Batches:   3%|▎         | 2/58 [00:19<09:10,  9.83s/it]Batches:   5%|▌         | 3/58 [00:29<09:17, 10.13s/it]Batches:   7%|▋         | 4/58 [00:40<09:07, 10.14s/it]Batches:   9%|▊         | 5/58 [00:50<08:59, 10.18s/it]Batches:  10%|█         | 6/58 [01:00<08:49, 10.18s/it]Batches:  12%|█▏        | 7/58 [01:10<08:37, 10.15s/it]Batches:  14%|█▍        | 8/58 [01:20<08:23, 10.06s/it]Batches:  16%|█▌        | 9/58 [01:29<07:54,  9.69s/it]Batches:  17%|█▋        | 10/58 [01:37<07:27,  9.31s/it]Batches:  19%|█▉        | 11/58 [01:47<07:24,  9.46s/it]Batches:  21%|██        | 12/58 [01:57<07:19,  9.54s/it]Batches:  22%|██▏       | 13/58 [02:06<07:00,  9.34s/it]Batches:  24%|██▍       | 14/58 [02:13<06:27,  8.81s/it]Batches:  26%|██▌       | 15/58 [02:20<05:52,  8.19s/it]Batches:  28%|██▊       | 16/58 [02:27<05:22,  7.68s/it]Batches:  29%|██▉       | 17/58 [02:33<05:02,  7.37s/it]Batches:  31%|███       | 18/58 [02:39<04:36,  6.91s/it]Batches:  33%|███▎      | 19/58 [02:45<04:15,  6.56s/it]Batches:  34%|███▍      | 20/58 [02:51<04:02,  6.38s/it]Batches:  36%|███▌      | 21/58 [02:56<03:42,  6.01s/it]Batches:  38%|███▊      | 22/58 [03:01<03:27,  5.75s/it]Batches:  40%|███▉      | 23/58 [03:06<03:14,  5.57s/it]Batches:  41%|████▏     | 24/58 [03:11<03:02,  5.37s/it]Batches:  43%|████▎     | 25/58 [03:16<02:52,  5.22s/it]Batches:  45%|████▍     | 26/58 [03:21<02:42,  5.09s/it]Batches:  47%|████▋     | 27/58 [03:25<02:31,  4.89s/it]Batches:  48%|████▊     | 28/58 [03:30<02:23,  4.78s/it]Batches:  50%|█████     | 29/58 [03:34<02:14,  4.64s/it]Batches:  52%|█████▏    | 30/58 [03:39<02:09,  4.62s/it]Batches:  53%|█████▎    | 31/58 [03:43<02:02,  4.54s/it]Batches:  55%|█████▌    | 32/58 [03:47<01:57,  4.51s/it]Batches:  57%|█████▋    | 33/58 [03:52<01:53,  4.55s/it]Batches:  59%|█████▊    | 34/58 [03:57<01:48,  4.54s/it]Batches:  60%|██████    | 35/58 [04:01<01:41,  4.41s/it]Batches:  62%|██████▏   | 36/58 [04:05<01:35,  4.33s/it]Batches:  64%|██████▍   | 37/58 [04:09<01:27,  4.15s/it]Batches:  66%|██████▌   | 38/58 [04:12<01:21,  4.09s/it]Batches:  67%|██████▋   | 39/58 [04:16<01:14,  3.94s/it]Batches:  69%|██████▉   | 40/58 [04:19<01:07,  3.75s/it]Batches:  71%|███████   | 41/58 [04:23<01:01,  3.60s/it]Batches:  72%|███████▏  | 42/58 [04:26<00:55,  3.48s/it]Batches:  74%|███████▍  | 43/58 [04:29<00:50,  3.35s/it]Batches:  76%|███████▌  | 44/58 [04:32<00:45,  3.28s/it]Batches:  78%|███████▊  | 45/58 [04:35<00:40,  3.15s/it]Batches:  79%|███████▉  | 46/58 [04:38<00:37,  3.13s/it]Batches:  81%|████████  | 47/58 [04:41<00:33,  3.06s/it]Batches:  83%|████████▎ | 48/58 [04:43<00:29,  2.92s/it]Batches:  84%|████████▍ | 49/58 [04:46<00:24,  2.77s/it]Batches:  86%|████████▌ | 50/58 [04:48<00:21,  2.65s/it]Batches:  88%|████████▊ | 51/58 [04:50<00:17,  2.53s/it]Batches:  90%|████████▉ | 52/58 [04:53<00:15,  2.50s/it]Batches:  91%|█████████▏| 53/58 [04:55<00:12,  2.41s/it]Batches:  93%|█████████▎| 54/58 [04:57<00:09,  2.33s/it]Batches:  95%|█████████▍| 55/58 [04:59<00:06,  2.24s/it]Batches:  97%|█████████▋| 56/58 [05:01<00:04,  2.18s/it]Batches:  98%|█████████▊| 57/58 [05:03<00:02,  2.18s/it]Batches: 100%|██████████| 58/58 [05:04<00:00,  1.68s/it]Batches: 100%|██████████| 58/58 [05:04<00:00,  5.25s/it]
+[14:52:05] 적재: {'docs': 756, 'chunks': 921, 'tokens': 2041, 'persons': 731, 'employees': 170, 'guard_masked': 66, 'visibility': {'team': 524, 'restricted': 217, 'public': 15}, 'ms_per_doc': {'org': 0.9, 'mask': 0.7, 'embed': 418.4}}
+[14:56:02] 검색 155개 완료
+[14:56:02] 검색: MRR 0.9312 · Hit@1 0.9097 · Recall@1 0.5319 · Hit@5 0.9613 · Recall@5 0.7856 · Hit@10 0.9677 · Recall@10 0.8615 · Confuse@1 0.5000 · Confuse@5 0.3000 · Confuse@10 0.2875
+[14:56:35] 답변 10/155
+[14:57:12] 답변 20/155
+[14:57:44] 답변 30/155
+[14:58:23] 답변 40/155
+[14:59:06] 답변 50/155
+[14:59:50] 답변 60/155
+[15:00:39] 답변 70/155
+[15:01:19] 답변 80/155
+[15:01:52] 답변 90/155
+[15:02:42] 답변 100/155
+[15:03:33] 답변 110/155
+[15:04:21] 답변 120/155
+[15:05:02] 답변 130/155
+[15:05:47] 답변 140/155
+[15:06:35] 답변 150/155
+[15:07:01] 답변: 인용 적중 0.000 · 못 찾음 0.035 · 유출 {'llm_input': 0, 'raw_answer': 0, 'answer': 0}
+[15:07:01] 끝: 1307초 · 결과 outputs\holdout2_first

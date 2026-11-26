@@ -1,0 +1,27 @@
+[15:29:54] 시작: 문서 756 · 질의 155 · 정답 있음 · DB 포트 5435
+[15:29:54] 탐지 756건 (모델 첫 로딩 포함)...
+2026-11-26 15:30:02.639516: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-11-26 15:30:06.566416: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Token indices sequence length is longer than the specified maximum sequence length for this model (937 > 512). Running this sequence through the model will result in indexing errors
+Token indices sequence length is longer than the specified maximum sequence length for this model (937 > 512). Running this sequence through the model will result in indexing errors
+[15:31:35] 적재: {'docs': 756, 'chunks': 921, 'tokens': 2041, 'persons': 731, 'employees': 170, 'guard_masked': 66, 'visibility': {'team': 524, 'restricted': 217, 'public': 15}, 'ms_per_doc': {'org': 0.6, 'mask': 0.7, 'embed': 2.0}}
+[15:31:35] 탐지: F1 0.9608 · 가리기 재현율 0.9887
+[15:35:11] 검색 155개 완료
+[15:35:11] 검색: MRR 0.9489 · Hit@1 0.9355 · Recall@1 0.5488 · Hit@5 0.9677 · Recall@5 0.7952 · Hit@10 0.9677 · Recall@10 0.8615 · Confuse@1 0.3750 · Confuse@5 0.2750 · Confuse@10 0.2875
+[15:35:45] 답변 10/155
+[15:36:23] 답변 20/155
+[15:36:54] 답변 30/155
+[15:37:38] 답변 40/155
+[15:38:29] 답변 50/155
+[15:39:24] 답변 60/155
+[15:40:25] 답변 70/155
+[15:41:07] 답변 80/155
+[15:41:40] 답변 90/155
+[15:42:36] 답변 100/155
+[15:43:41] 답변 110/155
+[15:44:42] 답변 120/155
+[15:45:43] 답변 130/155
+[15:46:32] 답변 140/155
+[15:47:34] 답변 150/155
+[15:48:02] 답변: 인용 적중 0.937 · 못 찾음 0.042 · 유출 {'llm_input': 8, 'raw_answer': 0, 'answer': 0}
+[15:48:02] 끝: 1088초 · 결과 outputs\holdout2_fix_id
