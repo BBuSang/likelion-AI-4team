@@ -91,6 +91,8 @@ flowchart LR
   - **에이전트**: 질문에 필요한 자료(사내·법령·금융상품·비조치의견서)를 고르고 계획·검색·종합. 팀원 RAG 3개를 한 서버로 통합
   - **멀티턴**: 분류가 "앞 대화가 필요한 질문인가"도 같이 판단해, 필요할 때만 최근 2턴으로 질문을 다시 씀 (보통 질문은 추가 비용 0)
   - **채팅 내역** 계정별 저장 (질문 원문은 암호문, 관리자 열람은 기록), 답변 스트리밍과 진행 단계 표시
+  - **녹음 적재(STT)**: 상담·회의 녹음(wav·mp3·m4a 등)을 서버 안 Whisper 로 받아쓰고, 스테레오 상담은 채널로·모노와 회의는 목소리로 화자를 나눈 뒤 같은 탐지·검수로. 녹음 파일은 저장하지 않음
+  - **문서 종류 자동 판단**(가명처리된 글로 기존 종류와 비교, 애매하면 검수)과 검수 화면의 **본문·화자 이름 고치기**
   - **배포**: EC2 + Docker + GitHub Actions, https://403.p-e.kr
 - 자세한 로직: [`최종프로젝트/README.md`](최종프로젝트/README.md)
 
@@ -112,7 +114,7 @@ flowchart LR
 
 - PostgreSQL 16 + pgvector 하나에 우리 스키마 4개(`app`·`rag`·`vault`·`docs`) + 공개 자료 스키마 2개(`lawrag`·`interp`, 읽기 전용 계정), **스키마마다 다른 DB 계정**이라 서로 읽을 수 없음
 - 스프링은 `rag`·`vault` 를 못 읽음 → 직원·문서 정보는 AI 서버 API 로만
-- 임베딩(KURE-v1)은 서버 안에서 돌려 외부로 나가지 않음. 외부로 나가는 건 LLM 호출뿐이고, 그것도 가명처리된 글만
+- 임베딩(KURE-v1)·받아쓰기(Whisper)·화자 목소리 모델(WavLM)은 서버 안에서 돌려 외부로 나가지 않음. 외부로 나가는 건 LLM 호출뿐이고, 그것도 가명처리된 글만
 
 ---
 
@@ -124,6 +126,7 @@ flowchart LR
 | 가명처리 | 라벨별 정규화, HMAC-SHA256 토큰, 추정 인물 단위 토큰(동명이인 구분) |
 | 검색 | PostgreSQL 16 + pgvector (HNSW), GIN 토큰 색인, KURE-v1 임베딩(로컬), LLM 재순위 |
 | LLM | OpenAI `gpt-6-luna` (질문 분류·계획·멀티턴 다시 쓰기·재순위·답변) — 가명처리된 글만 전송 |
+| 녹음 | faster-whisper(Whisper medium, CPU int8), PyAV(여러 형식 풀기), WavLM x-vector + scikit-learn(화자 나누기) |
 | AI 서버 | Python 3.13, FastAPI, sentence-transformers, transformers |
 | 백엔드 | Java 21, Spring Boot 3.4, Spring Security(JWT), JPA, Spring Mail(Gmail) |
 | 프론트 | React, TypeScript, Vite, Pretendard |
@@ -142,7 +145,7 @@ likelion-AI-4team/
 ├── 실전프로젝트1/             개인정보 탐지 방식 비교 (탐지기·채점·보고서·발표)
 ├── 실전프로젝트2/             가명처리 검색 챗봇 기본형 (적재·검색·평가·Streamlit 데모)
 └── 최종프로젝트/              사공삼(403) 서비스
-    ├── AI/                   FastAPI: 탐지·가명처리·적재·검색·에이전트(멀티턴)·공개 자료 RAG 3개·복원·이상 접근 탐지
+    ├── AI/                   FastAPI: 탐지·가명처리·적재(녹음 받아쓰기 포함)·검색·에이전트(멀티턴)·공개 자료 RAG 3개·복원·이상 접근 탐지
     ├── Backend/              Spring Boot: 계정·권한·이메일 인증·채팅 내역·중계
     ├── Frontend/             React: 채팅·적재·검수·통계·관리 화면 (+ 배포용 Nginx)
     ├── infra/                Docker Compose + DB 스키마
