@@ -23,6 +23,13 @@ def test_public_docs_shape_for_api():
     assert d["doc_id"] == "LAW-1" and d["masked_text"] == "본문" and d["doc_type"].startswith("법령")
 
 
+def test_public_docs_case_type_is_its_own_gubun():
+    """회신 사례는 '비조치의견서 · ' 를 붙이지 않고 제목 앞 구분(법령해석·현장건의 등) 그대로"""
+    ev = [{"source": "noaction", "cite_id": "L5453", "title": "법령해석 · 금융투자업인가", "text": "본문"},
+          {"source": "noaction", "cite_id": "F7", "title": "현장건의 · 금융교육", "text": "본문"}]
+    assert [d["doc_type"] for d in agent._public_docs(ev)] == ["법령해석 · 금융투자업인가", "현장건의 · 금융교육"]
+
+
 def test_law_adapter_unavailable_without_password(monkeypatch):
     from app.core import config
     from app.rag_public import law

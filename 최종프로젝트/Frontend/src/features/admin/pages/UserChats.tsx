@@ -4,6 +4,7 @@
 import { useEffect, useState } from 'react';
 import { FileText, MessageSquare, X } from 'lucide-react';
 import { errMsg, fmtTime } from '@/shared/utils/error';
+import { docLabel } from '@/shared/utils/pii';
 import type { ConversationDetail, ConversationSummary } from '@/features/chat/api/chat.api';
 import AnswerMarkdown from '@/features/chat/components/AnswerMarkdown';
 import MaskedText from '@/features/chat/components/MaskedText';
@@ -75,7 +76,7 @@ function ChatViewer({ userId, name, convId, onClose }: { userId: number; name: s
                   {m.result.answer ? <AnswerMarkdown text={m.result.answer} /> : <p className="muted small">답변 없이 검색 결과만 있어요.</p>}
                   {m.result.docs.length > 0 && (
                     <p className="small muted chat-view-docs">
-                      <FileText size={12} aria-hidden /> 근거 문서: {m.result.docs.map((x) => x.docId).join(', ')}
+                      <FileText size={12} aria-hidden /> 근거 문서: {m.result.docs.map((x) => docLabel(x.docId)).join(', ')}
                     </p>
                   )}
                   <p className="small muted">{fmtTime(m.createdAt)}{m.result.agent ? ` · 분류 ${ROUTE_KO[m.result.agent.route] ?? m.result.agent.route}` : ''}</p>

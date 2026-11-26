@@ -15,9 +15,10 @@ interface Props {
   onCite?: (docId: string) => void;
   compact?: boolean;
   markdown?: boolean; // 답변: 마크다운으로 꾸며 보여 줌 (문서 조각은 원문 그대로)
+  labels?: boolean; // 근거 문서: 소제목(질의요지:·회답: …) 굵게
 }
 
-export default function Restorable({ text, docIds, onCite, compact, markdown }: Props) {
+export default function Restorable({ text, docIds, onCite, compact, markdown, labels }: Props) {
   const { user } = useAuth();
   const [result, setResult] = useState<RestoreResult | null>(null);
   const [asking, setAsking] = useState(false);
@@ -44,7 +45,7 @@ export default function Restorable({ text, docIds, onCite, compact, markdown }: 
         <AnswerMarkdown text={result ? result.text : text} onCite={onCite} denied={result?.denied} />
       ) : (
         <div style={{ whiteSpace: 'pre-wrap', fontSize: compact ? 12 : 14, lineHeight: 1.8 }}>
-          <MaskedText text={result ? result.text : text} onCite={onCite} denied={result?.denied} />
+          <MaskedText text={result ? result.text : text} onCite={onCite} denied={result?.denied} labels={labels} />
         </div>
       )}
       {hasToken && (
