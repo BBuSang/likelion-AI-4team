@@ -139,10 +139,12 @@ def _complete(system, user_msg, timeout=120, on_delta=None):
 
 
 def _public_docs(evidence):
-    """공개 자료 Evidence → 화면 근거 문서 모양 (doc_id = 번호, 글 = display(조문 전체) 가 있으면 그것, 없으면 LLM 에 넘긴 글)"""
+    """공개 자료 Evidence → 화면 근거 문서 모양 (doc_id = 번호, 글 = display(조문 전체) 가 있으면 그것, 없으면 LLM 에 넘긴 글).
+    회신 사례는 제목이 이미 구분(법령해석·비조치의견서·현장건의)으로 시작하므로 출처 이름을 앞에 붙이지 않음"""
     out = []
     for e in evidence:
-        out.append({"doc_id": e["cite_id"], "doc_type": f"{_SOURCE_KO.get(e['source'], e['source'])} · {e['title']}",
+        doc_type = e["title"] if e["source"] == "noaction" else f"{_SOURCE_KO.get(e['source'], e['source'])} · {e['title']}"
+        out.append({"doc_id": e["cite_id"], "doc_type": doc_type,
                     "score": e.get("score", 0.0), "masked_text": e.get("display") or e["text"], "source": e["source"],
                     "meta": e.get("meta", {})})
     return out

@@ -7,6 +7,7 @@ import { AlertTriangle, ChevronDown, ChevronUp, CornerDownRight, FileText, Files
 import { LogoLarge } from '@/shared/components/Logo';
 import { useAuth } from '@/shared/contexts/AuthContext';
 import { errMsg } from '@/shared/utils/error';
+import { docLabel } from '@/shared/utils/pii';
 import * as chatApi from '../api/chat.api';
 import type { AskResult, ConversationDetail, ConversationSummary } from '../api/chat.api';
 import AnswerMarkdown from '../components/AnswerMarkdown';
@@ -502,11 +503,11 @@ export default function ChatPage() {
           <div key={d.docId} className={`source${focusDoc === d.docId ? ' focused' : ''}`}>
             <div className="source-head">
               <FileText size={14} color="var(--brand)" aria-hidden />
-              <span className="source-id">[{i + 1}] {d.docId}</span>
+              <span className="source-id" title={d.docId}>[{i + 1}] {docLabel(d.docId)}</span>
             </div>
             <p className="source-type">{d.docType ?? '문서'}</p>
             <SourceBody long={d.snippet.length > SOURCE_PREVIEW || d.snippet.split('\n').length > SOURCE_LINES}>
-              <Restorable text={d.snippet} docIds={[d.docId]} compact />
+              <Restorable text={d.snippet} docIds={[d.docId]} compact labels />
             </SourceBody>
           </div>
         ))}

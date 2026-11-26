@@ -46,6 +46,16 @@ export function splitAnswer(text: string): Piece[] {
   return out;
 }
 
+// 회신 사례 번호 화면 이름: 안쪽 번호(L·O·F + 원본 사이트 번호)는 그대로 두고 보이는 글만 바꿈
+// L = 법령해석(lawreqIdx), O = 비조치의견서(opinionIdx), F = 현장건의(checkplaceNo)
+const CASE_KIND: Record<string, string> = { L: '법령해석', O: '비조치', F: '현장건의' };
+
+/** 문서 ID → 화면에 보일 이름 (L5453 → "법령해석 5453"). 그 밖의 ID(H0071·LAW-1 …)는 그대로 */
+export function docLabel(docId: string): string {
+  const m = /^([LOF])(\d+)$/.exec(docId);
+  return m ? `${CASE_KIND[m[1]]} ${m[2]}` : docId;
+}
+
 // ---------- 검수 화면: 서버 위치는 파이썬 글자(코드포인트) 단위, 브라우저는 UTF-16 ----------
 
 /** UTF-16 위치 → 코드포인트 위치 */
