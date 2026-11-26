@@ -29,7 +29,7 @@ export interface ReviewResult { status: string; doc_id?: string; added?: number;
 
 const B = '/api/ingest';
 export const upload = async (body: { source: 'jsonl' | 'text'; content: string; filename?: string; docType?: string }) =>
-  (await apiClient.post<{ job_id: number; total: number; status: string }>(`${B}/jobs`, body)).data;
+  (await apiClient.post<{ job_id: number; total: number; status: string; skipped?: { line: number; id: string | null }[] }>(`${B}/jobs`, body)).data;
 // 녹음 (wav·mp3·m4a 등) — 받아쓰기 → 글 1건. 녹음 파일은 저장하지 않음
 // kind: call 상담 · meeting 회의 (목소리로 화자 나눔), speakers: 회의 참석자 수 (모르면 비움)
 export type AudioKind = 'call' | 'meeting';
