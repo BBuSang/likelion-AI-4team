@@ -130,7 +130,11 @@ export default function IngestPage() {
     setBusy(true);
     try {
       const r = await api.upload(body);
-      setMsg({ ok: true, text: `${r.total}건을 올렸어요. 개인정보를 찾는 중이에요 (처음엔 1~2분).` });
+      const sk = r.skipped ?? [];
+      const skText = sk.length
+        ? ` 빈 문서 ${sk.length}건(${sk.slice(0, 5).map((x) => x.id ?? `${x.line}번째 줄`).join(', ')}${sk.length > 5 ? ' 외' : ''})은 건너뛰었어요.`
+        : '';
+      setMsg({ ok: true, text: `${r.total}건을 올렸어요.${skText} 개인정보를 찾는 중이에요 (처음엔 1~2분).` });
       setFile(null);
       setText('');
       if (fileRef.current) fileRef.current.value = '';

@@ -42,9 +42,10 @@ class Conflict(Exception):
 
 
 # ---------------------------------------------------------------- 입력 읽기
-def parse_upload(source, content, doc_type=None):
+def parse_upload(source, content, doc_type=None, skipped=None):
     """source: jsonl (1·2주차 형식: 한 줄에 {id, text, doc_type, entities, ...}) / text (줄글 1건).
-    반환: [{ext_id, text, doc_type, meta, gold}]"""
+    반환: [{ext_id, text, doc_type, meta, gold}]
+    jsonl 에서 text 가 비었거나 공백뿐인 줄은 파일 전체를 거부하지 않고 건너뜀 → skipped 에 {line, id} 로 담음"""
     if source == "text":
         if not content.strip():
             raise IngestError("빈 글")
@@ -58,8 +59,12 @@ def parse_upload(source, content, doc_type=None):
                 r = json.loads(line)
             except json.JSONDecodeError:
                 raise IngestError(f"{n}번째 줄: JSON 이 아님")
-            if not isinstance(r, dict) or not isinstance(r.get("text"), str) or not r["text"].strip():
+            if not isinstance(r, dict) or not isinstance(r.get("text"), str):
                 raise IngestError(f"{n}번째 줄: text 가 없음")
+            if not r["text"].strip():   # 빈 문서: 저장할 내용이 없음 → 건너뜀 (한 건 때문에 파일 전체가 막히지 않게)
+                if skipped is not None:
+                    skipped.append({"line": n, "id": str(r["id"]) if r.get("id") is not None else None})
+                continue
             gold = None
             if isinstance(r.get("entities"), list):
                 gold = sorted({(e["label"], int(e["start"]), int(e["end"])) for e in r["entities"]
@@ -71,7 +76,7 @@ def parse_upload(source, content, doc_type=None):
     else:
         raise IngestError(f"모르는 입력 형식: {source}")
     if not docs:
-        raise IngestError("문서가 없음")
+        raise IngestError("빈 문서뿐이라 올릴 문서가 없음" if skipped else "문서가 없음")
     if len(docs) > MAX_DOCS:
         raise IngestError(f"한 번에 {MAX_DOCS}건까지")
     for i, d in enumerate(docs, 1):
@@ -126,9 +131,13 @@ def diff(detected, final):
 
 
 # ---------------------------------------------------------------- 업로드
-def create_job(uploader, source, filename, content, doc_type=None):
-    """job 만 만들고 id 를 돌려줌. 탐지는 process_job() 이 (서버에서는 백그라운드로)."""
-    docs = parse_upload(source, content, doc_type)
+def create_job(uploader, source, filename, content, doc_type=None, skipped=None):
+    """job 만 만들고 id 를 돌려줌. 탐지는 process_job() 이 (서버에서는 백그라운드로).
+    skipped(list) 를 주면 건너뛴 빈 문서가 담김"""
+    skipped = [] if skipped is None else skipped
+    docs = parse_upload(source, content, doc_type, skipped)
+    if skipped:
+        logger.info("업로드 %s: 빈 문서 %d건 건너뜀 %s", filename, len(skipped), [x["id"] or f"{x['line']}번째 줄" for x in skipped])
     with db.vault_conn() as conn, conn.cursor() as cur:
         cur.execute("INSERT INTO vault.ingest_job (uploader, source, filename, total) VALUES (%s,%s,%s,%s) RETURNING id",
                     (uploader, source, filename, len(docs)))

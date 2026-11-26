@@ -54,12 +54,13 @@ def _spans(spans):
 @router.post("/jobs", status_code=202)
 def upload(req: UploadRequest, background: BackgroundTasks):
     """업로드 → job 생성. 탐지는 응답 뒤 백그라운드로 (모델 첫 로딩 1~2분). 진행은 GET /jobs/{id}"""
+    skipped = []
     try:
-        job_id, docs = service.create_job(req.uploader, req.source, req.filename, req.content, req.doc_type)
+        job_id, docs = service.create_job(req.uploader, req.source, req.filename, req.content, req.doc_type, skipped)
     except service.IngestError as e:
         raise HTTPException(400, str(e))
     background.add_task(service.process_job, job_id, docs)
-    return {"job_id": job_id, "total": len(docs), "status": "processing"}
+    return {"job_id": job_id, "total": len(docs), "status": "processing", "skipped": skipped}
 
 
 @router.post("/audio-jobs", status_code=202)
