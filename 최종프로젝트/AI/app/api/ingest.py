@@ -2,7 +2,7 @@
 누가 했는지(actor·uploader)를 본문에 담아 넘긴다."""
 from typing import Dict, List, Literal, Optional
 
-from fastapi import APIRouter, BackgroundTasks, HTTPException
+from fastapi import APIRouter, BackgroundTasks, HTTPException, Request
 from pydantic import BaseModel, Field
 
 from app.ingest import service
@@ -53,6 +53,22 @@ def upload(req: UploadRequest, background: BackgroundTasks):
         raise HTTPException(400, str(e))
     background.add_task(service.process_job, job_id, docs)
     return {"job_id": job_id, "total": len(docs), "status": "processing"}
+
+
+@router.post("/audio-jobs", status_code=202)
+async def upload_audio(request: Request, background: BackgroundTasks, uploader: str, filename: Optional[str] = None,
+                       doc_type: Optional[str] = None):
+    """상담 녹음 업로드 (본문 = wav 바이트 그대로). 받아쓰기 → 탐지는 응답 뒤 백그라운드로, 한 건씩.
+    녹음 파일은 저장하지 않음 (받아쓴 글만 staging 에)"""
+    if not uploader.strip() or len(uploader) > 100 or (filename and len(filename) > 255) or (doc_type and len(doc_type) > 50):
+        raise HTTPException(422, "요청 형식이 맞지 않습니다")
+    data = await request.body()
+    try:
+        job_id, info = service.create_audio_job(uploader, filename, data, doc_type)
+    except service.IngestError as e:
+        raise HTTPException(400, str(e))
+    background.add_task(service.process_audio_job, job_id, data, doc_type)
+    return {"job_id": job_id, "total": 1, "status": "transcribing", **info}
 
 
 @router.get("/jobs")

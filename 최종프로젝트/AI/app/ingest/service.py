@@ -19,6 +19,7 @@ from app.ingest import linking
 from app.ingest.ingest import _display, chunk
 from app.pii import pii_pipeline
 from app.rag.embed import embed
+from app.stt import call_pii
 
 logger = logging.getLogger("ingest")
 
@@ -140,7 +141,8 @@ def process_job(job_id, docs):
         with db.vault_conn() as conn, conn.cursor() as cur:
             for seq, d in enumerate(docs, 1):
                 with _detect_lock:
-                    scored = pii_pipeline.detect_scored(d["text"])
+                    # 상담 녹음을 받아쓴 글은 통화 규칙(질문 다음 답 등)까지 — 늘 검수로 감
+                    scored = (call_pii.detect_scored if d.get("call") else pii_pipeline.detect_scored)(d["text"])
                 spans = sorted(scored["spans"], key=lambda s: (s["start"], s["end"]))
                 det = [{"label": s["label"], "start": s["start"], "end": s["end"]} for s in spans]
                 review = {"needs_review": scored["needs_review"],
@@ -189,6 +191,60 @@ def _weak_links(staging_id):
     return True
 
 
+# ---------------------------------------------------------------- 상담 녹음
+MAX_AUDIO_BYTES = 40 * 1024 * 1024   # 8kHz 스테레오 16비트로 약 20분
+MAX_AUDIO_SEC = 30 * 60
+
+
+def create_audio_job(uploader, filename, data, doc_type=None):
+    """녹음 확인(16비트 wav, 길이) → job 만 만들고 id. 받아쓰기·탐지는 process_audio_job() 이 (백그라운드).
+    녹음 파일은 어디에도 저장하지 않음 — 받아쓴 글만 staging(vault)에 들어감"""
+    from app.stt.transcribe import read_wav
+    if not data:
+        raise IngestError("빈 파일")
+    if len(data) > MAX_AUDIO_BYTES:
+        raise IngestError(f"녹음 파일은 {MAX_AUDIO_BYTES // 1024 // 1024}MB 까지")
+    try:
+        chans, rate = read_wav(data)
+    except Exception:
+        raise IngestError("16비트 wav 녹음만 받습니다")
+    sec = len(chans[0]) / rate if rate else 0
+    if sec < 1:
+        raise IngestError("녹음이 너무 짧음")
+    if sec > MAX_AUDIO_SEC:
+        raise IngestError(f"녹음은 {MAX_AUDIO_SEC // 60}분까지")
+    with db.vault_conn() as conn, conn.cursor() as cur:
+        cur.execute("INSERT INTO vault.ingest_job (uploader, source, filename, total, status) "
+                    "VALUES (%s, 'audio', %s, 1, 'transcribing') RETURNING id", (uploader, filename))
+        job_id = cur.fetchone()[0]
+    return job_id, {"sec": round(sec, 1), "channels": len(chans)}
+
+
+def process_audio_job(job_id, data, doc_type=None):
+    """받아쓰기 (모델 하나를 한 건씩 씀 = 큐) → 글 1건으로 process_job"""
+    from app.stt import transcribe as T
+    try:
+        chans, rate = T.read_wav(data)
+        turns = T.transcribe(data)
+        text = T.to_text(turns)
+        if not text.strip():
+            raise IngestError("받아쓴 말이 없음")
+        if len(text) > MAX_DOC_CHARS:
+            raise IngestError("받아쓴 글이 너무 김")
+    except Exception as e:
+        logger.exception("job %s 받아쓰기 실패", job_id)
+        with db.vault_conn() as conn, conn.cursor() as cur:
+            cur.execute("UPDATE vault.ingest_job SET status = 'failed', error = %s WHERE id = %s",
+                        (str(e) if isinstance(e, IngestError) else type(e).__name__, job_id))
+        return
+    meta = {"source": "audio", "sec": round(len(chans[0]) / rate, 1), "speakers": len(chans) == 2,
+            "stt_model": config.STT_MODEL, "turns": len(turns)}
+    with db.vault_conn() as conn, conn.cursor() as cur:
+        cur.execute("UPDATE vault.ingest_job SET status = 'processing' WHERE id = %s", (job_id,))
+    process_job(job_id, [{"ext_id": None, "text": text, "doc_type": doc_type or "상담 녹음", "meta": meta,
+                          "gold": None, "call": True}])
+
+
 # ---------------------------------------------------------------- 조회
 def job_summary(job_id):
     with db.vault_conn() as conn, conn.cursor() as cur:
@@ -209,14 +265,14 @@ def job_summary(job_id):
 def list_jobs(limit=50):
     """업로드 목록 (최근 순) + 상태별 문서 수"""
     with db.vault_conn() as conn, conn.cursor() as cur:
-        cur.execute("""SELECT j.id, j.uploader, j.source, j.filename, j.total, j.status, j.created_at,
+        cur.execute("""SELECT j.id, j.uploader, j.source, j.filename, j.total, j.status, j.created_at, j.error,
                               count(d.id) FILTER (WHERE d.status = 'pending'),
                               count(d.id) FILTER (WHERE d.status = 'stored'),
                               count(d.id) FILTER (WHERE d.status = 'rejected'),
                               count(d.id) FILTER (WHERE d.status = 'failed')
                        FROM vault.ingest_job j LEFT JOIN vault.staging_doc d ON d.job_id = j.id
                        GROUP BY j.id ORDER BY j.id DESC LIMIT %s""", (max(1, min(int(limit), 200)),))
-        keys = ("id", "uploader", "source", "filename", "total", "status", "created_at",
+        keys = ("id", "uploader", "source", "filename", "total", "status", "created_at", "error",
                 "pending", "stored", "rejected", "failed")
         return [dict(zip(keys, r)) for r in cur.fetchall()]
 

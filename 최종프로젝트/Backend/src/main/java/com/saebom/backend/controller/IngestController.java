@@ -2,6 +2,7 @@ package com.saebom.backend.controller;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.saebom.backend.ai.AiClient;
+import com.saebom.backend.exception.ApiException;
 import com.saebom.backend.security.UD;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
@@ -9,9 +10,12 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -51,6 +55,22 @@ public class IngestController {
         body.put("filename", req.filename());
         body.put("doc_type", req.docType());
         return ai.postJson("/ingest/jobs", body);
+    }
+
+    /** 상담 녹음 (16비트 wav, 40MB·30분까지). 받아쓰기·탐지는 AI 가 백그라운드로. 녹음 파일은 어디에도 저장하지 않음 */
+    @PostMapping(value = "/audio-jobs", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public JsonNode uploadAudio(@AuthenticationPrincipal UD me, @RequestParam("file") MultipartFile file,
+                                @RequestParam(value = "docType", required = false) String docType) throws IOException {
+        String name = file.getOriginalFilename();
+        if (file.isEmpty()) throw ApiException.badRequest("빈 파일입니다.");
+        if (name == null || !name.toLowerCase().endsWith(".wav")) throw ApiException.badRequest("wav 녹음 파일만 올릴 수 있어요.");
+        if (name.length() > 255 || (docType != null && docType.length() > 50)) throw ApiException.badRequest("파일 이름이 너무 깁니다.");
+        Map<String, Object> q = new HashMap<>();
+        q.put("uploader", me.getEmail());
+        q.put("filename", name);
+        q.put("doc_type", docType == null || docType.isBlank() ? null : docType);
+        return ai.postBytes("/ingest/audio-jobs", q, file.getBytes());
     }
 
     @GetMapping("/jobs")

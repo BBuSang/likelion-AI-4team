@@ -134,3 +134,13 @@
   .answer { max-width: 100%; }
   .bubble-user { max-width: 85%; }
 }
+
+/* 근거 문서 너비 조절 (넓은 창만): 채팅과 근거 문서 사이 손잡이. 손잡이는 칸 사이 간격(12px) 자리에 겹쳐 놓아 간격이 늘지 않게 */
+.side.sources { width: var(--side-w, clamp(260px, 26vw, 320px)); flex-shrink: 1; min-width: 280px; }
+.side-resizer { flex: none; width: 12px; margin: 0 -12px; position: relative; z-index: 2; cursor: col-resize; touch-action: none; }
+.side-resizer::after { content: ""; position: absolute; top: 50%; left: 4px; width: 4px; height: 40px; margin-top: -20px; border-radius: 2px;
+                       background: var(--line-strong); opacity: 0; transition: opacity .15s; }
+.side-resizer:hover::after, .side-resizer:focus-visible::after, body.resizing .side-resizer::after { opacity: 1; background: var(--brand); }
+.side-resizer:focus-visible { outline: none; }
+body.resizing { cursor: col-resize; user-select: none; }
+@media (max-width: 900px) { .side-resizer { display: none; } .side.sources { min-width: 0; } }

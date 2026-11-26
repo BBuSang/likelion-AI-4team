@@ -1,8 +1,8 @@
-// 데이터 적재: 파일 올리기(jsonl / 줄글) + 업로드 목록 + 고른 업로드의 문서 목록
+// 데이터 적재: 파일 올리기(jsonl / 줄글) · 상담 녹음(wav) + 업로드 목록 + 고른 업로드의 문서 목록
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { DragEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FileUp, RefreshCw } from 'lucide-react';
+import { FileAudio, FileUp, RefreshCw } from 'lucide-react';
 import { errMsg, fmtTime } from '@/shared/utils/error';
 import * as api from '../api/ingest.api';
 import type { Job, StagingRow } from '../api/ingest.api';
@@ -10,10 +10,12 @@ import { APPROVED_BY_KO, DOC_STATUS } from '../api/ingest.api';
 import './review.css';
 
 // 끌어다 놓기로 받는 파일 (파일 고르기의 accept 와 같음)
-const DROP_EXT = ['.jsonl', '.txt'];
+const DROP_EXT = { file: ['.jsonl', '.txt'], audio: ['.wav'] } as const;
+const MAX_AUDIO_MB = 40;
 const hasFiles = (e: { dataTransfer: DataTransfer | null }) => !!e.dataTransfer && Array.from(e.dataTransfer.types).includes('Files');
 
 const JOB_STATUS: Record<string, { n: string; cls: string }> = {
+  transcribing: { n: '받아쓰는 중', cls: 'badge-brand' },
   processing: { n: '탐지 중', cls: 'badge-brand' }, ready: { n: '탐지 끝', cls: 'badge-ok' }, failed: { n: '실패', cls: 'badge-bad' },
 };
 
@@ -22,7 +24,7 @@ export default function IngestPage() {
   const [jobs, setJobs] = useState<Job[]>([]);
   const [sel, setSel] = useState<number | null>(null);
   const [docs, setDocs] = useState<StagingRow[]>([]);
-  const [mode, setMode] = useState<'file' | 'text'>('file');
+  const [mode, setMode] = useState<'file' | 'text' | 'audio'>('file');
   const [file, setFile] = useState<File | null>(null);
   const [text, setText] = useState('');
   const [busy, setBusy] = useState(false);
@@ -56,8 +58,9 @@ export default function IngestPage() {
     if (files.length === 0) return;
     if (files.length > 1) return setMsg({ ok: false, text: `파일은 한 번에 하나만 올릴 수 있어요. (${files.length}개를 놓았어요)` });
     const f = files[0];
-    if (!DROP_EXT.some((x) => f.name.toLowerCase().endsWith(x))) {
-      return setMsg({ ok: false, text: `${f.name} 은(는) 올릴 수 없어요. .jsonl 또는 .txt 파일만 받아요.` });
+    const exts = mode === 'audio' ? DROP_EXT.audio : DROP_EXT.file;
+    if (!exts.some((x) => f.name.toLowerCase().endsWith(x))) {
+      return setMsg({ ok: false, text: `${f.name} 은(는) 올릴 수 없어요. ${exts.join(' 또는 ')} 파일만 받아요.` });
     }
     setMsg(null);
     setFile(f);
@@ -68,9 +71,9 @@ export default function IngestPage() {
   }, []);
   useEffect(() => { reload(); }, [reload]);
 
-  // 탐지 중인 업로드가 있으면 3초마다 새로고침
+  // 받아쓰는 중·탐지 중인 업로드가 있으면 3초마다 새로고침
   useEffect(() => {
-    if (!jobs.some((j) => j.status === 'processing')) return;
+    if (!jobs.some((j) => j.status === 'processing' || j.status === 'transcribing')) return;
     const t = setInterval(reload, 3000);
     return () => clearInterval(t);
   }, [jobs, reload]);
@@ -80,8 +83,35 @@ export default function IngestPage() {
     api.jobDocs(sel).then(setDocs).catch((e) => setMsg({ ok: false, text: errMsg(e) }));
   }, [sel, jobs]);
 
+  const switchMode = (m: typeof mode) => {
+    setMode(m);
+    setFile(null);
+    setMsg(null);
+    if (fileRef.current) fileRef.current.value = '';
+  };
+
+  const submitAudio = async () => {
+    if (!file) return setMsg({ ok: false, text: '녹음 파일을 골라 주세요.' });
+    if (file.size > MAX_AUDIO_MB * 1024 * 1024) return setMsg({ ok: false, text: `녹음은 ${MAX_AUDIO_MB}MB(약 20분)까지 올릴 수 있어요.` });
+    setBusy(true);
+    try {
+      const r = await api.uploadAudio(file);
+      const min = Math.max(1, Math.round(r.sec / 60));
+      setMsg({ ok: true, text: `${min}분짜리 녹음을 올렸어요. 받아쓰는 중이에요 (10분 통화에 5~7분, 앞에 다른 녹음이 있으면 차례를 기다려요).` });
+      setFile(null);
+      if (fileRef.current) fileRef.current.value = '';
+      await reload();
+      setSel(r.job_id);
+    } catch (e) {
+      setMsg({ ok: false, text: errMsg(e) });
+    } finally {
+      setBusy(false);
+    }
+  };
+
   const submit = async () => {
     setMsg(null);
+    if (mode === 'audio') return submitAudio();
     let body: Parameters<typeof api.upload>[0];
     if (mode === 'file') {
       if (!file) return setMsg({ ok: false, text: '파일을 골라 주세요.' });
@@ -121,10 +151,18 @@ export default function IngestPage() {
 
         <div className="card" style={{ marginBottom: 18 }}>
           <div className="tabs" style={{ marginBottom: 12 }}>
-            <button className={`tab${mode === 'file' ? ' active' : ''}`} onClick={() => setMode('file')}>파일 올리기</button>
-            <button className={`tab${mode === 'text' ? ' active' : ''}`} onClick={() => setMode('text')}>글 붙여 넣기</button>
+            <button className={`tab${mode === 'file' ? ' active' : ''}`} onClick={() => switchMode('file')}>파일 올리기</button>
+            <button className={`tab${mode === 'text' ? ' active' : ''}`} onClick={() => switchMode('text')}>글 붙여 넣기</button>
+            <button className={`tab${mode === 'audio' ? ' active' : ''}`} onClick={() => switchMode('audio')}>상담 녹음</button>
           </div>
-          {mode === 'file' ? (
+          {mode === 'audio' ? (
+            <label className={`drop${dragOver ? ' drop-over' : ''}`} onDragOver={onDragOver} onDragLeave={onDragLeave} onDrop={onDrop}>
+              <FileAudio size={26} color="var(--brand)" aria-hidden />
+              <p>{file ? file.name : '녹음 파일(wav)을 끌어다 놓거나 눌러서 고르세요'}</p>
+              <p className="small muted">16비트 wav · {MAX_AUDIO_MB}MB·30분까지 · 스테레오(왼쪽 상담원, 오른쪽 고객)면 화자가 붙어요. 받아쓴 글은 늘 사람이 확인한 뒤 저장돼요</p>
+              <input ref={fileRef} type="file" accept=".wav,audio/wav" hidden onChange={(e) => setFile(e.target.files?.[0] ?? null)} />
+            </label>
+          ) : mode === 'file' ? (
             <label className={`drop${dragOver ? ' drop-over' : ''}`} onDragOver={onDragOver} onDragLeave={onDragLeave} onDrop={onDrop}>
               <FileUp size={26} color="var(--brand)" aria-hidden />
               <p>{file ? file.name : '파일을 끌어다 놓거나 눌러서 고르세요'}</p>
@@ -135,7 +173,9 @@ export default function IngestPage() {
             <textarea className="textarea" style={{ minHeight: 120 }} placeholder="문서 1건의 본문" value={text} onChange={(e) => setText(e.target.value)} />
           )}
           <div className="row" style={{ marginTop: 12 }}>
-            <p className="small muted">원문은 검수가 끝날 때까지 별도 보관소(vault)에만 있어요.</p>
+            <p className="small muted">{mode === 'audio'
+              ? '녹음은 이 서버에서 받아쓰고 버려요 (외부로 안 나가고 저장도 안 해요). 받아쓴 글은 별도 보관소(vault)에만 있어요.'
+              : '원문은 검수가 끝날 때까지 별도 보관소(vault)에만 있어요.'}</p>
             <div className="spacer" />
             <button className="btn btn-primary" disabled={busy} onClick={submit}>{busy ? '올리는 중…' : '올리기'}</button>
           </div>
@@ -149,7 +189,7 @@ export default function IngestPage() {
             {jobs.map((j) => (
               <tr key={j.id} className={`clickable${sel === j.id ? ' selected' : ''}`} onClick={() => setSel(j.id)}>
                 <td>{j.id}</td>
-                <td>{j.filename ?? (j.source === 'text' ? '붙여 넣은 글' : '-')}</td>
+                <td>{j.source === 'audio' && <FileAudio size={13} aria-label="녹음" style={{ verticalAlign: -2, marginRight: 4 }} />}{j.filename ?? (j.source === 'text' ? '붙여 넣은 글' : '-')}</td>
                 <td className="small">{j.uploader}</td>
                 <td>{j.total}</td>
                 <td><span className={`badge ${JOB_STATUS[j.status]?.cls ?? 'badge-gray'}`}>{JOB_STATUS[j.status]?.n ?? j.status}</span></td>
@@ -173,7 +213,9 @@ export default function IngestPage() {
               <p className="small muted">{selJob.filename ?? '붙여 넣은 글'} · {selJob.total}건
                 {docs.length > 0 && ` · 자동 저장 ${docs.filter((d) => d.approved_by === 'auto' || d.approved_by === 'gold').length}건`}</p>
             </div>
+            {selJob.status === 'transcribing' && <div className="alert alert-info small">녹음을 받아쓰는 중이에요… (10분 통화에 5~7분)</div>}
             {selJob.status === 'processing' && <div className="alert alert-info small">개인정보를 찾는 중이에요…</div>}
+            {selJob.status === 'failed' && <div className="alert alert-bad small">처리하지 못했어요{selJob.error ? ` (${selJob.error})` : ''}. 파일을 확인하고 다시 올려 주세요.</div>}
             {firstPending && (
               <button className="btn btn-primary" onClick={() => nav(`/ingest/docs/${firstPending.id}`)}>검수 시작 (대기 {docs.filter((d) => d.status === 'pending').length}건)</button>
             )}

@@ -57,6 +57,9 @@ function saveOpen(key: string, v: boolean) {
 }
 const LIST_KEY = 'saebom.chatListOpen';
 const SIDE_KEY = 'saebom.chatSideOpen';
+const SIDE_W_KEY = 'saebom.chatSideWidth';
+const SIDE_MIN = 280;   // 근거 문서 칸 최소 폭 (px)
+const CHAT_MIN = 380;   // 근거 문서를 넓혀도 채팅 칸은 이 폭 아래로 줄지 않음
 
 /** 근거 문서 본문: 길면 몇 줄만 보이게 접고 "전체 보기". 글은 자르지 않고 가리기만 (실명 보기가 전체 글에 그대로 동작) */
 function SourceBody({ long, children }: { long: boolean; children: ReactNode }) {
@@ -154,6 +157,68 @@ export default function ChatPage() {
   const endRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const sideRef = useRef<HTMLElement>(null);
+  const chatRef = useRef<HTMLElement>(null);
+
+  // 근거 문서 칸 너비: 채팅과 근거 문서 사이 손잡이를 끌어 조절 (넓은 창만). 근거 문서만 커지고 줄며 채팅 칸이 그만큼 바뀜.
+  // null = 기본 너비(CSS). 고른 너비는 기억, 손잡이 두 번 누르면 기본으로
+  const [sideW, setSideW] = useState<number | null>(() => {
+    try { const v = Number(localStorage.getItem(SIDE_W_KEY)); return v >= SIDE_MIN ? v : null; } catch { return null; }
+  });
+  const saveSideW = (w: number | null) => {
+    setSideW(w);
+    try { if (w === null) localStorage.removeItem(SIDE_W_KEY); else localStorage.setItem(SIDE_W_KEY, String(Math.round(w))); } catch { /* 무시 */ }
+  };
+  /** 지금 칸 폭 기준으로 근거 문서가 커질 수 있는 최대 (채팅 칸 최소 폭은 남김) */
+  const sideMax = () => {
+    const side = sideRef.current?.getBoundingClientRect().width ?? 0;
+    const chat = chatRef.current?.getBoundingClientRect().width ?? 0;
+    return Math.max(SIDE_MIN, side + chat - CHAT_MIN);
+  };
+  const clampSide = (w: number) => Math.min(Math.max(w, SIDE_MIN), sideMax());
+  const startResize = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!sideRef.current) return;
+    e.preventDefault();
+    const startX = e.clientX, startW = sideRef.current.getBoundingClientRect().width, max = sideMax();
+    const handle = e.currentTarget;
+    try { handle.setPointerCapture(e.pointerId); } catch { /* 캡처를 못 해도 끌기는 됨 */ }
+    document.body.classList.add('resizing');
+    let last = startW;
+    const move = (ev: PointerEvent) => {
+      last = Math.min(Math.max(startW + (startX - ev.clientX), SIDE_MIN), max);   // 왼쪽으로 끌면 근거 문서가 넓어짐
+      setSideW(last);
+    };
+    const up = () => {
+      handle.removeEventListener('pointermove', move);
+      handle.removeEventListener('pointerup', up);
+      handle.removeEventListener('pointercancel', up);
+      document.body.classList.remove('resizing');
+      saveSideW(last);
+    };
+    handle.addEventListener('pointermove', move);
+    handle.addEventListener('pointerup', up);
+    handle.addEventListener('pointercancel', up);
+  };
+  const keyResize = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    const cur = sideW ?? sideRef.current?.getBoundingClientRect().width ?? SIDE_MIN;
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+      e.preventDefault();
+      saveSideW(clampSide(cur + (e.key === 'ArrowLeft' ? 20 : -20)));
+    } else if (e.key === 'Home' || e.key === 'Enter') {
+      e.preventDefault();
+      saveSideW(null);
+    }
+  };
+  // 창이 줄거나 대화 목록을 펼쳐 채팅 칸이 최소 폭보다 좁아지면 근거 문서 너비를 줄임
+  useEffect(() => {
+    if (sideW === null) return;
+    const fit = () => {
+      const chat = chatRef.current?.getBoundingClientRect().width ?? CHAT_MIN;
+      if (chat < CHAT_MIN && !isNarrow()) setSideW((w) => (w === null ? w : Math.max(SIDE_MIN, w - (CHAT_MIN - chat))));
+    };
+    fit();
+    window.addEventListener('resize', fit);
+    return () => window.removeEventListener('resize', fit);
+  }, [sideW, listOpen]);
 
   // 대화 목록: 서버에서 (계정별). 예전 탭 저장분(sessionStorage)은 지움
   useEffect(() => {
@@ -315,7 +380,7 @@ export default function ChatPage() {
         )}
       </aside>
 
-      <section className="panel chat-main">
+      <section className="panel chat-main" ref={chatRef}>
         <header className="chat-head">
           <button type="button" className="btn btn-sm list-toggle" onClick={toggleList} aria-expanded={listOpen}
                   title={listOpen ? '대화 목록 접기' : '대화 목록 펼치기'}>
@@ -414,7 +479,14 @@ export default function ChatPage() {
       {/* 좁은 창에서 서랍이 열렸을 때만 보이는 뒤 배경 (누르면 닫힘) */}
       {(listOpen || showSide) && <div className="drawer-back" onClick={closeDrawers} aria-hidden />}
 
-      <aside className={`panel side side-wide sources${showSide ? '' : ' collapsed'}`} ref={sideRef} aria-hidden={!showSide}>
+      {showSide && (
+        <div className="side-resizer" role="separator" aria-orientation="vertical" tabIndex={0}
+             aria-label="근거 문서 너비 조절" title="끌어서 근거 문서 너비 조절 · 두 번 누르면 기본 너비"
+             aria-valuemin={SIDE_MIN} aria-valuenow={sideW ?? undefined}
+             onPointerDown={startResize} onDoubleClick={() => saveSideW(null)} onKeyDown={keyResize} />
+      )}
+      <aside className={`panel side side-wide sources${showSide ? '' : ' collapsed'}`} ref={sideRef} aria-hidden={!showSide}
+             style={sideW !== null ? ({ '--side-w': `${sideW}px` } as React.CSSProperties) : undefined}>
         <div className="side-head" style={{ marginBottom: sourceQuestion ? 4 : 10 }}>
           <h3>근거 문서</h3>
           <button type="button" className="side-close" onClick={() => setSide(false)} aria-label="근거 문서 접기" title="근거 문서 접기">

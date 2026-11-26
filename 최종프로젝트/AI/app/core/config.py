@@ -100,6 +100,13 @@ def sampling_params(model, max_tokens=None, effort=None):
 DATA_DIR = ROOT / "data"
 OUT_DIR = ROOT / "outputs"
 
+# 상담 녹음 받아쓰기 (로컬 Whisper, CPU)
+STT_MODEL = env("STT_MODEL", "medium")
+STT_THREADS = int(env("STT_THREADS", "4"))
+# 받아쓰기 힌트 단어 (쉼표 구분). 회사 이름·상품·자주 쓰는 업무 말을 넣으면 소리 나는 대로 틀리게 받아쓰는 일이 줄어듦
+# ('새봄은행' → '세보문행'). 실제 회사에 맞게 바꿔 씀. 빈 값이면 힌트 없음
+STT_HOTWORDS = env("STT_HOTWORDS", "새봄은행,고객님,접수,재발급,분실 신고,보이스피싱,지급정지,착오송금,반환 청구,중도해지,이율,골뱅이,닷컴")
+
 # ---------------------------------------------------------------- 최종프로젝트 추가
 # 스프링 → AI 서버 호출 때 헤더 X-Service-Key 로 같이 보내는 내부 키. 빈 값이면 서버가 시작을 거부
 AI_SERVICE_KEY = env("AI_SERVICE_KEY", "")

@@ -3,7 +3,7 @@ import apiClient from '@/shared/api/client';
 
 export interface Span { label: string; start: number; end: number; text?: string }
 export interface Job {
-  id: number; uploader: string; source: string; filename: string | null; total: number; status: string; created_at: string;
+  id: number; uploader: string; source: string; filename: string | null; total: number; status: string; created_at: string; error: string | null;
   pending: number; stored: number; rejected: number; failed: number;
 }
 export interface JobSummary { id: number; status: string; total: number; counts: Record<string, number>; auto_approved: number; filename: string | null }
@@ -29,6 +29,14 @@ export interface ReviewResult { status: string; doc_id?: string; added?: number;
 const B = '/api/ingest';
 export const upload = async (body: { source: 'jsonl' | 'text'; content: string; filename?: string; docType?: string }) =>
   (await apiClient.post<{ job_id: number; total: number; status: string }>(`${B}/jobs`, body)).data;
+// 상담 녹음 (wav) — 받아쓰기 → 글 1건. 녹음 파일은 저장하지 않음
+export const uploadAudio = async (file: File, docType?: string) => {
+  const fd = new FormData();
+  fd.append('file', file);
+  if (docType) fd.append('docType', docType);
+  return (await apiClient.post<{ job_id: number; total: number; status: string; sec: number; channels: number }>(
+    `${B}/audio-jobs`, fd, { headers: { 'Content-Type': 'multipart/form-data' } })).data;
+};
 export const jobs = async () => (await apiClient.get<Job[]>(`${B}/jobs`)).data;
 export const job = async (id: number) => (await apiClient.get<JobSummary>(`${B}/jobs/${id}`)).data;
 export const jobDocs = async (id: number) => (await apiClient.get<StagingRow[]>(`${B}/jobs/${id}/docs`)).data;

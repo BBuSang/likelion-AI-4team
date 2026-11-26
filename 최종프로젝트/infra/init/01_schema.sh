@@ -155,10 +155,10 @@ CREATE TABLE vault.employees (
 CREATE TABLE vault.ingest_job (
     id          BIGSERIAL PRIMARY KEY,
     uploader    TEXT NOT NULL,                   -- 올린 사람 (Spring 이 넘긴 이메일)
-    source      TEXT NOT NULL,                   -- jsonl / text
+    source      TEXT NOT NULL,                   -- jsonl / text / audio(상담 녹음, 받아쓴 글 1건)
     filename    TEXT,
     total       INT  NOT NULL DEFAULT 0,
-    status      TEXT NOT NULL DEFAULT 'processing', -- processing(탐지 중) / ready / failed
+    status      TEXT NOT NULL DEFAULT 'processing', -- transcribing(녹음 받아쓰는 중) / processing(탐지 중) / ready / failed
     error       TEXT,
     created_at  TIMESTAMPTZ DEFAULT now()
 );
