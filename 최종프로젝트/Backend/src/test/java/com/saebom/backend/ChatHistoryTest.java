@@ -77,7 +77,7 @@ class ChatHistoryTest {
     private static AskResult answer(String masked) {
         return new AskResult(masked, "<PERSON_ab12cd34> 고객 반송 처리 완료 [H1]", false,
                 List.of(new AiClient.SourceDoc("H1", "반송", 0.9, "<PERSON_ab12cd34> 우편물 반송")), null, "m",
-                Map.of("search", 0.1), null, List.of());
+                Map.of("search", 0.1), null, List.of(), List.of());
     }
 
     @Test

@@ -20,6 +20,7 @@ export interface AskResult {
   timing: Record<string, number>;
   agent: AgentInfo | null; // 에이전트 분류 결과. AI 서버 AGENT_CHAT=0 이면 null
   ambiguousPeople?: string[]; // 답변 속 사람 중 같은 이름의 다른 사람이 있는 토큰
+  queryOnlyTokens?: string[]; // 질문에 쓴 이름 중 데이터에 없는 사람의 토큰 → 친 말 그대로 보여 줌
 }
 
 export interface AgentInfo {

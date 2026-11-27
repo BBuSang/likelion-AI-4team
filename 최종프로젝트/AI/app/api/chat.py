@@ -67,6 +67,37 @@ def _ambiguous(answer):
         return []
 
 
+def _query_only_names(query):
+    """질문에 쓴 이름 중 **저장된 데이터에 없는 사람**의 토큰 목록. 화면이 이 토큰만 질문 원문의 그 자리 말로 보여 줌
+    (본인이 친 이름이고 데이터에도 없어 새로 드러나는 정보가 없음). 데이터에 있는 이름은 그대로 가림.
+    이름 원문은 내보내지 않고 토큰만 — 답변 결과는 스프링이 평문으로 저장하므로.
+    데이터에 있다 = 같은 이름(성 없는 이름은 이름 부분)의 인물이 rag.persons 에 있거나, 그 토큰이 문서 청크에 있음"""
+    try:
+        from app.core import db
+        from app.pii import pii_pipeline
+        from app.rag.search import mask_query
+        _, records = mask_query(query)
+        people = [r for r in records if r["label"] == "person"]
+        if not people:
+            return []
+        out = set()
+        with db.rag_conn() as c:
+            for r in people:
+                name = r["normalized"]
+                surname, _ = pii_pipeline.split_name(name)
+                names = [pii_pipeline.name_token(name)]
+                givens = [] if surname else [pii_pipeline.given_token(name)]
+                hit = c.execute("SELECT 1 FROM rag.persons WHERE name_token = ANY(%s) OR given_token = ANY(%s) LIMIT 1",
+                                (names, givens)).fetchone() \
+                    or c.execute("SELECT 1 FROM rag.chunks WHERE tokens @> ARRAY[%s] LIMIT 1", (r["token"],)).fetchone()
+                if not hit:
+                    out.add(r["token"])
+        return sorted(out)
+    except Exception as e:  # 실패하면 전처럼 모두 가린 채로
+        logger.warning("질문 이름 확인 실패: %s", type(e).__name__)
+        return []
+
+
 FAILED = "검색 또는 답변 생성에 실패했습니다"
 
 
@@ -90,7 +121,7 @@ def ask(req: AskRequest):
     except Exception as e:  # 임베딩·LLM API 실패 등 — 내용(질문 원문 포함 가능)은 응답·로그에 안 남김
         logger.warning("ask 실패: %s", type(e).__name__)
         raise HTTPException(502, FAILED)
-    return _response(r)
+    return _response(r, req.query)
 
 
 @router.post("/ask/stream")
@@ -106,7 +137,7 @@ def ask_stream(req: AskRequest):
 
     def work():
         try:
-            q.put(("done", {"result": _response(_run(req, user, on_event=lambda kind, **d: q.put((kind, d))))}))
+            q.put(("done", {"result": _response(_run(req, user, on_event=lambda kind, **d: q.put((kind, d))), req.query)}))
         except access.AccessError as e:
             q.put(("error", {"status": 403, "message": str(e)}))
         except Exception as e:  # 내용은 남기지 않음 (ask 와 같음)
@@ -126,8 +157,8 @@ def ask_stream(req: AskRequest):
                              headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"})
 
 
-def _response(r):
-    """화면으로 가는 답 (ask 응답 · ask/stream 의 done)"""
+def _response(r, query=None):
+    """화면으로 가는 답 (ask 응답 · ask/stream 의 done). query = 사용자가 친 질문 원문 (이름 확인에만, 내보내지 않음)"""
     return {
         "masked_query": r["masked_query"],
         "answer": r["answer"],          # 토큰 상태. LLM 키가 없으면 None (검색 결과만)
@@ -141,6 +172,8 @@ def _response(r):
         "agent": r.get("agent"),        # 에이전트 분류 결과 (경로·출처·아직 없는 RAG). AGENT_CHAT=0 이면 None
         # 답변 속 사람 중 같은 이름이 여럿인 사람 → 화면이 '동명이인 가능' 경고 (37장). 실패해도 답변은 그대로
         "ambiguous_people": _ambiguous((r.get("answer") or "") + " " + (r.get("masked_query") or "")),  # 답변·질문 속 사람
+        # 질문에 쓴 이름 중 데이터에 없는 사람의 토큰 → 화면이 질문 원문의 그 말로 보여 줌 (데이터에 있는 이름은 가린 채로)
+        "query_only_tokens": _query_only_names(query) if query else [],
     }
 
 

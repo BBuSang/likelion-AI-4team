@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { AlertTriangle, Eye, EyeOff } from 'lucide-react';
 import { useAuth } from '@/shared/contexts/AuthContext';
 import { errMsg } from '@/shared/utils/error';
+import { applyReveal } from '@/shared/utils/pii';
 import * as chatApi from '../api/chat.api';
 import type { RestoreResult } from '../api/chat.api';
 import AnswerMarkdown from './AnswerMarkdown';
@@ -16,15 +17,17 @@ interface Props {
   compact?: boolean;
   markdown?: boolean; // 답변: 마크다운으로 꾸며 보여 줌 (문서 조각은 원문 그대로)
   labels?: boolean; // 근거 문서: 소제목(질의요지:·회답: …) 굵게
+  reveal?: Record<string, string>; // 질문에 쓴 이름 중 데이터에 없는 사람: {토큰: 친 말} — 가리지 않고 보여 줌 (화면에서만)
 }
 
-export default function Restorable({ text, docIds, onCite, compact, markdown, labels }: Props) {
+export default function Restorable({ text, docIds, onCite, compact, markdown, labels, reveal }: Props) {
   const { user } = useAuth();
   const [result, setResult] = useState<RestoreResult | null>(null);
   const [asking, setAsking] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
-  const hasToken = /<[A-Z_]+_[0-9A-Za-z]+>/.test(text);
+  const shown = applyReveal(result ? result.text : text, reveal); // 서버로는 토큰 상태 그대로 보냄
+  const hasToken = /<[A-Z_]+_[0-9A-Za-z]+>/.test(applyReveal(text, reveal));
 
   const run = async (purpose?: string) => {
     setAsking(false);
@@ -42,10 +45,10 @@ export default function Restorable({ text, docIds, onCite, compact, markdown, la
   return (
     <div>
       {markdown ? (
-        <AnswerMarkdown text={result ? result.text : text} onCite={onCite} denied={result?.denied} />
+        <AnswerMarkdown text={shown} onCite={onCite} denied={result?.denied} />
       ) : (
         <div style={{ whiteSpace: 'pre-wrap', fontSize: compact ? 12 : 14, lineHeight: 1.8 }}>
-          <MaskedText text={result ? result.text : text} onCite={onCite} denied={result?.denied} labels={labels} />
+          <MaskedText text={shown} onCite={onCite} denied={result?.denied} labels={labels} />
         </div>
       )}
       {hasToken && (

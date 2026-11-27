@@ -7,7 +7,7 @@ import { AlertTriangle, ChevronDown, ChevronUp, CornerDownRight, FileText, Files
 import { LogoLarge } from '@/shared/components/Logo';
 import { useAuth } from '@/shared/contexts/AuthContext';
 import { errMsg } from '@/shared/utils/error';
-import { docLabel } from '@/shared/utils/pii';
+import { docLabel, revealTokens } from '@/shared/utils/pii';
 import * as chatApi from '../api/chat.api';
 import type { AskResult, ConversationDetail, ConversationSummary } from '../api/chat.api';
 import AnswerMarkdown from '../components/AnswerMarkdown';
@@ -89,6 +89,12 @@ function footer(r: AskResult) {
   return parts.join(' · ');
 }
 const uid = () => Math.random().toString(36).slice(2, 10);
+
+/** 질문에 쓴 이름 중 데이터에 없는 사람 → {토큰: 친 말}. 친 질문 원문이 화면에 있을 때만 (관리자 열람 등 원문이 없으면 가린 채로) */
+function queryReveal(prev: Msg | undefined, r: AskResult) {
+  if (!prev || prev.role !== 'user' || prev.masked || !r.queryOnlyTokens?.length) return undefined;
+  return revealTokens(prev.text, r.maskedQuery, r.queryOnlyTokens);
+}
 
 const fromSummary = (s: ConversationSummary): Conv =>
   ({ id: s.id, title: s.title ?? '새 대화', at: Date.parse(s.updatedAt), msgs: [], loaded: false });
@@ -404,7 +410,7 @@ export default function ChatPage() {
               
             </div>
           )}
-          {current?.msgs.map((m) => m.role === 'user' ? (
+          {current?.msgs.map((m, i) => m.role === 'user' ? (
             <div key={m.id} className="bubble-user">{m.masked ? <MaskedText text={m.text} /> : m.text}</div>
           ) : (
             <div key={m.id} className={`answer${sourceMsg?.id === m.id ? ' focused' : ''}`} onClick={() => setFocusMsg(m.id)}>
@@ -427,7 +433,8 @@ export default function ChatPage() {
                     </p>
                   )}
                   {m.result.askBack && <p className="small muted" style={{ marginBottom: 6 }}>같은 이름의 사람이 여럿이라 먼저 확인할게요.</p>}
-                  <Restorable markdown text={m.result.answer} docIds={m.result.docs.map((d) => d.docId)} onCite={(d) => { setFocusMsg(m.id); setFocusDoc(d); setSide(true); }} />
+                  <Restorable markdown text={m.result.answer} docIds={m.result.docs.map((d) => d.docId)} onCite={(d) => { setFocusMsg(m.id); setFocusDoc(d); setSide(true); }}
+                              reveal={queryReveal(current.msgs[i - 1], m.result)} />
                   {!!m.result.agent?.pending.length && m.result.agent.sources.includes('internal') && (
                     <p className="small" style={{ color: 'var(--warn)', marginTop: 6 }}>
                       {m.result.agent.pending.map((s) => SOURCE_KO[s] ?? s).join(', ')} 자료는 아직 준비 중이라 사내 기록으로만 답했어요.
