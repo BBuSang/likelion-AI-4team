@@ -190,6 +190,16 @@ def _table_role(text, s):
     return "customer" if _TABLE_CUSTOMER_HEAD.match(cells[col]) else None
 
 
+def _same_doc_customer(mentions):
+    """같은 문서에서 고객으로 나온 이름이 다른 자리에선 항목 이름만으로 직원이 된 경우 → 고객.
+    고객이 보낸 메일의 '보낸 사람: 표태혁' (같은 문서에 '표태혁 고객님') — Holdout2 에서 한 고객이 직원으로 쪼개짐.
+    소속·직급이 붙은 직원 언급은 그대로 (같은 문서의 고객·직원 동명이인)"""
+    customers = {(d, s["normalized"]) for d, s in mentions if s["role"] == "customer"}
+    for d, s in mentions:
+        if s["role"] == "staff" and (d, s["normalized"]) in customers and not s["aff"] and not s.get("rank"):
+            s["role"] = "customer"
+
+
 def _check_prefix_affs(mentions):
     """'앞 단어 + 직함'으로 찾은 소속은 코퍼스 안에서 괄호·조직 접미사로도 확인된 조직명이고 한글일 때만 인정.
     처음 보는 문서의 'Dear 이민재 과장님', '서명 김성호 부장' 처럼 앞 단어가 조직이 아닌 경우를 걸러낸다
@@ -248,6 +258,7 @@ def resolve(docs, spans_by_doc):
             s.update(normalized=name, **mention_features(text, spans, i))
             mentions.append((doc_id, s))
     _check_prefix_affs(mentions)
+    _same_doc_customer(mentions)
 
     # 1~2. 이름별로 닻·소속을 공유하는 언급끼리 묶기
     uf = _UF()
@@ -318,7 +329,16 @@ def resolve(docs, spans_by_doc):
     # 35장: 고객 본인 것인 경우가 대부분인 번호(카드·계좌·주민번호). 문서에 있는 값이 묶음의 같은 종류 값과 모두 다르면 다른 고객
     OWN_IDS = ("card_number", "account_number", "resident_registration_number")
 
+    # 고객이 셋 이상 나오는 문서(지점업무일지·콜백 목록)의 번호는 누구 것인지 몰라 문서 단위 단서로 안 씀 (둘까지는 그대로: synth3 합쳐짐 +1).
+    # Holdout2: 업무일지의 '표태혁 고객 …' 이 다른 고객 카드번호를 자기 번호로 잡아 새 사람이 됨
+    customers_in = collections.defaultdict(set)
+    for d2, x in mentions:
+        if x["role"] != "staff":
+            customers_in[d2].add(x["normalized"])
+
     def ids_conflict(doc_id, root):
+        if len(customers_in[doc_id]) > 2:
+            return False
         for lab in OWN_IDS:
             mine = {v for l2, v in doc_ids[doc_id] if l2 == lab}
             theirs = info[root]["anchors"].get(lab, set())
@@ -328,6 +348,8 @@ def resolve(docs, spans_by_doc):
 
     def own_id(doc_id):
         """문서에 한 값만 있는 고객 번호 → 단서 키 (묶음 키와 같은 모양 'a:종류:값')"""
+        if len(customers_in[doc_id]) > 2:
+            return None
         for lab in OWN_IDS:
             vals = sorted(v for l2, v in doc_ids[doc_id] if l2 == lab)
             if len(vals) == 1:
