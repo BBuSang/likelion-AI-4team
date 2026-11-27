@@ -136,7 +136,9 @@ public class AiClient {
                             @JsonAlias("ask_back") boolean askBack, List<SourceDoc> docs, OutputCheck check,
                             String model, Map<String, Double> timing, AgentInfo agent,
                             // 답변 속 사람 중 같은 이름이 여럿인 사람 토큰 → 화면 '동명이인 가능' 경고
-                            @JsonAlias("ambiguous_people") List<String> ambiguousPeople) {}
+                            @JsonAlias("ambiguous_people") List<String> ambiguousPeople,
+                            // 질문에 쓴 이름 중 데이터에 없는 사람의 토큰 (이름 원문은 없음) → 화면이 질문 원문의 그 말로 보여 줌
+                            @JsonAlias("query_only_tokens") List<String> queryOnlyTokens) {}
 
     /** 에이전트 분류 결과. route: internal·public·mixed·out_of_scope·clarify, pending: 필요하지만 아직 없는 RAG */
     @JsonIgnoreProperties(ignoreUnknown = true)
