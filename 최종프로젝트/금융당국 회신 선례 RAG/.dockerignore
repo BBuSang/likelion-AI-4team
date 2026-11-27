@@ -1,0 +1,10 @@
+# deploy/Dockerfile 빌드에 넣을 파일만 허용한다. data/, .env, 평가 스크립트, 문서는 빠진다.
+*
+!app/*.py
+!pipeline/common.py
+!pipeline/rag.py
+!pipeline/time_marks.py
+!pipeline/articles_lookup.py
+!rag_db.dump
+!deploy/requirements.txt
+!deploy/start.sh

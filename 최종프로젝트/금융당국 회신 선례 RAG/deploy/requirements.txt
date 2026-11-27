@@ -1,0 +1,9 @@
+streamlit==1.66.1
+psycopg[binary]==3.2.13
+openai==2.8.1
+sentence-transformers==6.2.0
+torch==2.9.0
+pandas
+numpy
+python-dotenv
+requests
