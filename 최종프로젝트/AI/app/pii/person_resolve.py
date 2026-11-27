@@ -90,7 +90,48 @@ def _anchors(text, e, spans, i):
             hit = [s2 for s2 in ids if s2["start"] == kv.end()]
             found += hit
             line_start = line_end + 1
+    if not found:
+        found = _speaker_anchors(text, spans[i]["start"], e, spans)
     return [(s2["label"], normalize(s2["label"], text[s2["start"]:s2["end"]])) for s2 in found]
+
+
+# 대화: 고객 쪽 화자가 자기 이름을 말한 뒤, 같은 화자가 다음 줄들에서 번호만 답한 경우 그 번호를 그 이름에
+#   고객: 네, 김민준입니다.  / 상담원: 연락처 말씀해 주세요. / 고객: 010-1234-5678
+#   사용자: 정 수 혁 / 봇: 휴대전화 번호를 입력해 주세요. / 사용자: 공일공 팔사칠칠 …
+# 상담원 쪽 화자나 '그 사람 연락처는 …' 처럼 남 얘기 속 번호에는 안 씀
+_CUST_SPEAKER = re.compile(r"[ \t]*(고객님?|사용자|민원인|신청인)[ \t]*[:：>][ \t]*")
+_SELF_BEFORE = re.compile(r"\s*(?:네[,.]?\s*)?(?:저는\s*|제 이름은\s*)?")
+_SELF_AFTER = re.compile(r"\s*(?:입니다|이에요|예요|이요|요|이고요)?[.!~]*\s*")
+_ANSWER_REST = re.compile(r"[\s.,!~]*(?:(?:제|저)\s*)?(?:번호|연락처|전화번호|휴대폰|핸드폰|카드번호?|계좌번호?|주민번호|주민등록번호|이메일)?"
+                          r"(?:는|은|이요|입니다|이에요|예요|요)?[\s.,!~]*(?:입니다|이에요|예요|이요|요)?[\s.,!~]*")
+_SPEAKER_LINES = 12   # 이름을 말한 뒤 몇 줄까지 같은 화자의 답을 볼지
+
+
+def _speaker_anchors(text, s, e, spans):
+    ls, le = _line_bounds(text, s, e)
+    m = _CUST_SPEAKER.match(text, ls)
+    if not m or m.end() > s or not _SELF_BEFORE.fullmatch(text[m.end():s]) or not _SELF_AFTER.fullmatch(text[e:le]):
+        return []
+    who = m.group(1).rstrip("님")
+    found, pos = [], le + 1
+    for _ in range(_SPEAKER_LINES):
+        if pos >= len(text):
+            break
+        end = text.find("\n", pos)
+        end = len(text) if end < 0 else end
+        sm = _CUST_SPEAKER.match(text, pos)
+        if sm and sm.group(1).rstrip("님") == who:
+            in_line = [s2 for s2 in spans if pos <= s2["start"] < end]
+            if any(s2["label"] == "person" for s2 in in_line):
+                break  # 같은 화자가 다른 이름을 말함 → 거기서 멈춤
+            vals = [s2 for s2 in in_line if s2["label"] in ANCHOR_LABELS]
+            if len(vals) == 1:
+                v = vals[0]
+                rest = text[sm.end():v["start"]] + " " + text[v["end"]:end]
+                if _ANSWER_REST.fullmatch(rest):
+                    found.append(v)
+        pos = end + 1
+    return found
 
 
 def _affiliation(before, after):

@@ -37,6 +37,11 @@ def test_address_before_card_field_kept():
     assert ("address", "서울 종로구 사직로 11") in labels(t, [sp(t, "서울 종로구 사직로 11", "address")])
 
 
+def test_title_inside_name_span_trimmed():
+    t = "| 염상람 과장 | 변혁 사원 |\n1. 고객: 육나연 님"
+    assert labels(t, [sp(t, "변혁 사원"), sp(t, "육나연 님")]) == [("person", "변혁"), ("person", "육나연")]
+
+
 def test_korean_read_phone():
     t = "사용자: 공일공 팔사칠칠 일이공구\n봇: 확인되었습니다."
     assert labels(t, []) == [("phone_number", "공일공 팔사칠칠 일이공구")]
@@ -122,3 +127,18 @@ def test_ask_back_only_when_answer_docs_mix_people():
     assert got == amb and [d["doc_id"] for d in docs] == ["H1", "H2", "H3"]
     got, _ = chat.ambiguity([d1, d2, d3], [d1, d2], "<PERSON_q> 고객 문서만")  # 주제 없이 사람만 → 후보 전체로 판단
     assert got == amb
+
+
+def test_speaker_self_intro_then_answer():
+    t = "상담원: 성함 말씀 부탁드립니다.\n고객: 네, 김민준입니다.\n상담원: 연락처 말씀해 주세요.\n고객: 010-1234-5678 이요."
+    spans = [sp(t, "김민준"), sp(t, "010-1234-5678", "phone_number")]
+    assert r.mention_features(t, spans, 0)["anchors"] == [("phone_number", "01012345678")]
+
+
+def test_speaker_rule_skips_other_people_and_staff():
+    t = "상담원: 김민준 고객님 건 확인했어요.\n이윤서: 그 사람 연락처 010-1234-5678 이에요."
+    spans = [sp(t, "김민준"), sp(t, "이윤서"), sp(t, "010-1234-5678", "phone_number")]
+    assert [r.mention_features(t, spans, i)["anchors"] for i in (0, 1)] == [[], []]
+    t2 = "고객: 김민준 고객 건 문의드려요.\n고객: 010-1234-5678"   # 자기소개가 아니면 안 붙임
+    spans2 = [sp(t2, "김민준"), sp(t2, "010-1234-5678", "phone_number")]
+    assert r.mention_features(t2, spans2, 0)["anchors"] == []
