@@ -158,7 +158,7 @@ CREATE TABLE vault.ingest_job (
     source      TEXT NOT NULL,                   -- jsonl / text / audio(상담 녹음, 받아쓴 글 1건)
     filename    TEXT,
     total       INT  NOT NULL DEFAULT 0,
-    status      TEXT NOT NULL DEFAULT 'processing', -- transcribing(녹음 받아쓰는 중) / processing(탐지 중) / ready / failed
+    status      TEXT NOT NULL DEFAULT 'processing', -- transcribing(녹음 받아쓰는 중) / processing(탐지 중) / storing(자동 승인 저장 중) / ready / failed / canceled(업로드 취소)
     error       TEXT,
     created_at  TIMESTAMPTZ DEFAULT now()
 );
@@ -176,7 +176,7 @@ CREATE TABLE vault.staging_doc (
     gold          JSONB,                         -- 파일에 정답 라벨이 있으면 (자동 승인 비교용만)
     review        JSONB,                         -- 검수 판단 {needs_review, flags, hints} (값 없이 위치·점수만)
     final_spans   JSONB,                         -- 승인된 구간
-    status        TEXT NOT NULL DEFAULT 'pending', -- pending / stored / rejected / failed
+    status        TEXT NOT NULL DEFAULT 'pending', -- pending / stored / rejected / failed / deleted(문서 지움) / canceled(업로드 취소)
     approved_by   TEXT,                          -- 검수자 이메일 / 'gold'(정답과 같음) / 'auto'(검수 신호 없음)
     reviewed_at   TIMESTAMPTZ,
     reject_reason TEXT,
@@ -191,7 +191,7 @@ CREATE TABLE vault.review_log (
     id              BIGSERIAL PRIMARY KEY,
     staging_doc_id  BIGINT NOT NULL REFERENCES vault.staging_doc(id) ON DELETE CASCADE,
     actor           TEXT NOT NULL,
-    action          TEXT NOT NULL,               -- view / approve / auto_approve / reject / store_failed / edit_text(검수 때 본문 고침) / delete
+    action          TEXT NOT NULL,               -- view / approve / auto_approve / reject / store_failed / edit_text(검수 때 본문 고침) / delete / cancel(업로드 취소)
     added           INT NOT NULL DEFAULT 0,      -- 검수자가 추가한 구간 수 (= 탐지기가 놓친 수)
     removed         INT NOT NULL DEFAULT 0,      -- 지운 구간 수 (= 오탐)
     relabeled       INT NOT NULL DEFAULT 0,

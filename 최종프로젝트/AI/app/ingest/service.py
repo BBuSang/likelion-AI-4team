@@ -222,7 +222,8 @@ def process_job(job_id, docs):
                         auto.append((sid, "gold"))
                 elif config.AUTO_APPROVE and not review["needs_review"]:
                     auto.append((sid, "auto"))
-            cur.execute("UPDATE vault.ingest_job SET status = 'ready' WHERE id = %s", (job_id,))
+            # 자동 저장할 문서가 있으면 다 저장할 때까지 storing (화면이 이 동안 저장 건수를 계속 새로 읽음)
+            cur.execute("UPDATE vault.ingest_job SET status = %s WHERE id = %s", ("storing" if auto else "ready", job_id))
         for sid, by in auto:  # 업로드 순서대로 한 건씩 저장
             try:
                 if by == "auto" and _weak_links(sid):
@@ -230,6 +231,9 @@ def process_job(job_id, docs):
                 store(sid, actor=by, action="auto_approve")
             except Exception:
                 logger.exception("자동 승인 저장 실패: staging %s", sid)
+        if auto:
+            with db.vault_conn() as conn, conn.cursor() as cur:
+                cur.execute("UPDATE vault.ingest_job SET status = 'ready' WHERE id = %s", (job_id,))
     except Exception as e:
         logger.exception("job %s 처리 실패", job_id)
         with db.vault_conn() as conn, conn.cursor() as cur:
@@ -363,6 +367,44 @@ def list_docs(job_id):
         keys = ("id", "seq", "ext_id", "doc_id", "doc_type", "status", "approved_by", "n_detected", "has_gold",
                 "n_flags", "n_hints")
         return [dict(zip(keys, r)) for r in cur.fetchall()]
+
+
+BUSY_JOB = ("transcribing", "processing", "storing")
+
+
+def cancel_job(job_id, actor):
+    """잘못 올린 업로드 취소 → {job_id, canceled, deleted, delete_failed} 또는 None(없는 업로드).
+    - 아직 저장 안 된 문서(검수 대기·저장 실패): status = canceled, 원문·구간을 비움 (행은 기록용으로 남김)
+    - 이미 저장된 문서: 문서 지우기(manage.delete_doc)와 같이 검색·보관소에서 지움 (deletion_log 에 남음)
+    처리 중(받아쓰기·탐지·자동 저장)에는 백그라운드 작업과 엇갈리므로 막음. 중간에 실패하면 다시 취소하면 남은 것만 지움"""
+    from app.ingest import manage
+    with db.vault_conn() as conn, conn.cursor() as cur:
+        cur.execute("SELECT status FROM vault.ingest_job WHERE id = %s FOR UPDATE", (job_id,))
+        row = cur.fetchone()
+        if row is None:
+            return None
+        if row[0] in BUSY_JOB:
+            raise Conflict("처리가 끝난 뒤에 취소할 수 있어요")
+        cur.execute("""UPDATE vault.staging_doc SET status = 'canceled', text = '', detected = '[]', gold = NULL,
+                              final_spans = NULL, meta = '{}', review = NULL, error = NULL
+                       WHERE job_id = %s AND status IN ('pending', 'failed') RETURNING id""", (job_id,))
+        canceled = [sid for (sid,) in cur.fetchall()]
+        for sid in canceled:
+            cur.execute("INSERT INTO vault.review_log (staging_doc_id, actor, action) VALUES (%s, %s, 'cancel')",
+                        (sid, actor))
+        cur.execute("UPDATE vault.ingest_job SET status = 'canceled' WHERE id = %s", (job_id,))
+        cur.execute("SELECT doc_id FROM vault.staging_doc WHERE job_id = %s AND status = 'stored' ORDER BY seq",
+                    (job_id,))
+        stored = [d for (d,) in cur.fetchall()]
+    deleted, failed = 0, []
+    for doc_id in stored:
+        try:
+            manage.delete_doc(doc_id, actor, f"업로드 #{job_id} 취소")
+            deleted += 1
+        except Exception:
+            logger.exception("업로드 취소 중 문서 지우기 실패: %s", doc_id)
+            failed.append(doc_id)
+    return {"job_id": job_id, "canceled": len(canceled), "deleted": deleted, "delete_failed": failed}
 
 
 def _load(cur, staging_id, for_update=False):

@@ -2,8 +2,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { DragEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FileAudio, FileUp, RefreshCw } from 'lucide-react';
+import { FileAudio, FileUp, RefreshCw, Undo2 } from 'lucide-react';
 import { errMsg, fmtTime } from '@/shared/utils/error';
+import ConfirmDialog from '@/shared/components/ConfirmDialog';
 import DocTypeSelect from '../components/DocTypeSelect';
 import * as api from '../api/ingest.api';
 import type { AudioKind, Job, StagingRow } from '../api/ingest.api';
@@ -17,8 +18,10 @@ const hasFiles = (e: { dataTransfer: DataTransfer | null }) => !!e.dataTransfer 
 
 const JOB_STATUS: Record<string, { n: string; cls: string }> = {
   transcribing: { n: '받아쓰는 중', cls: 'badge-brand' },
-  processing: { n: '탐지 중', cls: 'badge-brand' }, ready: { n: '탐지 끝', cls: 'badge-ok' }, failed: { n: '실패', cls: 'badge-bad' },
+  processing: { n: '탐지 중', cls: 'badge-brand' }, storing: { n: '저장 중', cls: 'badge-brand' }, ready: { n: '탐지 끝', cls: 'badge-ok' }, failed: { n: '실패', cls: 'badge-bad' },
+  canceled: { n: '취소됨', cls: 'badge-gray' },
 };
+const BUSY_JOB = ['transcribing', 'processing', 'storing']; // 처리 중에는 취소 못 함 (서버도 막음)
 
 export default function IngestPage() {
   const nav = useNavigate();
@@ -35,6 +38,8 @@ export default function IngestPage() {
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
   const [dragOver, setDragOver] = useState(false); // 파일을 끌고 점선 상자 위에 있는 동안
+  const [askCancel, setAskCancel] = useState(false); // 업로드 취소 확인 대화상자
+  const [canceling, setCanceling] = useState(false);
 
   // 상자 밖에 잘못 놓은 파일을 브라우저가 열어 버리지 않게 (이 화면에 있는 동안만)
   useEffect(() => {
@@ -75,9 +80,9 @@ export default function IngestPage() {
   }, []);
   useEffect(() => { reload(); }, [reload]);
 
-  // 받아쓰는 중·탐지 중인 업로드가 있으면 3초마다 새로고침
+  // 받아쓰는 중·탐지 중·자동 저장 중인 업로드가 있으면 3초마다 새로고침
   useEffect(() => {
-    if (!jobs.some((j) => j.status === 'processing' || j.status === 'transcribing')) return;
+    if (!jobs.some((j) => BUSY_JOB.includes(j.status))) return;
     const t = setInterval(reload, 3000);
     return () => clearInterval(t);
   }, [jobs, reload]);
@@ -144,6 +149,22 @@ export default function IngestPage() {
       setMsg({ ok: false, text: errMsg(e) });
     } finally {
       setBusy(false);
+    }
+  };
+
+  const cancelUpload = async () => {
+    if (sel === null) return;
+    setCanceling(true);
+    try {
+      const r = await api.cancelJob(sel);
+      const failText = r.delete_failed.length ? ` 저장된 문서 ${r.delete_failed.length}건은 지우지 못했어요. 다시 취소해 주세요.` : '';
+      setMsg({ ok: r.delete_failed.length === 0, text: `업로드 #${r.job_id} 을(를) 취소했어요. 검수 대기 ${r.canceled}건을 버리고, 저장된 문서 ${r.deleted}건을 검색에서 지웠어요.${failText}` });
+      await reload();
+    } catch (e) {
+      setMsg({ ok: false, text: errMsg(e) });
+    } finally {
+      setCanceling(false);
+      setAskCancel(false);
     }
   };
 
@@ -250,7 +271,17 @@ export default function IngestPage() {
             </div>
             {selJob.status === 'transcribing' && <div className="alert alert-info small">녹음을 받아쓰는 중이에요… (10분 통화에 5~7분)</div>}
             {selJob.status === 'processing' && <div className="alert alert-info small">개인정보를 찾는 중이에요…</div>}
+            {selJob.status === 'storing' && <div className="alert alert-info small">확인할 곳이 없는 문서를 가명처리해서 저장하는 중이에요… ({selJob.stored}건 저장)</div>}
             {selJob.status === 'failed' && <div className="alert alert-bad small">처리하지 못했어요{selJob.error ? ` (${selJob.error})` : ''}. 파일을 확인하고 다시 올려 주세요.</div>}
+            {selJob.status === 'canceled' && <div className="alert alert-info small">취소한 업로드예요. 검수 대기 문서는 버렸고 저장된 문서는 검색에서 지웠어요.</div>}
+            {selJob.status !== 'canceled' && (
+              <button className="btn btn-danger btn-sm" style={{ alignSelf: 'flex-start' }}
+                      disabled={canceling || BUSY_JOB.includes(selJob.status)}
+                      title={BUSY_JOB.includes(selJob.status) ? '처리가 끝난 뒤에 취소할 수 있어요' : undefined}
+                      onClick={() => setAskCancel(true)}>
+                <Undo2 size={14} aria-hidden /> 업로드 취소
+              </button>
+            )}
             {firstPending && (
               <button className="btn btn-primary" onClick={() => nav(`/ingest/docs/${firstPending.id}`)}>검수 시작 (대기 {docs.filter((d) => d.status === 'pending').length}건)</button>
             )}
@@ -273,6 +304,17 @@ export default function IngestPage() {
           </div>
         )}
       </aside>
+
+      {askCancel && selJob && (
+        <ConfirmDialog title={`업로드 #${selJob.id} 취소`} confirmLabel={canceling ? '취소하는 중…' : '업로드 취소'} danger busy={canceling}
+                       message={<>
+                         「{selJob.filename ?? '붙여 넣은 글'}」 업로드를 취소할까요?<br />
+                         검수 대기·저장 실패 문서 {selJob.pending + selJob.failed}건은 원문까지 버리고,
+                         이미 저장된 문서 {selJob.stored}건은 검색과 보관소에서 지워요. 되돌릴 수 없어요.
+                       </>}
+                       onCancel={() => { if (!canceling) setAskCancel(false); }}
+                       onConfirm={cancelUpload} />
+      )}
     </>
   );
 }

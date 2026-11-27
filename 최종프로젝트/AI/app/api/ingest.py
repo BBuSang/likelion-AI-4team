@@ -100,6 +100,22 @@ def job(job_id: int):
     return s
 
 
+class CancelRequest(BaseModel):
+    actor: str = Field(min_length=1, max_length=100)
+
+
+@router.post("/jobs/{job_id}/cancel")
+def cancel(job_id: int, req: CancelRequest):
+    """잘못 올린 업로드 취소: 검수 대기 문서는 버리고, 이미 저장된 문서는 검색에서 지움"""
+    try:
+        out = service.cancel_job(job_id, req.actor)
+    except service.Conflict as e:
+        raise HTTPException(409, str(e))
+    if out is None:
+        raise HTTPException(404, "job 없음")
+    return out
+
+
 @router.get("/jobs/{job_id}/docs")
 def job_docs(job_id: int):
     return service.list_docs(job_id)

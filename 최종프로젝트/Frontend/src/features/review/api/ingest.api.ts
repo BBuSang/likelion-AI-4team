@@ -47,6 +47,9 @@ export interface DocTypeCount { doc_type: string; docs: number }
 export const docTypes = async () => (await apiClient.get<DocTypeCount[]>(`${B}/doc-types`)).data;
 export const jobs = async () => (await apiClient.get<Job[]>(`${B}/jobs`)).data;
 export const job = async (id: number) => (await apiClient.get<JobSummary>(`${B}/jobs/${id}`)).data;
+// 잘못 올린 업로드 취소: 검수 대기 문서는 버리고, 이미 저장된 문서는 검색에서 지움
+export const cancelJob = async (id: number) =>
+  (await apiClient.post<{ job_id: number; canceled: number; deleted: number; delete_failed: string[] }>(`${B}/jobs/${id}/cancel`)).data;
 export const jobDocs = async (id: number) => (await apiClient.get<StagingRow[]>(`${B}/jobs/${id}/docs`)).data;
 // 검수 때 본문 고치기: 안 바뀐 곳의 구간은 옮기고 바뀐 곳은 다시 탐지. spans = 지금 화면 구간 (옛 본문 위치)
 export const editText = async (id: number, body: { text: string; spans: Span[] }) =>
@@ -73,4 +76,5 @@ export const review = async (id: number, body: { action: 'approve' | 'reject'; s
 export const DOC_STATUS: Record<string, { n: string; cls: string }> = {
   pending: { n: '검수 대기', cls: 'badge-warn' }, stored: { n: '저장됨', cls: 'badge-ok' },
   rejected: { n: '반려', cls: 'badge-gray' }, failed: { n: '저장 실패', cls: 'badge-bad' },
+  canceled: { n: '업로드 취소', cls: 'badge-gray' }, deleted: { n: '지움', cls: 'badge-gray' },
 };

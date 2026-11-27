@@ -102,6 +102,12 @@ public class IngestController {
         return ai.getJson("/ingest/jobs/" + id, Map.of());
     }
 
+    /** 잘못 올린 업로드 취소 (검수 대기 문서는 버리고 이미 저장된 문서는 검색에서 지움). 처리 중이면 AI 가 409 */
+    @PostMapping("/jobs/{id}/cancel")
+    public JsonNode cancel(@AuthenticationPrincipal UD me, @PathVariable long id) {
+        return ai.postJson("/ingest/jobs/" + id + "/cancel", Map.of("actor", me.getEmail()));
+    }
+
     @GetMapping("/jobs/{id}/docs")
     public JsonNode docs(@PathVariable long id) {
         return ai.getJson("/ingest/jobs/" + id + "/docs", Map.of());
