@@ -1,0 +1,1890 @@
+[
+{
+"set": "holdout1",
+"doc_type": "VOC요약",
+"where": "VOC-9999 | @ 고객 | ",
+"role": "고객",
+"mentions": 20,
+"example": "H0017"
+},
+{
+"set": "holdout1",
+"doc_type": "녹취요약",
+"where": " 결제가 안 돼서요. 저 @인데요.",
+"role": "고객",
+"mentions": 11,
+"example": "H0004"
+},
+{
+"set": "holdout1",
+"doc_type": "녹취요약",
+"where": "상담사: @ 고객님, ",
+"role": "고객",
+"mentions": 11,
+"example": "H0004"
+},
+{
+"set": "holdout1",
+"doc_type": "녹취요약",
+"where": "요약: @ 고객님께서",
+"role": "고객",
+"mentions": 11,
+"example": "H0004"
+},
+{
+"set": "holdout1",
+"doc_type": "한도심사결과",
+"where": "@ 님 귀하",
+"role": "고객",
+"mentions": 10,
+"example": "H0007"
+},
+{
+"set": "holdout1",
+"doc_type": "분쟁조정",
+"where": "9. 신청인: @ (주민등록",
+"role": "고객",
+"mentions": 10,
+"example": "H0013"
+},
+{
+"set": "holdout1",
+"doc_type": "VOC요약",
+"where": "VOC-9999 | @님 | 결제",
+"role": "고객",
+"mentions": 10,
+"example": "H0017"
+},
+{
+"set": "holdout1",
+"doc_type": "VOC요약",
+"where": "특이사항: @ 고객은 동",
+"role": "고객",
+"mentions": 10,
+"example": "H0017"
+},
+{
+"set": "holdout1",
+"doc_type": "카드발급심사",
+"where": "@님 신용카드",
+"role": "고객",
+"mentions": 9,
+"example": "H0002"
+},
+{
+"set": "holdout1",
+"doc_type": "카드발급심사",
+"where": "@ 고객은 연",
+"role": "고객",
+"mentions": 9,
+"example": "H0002"
+},
+{
+"set": "holdout1",
+"doc_type": "가맹점변경",
+"where": "대표자: @",
+"role": "고객",
+"mentions": 9,
+"example": "H0006"
+},
+{
+"set": "holdout1",
+"doc_type": "피해접수",
+"where": "@님은 검찰을",
+"role": "고객",
+"mentions": 9,
+"example": "H0026"
+},
+{
+"set": "holdout1",
+"doc_type": "대리인위임확인",
+"where": "위임인: @ / 주민등",
+"role": "고객",
+"mentions": 8,
+"example": "H0009"
+},
+{
+"set": "holdout1",
+"doc_type": "대리인위임확인",
+"where": "@이 입원 중",
+"role": "고객",
+"mentions": 8,
+"example": "H0009"
+},
+{
+"set": "holdout1",
+"doc_type": "자동이체신청서",
+"where": "신청인: @",
+"role": "고객",
+"mentions": 8,
+"example": "H0011"
+},
+{
+"set": "holdout1",
+"doc_type": "우편반송처리",
+"where": "대상 고객: @",
+"role": "고객",
+"mentions": 8,
+"example": "H0048"
+},
+{
+"set": "holdout1",
+"doc_type": "피해접수",
+"where": "피해 고객: @ (999-",
+"role": "고객",
+"mentions": 7,
+"example": "H0036"
+},
+{
+"set": "holdout1",
+"doc_type": "해외송금접수",
+"where": "송금인: @ (999-",
+"role": "고객",
+"mentions": 5,
+"example": "H0074"
+},
+{
+"set": "holdout1",
+"doc_type": "고객편지",
+"where": "@ 드림 (j",
+"role": "고객",
+"mentions": 4,
+"example": "H0088"
+},
+{
+"set": "holdout1",
+"doc_type": "감사지적",
+"where": "사팀 소속 김소율이 고객 @의 주민등록",
+"role": "고객",
+"mentions": 2,
+"example": "H0052"
+},
+{
+"set": "holdout1",
+"doc_type": "고객편지",
+"where": "@ 드림 (h",
+"role": "고객",
+"mentions": 2,
+"example": "H0053"
+},
+{
+"set": "holdout1",
+"doc_type": "고객편지",
+"where": "@ 드림 (s",
+"role": "고객",
+"mentions": 2,
+"example": "H0064"
+},
+{
+"set": "holdout1",
+"doc_type": "고객편지",
+"where": "@ 드림 (y",
+"role": "고객",
+"mentions": 1,
+"example": "H0008"
+},
+{
+"set": "holdout1",
+"doc_type": "감사지적",
+"where": "략팀 소속 김미영이 고객 @의 주민등록",
+"role": "고객",
+"mentions": 1,
+"example": "H0014"
+},
+{
+"set": "holdout1",
+"doc_type": "감사지적",
+"where": "리팀 소속 김성호가 고객 @의 주민등록",
+"role": "고객",
+"mentions": 1,
+"example": "H0021"
+},
+{
+"set": "holdout1",
+"doc_type": "피해접수",
+"where": "피해 고객: @ (9999",
+"role": "고객",
+"mentions": 1,
+"example": "H0026"
+},
+{
+"set": "holdout1",
+"doc_type": "감사지적",
+"where": "영팀 소속 김주원이 고객 @의 주민등록",
+"role": "고객",
+"mentions": 1,
+"example": "H0084"
+},
+{
+"set": "holdout1",
+"doc_type": "감사지적",
+"where": "영팀 소속 박도윤이 고객 @의 주민등록",
+"role": "고객",
+"mentions": 1,
+"example": "H0085"
+},
+{
+"set": "holdout1",
+"doc_type": "감사지적",
+"where": "리팀 소속 서은정이 고객 @의 주민등록",
+"role": "고객",
+"mentions": 1,
+"example": "H0120"
+},
+{
+"set": "holdout1",
+"doc_type": "해외송금접수",
+"where": "송금인: @ (+99 ",
+"role": "고객",
+"mentions": 1,
+"example": "H0128"
+},
+{
+"set": "holdout1",
+"doc_type": "감사지적",
+"where": "호팀 소속 정예린이 고객 @의 주민등록",
+"role": "고객",
+"mentions": 1,
+"example": "H0129"
+},
+{
+"set": "holdout1",
+"doc_type": "감사지적",
+"where": "리팀 소속 안태현이 고객 @의 주민등록",
+"role": "고객",
+"mentions": 1,
+"example": "H0134"
+},
+{
+"set": "holdout1",
+"doc_type": "해외송금접수",
+"where": "송금인: @ (999 ",
+"role": "고객",
+"mentions": 1,
+"example": "H0155"
+},
+{
+"set": "holdout1",
+"doc_type": "피해접수",
+"where": "피해 고객: @ (999 ",
+"role": "고객",
+"mentions": 1,
+"example": "H0162"
+},
+{
+"set": "holdout1",
+"doc_type": "감사지적",
+"where": "사팀 소속 양서현이 고객 @의 주민등록",
+"role": "고객",
+"mentions": 1,
+"example": "H0164"
+},
+{
+"set": "holdout1",
+"doc_type": "녹취요약",
+"where": "상담사 @: 네, 새",
+"role": "직원",
+"mentions": 11,
+"example": "H0004"
+},
+{
+"set": "holdout1",
+"doc_type": "분쟁조정",
+"where": "검토자: 고객보호팀 @",
+"role": "직원",
+"mentions": 10,
+"example": "H0013"
+},
+{
+"set": "holdout1",
+"doc_type": "감사지적",
+"where": "조치: @에 대한 개",
+"role": "직원",
+"mentions": 10,
+"example": "H0014"
+},
+{
+"set": "holdout1",
+"doc_type": "감사지적",
+"where": "호 재교육, 소속 부서장 @에게 관리 ",
+"role": "직원",
+"mentions": 10,
+"example": "H0014"
+},
+{
+"set": "holdout1",
+"doc_type": "VOC요약",
+"where": "로 세 번째 문의. 담당 @이 직접 회",
+"role": "직원",
+"mentions": 10,
+"example": "H0017"
+},
+{
+"set": "holdout1",
+"doc_type": "경조사공지",
+"where": "인사팀 @ 드림",
+"role": "직원",
+"mentions": 9,
+"example": "H0001"
+},
+{
+"set": "holdout1",
+"doc_type": "카드발급심사",
+"where": " 조건을 문의함. 심사역 @이 조건 안",
+"role": "직원",
+"mentions": 9,
+"example": "H0002"
+},
+{
+"set": "holdout1",
+"doc_type": "가맹점변경",
+"where": "접수자: @ / 접수일",
+"role": "직원",
+"mentions": 9,
+"example": "H0006"
+},
+{
+"set": "holdout1",
+"doc_type": "고객편지",
+"where": " 없었는데, 상담해 주신 @ 님 덕분에",
+"role": "직원",
+"mentions": 9,
+"example": "H0008"
+},
+{
+"set": "holdout1",
+"doc_type": "권한신청",
+"where": "신청자 성명: @",
+"role": "직원",
+"mentions": 9,
+"example": "H0019"
+},
+{
+"set": "holdout1",
+"doc_type": "권한신청",
+"where": "최종 승인: 정보보호팀 @",
+"role": "직원",
+"mentions": 9,
+"example": "H0019"
+},
+{
+"set": "holdout1",
+"doc_type": "피해접수",
+"where": "담당: @ (리스크관",
+"role": "직원",
+"mentions": 9,
+"example": "H0026"
+},
+{
+"set": "holdout1",
+"doc_type": "영문혼용메일",
+"where": "@",
+"role": "직원",
+"mentions": 8,
+"example": "H0003"
+},
+{
+"set": "holdout1",
+"doc_type": "한도심사결과",
+"where": "금하신 점은 담당 심사역 @(99-99",
+"role": "직원",
+"mentions": 7,
+"example": "H0007"
+},
+{
+"set": "holdout1",
+"doc_type": "법인카드소명",
+"where": "확인자: 팀장 @ (서명)",
+"role": "직원",
+"mentions": 7,
+"example": "H0018"
+},
+{
+"set": "holdout1",
+"doc_type": "권한신청",
+"where": "9차 승인: @ 팀장",
+"role": "직원",
+"mentions": 7,
+"example": "H0019"
+},
+{
+"set": "holdout1",
+"doc_type": "해외송금접수",
+"where": "생활비라고 함. 처리자: @",
+"role": "직원",
+"mentions": 7,
+"example": "H0074"
+},
+{
+"set": "holdout1",
+"doc_type": "채용메일",
+"where": "변경이 필요하시면 인사팀 @(999-9",
+"role": "직원",
+"mentions": 5,
+"example": "H0015"
+},
+{
+"set": "holdout1",
+"doc_type": "대리인위임확인",
+"where": "무를 위임함. 확인 담당 @ 대리.",
+"role": "직원",
+"mentions": 4,
+"example": "H0009"
+},
+{
+"set": "holdout1",
+"doc_type": "법인카드소명",
+"where": "확인자: 부장 @ (서명)",
+"role": "직원",
+"mentions": 3,
+"example": "H0033"
+},
+{
+"set": "holdout1",
+"doc_type": "채용메일",
+"where": "변경이 필요하시면 인사팀 @(99999",
+"role": "직원",
+"mentions": 3,
+"example": "H0035"
+},
+{
+"set": "holdout1",
+"doc_type": "경조사공지",
+"where": "연락처: @ 팀장 99",
+"role": "직원",
+"mentions": 3,
+"example": "H0044"
+},
+{
+"set": "holdout1",
+"doc_type": "우편반송처리",
+"where": "처리: 고객보호팀 @",
+"role": "직원",
+"mentions": 3,
+"example": "H0048"
+},
+{
+"set": "holdout1",
+"doc_type": "대리인위임확인",
+"where": "무를 위임함. 확인 담당 @ 과장.",
+"role": "직원",
+"mentions": 3,
+"example": "H0080"
+},
+{
+"set": "holdout1",
+"doc_type": "경조사공지",
+"where": "연락처: @ 과장 99",
+"role": "직원",
+"mentions": 2,
+"example": "H0001"
+},
+{
+"set": "holdout1",
+"doc_type": "자동이체신청서",
+"where": "접수 담당: 카드운영팀 @ (내선 9",
+"role": "직원",
+"mentions": 2,
+"example": "H0011"
+},
+{
+"set": "holdout1",
+"doc_type": "자동이체신청서",
+"where": "접수 담당: 리스크관리팀 @ (내선 9",
+"role": "직원",
+"mentions": 2,
+"example": "H0031"
+},
+{
+"set": "holdout1",
+"doc_type": "법인카드소명",
+"where": " 카드운영팀 / 대리 / @",
+"role": "직원",
+"mentions": 2,
+"example": "H0033"
+},
+{
+"set": "holdout1",
+"doc_type": "경조사공지",
+"where": "연락처: @ 사원 99",
+"role": "직원",
+"mentions": 2,
+"example": "H0054"
+},
+{
+"set": "holdout1",
+"doc_type": "우편반송처리",
+"where": "처리: 여신심사팀 @",
+"role": "직원",
+"mentions": 2,
+"example": "H0061"
+},
+{
+"set": "holdout1",
+"doc_type": "한도심사결과",
+"where": "금하신 점은 담당 심사역 @(99.99",
+"role": "직원",
+"mentions": 2,
+"example": "H0071"
+},
+{
+"set": "holdout1",
+"doc_type": "우편반송처리",
+"where": "처리: 카드운영팀 @",
+"role": "직원",
+"mentions": 2,
+"example": "H0081"
+},
+{
+"set": "holdout1",
+"doc_type": "자동이체신청서",
+"where": "접수 담당: 여신심사팀 @ (내선 9",
+"role": "직원",
+"mentions": 2,
+"example": "H0125"
+},
+{
+"set": "holdout1",
+"doc_type": "경조사공지",
+"where": "[부고] 정보보호팀 @ 과장 조모",
+"role": "직원",
+"mentions": 1,
+"example": "H0001"
+},
+{
+"set": "holdout1",
+"doc_type": "경조사공지",
+"where": "정보보호팀 @ 과장의 조",
+"role": "직원",
+"mentions": 1,
+"example": "H0001"
+},
+{
+"set": "holdout1",
+"doc_type": "감사지적",
+"where": " 결과 디지털전략팀 소속 @이 고객 박",
+"role": "직원",
+"mentions": 1,
+"example": "H0014"
+},
+{
+"set": "holdout1",
+"doc_type": "자동이체신청서",
+"where": "접수 담당: 고객보호팀 @ (내선 9",
+"role": "직원",
+"mentions": 1,
+"example": "H0016"
+},
+{
+"set": "holdout1",
+"doc_type": "법인카드소명",
+"where": " 채권관리팀 / 사원 / @",
+"role": "직원",
+"mentions": 1,
+"example": "H0018"
+},
+{
+"set": "holdout1",
+"doc_type": "감사지적",
+"where": " 결과 리스크관리팀 소속 @가 고객 남",
+"role": "직원",
+"mentions": 1,
+"example": "H0021"
+},
+{
+"set": "holdout1",
+"doc_type": "경조사공지",
+"where": "[부고] 고객센터 @ 대리 장인",
+"role": "직원",
+"mentions": 1,
+"example": "H0025"
+},
+{
+"set": "holdout1",
+"doc_type": "경조사공지",
+"where": "고객센터 @ 대리의 장",
+"role": "직원",
+"mentions": 1,
+"example": "H0025"
+},
+{
+"set": "holdout1",
+"doc_type": "경조사공지",
+"where": "연락처: @ 대리 99",
+"role": "직원",
+"mentions": 1,
+"example": "H0025"
+},
+{
+"set": "holdout1",
+"doc_type": "법인카드소명",
+"where": " 고객보호팀 / 과장 / @",
+"role": "직원",
+"mentions": 1,
+"example": "H0039"
+},
+{
+"set": "holdout1",
+"doc_type": "경조사공지",
+"where": "[부고] 정보보호팀 @ 팀장 모친",
+"role": "직원",
+"mentions": 1,
+"example": "H0044"
+},
+{
+"set": "holdout1",
+"doc_type": "경조사공지",
+"where": "정보보호팀 @ 팀장의 모",
+"role": "직원",
+"mentions": 1,
+"example": "H0044"
+},
+{
+"set": "holdout1",
+"doc_type": "자동이체신청서",
+"where": "접수 담당: 고객센터 @ (내선 9",
+"role": "직원",
+"mentions": 1,
+"example": "H0047"
+},
+{
+"set": "holdout1",
+"doc_type": "감사지적",
+"where": "사 결과 여신심사팀 소속 @이 고객 정",
+"role": "직원",
+"mentions": 1,
+"example": "H0052"
+},
+{
+"set": "holdout1",
+"doc_type": "경조사공지",
+"where": "[부고] 디지털전략팀 @ 사원 부친",
+"role": "직원",
+"mentions": 1,
+"example": "H0054"
+},
+{
+"set": "holdout1",
+"doc_type": "경조사공지",
+"where": "디지털전략팀 @ 사원의 부",
+"role": "직원",
+"mentions": 1,
+"example": "H0054"
+},
+{
+"set": "holdout1",
+"doc_type": "감사지적",
+"where": "사 결과 여신심사팀 소속 @이 고객 김",
+"role": "직원",
+"mentions": 1,
+"example": "H0062"
+},
+{
+"set": "holdout1",
+"doc_type": "한도심사결과",
+"where": "금하신 점은 담당 심사역 @(99 99",
+"role": "직원",
+"mentions": 1,
+"example": "H0068"
+},
+{
+"set": "holdout1",
+"doc_type": "경조사공지",
+"where": "[부고] 디지털전략팀 @ 사원 조모",
+"role": "직원",
+"mentions": 1,
+"example": "H0077"
+},
+{
+"set": "holdout1",
+"doc_type": "경조사공지",
+"where": "디지털전략팀 @ 사원의 조",
+"role": "직원",
+"mentions": 1,
+"example": "H0077"
+},
+{
+"set": "holdout1",
+"doc_type": "대리인위임확인",
+"where": "무를 위임함. 확인 담당 @ 주임.",
+"role": "직원",
+"mentions": 1,
+"example": "H0079"
+},
+{
+"set": "holdout1",
+"doc_type": "법인카드소명",
+"where": " 고객보호팀 / 팀장 / @",
+"role": "직원",
+"mentions": 1,
+"example": "H0082"
+},
+{
+"set": "holdout1",
+"doc_type": "감사지적",
+"where": "사 결과 카드운영팀 소속 @이 고객 박",
+"role": "직원",
+"mentions": 1,
+"example": "H0084"
+},
+{
+"set": "holdout1",
+"doc_type": "감사지적",
+"where": "사 결과 IT운영팀 소속 @이 고객 김",
+"role": "직원",
+"mentions": 1,
+"example": "H0085"
+},
+{
+"set": "holdout1",
+"doc_type": "법인카드소명",
+"where": "디지털전략팀 / 차장 / @",
+"role": "직원",
+"mentions": 1,
+"example": "H0090"
+},
+{
+"set": "holdout1",
+"doc_type": "경조사공지",
+"where": "[부고] 고객센터 @ 팀장 장인",
+"role": "직원",
+"mentions": 1,
+"example": "H0091"
+},
+{
+"set": "holdout1",
+"doc_type": "경조사공지",
+"where": "고객센터 @ 팀장의 장",
+"role": "직원",
+"mentions": 1,
+"example": "H0091"
+},
+{
+"set": "holdout1",
+"doc_type": "권한신청",
+"where": "9차 승인: @ 차장",
+"role": "직원",
+"mentions": 1,
+"example": "H0093"
+},
+{
+"set": "holdout1",
+"doc_type": "법인카드소명",
+"where": ": 고객센터 / 대리 / @",
+"role": "직원",
+"mentions": 1,
+"example": "H0095"
+},
+{
+"set": "holdout1",
+"doc_type": "경조사공지",
+"where": "[부고] 리스크관리팀 @ 부장 조모",
+"role": "직원",
+"mentions": 1,
+"example": "H0097"
+},
+{
+"set": "holdout1",
+"doc_type": "경조사공지",
+"where": "리스크관리팀 @ 부장의 조",
+"role": "직원",
+"mentions": 1,
+"example": "H0097"
+},
+{
+"set": "holdout1",
+"doc_type": "경조사공지",
+"where": "연락처: @ 부장 99",
+"role": "직원",
+"mentions": 1,
+"example": "H0097"
+},
+{
+"set": "holdout1",
+"doc_type": "경조사공지",
+"where": "[부고] 정보보호팀 @ 팀장 부친",
+"role": "직원",
+"mentions": 1,
+"example": "H0109"
+},
+{
+"set": "holdout1",
+"doc_type": "경조사공지",
+"where": "정보보호팀 @ 팀장의 부",
+"role": "직원",
+"mentions": 1,
+"example": "H0109"
+},
+{
+"set": "holdout1",
+"doc_type": "권한신청",
+"where": "9차 승인: @ 부장",
+"role": "직원",
+"mentions": 1,
+"example": "H0115"
+},
+{
+"set": "holdout1",
+"doc_type": "감사지적",
+"where": " 결과 리스크관리팀 소속 @이 고객 윤",
+"role": "직원",
+"mentions": 1,
+"example": "H0120"
+},
+{
+"set": "holdout1",
+"doc_type": "감사지적",
+"where": "사 결과 고객보호팀 소속 @이 고객 홍",
+"role": "직원",
+"mentions": 1,
+"example": "H0129"
+},
+{
+"set": "holdout1",
+"doc_type": "법인카드소명",
+"where": "리스크관리팀 / 부장 / @",
+"role": "직원",
+"mentions": 1,
+"example": "H0130"
+},
+{
+"set": "holdout1",
+"doc_type": "우편반송처리",
+"where": "처리: 리스크관리팀 @",
+"role": "직원",
+"mentions": 1,
+"example": "H0131"
+},
+{
+"set": "holdout1",
+"doc_type": "감사지적",
+"where": "사 결과 채권관리팀 소속 @이 고객 김",
+"role": "직원",
+"mentions": 1,
+"example": "H0134"
+},
+{
+"set": "holdout1",
+"doc_type": "법인카드소명",
+"where": "자: 인사팀 / 과장 / @",
+"role": "직원",
+"mentions": 1,
+"example": "H0140"
+},
+{
+"set": "holdout1",
+"doc_type": "감사지적",
+"where": "사 결과 여신심사팀 소속 @이 고객 남",
+"role": "직원",
+"mentions": 1,
+"example": "H0164"
+},
+{
+"set": "holdout1",
+"doc_type": "경조사공지",
+"where": "[부고] 인사팀 @ 과장 조모",
+"role": "직원",
+"mentions": 1,
+"example": "H0176"
+},
+{
+"set": "holdout1",
+"doc_type": "경조사공지",
+"where": "인사팀 @ 과장의 조",
+"role": "직원",
+"mentions": 1,
+"example": "H0176"
+},
+{
+"set": "holdout1",
+"doc_type": "채용메일",
+"where": "변경이 필요하시면 인사팀 @(999.9",
+"role": "직원",
+"mentions": 1,
+"example": "H0183"
+},
+{
+"set": "holdout1",
+"doc_type": "법인카드소명",
+"where": ": 고객센터 / 과장 / @",
+"role": "직원",
+"mentions": 1,
+"example": "H0184"
+},
+{
+"set": "holdout1",
+"doc_type": "채용메일",
+"where": "@ 님, 안녕",
+"role": "그 외",
+"mentions": 9,
+"example": "H0015"
+},
+{
+"set": "holdout1",
+"doc_type": "대리인위임확인",
+"where": "대리인: @ / 주민등",
+"role": "그 외",
+"mentions": 8,
+"example": "H0009"
+},
+{
+"set": "holdout1",
+"doc_type": "분쟁조정",
+"where": "을 요구함. 피신청인 측 @ 책임은 해",
+"role": "그 외",
+"mentions": 7,
+"example": "H0013"
+},
+{
+"set": "holdout1",
+"doc_type": "해외송금접수",
+"where": "수취인: @ (현지 연",
+"role": "그 외",
+"mentions": 7,
+"example": "H0074"
+},
+{
+"set": "holdout1",
+"doc_type": "해외송금접수",
+"where": "@ 님이 유학",
+"role": "그 외",
+"mentions": 7,
+"example": "H0074"
+},
+{
+"set": "holdout1",
+"doc_type": "영문혼용메일",
+"where": "Dear @ 책임님,",
+"role": "그 외",
+"mentions": 6,
+"example": "H0003"
+},
+{
+"set": "holdout1",
+"doc_type": "출장보고",
+"where": " 녹취 보관 절차 확인. @ 책임에게 ",
+"role": "그 외",
+"mentions": 5,
+"example": "H0005"
+},
+{
+"set": "holdout1",
+"doc_type": "출장보고",
+"where": " 녹취 보관 절차 확인. @ 매니저에게",
+"role": "그 외",
+"mentions": 5,
+"example": "H0024"
+},
+{
+"set": "holdout1",
+"doc_type": "분쟁조정",
+"where": "청인: 코드브릿지 (담당 @ 책임)",
+"role": "그 외",
+"mentions": 3,
+"example": "H0013"
+},
+{
+"set": "holdout1",
+"doc_type": "분쟁조정",
+"where": "을 요구함. 피신청인 측 @ 매니저는 ",
+"role": "그 외",
+"mentions": 3,
+"example": "H0107"
+},
+{
+"set": "holdout1",
+"doc_type": "영문혼용메일",
+"where": "Dear @ 매니저님,",
+"role": "그 외",
+"mentions": 2,
+"example": "H0043"
+},
+{
+"set": "holdout1",
+"doc_type": "분쟁조정",
+"where": " 데이터온시스템즈 (담당 @ 책임)",
+"role": "그 외",
+"mentions": 2,
+"example": "H0089"
+},
+{
+"set": "holdout1",
+"doc_type": "분쟁조정",
+"where": " 데이터온시스템즈 (담당 @ 매니저)",
+"role": "그 외",
+"mentions": 2,
+"example": "H0107"
+},
+{
+"set": "holdout1",
+"doc_type": "경조사공지",
+"where": " 정채원 과장의 조모 故 @님께서 별세",
+"role": "그 외",
+"mentions": 1,
+"example": "H0001"
+},
+{
+"set": "holdout1",
+"doc_type": "대리인위임확인",
+"where": "박별이 입원 중이어서 @에게 업무를",
+"role": "그 외",
+"mentions": 1,
+"example": "H0009"
+},
+{
+"set": "holdout1",
+"doc_type": "경조사공지",
+"where": " 김민준 대리의 장인 故 @님께서 별세",
+"role": "그 외",
+"mentions": 1,
+"example": "H0025"
+},
+{
+"set": "holdout1",
+"doc_type": "대리인위임확인",
+"where": "전별이 입원 중이어서 @에게 업무를",
+"role": "그 외",
+"mentions": 1,
+"example": "H0028"
+},
+{
+"set": "holdout1",
+"doc_type": "분쟁조정",
+"where": "신청인: 미르보안 (담당 @ 책임)",
+"role": "그 외",
+"mentions": 1,
+"example": "H0037"
+},
+{
+"set": "holdout1",
+"doc_type": "경조사공지",
+"where": " 서혜진 팀장의 모친 故 @님께서 별세",
+"role": "그 외",
+"mentions": 1,
+"example": "H0044"
+},
+{
+"set": "holdout1",
+"doc_type": "경조사공지",
+"where": " 김미영 사원의 부친 故 @님께서 별세",
+"role": "그 외",
+"mentions": 1,
+"example": "H0054"
+},
+{
+"set": "holdout1",
+"doc_type": "분쟁조정",
+"where": "인: 다솜콜솔루션 (담당 @ 책임)",
+"role": "그 외",
+"mentions": 1,
+"example": "H0063"
+},
+{
+"set": "holdout1",
+"doc_type": "경조사공지",
+"where": " 김미영 사원의 조모 故 @님께서 별세",
+"role": "그 외",
+"mentions": 1,
+"example": "H0077"
+},
+{
+"set": "holdout1",
+"doc_type": "대리인위임확인",
+"where": "한별이 입원 중이어서 @에게 업무를",
+"role": "그 외",
+"mentions": 1,
+"example": "H0079"
+},
+{
+"set": "holdout1",
+"doc_type": "대리인위임확인",
+"where": "홍결이 입원 중이어서 @에게 업무를",
+"role": "그 외",
+"mentions": 1,
+"example": "H0080"
+},
+{
+"set": "holdout1",
+"doc_type": "경조사공지",
+"where": " 박동현 팀장의 장인 故 @님께서 별세",
+"role": "그 외",
+"mentions": 1,
+"example": "H0091"
+},
+{
+"set": "holdout1",
+"doc_type": "대리인위임확인",
+"where": "권솔이 입원 중이어서 @에게 업무를",
+"role": "그 외",
+"mentions": 1,
+"example": "H0094"
+},
+{
+"set": "holdout1",
+"doc_type": "경조사공지",
+"where": " 김성호 부장의 조모 故 @님께서 별세",
+"role": "그 외",
+"mentions": 1,
+"example": "H0097"
+},
+{
+"set": "holdout1",
+"doc_type": "경조사공지",
+"where": " 서혜진 팀장의 부친 故 @님께서 별세",
+"role": "그 외",
+"mentions": 1,
+"example": "H0109"
+},
+{
+"set": "holdout1",
+"doc_type": "대리인위임확인",
+"where": "남궁찬이 입원 중이어서 @에게 업무를",
+"role": "그 외",
+"mentions": 1,
+"example": "H0136"
+},
+{
+"set": "holdout1",
+"doc_type": "분쟁조정",
+"where": "신청인: 미르보안 (담당 @ 매니저)",
+"role": "그 외",
+"mentions": 1,
+"example": "H0147"
+},
+{
+"set": "holdout1",
+"doc_type": "대리인위임확인",
+"where": "홍윤이 입원 중이어서 @에게 업무를",
+"role": "그 외",
+"mentions": 1,
+"example": "H0163"
+},
+{
+"set": "holdout1",
+"doc_type": "경조사공지",
+"where": " 문시우 과장의 조모 故 @님께서 별세",
+"role": "그 외",
+"mentions": 1,
+"example": "H0176"
+},
+{
+"set": "holdout1",
+"doc_type": "대리인위임확인",
+"where": "안담이 입원 중이어서 @에게 업무를",
+"role": "그 외",
+"mentions": 1,
+"example": "H0177"
+},
+{
+"set": "holdout1",
+"doc_type": "출장보고",
+"where": "TABLE[성명]",
+"role": "소속으로",
+"mentions": 40,
+"example": "H0005"
+},
+{
+"set": "holdout2",
+"doc_type": "콜백요청목록",
+"where": "TABLE[고객명]",
+"role": "고객",
+"mentions": 222,
+"example": "H20023"
+},
+{
+"set": "holdout2",
+"doc_type": "법인카드신규발급",
+"where": "TABLE[이름]",
+"role": "고객",
+"mentions": 118,
+"example": "H20005"
+},
+{
+"set": "holdout2",
+"doc_type": "지점업무일지",
+"where": "99:99 @님 카드 재",
+"role": "고객",
+"mentions": 113,
+"example": "H20026"
+},
+{
+"set": "holdout2",
+"doc_type": "지점업무일지",
+"where": "99:99 @ 고객 방문",
+"role": "고객",
+"mentions": 105,
+"example": "H20032"
+},
+{
+"set": "holdout2",
+"doc_type": "지점업무일지",
+"where": "99:99 @ 고객 연락",
+"role": "고객",
+"mentions": 104,
+"example": "H20026"
+},
+{
+"set": "holdout2",
+"doc_type": "지점업무일지",
+"where": "99:99 @ 고객 결제",
+"role": "고객",
+"mentions": 78,
+"example": "H20026"
+},
+{
+"set": "holdout2",
+"doc_type": "채무조정상담",
+"where": "상담원: 알겠습니다. @ 고객님, ",
+"role": "고객",
+"mentions": 63,
+"example": "H20022"
+},
+{
+"set": "holdout2",
+"doc_type": "채무조정상담",
+"where": "요약: @ 고객 채무",
+"role": "고객",
+"mentions": 63,
+"example": "H20022"
+},
+{
+"set": "holdout2",
+"doc_type": "중도상환문의",
+"where": "안녕하세요, @ 고객님. ",
+"role": "고객",
+"mentions": 50,
+"example": "H20039"
+},
+{
+"set": "holdout2",
+"doc_type": "중도상환문의",
+"where": "보낸 사람: @",
+"role": "고객",
+"mentions": 50,
+"example": "H20039"
+},
+{
+"set": "holdout2",
+"doc_type": "중도상환문의",
+"where": "@ 드림",
+"role": "고객",
+"mentions": 50,
+"example": "H20039"
+},
+{
+"set": "holdout2",
+"doc_type": "고객방문상담",
+"where": "고객명: @",
+"role": "고객",
+"mentions": 46,
+"example": "H20008"
+},
+{
+"set": "holdout2",
+"doc_type": "이의제기회신",
+"where": "수신: @ 귀하",
+"role": "고객",
+"mentions": 45,
+"example": "H20010"
+},
+{
+"set": "holdout2",
+"doc_type": "해외결제차단해제",
+"where": "담사 > 확인되었습니다. @ 고객님, ",
+"role": "고객",
+"mentions": 40,
+"example": "H20002"
+},
+{
+"set": "holdout2",
+"doc_type": "한도일시상향",
+"where": "고객 @ 요청으로 ",
+"role": "고객",
+"mentions": 40,
+"example": "H20004"
+},
+{
+"set": "holdout2",
+"doc_type": "챗봇상담로그",
+"where": "사용자: @",
+"role": "고객",
+"mentions": 40,
+"example": "H20006"
+},
+{
+"set": "holdout2",
+"doc_type": "리볼빙해지요청",
+"where": "신청인: @",
+"role": "고객",
+"mentions": 40,
+"example": "H20012"
+},
+{
+"set": "holdout2",
+"doc_type": "카드배송문의",
+"where": "고객: @",
+"role": "고객",
+"mentions": 40,
+"example": "H20025"
+},
+{
+"set": "holdout2",
+"doc_type": "결재보고서",
+"where": "9. 대상 고객: @ (9999",
+"role": "고객",
+"mentions": 40,
+"example": "H20033"
+},
+{
+"set": "holdout2",
+"doc_type": "채무조정상담",
+"where": "고객: 네, @이에요.",
+"role": "고객",
+"mentions": 37,
+"example": "H20022"
+},
+{
+"set": "holdout2",
+"doc_type": "연말정산증빙발급",
+"where": "대상: @ (주민등록",
+"role": "고객",
+"mentions": 36,
+"example": "H20020"
+},
+{
+"set": "holdout2",
+"doc_type": "지점업무일지",
+"where": "99:99 @ 고객 한도",
+"role": "고객",
+"mentions": 35,
+"example": "H20051"
+},
+{
+"set": "holdout2",
+"doc_type": "지점업무일지",
+"where": "99:99 @ 고객 연회",
+"role": "고객",
+"mentions": 31,
+"example": "H20032"
+},
+{
+"set": "holdout2",
+"doc_type": "개인정보열람청구",
+"where": "청구인: @",
+"role": "고객",
+"mentions": 30,
+"example": "H20001"
+},
+{
+"set": "holdout2",
+"doc_type": "상담품질평가",
+"where": "가 콜: 99/99 고객(@ 님) 카드",
+"role": "고객",
+"mentions": 30,
+"example": "H20003"
+},
+{
+"set": "holdout2",
+"doc_type": "포인트이관신청",
+"where": "성명: @",
+"role": "고객",
+"mentions": 30,
+"example": "H20007"
+},
+{
+"set": "holdout2",
+"doc_type": "포인트이관신청",
+"where": "성명: @ (양도인의",
+"role": "고객",
+"mentions": 30,
+"example": "H20007"
+},
+{
+"set": "holdout2",
+"doc_type": "지점업무일지",
+"where": "99:99 @ 고객 포인",
+"role": "고객",
+"mentions": 28,
+"example": "H20140"
+},
+{
+"set": "holdout2",
+"doc_type": "채무조정상담",
+"where": "고객: 네, @입니다.",
+"role": "고객",
+"mentions": 26,
+"example": "H20024"
+},
+{
+"set": "holdout2",
+"doc_type": "법인카드신규발급",
+"where": "대표자: @",
+"role": "고객",
+"mentions": 25,
+"example": "H20005"
+},
+{
+"set": "holdout2",
+"doc_type": "영문고객메일",
+"where": "This is @. My c",
+"role": "고객",
+"mentions": 20,
+"example": "H20009"
+},
+{
+"set": "holdout2",
+"doc_type": "영문고객메일",
+"where": "@",
+"role": "고객",
+"mentions": 20,
+"example": "H20009"
+},
+{
+"set": "holdout2",
+"doc_type": "사망자카드해지",
+"where": "고(故) @ 님 명의 ",
+"role": "고객",
+"mentions": 20,
+"example": "H20060"
+},
+{
+"set": "holdout2",
+"doc_type": "고객방문상담",
+"where": "출 금리 비교을 문의함. @ 고객은 앱",
+"role": "고객",
+"mentions": 10,
+"example": "H20008"
+},
+{
+"set": "holdout2",
+"doc_type": "고객방문상담",
+"where": "가족카드 발급을 문의함. @ 고객님은 ",
+"role": "고객",
+"mentions": 9,
+"example": "H20139"
+},
+{
+"set": "holdout2",
+"doc_type": "고객방문상담",
+"where": "출 금리 비교을 문의함. @ 님께 관련",
+"role": "고객",
+"mentions": 7,
+"example": "H20018"
+},
+{
+"set": "holdout2",
+"doc_type": "고객방문상담",
+"where": "가족카드 발급을 문의함. @ 고객은 앱",
+"role": "고객",
+"mentions": 5,
+"example": "H20211"
+},
+{
+"set": "holdout2",
+"doc_type": "고객방문상담",
+"where": "제 한도 확인을 문의함. @ 님께 관련",
+"role": "고객",
+"mentions": 4,
+"example": "H20105"
+},
+{
+"set": "holdout2",
+"doc_type": "고객방문상담",
+"where": "가족카드 발급을 문의함. @ 님께 관련",
+"role": "고객",
+"mentions": 4,
+"example": "H20143"
+},
+{
+"set": "holdout2",
+"doc_type": "고객방문상담",
+"where": "제 한도 확인을 문의함. @ 고객은 앱",
+"role": "고객",
+"mentions": 3,
+"example": "H20043"
+},
+{
+"set": "holdout2",
+"doc_type": "리볼빙해지요청",
+"where": "▶ 신청인: @",
+"role": "고객",
+"mentions": 3,
+"example": "H20310"
+},
+{
+"set": "holdout2",
+"doc_type": "고객방문상담",
+"where": "출 금리 비교을 문의함. @ 고객님은 ",
+"role": "고객",
+"mentions": 2,
+"example": "H20235"
+},
+{
+"set": "holdout2",
+"doc_type": "고객방문상담",
+"where": "제 한도 확인을 문의함. @ 고객님은 ",
+"role": "고객",
+"mentions": 2,
+"example": "H20286"
+},
+{
+"set": "holdout2",
+"doc_type": "콜백요청목록",
+"where": "TABLE[배정]",
+"role": "직원",
+"mentions": 222,
+"example": "H20023"
+},
+{
+"set": "holdout2",
+"doc_type": "교육이수보고",
+"where": "TABLE[이름]",
+"role": "직원",
+"mentions": 80,
+"example": "H20014"
+},
+{
+"set": "holdout2",
+"doc_type": "채무조정상담",
+"where": "요, 새봄카드 채권관리팀 @입니다. 본",
+"role": "직원",
+"mentions": 63,
+"example": "H20022"
+},
+{
+"set": "holdout2",
+"doc_type": "채무조정상담",
+"where": "내 후 심사 대기. 담당 @.",
+"role": "직원",
+"mentions": 63,
+"example": "H20022"
+},
+{
+"set": "holdout2",
+"doc_type": "채무조정상담",
+"where": "상담원: @ (채권관리",
+"role": "직원",
+"mentions": 62,
+"example": "H20022"
+},
+{
+"set": "holdout2",
+"doc_type": "중도상환문의",
+"where": "님. 새봄카드 여신관리팀 @입니다.",
+"role": "직원",
+"mentions": 50,
+"example": "H20039"
+},
+{
+"set": "holdout2",
+"doc_type": "고객방문상담",
+"where": "상담 직원: @",
+"role": "직원",
+"mentions": 46,
+"example": "H20008"
+},
+{
+"set": "holdout2",
+"doc_type": "이의제기회신",
+"where": "승인: @ 팀장",
+"role": "직원",
+"mentions": 45,
+"example": "H20010"
+},
+{
+"set": "holdout2",
+"doc_type": "해외결제차단해제",
+"where": "상담사: @",
+"role": "직원",
+"mentions": 40,
+"example": "H20002"
+},
+{
+"set": "holdout2",
+"doc_type": "리볼빙해지요청",
+"where": "접수: @",
+"role": "직원",
+"mentions": 40,
+"example": "H20012"
+},
+{
+"set": "holdout2",
+"doc_type": "카드배송문의",
+"where": "처리: @",
+"role": "직원",
+"mentions": 40,
+"example": "H20025"
+},
+{
+"set": "holdout2",
+"doc_type": "결재보고서",
+"where": "TABLE[기안] +직급",
+"role": "직원",
+"mentions": 40,
+"example": "H20033"
+},
+{
+"set": "holdout2",
+"doc_type": "결재보고서",
+"where": "TABLE[검토] +직급",
+"role": "직원",
+"mentions": 40,
+"example": "H20033"
+},
+{
+"set": "holdout2",
+"doc_type": "결재보고서",
+"where": "TABLE[승인] +직급",
+"role": "직원",
+"mentions": 40,
+"example": "H20033"
+},
+{
+"set": "holdout2",
+"doc_type": "연말정산증빙발급",
+"where": "처리: @",
+"role": "직원",
+"mentions": 36,
+"example": "H20020"
+},
+{
+"set": "holdout2",
+"doc_type": "개인정보열람청구",
+"where": "로 발송함. 처리 담당: @ (준법감시",
+"role": "직원",
+"mentions": 30,
+"example": "H20001"
+},
+{
+"set": "holdout2",
+"doc_type": "상담품질평가",
+"where": "평가자: @ (고객경험",
+"role": "직원",
+"mentions": 30,
+"example": "H20003"
+},
+{
+"set": "holdout2",
+"doc_type": "상담품질평가",
+"where": "대상 상담원: @ (콜센터운",
+"role": "직원",
+"mentions": 30,
+"example": "H20003"
+},
+{
+"set": "holdout2",
+"doc_type": "포인트이관신청",
+"where": "처리자: @",
+"role": "직원",
+"mentions": 30,
+"example": "H20007"
+},
+{
+"set": "holdout2",
+"doc_type": "중도상환문의",
+"where": "@ 과장 | ",
+"role": "직원",
+"mentions": 28,
+"example": "H20039"
+},
+{
+"set": "holdout2",
+"doc_type": "법인카드신규발급",
+"where": "영업 담당: @ (법인영업",
+"role": "직원",
+"mentions": 25,
+"example": "H20005"
+},
+{
+"set": "holdout2",
+"doc_type": "한도일시상향",
+"where": "심사역: @ 과장",
+"role": "직원",
+"mentions": 24,
+"example": "H20004"
+},
+{
+"set": "holdout2",
+"doc_type": "이의제기회신",
+"where": "담당: @ 차장 (내",
+"role": "직원",
+"mentions": 23,
+"example": "H20046"
+},
+{
+"set": "holdout2",
+"doc_type": "중도상환문의",
+"where": "@ 대리 | ",
+"role": "직원",
+"mentions": 22,
+"example": "H20066"
+},
+{
+"set": "holdout2",
+"doc_type": "교육이수보고",
+"where": "작성: @ 팀장",
+"role": "직원",
+"mentions": 20,
+"example": "H20014"
+},
+{
+"set": "holdout2",
+"doc_type": "콜백요청목록",
+"where": "작성: @ 팀장",
+"role": "직원",
+"mentions": 20,
+"example": "H20023"
+},
+{
+"set": "holdout2",
+"doc_type": "사망자카드해지",
+"where": "담당: @",
+"role": "직원",
+"mentions": 20,
+"example": "H20060"
+},
+{
+"set": "holdout2",
+"doc_type": "지점업무일지",
+"where": "작성: @ 과장",
+"role": "직원",
+"mentions": 17,
+"example": "H20026"
+},
+{
+"set": "holdout2",
+"doc_type": "상담품질평가",
+"where": "총평: @ 님은 고객",
+"role": "직원",
+"mentions": 16,
+"example": "H20003"
+},
+{
+"set": "holdout2",
+"doc_type": "한도일시상향",
+"where": "심사역: @ 대리",
+"role": "직원",
+"mentions": 16,
+"example": "H20054"
+},
+{
+"set": "holdout2",
+"doc_type": "사내동호회공지",
+"where": "참가 신청은 총무 @ 님께 연락",
+"role": "직원",
+"mentions": 15,
+"example": "H20063"
+},
+{
+"set": "holdout2",
+"doc_type": "상담품질평가",
+"where": "총평: @ 상담원은 ",
+"role": "직원",
+"mentions": 14,
+"example": "H20161"
+},
+{
+"set": "holdout2",
+"doc_type": "이의제기회신",
+"where": "담당: @ 과장 (내",
+"role": "직원",
+"mentions": 13,
+"example": "H20044"
+},
+{
+"set": "holdout2",
+"doc_type": "영문고객메일",
+"where": "부 메모] 해외결제지원팀 @ 회신 완료",
+"role": "직원",
+"mentions": 12,
+"example": "H20021"
+},
+{
+"set": "holdout2",
+"doc_type": "지점업무일지",
+"where": "작성: @ 사원",
+"role": "직원",
+"mentions": 10,
+"example": "H20032"
+},
+{
+"set": "holdout2",
+"doc_type": "이의제기회신",
+"where": "담당: @ 부장 (내",
+"role": "직원",
+"mentions": 9,
+"example": "H20010"
+},
+{
+"set": "holdout2",
+"doc_type": "영문고객메일",
+"where": "부 메모] 해외결제지원팀 @ 고객에게 ",
+"role": "직원",
+"mentions": 8,
+"example": "H20009"
+},
+{
+"set": "holdout2",
+"doc_type": "지점업무일지",
+"where": "작성: @ 차장",
+"role": "직원",
+"mentions": 8,
+"example": "H20051"
+},
+{
+"set": "holdout2",
+"doc_type": "지점업무일지",
+"where": "작성: @ 주임",
+"role": "직원",
+"mentions": 6,
+"example": "H20056"
+},
+{
+"set": "holdout2",
+"doc_type": "지점업무일지",
+"where": "작성: @ 부장",
+"role": "직원",
+"mentions": 5,
+"example": "H20275"
+},
+{
+"set": "holdout2",
+"doc_type": "리볼빙해지요청",
+"where": "▶ 접수: @",
+"role": "직원",
+"mentions": 3,
+"example": "H20310"
+},
+{
+"set": "holdout2",
+"doc_type": "채무조정상담",
+"where": "상담원: @ (준법감시",
+"role": "직원",
+"mentions": 1,
+"example": "H20150"
+},
+{
+"set": "holdout2",
+"doc_type": "사망자카드해지",
+"where": "상속인: @ (형제)",
+"role": "그 외",
+"mentions": 9,
+"example": "H20060"
+},
+{
+"set": "holdout2",
+"doc_type": "사망자카드해지",
+"where": "상속인: @ (자녀)",
+"role": "그 외",
+"mentions": 6,
+"example": "H20104"
+},
+{
+"set": "holdout2",
+"doc_type": "사망자카드해지",
+"where": "상속인: @ (배우자)",
+"role": "그 외",
+"mentions": 5,
+"example": "H20172"
+}
+]

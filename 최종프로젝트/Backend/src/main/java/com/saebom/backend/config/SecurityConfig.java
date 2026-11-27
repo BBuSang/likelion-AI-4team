@@ -25,7 +25,7 @@ import java.util.List;
 /**
  * 이전 프로젝트 SecurityConfig 에서 가져옴.
  * 공개: 로그인·회원가입·이메일 확인·가입 선택칸(options). 나머지는 로그인(ACTIVE 계정) 필요,
- * /api/admin/** 는 관리자만. 로그인 안 됨 401, 권한 없음 403, CORS 주소는 설정 파일에서.
+ * /api/admin/** 는 관리자만 (통계 API 는 감사도), /api/ingest/** 는 관리자·팀장·감사. 로그인 안 됨 401, 권한 없음 403, CORS 주소는 설정 파일에서.
  */
 @Configuration
 @EnableWebSecurity
@@ -47,7 +47,13 @@ public class SecurityConfig {
                                 "/api/auth/email/send", "/api/auth/email/verify",
                                 "/api/auth/password/send", "/api/auth/password/verify", "/api/auth/password/reset").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/auth/options").permitAll()
-                        .requestMatchers("/api/admin/**", "/api/ingest/**").hasRole("ADMIN")
+                        // 데이터 적재: 관리자 + 팀장 + 감사
+                        .requestMatchers("/api/ingest/**").hasAnyAuthority("ROLE_ADMIN", "DATA_LEAD", "DATA_AUDITOR")
+                        // 통계 화면이 부르는 API: 관리자 + 감사 (/api/admin/** 보다 먼저 와야 함)
+                        .requestMatchers(HttpMethod.GET, "/api/admin/stats", "/api/admin/restore-log",
+                                "/api/admin/anomalies", "/api/admin/recent-conversations")
+                                .hasAnyAuthority("ROLE_ADMIN", "DATA_AUDITOR")
+                        .requestMatchers("/api/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated())
                 .exceptionHandling(e -> e
                         .authenticationEntryPoint((req, res, ex) -> res.sendError(HttpServletResponse.SC_UNAUTHORIZED))
