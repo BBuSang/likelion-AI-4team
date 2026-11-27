@@ -256,9 +256,9 @@ def _with_public(question, masked, user, route, info, timing, k, on_event=None, 
 
     # 동명이인을 고르지 못하면 사내만일 때처럼 되묻기 (엉뚱한 사람 기록으로 법 대조하지 않게)
     cands = internal["cands"]
-    amb = cands[0].get("ambiguous_people") if cands else None
+    amb, ask_docs = chat_mod.ambiguity(cands, internal["docs"] or [], masked)
     if amb:
-        return {"masked_query": masked, "answer": chat_mod.ask_back(amb, cands), "ask_back": True, "docs": internal["docs"],
+        return {"masked_query": masked, "answer": chat_mod.ask_back(amb, cands), "ask_back": True, "docs": ask_docs,
                 "check": {"unverified_tokens": [], "raw_pii": []}, "model": None, "timing": timing, "agent": info}
 
     evidence = _renumber([e for s in run["steps"] if s["tool"] != "search_internal" for e in run["results"].get(s["id"]) or []])

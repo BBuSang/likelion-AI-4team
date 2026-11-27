@@ -132,6 +132,28 @@ def select_docs(cands, k):
 _ROLE_KO = {"customer": "고객", "staff": "직원", "external": "외부"}
 
 
+def _topic_matched(query, docs):
+    """질문이 1위 문서의 종류를 말하는가 ('콜백 요청 기록' ↔ 콜백요청목록, '개인정보열람청구 접수'). 띄어쓰기 무시, 앞 4글자"""
+    q = re.sub(r"\s+", "", query or "")
+    t = re.sub(r"\s+", "", (docs[0].get("doc_type") or "") if docs else "")
+    return len(t) >= 4 and t[:4] in q
+
+
+def ambiguity(cands, docs, query=None):
+    """되물을지 판단 → (되물을 동명이인 목록, 되물을 때 근거 문서).
+    질문이 문서 종류(주제)를 분명히 말하고 1위 문서가 그 종류면, 실제로 답에 쓸 문서(docs)에 같은 이름의 다른 사람이
+    2명 이상 섞일 때만 되묻는다 — '표태혁 님 콜백 요청 기록'처럼 답할 문서는 한 사람뿐인데 주제와 상관없는 업무일지
+    때문에 되묻던 것 (Holdout2 화면에서 발견). 주제 없이 사람만 찾는 질문('남궁하은 고객 문서만')은 예전처럼 후보 전체로 —
+    답에 쓸 문서만 보면 synth2 에서 다른 사람 문서를 인용한 질의가 3개 생김.
+    되물을 때는 목록에 나온 문서를 근거 문서로 — 화면 근거 칸·실명 보기가 목록과 같은 문서를 보도록"""
+    amb = (cands[0].get("ambiguous_people") if cands else None) or []
+    if _topic_matched(query, docs):
+        used = {t for d in docs for t in d["tokens"]}
+        amb = [a for a in amb if len({t for t, _ in a["candidates"] if t in used}) >= 2]
+    listed = {t for a in amb for t, _ in a["candidates"]}
+    return amb, ([d for d in cands if listed & set(d["tokens"])] or docs)
+
+
 def ask_back(amb, cands):
     """동명이인을 고르지 못했을 때 LLM 대신 보여줄 되묻기 답변 (토큰·역할·문서 ID 만, 실명 없음 — 실명 보기로 복원 가능)."""
     lines = []
@@ -203,9 +225,10 @@ def answer(query, k=3, model=None, mode="hybrid", embed_retries=None, rerank=Non
     result = {"masked_query": masked_q, "query_tokens": q_tokens, "docs": docs, "answer": None,
               "raw_answer": None, "check": None, "model": model or config.LLM_MODEL,
               "timing": {"search": t_search}, "guard": g1 + g2, "ask_back": False}
-    amb = cands[0].get("ambiguous_people") if cands else None
+    amb, ask_docs = ambiguity(cands, docs, masked_q)
     if amb and config.ASK_BACK:
         result["answer"], result["ask_back"] = ask_back(amb, cands), True
+        result["docs"] = ask_docs
         result["check"] = {"unverified_tokens": [], "raw_pii": []}
         return result
     if not config.LLM_API_KEY:
