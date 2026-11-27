@@ -25,9 +25,9 @@ function App() {
             <Route path="/chat" element={<ChatPage />} />
             <Route path="/me" element={<MePage />} />
             <Route path="/admin" element={<ProtectedRoute admin><AdminPage /></ProtectedRoute>} />
-            <Route path="/ingest" element={<ProtectedRoute admin><IngestPage /></ProtectedRoute>} />
-            <Route path="/ingest/docs/:id" element={<ProtectedRoute admin><ReviewPage /></ProtectedRoute>} />
-            <Route path="/stats" element={<ProtectedRoute admin><StatsPage /></ProtectedRoute>} />
+            <Route path="/ingest" element={<ProtectedRoute roles={['LEAD', 'AUDITOR']}><IngestPage /></ProtectedRoute>} />
+            <Route path="/ingest/docs/:id" element={<ProtectedRoute roles={['LEAD', 'AUDITOR']}><ReviewPage /></ProtectedRoute>} />
+            <Route path="/stats" element={<ProtectedRoute roles={['AUDITOR']}><StatsPage /></ProtectedRoute>} />
           </Route>
           <Route path="*" element={<Navigate to="/chat" replace />} />
         </Routes>

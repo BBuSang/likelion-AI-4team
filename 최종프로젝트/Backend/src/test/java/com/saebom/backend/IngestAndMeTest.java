@@ -26,7 +26,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-/** 적재 중계(관리자만, 올린 사람 = 로그인 계정) + 비밀번호 변경 */
+/** 적재 중계(관리자·팀장·감사, 올린 사람 = 로그인 계정) + 비밀번호 변경 */
 @SpringBootTest
 @AutoConfigureMockMvc
 class IngestAndMeTest {
@@ -53,10 +53,31 @@ class IngestAndMeTest {
     }
 
     private void staff(String email) {
+        staff(email, Role.STAFF);
+    }
+
+    private void staff(String email, Role role) {
         if (users.findByEmail(email).isPresent()) return;
         Team t = teams.findByName("적재팀").orElseGet(() -> teams.save(Team.builder().name("적재팀").build()));
         users.save(User.builder().email(email).pw(enc.encode("password123")).name("직원").team(t)
-                .position(positions.findByName("대리").orElseThrow()).empId("E7" + Math.abs(email.hashCode() % 10000)).status(UserStatus.ACTIVE).build());
+                .position(positions.findByName("대리").orElseThrow()).empId("E7" + Math.abs(email.hashCode() % 10000)).role(role).status(UserStatus.ACTIVE).build());
+    }
+
+    @Test
+    void leadIngestsOnlyAndAuditorAlsoSeesStats() throws Exception {
+        staff("lead@ingest.test", Role.LEAD);
+        staff("auditor@ingest.test", Role.AUDITOR);
+        String lead = token("lead@ingest.test", "password123");
+        String auditor = token("auditor@ingest.test", "password123");
+        when(ai.getJson(eq("/ingest/jobs"), any())).thenReturn(om.readTree("[]"));
+        when(ai.getJson(eq("/stats"), any())).thenReturn(om.readTree("{}"));
+
+        for (String t : new String[]{lead, auditor})
+            mvc.perform(get("/api/ingest/jobs").header("Authorization", "Bearer " + t)).andExpect(status().isOk());
+        mvc.perform(get("/api/admin/stats").header("Authorization", "Bearer " + lead)).andExpect(status().isForbidden());
+        mvc.perform(get("/api/admin/stats").header("Authorization", "Bearer " + auditor)).andExpect(status().isOk());
+        for (String t : new String[]{lead, auditor})
+            mvc.perform(get("/api/admin/users").header("Authorization", "Bearer " + t)).andExpect(status().isForbidden());
     }
 
     @Test

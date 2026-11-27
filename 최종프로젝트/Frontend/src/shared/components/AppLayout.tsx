@@ -13,8 +13,8 @@ export default function AppLayout() {
   const nav = useNavigate();
   const items = [
     { to: '/chat', icon: MessageCircle, label: '채팅', show: true },
-    { to: '/ingest', icon: Upload, label: '데이터 적재', show: !!user?.admin },
-    { to: '/stats', icon: BarChart3, label: '통계', show: !!user?.admin },
+    { to: '/ingest', icon: Upload, label: '데이터 적재', show: !!user && (user.admin || user.role === 'LEAD' || user.role === 'AUDITOR') },
+    { to: '/stats', icon: BarChart3, label: '통계', show: !!user && (user.admin || user.role === 'AUDITOR') },
     { to: '/admin', icon: Users, label: '관리자', show: !!user?.admin },
     { to: '/me', icon: UserRound, label: '마이페이지', show: true },
   ];
