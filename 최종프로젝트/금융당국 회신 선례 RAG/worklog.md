@@ -2988,3 +2988,8 @@ worklog 1~80번, 체크리스트, 기획안 7~13장, `rag.py`, `app/demo.py`·`p
 - `deploy/build/`(덤프 복사본 111MB) 삭제는 권한 설정에서 거부돼 남아 있음 → 루트 `.gitignore`의 `deploy/build/` 줄은 유지(지우면 덤프 복사본이 커밋 대상이 됨). 사용자가 직접 지운 뒤 그 줄을 빼면 됨.
 - AWS 서버의 이미지·컨테이너와 로컬 DB 컨테이너 `interp-rag-db`는 그대로.
 - (추가) 사용자가 `deploy/build/`를 직접 지움 → 루트 `.gitignore`의 `deploy/build/` 줄 삭제.
+
+### 137. 개인 저장소 kloid99/financial-regulator-RAG 갱신 (사용자: "방금 내 브렌치에 올린 파일들을 내 financial-regulator-RAG 깃헙에 그대로 올릴거야 ... 클로드 표시는 하지마", 2026-11-27)
+- 대상 저장소에는 이미 이 RAG가 루트에 있었음(292ea99, 덤프는 LFS). kloid_rag(08c5300)의 이 폴더와 비교해 바뀐 9개만 반영: README.md, worklog.md, .dockerignore, deploy/ 4개, pipeline/c1_code_checks.py·c2_llm_judge.py. 덤프·data_file.zip은 이미 같음.
+- 대상 저장소의 .gitattributes·.gitignore와, 대상에만 있는 문서 3개(질문_방식과_결과_표시.md, 질문과_답변_예시.md, 평가_사람질문_안내.md)는 지우지 않고 둠.
+- 키·토큰 패턴 검사 통과. 커밋 d02e432 "수정 및 배포"(작성자 박지훈, Claude 표시 없음) → main에 push 확인.
