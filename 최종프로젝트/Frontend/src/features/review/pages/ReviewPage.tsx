@@ -28,6 +28,17 @@ const CHECK_HOW: Record<string, string> = {
   unique_link: '동명이인일 수 있어요. 문맥상 같은 사람이면 그대로 두고, 다른 사람이면 "새 사람으로", 모르겠으면 "판단 보류"를 고르세요.',
   ambiguous: '아래에서 어느 사람인지 고르세요. 모르겠으면 "판단 보류"를 고르세요.',
 };
+// 검수로 온 이유 + 모델 확률을 한 문장으로. p = 그 자리를 모델이 그 라벨로 본 확률
+function flagText(f: ReviewFlag, value: string): string {
+  const pct = f.p !== null ? Math.round(f.p * 100) : null;
+  if (f.flag === 'rule_added') {
+    const oneChar = f.label === 'person' && [...value.replace(/\s/g, '')].length === 1;
+    return `${oneChar ? '한 글자 이름이라 ' : '기본 탐지기는 놓쳐서 '}보완 규칙으로 잡았어요`
+      + (pct !== null ? ` (모델도 ${pct}% 확률로 같은 종류로 봄)` : '');
+  }
+  return FLAG_KO[f.flag] + (pct !== null ? ` (모델 확률 ${pct}%)` : '');
+}
+
 // 근거 코드 → 말 ('name' 은 위 문장에 이미 들어 있어 따로 안 보임)
 const EVIDENCE_KO: Record<string, string> = {
   phone_number: '전화번호', email: '이메일', account_number: '계좌번호', card_number: '카드번호',
@@ -324,7 +335,7 @@ export default function ReviewPage() {
             return (
               <mark key={`m${g.start}`} data-cp={g.start} data-name={info?.name ?? s.label}
                     className={`hl hl-${info?.cls ?? 'other'}${flag && editable ? ' hl-flag' : ''}`}
-                    title={flag ? FLAG_KO[flag.flag] : undefined}
+                    title={flag ? flagText(flag, cpSlice(doc.text, flag.start, flag.end)) : undefined}
                     onMouseUp={(e) => e.stopPropagation()}
                     onClick={(e) => editable && setPop({ kind: 'edit', i: g.i!, ...relPos((e.target as HTMLElement).getBoundingClientRect()) })}>
                 {t}
@@ -394,8 +405,7 @@ export default function ReviewPage() {
             <h3 style={{ marginBottom: 6 }}><AlertTriangle size={15} aria-hidden /> 확인이 필요한 곳</h3>
             {(doc.review.flags ?? []).map((f) => (
               <p key={`f${f.start}`} className="small">
-                <span className="pii pii-flag">{cpSlice(doc.text, f.start, f.end)}</span> {labelInfo(f.label)?.name ?? f.label} — {FLAG_KO[f.flag]}
-                {f.p !== null && <span className="muted"> (모델 {Math.round(f.p * 100)}%)</span>}
+                <span className="pii pii-flag">{cpSlice(doc.text, f.start, f.end)}</span> {labelInfo(f.label)?.name ?? f.label} — {flagText(f, cpSlice(doc.text, f.start, f.end))}
               </p>
             ))}
             {(doc.review.link_check ?? []).length > 0 && <p className="small">동명이인 확인 필요</p>}
