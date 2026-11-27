@@ -56,6 +56,7 @@ export default function Restorable({ text, docIds, onCite, compact, markdown, la
           {result && (
             <span className="small muted">
               {result.restored}개 복원{result.denied.length ? ` · ${result.denied.length}개는 권한이 없어 가린 채로` : ''}
+              {result.outside?.length ? ` · ${result.outside.length}개는 근거 문서 밖이라 가린 채로` : ''}
               {result.unknown?.length ? ` · ${result.unknown.length}개는 답변 검사에서 가린 말이라 되돌릴 값이 없어요` : ''}
             </span>
           )}

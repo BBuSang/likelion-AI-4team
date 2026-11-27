@@ -168,7 +168,7 @@ public class AiClient {
     }
 
     @JsonIgnoreProperties(ignoreUnknown = true)
-    public record RestoreResult(String text, int restored, List<String> denied, List<String> unknown,
+    public record RestoreResult(String text, int restored, List<String> denied, List<String> outside, List<String> unknown,
                                 List<String> docs, List<AccessWarning> warnings) {}
 
     /** 실명 보기 직후 본인에게 보여 줄 이상 접근 경고 */

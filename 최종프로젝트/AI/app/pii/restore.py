@@ -80,6 +80,8 @@ def restore_for(text, user, doc_ids, purpose=None, actor=None):
         ok_docs = sorted(d for d, o, t, v in metas
                          if access.can_restore(user, {"owner_emp_id": o, "team": t, "visibility": v}))
         rows = rc.execute("SELECT DISTINCT unnest(tokens) FROM rag.chunks WHERE doc_id = ANY(%s)", (ok_docs,)).fetchall()
+        in_any = {r[0] for r in rc.execute("SELECT DISTINCT unnest(tokens) FROM rag.chunks WHERE doc_id = ANY(%s)",
+                                           (doc_ids,)).fetchall()}
     allowed = {r[0] for r in rows}
     want = [t for t in found if t in allowed]
     with db.vault_conn() as conn:
@@ -90,11 +92,14 @@ def restore_for(text, user, doc_ids, purpose=None, actor=None):
         in_vault = set(lookup(rest, conn)) if rest else set()
         denied = [t for t in rest if t in in_vault]
         _log(actor, user, purpose, sorted(m), ok_docs, denied, conn=conn)
+    # 근거 문서 어디에도 없는 토큰은 권한 문제가 아니라 근거 밖 (화면이 "권한이 없어 가림"이라고 잘못 말하던 것)
+    outside = [t for t in denied if t not in in_any]
+    denied = [t for t in denied if t in in_any]
     out = text
     for t, v in m.items():
         out = out.replace(t, v["display"])
     unknown = [t for t in want if t not in m] + [t for t in rest if t not in in_vault]
-    return out, {"restored": {t: v["display"] for t, v in m.items()}, "denied": denied, "unknown": unknown,
+    return out, {"restored": {t: v["display"] for t, v in m.items()}, "denied": denied, "outside": outside, "unknown": unknown,
                  "docs": ok_docs, "warnings": _warnings(actor or user.get("emp_id") or "system")}
 
 
