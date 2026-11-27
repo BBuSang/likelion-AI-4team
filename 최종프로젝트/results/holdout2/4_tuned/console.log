@@ -1,29 +1,27 @@
-[16:22:19] 시작: 문서 756 · 질의 155 · 정답 있음 · DB 포트 5435
-[16:22:19] 탐지 756건 (모델 첫 로딩 포함)...
-2026-11-26 16:22:40.466728: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-2026-11-26 16:22:50.800456: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+[10:30:10] 시작: 문서 756 · 질의 155 · 정답 있음 · DB 포트 5435
+[10:30:10] 탐지 756건 (모델 첫 로딩 포함)...
+2026-11-27 10:30:18.876007: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-11-27 10:30:22.878053: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
 Token indices sequence length is longer than the specified maximum sequence length for this model (937 > 512). Running this sequence through the model will result in indexing errors
 Token indices sequence length is longer than the specified maximum sequence length for this model (937 > 512). Running this sequence through the model will result in indexing errors
-WARNING:tensorflow:From C:\Users\31799\AppData\Local\Programs\Python\Python313\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
-
-[16:25:24] 적재: {'docs': 756, 'chunks': 921, 'tokens': 1988, 'persons': 714, 'employees': 127, 'guard_masked': 103, 'visibility': {'team': 524, 'restricted': 217, 'public': 15}, 'ms_per_doc': {'org': 0.8, 'mask': 0.9, 'embed': 44.2}}
-[16:25:24] 탐지: F1 0.9981 · 가리기 재현율 0.9987
-[16:30:21] 검색 155개 완료
-[16:30:21] 검색: MRR 0.9554 · Hit@1 0.9484 · Recall@1 0.5542 · Hit@5 0.9677 · Recall@5 0.7957 · Hit@10 0.9677 · Recall@10 0.8657 · Confuse@1 0.1250 · Confuse@5 0.2250 · Confuse@10 0.2500
-[16:31:08] 답변 10/155
-[16:31:57] 답변 20/155
-[16:32:38] 답변 30/155
-[16:33:30] 답변 40/155
-[16:34:25] 답변 50/155
-[16:35:21] 답변 60/155
-[16:36:18] 답변 70/155
-[16:37:06] 답변 80/155
-[16:37:47] 답변 90/155
-[16:38:42] 답변 100/155
-[16:39:48] 답변 110/155
-[16:40:46] 답변 120/155
-[16:41:41] 답변 130/155
-[16:42:28] 답변 140/155
-[16:43:21] 답변 150/155
-[16:43:50] 답변: 인용 적중 0.950 · 못 찾음 0.043 · 유출 {'llm_input': 2, 'raw_answer': 0, 'answer': 0}
-[16:43:50] 끝: 1291초 · 결과 outputs\holdout2_tuned2
+[10:31:57] 적재: {'docs': 756, 'chunks': 921, 'tokens': 1895, 'persons': 621, 'employees': 127, 'guard_masked': 103, 'visibility': {'team': 524, 'restricted': 217, 'public': 15}, 'ms_per_doc': {'org': 0.5, 'mask': 0.6, 'embed': 2.0}}
+[10:31:57] 탐지: F1 0.9981 · 가리기 재현율 0.9987
+[10:35:36] 검색 155개 완료
+[10:35:36] 검색: MRR 0.9538 · Hit@1 0.9419 · Recall@1 0.5526 · Hit@5 0.9677 · Recall@5 0.7976 · Hit@10 0.9677 · Recall@10 0.8657 · Confuse@1 0.1250 · Confuse@5 0.2250 · Confuse@10 0.2500
+[10:36:22] 답변 10/155
+[10:37:07] 답변 20/155
+[10:37:43] 답변 30/155
+[10:38:27] 답변 40/155
+[10:39:12] 답변 50/155
+[10:39:55] 답변 60/155
+[10:40:47] 답변 70/155
+[10:41:26] 답변 80/155
+[10:42:03] 답변 90/155
+[10:42:48] 답변 100/155
+[10:43:42] 답변 110/155
+[10:44:28] 답변 120/155
+[10:45:09] 답변 130/155
+[10:45:54] 답변 140/155
+[10:46:35] 답변 150/155
+[10:46:54] 답변: 인용 적중 0.961 · 못 찾음 0.039 · 유출 {'llm_input': 2, 'raw_answer': 0, 'answer': 0}
+[10:46:54] 끝: 1004초 · 결과 outputs\holdout2_tuned4

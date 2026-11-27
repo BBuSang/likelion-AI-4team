@@ -37,6 +37,7 @@ export interface RestoreResult {
   text: string; // 실명이 들어간 글 — 화면에만 보여 주고 저장하지 않음
   restored: number;
   denied: string[];
+  outside?: string[]; // 근거 문서 밖의 토큰 (권한 문제 아님)
   unknown: string[];
   docs: string[];
   warnings?: AccessWarning[]; // 이번 실명 보기가 걸린 이상 접근 규칙 (본인에게 알림)

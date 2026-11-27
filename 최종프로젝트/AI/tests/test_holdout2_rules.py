@@ -88,3 +88,37 @@ def test_roman_signature_not_employee():
     t = "Dear Saebom Card,\n\nThis is Yumin Koo. My card was declined.\n\nBest regards,\nYumin Koo"
     spans = [sp(t, "Yumin Koo"), sp(t, "Yumin Koo", nth=1)]
     assert infer.staff_mentions({"id": "X", "text": t}, spans) == []
+
+
+def test_sender_header_in_customer_mail_is_customer():
+    t = "안녕하세요, 표태혁 고객님. 문의하신 건 안내드립니다.\n----- 원본 메시지 -----\n보낸 사람: 표태혁\n수수료가 궁금합니다."
+    spans = [sp(t, "표태혁"), sp(t, "표태혁", nth=1)]
+    out, _ = r.resolve([{"id": "D1", "text": t}], {"D1": spans})
+    assert [s["role"] for s in out["D1"]] == ["customer", "customer"]
+
+
+def test_log_with_many_customers_does_not_borrow_other_ids():
+    log = ("09:00 표태혁 고객 결제 계좌 변경 요청\n09:10 김가람 고객 카드 재발급 (기존 카드 4518509179343600 정지)\n"
+           "09:20 이하늘 고객 한도 문의\n")
+    mail = "고객명: 표태혁\n카드번호: 9440-3474-8532-8722\n"
+    docs = [{"id": "L", "text": log}, {"id": "M", "text": mail}]
+    spans = {"L": [sp(log, "표태혁"), sp(log, "김가람"), sp(log, "4518509179343600", "card_number"), sp(log, "이하늘")],
+             "M": [sp(mail, "표태혁"), sp(mail, "9440-3474-8532-8722", "card_number")]}
+    out, _ = r.resolve(docs, spans)
+    key = lambda d: next(s["person_key"] for s in out[d] if s.get("normalized") == "표태혁")
+    assert key("L") == key("M")
+
+
+def test_ask_back_only_when_answer_docs_mix_people():
+    from app.rag import chat
+    amb = [{"query_token": "<PERSON_q>", "candidates": [("<PERSON_a>", "customer"), ("<PERSON_b>", "staff")]}]
+    d1 = {"doc_id": "H1", "doc_type": "콜백요청목록", "tokens": ["<PERSON_a>"], "ambiguous_people": amb}
+    d2 = {"doc_id": "H2", "doc_type": "해외결제차단해제", "tokens": ["<PERSON_a>"]}
+    d3 = {"doc_id": "H3", "doc_type": "지점업무일지", "tokens": ["<PERSON_b>"]}
+    topic = "<PERSON_q> 님 콜백 요청 기록 혹시 있나요?"
+    got, _ = chat.ambiguity([d1, d2, d3], [d1, d2], topic)    # 주제가 맞고 답에 쓸 문서는 한 사람뿐 → 되묻지 않음
+    assert got == []
+    got, docs = chat.ambiguity([d1, d2, d3], [d1, d3], topic)  # 두 사람이 섞임 → 되묻고, 목록 문서를 근거로
+    assert got == amb and [d["doc_id"] for d in docs] == ["H1", "H2", "H3"]
+    got, _ = chat.ambiguity([d1, d2, d3], [d1, d2], "<PERSON_q> 고객 문서만")  # 주제 없이 사람만 → 후보 전체로 판단
+    assert got == amb

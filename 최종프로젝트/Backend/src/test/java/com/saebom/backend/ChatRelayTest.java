@@ -115,7 +115,7 @@ class ChatRelayTest {
     void restore() throws Exception {
         String lead = account("lead@chat.test", Role.LEAD, "E003", UserStatus.ACTIVE);
         when(ai.restore(any(), anyString(), anyString(), anyList(), any()))
-                .thenReturn(new RestoreResult("홍길동 고객", 1, List.of(), List.of(), List.of("H1"),
+                .thenReturn(new RestoreResult("홍길동 고객", 1, List.of(), List.of(), List.of(), List.of("H1"),
                         List.of(new AiClient.AccessWarning("burst", "대량 복원", "high", "10분 안에 10번 실명 보기"))));
         // 팀장: 사유 없으면 400 (25-9), 있으면 그대로 넘김
         post_("/api/chat/restore", Map.of("text", "<PERSON_ab> 고객", "docIds", List.of("H1")), lead)
