@@ -118,6 +118,8 @@ def detect_scored(text):
 #  ② 이름 오탐: 법 줄임말('신정법', '금소법' — 에이전트가 사람 기록으로 보냄)과 상태·업무 말('보류', '상태', '이수')
 #     — 뒤에 호칭·직함이 붙으면('이수 님') 이름으로 남김
 _TITLE_AFTER = re.compile(r"\s?(님|씨|고객|대리|과장|차장|부장|팀장|주임|사원|선임|책임|이사|상무|전무|대표|매니저|프로|원장|지점장)")
+# 이름 범위 끝에 띄어 쓴 직급·호칭 (Holdout2 '변혁 사원' → 정규화가 '변혁사원'이 돼 다른 문서의 '변혁'과 안 이어짐)
+_TITLE_TAIL = re.compile(r"(?<=[가-힣]{2})\s+(님|씨|고객님?|대리|과장|차장|부장|팀장|주임|사원|선임|책임|이사|상무|전무|대표|매니저|원장|지점장)$")
 _LAW_ABBR = re.compile(r"[가-힣]{2}법")  # 세 글자 + '법' 끝 (신정법·금소법·전금법·여전법·개보법·특금법 …)
 _NOT_NAME_WORDS = {"보류", "상태", "현 상태", "접수", "완료", "처리", "이수", "이미", "서술형"}
 # 업무 말 + 된/될 (반송된·연체된·누락될). 탐지 모델이 뒤의 '고객'을 보고 이름으로 잡음 (UI 질문에서 발견, 25장)
@@ -355,6 +357,8 @@ def complete_spans(text, spans):
             continue  # 서버 IP
         if s["label"] == "address" and w.endswith(")") and w.count(")") > w.count("("):
             s = {**s, "end": s["end"] - 1}  # '(치평동))' 끝 괄호 하나 더
+        if s["label"] == "person" and (m := _TITLE_TAIL.search(w)):
+            s = {**s, "end": s["start"] + m.start()}  # '변혁 사원', '육나연 님' — 직급·호칭까지 이름으로 잡음
         out.append(s)
     out = _roman_name_spans(text, out)
     out += _ko_phone_spans(text, out)

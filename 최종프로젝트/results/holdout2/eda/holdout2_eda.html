@@ -1,0 +1,198 @@
+<!doctype html><html lang='ko'><head><meta charset='utf-8'><title>Holdout2 EDA</title><style>
+@font-face { font-family: 'Pretendard'; src: url('PretendardVariable.woff2') format('woff2'); font-weight: 100 900; }
+@page { size: 1280px 720px; margin: 0; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Pretendard', 'Malgun Gothic', sans-serif; color: #1b2433; background: #fff; }
+.slide { width: 1280px; height: 720px; padding: 46px 64px 40px; position: relative; page-break-after: always; overflow: hidden; }
+.slide:last-child { page-break-after: auto; }
+.kicker { color: #2f5bd3; font-weight: 700; font-size: 15px; letter-spacing: .02em; margin-bottom: 6px; }
+h1 { font-size: 34px; margin: 0 0 22px; font-weight: 800; letter-spacing: -0.02em; }
+h3 { font-size: 16px; margin: 0 0 8px; color: #33405a; }
+.body { font-size: 17px; line-height: 1.55; }
+.body p { margin: 0 0 12px; }
+.foot { position: absolute; bottom: 18px; right: 64px; font-size: 12px; color: #9aa3b5; }
+table { border-collapse: collapse; font-size: 15px; margin-bottom: 10px; }
+th { background: #eef2fb; color: #2b3a5c; font-weight: 700; text-align: left; padding: 7px 12px; border-bottom: 2px solid #c9d3ea; }
+td { padding: 6px 12px; border-bottom: 1px solid #e6e9f0; vertical-align: top; }
+table.wide { width: 80%; font-size: 18px; } table.wide td, table.wide th { padding: 9px 16px; }
+table.tight { font-size: 13px; } table.tight td, table.tight th { padding: 4px 9px; }
+code { font-family: Consolas, monospace; font-size: .92em; background: #f3f5f9; padding: 1px 5px; border-radius: 4px; }
+.cols { display: flex; gap: 24px; align-items: flex-start; } .cols > * { flex: 1; min-width: 0; }
+.doc { border: 1px solid #d8deea; border-radius: 8px; margin-bottom: 10px; background: #fafbfd; }
+.doc-h { font-size: 12px; font-weight: 700; color: #5a6782; padding: 5px 10px; border-bottom: 1px solid #e3e7ef; }
+.doc pre { margin: 0; padding: 8px 10px; font-family: 'Pretendard', 'Malgun Gothic', sans-serif; font-size: 13px; line-height: 1.5; white-space: pre-wrap; }
+mark { background: #ffe58a; padding: 0 2px; border-radius: 3px; }
+.note { color: #5a6782; font-size: 14px; }
+ul.types { list-style: none; padding: 0; margin: 0; columns: 2; font-size: 14px; }
+ul.types li { display: flex; justify-content: space-between; padding: 2px 10px 2px 0; break-inside: avoid; border-bottom: 1px dotted #e1e5ee; margin-right: 14px; }
+ul.types b { color: #2f5bd3; }
+.cover { display: flex; flex-direction: column; justify-content: center; background: linear-gradient(135deg, #eef3ff, #ffffff 60%); }
+.cover .big { font-size: 58px; margin: 6px 0 10px; } .cover .sub { font-size: 24px; color: #46557a; margin: 0 0 40px; } .cover .meta { color: #7a869f; font-size: 16px; }
+ol.sum { font-size: 20px; line-height: 1.75; padding-left: 26px; } ol.sum b { color: #2f5bd3; }
+</style></head><body><section class="slide cover"><div class="kicker">최종 프로젝트 · 데이터 탐색</div>
+<h1 class="big">Holdout2 데이터 EDA</h1><p class="sub">Holdout1 과 비교해 무엇이 달라졌나</p>
+<p class="meta">사공삼 403 · 2026-11-27</p></section><section class="slide"><div class="kicker">1. 데이터 소개</div><h1>받은 데이터</h1><div class="body"><table class=""><thead><tr><th>파일</th><th>내용</th><th>건수</th></tr></thead><tbody><tr><td><code>holdout2_public.jsonl</code></td><td>문서 원문 (id · doc_type · text)</td><td>756건</td></tr><tr><td><code>holdout2_labeled.jsonl</code></td><td>같은 문서 + 개인정보 정답 위치(entities) + 어려운 사례 태그(hard_cases)</td><td>756건</td></tr><tr><td><code>holdout2_retrieval_queries_gold.jsonl</code></td><td>검색 질의 + 정답 문서 + 헷갈리는 문서 + 질의 속 개인정보</td><td>155개</td></tr></tbody></table><p class="note">개인정보 라벨 7종: 이름 · 전화번호 · 이메일 · 주소 · 주민등록번호 · 계좌번호 · 카드번호 (Holdout1 과 같음)</p></div><div class="foot">Holdout2 EDA · 사공삼 403</div></section><section class="slide"><div class="kicker">2. 규모</div><h1>규모 한눈에</h1><div class="body"><table class="wide"><thead><tr><th></th><th>Holdout1</th><th>Holdout2</th><th>변화</th></tr></thead><tbody><tr><td>문서</td><td>187</td><td>756</td><td><b>약 4배</b></td></tr><tr><td>문서 종류</td><td>20</td><td>23</td><td><b>겹치는 종류 0개</b></td></tr><tr><td>개인정보 개체</td><td>912</td><td>5,390</td><td>약 6배</td></tr><tr><td>문서당 개인정보</td><td>4.9</td><td>7.1</td><td>더 빽빽함</td></tr><tr><td>고유 실명 (성+이름)</td><td>149</td><td>511</td><td>약 3.4배</td></tr><tr><td>개인정보 없는 문서</td><td>14</td><td>17</td><td></td></tr><tr><td>빈 문서</td><td>0</td><td>2</td><td><b>새로 생김</b></td></tr><tr><td>검색 질의</td><td>88</td><td>155</td><td></td></tr></tbody></table></div><div class="foot">Holdout2 EDA · 사공삼 403</div></section><section class="slide"><div class="kicker">3. 문서 종류</div><h1>문서 종류: 전부 새로운 종류</h1><div class="body"><div class="cols"><div><h3>Holdout1 (20종, 종류당 7~14건)</h3><ul class="types"><li><span>공지</span><b>14</b></li><li><span>녹취요약</span><b>11</b></li><li><span>출장보고</span><b>10</b></li><li><span>한도심사결과</span><b>10</b></li><li><span>분쟁조정</span><b>10</b></li><li><span>감사지적</span><b>10</b></li><li><span>VOC요약</span><b>10</b></li><li><span>법인카드소명</span><b>10</b></li><li><span>경조사공지</span><b>9</b></li><li><span>카드발급심사</span><b>9</b></li><li><span>가맹점변경</span><b>9</b></li><li><span>고객편지</span><b>9</b></li><li><span>채용메일</span><b>9</b></li><li><span>권한신청</span><b>9</b></li><li><span>피해접수</span><b>9</b></li><li><span>영문혼용메일</span><b>8</b></li><li><span>대리인위임확인</span><b>8</b></li><li><span>자동이체신청서</span><b>8</b></li><li><span>우편반송처리</span><b>8</b></li><li><span>해외송금접수</span><b>7</b></li></ul></div>
+<div><h3>Holdout2 (23종, 종류당 2~63건)</h3><ul class="types"><li><span>채무조정상담</span><b>63</b></li><li><span>중도상환문의</span><b>50</b></li><li><span>고객방문상담</span><b>46</b></li><li><span>지점업무일지</span><b>46</b></li><li><span>이의제기회신</span><b>45</b></li><li><span>리볼빙해지요청</span><b>43</b></li><li><span>해외결제차단해제</span><b>40</b></li><li><span>한도일시상향</span><b>40</b></li><li><span>챗봇상담로그</span><b>40</b></li><li><span>카드배송문의</span><b>40</b></li><li><span>결재보고서</span><b>40</b></li><li><span>연말정산증빙발급</span><b>36</b></li><li><span>개인정보열람청구</span><b>30</b></li><li><span>상담품질평가</span><b>30</b></li><li><span>포인트이관신청</span><b>30</b></li><li><span>법인카드신규발급</span><b>25</b></li><li><span>영문고객메일</span><b>20</b></li><li><span>교육이수보고</span><b>20</b></li><li><span>콜백요청목록</span><b>20</b></li><li><span>사망자카드해지</span><b>20</b></li><li><span>시스템장애보고</span><b>15</b></li><li><span>사내동호회공지</span><b>15</b></li><li><span>빈문서</span><b>2</b></li></ul></div></div></div><div class="foot">Holdout2 EDA · 사공삼 403</div></section><section class="slide"><div class="kicker">3. 문서 종류</div><h1>같은 양식이 수십 번 반복된다</h1><div class="body"><p>종류마다 같은 양식에 값만 바꿔 넣은 문서가 많습니다 (채무조정상담 63건, 중도상환문의 50건 …). 양식 속 일반 단어가 데이터 전체에 대량으로 나옵니다.</p>
+<div class="cols"><div class="doc"><div class="doc-h">H20033 · 결재보고서</div><pre>[결재] 고객 예외 처리 <mark>승인</mark> 요청
+
+| <mark>기안</mark> | <mark>검토</mark> | <mark>승인</mark> |
+|---|---|---|
+| 이성리 과장 | 이성리 과장 | 진한 팀장 |
+
+1. 대상 고객: 제도우 (4092 4076 2658 6158)
+2. 요청 내용: 결제일 변경 예외 <mark>승인</mark>
+3. 사유: 고객이…</pre></div><div class="doc"><div class="doc-h">H20007 · 포인트이관신청</div><pre>포인트 이관 신청서
+
+<mark>[<mark>양도인</mark>]</mark>
+성명: 이승은
+주민등록번호: 7110022223031
+카드번호: 9440-0831-9246-9034
+
+<mark>[양수인]</mark>
+성명: 임유준 (<mark>양도인</mark>의 자녀)
+연락처: 010-7271-0015
+
+이관 포인트: 15,000P
+처리 결과: 가족관계증명서 …</pre></div></div>
+<p class="note">결재란 '기안 · 검토 · 승인' 40건, 포인트 이관 신청서 '양도인 · 양수인' 30건이 같은 모양으로 반복</p></div><div class="foot">Holdout2 EDA · 사공삼 403</div></section><section class="slide"><div class="kicker">3. 문서 종류</div><h1>Holdout2 문서 종류별 프로필</h1><div class="body"><div class="cols"><table class="tight"><thead><tr><th>종류</th><th>건수</th><th>평균 길이</th><th>개인정보/문서</th><th>주요 라벨</th><th></th><th>양식 수</th></tr></thead><tbody><tr><td>채무조정상담</td><td>63</td><td>783</td><td>10.1</td><td>이름 · 주소</td><td></td><td>3</td></tr><tr><td>중도상환문의</td><td>50</td><td>645</td><td>9.7</td><td>이름 · 이메일</td><td></td><td>2</td></tr><tr><td>고객방문상담</td><td>46</td><td>170</td><td>5.0</td><td>이름 · 주민등록번호</td><td></td><td>3</td></tr><tr><td>지점업무일지</td><td>46</td><td>539</td><td>20.4</td><td>이름 · 카드번호</td><td></td><td>46</td></tr><tr><td>이의제기회신</td><td>45</td><td>388</td><td>5.0</td><td>이름 · 주소</td><td></td><td>1</td></tr><tr><td>리볼빙해지요청</td><td>43</td><td>116</td><td>4.0</td><td>이름 · 카드번호</td><td></td><td>2</td></tr><tr><td>해외결제차단해제</td><td>40</td><td>229</td><td>3.0</td><td>이름 · 전화번호</td><td></td><td>1</td></tr><tr><td>한도일시상향</td><td>40</td><td>114</td><td>3.0</td><td>이름 · 카드번호</td><td></td><td>3</td></tr><tr><td>챗봇상담로그</td><td>40</td><td>226</td><td>2.0</td><td>이름 · 전화번호</td><td></td><td>1</td></tr><tr><td>카드배송문의</td><td>40</td><td>165</td><td>4.0</td><td>이름 · 주소</td><td></td><td>1</td></tr><tr><td>결재보고서</td><td>40</td><td>238</td><td>5.0</td><td>이름 · 카드번호</td><td>표</td><td>5</td></tr><tr><td>연말정산증빙발급</td><td>36</td><td>133</td><td>3.7</td><td>이름 · 주민등록번호</td><td></td><td>1</td></tr></tbody></table><table class="tight"><thead><tr><th>종류</th><th>건수</th><th>평균 길이</th><th>개인정보/문서</th><th>주요 라벨</th><th></th><th>양식 수</th></tr></thead><tbody><tr><td>개인정보열람청구</td><td>30</td><td>229</td><td>5.7</td><td>이름 · 전화번호</td><td></td><td>1</td></tr><tr><td>상담품질평가</td><td>30</td><td>234</td><td>4.0</td><td>이름</td><td>표</td><td>1</td></tr><tr><td>포인트이관신청</td><td>30</td><td>170</td><td>6.0</td><td>이름 · 주민등록번호</td><td></td><td>1</td></tr><tr><td>법인카드신규발급</td><td>25</td><td>451</td><td>13.4</td><td>이름 · 전화번호</td><td>표</td><td>5</td></tr><tr><td>영문고객메일</td><td>20</td><td>308</td><td>6.0</td><td>이름 · 이메일</td><td></td><td>1</td></tr><tr><td>교육이수보고</td><td>20</td><td>282</td><td>6.0</td><td>이름 · 이메일</td><td>표</td><td>11</td></tr><tr><td>콜백요청목록</td><td>20</td><td>614</td><td>34.3</td><td>이름 · 전화번호</td><td>표</td><td>1</td></tr><tr><td>사망자카드해지</td><td>20</td><td>228</td><td>6.0</td><td>이름 · 카드번호</td><td></td><td>3</td></tr><tr><td>시스템장애보고</td><td>15</td><td>177</td><td>0.0</td><td>-</td><td></td><td>3</td></tr><tr><td>사내동호회공지</td><td>15</td><td>161</td><td>2.0</td><td>이름 · 전화번호</td><td></td><td>8</td></tr><tr><td>빈문서</td><td>2</td><td>4</td><td>0.0</td><td>-</td><td></td><td>1</td></tr></tbody></table></div><p class="note">양식 수 = 개인정보·숫자를 지운 첫 4줄 모양의 가짓수. "표" = 그 종류 문서 절반 이상에 표가 있음</p></div><div class="foot">Holdout2 EDA · 사공삼 403</div></section><section class="slide"><div class="kicker">3. 문서 종류</div><h1>양식이 몇 가지인가</h1><div class="body"><p>양식 3가지 이하인 종류: Holdout1 20종 중 14종 → Holdout2 23종 중 <b>18종</b>.
+Holdout2 는 같은 틀에 이름·번호만 바꾼 문서가 대부분입니다 (예외: 지점업무일지 46건은 모두 다름 — 하루치 기록 나열).</p>
+<div class="cols"><div class="doc"><div class="doc-h">H20022 · 채무조정상담</div><pre>[상담 녹취] 채무조정 상담 / 2026-10-14 16:53
+상담원: 도재호 (채권관리팀)
+
+상담원: 안녕하세요, 새봄카드 채권관리팀 재호입니다. 본인 확인을 위해 성함 말씀 부탁드립니다.
+고객: 네, 명승아이에요.
+상담원: 주민등록번호 앞자리와 뒷자리 말씀해 주시겠어요?
+고객: 970714-2228388 요.
+상담원: 확인 감사합니다. 현재 카드대금 27,900,000원이 7개월째 연체 중이신데요, 오늘은 분할 상환 조정 때문에 연락 주신 거 맞으실까요?
+고…</pre></div><div class="doc"><div class="doc-h">H20024 · 채무조정상담</div><pre>[상담 녹취] 채무조정 상담 / 2026-05-23 13:34
+상담원: 변혁 (채권관리팀)
+
+상담원: 안녕하세요, 새봄카드 채권관리팀 혁입니다. 본인 확인을 위해 성함 말씀 부탁드립니다.
+고객: 네, 전승나입니다.
+상담원: 주민등록번호 앞자리와 뒷자리 말씀해 주시겠어요?
+고객: 610323 1403610 요.
+상담원: 확인 감사합니다. 현재 카드대금 10,100,000원이 8개월째 연체 중이신데요, 오늘은 분할 상환 조정 때문에 연락 주신 거 맞으실까요?
+고객:…</pre></div></div>
+<p class="note">채무조정상담 63건 중 두 건 — 날짜·상담원·고객만 다르고 문장 틀은 같음</p></div><div class="foot">Holdout2 EDA · 사공삼 403</div></section><section class="slide"><div class="kicker">4. 길이</div><h1>문서 길이: 더 길고 더 들쭉날쭉</h1><div class="body"><table class=""><thead><tr><th>길이</th><th>Holdout1</th><th>Holdout2</th></tr></thead><tbody><tr><td>빈 문서</td><td>0</td><td>2</td></tr><tr><td>200자 미만</td><td>97</td><td>266</td></tr><tr><td>200~400자</td><td>90</td><td>316</td></tr><tr><td>400~1,000자</td><td>0</td><td>166</td></tr><tr><td>1,000자 이상</td><td>0</td><td>6</td></tr><tr><td>평균 / 중앙값</td><td>206 / 199자</td><td>323 / 231자</td></tr><tr><td>최소 ~ 최대</td><td>140 ~ 373자</td><td>0 ~ 2,839자</td></tr></tbody></table><div class="cols"><div class="doc"><div class="doc-h">H20140 · 지점업무일지</div><pre>[창원지점] 업무 일지 2026-04-18
+작성: 최형빈 과장
+
+09:38 이가원 고객 방문, 주소 변경 접수 (변경 주소: (29323) 충청북도 청주시 흥덕구 이음길 82)
+09:22 안세석 고객 방문, 주소 변경 접수 (변경 주소: 광주광역시 북구 버들로 248, 19층)
+09:25 설상훈 고객 방문, 주소 변경 접수 (변경 주소: 경기도 수원시 영통구 누리로 189 이음아파트 114동 1533호)
+09:53 옥규정 고객 포인트 사용 문의 후 귀가
+09:03 도수우 고객 연회비 문의 후 귀가
+10:34 김우진 고객 연락처 변경: 010-6606-1802
+10:14 유채호 고객 연…</pre></div><div><h3>빈 문서 2건 (종류: 빈문서)</h3>
+<div class="doc"><div class="doc-h">H20345</div><pre>&#x27;   \n\n  &#x27;  ← 공백·줄바꿈뿐</pre></div>
+<div class="doc"><div class="doc-h">H20437</div><pre>&#x27;&#x27;  ← 빈 문자열</pre></div>
+<p class="note">1,000자 넘는 문서 6건은 모두 지점업무일지 (하루치 고객 응대를 시간순으로 나열)</p></div></div></div><div class="foot">Holdout2 EDA · 사공삼 403</div></section><section class="slide"><div class="kicker">5. 개인정보</div><h1>개인정보 라벨 분포와 밀도</h1><div class="body"><div class="cols"><table class=""><thead><tr><th>라벨</th><th>Holdout1</th><th>비율</th><th>Holdout2</th><th>비율</th></tr></thead><tbody><tr><td>이름</td><td>560</td><td>61%</td><td>3,176</td><td>59%</td></tr><tr><td>전화번호</td><td>147</td><td>16%</td><td>906</td><td>17%</td></tr><tr><td>카드번호</td><td>26</td><td>3%</td><td>331</td><td>6%</td></tr><tr><td>주소</td><td>52</td><td>6%</td><td>292</td><td>5%</td></tr><tr><td>계좌번호</td><td>41</td><td>4%</td><td>266</td><td>5%</td></tr><tr><td>이메일</td><td>43</td><td>5%</td><td>244</td><td>5%</td></tr><tr><td>주민등록번호</td><td>43</td><td>5%</td><td>175</td><td>3%</td></tr></tbody></table><div><h3>Holdout2 문서당 개인정보 수</h3><table class=""><thead><tr><th>많은 종류</th><th>개/문서</th></tr></thead><tbody><tr><td>콜백요청목록</td><td>34.3</td></tr><tr><td>지점업무일지</td><td>20.4</td></tr><tr><td>법인카드신규발급</td><td>13.4</td></tr><tr><td>채무조정상담</td><td>10.1</td></tr><tr><td>중도상환문의</td><td>9.7</td></tr></tbody></table><table class=""><thead><tr><th>적은 종류</th><th>개/문서</th></tr></thead><tbody><tr><td>챗봇상담로그</td><td>2.0</td></tr><tr><td>사내동호회공지</td><td>2.0</td></tr><tr><td>시스템장애보고</td><td>0.0</td></tr><tr><td>빈문서</td><td>0.0</td></tr></tbody></table></div></div><p class="note">카드번호·계좌번호 비중이 커지고(H1 3%·4% → H2 6%·5%), 표 형태 문서에 개인정보가 몰림</p></div><div class="foot">Holdout2 EDA · 사공삼 403</div></section><section class="slide"><div class="kicker">5. 개인정보</div><h1>표로 된 문서: 한 문서에 여러 사람</h1><div class="body"><div class="cols"><div class="doc"><div class="doc-h">H20589 · 콜백요청목록</div><pre>콜백 요청 목록 (2026-10-20 오후)
+작성: 박주빈 팀장
+
+| 순번 | 고객명 | 연락처 | 요청 내용 | 배정 |
+|---|---|---|---|---|
+| 1 | 장예결 | 01043575979 | 카드 배송 지연 | 최예훈 |
+| 2 | 김상훈 | 010 4271 5225 | 한도 문의 | 제갈동온 |
+| 3 | 도채슬 | 01059411049 | 한도 문의 | 길진석 |
+| 4 | 김한 | 010-7299-8948 | 분실 신고 후 재발급 | 한희영 |
+| 5 | 옥은슬 | 010-4833-2847 | 분실 신고 후 재발급 | 길진석 |
+| 6 | 이승윤 | 010-18…</pre></div><div class="doc"><div class="doc-h">H20005 · 법인카드신규발급</div><pre>법인카드 신규 발급 신청서
+신청일: 2026-02-21
+법인명: (주)새솔건설
+사업자등록번호: 838-88-60975
+<mark>법인등록번호: 118023-3131332</mark>
+대표자: 박가담
+대표 연락처: +82-10-2840-7894
+
+[사용자 목록]
+| 번호 | 이름 | 부서 | 휴대전화 | 월 한도 |
+|---|---|---|---|---|
+| 1 | 박가담 | 재무 | 010-2840-7894 | 1,500,000원 |
+| 2 | 차소솔 | 물류 | 010-2256-0616 | 5,500,000원 |
+| 3 | 성결 | 물류 | 010-2042-5760 | 1,000,000원 |
+| 4 | 심…</pre></div></div>
+<p class="note">콜백요청목록(문서당 34.3개)·법인카드신규발급 표에는 고객 이름·번호가 줄마다 나옴. 법인등록번호는 주민번호와 같은 6-7자리 모양이지만 정답 라벨이 아님</p></div><div class="foot">Holdout2 EDA · 사공삼 403</div></section><section class="slide"><div class="kicker">5. 개인정보</div><h1>개인정보가 놓인 자리: 문장에서 항목·표로</h1><div class="body"><table class=""><thead><tr><th>자리</th><th>Holdout1</th><th>비율</th><th>Holdout2</th><th>비율</th></tr></thead><tbody><tr><td>문장 속</td><td>524</td><td>57%</td><td>1,978</td><td>37%</td></tr><tr><td>항목: 값</td><td>278</td><td>30%</td><td>2,310</td><td>43%</td></tr><tr><td>표 칸</td><td>110</td><td>12%</td><td>1,102</td><td>20%</td></tr></tbody></table><div class="cols"><div class="doc"><div class="doc-h">H20001 · 개인정보열람청구</div><pre>청구인이 보유 정보 열람을 요청하여 아래 항목을 확인함.
+- <mark>연락처: </mark>01071146387
+- <mark>이메일: </mark>jdo84@mail.example.org
+- 주소: 경기 수원시 영통구 한빛대로 93 107동 1283호
+- <mark>결제 계좌: </mark>청솔은행 982-4606-5999-99
+
+열…</pre></div><div class="doc"><div class="doc-h">H20004 · 한도일시상향</div><pre>[한도 일시 상향 처리]
+<mark>고객 이유수 요청으로</mark> 05월 29일부터 30일간 한도를 14,000,000원로 일시 상향함.
+대상 카드: 4092-7135-4456-6747
+사유: 결혼 준비 비용
+심사역: 이성리 과장</pre></div></div>
+<p class="note">'항목: 값' = 개인정보 바로 앞이 '연락처:' 같은 항목 이름, '표 칸' = 바로 앞이 표 구분선 '|', 나머지는 문장 속</p></div><div class="foot">Holdout2 EDA · 사공삼 403</div></section><section class="slide"><div class="kicker">6. 표기 변형</div><h1>전화번호 표기: 한글로 읽은 번호가 새로 등장</h1><div class="body"><table class="tight"><thead><tr><th>모양 (숫자=9)</th><th>H1</th><th>H2</th><th>실제 예</th></tr></thead><tbody><tr><td><code>999-9999-9999</code></td><td>○</td><td>○</td><td>010-2840-7894</td></tr><tr><td><code>+99 99-9999-9999</code></td><td>○</td><td>○</td><td>+82 10-3861-3808</td></tr><tr><td><code>99-9999-9999</code></td><td>○</td><td></td><td>02-3425-7293</td></tr><tr><td><code>99999999999</code></td><td>○</td><td>○</td><td>01071146387</td></tr><tr><td><code>999 9999 9999</code></td><td>○</td><td>○</td><td>010 2541 4266</td></tr><tr><td><code>9999999999</code></td><td>○</td><td></td><td>0232576696</td></tr><tr><td><code>999.9999.9999</code></td><td>○</td><td>○</td><td>010.3204.1034</td></tr><tr><td><code>99 9999 9999</code></td><td>○</td><td></td><td>02 3103 5320</td></tr><tr><td><code>99.9999.9999</code></td><td>○</td><td></td><td>02.3472.7917</td></tr><tr><td><code>+99-99-9999-9999</code></td><td></td><td>○</td><td>+82-10-2840-7894</td></tr><tr><td><code>한글로 읽은 번호</code></td><td></td><td>○</td><td>공일공 팔사칠칠 일이공구</td></tr></tbody></table><p class="note">숫자 모양은 Holdout1 9가지 · Holdout2 6가지로 비슷 (Holdout2 는 지역번호 02 없음, +82- 꼴 추가). 대신 번호를 한글로 읽어 쓴 꼴이 15건 새로 등장 (챗봇 상담 로그) — 숫자 정규식으로는 안 잡히는 모양</p></div><div class="foot">Holdout2 EDA · 사공삼 403</div></section><section class="slide"><div class="kicker">6. 표기 변형</div><h1>표기 변형 실제 예</h1><div class="body"><div class="cols"><div class="doc"><div class="doc-h">H20006 · 챗봇상담로그</div><pre>[챗봇 상담 로그] 2026-09-30 15:35
+
+봇: 무엇을 도와드릴까요?
+사용자: 카드 분실했어요
+봇: 본인 확인을 위해 성함을 입력해 주세요.
+사용자: <mark>정 수 혁</mark>
+봇: 등록된 휴대전화 번호를 입력해 주세요.
+사용자: <mark>공일공 팔사칠칠 일이공구</mark>
+봇: 확인되었습니다. 분실 신고가 접수되었으며 카드 사용이 즉시 정지됩니다.
+사용자: 재발급은 언제 돼요?
+봇: 영업일 기준 5일 이내에 등록 주소로 배송됩니다.</pre></div>
+<div><div class="doc"><div class="doc-h">H20001 · 개인정보열람청구</div><pre>하여 아래 항목을 확인함.
+- 연락처: <mark>01071146387</mark>
+- 이메일: jdo84@mail.example.org
+- 주소: 경기 수원시 영통구 한빛대로 93 107동 1283호
+- 결제 계좌: 청솔은행 <mark>982-4606-5999-99</mark>
+
+열람 결과는 10일 이내 등기우편으로 발송함. 처리 담당: 박형윤 (준법감시팀)</pre></div><div class="doc"><div class="doc-h">H20033 · 결재보고서</div><pre>1. 대상 고객: 제도우 (<mark>4092 4076 2658 6158</mark>)
+2. 요청 내용: 결제일 변경 예외 승인
+3. 사유: 고객이 …</pre></div></div></div>
+<p class="note">카드 표기 변형 문서 H1 25 → H2 256, 계좌 23 → 220, 전화 75 → 335</p></div><div class="foot">Holdout2 EDA · 사공삼 403</div></section><section class="slide"><div class="kicker">7. 어려운 사례</div><h1>어려운 사례 태그 (문서 수)</h1><div class="body"><div class="cols"><table class="tight"><thead><tr><th>태그</th><th>뜻</th><th>H1</th><th>H2</th></tr></thead><tbody><tr><td><code>phone_format_variant</code></td><td>전화 표기 변형</td><td>75</td><td>335</td></tr><tr><td><code>card_format_variant</code></td><td>카드 표기 변형</td><td>25</td><td>256</td></tr><tr><td><code>account_format_variant</code></td><td>계좌 표기 변형</td><td>23</td><td>220</td></tr><tr><td><code>single_char_given_name</code></td><td>한 글자 이름</td><td>29</td><td>208</td></tr><tr><td><code>decoy_numbers</code></td><td>개인정보처럼 보이는 번호</td><td>6</td><td>185</td></tr><tr><td><code>address_format_variant</code></td><td>주소 표기 변형</td><td>33</td><td>165</td></tr><tr><td><code>given_only</code></td><td>성 없는 이름</td><td>36</td><td>147</td></tr><tr><td><code>homonym</code></td><td>동명이인</td><td>29</td><td>110</td></tr><tr><td><code>id_format_variant</code></td><td>주민번호 표기 변형</td><td>30</td><td>91</td></tr><tr><td><code>decoy_company_phone</code></td><td>회사 대표번호</td><td>8</td><td>90</td></tr><tr><td><code>compound_surname</code></td><td>복성 (독고·황보 …)</td><td>15</td><td>88</td></tr><tr><td><code>josa_attached</code></td><td>조사 붙은 이름</td><td>37</td><td>75</td></tr></tbody></table><table class="tight"><thead><tr><th>태그</th><th>뜻</th><th>H1</th><th>H2</th></tr></thead><tbody><tr><td><code>spaced_name</code></td><td>띄어 쓴 이름</td><td>53</td><td>60</td></tr><tr><td><code>english_name</code></td><td>영문 이름</td><td>-</td><td>20</td></tr><tr><td><code>no_pii</code></td><td>개인정보 없음</td><td>14</td><td>17</td></tr><tr><td><code>char_spaced_name</code></td><td>한 글자씩 띄운 이름</td><td>-</td><td>15</td></tr><tr><td><code>korean_numeral_phone</code></td><td>한글로 읽은 전화번호</td><td>-</td><td>15</td></tr><tr><td><code>decoy_words</code></td><td>이름처럼 보이는 말</td><td>14</td><td>15</td></tr><tr><td><code>long_doc</code></td><td>긴 문서</td><td>-</td><td>6</td></tr><tr><td><code>messy_input</code></td><td>지저분한 입력</td><td>-</td><td>5</td></tr><tr><td><code>duplicate_doc</code></td><td>중복 문서</td><td>-</td><td>3</td></tr><tr><td><code>same_doc_homonym</code></td><td>한 문서 안 동명이인</td><td>-</td><td>2</td></tr><tr><td><code>surname_title_unlabeled</code></td><td>성+직함 (라벨 아님)</td><td>26</td><td>-</td></tr></tbody></table></div><p class="note">태그는 데이터에 붙어 온 것. Holdout2 에만 있는 태그: english_name · char_spaced_name · korean_numeral_phone · long_doc · messy_input · duplicate_doc · same_doc_homonym</p></div><div class="foot">Holdout2 EDA · 사공삼 403</div></section><section class="slide"><div class="kicker">7. 어려운 사례</div><h1>Holdout2 에 새로 생긴 함정</h1><div class="body"><div class="cols"><div class="doc"><div class="doc-h">H20009 · 영문고객메일</div><pre>Dear <mark>Saebom Card</mark>,
+
+This is <mark>Seongyul Kim</mark>. My card ending in 3903 was declined in Vancouver. Please call me at +82 10-2083-0679.
+
+Best regards,
+<mark>Seongyul Kim</mark>
+
+---
+[내부 메모] 해외결제지원팀 나채온 고객에게 국제전화로 연락 예정.</pre></div><div class="doc"><div class="doc-h">H20042 · 시스템장애보고</div><pre>장애 번호: <mark>INC-841039</mark>
+서버: <mark>10.78.215.206</mark>
+재발 방지: 모니터링 임계값 조정, 야간 배치 일정 분리
+작성: 디지털채널팀</pre></div></div>
+<div class="cols"><div class="doc"><div class="doc-h">H20025 · 카드배송문의</div><pre>카드 배송 추적 문의
+고객: 김성리
+배송지: (29090) 충청북도 청주시 흥덕구 누리로 208
+연락처: 010 7774 6781
+송장번호: <mark>742665443660</mark>
+배송업체 고객센터: <mark>1588-1255</mark>
+내용: 발급 후 9일이 지났으나 카드 미수령. 배송업체 확인 결과 재배송 예정.
+처리: 김영결</pre></div><div class="doc"><div class="doc-h">H20002 · 해외결제차단해제</div><pre>상담사 &gt; 확인되었습니다. 한희진 고객님, 해외 결제 차단 설정이 켜져 있어 해제해 드렸습니다.
+고객 &gt; 감사합니다! 카드번호 <mark>끝자리가 1612</mark>인 카드 맞죠?
+상담사 &gt; 네 맞습니다. 즐거운 여행 되세요.</pre></div></div></div><div class="foot">Holdout2 EDA · 사공삼 403</div></section><section class="slide"><div class="kicker">8. 사람</div><h1>사람: 여러 문서에 걸쳐 나온다</h1><div class="body"><table class=""><thead><tr><th></th><th>Holdout1</th><th>Holdout2</th></tr></thead><tbody><tr><td>이름 형태: 성+이름 / 성 없음 / 띄어 씀</td><td>471 / 36 / 53</td><td>2,790 / 286 / 100</td></tr><tr><td>한 문서에만 나오는 실명</td><td>101</td><td>93</td></tr><tr><td>2~5개 문서에 나오는 실명</td><td>27</td><td>321</td></tr><tr><td>6개 이상 문서</td><td>21</td><td>97</td></tr><tr><td>가장 많이 나온 실명</td><td>이지영(29), 김성호(19), 문시우(12)</td><td>변린(56), 박주빈(39), 김영결(36)</td></tr></tbody></table><div class="cols"><div class="doc"><div class="doc-h">H20001 · 개인정보열람청구</div><pre>개인정보 열람 청구 처리 기록
+접수일: 2026-05-30
+<mark>청구인: 도재호</mark>
+
+청구인이 보유 정보 열람을 요청하여 아래 항목을 …</pre></div><div class="doc"><div class="doc-h">H20022 · 채무조정상담</div><pre>[상담 녹취] 채무조정 상담 / 2026-10-14 16:53
+<mark>상담원: 도재호</mark> (채권관리팀)
+
+상담원: 안녕하세요, 새봄카드 채권관리팀 재호입니다. 본인 확인을 …</pre></div></div>
+<p class="note">같은 이름 '도재호' — 개인정보 열람을 청구한 고객과 채권관리팀 상담원은 다른 사람 (동명이인 태그 110건)</p></div><div class="foot">Holdout2 EDA · 사공삼 403</div></section><section class="slide"><div class="kicker">8. 사람</div><h1>고객과 직원: 누가 여러 문서에 나오나</h1><div class="body"><div class="cols"><div><h3>Holdout1</h3><table class=""><thead><tr><th>역할(추정)</th><th>실명 수</th><th>평균 문서 수</th><th>6개+ 문서</th></tr></thead><tbody><tr><td>직원</td><td>62</td><td>3.1</td><td>9</td></tr><tr><td>고객</td><td>30</td><td>4.2</td><td>10</td></tr><tr><td>모름</td><td>57</td><td>1.5</td><td>2</td></tr></tbody></table><h3>Holdout2</h3><table class=""><thead><tr><th>역할(추정)</th><th>실명 수</th><th>평균 문서 수</th><th>6개+ 문서</th></tr></thead><tbody><tr><td>직원</td><td>107</td><td>10.3</td><td>54</td></tr><tr><td>고객</td><td>321</td><td>3.6</td><td>43</td></tr><tr><td>모름</td><td>83</td><td>1.5</td><td>0</td></tr></tbody></table></div><div><table class="tight"><thead><tr><th>Holdout2 직원 (많이 나온 순)</th><th>문서</th></tr></thead><tbody><tr><td>변린</td><td>56</td></tr><tr><td>박주빈</td><td>39</td></tr><tr><td>김영결</td><td>36</td></tr><tr><td>최예훈</td><td>35</td></tr><tr><td>길진석</td><td>33</td></tr><tr><td>한희영</td><td>32</td></tr></tbody></table><table class="tight"><thead><tr><th>Holdout2 고객 (많이 나온 순)</th><th>문서</th></tr></thead><tbody><tr><td>한시담</td><td>8</td></tr><tr><td>안현빈</td><td>8</td></tr><tr><td>명경윤</td><td>8</td></tr><tr><td>편담</td><td>7</td></tr><tr><td>추유아</td><td>7</td></tr><tr><td>이태민</td><td>7</td></tr></tbody></table></div></div><p class="note">역할은 정답에 없어 문맥으로 추정: 이름 뒤 "고객·님" → 고객 / 이름 뒤 직급·괄호, 앞에 "상담원:·작성:·처리:·담당" → 직원. 동명이인은 한 줄로 셈</p></div><div class="foot">Holdout2 EDA · 사공삼 403</div></section><section class="slide"><div class="kicker">9. 검색 질의</div><h1>검색 질의</h1><div class="body"><div class="cols"><table class="tight"><thead><tr><th>질의 유형</th><th>H1</th><th>H2</th></tr></thead><tbody><tr><td><code>name_topic</code></td><td>8</td><td>29</td></tr><tr><td><code>name_variant</code></td><td>6</td><td>10</td></tr><tr><td><code>staff_owner</code></td><td>-</td><td>15</td></tr><tr><td><code>value_exact</code></td><td>7</td><td>20</td></tr><tr><td><code>value_format_variant</code></td><td>6</td><td>12</td></tr><tr><td><code>address_exact</code></td><td>4</td><td>8</td></tr><tr><td><code>address_partial</code></td><td>4</td><td>10</td></tr><tr><td><code>semantic_no_pii</code></td><td>8</td><td>22</td></tr><tr><td><code>hybrid_paraphrase</code></td><td>7</td><td>15</td></tr><tr><td><code>homonym_role</code></td><td>2</td><td>8</td></tr><tr><td><code>long_doc_person</code></td><td>-</td><td>6</td></tr><tr><td><code>role_agent</code></td><td>6</td><td>-</td></tr><tr><td><code>person_all</code></td><td>6</td><td>-</td></tr><tr><td><code>address_format_variant</code></td><td>4</td><td>-</td></tr><tr><td><code>hybrid_person_content</code></td><td>6</td><td>-</td></tr><tr><td><code>hybrid_within_type</code></td><td>4</td><td>-</td></tr><tr><td><code>hybrid_status</code></td><td>4</td><td>-</td></tr><tr><td><code>hybrid_homonym_semantic</code></td><td>6</td><td>-</td></tr></tbody></table><div><table class=""><thead><tr><th></th><th>Holdout1</th><th>Holdout2</th></tr></thead><tbody><tr><td>질의 수</td><td>88</td><td>155</td></tr><tr><td>질의 속에 개인정보</td><td>76</td><td>123</td></tr><tr><td>정답 문서 수 평균</td><td>3.0</td><td>7.3</td></tr><tr><td>정답 1개인 질의</td><td>47</td><td>69</td></tr><tr><td>정답 10개 이상</td><td>1</td><td>31</td></tr><tr><td>헷갈리는 문서 지정</td><td>29</td><td>8</td></tr></tbody></table><p class="note">새 유형: <code>staff_owner</code>(직원이 담당한 문서) · <code>long_doc_person</code>(긴 문서 속 사람)</p></div></div></div><div class="foot">Holdout2 EDA · 사공삼 403</div></section><section class="slide"><div class="kicker">9. 검색 질의</div><h1>질의 유형별 예</h1><div class="body"><table class="tight"><thead><tr><th>유형</th><th>질의</th><th>정답 문서</th></tr></thead><tbody><tr><td><code>name_topic</code></td><td>은우솔 방문 상담</td><td>H20139, H20654</td></tr><tr><td><code>name_variant</code></td><td>국 건온 고객님 카드론 중도상환 문의 건 찾아주세요</td><td>H20416</td></tr><tr><td><code>staff_owner</code></td><td>김시결 담당 포인트 이관</td><td>H20282, H20375, H20507 …</td></tr><tr><td><code>value_format_variant</code></td><td>고객이 전화로 카드번호 4364 0498 5625 1425 불러줬는데, 관련된 문서 찾아줘</td><td>H20605, H20627</td></tr><tr><td><code>address_partial</code></td><td>부산 동래구 고객</td><td>H20027, H20097, H20185 …</td></tr><tr><td><code>semantic_no_pii</code></td><td>연체된 카드대금을 분할 상환으로 조정하는 상담 녹취</td><td>H20022, H20024, H20028 …</td></tr><tr><td><code>hybrid_paraphrase</code></td><td>박연희 자기 정보 뭐 갖고 있는지 보여 달라고 한 건</td><td>H20109</td></tr><tr><td><code>homonym_role</code></td><td>직원 박형윤 관련 문서만 찾아주세요</td><td>H20001, H20015, H20050 …</td></tr><tr><td><code>long_doc_person</code></td><td>천민결 고객 지점 업무일지에 나온 거 찾아줘</td><td>H20140, H20579</td></tr></tbody></table></div><div class="foot">Holdout2 EDA · 사공삼 403</div></section><section class="slide"><div class="kicker">9. 검색 질의</div><h1>질의 속 값과 정답 문서 속 값</h1><div class="body"><table class=""><thead><tr><th></th><th>Holdout1</th><th>Holdout2</th></tr></thead><tbody><tr><td>질의 속 개인정보</td><td>77</td><td>123</td></tr><tr><td>정답 문서에 같은 글자로 있음</td><td>62 (81%)</td><td>102 (83%)</td></tr><tr><td>표기가 다름</td><td>15</td><td>21</td></tr></tbody></table><table class="tight"><thead><tr><th>질의 유형</th><th>라벨</th><th>질의에 쓴 값</th><th>문서에 적힌 값</th><th>문서</th></tr></thead><tbody><tr><td><code>name_topic</code></td><td>이름</td><td><code>현형슬</code></td><td><code>현 형 슬</code></td><td>H20350</td></tr><tr><td><code>name_variant</code></td><td>이름</td><td><code>국 건온</code></td><td><code>국건온</code></td><td>H20416</td></tr><tr><td><code>value_format_variant</code></td><td>전화번호</td><td><code>01054850690</code></td><td><code>010-5485-0690</code></td><td>H20073</td></tr><tr><td><code>value_format_variant</code></td><td>계좌번호</td><td><code>47218219828845</code></td><td><code>472-182198-28845</code></td><td>H20120</td></tr><tr><td><code>value_format_variant</code></td><td>주민등록번호</td><td><code>6005211433908</code></td><td><code>600521-1433908</code></td><td>H20478</td></tr><tr><td><code>long_doc_person</code></td><td>이름</td><td><code>신세아</code></td><td><code>신 세아</code></td><td>H20423</td></tr></tbody></table><p class="note">이름 띄어쓰기, 번호 붙여 쓰기·하이픈 위치가 달라도 같은 값으로 찾아야 함</p></div><div class="foot">Holdout2 EDA · 사공삼 403</div></section><section class="slide"><div class="kicker">10. 품질</div><h1>데이터 품질: 지저분한 입력 · 중복 · 같은 문서 속 동명이인</h1><div class="body"><table class="tight"><thead><tr><th>태그</th><th>뜻</th><th>문서</th><th>종류</th></tr></thead><tbody><tr><td><code>messy_input</code></td><td>지저분한 입력</td><td>5</td><td>리볼빙해지요청 3, 빈문서 2</td></tr><tr><td><code>duplicate_doc</code></td><td>중복 문서</td><td>3</td><td>고객방문상담 1, 연말정산증빙발급 1, 채무조정상담 1</td></tr><tr><td><code>same_doc_homonym</code></td><td>한 문서 안 동명이인</td><td>2</td><td>채무조정상담 2</td></tr><tr><td><code>no_pii</code></td><td>개인정보 없음</td><td>17</td><td>시스템장애보고 15, 빈문서 2</td></tr></tbody></table><div class="cols"><div class="doc"><div class="doc-h">H20310 · 리볼빙해지요청</div><pre><mark>■□■ [스캔 변환본] ■□■</mark>
+<mark>▶▶</mark> 리볼빙 해지 요청서
+▶ 신청인: 양영솔
+▶ 카드번호: 5327 9116 4714 7522
+▶ 연락처: 010-4539-9780
+▶ 해지 사유: 수수료 부담
+▶ 처리: 즉시 해지, 미결제 잔액 일시 청구 안내
+▶ 접수: 표진규</pre></div><div class="doc"><div class="doc-h">H20150 · 채무조정상담</div><pre>[상담 녹취] 채무조정 상담 / 2026-04-08 11:47
+<mark>상담원: 박형윤</mark> (준법감시팀)
+
+상담원: 안녕하세요, 새봄카드 채권관리팀 형윤입니다. 본인 확인을 위해 성함 말씀 부탁드립니다.
+고객: <mark>네, 박형윤입니다</mark>.
+상담원: 주민등록번호 앞자리와 뒷자리 말씀해 주시겠어요?
+고객: 940703-1551806 요.
+상담원: 확인 감사합니다.…</pre></div></div>
+<p class="note">원문이 완전히 같은 문서 3건. 개인정보 없는 문서 17건은 시스템장애보고 15 + 빈문서 2</p></div><div class="foot">Holdout2 EDA · 사공삼 403</div></section><section class="slide"><div class="kicker">10. 품질</div><h1>문서 날짜 (문서의 첫 날짜, 월별)</h1><div class="body"><table class="tight"><thead><tr><th>월</th><th>2025-01</th><th>2026-01</th><th>2026-02</th><th>2026-03</th><th>2026-04</th><th>2026-05</th><th>2026-06</th><th>2026-07</th><th>2026-08</th><th>2026-09</th><th>2026-10</th><th>2026-11</th><th>2026-12</th></tr></thead><tbody><tr><td>Holdout1</td><td></td><td>7</td><td>7</td><td>10</td><td>12</td><td>17</td><td>7</td><td>12</td><td>12</td><td>10</td><td>4</td><td>8</td><td>4</td></tr><tr><td>Holdout2</td><td>36</td><td>59</td><td>40</td><td>51</td><td>67</td><td>54</td><td>52</td><td>49</td><td>47</td><td>65</td><td>46</td><td></td><td></td></tr></tbody></table><p class="note">날짜를 찾은 문서: Holdout1 110/187, Holdout2 566/756. 2025년 날짜는 연말정산 대상 기간처럼 지난해를 가리키는 경우</p></div><div class="foot">Holdout2 EDA · 사공삼 403</div></section><section class="slide"><div class="kicker">10. 정리</div><h1>정리: Holdout1 과 달라진 점</h1><div class="body"><ol class="sum">
+<li><b>문서 종류가 전부 새것</b> — 23종 중 Holdout1 과 겹치는 종류 0개, 종류마다 같은 양식 반복</li>
+<li><b>더 길고 다양한 형태</b> — 표 · 영문 메일 · 챗봇 로그 · 하루치 업무일지, 빈 문서 2건</li>
+<li><b>개인정보가 더 빽빽</b> — 문서당 4.9 → 7.1개, 카드·계좌 비중 증가</li>
+<li><b>표기 변형 확대</b> — 한글로 읽은 전화번호 새로 등장, 카드·계좌 표기 변형 문서 약 10배</li>
+<li><b>개인정보처럼 보이는 것</b> — 법인등록번호, 서버 IP, 회사 대표번호, 송장번호, 카드 끝자리</li>
+<li><b>사람이 여러 문서에 걸침</b> — 2개 이상 문서에 나오는 실명 48 → 418명, 동명이인 110건</li>
+<li><b>질의는 정답 문서가 많아짐</b> — 평균 3.0 → 7.3개, 10개 이상 31개</li>
+<li><b>개인정보가 놓인 자리</b> — 문장 속이 줄고 '항목: 값'·표 칸이 늘어남</li>
+<li><b>틀이 정해진 문서</b> — 대부분 종류가 양식 몇 가지뿐 (지점업무일지만 예외)</li>
+</ol></div><div class="foot">Holdout2 EDA · 사공삼 403</div></section></body></html>
