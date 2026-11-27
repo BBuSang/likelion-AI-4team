@@ -12,10 +12,26 @@ import type { LinkGroup, ReviewFlag, ReviewHint, Span, StagingDoc, StagingRow } 
 import { DOC_STATUS, FLAG_KO } from '../api/ingest.api';
 import './review.css';
 
+// 사람 잇기 판단 (AI linking.py). '이미 저장된 사람' = 앞서 저장한 문서에 나온 사람
 const BASIS: Record<string, string> = {
-  anchor_link: '전화·이메일 같은 값으로 기존 사람과 연결', aff_link: '소속이 같아 기존 사람과 연결',
-  compat_link: '정보가 겹치지 않아 기존 사람과 연결', unique_link: '같은 이름이 한 명뿐이라 연결 (확인 권장)',
-  new: '새 사람', ambiguous: '후보가 여럿 (골라 주세요)', unresolved: '판단 보류', chosen_link: '검수자가 고름',
+  anchor_link: '이미 저장된 사람과 같은 사람으로 이었어요. 전화번호·이메일 같은 값이 같아요.',
+  aff_link: '이미 저장된 사람과 같은 사람으로 이었어요. 이름과 소속이 같아요.',
+  compat_link: '이미 저장된 사람과 같은 사람으로 이었어요. 이름이 같고 다른 정보도 서로 어긋나지 않아요.',
+  unique_link: '이미 저장된 같은 이름의 사람과 같은 사람으로 이었어요. 그 이름이 한 명뿐이라 이은 것이고, 이름 말고는 근거가 없어요.',
+  new: '처음 나온 사람이라 새 사람으로 저장해요.',
+  ambiguous: '같은 이름의 사람이 여럿이라 누구인지 정하지 못했어요.',
+  unresolved: '누구인지 정하지 않고 이름으로만 저장해요.',
+  chosen_link: '검수자가 고른 사람과 이어요.',
+};
+// 확인이 필요한 판단에서 검수자가 할 일
+const CHECK_HOW: Record<string, string> = {
+  unique_link: '동명이인일 수 있어요. 문맥상 같은 사람이면 그대로 두고, 다른 사람이면 "새 사람으로", 모르겠으면 "판단 보류"를 고르세요.',
+  ambiguous: '아래에서 어느 사람인지 고르세요. 모르겠으면 "판단 보류"를 고르세요.',
+};
+// 근거 코드 → 말 ('name' 은 위 문장에 이미 들어 있어 따로 안 보임)
+const EVIDENCE_KO: Record<string, string> = {
+  phone_number: '전화번호', email: '이메일', account_number: '계좌번호', card_number: '카드번호',
+  resident_registration_number: '주민번호', address: '주소', affiliation: '소속', compatible: '어긋나는 정보 없음',
 };
 
 type Pop = { kind: 'new'; start: number; end: number; x: number; y: number } | { kind: 'edit'; i: number; x: number; y: number };
@@ -382,7 +398,7 @@ export default function ReviewPage() {
                 {f.p !== null && <span className="muted"> (모델 {Math.round(f.p * 100)}%)</span>}
               </p>
             ))}
-            {(doc.review.link_check ?? []).length > 0 && <p className="small">같은 사람 잇기 판단이 약해요. 아래에서 확인해 주세요.</p>}
+            {(doc.review.link_check ?? []).length > 0 && <p className="small">동명이인 확인 필요</p>}
             {doc.review.doc_type_check && <p className="small">문서 종류가 애매해요 ({doc.review.doc_type_check.pick}{doc.review.doc_type_check.second ? ` / ${doc.review.doc_type_check.second}` : ''}). 위에서 확인해 주세요.</p>}
             {hints.length > 0 && <>
               <p className="small muted" style={{ marginTop: 8 }}>놓쳤을 수 있는 곳 (물결 밑줄) — 개인정보면 추가하세요</p>
@@ -415,14 +431,20 @@ export default function ReviewPage() {
                   <div className="spacer" />
                   {g.needs_check && <span className="badge badge-warn">확인</span>}
                 </div>
-                <p className="small muted" style={{ marginTop: 4 }}>{BASIS[g.basis] ?? g.basis}{g.evidence.length ? ` · 근거 ${g.evidence.join(', ')}` : ''}</p>
+                <p className="small muted" style={{ marginTop: 4 }}>{BASIS[g.basis] ?? g.basis}</p>
+                {g.evidence.some((x) => EVIDENCE_KO[x]) && (
+                  <p className="small muted">같은 값: {g.evidence.map((x) => EVIDENCE_KO[x]).filter(Boolean).join(', ')}</p>
+                )}
+                {g.needs_check && CHECK_HOW[g.basis] && (
+                  <p className="small" style={{ marginTop: 4, color: 'var(--warn)' }}>{CHECK_HOW[g.basis]}</p>
+                )}
                 {ask && (
                   <select className="select" style={{ height: 32, marginTop: 6 }} value={choices[g.id] ?? ''}
                           onChange={(e) => setChoices((c) => { const n = { ...c }; if (e.target.value) n[g.id] = e.target.value; else delete n[g.id]; return n; })}>
-                    <option value="">자동 판단 그대로</option>
-                    {g.candidates.map((p) => <option key={p} value={p}>기존 사람 {p.slice(0, 10)}</option>)}
-                    <option value="new">새 사람으로</option>
-                    <option value="unresolved">판단 보류</option>
+                    <option value="">자동 판단 그대로{g.basis === 'unique_link' ? ' (같은 사람)' : ''}</option>
+                    {g.candidates.map((p) => <option key={p} value={p}>이미 저장된 사람 {p.slice(0, 10)}</option>)}
+                    <option value="new">새 사람으로 (동명이인)</option>
+                    <option value="unresolved">판단 보류 (이름으로만 저장)</option>
                   </select>
                 )}
               </div>
