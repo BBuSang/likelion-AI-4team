@@ -1,8 +1,8 @@
 """적재·검수 API (/internal/ingest/*). 스프링만 부름 — 로그인·review_ingest 권한 확인은 스프링이 하고
-누가 했는지(actor·uploader)를 본문에 담아 넘긴다 (worklog 4-1-1, 3-7)."""
+누가 했는지(actor·uploader)를 본문에 담아 넘긴다."""
 from typing import Dict, List, Literal, Optional
 
-from fastapi import APIRouter, BackgroundTasks, HTTPException
+from fastapi import APIRouter, BackgroundTasks, HTTPException, Query, Request
 from pydantic import BaseModel, Field
 
 from app.ingest import service
@@ -32,12 +32,19 @@ class PreviewRequest(BaseModel):
     choices: Optional[Dict[str, str]] = None
 
 
+class EditTextRequest(BaseModel):
+    actor: str = Field(min_length=1, max_length=100)
+    text: str = Field(min_length=1, max_length=20_000)
+    spans: Optional[List[Span]] = None   # 화면의 지금 구간 (옛 본문 위치). 없으면 저장된 구간
+
+
 class ReviewRequest(BaseModel):
     actor: str = Field(min_length=1, max_length=100)
     action: Literal["approve", "reject"]
     spans: Optional[List[Span]] = None
     reason: Optional[str] = Field(default=None, max_length=500)
     choices: Optional[Dict[str, str]] = None  # 사람 잇기: {그룹 id: 기존 pid | "new" | "unresolved"}
+    doc_type: Optional[str] = Field(default=None, max_length=50)  # 승인할 때 문서 종류를 고쳤으면
 
 
 def _spans(spans):
@@ -47,12 +54,37 @@ def _spans(spans):
 @router.post("/jobs", status_code=202)
 def upload(req: UploadRequest, background: BackgroundTasks):
     """업로드 → job 생성. 탐지는 응답 뒤 백그라운드로 (모델 첫 로딩 1~2분). 진행은 GET /jobs/{id}"""
+    skipped = []
     try:
-        job_id, docs = service.create_job(req.uploader, req.source, req.filename, req.content, req.doc_type)
+        job_id, docs = service.create_job(req.uploader, req.source, req.filename, req.content, req.doc_type, skipped)
     except service.IngestError as e:
         raise HTTPException(400, str(e))
     background.add_task(service.process_job, job_id, docs)
-    return {"job_id": job_id, "total": len(docs), "status": "processing"}
+    return {"job_id": job_id, "total": len(docs), "status": "processing", "skipped": skipped}
+
+
+@router.post("/audio-jobs", status_code=202)
+async def upload_audio(request: Request, background: BackgroundTasks, uploader: str, filename: Optional[str] = None,
+                       doc_type: Optional[str] = None, kind: Literal["call", "meeting"] = "call",
+                       speakers: Optional[int] = Query(None, ge=1, le=10)):
+    """녹음 업로드 (본문 = 녹음 파일 바이트 그대로, wav·mp3·m4a 등). 받아쓰기 → 탐지는 응답 뒤 백그라운드로, 한 건씩.
+    kind: call 상담 · meeting 회의 (목소리로 화자 나눔), speakers: 회의 참석자 수 (모르면 비움)
+    녹음 파일은 저장하지 않음 (받아쓴 글만 staging 에)"""
+    if not uploader.strip() or len(uploader) > 100 or (filename and len(filename) > 255) or (doc_type and len(doc_type) > 50):
+        raise HTTPException(422, "요청 형식이 맞지 않습니다")
+    data = await request.body()
+    try:
+        job_id, info = service.create_audio_job(uploader, filename, data, doc_type)
+    except service.IngestError as e:
+        raise HTTPException(400, str(e))
+    background.add_task(service.process_audio_job, job_id, data, doc_type, kind, speakers)
+    return {"job_id": job_id, "total": 1, "status": "transcribing", **info}
+
+
+@router.get("/doc-types")
+def doc_types():
+    """올리기 화면 드롭다운: 저장된 문서 종류 (많은 순)"""
+    return service.doc_types()
 
 
 @router.get("/jobs")
@@ -66,6 +98,22 @@ def job(job_id: int):
     if s is None:
         raise HTTPException(404, "job 없음")
     return s
+
+
+class CancelRequest(BaseModel):
+    actor: str = Field(min_length=1, max_length=100)
+
+
+@router.post("/jobs/{job_id}/cancel")
+def cancel(job_id: int, req: CancelRequest):
+    """잘못 올린 업로드 취소: 검수 대기 문서는 버리고, 이미 저장된 문서는 검색에서 지움"""
+    try:
+        out = service.cancel_job(job_id, req.actor)
+    except service.Conflict as e:
+        raise HTTPException(409, str(e))
+    if out is None:
+        raise HTTPException(404, "job 없음")
+    return out
 
 
 @router.get("/jobs/{job_id}/docs")
@@ -92,10 +140,24 @@ def preview(staging_id: int, req: PreviewRequest):
     return out
 
 
+@router.post("/docs/{staging_id}/text")
+def edit_text(staging_id: int, req: EditTextRequest):
+    """검수 때 본문 고치기 (받아쓰기 오류·화자 이름 등). 안 바뀐 곳의 구간은 옮기고 바뀐 곳은 다시 탐지"""
+    try:
+        out = service.edit_text(staging_id, req.actor, req.text, _spans(req.spans) if req.spans is not None else None)
+    except service.IngestError as e:
+        raise HTTPException(400, str(e))
+    except service.Conflict as e:
+        raise HTTPException(409, str(e))
+    if out is None:
+        raise HTTPException(404, "문서 없음")
+    return out
+
+
 @router.post("/docs/{staging_id}/review")
 def review(staging_id: int, req: ReviewRequest):
     try:
-        out = service.review(staging_id, req.actor, req.action, _spans(req.spans), req.reason, req.choices)
+        out = service.review(staging_id, req.actor, req.action, _spans(req.spans), req.reason, req.choices, req.doc_type)
     except service.IngestError as e:
         raise HTTPException(400, str(e))
     except service.Conflict as e:

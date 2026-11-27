@@ -1,4 +1,4 @@
-"""처리 상태 추출 (worklog 19장)."""
+"""처리 상태 추출."""
 from app.rag import status as st
 
 

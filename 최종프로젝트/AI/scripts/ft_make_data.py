@@ -1,4 +1,4 @@
-"""탐지 모델 추가 학습용 합성 데이터 (worklog 31장). 개선·확인 세트(synth_hard_*, synth_dev, synth2·3, holdout)는 안 씀.
+"""탐지 모델 추가 학습용 합성 데이터. 개선·확인 세트(synth_hard_*, synth_dev, synth2·3, holdout)는 안 씀.
 
     python scripts/ft_make_data.py frames      # ① gpt-6-luna 로 문장 틀(빈칸만, 개인정보 없음) 만들기 → outputs/ft/frames.jsonl
     python scripts/ft_make_data.py fill        # ② 틀에 가짜 값 채워 학습 데이터 → outputs/ft/train.jsonl, valid.jsonl

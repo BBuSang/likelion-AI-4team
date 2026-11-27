@@ -21,7 +21,7 @@ const NO_AUTH_REDIRECT = ['/api/auth/login', '/api/auth/signup', '/api/auth/chec
 
 let refreshPromise: Promise<void> | null = null;
 
-/** 만료 5분 전이면 토큰 갱신 (axios 요청 전 + fetch 스트리밍 전, worklog 59장) */
+/** 만료 5분 전이면 토큰 갱신 (axios 요청 전 + fetch 스트리밍 전) */
 export async function refreshTokenIfNeeded(): Promise<void> {
   const token = getToken();
   if (!token) return;

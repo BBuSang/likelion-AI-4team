@@ -1,0 +1,18 @@
+{
+ "docs": 756,
+ "chunks": 921,
+ "tokens": 1988,
+ "persons": 714,
+ "employees": 127,
+ "guard_masked": 103,
+ "visibility": {
+  "team": 524,
+  "restricted": 217,
+  "public": 15
+ },
+ "ms_per_doc": {
+  "org": 0.8,
+  "mask": 0.9,
+  "embed": 44.2
+ }
+}

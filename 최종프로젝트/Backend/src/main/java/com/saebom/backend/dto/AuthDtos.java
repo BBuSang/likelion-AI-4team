@@ -59,7 +59,7 @@ public final class AuthDtos {
     public record EmailVerifyRequest(@NotBlank @Email @Size(max = 100) String email,
                                      @NotBlank @Size(max = 10) String code) {}
 
-    /** 비밀번호 재설정: 이메일 인증을 마친 뒤 새 비밀번호 (worklog 42장) */
+    /** 비밀번호 재설정: 이메일 인증을 마친 뒤 새 비밀번호 */
     public record PasswordResetRequest(@NotBlank @Email @Size(max = 100) String email,
                                        @NotBlank @Size(min = 8, max = 72) String password) {}
 

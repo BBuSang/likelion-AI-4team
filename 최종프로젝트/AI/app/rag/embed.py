@@ -136,7 +136,7 @@ def warmup():
 
 
 def _hf(texts):
-    """로컬 모델 (worklog 17장). 기본 BAAI/bge-m3 — CLOVA 의 bge-m3 와 같은 벡터 (17-2). KURE-v1 도 같은 1024차원.
+    """로컬 모델. 기본 BAAI/bge-m3 — CLOVA 의 bge-m3 와 같은 벡터 (17-2). KURE-v1 도 같은 1024차원.
     모델은 처음 쓸 때 읽음 (CPU 에서 수십 초, 서버는 시작 때 warmup). 정규화한 벡터 → pgvector 코사인 거리와 맞음"""
     cache = _load_cache()
     todo = list(dict.fromkeys(t for t in texts if _cache_key(t) not in cache))

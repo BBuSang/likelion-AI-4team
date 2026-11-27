@@ -7,7 +7,7 @@ venv/
 # 원문·가명처리 데이터, 캐시, 평가 결과는 올리지 않음
 data/*
 !data/.gitkeep
-# 공개 자료 RAG (worklog 53장): 상품 목록·법령 덤프(LFS)·스키마는 올리고, 은행 문서 원문·계산한 벡터는 올리지 않음
+# 공개 자료 RAG: 상품 목록·법령 덤프(LFS)·스키마는 올리고, 은행 문서 원문·계산한 벡터는 올리지 않음
 !data/public_rag/
 data/public_rag/product/chunks/
 data/public_rag/product/vectors.npz
@@ -19,7 +19,11 @@ eval/
 scripts/audit_detect.py
 scripts/eval_agent.py
 scripts/eval_replan.py
+scripts/eval_followup.py
 scripts/eval_search.py
 scripts/agent_report.py
 scripts/compare_embed_vectors.py
 scripts/run_embed_compare.sh
+scripts/eval_stt.py
+scripts/make_stt_audio.py
+scripts/stt_calls.py

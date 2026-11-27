@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 /**
- * 관리자 기능 (worklog 11-4): 가입 승인 + 직원 연결, 사용자 정보 보기·바꾸기, 팀 목록, 변경 기록.
+ * 관리자 기능: 가입 승인 + 직원 연결, 사용자 정보 보기·바꾸기, 팀 목록, 변경 기록.
  * 모든 변경은 admin_audit_log 에 전후 값으로 남김.
  */
 @Service
@@ -86,7 +86,7 @@ public class AdminService {
         } else {
             role = req.role() != null ? req.role() : defaultRole(u);
             // 안 A: 문서에 없는 사람 → AI 서버에 새 직원 번호. 실패하면 이 승인도 롤백 (AI 쪽엔 빈 직원이 남을 수 있음)
-            // 계정에 이미 쓰인 번호를 같이 보냄: 문서를 다시 적재하면 AI 쪽 U 직원이 지워져 번호가 겹쳤음 (worklog 44장)
+            // 계정에 이미 쓰인 번호를 같이 보냄: 문서를 다시 적재하면 AI 쪽 U 직원이 지워져 번호가 겹쳤음
             Employee e = ai.createEmployee(u.getName(), u.getTeam() == null ? null : u.getTeam().getName(),
                     u.getPosition() == null ? null : u.getPosition().getName(), role.name(), users.findNewStyleEmpIds());
             if (users.findByEmpId(e.empId()).filter(o -> !o.getId().equals(u.getId())).isPresent()) {
@@ -106,8 +106,14 @@ public class AdminService {
         return AdminUserResponse.of(u);
     }
 
+    static final int SUSPEND_REASON_MAX = 500;
+
     @Transactional
     public AdminUserResponse update(Long adminId, Long id, UpdateUserRequest req) {
+        // 정지는 사유가 있어야 (변경 기록에 남겨 나중에 왜 막았는지 알 수 있게)
+        String reason = req.reason() == null ? "" : req.reason().strip();
+        if (req.status() == UserStatus.SUSPENDED && reason.isEmpty()) throw ApiException.badRequest("정지 사유를 입력하세요.");
+        if (reason.length() > SUSPEND_REASON_MAX) throw ApiException.badRequest("정지 사유는 " + SUSPEND_REASON_MAX + "자까지 쓸 수 있습니다.");
         User u = user(id);
         Map<String, Object[]> changes = new LinkedHashMap<>();
         applyTeamPosition(u, req.teamId(), req.positionId(), changes);
@@ -127,6 +133,7 @@ public class AdminService {
                 throw ApiException.badRequest("자기 계정은 정지할 수 없습니다.");
             }
             set(changes, "status", u.getStatus(), req.status());
+            if (req.status() == UserStatus.SUSPENDED) changes.put("reason", new Object[]{null, reason});
             u.setStatus(req.status());
         }
         if (Boolean.TRUE.equals(req.unlinkEmployee())) {

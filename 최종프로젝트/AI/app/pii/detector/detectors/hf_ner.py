@@ -44,7 +44,7 @@ WINDOW, STRIDE = 510, 128
 class TokenClassifier:
     def __init__(self, name):
         self.model_id, self.label_map = MODELS[name]
-        # 추가 학습한 가중치로 바꿔 끼우기 (최종 프로젝트 worklog 31장): PII_MODEL_<이름>=폴더 경로. 없으면 허브 원본
+        # 추가 학습한 가중치로 바꿔 끼우기: PII_MODEL_<이름>=폴더 경로. 없으면 허브 원본
         import os
         self.model_id = os.getenv(f"PII_MODEL_{name.upper()}") or self.model_id
         self.tok = self.model = None
@@ -64,7 +64,7 @@ class TokenClassifier:
         enc = self.tok(text, add_special_tokens=False, return_offsets_mapping=True)
         ids, offsets = enc["input_ids"], enc["offset_mapping"]
         id2label = self.model.config.id2label
-        # 태그 → 우리 라벨 (확률을 라벨별로 더할 때 씀). 최종 프로젝트 검수 대상 고르기용 (worklog 27·29장)
+        # 태그 → 우리 라벨 (확률을 라벨별로 더할 때 씀). 최종 프로젝트 검수 대상 고르기용
         lab_of = {i: self.label_map.get(l.partition("-")[2]) if l != "O" else None for i, l in id2label.items()}
         preds = [None] * len(ids)
         probs = [None] * len(ids)

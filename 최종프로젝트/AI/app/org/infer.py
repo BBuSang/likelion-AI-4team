@@ -1,4 +1,4 @@
-"""문서에서 직원 목록과 문서 메타데이터(담당자·팀·공개 범위)를 추론한다 (worklog 1-5, 3-4-1, 10장).
+"""문서에서 직원 목록과 문서 메타데이터(담당자·팀·공개 범위)를 추론한다.
 
 안내문: 담당자·소속은 주지 않으니 문서에서 추론해 직원 목록 {emp_id, name, team, position} 과
 문서 메타데이터 {id, owner_emp_id, team} 을 만들어 권한에 쓴다. 끝까지 모르면 더 엄격하게.
@@ -153,6 +153,8 @@ def staff_mentions(doc, spans):
         team = clean_team(aff if _is_team(aff) else _near_team(text, s, e, title_end))
         if f["role"] != "staff" and not title and kind is None and team is None:
             continue  # 직원이라는 단서 없음
+        if not re.search(r"[가-힣]", name) and not (title or team):
+            continue  # 로마자 이름 + 서명뿐: 고객이 보낸 영문 메일의 'Best regards,\nYumin Koo' (Holdout2 에서 고객 13명이 직원으로 들어감)
         if two and not (title or team or kind in ("author", "owner", "handler", "applicant", "signature")):
             continue  # 두 글자는 이름만 쓴 표기일 수 있어 강한 단서가 있을 때만
         out.append({"name": name, "team": team, "title": title, "kind": kind or ("titled" if title else None),

@@ -1,10 +1,12 @@
-// 관리자: 저장된 문서(보기·지우기) + 문서 속 직원 목록 (worklog 15장)
+// 관리자: 저장된 문서(보기·지우기) + 문서 속 직원 목록
 // 문서 글은 가명처리된 토큰 상태만 보여 줌. 지우기는 사유 필수 + 문서 ID 다시 입력해서 확인
 import { useEffect, useState } from 'react';
 import { Search, Trash2 } from 'lucide-react';
 import apiClient from '@/shared/api/client';
 import { errMsg, fmtTime } from '@/shared/utils/error';
 import MaskedText from '@/features/chat/components/MaskedText';
+import ConfirmDialog from '@/shared/components/ConfirmDialog';
+import Pager from '@/shared/components/Pager';
 import * as api from '../api/admin.api';
 import type { AdminUser, Employee, Team } from '../api/admin.api';
 
@@ -41,7 +43,7 @@ export function DocsTab({ selected, onSelect, reloadKey }: { selected: string | 
     <>
       <div className="row" style={{ marginBottom: 10, flexWrap: 'wrap' }}>
         <label className="search" style={{ width: 260, margin: 0 }}>
-          <Search size={14} aria-hidden /><input placeholder="문서 ID·종류·팀·담당 직원" value={q} onChange={(e) => { setQ(e.target.value); setPage(0); }} />
+          <Search size={14} aria-hidden /><input placeholder="문서 ID · 종류 · 팀 · 담당 직원" value={q} onChange={(e) => { setQ(e.target.value); setPage(0); }} />
         </label>
         <select className="select" style={{ width: 150, height: 34 }} value={vis} onChange={(e) => { setVis(e.target.value); setPage(0); }}>
           <option value="">공개 범위 전체</option><option value="public">공개</option><option value="team">팀</option><option value="restricted">제한</option>
@@ -67,11 +69,7 @@ export function DocsTab({ selected, onSelect, reloadKey }: { selected: string | 
           {data.items.length === 0 && <tr><td colSpan={8} className="muted" style={{ textAlign: 'center', padding: 30 }}>문서가 없어요.</td></tr>}
         </tbody>
       </table>
-      <div className="row" style={{ justifyContent: 'center', marginTop: 10 }}>
-        <button className="btn btn-sm" disabled={page === 0} onClick={() => setPage(page - 1)}>이전</button>
-        <span className="small muted">{page + 1} / {pages}</span>
-        <button className="btn btn-sm" disabled={page + 1 >= pages} onClick={() => setPage(page + 1)}>다음</button>
-      </div>
+      <Pager page={page} pages={pages} onChange={setPage} />
       <h3 style={{ margin: '20px 0 8px' }}>지운 기록</h3>
       <table className="table">
         <thead><tr><th>시각</th><th>문서</th><th>지운 사람</th><th>사유</th><th>지운 것</th></tr></thead>
@@ -144,7 +142,7 @@ export function DocDetailPanel({ docId, onDeleted, onChanged }: { docId: string;
       ) : (
         <div className="stack" style={{ border: '1px solid #f09595', borderRadius: 8, padding: 12, background: '#fffafa' }}>
           <p className="small" style={{ color: 'var(--bad)' }}>
-            검색에서 바로 빠지고 되돌릴 수 없어요. 이 문서의 청크·사람 언급·검수 원문을 지우고, 다른 문서에 안 나오는 토큰·사람도 지워요. 지운 기록은 남아요.
+            검색에서 바로 빠지고 되돌릴 수 없어요. 이 문서의 청크 · 사람 언급 · 검수 원문을 지우고, 다른 문서에 안 나오는 토큰·사람도 지워요. 지운 기록은 남아요.
           </p>
           <textarea className="textarea" placeholder="지우는 사유 (예: 잘못 올린 파일, 본인 삭제 요청)" value={reason} onChange={(e) => setReason(e.target.value)} maxLength={500} />
           <input className="input" placeholder={`확인: ${docId} 입력`} value={typed} onChange={(e) => setTyped(e.target.value)} />
@@ -174,7 +172,7 @@ export function EmployeesTab({ users }: { users: AdminUser[] }) {
     <>
       <div className="row" style={{ marginBottom: 10 }}>
         <label className="search" style={{ width: 260, margin: 0 }}>
-          <Search size={14} aria-hidden /><input placeholder="이름·팀·직원 번호" value={q} onChange={(e) => setQ(e.target.value)} />
+          <Search size={14} aria-hidden /><input placeholder="이름 · 팀 · 직원 번호" value={q} onChange={(e) => setQ(e.target.value)} />
         </label>
         <div className="spacer" />
         <span className="small muted">문서에서 추론한 직원 + 관리자가 만든 직원(U…) · {list.length}명</span>
@@ -207,6 +205,9 @@ const VIS_HELP: Record<string, string> = {
   restricted: '감사와 담당자만 봐요.',
 };
 
+// 볼 수 있는 사람의 넓이: 제한 < 팀 < 공개 (뒤로 갈수록 더 많은 직원이 봄)
+const VIS_RANK: Record<string, number> = { restricted: 0, team: 1, public: 2 };
+
 function MetaEditor({ d, onSaved }: { d: DocDetail; onSaved: () => void }) {
   const [vis, setVis] = useState(d.visibility);
   const [team, setTeam] = useState(d.team ?? '');
@@ -215,6 +216,7 @@ function MetaEditor({ d, onSaved }: { d: DocDetail; onSaved: () => void }) {
   const [found, setFound] = useState<Employee[]>([]);
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
   const [busy, setBusy] = useState(false);
+  const [confirming, setConfirming] = useState(false); // 저장 전 확인 대화상자
   useEffect(() => { api.teams().then(setTeams).catch(() => {}); }, []);
 
   const changed = vis !== d.visibility || team !== (d.team ?? '') || owner !== (d.owner_emp_id ?? '');
@@ -222,6 +224,20 @@ function MetaEditor({ d, onSaved }: { d: DocDetail; onSaved: () => void }) {
     setOwner(q);
     if (q.trim().length < 1) return setFound([]);
     try { setFound((await api.employees(q.trim())).slice(0, 6)); } catch { setFound([]); }
+  };
+  // 확인 창에 보일 "전 → 후" (바뀐 항목만)
+  const visName = (v: string) => VIS[v]?.n ?? v;
+  const diffs = [
+    vis !== d.visibility && `공개 범위: ${visName(d.visibility)} → ${visName(vis)}`,
+    team !== (d.team ?? '') && `팀: ${d.team || '없음'} → ${team || '없음'}`,
+    owner.trim() !== (d.owner_emp_id ?? '') && `담당 직원: ${d.owner_emp_id || '없음'} → ${owner.trim() || '없음'}`,
+  ].filter((x): x is string => !!x);
+  const widens = (VIS_RANK[vis] ?? 0) > (VIS_RANK[d.visibility] ?? 0);
+  // "저장": 입력 검사는 지금처럼 먼저, 통과하면 바로 저장하지 않고 확인부터
+  const askSave = () => {
+    if (vis === 'team' && !team) return setMsg({ ok: false, text: '팀 공개로 하려면 팀을 골라 주세요.' });
+    setMsg(null);
+    setConfirming(true);
   };
   const save = async () => {
     if (vis === 'team' && !team) return setMsg({ ok: false, text: '팀 공개로 하려면 팀을 골라 주세요.' });
@@ -239,12 +255,15 @@ function MetaEditor({ d, onSaved }: { d: DocDetail; onSaved: () => void }) {
   };
 
   return (
-    <div className="stack" style={{ border: '1px solid var(--line)', borderRadius: 8, padding: 12, gap: 8 }}>
-      <h3>누가 볼 수 있나</h3>
-      <select className="select" value={vis} onChange={(e) => setVis(e.target.value)}>
-        <option value="public">공개</option><option value="team">팀</option><option value="restricted">제한 (감사만)</option>
-      </select>
-      <p className="small muted">{VIS_HELP[vis]}</p>
+    <div className="stack" style={{ border: '1px solid var(--line)', borderRadius: 8, padding: 12, gap: 12 }}>
+      <h3>열람 권한</h3>
+      {/* 세 칸 모두 같은 모양: 이름 → 드롭다운·입력칸 (공개 범위 설명은 그 칸 바로 밑) */}
+      <label className="field" style={{ margin: 0 }}><span>공개 범위</span>
+        <select className="select" value={vis} onChange={(e) => setVis(e.target.value)}>
+          <option value="public">공개</option><option value="team">팀</option><option value="restricted">제한 (감사만)</option>
+        </select>
+        <p className="small muted">{VIS_HELP[vis]}</p>
+      </label>
       <label className="field" style={{ margin: 0 }}><span>팀</span>
         <select className="select" value={team} onChange={(e) => setTeam(e.target.value)}>
           <option value="">팀 없음</option>
@@ -252,7 +271,7 @@ function MetaEditor({ d, onSaved }: { d: DocDetail; onSaved: () => void }) {
         </select>
       </label>
       <label className="field" style={{ margin: 0, position: 'relative' }}><span>담당 직원</span>
-        <input className="input" placeholder="이름·팀·직원 번호로 찾기 (비우면 없음)" value={owner} onChange={(e) => search(e.target.value)} />
+        <input className="input" placeholder="이름 · 팀 · 직원 번호로 찾기 (비우면 없음)" value={owner} onChange={(e) => search(e.target.value)} />
         {found.length > 0 && (
           <div className="stack" style={{ gap: 0, border: '1px solid var(--line)', borderRadius: 8, marginTop: 4, background: '#fff' }}>
             {found.map((e) => (
@@ -264,8 +283,18 @@ function MetaEditor({ d, onSaved }: { d: DocDetail; onSaved: () => void }) {
           </div>
         )}
       </label>
-      <button className="btn btn-primary btn-sm" disabled={!changed || busy} onClick={save}>{busy ? '저장 중…' : '저장'}</button>
+      <button className="btn btn-primary" disabled={!changed || busy} onClick={askSave}>{busy ? '저장 중…' : '저장'}</button>
       {msg && <div className={`alert ${msg.ok ? 'alert-ok' : 'alert-bad'} small`}>{msg.text}</div>}
+      {confirming && (
+        <ConfirmDialog title={`${d.doc_id} 열람 권한 바꾸기`} confirmLabel="저장" danger={widens}
+                       message={<>
+                         {diffs.map((t) => <span key={t} style={{ display: 'block' }}>{t}</span>)}
+                         {diffs.length === 0 && <span style={{ display: 'block' }}>바뀌는 항목이 없어요.</span>}
+                         {widens && <b style={{ display: 'block', marginTop: 6, color: 'var(--bad)' }}>더 많은 직원이 이 문서를 보게 돼요.</b>}
+                       </>}
+                       onCancel={() => setConfirming(false)}
+                       onConfirm={() => { setConfirming(false); save(); }} />
+      )}
     </div>
   );
 }

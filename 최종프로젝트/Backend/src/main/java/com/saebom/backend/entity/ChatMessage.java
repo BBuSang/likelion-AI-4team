@@ -7,7 +7,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDateTime;
 
 /**
- * 질문 하나 + 답변 하나 (app.chat_messages, worklog 61장).
+ * 질문 하나 + 답변 하나 (app.chat_messages).
  * 질문은 AI 서버가 가명처리한 글(maskedQuery) + 원문은 암호문으로만(queryEnc), 답변·근거 문서는 토큰 상태 그대로.
  * 실명 보기 결과는 저장하지 않음 (화면에만).
  */
@@ -29,7 +29,7 @@ public class ChatMessage {
     @Column(name = "masked_query", nullable = false, columnDefinition = "text")
     private String maskedQuery;
 
-    /** 사용자가 친 질문 원문, AES-GCM 암호문 (ChatCipher, worklog 64장). 대화 주인에게만 풀어서 보여 줌 */
+    /** 사용자가 친 질문 원문, AES-GCM 암호문 (ChatCipher). 대화 주인에게만 풀어서 보여 줌 */
     @Column(name = "query_enc", columnDefinition = "text")
     private String queryEnc;
 

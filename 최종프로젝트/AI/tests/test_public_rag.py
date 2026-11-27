@@ -1,4 +1,4 @@
-"""공개 RAG 연결 (worklog 53장) — DB·LLM 없이 도는 부분"""
+"""공개 RAG 연결 — DB·LLM 없이 도는 부분"""
 from app.agents import agent, planner
 
 
@@ -66,7 +66,7 @@ def test_noaction_period_split():
 
 
 def test_public_answer_keeps_words_misread_as_names(monkeypatch):
-    """'후보 조문만으로는' 의 '조문'을 이름 모델이 사람 이름으로 잡아 가리던 것 (worklog 57장): 공개 자료만 쓴 답은 이름을 안 가림"""
+    """'후보 조문만으로는' 의 '조문'을 이름 모델이 사람 이름으로 잡아 가리던 것: 공개 자료만 쓴 답은 이름을 안 가림"""
     from app.pii import pii_pipeline
     from app.rag import chat
     text = "후보 조문만으로는 판단할 수 없습니다. 문의 010-1234-5678"
@@ -81,7 +81,7 @@ def test_public_answer_keeps_words_misread_as_names(monkeypatch):
 
 
 def test_checked_stream_sends_only_checked_sentences(monkeypatch):
-    """답변 스트리밍 (worklog 59장): 문장·줄이 끝나야 내보내고, 내보내기 전에 출력 검사를 거침"""
+    """답변 스트리밍: 문장·줄이 끝나야 내보내고, 내보내기 전에 출력 검사를 거침"""
     from app.pii import pii_pipeline
     from app.rag import chat
 
@@ -104,7 +104,7 @@ def test_checked_stream_sends_only_checked_sentences(monkeypatch):
 
 
 def test_ensure_registered_rechecks_missing_rag(monkeypatch):
-    """DB 가 늦게 켜져도 서버를 다시 켜지 않고 RECHECK_SEC 뒤에 등록됨 (worklog 63장)"""
+    """DB 가 늦게 켜져도 서버를 다시 켜지 않고 RECHECK_SEC 뒤에 등록됨"""
     import app.rag_public as rp
     from app.agents import tools
 
@@ -127,7 +127,7 @@ def test_ensure_registered_rechecks_missing_rag(monkeypatch):
 
 
 def test_weak_query_name_only_drops_ordinary_words():
-    """질문 속 이름 오탐 (worklog 64장): 규칙만 이름으로 본 구간 중 보통 말로 쪼개지는 것만 풀고, 낯선 이름·호칭 붙은 이름은 그대로"""
+    """질문 속 이름 오탐: 규칙만 이름으로 본 구간 중 보통 말로 쪼개지는 것만 풀고, 낯선 이름·호칭 붙은 이름은 그대로"""
     from app.rag.search import _weak_query_name
 
     def span(q, w, flag="disagree", src="rule"):
@@ -144,3 +144,25 @@ def test_weak_query_name_only_drops_ordinary_words():
     assert not _weak_query_name(q4, span(q4, "금적립"))        # 뒤에 호칭 → 이름으로 둠
     assert not _weak_query_name(q1, span(q1, "주려면", flag=None))  # 모델도 이름으로 본 건 그대로
     assert not _weak_query_name(q1, span(q1, "주려면", src="model"))
+
+
+def test_law_legal_query_adds_statute_terms():
+    """흔한 말 → 조문 용어 덧붙이기"""
+    from importlib import import_module
+    S = import_module("app.rag_public.law.search")
+    assert S.legal_query("보이스피싱 관련 법") == "보이스피싱 관련 법 전기통신금융사기"
+    assert S.legal_query("스미싱·보이스피싱 피해") == "스미싱·보이스피싱 피해 전기통신금융사기"   # 중복 없이
+    assert S.legal_query("전기통신금융사기 보이스피싱") == "전기통신금융사기 보이스피싱"            # 이미 있으면 그대로
+    assert S.legal_query("예금자보호 한도") == "예금자보호 한도"
+
+
+def test_query_sido_only_when_region_meant():
+    """시·도만 있는 지역 질문: 긴 이름은 그대로, 줄임말은 '사는·거주·쪽·지역' 이 붙을 때만"""
+    from app.rag.search import query_sido
+    assert query_sido("충청남도에 사는 고객 찾아줘") == ["충남"]
+    assert query_sido("부산에 사는 고객 문서 있어?") == ["부산"]
+    assert query_sido("충남 지역 고객") == ["충남"]
+    assert query_sido("서울 쪽 거주 고객") == ["서울"]
+    assert query_sido("부산 지점 공지 있어?") == []          # 사는 곳이 아님
+    assert query_sido("서울보증 관련 문서") == []
+    assert query_sido("대출 상담 기록") == []

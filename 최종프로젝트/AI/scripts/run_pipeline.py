@@ -1,4 +1,4 @@
-"""무인 파이프라인 (멘토 안내문 1-5, worklog 28장): 문서 파일 → 새 DB → 탐지·직원 목록·가명처리·적재 → 검색 → 답변 → 결과 파일.
+"""무인 파이프라인 (멘토 안내문 1-5): 문서 파일 → 새 DB → 탐지·직원 목록·가명처리·적재 → 검색 → 답변 → 결과 파일.
 사람 검수 없이 끝까지. 정답 파일이 있으면 채점까지 하고, 없으면 결과만 저장.
 
     # 채점용 새 DB (개발 DB 5434 와 따로): DB_PORT=5435 CONTAINER_NAME=saebom_eval_db docker compose -p saebom_eval up -d
@@ -30,7 +30,7 @@ sys.path.insert(0, str(ROOT))
 from app.core import access, config, db  # noqa: E402
 
 DEV_PORT = 5434  # 화면 테스트용 개발 DB — 여기서는 돌리지 않음 (reset 이 데이터를 지우므로)
-_CITE = re.compile(r"[\[<]([A-Z]\d{4})[\]>]")
+_CITE = re.compile(r"[\[<]([A-Z]\d+[A-Za-z0-9-]*)[\]>]")  # 문서 ID 자릿수 가정 없음 (Holdout2 는 H20139 5자리)
 _NOT_FOUND = re.compile(r"찾을\s*수\s*없|찾지\s*못했")
 LEAK_LABELS = {"phone_number", "email", "resident_registration_number", "account_number", "card_number", "address"}
 

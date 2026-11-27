@@ -1,4 +1,4 @@
-"""탐지 보완 (worklog 20장): 라벨 없는 긴 숫자 → 번호, 법 줄임말·상태 말 이름 오탐 빼기. 탐지 모델 없이."""
+"""탐지 보완: 라벨 없는 긴 숫자 → 번호, 법 줄임말·상태 말 이름 오탐 빼기. 탐지 모델 없이."""
 from app.pii import pii_pipeline as p
 
 
@@ -59,7 +59,7 @@ def test_one_char_names():
 
 
 def test_verb_form_not_name():
-    """'반송된 고객' — 탐지 모델이 '반송된'을 이름으로 잡던 것 (worklog 25장)"""
+    """'반송된 고객' — 탐지 모델이 '반송된'을 이름으로 잡던 것"""
     text = "반송된 고객 건 있어?"
     assert p.complete_spans(text, [{"label": "person", "start": 0, "end": 3}]) == []
     text = "김민준 고객 건"

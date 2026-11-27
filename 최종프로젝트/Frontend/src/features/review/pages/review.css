@@ -1,5 +1,7 @@
 .drop { display: flex; flex-direction: column; align-items: center; gap: 4px; border: 1.5px dashed var(--line-strong); border-radius: var(--radius-lg); padding: 22px; cursor: pointer; background: #fbfcff; text-align: center; }
 .drop:hover { border-color: var(--brand); }
+/* 파일을 끌고 상자 위에 있는 동안: 놓아도 된다는 표시 */
+.drop.drop-over { border-color: var(--brand); border-style: solid; }
 .doc-row { display: flex; align-items: center; gap: 8px; padding: 9px 6px; border-bottom: 1px solid #eef1f6; cursor: pointer; border-radius: 6px; }
 .doc-row:hover { background: var(--panel-2); }
 .legend { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 12px; }
@@ -22,9 +24,12 @@
 .dot { width: 10px; height: 10px; border-radius: 3px; border: 1.5px solid; padding: 0; }
 .link-row { border: 1px solid var(--line); border-radius: var(--radius); padding: 8px 10px; margin-bottom: 6px; }
 
-/* 검수로 온 이유 (worklog 29장) */
+/* 검수로 온 이유 */
 .hl-flag { outline: 2px dashed #d98a00; outline-offset: 1px; }
 .hint-miss { text-decoration: underline wavy #d98a00; text-underline-offset: 3px; cursor: help; }
 .pii-flag { background: transparent; outline: 1.5px dashed #d98a00; border-radius: 4px; padding: 0 3px; }
 .review-why { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; background: var(--warn-bg); }
 .review-why h3 { display: flex; align-items: center; gap: 6px; }
+
+/* 검수 때 본문 고치기 */
+.doc-edit { flex: 1; min-height: 320px; resize: vertical; font-size: 14px; line-height: 1.9; white-space: pre-wrap; }

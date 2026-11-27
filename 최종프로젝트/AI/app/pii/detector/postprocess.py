@@ -36,11 +36,19 @@ def _is_num(c):
     return c.isdigit()
 
 
+# 이름 뒤에 (띄어 쓰거나 붙여) 잡힌 직함 '수빈 사원', '예린사원', '수빈 주임님'. 성 없는 이름은 규칙이 못 잡아
+# 모델 구간만 남는데, 모델이 직함까지 이름으로 잡는 일이 있음 (PERSON_TAIL 은 대리·과장·팀장만, 띄어 쓴 꼴은 못 뗌)
+TITLE_TAIL = re.compile(r"\s?(?:" + "|".join(sorted(TITLES, key=len, reverse=True)) + r")님?$")
+TITLE_AFTER_GLUED = re.compile("(?:" + "|".join(sorted(TITLES, key=len, reverse=True)) + ")")
+
+
 def strip_person_tail(word: str) -> str:
-    """'최민재님' → '최민재'. 떼고 남는 이름이 2글자 미만이면 그대로 둔다 ('김씨'의 '김'만 남기지 않도록)."""
-    m = PERSON_TAIL.search(word)
-    if m and len(word[:m.start()].replace(" ", "")) >= 2 and re.search(r"[가-힣]$", word[:m.start()]):
-        return word[:m.start()].rstrip()
+    """'최민재님' → '최민재', '수빈 사원' → '수빈'. 떼고 남는 이름이 2글자 미만이면 그대로 둔다
+    ('김씨'의 '김', '김사원'의 '김'만 남기지 않도록)."""
+    for tail in (PERSON_TAIL, TITLE_TAIL):  # 차례로: '수빈 주임님' → '수빈 주임' → '수빈'
+        m = tail.search(word)
+        if m and len(word[:m.start()].replace(" ", "")) >= 2 and re.search(r"[가-힣]\s?$", word[:m.start()]):
+            word = word[:m.start()].rstrip()
     return word
 
 
@@ -216,7 +224,10 @@ def drop_decoys(text: str, ents: list) -> list:
             nxt = text[e["end"]] if e["end"] < len(text) else " "
             # 앞에 붙은 말이 호칭·직급이면('회원박희정님') 단어 중간이 아니라 띄어쓰기를 안 한 것
             glued_title = ROLE_BEFORE.search(text[max(0, e["start"] - 4):e["start"]])
-            if (re.match(r"[가-힣]", prev) and not glued_title) or (re.match(r"[가-힣]", nxt) and nxt not in NAME_NEXT):
+            # 뒤에 직함이 붙어 있어도('예린사원이' → '예린') 단어 중간이 아님 (strip_person_tail 로 직함을 뗀 자리)
+            title_after = TITLE_AFTER_GLUED.match(text, e["end"])
+            if (re.match(r"[가-힣]", prev) and not glued_title) or \
+                    (re.match(r"[가-힣]", nxt) and nxt not in NAME_NEXT and not title_after):
                 continue
         out.append(e)
     return out

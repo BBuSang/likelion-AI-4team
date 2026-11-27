@@ -26,7 +26,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * 질문·실명 복원 중계 (worklog 13장). 로그인한 ACTIVE 계정만.
+ * 질문·실명 복원 중계. 로그인한 ACTIVE 계정만.
  * 묻는 사람 정보 {emp_id, team, role} 는 화면이 보내는 값이 아니라 요청마다 DB 에서 읽은 계정 값 (AccessUser.of).
  * 권한 판단(검색 전 거르기·복원 범위)은 AI 서버 access.py 가 하고, 스프링은 미리 막을 수 있는 것만 막음.
  */
@@ -52,14 +52,14 @@ public class ChatController {
     @PostMapping("/ask")
     public AskResult ask(@AuthenticationPrincipal UD me, @Valid @RequestBody AskRequest req) {
         User u = linked(me);
-        if (req.conversationId() != null) history.checkOwner(u.getId(), req.conversationId());
-        AskResult r = ai.ask(AccessUser.of(u), req.query().trim(), req.k() == null ? 3 : req.k());
+        var turns = history.recentTurns(u.getId(), req.conversationId());  // 남의 대화면 여기서 404
+        AskResult r = ai.ask(AccessUser.of(u), req.query().trim(), req.k() == null ? 3 : req.k(), turns);
         history.append(u.getId(), req.conversationId(), req.query().trim(), r);
         return r;
     }
 
     /**
-     * 답변 스트리밍 (worklog 59장). SSE: stage · delta(출력 검사를 거친 답변 조각) · done(ask 와 같은 결과) · error.
+     * 답변 스트리밍. SSE: stage · delta(출력 검사를 거친 답변 조각) · done(ask 와 같은 결과) · error.
      * 비동기(SseEmitter) 대신 이 요청 스레드에서 바로 써서 흘려보냄 — 비동기 재전달 때 JWT 인증이 다시 안 붙는 문제를 피함.
      * AI 가 흐름을 열기 전에 거절하면 보통 오류 응답(JSON)으로.
      */
@@ -67,8 +67,8 @@ public class ChatController {
     public void askStream(@AuthenticationPrincipal UD me, @Valid @RequestBody AskRequest req, HttpServletResponse res)
             throws IOException {
         User u = linked(me);
-        if (req.conversationId() != null) history.checkOwner(u.getId(), req.conversationId());
-        ai.askStream(AccessUser.of(u), req.query().trim(), req.k() == null ? 3 : req.k(), () -> {
+        var turns = history.recentTurns(u.getId(), req.conversationId());  // 남의 대화면 여기서 404
+        ai.askStream(AccessUser.of(u), req.query().trim(), req.k() == null ? 3 : req.k(), turns, () -> {
             res.setStatus(HttpServletResponse.SC_OK);
             res.setContentType("text/event-stream");
             res.setCharacterEncoding("UTF-8");
@@ -83,7 +83,7 @@ public class ChatController {
         });
     }
 
-    // ------------------------------------------------------------------ 채팅 내역 (worklog 61장, 본인 것만)
+    // ------------------------------------------------------------------ 채팅 내역 (본인 것만)
 
     @GetMapping("/conversations")
     public List<ConversationSummary> conversations(@AuthenticationPrincipal UD me) {
@@ -109,7 +109,7 @@ public class ChatController {
     public RestoreResult restore(@AuthenticationPrincipal UD me, @Valid @RequestBody RestoreRequest req) {
         User u = linked(me);
         String purpose = req.purpose() == null ? null : req.purpose().trim();
-        // 팀장·감사는 사유 필수 (worklog 25-9). 사원은 자기 담당 문서만 복원되므로 사유 없이
+        // 팀장·감사는 사유 필수. 사원은 자기 담당 문서만 복원되므로 사유 없이
         if ((u.getRole() == Role.AUDITOR || u.getRole() == Role.LEAD) && (purpose == null || purpose.isEmpty())) {
             ai.logRefused(AccessUser.of(u), u.getEmail(), req.docIds(), "no_purpose");  // 거절도 기록 (이상 접근 탐지, 39장)
             throw ApiException.badRequest("팀장·감사 역할의 실명 보기는 사유를 입력해야 합니다.");

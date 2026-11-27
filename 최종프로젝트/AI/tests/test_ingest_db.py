@@ -165,7 +165,7 @@ def test_gold_auto_approve(created):
 
 
 def test_auto_approve(created, monkeypatch):
-    """정답 없는 문서: 검수 신호가 없으면 자동 저장(auto), 있으면 검수 대기 + 표시할 구간·힌트 (worklog 29장)"""
+    """정답 없는 문서: 검수 신호가 없으면 자동 저장(auto), 있으면 검수 대기 + 표시할 구간·힌트"""
     monkeypatch.setattr(config, "AUTO_APPROVE", True)
     plain = "지점 업무 안내: 다음 주 월요일부터 창구 운영 시간이 오전 9시로 바뀝니다."
     one_char = "상담 메모: 린님께서 카드 재발급을 요청하셨습니다."  # 외자 이름 = 보완 규칙이 더한 구간 → 검수

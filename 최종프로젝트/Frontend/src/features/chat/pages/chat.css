@@ -19,7 +19,7 @@
 .composer input { flex: 1; border: none; outline: none; background: transparent; }
 .empty { margin: auto; text-align: center; max-width: 440px; display: flex; flex-direction: column; align-items: center; gap: 8px; }
 .examples { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-top: 8px; }
-/* 답변 마크다운 (AnswerMarkdown, worklog 56장) */
+/* 답변 마크다운 (AnswerMarkdown) */
 .md { font-size: 14px; line-height: 1.75; word-break: keep-all; overflow-wrap: anywhere; }
 .md > :first-child { margin-top: 0; }
 .md > :last-child { margin-bottom: 0; }
@@ -43,7 +43,7 @@
 .md th { background: var(--panel-2); font-weight: 600; }
 .cite { border: none; background: var(--brand-soft); color: var(--brand); border-radius: 20px; padding: 0 5px; font-size: 12px; cursor: pointer; margin: 0 1px; }
 .source { border-bottom: 1px solid #eef1f6; padding: 10px 2px; min-width: 0; }
-/* 근거 문서 머리: 긴 제목(상품명 > 장 > 항목 …)은 줄바꿈 — 옆 스크롤 안 생기게 (worklog 57장) */
+/* 근거 문서 머리: 긴 제목(상품명 > 장 > 항목 …)은 줄바꿈 — 옆 스크롤 안 생기게 */
 .source-head { display: flex; align-items: center; gap: 6px; color: var(--brand); font-weight: 500; }
 .source-id { overflow-wrap: anywhere; }
 .source-type { margin: 4px 0 0; font-size: 12px; line-height: 1.5; color: var(--text-2); background: var(--panel-2);
@@ -57,13 +57,13 @@
 .source-more:hover { text-decoration: underline; }
 .side-wide { overflow-x: hidden; }
 
-/* 답변 스트리밍 중 단계 표시 (worklog 59장) */
+/* 답변 스트리밍 중 단계 표시 */
 .stream-stage { display: flex; align-items: center; gap: 7px; margin: 6px 0 0; }
 .stream-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--brand); animation: stream-pulse 1s ease-in-out infinite; }
 @keyframes stream-pulse { 0%, 100% { opacity: .25; } 50% { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .stream-dot { animation: none; } }
 .stream-sum { color: var(--text-3); }
-/* 진행 단계 목록 (worklog 60장) */
+/* 진행 단계 목록 */
 .stream-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 5px; font-size: 13px; }
 .stream-steps li { display: flex; align-items: center; gap: 7px; min-width: 0; color: var(--text-2); }
 .stream-steps li.now { color: var(--text); font-weight: 500; }
@@ -79,16 +79,16 @@
 .answer-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
 .source-q { margin-bottom: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
-/* 동명이인 가능 경고 (worklog 37장) */
+/* 동명이인 가능 경고 */
 .homonym-warn { color: var(--warn); background: var(--warn-bg); border-radius: 8px; padding: 6px 10px; margin-top: 8px; line-height: 1.6; }
 .homonym-warn svg { vertical-align: -2px; }
 
-/* 실명 보기 직후 본인에게 보이는 이상 접근 경고 (worklog 39장) */
+/* 실명 보기 직후 본인에게 보이는 이상 접근 경고 */
 .access-warn { margin-top: 8px; padding: 8px 12px; border-radius: 8px; background: var(--bad-bg); color: var(--bad); font-size: 13px; line-height: 1.6; }
 .access-warn svg { vertical-align: -2px; }
 .access-warn ul { margin: 2px 0 2px 18px; }
 
-/* 대화 목록 접기·펼치기 (worklog 45장): [대화 목록] 버튼으로 옆에서 접힘 → 채팅 칸이 그만큼 넓어짐. 겹쳐 뜨는 서랍 아님 */
+/* 대화 목록 접기·펼치기: [대화 목록] 버튼으로 옆에서 접힘 → 채팅 칸이 그만큼 넓어짐. 겹쳐 뜨는 서랍 아님 */
 .list-toggle { display: inline-flex; flex: none; }
 .chat-head h2 { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .chat-head > .badge { flex: none; }  /* 제목이 길어도 오른쪽 역할·팀 표시는 그대로, 제목만 … */
@@ -97,5 +97,50 @@
 @keyframes list-in { from { opacity: 0; transform: translateX(-8px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .chat-list { animation: none; } }
 
-/* 채팅 첫 화면 파란 로고 (worklog 49장) */
+/* 채팅 첫 화면 파란 로고 */
 .empty-logo { margin-bottom: 6px; }
+
+/* 멀티턴: 앞 대화를 이어 다시 쓴 질문 */
+.followup-line { margin-bottom: 6px; display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.followup-line svg { flex: none; }
+/* 근거 문서 접기·펼치기: 대화 목록과 같은 방식 (접으면 채팅 칸이 그만큼 넓어짐) */
+.side-head { display: flex; align-items: center; gap: 6px; }
+.side-head h3 { flex: 1; }
+.side-close { flex: none; display: inline-flex; border: none; background: none; color: var(--text-3); cursor: pointer; padding: 4px; border-radius: 6px; }
+.side-close:hover { background: var(--panel-2); color: var(--text); }
+.sources { animation: side-in .16s ease-out; }
+.sources.collapsed { display: none; }
+@keyframes side-in { from { opacity: 0; transform: translateX(8px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .sources { animation: none; } }
+
+/* 좁은 창 (900px 이하, ChatPage 의 NARROW 와 같은 값): 대화 목록·근거 문서는 겹쳐 뜨는 서랍 */
+.drawer-back { display: none; }
+@media (max-width: 900px) {
+  /* .main > .side (layout.css) 보다 앞서도록 .side 를 붙여 구체성을 높임 */
+  .side.chat-list:not(.collapsed), .side.sources:not(.collapsed) {
+    position: fixed; top: 12px; bottom: 12px; z-index: 40; overflow: auto; box-shadow: 0 12px 32px rgba(17, 24, 39, .18);
+  }
+  .side.chat-list:not(.collapsed) { left: 12px; width: min(280px, calc(100vw - 24px)); }
+  .side.sources:not(.collapsed) { right: 12px; width: min(400px, calc(100vw - 24px)); }
+  .drawer-back { display: block; position: fixed; inset: 0; z-index: 30; background: rgba(17, 24, 39, .25); }
+}
+
+/* 아주 좁은 창 (760px 이하): 여백을 줄이고 답변을 칸 폭에 맞춤 */
+@media (max-width: 760px) {
+  .chat-head { padding: 10px 12px; }
+  .chat-head > .badge { display: none; }
+  .chat-body { padding: 14px 12px; }
+  .composer { margin: 0 12px 12px; }
+  .answer { max-width: 100%; }
+  .bubble-user { max-width: 85%; }
+}
+
+/* 근거 문서 너비 조절 (넓은 창만): 채팅과 근거 문서 사이 손잡이. 손잡이는 칸 사이 간격(12px) 자리에 겹쳐 놓아 간격이 늘지 않게 */
+.side.sources { width: var(--side-w, clamp(260px, 26vw, 320px)); flex-shrink: 1; min-width: 280px; }
+.side-resizer { flex: none; width: 12px; margin: 0 -12px; position: relative; z-index: 2; cursor: col-resize; touch-action: none; }
+.side-resizer::after { content: ""; position: absolute; top: 50%; left: 4px; width: 4px; height: 40px; margin-top: -20px; border-radius: 2px;
+                       background: var(--line-strong); opacity: 0; transition: opacity .15s; }
+.side-resizer:hover::after, .side-resizer:focus-visible::after, body.resizing .side-resizer::after { opacity: 1; background: var(--brand); }
+.side-resizer:focus-visible { outline: none; }
+body.resizing { cursor: col-resize; user-select: none; }
+@media (max-width: 900px) { .side-resizer { display: none; } .side.sources { min-width: 0; } }

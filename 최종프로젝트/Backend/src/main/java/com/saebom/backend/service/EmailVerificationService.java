@@ -25,7 +25,7 @@ import java.time.LocalDateTime;
 import java.util.HexFormat;
 
 /**
- * 이메일 인증 코드 — 가입(SIGNUP)·비밀번호 재설정(RESET) 공통 (worklog 41·42장).
+ * 이메일 인증 코드 — 가입(SIGNUP)·비밀번호 재설정(RESET) 공통.
  * 코드 6자리, 10분 유효, 5번 틀리면 무효. 같은 이메일·목적은 60초에 한 번·하루 10번, 같은 IP 는 1시간 30번까지 발송.
  * 확인 후 30분 안에 가입·재설정을 마쳐야 함 (한 번 쓰면 끝).
  */
@@ -261,7 +261,7 @@ public class EmailVerificationService {
     }
 
     /**
-     * 보낸 사람 이름. 비면 "사공삼(403)" (프로젝트 이름, worklog 46~48장).
+     * 보낸 사람 이름. 비면 "사공삼(403)" (프로젝트 이름).
      * .properties·.env 는 ISO-8859-1 로 읽혀서 한글(UTF-8 바이트)이 'ìƒˆë´„' 처럼 깨져 옴 → UTF-8 로 다시 읽어 봄
      */
     public static String senderName(String configured) {

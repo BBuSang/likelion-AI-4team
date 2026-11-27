@@ -1,4 +1,4 @@
-"""금융당국 회신 선례(법령해석·비조치의견서·현장건의) RAG — 에이전트 도구 search_noaction (worklog 53장)"""
+"""금융당국 회신 선례(법령해석·비조치의견서·현장건의) RAG — 에이전트 도구 search_noaction"""
 from . import search as S
 from .respond import answer
 

@@ -40,7 +40,7 @@ public class AuthController {
         return ResponseEntity.ok(new ApiResponse(true, "사용 가능한 이메일입니다."));
     }
 
-    /** 가입 이메일 인증 코드 보내기 (worklog 41장) */
+    /** 가입 이메일 인증 코드 보내기 */
     @PostMapping("/email/send")
     public ApiResponse sendEmailCode(@Valid @RequestBody EmailCodeRequest req, HttpServletRequest http) {
         emailVerification.sendSignupCode(req.email(), http.getRemoteAddr());
@@ -53,7 +53,7 @@ public class AuthController {
         return new ApiResponse(true, "이메일 인증을 마쳤어요.");
     }
 
-    /** 비밀번호 재설정 코드 (worklog 42장). 가입되지 않은 주소여도 같은 응답 */
+    /** 비밀번호 재설정 코드. 가입되지 않은 주소여도 같은 응답 */
     @PostMapping("/password/send")
     public ApiResponse sendResetCode(@Valid @RequestBody EmailCodeRequest req, HttpServletRequest http) {
         emailVerification.sendResetCode(req.email(), http.getRemoteAddr());

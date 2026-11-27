@@ -1,4 +1,4 @@
-"""법령 RAG 검색 (worklog 53장).
+"""법령 RAG 검색.
 
 흐름: 질문 → KURE-v1 임베딩 → pgvector 조각 상위 50 (HNSW ef_search 100) → 조문 단위로 합침 (조문 점수 = 조각 최고점)
       → 답변 후보 = 1~10위 + 1~5위에 위임·준용으로 연결된 조문 → 조문 글 (여러 조각이면 2,000자까지 전체)
@@ -84,7 +84,7 @@ def search_vec(qv, k=5, pool=POOL, levels=None):
 
 def search(question, k=5, levels=None):
     """조문 상위 k (검색만)"""
-    return search_vec(embed_query(question), k=k, levels=levels)
+    return search_vec(embed_query(legal_query(question)), k=k, levels=levels)
 
 
 def neighbors():
@@ -145,7 +145,7 @@ def with_full_text(arts, limit=FULL_LIMIT):
 
 
 def article_texts(uids):
-    """조문 → 조문 전체 글 (조각을 순서대로 이음). 화면 근거 문서용 (worklog 58장) — LLM 에 넘기는 글은 with_full_text 그대로"""
+    """조문 → 조문 전체 글 (조각을 순서대로 이음). 화면 근거 문서용 — LLM 에 넘기는 글은 with_full_text 그대로"""
     if not uids:
         return {}
     with _lock:
@@ -157,9 +157,25 @@ def article_texts(uids):
     return {uid: "\n".join(ts) for uid, ts in by.items()}
 
 
+# 업무에서 흔히 쓰는 말 → 조문에 실제로 적힌 말. 조문엔 '보이스피싱'이 없고 '전기통신금융사기'라
+# "보이스피싱 관련 법"이 1위 점수 0.50 으로 기준(MIN_SCORE 0.5338)에 못 미쳐 "찾지 못함"이 됨.
+# 검색어에 법률 용어를 덧붙이기만 함 (원래 말은 그대로 둠)
+LEGAL_TERMS = {
+    "보이스피싱": "전기통신금융사기",
+    "스미싱": "전기통신금융사기",
+    "대포통장": "사기이용계좌 접근매체 양도",
+    "몸캠": "전기통신금융사기",
+}
+
+
+def legal_query(question):
+    extra = [v for k, v in LEGAL_TERMS.items() if k in question and v not in question]
+    return question + (" " + " ".join(dict.fromkeys(extra)) if extra else "")
+
+
 def answer_candidates(question, levels=None):
     """답변 LLM 에 넘길 후보 (순서 = 번호): 1~10위 + 1~5위에 연결된 조문 중 10위 안에 없는 것, 조문 글 규칙 적용"""
-    arts = search_vec(embed_query(question), k=0, levels=levels)
+    arts = search_vec(embed_query(legal_query(question)), k=0, levels=levels)
     _, extra = attach_links(arts)
     head = arts[:ANSWER_TOP]
     ids = {a["doc_id"] for a in head}

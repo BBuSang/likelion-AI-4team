@@ -1,5 +1,5 @@
 #!/bin/bash
-# 공개 자료 RAG 스키마·읽기 전용 계정 (worklog 53장). 컨테이너 최초 실행 때 01_schema.sh 다음에 한 번.
+# 공개 자료 RAG 스키마·읽기 전용 계정. 컨테이너 최초 실행 때 01_schema.sh 다음에 한 번.
 # 데이터는 각 RAG 의 DB 덤프로 넣음: infra/load_public_rag.sh
 #   lawrag : 금융권 법령 RAG (팀원 백송이, baek_rag 브랜치)          — 읽기 전용 law_reader
 #   interp : 금융당국 회신 선례(비조치의견서) RAG (팀원 박지훈)       — 읽기 전용 interp_reader (AI/scripts/load_noaction.py 가 만듦)

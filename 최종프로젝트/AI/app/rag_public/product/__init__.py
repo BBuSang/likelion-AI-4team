@@ -1,4 +1,4 @@
-"""금융상품 RAG — 에이전트 도구 search_product (worklog 53장)"""
+"""금융상품 RAG — 에이전트 도구 search_product"""
 import threading
 
 from . import respond as _respond

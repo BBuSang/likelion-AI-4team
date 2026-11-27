@@ -1,4 +1,4 @@
-"""직원 목록 조회·추가 (스프링 계정 ↔ 직원 연결용, worklog 11-4).
+"""직원 목록 조회·추가 (스프링 계정 ↔ 직원 연결용).
 
 - 팀 목록: rag 에서 (이름 없음) → 가입 화면 선택칸
 - 후보 찾기·직원 목록: vault.employees 에서 (이름 있음) → 관리자 승인 화면에서만 쓰게 스프링이 막음
@@ -94,7 +94,7 @@ def create(name, team, position, role, taken=()):
     """안 A: 문서에 없는 사람에게 새 직원 번호. rag(이름 없이)·vault(이름) 둘 다 넣음.
 
     taken: 스프링 계정에 이미 연결된 직원 번호. 문서를 다시 적재하면 vault·rag 의 U 직원이 지워져
-    번호가 U0001 부터 다시 시작해 계정과 겹쳤음 (worklog 44장) → 세 곳(vault·rag·taken) 중 가장 큰 번호 다음.
+    번호가 U0001 부터 다시 시작해 계정과 겹쳤음 → 세 곳(vault·rag·taken) 중 가장 큰 번호 다음.
     """
     name, team = _name(name), _team(team)
     if not name:

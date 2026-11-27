@@ -1,6 +1,6 @@
 # 배포 (EC2 + GitHub Actions)
 
-서버 한 대(m7i.xlarge, Ubuntu, 미국 오하이오 us-east-2, 고정 IP 3.19.81.108)에 Docker 로 4개를 띄웁니다. 주소 **https://403.p-e.kr** (내도메인.한국 무료 도메인, A 레코드). 설계·확인 기록은 `worklog.md` 65·66장.
+서버 한 대(m7i.xlarge, Ubuntu, 미국 오하이오 us-east-2, 고정 IP 3.19.81.108)에 Docker 로 4개를 띄웁니다. 주소 **https://403.p-e.kr** (내도메인.한국 무료 도메인, A 레코드).
 
 ```
 브라우저 ──443──▶ web (Nginx: 화면 파일, /api → backend, 80 은 https 로 넘김)

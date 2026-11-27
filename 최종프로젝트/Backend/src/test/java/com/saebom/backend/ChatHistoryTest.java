@@ -31,7 +31,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-/** 채팅 내역 서버 저장 (worklog 61장): 서버가 가명처리된 질문·답만 저장, 본인만, 관리자 조회는 기록 */
+/** 채팅 내역 서버 저장: 서버가 가명처리된 질문·답만 저장, 본인만, 관리자 조회는 기록 */
 @SpringBootTest
 @AutoConfigureMockMvc
 class ChatHistoryTest {
@@ -84,7 +84,7 @@ class ChatHistoryTest {
     void savesMaskedQueryAndAnswerNotRawQuestion() throws Exception {
         String me = login("h1@history.test", "E961");
         long conv = newConv(me);
-        when(ai.ask(any(), anyString(), anyInt())).thenReturn(answer("<PERSON_ab12cd34> 고객 우편물 반송"));
+        when(ai.ask(any(), anyString(), anyInt(), anyList())).thenReturn(answer("<PERSON_ab12cd34> 고객 우편물 반송"));
 
         send(post("/api/chat/ask"), Map.of("query", "황시온 고객 우편물 반송", "conversationId", conv), me)
                 .andExpect(status().isOk());
@@ -113,15 +113,39 @@ class ChatHistoryTest {
     }
 
     @Test
+    void sendsRecentTurnsWithRawQuestionToAi() throws Exception {
+        // 멀티턴: 같은 대화의 앞 턴을 AI 에 넘김 — 원문 질문(풀어서)·가명처리된 질문·토큰 상태 답변, 최근 2턴만
+        String me = login("h6@history.test", "E966");
+        long conv = newConv(me);
+        when(ai.ask(any(), anyString(), anyInt(), anyList())).thenReturn(answer("<PERSON_ab12cd34> 고객 우편물 반송"));
+        for (String q : List.of("황시온 고객 우편물 반송", "그 고객 연락처 변경도 있어?", "그럼 민원은?")) {
+            send(post("/api/chat/ask"), Map.of("query", q, "conversationId", conv), me).andExpect(status().isOk());
+        }
+        @SuppressWarnings("unchecked")
+        org.mockito.ArgumentCaptor<List<AiClient.Turn>> cap = org.mockito.ArgumentCaptor.forClass(List.class);
+        verify(ai, times(3)).ask(any(), anyString(), anyInt(), cap.capture());
+        assertThat(cap.getAllValues().get(0)).isEmpty();                  // 첫 질문: 앞 대화 없음
+        assertThat(cap.getAllValues().get(1)).hasSize(1);
+        assertThat(cap.getAllValues().get(1).get(0).query()).isEqualTo("황시온 고객 우편물 반송");
+        assertThat(cap.getAllValues().get(1).get(0).maskedQuery()).isEqualTo("<PERSON_ab12cd34> 고객 우편물 반송");
+        assertThat(cap.getAllValues().get(1).get(0).answer()).isEqualTo("<PERSON_ab12cd34> 고객 반송 처리 완료 [H1]");
+        assertThat(cap.getAllValues().get(2)).extracting(AiClient.Turn::query)   // 최근 2턴, 오래된 것부터
+                .containsExactly("황시온 고객 우편물 반송", "그 고객 연락처 변경도 있어?");
+        // 대화 번호 없이 물으면 앞 대화도 없음
+        send(post("/api/chat/ask"), Map.of("query", "x"), me).andExpect(status().isOk());
+        verify(ai).ask(any(), eq("x"), anyInt(), eq(List.of()));
+    }
+
+    @Test
     void streamSavesWhenDone() throws Exception {
         String me = login("h2@history.test", "E962");
         long conv = newConv(me);
         doAnswer(inv -> {
-            ((Runnable) inv.getArgument(3)).run();
-            @SuppressWarnings("unchecked") Consumer<AskResult> onDone = inv.getArgument(5);
+            ((Runnable) inv.getArgument(4)).run();
+            @SuppressWarnings("unchecked") Consumer<AskResult> onDone = inv.getArgument(6);
             onDone.accept(answer("<PERSON_ab12cd34> 반송"));
             return null;
-        }).when(ai).askStream(any(), anyString(), anyInt(), any(), any(), any());
+        }).when(ai).askStream(any(), anyString(), anyInt(), anyList(), any(), any(), any());
 
         send(post("/api/chat/ask/stream"), Map.of("query", "황시온 반송", "conversationId", conv), me).andExpect(status().isOk());
         send(get("/api/chat/conversations/" + conv), null, me)
@@ -140,7 +164,7 @@ class ChatHistoryTest {
         send(delete("/api/chat/conversations/" + conv), null, other).andExpect(status().isNotFound());
         // 남의 대화에 질문을 붙이려 하면 AI 를 부르기 전에 막음
         send(post("/api/chat/ask"), Map.of("query", "x", "conversationId", conv), other).andExpect(status().isNotFound());
-        verify(ai, never()).ask(any(), anyString(), anyInt());
+        verify(ai, never()).ask(any(), anyString(), anyInt(), anyList());
         send(get("/api/chat/conversations"), null, other).andExpect(jsonPath("$.length()").value(0));
 
         send(delete("/api/chat/conversations/" + conv), null, owner).andExpect(status().isOk());
@@ -151,7 +175,7 @@ class ChatHistoryTest {
     void adminCanReadAndEachViewIsLogged() throws Exception {
         String me = login("h5@history.test", "E965");
         long conv = newConv(me);
-        when(ai.ask(any(), anyString(), anyInt())).thenReturn(answer("<PERSON_ab12cd34> 반송"));
+        when(ai.ask(any(), anyString(), anyInt(), anyList())).thenReturn(answer("<PERSON_ab12cd34> 반송"));
         send(post("/api/chat/ask"), Map.of("query", "황시온 반송", "conversationId", conv), me).andExpect(status().isOk());
         long userId = users.findByEmail("h5@history.test").orElseThrow().getId();
 

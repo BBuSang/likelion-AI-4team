@@ -1,4 +1,4 @@
-"""이상 접근 탐지 평가용 모의 복원 기록 (worklog 38장).
+"""이상 접근 탐지 평가용 모의 복원 기록.
 
     DB_PORT=5435 python scripts/sim_access.py --eval                 # 메모리에서 만들고 탐지·채점만 (DB 에 안 씀)
     python scripts/sim_access.py --insert --clean                    # 화면 시연용: 지금 DB 의 restore_log 에 넣음 (actor 가 sim-…@saebom.test)

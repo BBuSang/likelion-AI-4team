@@ -33,10 +33,17 @@ public class AdminController {
         return admin.getUser(id);
     }
 
-    /** 사용자의 채팅 대화 목록 (제목·개수만, worklog 61장) */
+    /** 사용자의 채팅 대화 목록 (제목·개수만) */
     @GetMapping("/users/{id}/conversations")
     public List<ChatHistoryService.ConversationSummary> userConversations(@PathVariable Long id) {
         return chats.listFor(id);
+    }
+
+    /** 통계: 전체 사용자의 최근 대화 (계정·제목·질문 수만, 페이지 단위). 내용은 사용자 화면에서 열어야 보임 */
+    @GetMapping("/recent-conversations")
+    public ChatHistoryService.RecentPage recentConversations(@RequestParam(defaultValue = "0") int page,
+                                                             @RequestParam(defaultValue = "10") int size) {
+        return chats.recent(page, size);
     }
 
     /** 사용자의 대화 내용 (가명처리된 글). 열 때마다 admin_audit_log 에 view_chat 으로 남김 */

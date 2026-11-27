@@ -45,7 +45,7 @@ def restore(text, actor="unknown", purpose=None):
     return out, {"restored": {t: v["display"] for t, v in m.items()}, "unknown": unknown}
 
 
-# ---------------------------------------------------------------- (최종) 역할별 복원 (worklog 3-4-1, 11장)
+# ---------------------------------------------------------------- (최종) 역할별 복원
 def _log(actor, user, purpose, tokens, doc_ids, denied, refused=None, conn=None):
     """복원 기록 한 줄. 직원 번호·팀도 남김 (이상 접근 탐지가 '누가 어느 팀 문서를' 볼 수 있게, 38장).
     refused: 아예 거절된 시도의 이유 (예: no_purpose) — 이때 tokens 는 비어 있음"""
@@ -85,7 +85,7 @@ def restore_for(text, user, doc_ids, purpose=None, actor=None):
     with db.vault_conn() as conn:
         m = lookup(want, conn)
         # 원래 값이 금고에 아예 없는 토큰 = 출력 재검사가 답변 속 말을 가린 것 (예: '조문'을 이름으로 오탐). 권한 문제가 아니라
-        # 되돌릴 값이 없음 → denied 가 아니라 unknown 으로 (화면이 "권한이 없어 가림"이라고 잘못 말하던 것, worklog 57장)
+        # 되돌릴 값이 없음 → denied 가 아니라 unknown 으로 (화면이 "권한이 없어 가림"이라고 잘못 말하던 것)
         rest = [t for t in found if t not in allowed]
         in_vault = set(lookup(rest, conn)) if rest else set()
         denied = [t for t in rest if t in in_vault]

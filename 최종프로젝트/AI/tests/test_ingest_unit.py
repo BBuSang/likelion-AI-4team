@@ -29,6 +29,17 @@ def test_parse_errors():
         service.parse_upload("csv", "a,b")
 
 
+def test_parse_skips_blank_docs():
+    rows = [{"id": "H1", "text": TEXT}, {"id": "H2", "doc_type": "빈문서", "text": "   \n\n  "},
+            {"id": "H3", "text": ""}, {"id": "H4", "text": TEXT}]
+    skipped = []
+    docs = service.parse_upload("jsonl", "\n".join(json.dumps(r, ensure_ascii=False) for r in rows), skipped=skipped)
+    assert [d["ext_id"] for d in docs] == ["H1", "H4"]
+    assert skipped == [{"line": 2, "id": "H2"}, {"line": 3, "id": "H3"}]
+    with pytest.raises(service.IngestError):   # 빈 문서뿐이면 올릴 게 없음
+        service.parse_upload("jsonl", json.dumps({"id": "H5", "text": " "}), skipped=[])
+
+
 def test_validate_spans():
     ok = service.validate_spans(TEXT, [{"label": "phone_number", "start": 13, "end": 26},
                                        {"label": "person", "start": 5, "end": 8, "text": "김민준"}])

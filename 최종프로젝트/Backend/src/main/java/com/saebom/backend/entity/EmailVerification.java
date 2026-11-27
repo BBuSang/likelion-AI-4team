@@ -7,7 +7,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDateTime;
 
 /**
- * 이메일 인증 코드 (app.email_verifications, worklog 41장).
+ * 이메일 인증 코드 (app.email_verifications).
  * 코드는 원문을 저장하지 않고 HMAC 만 저장. 확인되면 verifiedAt, 가입에 쓰이면 usedAt.
  */
 @Entity

@@ -2,6 +2,7 @@ package com.saebom.backend.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.saebom.backend.ai.AiClient;
 import com.saebom.backend.ai.AiClient.AskResult;
 import com.saebom.backend.entity.ChatConversation;
 import com.saebom.backend.entity.ChatMessage;
@@ -10,6 +11,8 @@ import com.saebom.backend.repository.ChatConversationRepository;
 import com.saebom.backend.repository.ChatMessageRepository;
 import com.saebom.backend.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import com.saebom.backend.entity.User;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,7 +23,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 채팅 내역 서버 저장 (worklog 61장). 브라우저 탭에만 두던 대화를 계정별로 DB(app 스키마)에 저장.
+ * 채팅 내역 서버 저장. 브라우저 탭에만 두던 대화를 계정별로 DB(app 스키마)에 저장.
  * - 저장은 화면이 아니라 서버가: 질문 응답(AskResult)을 받은 그 자리에서 저장 → 화면이 꾸민 답을 끼워 넣을 수 없음
  * - 질문은 가명처리된 글(maskedQuery) + 원문은 암호문으로만(ChatCipher, 64장, 주인에게만 풀어 줌). 답은 토큰 상태, 실명 보기 결과는 저장 안 함
  * - 본인 대화만 보고 지움. 관리자는 사용자 화면에서 볼 수 있고, 대화 내용을 열 때마다 admin_audit_log 에 남김
@@ -31,6 +34,8 @@ public class ChatHistoryService {
 
     static final int LIST_LIMIT = 100;
     static final int TITLE_LEN = 60;
+    static final int HISTORY_TURNS = 2;     // 멀티턴: AI 에 넘길 앞 턴 수
+    static final int ANSWER_CHARS = 1000;   // 앞 답변은 이만큼만 (AI 는 다시 쓰기에 300자만 씀)
 
     private final ChatConversationRepository convs;
     private final ChatMessageRepository msgs;
@@ -48,6 +53,12 @@ public class ChatHistoryService {
 
     public record ConversationDetail(Long id, String title, LocalDateTime createdAt, LocalDateTime updatedAt,
                                      List<MessageView> messages) {}
+
+    /** 통계 화면의 최근 대화 한 줄: 계정·역할·팀 + 가명처리된 제목·질문 수 (내용·원문 질문은 없음) */
+    public record RecentConversation(Long id, Long userId, String email, String role, String team,
+                                     String title, int messages, LocalDateTime updatedAt) {}
+
+    public record RecentPage(List<RecentConversation> items, long total, int page, int size) {}
 
     // ------------------------------------------------------------------ 본인
 
@@ -83,6 +94,22 @@ public class ChatHistoryService {
     @Transactional(readOnly = true)
     public void checkOwner(Long userId, Long convId) {
         owned(userId, convId);
+    }
+
+    /**
+     * 멀티턴: 이 대화의 최근 HISTORY_TURNS 턴을 AI 에 넘길 모양으로. 남의 대화면 404 (AI 부르기 전).
+     * 원문 질문은 암호문을 풀어 AI 서버로만 (토큰 되돌리기용, 외부 LLM 엔 안 감). 답변은 토큰 상태, 앞 ANSWER_CHARS 자만
+     */
+    @Transactional(readOnly = true)
+    public List<AiClient.Turn> recentTurns(Long userId, Long convId) {
+        if (convId == null) return List.of();
+        List<ChatMessage> all = msgs.findByConversationIdOrderByIdAsc(owned(userId, convId).getId());
+        return all.subList(Math.max(0, all.size() - HISTORY_TURNS), all.size()).stream().map(m -> {
+            AskResult r = parse(m.getResult());
+            String a = r == null || r.answer() == null ? null
+                    : r.answer().length() > ANSWER_CHARS ? r.answer().substring(0, ANSWER_CHARS) : r.answer();
+            return new AiClient.Turn(cipher.decrypt(m.getQueryEnc()), m.getMaskedQuery(), a);
+        }).toList();
     }
 
     @Transactional
@@ -130,6 +157,33 @@ public class ChatHistoryService {
         what.put("title", new Object[]{null, c.getTitle()});  // 가명처리된 첫 질문 — 화면에 "어느 대화"로 보여 줌
         admin.log(adminId, targetUserId, "view_chat", what);
         return detailOf(c, false);  // 관리자에겐 원문 질문을 풀지 않음
+    }
+
+    /** 통계: 전체 사용자의 최근 대화 (페이지 단위). 제목은 가명처리된 첫 질문만 — 내용을 여는 게 아니라 기록은 남기지 않음 */
+    @Transactional(readOnly = true)
+    public RecentPage recent(int page, int size) {
+        int p = Math.max(0, page);
+        int n = Math.min(Math.max(1, size), 50);
+        Page<ChatConversation> res = convs.findByTitleIsNotNullOrderByUpdatedAtDesc(PageRequest.of(p, n));
+        List<ChatConversation> list = res.getContent();
+        Map<Long, Integer> counts = new HashMap<>();
+        Map<Long, User> owners = new HashMap<>();
+        if (!list.isEmpty()) {
+            for (Object[] row : msgs.countByConversation(list.stream().map(ChatConversation::getId).toList())) {
+                counts.put((Long) row[0], ((Number) row[1]).intValue());
+            }
+            users.findAllById(list.stream().map(ChatConversation::getUserId).distinct().toList())
+                    .forEach(u -> owners.put(u.getId(), u));
+        }
+        List<RecentConversation> items = list.stream().map(c -> {
+            User u = owners.get(c.getUserId());
+            return new RecentConversation(c.getId(), c.getUserId(),
+                    u == null ? null : u.getEmail(),
+                    u == null || u.getRole() == null ? null : u.getRole().name(),
+                    u == null || u.getTeam() == null ? null : u.getTeam().getName(),
+                    c.getTitle(), counts.getOrDefault(c.getId(), 0), c.getUpdatedAt());
+        }).toList();
+        return new RecentPage(items, res.getTotalElements(), p, n);
     }
 
     // ------------------------------------------------------------------

@@ -1,5 +1,5 @@
 #!/bin/sh
-# Nginx 시작 때 설정 고르기 (worklog 66장): SITE_DOMAIN 의 인증서가 있으면 https, 없으면 http 만
+# Nginx 시작 때 설정 고르기: SITE_DOMAIN 의 인증서가 있으면 https, 없으면 http 만
 set -e
 D="${SITE_DOMAIN:-}"
 if [ -n "$D" ] && [ -f "/etc/letsencrypt/live/$D/fullchain.pem" ]; then

@@ -20,7 +20,7 @@ class CreateRequest(BaseModel):
     team: Optional[str] = Field(default=None, max_length=50)
     position: Optional[str] = Field(default=None, max_length=30)
     role: Literal["STAFF", "LEAD", "AUDITOR"]
-    # 스프링 계정에 이미 연결된 직원 번호 — 새 번호가 이것들과 겹치지 않게 (worklog 44장)
+    # 스프링 계정에 이미 연결된 직원 번호 — 새 번호가 이것들과 겹치지 않게
     taken: list[Annotated[str, Field(max_length=20)]] = Field(default_factory=list, max_length=5000)
 
 

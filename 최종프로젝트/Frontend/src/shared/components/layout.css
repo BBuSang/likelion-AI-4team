@@ -16,7 +16,7 @@
 .page-head { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
 .page-head p { font-size: 13px; color: var(--text-2); }
 .side { width: 240px; flex: none; overflow: auto; padding: 14px; }
-.side-wide { width: 320px; }
+.side-wide { width: clamp(260px, 26vw, 320px); } /* 창 폭에 맞춰 늘고 줄어듦 */
 
 /* 창 폭에 맞추기 (데스크톱 기준): 1280px 이하는 메뉴를 아이콘 막대로 (이름은 마우스를 올리면 보임) */
 @media (max-width: 1280px) {
@@ -25,12 +25,27 @@
   .brand { justify-content: center; padding: 2px 0 16px; }
   .nav-item { justify-content: center; padding: 9px 0; }
   .me-box { justify-content: center; padding: 10px 0; }
-  .side-wide { width: 300px; }
+}
+
+/* 좁은 창 (900px 이하): 오른쪽 칸(데이터 적재·관리자 등)을 본문 아래로 내림. 채팅의 칸들은 chat.css 에서 서랍으로 */
+@media (max-width: 900px) {
+  .main { flex-direction: column; overflow: auto; }
+  .main > .page { flex: none; overflow: visible; }
+  .main > .side { width: auto; overflow: visible; }
+  .chat-main { flex: 1; min-height: 0; }
+}
+
+/* 아주 좁은 창 (760px 이하): 왼쪽 아이콘 메뉴는 그대로 두고 폭·여백만 줄여 채팅 칸을 넓힘 */
+@media (max-width: 760px) {
+  .app { padding: 8px; gap: 8px; height: 100dvh; }
+  .main { gap: 8px; }
+  .nav { width: 52px; padding: 12px 6px; }
+  .page { padding: 16px; }
 }
 
 /* 로그인 쪽 */
 .auth { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
-.auth-split { display: grid; grid-template-columns: 1fr 1fr; width: min(880px, 100%); min-height: 580px; gap: 12px; } /* 큰 로고 자리 (worklog 49장) */
+.auth-split { display: grid; grid-template-columns: 1fr 1fr; width: min(880px, 100%); min-height: 580px; gap: 12px; } /* 큰 로고 자리 */
 .auth-hero { background: var(--brand); border-radius: var(--radius-lg); color: #fff; padding: 32px; display: flex; flex-direction: column; }
 .auth-hero h1 { color: #fff; font-size: 26px; line-height: 1.35; }
 .auth-card { padding: 36px 34px; display: flex; flex-direction: column; justify-content: center; }
@@ -43,7 +58,7 @@
   .auth-hero { display: none; }
 }
 
-/* 이메일 인증 칸 (EmailCodeField, worklog 42장) */
+/* 이메일 인증 칸 (EmailCodeField) */
 .field-label { font-size: 13px; color: #4b5563; }
 .code-btn { flex: none; width: 92px; justify-content: center; padding: 0 8px; }
 .code-input { flex: 1; min-width: 0; letter-spacing: 2px; }
@@ -51,16 +66,16 @@
 .code-sent-text { flex: 1; min-width: 0; font-size: 12px; color: #e5646f; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .code-done { display: inline-flex; align-items: center; gap: 4px; margin-top: 4px; font-size: 12px; color: var(--ok); }
 
-/* 프로젝트 이름: 사공삼(굵게) + 403(작게), 열쇠 구멍 마크 (worklog 48장) */
+/* 프로젝트 이름: 사공삼(굵게) + 403(작게), 열쇠 구멍 마크 */
 .brand-lockup { display: inline-flex; align-items: center; gap: 9px; }
 .brand-name { display: inline-flex; align-items: baseline; gap: 5px; font-size: 17px; font-weight: 800; letter-spacing: -.2px; }
 .brand-num { font-size: 11px; font-weight: 700; letter-spacing: .8px; opacity: .55; font-variant-numeric: tabular-nums; }
 
-/* 로그인·가입·재설정 파란 카드의 큰 로고 (worklog 49장) */
+/* 로그인·가입·재설정 파란 카드의 큰 로고 */
 .hero-logo { margin: 4px 0 0 -4px; }
 .hero-name { margin-top: 14px; font-size: 20px; font-weight: 800; color: #fff; display: flex; align-items: baseline; gap: 6px; }
 .hero-name span { font-size: 12px; font-weight: 700; letter-spacing: .8px; color: #cfdcff; }
 
-/* 왼쪽 메뉴 맨 위 로고 (worklog 50장): 넓으면 가로 로고, 아이콘만 남는 폭이면 자물쇠 마크 */
+/* 왼쪽 메뉴 맨 위 로고: 넓으면 가로 로고, 아이콘만 남는 폭이면 자물쇠 마크 */
 .nav-mark { display: none; }
 @media (max-width: 1280px) { .nav .nav-mark { display: block; } }

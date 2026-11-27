@@ -1,37 +1,88 @@
-// 데이터 적재: 파일 올리기(jsonl / 줄글) + 업로드 목록 + 고른 업로드의 문서 목록
+// 데이터 적재: 파일 올리기(jsonl / 줄글) · 녹음(상담·회의, wav·mp3·m4a 등) + 업로드 목록 + 고른 업로드의 문서 목록
 import { useCallback, useEffect, useRef, useState } from 'react';
+import type { DragEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FileUp, RefreshCw } from 'lucide-react';
+import { FileAudio, FileUp, RefreshCw, Undo2 } from 'lucide-react';
 import { errMsg, fmtTime } from '@/shared/utils/error';
+import ConfirmDialog from '@/shared/components/ConfirmDialog';
+import DocTypeSelect from '../components/DocTypeSelect';
 import * as api from '../api/ingest.api';
-import type { Job, StagingRow } from '../api/ingest.api';
+import type { AudioKind, Job, StagingRow } from '../api/ingest.api';
 import { APPROVED_BY_KO, DOC_STATUS } from '../api/ingest.api';
 import './review.css';
 
+// 끌어다 놓기로 받는 파일 (파일 고르기의 accept 와 같음)
+const DROP_EXT = { file: ['.jsonl', '.txt'], audio: ['.wav', '.mp3', '.m4a', '.aac', '.flac', '.ogg', '.opus', '.webm'] } as const;
+const MAX_AUDIO_MB = 40;
+const hasFiles = (e: { dataTransfer: DataTransfer | null }) => !!e.dataTransfer && Array.from(e.dataTransfer.types).includes('Files');
+
 const JOB_STATUS: Record<string, { n: string; cls: string }> = {
-  processing: { n: '탐지 중', cls: 'badge-brand' }, ready: { n: '탐지 끝', cls: 'badge-ok' }, failed: { n: '실패', cls: 'badge-bad' },
+  transcribing: { n: '받아쓰는 중', cls: 'badge-brand' },
+  processing: { n: '탐지 중', cls: 'badge-brand' }, storing: { n: '저장 중', cls: 'badge-brand' }, ready: { n: '탐지 끝', cls: 'badge-ok' }, failed: { n: '실패', cls: 'badge-bad' },
+  canceled: { n: '취소됨', cls: 'badge-gray' },
 };
+const BUSY_JOB = ['transcribing', 'processing', 'storing']; // 처리 중에는 취소 못 함 (서버도 막음)
 
 export default function IngestPage() {
   const nav = useNavigate();
   const [jobs, setJobs] = useState<Job[]>([]);
   const [sel, setSel] = useState<number | null>(null);
   const [docs, setDocs] = useState<StagingRow[]>([]);
-  const [mode, setMode] = useState<'file' | 'text'>('file');
+  const [mode, setMode] = useState<'file' | 'text' | 'audio'>('file');
   const [file, setFile] = useState<File | null>(null);
   const [text, setText] = useState('');
+  const [docType, setDocType] = useState(''); // '' = 자동 판단
+  const [kind, setKind] = useState<AudioKind>('call');
+  const [speakers, setSpeakers] = useState(''); // 회의 참석자 수 (비우면 목소리 차이로 추정)
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
+  const [dragOver, setDragOver] = useState(false); // 파일을 끌고 점선 상자 위에 있는 동안
+  const [askCancel, setAskCancel] = useState(false); // 업로드 취소 확인 대화상자
+  const [canceling, setCanceling] = useState(false);
+
+  // 상자 밖에 잘못 놓은 파일을 브라우저가 열어 버리지 않게 (이 화면에 있는 동안만)
+  useEffect(() => {
+    const block = (e: globalThis.DragEvent) => { if (hasFiles(e)) e.preventDefault(); };
+    window.addEventListener('dragover', block);
+    window.addEventListener('drop', block);
+    return () => { window.removeEventListener('dragover', block); window.removeEventListener('drop', block); };
+  }, []);
+
+  const onDragOver = (e: DragEvent<HTMLLabelElement>) => {
+    if (!hasFiles(e)) return;
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'copy';
+    setDragOver(true);
+  };
+  const onDragLeave = (e: DragEvent<HTMLLabelElement>) => {
+    // 상자 안의 글자·아이콘으로 옮겨 갈 때는 그대로 (상자를 완전히 벗어났을 때만 끔)
+    if (e.relatedTarget instanceof Node && e.currentTarget.contains(e.relatedTarget)) return;
+    setDragOver(false);
+  };
+  const onDrop = (e: DragEvent<HTMLLabelElement>) => {
+    e.preventDefault();
+    setDragOver(false);
+    const files = Array.from(e.dataTransfer.files);
+    if (files.length === 0) return;
+    if (files.length > 1) return setMsg({ ok: false, text: `파일은 한 번에 하나만 올릴 수 있어요. (${files.length}개를 놓았어요)` });
+    const f = files[0];
+    const exts = mode === 'audio' ? DROP_EXT.audio : DROP_EXT.file;
+    if (!exts.some((x) => f.name.toLowerCase().endsWith(x))) {
+      return setMsg({ ok: false, text: `${f.name} 은(는) 올릴 수 없어요. ${exts.join(' 또는 ')} 파일만 받아요.` });
+    }
+    setMsg(null);
+    setFile(f);
+  };
 
   const reload = useCallback(async () => {
     try { setJobs(await api.jobs()); } catch (e) { setMsg({ ok: false, text: errMsg(e) }); }
   }, []);
   useEffect(() => { reload(); }, [reload]);
 
-  // 탐지 중인 업로드가 있으면 3초마다 새로고침
+  // 받아쓰는 중·탐지 중·자동 저장 중인 업로드가 있으면 3초마다 새로고침
   useEffect(() => {
-    if (!jobs.some((j) => j.status === 'processing')) return;
+    if (!jobs.some((j) => BUSY_JOB.includes(j.status))) return;
     const t = setInterval(reload, 3000);
     return () => clearInterval(t);
   }, [jobs, reload]);
@@ -41,21 +92,54 @@ export default function IngestPage() {
     api.jobDocs(sel).then(setDocs).catch((e) => setMsg({ ok: false, text: errMsg(e) }));
   }, [sel, jobs]);
 
+  const switchMode = (m: typeof mode) => {
+    setMode(m);
+    setFile(null);
+    setMsg(null);
+    if (fileRef.current) fileRef.current.value = '';
+  };
+
+  const submitAudio = async () => {
+    if (!file) return setMsg({ ok: false, text: '녹음 파일을 골라 주세요.' });
+    if (file.size > MAX_AUDIO_MB * 1024 * 1024) return setMsg({ ok: false, text: `녹음은 ${MAX_AUDIO_MB}MB(약 20분)까지 올릴 수 있어요.` });
+    setBusy(true);
+    try {
+      const n = Number(speakers);
+      if (kind === 'meeting' && speakers && !(Number.isInteger(n) && n >= 1 && n <= 10)) return setMsg({ ok: false, text: '참석자 수는 1~10명으로 넣어 주세요.' });
+      const r = await api.uploadAudio(file, { kind, speakers: kind === 'meeting' && speakers ? n : undefined, docType: docType.trim() || undefined });
+      const min = Math.max(1, Math.round(r.sec / 60));
+      setMsg({ ok: true, text: `${min}분짜리 녹음을 올렸어요. 받아쓰는 중이에요 (10분 녹음에 5~7분${kind === 'meeting' ? ', 화자 나누기에 1분쯤 더' : ''}, 앞에 다른 녹음이 있으면 차례를 기다려요).` });
+      setFile(null);
+      if (fileRef.current) fileRef.current.value = '';
+      await reload();
+      setSel(r.job_id);
+    } catch (e) {
+      setMsg({ ok: false, text: errMsg(e) });
+    } finally {
+      setBusy(false);
+    }
+  };
+
   const submit = async () => {
     setMsg(null);
+    if (mode === 'audio') return submitAudio();
     let body: Parameters<typeof api.upload>[0];
     if (mode === 'file') {
       if (!file) return setMsg({ ok: false, text: '파일을 골라 주세요.' });
       const content = await file.text();
-      body = { source: file.name.endsWith('.jsonl') ? 'jsonl' : 'text', content, filename: file.name };
+      body = { source: file.name.endsWith('.jsonl') ? 'jsonl' : 'text', content, filename: file.name, docType: docType.trim() || undefined };
     } else {
       if (!text.trim()) return setMsg({ ok: false, text: '글을 붙여 넣어 주세요.' });
-      body = { source: 'text', content: text };
+      body = { source: 'text', content: text, docType: docType.trim() || undefined };
     }
     setBusy(true);
     try {
       const r = await api.upload(body);
-      setMsg({ ok: true, text: `${r.total}건을 올렸어요. 개인정보를 찾는 중이에요 (처음엔 1~2분).` });
+      const sk = r.skipped ?? [];
+      const skText = sk.length
+        ? ` 빈 문서 ${sk.length}건(${sk.slice(0, 5).map((x) => x.id ?? `${x.line}번째 줄`).join(', ')}${sk.length > 5 ? ' 외' : ''})은 건너뛰었어요.`
+        : '';
+      setMsg({ ok: true, text: `${r.total}건을 올렸어요.${skText} 개인정보를 찾는 중이에요 (처음엔 1~2분).` });
       setFile(null);
       setText('');
       if (fileRef.current) fileRef.current.value = '';
@@ -65,6 +149,22 @@ export default function IngestPage() {
       setMsg({ ok: false, text: errMsg(e) });
     } finally {
       setBusy(false);
+    }
+  };
+
+  const cancelUpload = async () => {
+    if (sel === null) return;
+    setCanceling(true);
+    try {
+      const r = await api.cancelJob(sel);
+      const failText = r.delete_failed.length ? ` 저장된 문서 ${r.delete_failed.length}건은 지우지 못했어요. 다시 취소해 주세요.` : '';
+      setMsg({ ok: r.delete_failed.length === 0, text: `업로드 #${r.job_id} 을(를) 취소했어요. 검수 대기 ${r.canceled}건을 버리고, 저장된 문서 ${r.deleted}건을 검색에서 지웠어요.${failText}` });
+      await reload();
+    } catch (e) {
+      setMsg({ ok: false, text: errMsg(e) });
+    } finally {
+      setCanceling(false);
+      setAskCancel(false);
     }
   };
 
@@ -82,21 +182,56 @@ export default function IngestPage() {
 
         <div className="card" style={{ marginBottom: 18 }}>
           <div className="tabs" style={{ marginBottom: 12 }}>
-            <button className={`tab${mode === 'file' ? ' active' : ''}`} onClick={() => setMode('file')}>파일 올리기</button>
-            <button className={`tab${mode === 'text' ? ' active' : ''}`} onClick={() => setMode('text')}>글 붙여 넣기</button>
+            <button className={`tab${mode === 'file' ? ' active' : ''}`} onClick={() => switchMode('file')}>파일 올리기</button>
+            <button className={`tab${mode === 'text' ? ' active' : ''}`} onClick={() => switchMode('text')}>글 붙여 넣기</button>
+            <button className={`tab${mode === 'audio' ? ' active' : ''}`} onClick={() => switchMode('audio')}>녹음</button>
           </div>
-          {mode === 'file' ? (
-            <label className="drop">
+          {mode === 'audio' ? (
+            <>
+              <div className="row" style={{ marginBottom: 10, gap: 8, flexWrap: 'wrap' }}>
+                <div className="tabs" role="radiogroup" aria-label="녹음 종류">
+                  <button className={`tab${kind === 'call' ? ' active' : ''}`} role="radio" aria-checked={kind === 'call'} onClick={() => setKind('call')}>상담 (1:1)</button>
+                  <button className={`tab${kind === 'meeting' ? ' active' : ''}`} role="radio" aria-checked={kind === 'meeting'} onClick={() => setKind('meeting')}>회의 (여러 명)</button>
+                </div>
+                {kind === 'meeting' && (
+                  <label className="small row" style={{ gap: 6 }}>
+                    참석자 수
+                    <input className="input" style={{ width: 70, height: 30 }} type="number" min={1} max={10} placeholder="모름"
+                      value={speakers} onChange={(e) => setSpeakers(e.target.value)} />
+                    <span className="muted">명 (알면 넣어 주세요. 화자가 더 잘 나뉘어요)</span>
+                  </label>
+                )}
+              </div>
+              <label className={`drop${dragOver ? ' drop-over' : ''}`} onDragOver={onDragOver} onDragLeave={onDragLeave} onDrop={onDrop}>
+                <FileAudio size={26} color="var(--brand)" aria-hidden />
+                <p>{file ? file.name : '녹음 파일을 끌어다 놓거나 눌러서 고르세요'}</p>
+                <p className="small muted">wav·mp3·m4a·aac·flac·ogg·opus·webm · {MAX_AUDIO_MB}MB·30분까지 · {kind === 'call'
+                  ? '스테레오(왼쪽 상담원, 오른쪽 고객)면 채널로, 모노면 목소리로 상담원·고객을 나눠요'
+                  : '목소리로 사람을 나눠 화자1·화자2…로 붙여요 (이름은 검수 때 바꿔 주세요)'}. 받아쓴 글은 늘 사람이 확인한 뒤 저장돼요</p>
+                <input ref={fileRef} type="file" accept={DROP_EXT.audio.join(',') + ',audio/*'} hidden onChange={(e) => setFile(e.target.files?.[0] ?? null)} />
+              </label>
+            </>
+          ) : mode === 'file' ? (
+            <label className={`drop${dragOver ? ' drop-over' : ''}`} onDragOver={onDragOver} onDragLeave={onDragLeave} onDrop={onDrop}>
               <FileUp size={26} color="var(--brand)" aria-hidden />
-              <p>{file ? file.name : '.jsonl 또는 .txt 파일을 고르세요'}</p>
+              <p>{file ? file.name : '파일을 끌어다 놓거나 눌러서 고르세요'}</p>
               <p className="small muted">jsonl: 한 줄에 {'{id, text, doc_type, entities?}'} · 정답 라벨(entities)이 있으면 탐지와 같을 때, 없으면 애매한 곳이 없을 때 바로 저장돼요</p>
               <input ref={fileRef} type="file" accept=".jsonl,.txt" hidden onChange={(e) => setFile(e.target.files?.[0] ?? null)} />
             </label>
           ) : (
             <textarea className="textarea" style={{ minHeight: 120 }} placeholder="문서 1건의 본문" value={text} onChange={(e) => setText(e.target.value)} />
           )}
-          <div className="row" style={{ marginTop: 12 }}>
-            <p className="small muted">원문은 검수가 끝날 때까지 별도 보관소(vault)에만 있어요.</p>
+          <div className="row" style={{ marginTop: 12, gap: 8, flexWrap: 'wrap' }}>
+            <label className="small" htmlFor="ingest-doc-type" style={{ fontWeight: 500 }}>문서 종류</label>
+            <DocTypeSelect id="ingest-doc-type" value={docType} onChange={setDocType} disabled={busy} />
+            <span className="small muted">{docType.trim()
+              ? (mode === 'file' ? 'jsonl 에 doc_type 이 있는 줄은 그 값을 써요' : '')
+              : '저장된 문서와 비교해 가장 비슷한 종류로 정해요. 애매하면 검수 때 확인해요'}</span>
+          </div>
+          <div className="row" style={{ marginTop: 10 }}>
+            <p className="small muted">{mode === 'audio'
+              ? '녹음은 이 서버에서 받아쓰고 버려요 (외부로 안 나가고 저장도 안 해요). 받아쓴 글은 별도 보관소(vault)에만 있어요.'
+              : '원문은 검수가 끝날 때까지 별도 보관소(vault)에만 있어요.'}</p>
             <div className="spacer" />
             <button className="btn btn-primary" disabled={busy} onClick={submit}>{busy ? '올리는 중…' : '올리기'}</button>
           </div>
@@ -110,7 +245,7 @@ export default function IngestPage() {
             {jobs.map((j) => (
               <tr key={j.id} className={`clickable${sel === j.id ? ' selected' : ''}`} onClick={() => setSel(j.id)}>
                 <td>{j.id}</td>
-                <td>{j.filename ?? (j.source === 'text' ? '붙여 넣은 글' : '-')}</td>
+                <td>{j.source === 'audio' && <FileAudio size={13} aria-label="녹음" style={{ verticalAlign: -2, marginRight: 4 }} />}{j.filename ?? (j.source === 'text' ? '붙여 넣은 글' : '-')}</td>
                 <td className="small">{j.uploader}</td>
                 <td>{j.total}</td>
                 <td><span className={`badge ${JOB_STATUS[j.status]?.cls ?? 'badge-gray'}`}>{JOB_STATUS[j.status]?.n ?? j.status}</span></td>
@@ -134,7 +269,19 @@ export default function IngestPage() {
               <p className="small muted">{selJob.filename ?? '붙여 넣은 글'} · {selJob.total}건
                 {docs.length > 0 && ` · 자동 저장 ${docs.filter((d) => d.approved_by === 'auto' || d.approved_by === 'gold').length}건`}</p>
             </div>
+            {selJob.status === 'transcribing' && <div className="alert alert-info small">녹음을 받아쓰는 중이에요… (10분 통화에 5~7분)</div>}
             {selJob.status === 'processing' && <div className="alert alert-info small">개인정보를 찾는 중이에요…</div>}
+            {selJob.status === 'storing' && <div className="alert alert-info small">확인할 곳이 없는 문서를 가명처리해서 저장하는 중이에요… ({selJob.stored}건 저장)</div>}
+            {selJob.status === 'failed' && <div className="alert alert-bad small">처리하지 못했어요{selJob.error ? ` (${selJob.error})` : ''}. 파일을 확인하고 다시 올려 주세요.</div>}
+            {selJob.status === 'canceled' && <div className="alert alert-info small">취소한 업로드예요. 검수 대기 문서는 버렸고 저장된 문서는 검색에서 지웠어요.</div>}
+            {selJob.status !== 'canceled' && (
+              <button className="btn btn-danger btn-sm" style={{ alignSelf: 'flex-start' }}
+                      disabled={canceling || BUSY_JOB.includes(selJob.status)}
+                      title={BUSY_JOB.includes(selJob.status) ? '처리가 끝난 뒤에 취소할 수 있어요' : undefined}
+                      onClick={() => setAskCancel(true)}>
+                <Undo2 size={14} aria-hidden /> 업로드 취소
+              </button>
+            )}
             {firstPending && (
               <button className="btn btn-primary" onClick={() => nav(`/ingest/docs/${firstPending.id}`)}>검수 시작 (대기 {docs.filter((d) => d.status === 'pending').length}건)</button>
             )}
@@ -157,6 +304,17 @@ export default function IngestPage() {
           </div>
         )}
       </aside>
+
+      {askCancel && selJob && (
+        <ConfirmDialog title={`업로드 #${selJob.id} 취소`} confirmLabel={canceling ? '취소하는 중…' : '업로드 취소'} danger busy={canceling}
+                       message={<>
+                         「{selJob.filename ?? '붙여 넣은 글'}」 업로드를 취소할까요?<br />
+                         검수 대기·저장 실패 문서 {selJob.pending + selJob.failed}건은 원문까지 버리고,
+                         이미 저장된 문서 {selJob.stored}건은 검색과 보관소에서 지워요. 되돌릴 수 없어요.
+                       </>}
+                       onCancel={() => { if (!canceling) setAskCancel(false); }}
+                       onConfirm={cancelUpload} />
+      )}
     </>
   );
 }

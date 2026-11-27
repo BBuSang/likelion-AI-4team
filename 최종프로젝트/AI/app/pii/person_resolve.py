@@ -33,7 +33,9 @@ TITLES = ("본부장", "센터장", "팀장", "실장", "부장", "차장", "과
 _TITLE_RE = "|".join(TITLES)
 _NOT_AFF = set(TITLES) | {"연차", "휴가", "외근", "출장", "본인", "대리인", "고객", "부재", "퇴사", "병가", "교육"}
 _ORG_SUFFIX = re.compile(r"(팀|센터|본부|부서|지점|사업부|실)$")
-_CUSTOMER_LABEL = r"고객명?|민원인|신청인|송금인|수취인|예금주|명의인|가입자|차주|보증인|위임인|피해자|변경\s*요청\s*고객|고객님"
+# 청구인·양도인·양수인·계약자·채무자·카드회원: Holdout2 첫 실행에서 '청구인: 도재호'(고객)가 역할 없이 같은 이름 직원과 합쳐짐
+_CUSTOMER_LABEL = (r"고객명?|민원인|신청인|송금인|수취인|예금주|명의인|가입자|차주|보증인|위임인|피해자|변경\s*요청\s*고객|고객님|"
+                   r"청구인|양도인|양수인|계약자|채무자|카드\s*회원")
 _STAFF_LABEL = (r"상담원|처리자|처리\s*담당|담당자?|작성자|참석자?|불참|보고자|점검자|심사역|결재자?|승인자|접수자|"
                 r"발신자?|수신자?|참조|보낸\s*사람|받는\s*사람|갑(?=\s*[:：])")
 # 외부(수탁사·협력사 등) 사람: 내부 직원과 이름이 같아도 다른 사람일 수 있어 따로 본다
@@ -54,7 +56,9 @@ def _line_bounds(text, s, e):
 
 # 이름(또는 앞 식별자)과 다음 식별자 사이에 허용하는 글: 문장부호 + 짧은 단어 하나 + 항목 이름
 _GAP_OK = re.compile(r"[\s(（,/:：·]*(?:[가-힣]{1,4}\s*)?(?:연락처|휴대폰|휴대전화|전화번호?|핸드폰|이메일|메일|계좌번호?|"
-                     r"카드번호?|주민등록번호|주민번호)?[\s(（,/:：]*")
+                     r"카드번호?|주민등록번호|주민번호)?[\s(（,/:：]*"
+                     # 표: 이름 칸 바로 다음 칸이 번호 '| 도재호 | 010-7114-6387 |' (Holdout2 콜백요청목록). 칸 하나만 건넘
+                     r"|[ 	]*\|[ 	]*")
 # '고객명: 김민준' 다음 줄의 '연락처: 010-…' 처럼 항목: 값 줄. 16장: 글머리표 '- 고객명:' '• 연락처:' 도 허용
 _KV_LINE = re.compile(r"\s*(?:[-*•·]\s*)?[가-힣A-Za-z ]{1,12}\s*[:：]\s*")
 # 16장: '고객명: 석준서 고객님' 처럼 이름 뒤에 호칭만 있는 줄도 '항목: 이름' 줄로 봄
@@ -111,7 +115,8 @@ def _internal(aff):
 
 def _role(before, after, aff):
     """customer(고객) / staff(내부 직원) / external(수탁사·협력사 등 외부 사람) / None."""
-    if re.match(r"\s*고객(?!센터)", after):
+    # '수신: 은진연 귀하' — 회신 공문의 받는 사람은 고객 (Holdout2: '수신:' 을 직원 항목으로 봐서 같은 고객이 둘로 나뉨)
+    if re.match(r"\s*(?:고객(?!센터)|귀하)", after):
         return "customer"
     if aff:
         return "staff" if _internal(aff) else "external"
@@ -149,8 +154,40 @@ def mention_features(text, spans, i):
     ls, le = _line_bounds(text, s, e)
     before, after = text[ls:s], text[e:le]
     aff = _affiliation(before, after)
-    return {"anchors": _anchors(text, e, spans, i), "aff": aff, "role": _role(before, after, aff), "rank": _rank(after),
-            "_aff_kind": _aff_kind(after, aff) if aff else None, "_ctx": (before, after)}
+    trole = _table_role(text, s)
+    return {"anchors": _anchors(text, e, spans, i), "aff": aff, "role": _role(before, after, aff) or trole, "rank": _rank(after),
+            "_aff_kind": _aff_kind(after, aff) if aff else None, "_ctx": (before, after), "_trole": trole}
+
+
+# 표 칸의 이름은 그 열의 제목으로 역할을 본다 ('| 고객명 | 연락처 | … |' 의 고객명 열 → 고객).
+# Holdout2 첫 실행: 콜백요청목록의 고객 '조수현'이 같은 이름 직원과 합쳐짐 (표 안 이름은 앞뒤 글에 역할 단서가 없음)
+# '성명'·'이름' 열은 뺌 — 이전 holdout 출장보고의 '| 성명 | 소속 |' 은 직원 표 (넣으면 직원 4명이 쪼개짐)
+_TABLE_CUSTOMER_HEAD = re.compile(r"^(?:고객명?|고객\s*이름|민원인|신청인|청구인|회원명?|가입자|예금주|명의인|차주)$")
+
+
+def _table_role(text, s):
+    ls, le = _line_bounds(text, s, s)
+    line = text[ls:le]
+    if not line.lstrip().startswith("|"):
+        return None
+    col = text[ls:s].count("|") - 1                 # 이 줄에서 몇 번째 칸인지 (0부터)
+    head = None
+    pos = ls
+    while pos > 0:                                   # 위로 올라가며 표의 첫 줄(제목 줄) 찾기
+        pls = text.rfind("\n", 0, pos - 1) + 1
+        prev = text[pls:pos - 1]
+        if not prev.lstrip().startswith("|"):
+            break
+        if not re.fullmatch(r"[\s|:\-]+", prev):     # '|---|---|' 구분 줄은 건너뜀
+            head = prev
+        pos = pls
+    if head is None:
+        return None
+    cells = [c.strip() for c in head.strip().strip("|").split("|")]
+    if not 0 <= col < len(cells):
+        return None
+    # 고객 열만 씀: 직원 열('담당', '배정')까지 역할을 주면 이전 holdout 에서 같은 직원이 표 안·밖으로 쪼개짐 (쪼개짐 11 → 15명)
+    return "customer" if _TABLE_CUSTOMER_HEAD.match(cells[col]) else None
 
 
 def _check_prefix_affs(mentions):
@@ -162,7 +199,7 @@ def _check_prefix_affs(mentions):
         if s.get("_aff_kind") == "prefix" and (s["aff"] not in vocab or not re.fullmatch(r"[가-힣]+", s["aff"])):
             before, after = s["_ctx"]
             s["aff"], s["_aff_kind"] = None, None
-            s["role"] = _role(before, after, None)
+            s["role"] = _role(before, after, None) or s.get("_trole")
 
 
 # ---------------------------------------------------------------- 묶기
